@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Always On Amoled</string>
+    <string name="enabled">Enable</string>
+    <string name="touchToStop">Touch to stop</string>
+    <string name="swipetostop">Swipe up to stop</string>
+    <string name="cb_show_notification">Show notification</string>
+    <string name="if_the_app_stops_working_sometimes">If the app stops working sometimes</string>
+</resources>

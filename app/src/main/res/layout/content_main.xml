@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activities.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Switch
+            android:id="@+id/cb_enabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enabled" />
+
+        <Switch
+            android:id="@+id/cb_touch_to_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/touchToStop" />
+
+        <Switch
+            android:id="@+id/cb_swipe_to_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/swipetostop" />
+
+        <Switch
+            android:id="@+id/cb_show_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cb_show_notification" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/if_the_app_stops_working_sometimes"/>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
