@@ -41,3 +41,6 @@ captures/
 
 #SecretConstants
 app/src/main/java/com/tomer/alwayson/SecretConstants.java
+
+#IDEA
+.idea
