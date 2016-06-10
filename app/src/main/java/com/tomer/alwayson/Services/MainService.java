@@ -1,7 +1,9 @@
 package com.tomer.alwayson.Services;
+
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
@@ -12,6 +14,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -28,6 +31,8 @@ import com.tomer.alwayson.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by tomer on 6/9/16.
@@ -43,6 +48,8 @@ public class MainService extends Service {
     boolean isShown = false;
     FrameLayout frameLayout;
     TextView textView;
+    FrameLayout.LayoutParams lp2;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -62,19 +69,18 @@ public class MainService extends Service {
         frameLayout = new FrameLayout(getApplicationContext());
         textView = new TextView(getApplicationContext());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String currentDateandTime = sdf.format(new Date());
-
-        textView.setText(currentDateandTime);
         textView.setTextSize(72);
-        FrameLayout.LayoutParams lp2 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        lp2.gravity = Gravity.CENTER;
+        lp2 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+
+        if(!prefs.moveWidget)lp2.gravity = Gravity.CENTER;
+        else refreshLong();
+
         textView.setLayoutParams(lp2);
 
         frameLayout.addView(textView);
         frameLayout.setBackgroundColor(R.color.colorPrimary);
 
-        if (prefs.touchToStop){
+        if (prefs.touchToStop) {
             frameLayout.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -83,8 +89,8 @@ public class MainService extends Service {
                 }
             });
         }
-        if (prefs.swipeToStop){
-            frameLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()){
+        if (prefs.swipeToStop) {
+            frameLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
                 public void onSwipeTop() {
                     stopSelf();
                 }
@@ -93,9 +99,9 @@ public class MainService extends Service {
 
         try {
             ((WindowManager) getSystemService("window")).addView(frameLayout, lp);
-        }catch (Exception e){
+        } catch (Exception e) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -105,20 +111,41 @@ public class MainService extends Service {
 
         refresh();
 
-
     }
 
-    void refresh(){
+
+    void refresh() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String currentDateandTime = sdf.format(new Date());
+        textView.setText(currentDateandTime);
+
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-                        String currentDateandTime = sdf.format(new Date());
-                        textView.setText(currentDateandTime);
                         refresh();
                     }
                 },
                 5000);
+    }
+
+    void refreshLong(){
+        Display display = ((WindowManager) getSystemService("window")).getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+
+        textView.setY(height / (int) randInt(2, 5));
+        textView.setX(width / (int) randInt(2, 5));
+
+
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        refreshLong();
+                    }
+                },
+                12000);
     }
 
     PowerManager.WakeLock WakeLock1;
@@ -131,12 +158,18 @@ public class MainService extends Service {
         WakeLock1.release();
     }
 
+    public static float randInt(int min, int max) {
+        float random = new Random().nextInt((max - min) + 1) + min;
+        Log.d("Random is ", String.valueOf(random));
+        return random;
+    }
+
 
     public class OnSwipeTouchListener implements View.OnTouchListener {
 
         private final GestureDetector gestureDetector;
 
-        public OnSwipeTouchListener (Context ctx){
+        public OnSwipeTouchListener(Context ctx) {
             gestureDetector = new GestureDetector(ctx, new GestureListener());
         }
 
@@ -170,8 +203,7 @@ public class MainService extends Service {
                             }
                         }
                         result = true;
-                    }
-                    else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                    } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffY > 0) {
                             onSwipeBottom();
                         } else {

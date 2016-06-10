@@ -44,6 +44,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/if_the_app_stops_working_sometimes"/>
+
+        <Switch
+            android:id="@+id/cb_move"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/move" />
     </LinearLayout>
 
 
