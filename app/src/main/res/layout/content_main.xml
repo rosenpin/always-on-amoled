@@ -50,6 +50,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/move" />
+
+
+        <Button
+            android:id="@+id/donate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/support_the_development"/>
     </LinearLayout>
 
 

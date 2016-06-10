@@ -28,6 +28,7 @@ import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,7 +46,6 @@ public class MainService extends Service {
         return null;
     }
 
-    boolean isShown = false;
     FrameLayout frameLayout;
     TextView textView;
     FrameLayout.LayoutParams lp2;
@@ -78,7 +78,7 @@ public class MainService extends Service {
         textView.setLayoutParams(lp2);
 
         frameLayout.addView(textView);
-        frameLayout.setBackgroundColor(R.color.colorPrimary);
+        frameLayout.setBackgroundColor(R.color.amoledBlack);
 
         if (prefs.touchToStop) {
             frameLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -115,8 +115,8 @@ public class MainService extends Service {
 
 
     void refresh() {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String currentDateandTime = sdf.format(new Date());
+
+        String currentDateandTime = android.text.format.DateFormat.getTimeFormat(getApplicationContext()).format(new Date());
         textView.setText(currentDateandTime);
 
         new android.os.Handler().postDelayed(
@@ -145,7 +145,7 @@ public class MainService extends Service {
                         refreshLong();
                     }
                 },
-                12000);
+                30000);
     }
 
     PowerManager.WakeLock WakeLock1;
