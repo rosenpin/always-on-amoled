@@ -38,3 +38,6 @@ captures/
 
 # Keystore files
 *.jks
+
+#SecretConstants
+app/src/main/java/com/tomer/alwayson/SecretConstants.java
