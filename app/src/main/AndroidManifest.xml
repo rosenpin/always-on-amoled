@@ -44,6 +44,7 @@
 
         <service android:name=".Services.MainService" />
         <service android:name=".Services.ServiceTurnOn" />
+        <service android:name=".Services.StarterService"/>
 
         <receiver android:name=".Receivers.BootReceiver">
             <intent-filter>

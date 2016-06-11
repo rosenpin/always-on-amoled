@@ -63,10 +63,6 @@ public class MainService extends Service {
         super.onCreate();
         setBrightness(0.1f,0);
 
-        Intent intentcap = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
-        intentcap.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intentcap);
-
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
         WindowManager.LayoutParams lp;
@@ -167,7 +163,7 @@ public class MainService extends Service {
             Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("brightness value", brightnessVal);
-            getApplication().startActivity(intent);
+           // getApplication().startActivity(intent);
         } catch (Exception e) {
             Toast.makeText(MainService.this, "Please allow settings modification permission for this app!", Toast.LENGTH_SHORT).show();
         }

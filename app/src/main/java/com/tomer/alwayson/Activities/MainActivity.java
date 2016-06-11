@@ -38,6 +38,7 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.Services.MainService;
+import com.tomer.alwayson.Services.StarterService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,8 +48,7 @@ import java.lang.reflect.Field;
 
 public class MainActivity extends AppCompatActivity {
     Prefs prefs;
-    BroadcastReceiver mReceiver;
-    IntentFilter filter;
+    Intent starterServiceIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +57,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-        mReceiver = new ScreenReceiver();
+        starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
-
-        if (prefs.showNotification)
-            showNotification();
-
-        if (prefs.enabled) {
-            unregisterReceiver();
-            registerReceiver(mReceiver, filter);
-        }
 
         handleBoolSimplePref((Switch) findViewById(R.id.cb_touch_to_stop), Prefs.KEYS.TOUCH_TO_STOP.toString(), prefs.touchToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_swipe_to_stop), Prefs.KEYS.SWIPE_TO_STOP.toString(), prefs.swipeToStop);
@@ -85,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
         donateButtonSetup();
+
+        startService(starterServiceIntent);
     }
 
 
@@ -130,25 +121,6 @@ public class MainActivity extends AppCompatActivity {
             mService = IInAppBillingService.Stub.asInterface(service);
         }
     };
-
-
-    private void showNotification() {
-        Notification.Builder builder = new Notification.Builder(getApplicationContext());
-        builder.setContentTitle("Always On Is Running");
-        builder.setOngoing(true);
-        builder.setPriority(Notification.PRIORITY_LOW);
-        builder.setSmallIcon(android.R.color.transparent);
-        Notification notification = builder.build();
-        NotificationManager notificationManger =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManger.notify(01, notification);
-    }
-
-    private void hideNotification() {
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager nMgr = (NotificationManager) getApplicationContext().getSystemService(ns);
-        nMgr.cancelAll();
-    }
 
     @Override
     protected void onResume() {
@@ -241,14 +213,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    boolean unregisterReceiver() {
-        try {
-            unregisterReceiver(mReceiver);
-            return true;
-        } catch (RuntimeException e) {
-            return false;
-        }
-    }
+
 
     void handleBoolSimplePref(Switch cb, final String prefName, boolean val) {
         cb.setChecked(val);
@@ -270,20 +235,17 @@ public class MainActivity extends AppCompatActivity {
                     } else
                         ((Switch) findViewById(R.id.cb_touch_to_stop)).setEnabled(true);
                 } else if (prefName.equals(Prefs.KEYS.SHOW_NOTIFICATION.toString())) {
-                    if (isChecked)
-                        showNotification();
-                    else
-                        hideNotification();
+                    restartService();
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
-                    if (isChecked) {
-                        unregisterReceiver();
-                        registerReceiver(mReceiver, filter);
-                    } else {
-                        unregisterReceiver();
-                    }
+                    restartService();
                 }
             }
         });
+    }
+
+    private void restartService() {
+        stopService(starterServiceIntent);
+        startService(starterServiceIntent);
     }
 
 
