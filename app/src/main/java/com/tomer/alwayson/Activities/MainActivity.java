@@ -134,15 +134,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    String IAPID = SecretConstants.getPropertyValue(getBaseContext(), "IAPID");
+                    String googleIAPCode = SecretConstants.getPropertyValue(getBaseContext(), "googleIAPCode");
                     Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                            SecretConstants.IAPID, "inapp", SecretConstants.GoogleIAPCode);
+                            IAPID, "inapp", googleIAPCode);
 
                     PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
 
                     if (pendingIntent == null) {
                         Snackbar.make(findViewById(android.R.id.content), "Thank you for your support! :)", Snackbar.LENGTH_LONG).show();
                         buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                                SecretConstants.IAPID, "inapp", SecretConstants.GoogleIAPCode);
+                                IAPID, "inapp", googleIAPCode);
                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                         if (pendingIntent == null) {
                             Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();

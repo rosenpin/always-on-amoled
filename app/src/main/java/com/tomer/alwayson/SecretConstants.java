@@ -1,0 +1,29 @@
+package com.tomer.alwayson;
+
+import android.content.Context;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+/**
+ * Created by PKhurana on 6/11/16.
+ */
+public class SecretConstants {
+
+    public static String getPropertyValue(Context context, String propertyName) {
+        InputStream input;
+        String propertyValue;
+            try {
+                input = context.getAssets().open("Secretconstants.properties");
+                Properties properties = new Properties();
+                properties.load(input);
+                propertyValue = properties.getProperty(propertyName);
+            } catch (IOException e) {
+                // file not found
+                propertyValue = "";
+            }
+        return propertyValue;
+    }
+}
+
