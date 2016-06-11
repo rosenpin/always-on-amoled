@@ -23,8 +23,6 @@ import java.util.Arrays;
 public class NotificationListener extends NotificationListenerService {
     Context context;
 
-
-
     ArrayList<String> packagesName = new ArrayList<>();
 
     @Override
@@ -41,7 +39,7 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationRemoved(StatusBarNotification newsbn) {
-
+        getActiveNotifications();
     }
 
     Drawable getDrawableByPN(String packageName) throws PackageManager.NameNotFoundException {

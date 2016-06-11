@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 18
         targetSdkVersion 23
-        versionCode 19
-        versionName "0.33"
+        versionCode 20
+        versionName "0.34"
     }
     buildTypes {
         release {
@@ -25,4 +25,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support.constraint:constraint-layout:+'
     compile 'com.android.support:design:23.4.0'
+    compile 'net.steamcrafted:materialiconlib:1.0.9'
 }

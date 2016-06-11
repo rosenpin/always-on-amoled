@@ -46,15 +46,13 @@
         <service android:name=".Services.MainService" />
 
         <service android:name=".Services.ServiceTurnOn" />
-        <service android:name=".Services.StarterService"
-            >
+        <service android:name=".Services.StarterService" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.tomer.alwayson.Services.StarterService" />
             </intent-filter>
         </service>
 
-        <service
-            android:name=".Services.NotificationListener"
+        <service android:name=".Services.NotificationListener"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
@@ -62,7 +60,8 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".Receivers.BootReceiver"
+        <receiver
+            android:name=".Receivers.BootReceiver"
             android:label="StartServiceAtBoot">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

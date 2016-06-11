@@ -7,4 +7,11 @@
     <string name="if_the_app_stops_working_sometimes">If the app stops working sometimes</string>
     <string name="move">Move the widget automatically</string>
     <string name="support_the_development">Support the development</string>
+    <string name="settings_general">General</string>
+    <string name="settings_enabled_desc">Enable the service</string>
+    <string name="settings_wake_up">Wake up</string>
+    <string name="settings_touch_to_stop_desc">Touch the screen to dismiss</string>
+    <string name="settings_swipe_to_stop_desc">Swipe up to dismiss the screen</string>
+    <string name="settings_notifications_desc">Enable this if the app gets killed in background</string>
+    <string name="settings_behaviour">Behaviour</string>
 </resources>
