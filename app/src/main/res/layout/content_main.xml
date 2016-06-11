@@ -9,7 +9,6 @@
     tools:context=".Activities.MainActivity"
     tools:showIn="@layout/activity_main">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,6 +38,7 @@
                 android:paddingBottom="10dp">
 
                 <TextView
+                    android:layout_gravity="start"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="8dp"

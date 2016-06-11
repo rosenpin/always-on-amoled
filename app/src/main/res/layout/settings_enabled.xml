@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
+        android:id="@+id/wrapper"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -32,9 +33,10 @@
     </LinearLayout>
 
     <Switch
+        android:layout_toEndOf="@+id/wrapper"
         android:gravity="center_vertical"
         android:textSize="16sp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:id="@+id/cb_enabled"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

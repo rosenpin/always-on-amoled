@@ -9,6 +9,7 @@
     android:paddingRight="16dp">
 
     <LinearLayout
+        android:id="@+id/wrapper"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
@@ -32,10 +33,11 @@
     </LinearLayout>
 
     <Switch
+        android:layout_toEndOf="@+id/wrapper"
         android:id="@+id/switch_notifications_alert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:gravity="center_vertical"
         android:textSize="16sp" />
 </RelativeLayout>

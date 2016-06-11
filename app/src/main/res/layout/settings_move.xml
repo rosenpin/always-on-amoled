@@ -9,6 +9,7 @@
     android:paddingRight="16dp">
 
     <LinearLayout
+        android:id="@+id/wrapper"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
@@ -32,12 +33,13 @@
     </LinearLayout>
 
     <Switch
+        android:layout_toEndOf="@+id/wrapper"
         android:id="@+id/cb_move"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:textSize="16sp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
          />
 
 </RelativeLayout>

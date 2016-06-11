@@ -9,6 +9,7 @@
     android:paddingRight="16dp">
 
     <LinearLayout
+        android:id="@+id/wrapper"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
@@ -36,6 +37,7 @@
         android:id="@+id/cb_swipe_to_stop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:gravity="center_vertical" />
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical"
+        android:layout_toEndOf="@+id/wrapper"/>
 </RelativeLayout>

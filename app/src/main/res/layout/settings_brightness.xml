@@ -33,10 +33,10 @@
     </LinearLayout>
 
     <SeekBar
-        android:layout_toRightOf="@+id/wrapper"
+        android:layout_toEndOf="@+id/wrapper"
         android:gravity="center_vertical"
         android:textSize="16sp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:max="255"
         android:id="@+id/sb_brightness"
         android:layout_width="match_parent"
