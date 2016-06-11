@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -18,16 +19,19 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
+import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        initFab();
 
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
@@ -67,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         handleBoolSimplePref((Switch) findViewById(R.id.cb_show_notification), Prefs.KEYS.SHOW_NOTIFICATION.toString(), prefs.showNotification);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_enabled), Prefs.KEYS.ENABLED.toString(), prefs.enabled);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_move), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);
+        handleBoolSimplePref((Switch) findViewById(R.id.switch_notifications_alert), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);
+        handleSeekBarPref((SeekBar) findViewById(R.id.sb_brightness), Prefs.KEYS.BRIGHTNESS.toString(), prefs.brightness);
 
         Intent serviceIntent =
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
@@ -76,6 +83,48 @@ public class MainActivity extends AppCompatActivity {
         donateButtonSetup();
 
         startService(starterServiceIntent);
+    }
+
+    private void handleSeekBarPref(SeekBar viewById, final String s, int brightness) {
+        viewById.setProgress(brightness);
+        viewById.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.setInt(s, progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    private void initFab() {
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        assert floatingActionButton != null;
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "Always On AMOLED");
+                i.putExtra(Intent.EXTRA_TEXT, "Your feedback...");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        floatingActionButton.setCompatElevation(1280);
     }
 
 
@@ -96,8 +145,7 @@ public class MainActivity extends AppCompatActivity {
                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                         if (pendingIntent == null) {
                             Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
-                        }
-                        else{
+                        } else {
                             startIntentSenderForResult(pendingIntent.getIntentSender(),
                                     1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
                                     Integer.valueOf(0));
@@ -178,6 +226,21 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+
+    }
+
+    private void notificationPermission(){
+        ContentResolver contentResolver = getContentResolver();
+        String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
+        String packageName = getPackageName();
+
+// check to see if the enabledNotificationListeners String contains our package name
+        if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName))
+        {
+            Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -223,7 +286,6 @@ public class MainActivity extends AppCompatActivity {
             // permissions this app might request
         }
     }
-
 
 
     void handleBoolSimplePref(Switch cb, final String prefName, boolean val) {

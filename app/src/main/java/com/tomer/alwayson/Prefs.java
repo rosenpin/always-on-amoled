@@ -10,6 +10,8 @@ public class Prefs {
     public boolean touchToStop;
     public boolean showNotification;
     public boolean moveWidget;
+    public int brightness;
+    public boolean notificationsAlerts;
     SharedPreferences prefs;
     Context context;
     public boolean swipeToStop;
@@ -26,6 +28,8 @@ public class Prefs {
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), false);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), false);
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
+        notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), true);
+        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 40);
     }
 
     public void setString(String key, String value) {
@@ -49,7 +53,9 @@ public class Prefs {
         TOUCH_TO_STOP("touchtostop"),
         SWIPE_TO_STOP("swipetostop"),
         SHOW_NOTIFICATION("shownotification"),
-        MOVE_WIDGET("reduceamoledburnin");
+        MOVE_WIDGET("reduceamoledburnin"),
+        BRIGHTNESS("brightness"),
+        NOTIFICATION_ALERTS("notificationsalertsfromotherapps");
 
         private final String id;
 

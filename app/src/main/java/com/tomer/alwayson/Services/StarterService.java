@@ -22,6 +22,7 @@ public class StarterService extends Service {
     Prefs prefs;
     BroadcastReceiver mReceiver;
     IntentFilter filter;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -54,7 +55,9 @@ public class StarterService extends Service {
         if (prefs.enabled) {
             unregisterReceiver();
             registerReceiver(mReceiver, filter);
-            startService(new Intent(getApplicationContext(),NotificationListener.class));
+            if (prefs.notificationsAlerts) {
+                startService(new Intent(getApplicationContext(), NotificationListener.class));
+            }
         }
 
     }

@@ -72,10 +72,11 @@ public class MainService extends Service {
     public void onCreate() {
         super.onCreate();
         startService(new Intent(this,NotificationListener.class));
-        setBrightness(0.1f, 0);
-
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
+
+        setBrightness(prefs.brightness/255, 0);
+
         WindowManager.LayoutParams lp;
 
         if (Build.VERSION.SDK_INT < 19) {
