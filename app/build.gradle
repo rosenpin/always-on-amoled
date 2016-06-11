@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.tomer.alwayson"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 23
-        versionCode 18
-        versionName "0.32"
+        versionCode 19
+        versionName "0.33"
     }
     buildTypes {
         release {

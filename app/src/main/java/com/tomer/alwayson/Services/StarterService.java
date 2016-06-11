@@ -54,7 +54,9 @@ public class StarterService extends Service {
         if (prefs.enabled) {
             unregisterReceiver();
             registerReceiver(mReceiver, filter);
+            startService(new Intent(getApplicationContext(),NotificationListener.class));
         }
+
     }
 
     private void showNotification() {

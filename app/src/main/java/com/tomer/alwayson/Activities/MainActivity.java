@@ -91,6 +91,17 @@ public class MainActivity extends AppCompatActivity {
 
                     if (pendingIntent == null) {
                         Snackbar.make(findViewById(android.R.id.content), "Thank you for your support! :)", Snackbar.LENGTH_LONG).show();
+                        buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
+                                SecretConstants.IAPID, "inapp", SecretConstants.GoogleIAPCode);
+                        pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                        if (pendingIntent == null) {
+                            Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
+                        }
+                        else{
+                            startIntentSenderForResult(pendingIntent.getIntentSender(),
+                                    1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
+                                    Integer.valueOf(0));
+                        }
                     } else {
                         startIntentSenderForResult(pendingIntent.getIntentSender(),
                                 1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),

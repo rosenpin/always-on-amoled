@@ -3,12 +3,20 @@ package com.tomer.alwayson.Services;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.service.notification.NotificationListenerService;
+import android.service.notification.StatusBarNotification;
 import android.support.annotation.Nullable;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -18,11 +26,15 @@ import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +50,7 @@ import com.tomer.alwayson.R;
 import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -48,20 +61,18 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 
 public class MainService extends Service {
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
 
     FrameLayout frameLayout;
     TextView textView;
-    FrameLayout.LayoutParams lp2;
+    LinearLayout.LayoutParams lp2;
+    View mainView;
+    LinearLayout iconWrapper;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        setBrightness(0.1f,0);
+        startService(new Intent(this,NotificationListener.class));
+        setBrightness(0.1f, 0);
 
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
@@ -74,23 +85,23 @@ public class MainService extends Service {
         }
 
         lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-
-
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         frameLayout = new FrameLayout(getApplicationContext());
-        textView = new TextView(getApplicationContext());
+        mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
+        textView = (TextView) mainView.findViewById(R.id.time_tv);
+        iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
 
         textView.setTextSize(72);
-        lp2 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        lp2 = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
-        if (!prefs.moveWidget) lp2.gravity = Gravity.CENTER;
+        if (!prefs.moveWidget) {lp2.gravity = Gravity.CENTER;}
         else {
             refreshLong();
             lp2.gravity = Gravity.CENTER_HORIZONTAL;
         }
 
-        textView.setLayoutParams(lp2);
+        mainView.setLayoutParams(lp2);
 
-        frameLayout.addView(textView);
         frameLayout.setBackgroundColor(R.color.amoledBlack);
 
         if (prefs.touchToStop) {
@@ -131,8 +142,8 @@ public class MainService extends Service {
                 },
                 500);
 
+        frameLayout.setForegroundGravity(Gravity.CENTER);
     }
-
 
     float originalBrightness = 0.7f;
     int autoBrightnessStatus;
@@ -163,14 +174,25 @@ public class MainService extends Service {
             Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("brightness value", brightnessVal);
-           // getApplication().startActivity(intent);
+            // getApplication().startActivity(intent);
         } catch (Exception e) {
             Toast.makeText(MainService.this, "Please allow settings modification permission for this app!", Toast.LENGTH_SHORT).show();
         }
     }
 
+    ArrayList<ImageView> icons = new ArrayList<>();
 
     void refresh() {
+        iconWrapper.removeAllViews();
+        for (Drawable drawable : Constants.notificationsDrawables) {
+            drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+            ImageView icon = new ImageView(getApplicationContext());
+            icon.setImageDrawable(drawable);
+            icon.setLayoutParams(new FrameLayout.LayoutParams(64, 64, Gravity.CENTER));
+
+            icons.add(icon);
+            iconWrapper.addView(icon);
+        }
 
         String currentDateandTime = android.text.format.DateFormat.getTimeFormat(getApplicationContext()).format(new Date());
         textView.setText(currentDateandTime);
@@ -182,6 +204,8 @@ public class MainService extends Service {
                     }
                 },
                 5000);
+
+
     }
 
     void refreshLong() {
@@ -191,7 +215,7 @@ public class MainService extends Service {
         int width = size.x;
         int height = size.y;
 
-        textView.setY((float) (height / randInt(1.2, 8)));
+        mainView.setY((float) (height / randInt(1.2, 8)));
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -215,6 +239,12 @@ public class MainService extends Service {
             Toast.makeText(getApplicationContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
         }
         setBrightness(originalBrightness / 255, autoBrightnessStatus);
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
     public static double randInt(double min, double max) {
@@ -290,6 +320,5 @@ public class MainService extends Service {
         public void onSwipeBottom() {
         }
     }
-
 
 }
