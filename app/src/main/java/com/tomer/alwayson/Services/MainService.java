@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -26,7 +27,9 @@ import android.widget.Toast;
 
 
 import com.tomer.alwayson.Activities.DummyBrightnessActivity;
+import com.tomer.alwayson.Activities.DummyHomeButtonActivity;
 import com.tomer.alwayson.Constants;
+import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
@@ -117,7 +120,6 @@ public class MainService extends Service {
         WakeLock1.acquire();
 
         refresh();
-
     }
 
 
@@ -192,8 +194,13 @@ public class MainService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Constants.isShown = false;
-        ((WindowManager) getSystemService("window")).removeView(frameLayout);
-        WakeLock1.release();
+        try {
+            ((WindowManager) getSystemService("window")).removeView(frameLayout);
+            WakeLock1.release();
+        }
+        catch (Exception e){
+            Toast.makeText(getApplicationContext(),"An error has occurred",Toast.LENGTH_SHORT).show();
+        }
         setBrightness(originalBrightness / 255);
     }
 

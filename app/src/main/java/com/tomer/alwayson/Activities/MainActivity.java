@@ -23,16 +23,20 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
+import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.SecretConstants;
+import com.tomer.alwayson.Services.MainService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         serviceIntent.setPackage("com.android.vending");
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
+        donateButtonSetup();
+    }
+
+    private void donateButtonSetup() {
         findViewById(R.id.donate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
 
@@ -146,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handlePermissions() {
+        boolean phonePermission = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             String[] permissions = {Manifest.permission.READ_PHONE_STATE};
             for (String permission : permissions) {
@@ -155,29 +163,77 @@ public class MainActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[]{permission},
                             123);
+                    phonePermission = false;
+
                 }
             }
         }
+        if (phonePermission) {
+            WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
 
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+            try {
+                View view = new View(getApplicationContext());
+                ((WindowManager) getSystemService("window")).addView(view, lp);
+                ((WindowManager) getSystemService("window")).removeView(view);
 
-        try {
-            View view = new View(getApplicationContext());
-            ((WindowManager) getSystemService("window")).addView(view, lp);
-            ((WindowManager) getSystemService("window")).removeView(view);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (!Settings.System.canWrite(getApplicationContext())){
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (!Settings.System.canWrite(getApplicationContext())) {
+                        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
                 }
+            } catch (Exception e) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
-        } catch (Exception e) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 123: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+                    lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+
+                    try {
+                        View view = new View(getApplicationContext());
+                        ((WindowManager) getSystemService("window")).addView(view, lp);
+                        ((WindowManager) getSystemService("window")).removeView(view);
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (!Settings.System.canWrite(getApplicationContext())) {
+                                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
+                        }
+                    } catch (Exception e) {
+                        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "This permission is required so the app can turn on the display when you get a phone call", Toast.LENGTH_LONG).show();
+                    handlePermissions();
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
         }
     }
 

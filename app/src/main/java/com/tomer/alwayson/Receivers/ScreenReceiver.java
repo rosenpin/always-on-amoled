@@ -8,7 +8,9 @@ import android.provider.Settings;
 import android.util.Log;
 
 import com.tomer.alwayson.Activities.DummyBrightnessActivity;
+import com.tomer.alwayson.Activities.DummyHomeButtonActivity;
 import com.tomer.alwayson.Constants;
+import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Services.MainService;
 
 import static android.content.Context.POWER_SERVICE;

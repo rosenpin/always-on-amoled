@@ -28,6 +28,7 @@
         </activity>
 
         <activity android:name=".Activities.DummyBrightnessActivity"/>
+        <activity android:name=".Activities.DummyHomeButtonActivity"/>
 
         <receiver android:name=".Receivers.ScreenReceiver" />
 
