@@ -15,7 +15,7 @@ public class SecretConstants {
         InputStream input;
         String propertyValue;
             try {
-                input = context.getAssets().open("Secretconstants.properties");
+                input = context.getAssets().open("secretconstants.properties");
                 Properties properties = new Properties();
                 properties.load(input);
                 propertyValue = properties.getProperty(propertyName);

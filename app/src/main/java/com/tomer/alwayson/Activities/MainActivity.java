@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     String IAPID = SecretConstants.getPropertyValue(getBaseContext(), "IAPID");
+                    String IAPID2 = SecretConstants.getPropertyValue(getBaseContext(), "IAPID2");
                     String googleIAPCode = SecretConstants.getPropertyValue(getBaseContext(), "googleIAPCode");
                     Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
                             IAPID, "inapp", googleIAPCode);
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                     if (pendingIntent == null) {
                         Snackbar.make(findViewById(android.R.id.content), "Thank you for your support! :)", Snackbar.LENGTH_LONG).show();
                         buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                                IAPID, "inapp", googleIAPCode);
+                                IAPID2, "inapp", googleIAPCode);
                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                         if (pendingIntent == null) {
                             Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();

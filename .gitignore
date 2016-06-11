@@ -40,7 +40,7 @@ captures/
 *.jks
 
 #SecretConstants
-app/src/main/assets/secretconstants.properties 
+app/src/main/assets/secretconstants.properties
 
 #IDEA
 .idea
