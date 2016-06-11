@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 
 import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Services.StarterService;
 
 /**
  * Created by tomer on 6/9/16.
@@ -18,11 +19,7 @@ public class BootReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Prefs prefs = new Prefs(context);
         if (prefs.enabled) {
-            IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-            filter.addAction(Intent.ACTION_SCREEN_OFF);
-            filter.addAction(Intent.ACTION_USER_PRESENT);
-            BroadcastReceiver mReceiver = new ScreenReceiver();
-            context.registerReceiver(mReceiver, filter);
+            context.startService(new Intent(context, StarterService.class));
         }
         if (prefs.showNotification)
             showNotification(context);
