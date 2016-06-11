@@ -247,7 +247,7 @@ public class MainService extends Service {
         display.getSize(size);
         int height = size.y;
 
-        mainView.setY((float) (height / randInt(1.4, 1.4)));
+        mainView.setY((float) (height / randInt(3, 8)));
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
