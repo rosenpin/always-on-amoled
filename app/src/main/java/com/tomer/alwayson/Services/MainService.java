@@ -22,8 +22,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.tomer.alwayson.Activities.DummyBrightnessActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
@@ -53,6 +55,8 @@ public class MainService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        setBrightness(0.1f);
+
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
         WindowManager.LayoutParams lp;
@@ -72,8 +76,11 @@ public class MainService extends Service {
         textView.setTextSize(72);
         lp2 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
-        if(!prefs.moveWidget)lp2.gravity = Gravity.CENTER;
-        else refreshLong(); lp2.gravity = Gravity.CENTER_HORIZONTAL;
+        if (!prefs.moveWidget) lp2.gravity = Gravity.CENTER;
+        else {
+            refreshLong();
+            lp2.gravity = Gravity.CENTER_HORIZONTAL;
+        }
 
         textView.setLayoutParams(lp2);
 
@@ -114,6 +121,39 @@ public class MainService extends Service {
     }
 
 
+    float originalBrightness = 0.7f;
+
+    void setBrightness(float brightnessVal) {
+
+        try {
+            originalBrightness = Settings.System.getInt(
+                    getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Log.d("ORINGIN BRIGHTNESS = ", String.valueOf(originalBrightness));
+
+        int brightnessInt = (int) (brightnessVal * 255);
+
+        if (brightnessInt < 1) {
+            brightnessInt = 1;
+        }
+        try {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightnessInt);
+
+            Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra("brightness value", brightnessVal);
+            getApplication().startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(MainService.this, "Please allow settings modification permission for this app!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     void refresh() {
 
         String currentDateandTime = android.text.format.DateFormat.getTimeFormat(getApplicationContext()).format(new Date());
@@ -128,14 +168,14 @@ public class MainService extends Service {
                 5000);
     }
 
-    void refreshLong(){
+    void refreshLong() {
         Display display = ((WindowManager) getSystemService("window")).getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
         int height = size.y;
 
-        textView.setY(height / (int) randInt(2, 7));
+        textView.setY((float) (height / randInt(1.2, 8)));
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -154,10 +194,11 @@ public class MainService extends Service {
         Constants.isShown = false;
         ((WindowManager) getSystemService("window")).removeView(frameLayout);
         WakeLock1.release();
+        setBrightness(originalBrightness / 255);
     }
 
-    public static float randInt(int min, int max) {
-        float random = new Random().nextInt((max - min) + 1) + min;
+    public static double randInt(double min, double max) {
+        double random = new Random().nextInt((int) ((max - min) + 1)) + min;
         Log.d("Random is ", String.valueOf(random));
         return random;
     }

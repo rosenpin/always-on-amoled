@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 14
-        versionName "0.28"
+        versionCode 15
+        versionName "0.29"
     }
     buildTypes {
         release {

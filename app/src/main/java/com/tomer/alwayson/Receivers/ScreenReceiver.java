@@ -4,8 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.Log;
 
+import com.tomer.alwayson.Activities.DummyBrightnessActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Services.MainService;
 
@@ -48,5 +50,4 @@ public class ScreenReceiver extends BroadcastReceiver {
             wasScreenOn = true;
         }
     }
-
 }
