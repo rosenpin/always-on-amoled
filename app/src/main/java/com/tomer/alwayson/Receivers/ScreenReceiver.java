@@ -49,5 +49,8 @@ public class ScreenReceiver extends BroadcastReceiver {
             System.out.println("Screen turned on");
             wasScreenOn = true;
         }
+        else if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
+            context.stopService(new Intent(context,MainService.class));
+        }
     }
 }

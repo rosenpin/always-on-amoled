@@ -20,6 +20,7 @@ public class BootReceiver extends BroadcastReceiver {
         if (prefs.enabled) {
             IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
             filter.addAction(Intent.ACTION_SCREEN_OFF);
+            filter.addAction(Intent.ACTION_USER_PRESENT);
             BroadcastReceiver mReceiver = new ScreenReceiver();
             context.registerReceiver(mReceiver, filter);
         }
