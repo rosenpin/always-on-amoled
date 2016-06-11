@@ -29,7 +29,7 @@ public class Prefs {
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), false);
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), true);
-        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 40);
+        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 100);
     }
 
     public void setString(String key, String value) {
