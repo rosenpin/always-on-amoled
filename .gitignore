@@ -40,7 +40,7 @@ captures/
 *.jks
 
 #SecretConstants
-app/src/main/java/com/tomer/alwayson/SecretConstants.java
+app/src/main/assets/secretconstants.properties 
 
 #IDEA
 .idea
