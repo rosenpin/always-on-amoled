@@ -73,7 +73,7 @@ public class MainService extends Service {
         lp2 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
         if(!prefs.moveWidget)lp2.gravity = Gravity.CENTER;
-        else refreshLong();
+        else refreshLong(); lp2.gravity = Gravity.CENTER_HORIZONTAL;
 
         textView.setLayoutParams(lp2);
 
@@ -135,9 +135,7 @@ public class MainService extends Service {
         int width = size.x;
         int height = size.y;
 
-        textView.setY(height / (int) randInt(2, 5));
-        textView.setX(width / (int) randInt(2, 5));
-
+        textView.setY(height / (int) randInt(2, 7));
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
