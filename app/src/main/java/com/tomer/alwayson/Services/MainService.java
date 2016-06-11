@@ -189,7 +189,9 @@ public class MainService extends Service {
             drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
-            icon.setLayoutParams(new FrameLayout.LayoutParams(64, 64, Gravity.CENTER));
+            FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(64, 64, Gravity.CENTER);
+            icon.setPadding(12,0,12,0);
+            icon.setLayoutParams(iconLayoutParams);
 
             icons.add(icon);
             iconWrapper.addView(icon);
@@ -205,7 +207,6 @@ public class MainService extends Service {
                     }
                 },
                 5000);
-
 
     }
 

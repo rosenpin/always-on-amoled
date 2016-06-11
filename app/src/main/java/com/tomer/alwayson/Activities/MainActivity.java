@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         handleBoolSimplePref((Switch) findViewById(R.id.cb_show_notification), Prefs.KEYS.SHOW_NOTIFICATION.toString(), prefs.showNotification);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_enabled), Prefs.KEYS.ENABLED.toString(), prefs.enabled);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_move), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);
-        handleBoolSimplePref((Switch) findViewById(R.id.switch_notifications_alert), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);
+        handleBoolSimplePref((Switch) findViewById(R.id.switch_notifications_alert), Prefs.KEYS.NOTIFICATION_ALERTS.toString(), prefs.notificationsAlerts);
         handleSeekBarPref((SeekBar) findViewById(R.id.sb_brightness), Prefs.KEYS.BRIGHTNESS.toString(), prefs.brightness);
 
         Intent serviceIntent =
@@ -237,6 +237,7 @@ public class MainActivity extends AppCompatActivity {
 // check to see if the enabledNotificationListeners String contains our package name
         if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName))
         {
+            ((Switch)findViewById(R.id.switch_notifications_alert)).setChecked(false);
             Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
@@ -311,6 +312,10 @@ public class MainActivity extends AppCompatActivity {
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
                     restartService();
+                }
+                else if(prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())){
+                    if (isChecked)
+                        notificationPermission();
                 }
             }
         });
