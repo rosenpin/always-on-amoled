@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.setInt(s, progress);
-                Snackbar.make(findViewById(android.R.id.content),String.valueOf(progress),Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(findViewById(android.R.id.content), String.valueOf(progress), Snackbar.LENGTH_SHORT).show();
             }
 
             @Override
@@ -230,15 +230,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void notificationPermission(){
+    private void notificationPermission() {
         ContentResolver contentResolver = getContentResolver();
         String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
         String packageName = getPackageName();
 
 // check to see if the enabledNotificationListeners String contains our package name
-        if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName))
-        {
-            ((Switch)findViewById(R.id.switch_notifications_alert)).setChecked(false);
+        if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
+            ((Switch) findViewById(R.id.switch_notifications_alert)).setChecked(false);
             Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
@@ -313,8 +312,7 @@ public class MainActivity extends AppCompatActivity {
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
                     restartService();
-                }
-                else if(prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())){
+                } else if (prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())) {
                     if (isChecked)
                         notificationPermission();
                 }

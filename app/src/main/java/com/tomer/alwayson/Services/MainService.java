@@ -42,6 +42,7 @@ import android.widget.Toast;
 import com.tomer.alwayson.Activities.DummyBrightnessActivity;
 import com.tomer.alwayson.Activities.DummyCapacitiveButtonsActivity;
 import com.tomer.alwayson.Activities.DummyHomeButtonActivity;
+import com.tomer.alwayson.Activities.MainActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Prefs;
@@ -106,13 +107,27 @@ public class MainService extends Service {
         frameLayout.setBackgroundColor(R.color.amoledBlack);
 
         if (prefs.touchToStop) {
+
+            final GestureDetector gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onDoubleTap(MotionEvent e) {
+                    stopSelf();
+                    return true;
+                }
+            });
+
             frameLayout.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    stopSelf();
+                    if (gestureDetector.onTouchEvent(event)){
+                        stopSelf();
+                        return true;
+                    }
+
                     return false;
                 }
             });
+
         }
         if (prefs.swipeToStop) {
             frameLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
@@ -144,10 +159,26 @@ public class MainService extends Service {
                 500);
 
         frameLayout.setForegroundGravity(Gravity.CENTER);
+
+        disableButtonBacklight();
     }
 
     float originalBrightness = 0.7f;
     int autoBrightnessStatus;
+
+    private void disableButtonBacklight(){
+        try {
+            Settings.System.putInt(getContentResolver(), "button_key_light", 0);
+        }
+        catch (Exception ignored){}
+    }
+
+    private void enableButtonBacklight(){
+        try {
+            Settings.System.putInt(getContentResolver(), "button_key_light", -1);
+        }
+        catch (Exception ignored){}
+    }
 
     void setBrightness(double brightnessVal, int autoBrightnessStatusVar) {
 
@@ -214,10 +245,9 @@ public class MainService extends Service {
         Display display = ((WindowManager) getSystemService("window")).getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        int width = size.x;
         int height = size.y;
 
-        mainView.setY((float) (height / randInt(1.2, 8)));
+        mainView.setY((float) (height / randInt(1.4, 1.4)));
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -233,6 +263,7 @@ public class MainService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        enableButtonBacklight();
         Constants.isShown = false;
         try {
             ((WindowManager) getSystemService("window")).removeView(frameLayout);
