@@ -20,6 +20,7 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -27,12 +28,14 @@ import android.widget.Toast;
 
 
 import com.tomer.alwayson.Activities.DummyBrightnessActivity;
+import com.tomer.alwayson.Activities.DummyCapacitiveButtonsActivity;
 import com.tomer.alwayson.Activities.DummyHomeButtonActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
+import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -58,7 +61,11 @@ public class MainService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        setBrightness(0.1f);
+        setBrightness(0.1f,0);
+
+        Intent intentcap = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
+        intentcap.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intentcap);
 
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
@@ -116,16 +123,27 @@ public class MainService extends Service {
                 startActivity(intent);
             }
         }
-        WakeLock1 = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, "WAKEUP");
-        WakeLock1.acquire();
 
         refresh();
+
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        WakeLock1 = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, "WAKEUP");
+                        WakeLock1.acquire();
+                    }
+                },
+                500);
+
     }
 
 
     float originalBrightness = 0.7f;
+    int autoBrightnessStatus;
 
-    void setBrightness(float brightnessVal) {
+    void setBrightness(float brightnessVal, int autoBrightnessStatusVar) {
+
+        autoBrightnessStatus = Settings.System.getInt(getApplicationContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
 
         try {
             originalBrightness = Settings.System.getInt(
@@ -143,7 +161,7 @@ public class MainService extends Service {
         }
         try {
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, autoBrightnessStatusVar);
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightnessInt);
 
             Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
@@ -197,11 +215,10 @@ public class MainService extends Service {
         try {
             ((WindowManager) getSystemService("window")).removeView(frameLayout);
             WakeLock1.release();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
         }
-        catch (Exception e){
-            Toast.makeText(getApplicationContext(),"An error has occurred",Toast.LENGTH_SHORT).show();
-        }
-        setBrightness(originalBrightness / 255);
+        setBrightness(originalBrightness / 255, autoBrightnessStatus);
     }
 
     public static double randInt(double min, double max) {

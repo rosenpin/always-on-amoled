@@ -25,6 +25,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -40,6 +41,8 @@ import com.tomer.alwayson.Services.MainService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.lang.reflect.Field;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -83,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         donateButtonSetup();
     }
+
 
     private void donateButtonSetup() {
         findViewById(R.id.donate).setOnClickListener(new View.OnClickListener() {

@@ -52,7 +52,8 @@ public class ScreenReceiver extends BroadcastReceiver {
             wasScreenOn = true;
         }
         else if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
-            context.stopService(new Intent(context,MainService.class));
+            context.stopService(intent1);
+            Constants.isShown = false;
         }
     }
 }
