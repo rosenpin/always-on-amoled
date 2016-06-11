@@ -149,7 +149,7 @@ public class MainService extends Service {
     float originalBrightness = 0.7f;
     int autoBrightnessStatus;
 
-    void setBrightness(float brightnessVal, int autoBrightnessStatusVar) {
+    void setBrightness(double brightnessVal, int autoBrightnessStatusVar) {
 
         autoBrightnessStatus = Settings.System.getInt(getApplicationContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
 

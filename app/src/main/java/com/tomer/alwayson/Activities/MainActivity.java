@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.setInt(s, progress);
+                Snackbar.make(findViewById(android.R.id.content),String.valueOf(progress),Snackbar.LENGTH_SHORT).show();
             }
 
             @Override
