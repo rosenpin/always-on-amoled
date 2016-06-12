@@ -31,6 +31,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -131,7 +132,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void donateButtonSetup() {
-        findViewById(R.id.donate).setOnClickListener(new View.OnClickListener() {
+        Button donateButton = (Button) findViewById(R.id.donate);
+        assert donateButton != null;
+        donateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -152,13 +155,13 @@ public class MainActivity extends AppCompatActivity {
                             Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
                         } else {
                             startIntentSenderForResult(pendingIntent.getIntentSender(),
-                                    1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
-                                    Integer.valueOf(0));
+                                    1001, new Intent(), 0, 0,
+                                    0);
                         }
                     } else {
                         startIntentSenderForResult(pendingIntent.getIntentSender(),
-                                1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
-                                Integer.valueOf(0));
+                                1001, new Intent(), 0, 0,
+                                0);
                     }
                 } catch (RemoteException | IntentSender.SendIntentException e) {
                     e.printStackTrace();
@@ -281,10 +284,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "This permission is required so the app can turn on the display when you get a phone call", Toast.LENGTH_LONG).show();
-                    handlePermissions();
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
+                    Snackbar.make(findViewById(android.R.id.content), "This permission is required so the app can turn on the display when you get a phone call", Snackbar.LENGTH_LONG).setAction("Grant!", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            handlePermissions();
+                        }
+                    }).show();
                 }
             }
         }
