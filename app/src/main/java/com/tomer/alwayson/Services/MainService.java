@@ -213,7 +213,6 @@ public class MainService extends Service {
         }
     }
 
-    private ArrayList<ImageView> icons = new ArrayList<>();
 
     private void refresh() {
         iconWrapper.removeAllViews();
@@ -222,11 +221,10 @@ public class MainService extends Service {
             drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
-            FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(64, 64, Gravity.CENTER);
+            FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
             icon.setPadding(12, 0, 12, 0);
             icon.setLayoutParams(iconLayoutParams);
 
-            icons.add(icon);
             iconWrapper.addView(icon);
         }
 
