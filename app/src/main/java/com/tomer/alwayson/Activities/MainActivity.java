@@ -316,6 +316,14 @@ public class MainActivity extends AppCompatActivity {
                     } else
                         ((Switch) findViewById(R.id.cb_touch_to_stop)).setEnabled(true);
                 } else if (prefName.equals(Prefs.KEYS.SHOW_NOTIFICATION.toString())) {
+                    if (!isChecked){
+                        Snackbar.make(findViewById(android.R.id.content),R.string.warning_1_harm_performance,Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
+                            }
+                        }).show();
+                    }
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
                     restartService();

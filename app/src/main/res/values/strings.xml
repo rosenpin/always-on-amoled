@@ -19,4 +19,6 @@
     <string name="settings_brightness_desc">Screen brightness while locked</string>
     <string name="notifications_alerts">Notifications</string>
     <string name="settings_notifications_alerts_desc">Show notifications from other apps when received on the lockscreen</string>
+    <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
+    <string name="revert">Revert</string>
 </resources>

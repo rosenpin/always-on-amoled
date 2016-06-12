@@ -84,7 +84,7 @@ public class StarterService extends Service {
         try {
             unregisterReceiver(mReceiver);
             return true;
-        } catch (RuntimeException e) {
+        } catch (IllegalArgumentException e) {
             return false;
         }
     }
