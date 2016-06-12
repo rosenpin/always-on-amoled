@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -48,7 +49,7 @@ public class MainService extends Service {
     public void onCreate() {
         super.onCreate();
         startService(new Intent(this,NotificationListener.class));
-        Prefs prefs = new Prefs(getApplicationContext());
+        final Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
         setBrightness(prefs.brightness/255, 0);
@@ -63,7 +64,16 @@ public class MainService extends Service {
 
         lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        frameLayout = new FrameLayout(getApplicationContext());
+        frameLayout = new FrameLayout(this) {
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent event) {
+                if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN) && prefs.volumeToStop) {
+                    stopSelf();
+                    return true;
+                }
+                return super.dispatchKeyEvent(event);
+            }
+        };
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
         textView = (TextView) mainView.findViewById(R.id.time_tv);
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
