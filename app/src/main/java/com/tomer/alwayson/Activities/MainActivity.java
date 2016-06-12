@@ -28,6 +28,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -62,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        initFab();
 
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
@@ -106,28 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void initFab() {
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
-        assert floatingActionButton != null;
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_SENDTO);
-                i.setData(Uri.parse("mailto:")); // only email apps should handle this
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "Always On AMOLED");
-                i.putExtra(Intent.EXTRA_TEXT, "Your feedback...");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        floatingActionButton.setCompatElevation(1280);
     }
 
 
@@ -340,6 +320,34 @@ public class MainActivity extends AppCompatActivity {
         startService(starterServiceIntent);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.feedback:
+                Intent i = new Intent(Intent.ACTION_SENDTO);
+                i.setData(Uri.parse("mailto:")); // only email apps should handle this
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "Always On AMOLED");
+                i.putExtra(Intent.EXTRA_TEXT, "Your feedback...");
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

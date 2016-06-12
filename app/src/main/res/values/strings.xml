@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Always On Amoled</string>
+    <string name="app_name">Always On AMOLED</string>
     <string name="enabled">Enable</string>
     <string name="touchToStop">Double tap to dismiss</string>
     <string name="swipetostop">Swipe up to dismiss</string>
@@ -21,4 +21,5 @@
     <string name="settings_notifications_alerts_desc">Show notifications from other apps when received on the lockscreen</string>
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
     <string name="revert">Revert</string>
+    <string name="feedback">Feedback</string>
 </resources>
