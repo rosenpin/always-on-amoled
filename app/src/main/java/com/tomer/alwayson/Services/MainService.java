@@ -82,6 +82,10 @@ public class MainService extends Service {
                     stopSelf();
                     return true;
                 }
+                if ((event.getKeyCode() == KeyEvent.KEYCODE_HOME)) {
+                    stopSelf();
+                    return true;
+                }
                 return super.dispatchKeyEvent(event);
             }
         };
