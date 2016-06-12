@@ -30,7 +30,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support.constraint:constraint-layout:+'
     compile 'com.android.support:design:23.4.0'
-    compile 'net.steamcrafted:materialiconlib:1.0.9'
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
 }
