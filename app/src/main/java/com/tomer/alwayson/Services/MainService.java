@@ -54,6 +54,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -216,7 +217,8 @@ public class MainService extends Service {
 
     void refresh() {
         iconWrapper.removeAllViews();
-        for (Drawable drawable : Constants.notificationsDrawables) {
+        for (Map.Entry<String, Drawable> entry : Constants.notificationsDrawables.entrySet()) {
+            Drawable drawable = entry.getValue();
             drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
