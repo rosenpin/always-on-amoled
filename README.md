@@ -1,4 +1,5 @@
 # AlwaysOnDisplayAmoled
+
 <a href="https://play.google.com/store/apps/details?id=com.tomer.alwayson">
     <img alt="Get it on Google Play"
         height="60"
@@ -7,6 +8,12 @@
 
 Always On Display for Android
 
+
+##Contributing
+
+You can view a list of known issues and feature requests using [the issue tracker](
+https://github.com/rosenpin/AlwaysOnDisplayAmoled/issues). If you don't see your issue (or you
+aren't sure) feel free to [submit it!](https://github.com/rosenpin/AlwaysOnDisplayAmoled/issues/new)
 
 ## Licensing
 
