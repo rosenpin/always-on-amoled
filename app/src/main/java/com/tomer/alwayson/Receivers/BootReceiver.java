@@ -1,11 +1,8 @@
 package com.tomer.alwayson.Receivers;
 
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.Services.StarterService;

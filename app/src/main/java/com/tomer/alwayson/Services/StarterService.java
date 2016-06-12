@@ -8,9 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.Receivers.ScreenReceiver;

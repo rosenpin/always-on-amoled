@@ -1,4 +1,5 @@
 package com.tomer.alwayson.Services;
+
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -9,7 +10,7 @@ import android.support.annotation.Nullable;
  * Created by tomer on 6/9/16.
  */
 
-public class ServiceTurnOn extends Service{
+public class ServiceTurnOn extends Service {
 
     @Nullable
     @Override

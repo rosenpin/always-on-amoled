@@ -1,25 +1,18 @@
 package com.tomer.alwayson.Services;
 
-import android.Manifest;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.GestureDetector;
@@ -40,7 +33,6 @@ import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.Random;
@@ -51,6 +43,15 @@ public class MainService extends Service {
     private TextView textView;
     private View mainView;
     private LinearLayout iconWrapper;
+    private float originalBrightness = 0.7f;
+    private int autoBrightnessStatus;
+    private PowerManager.WakeLock WakeLock1;
+
+    public static double randInt(double min, double max) {
+        double random = new Random().nextInt((int) ((max - min) + 1)) + min;
+        Log.d("Random is ", String.valueOf(random));
+        return random;
+    }
 
     @Override
     public void onCreate() {
@@ -163,9 +164,6 @@ public class MainService extends Service {
         disableButtonBacklight();
     }
 
-    private float originalBrightness = 0.7f;
-    private int autoBrightnessStatus;
-
     private void disableButtonBacklight() {
         try {
             Settings.System.putInt(getContentResolver(), "button_key_light", 0);
@@ -212,7 +210,6 @@ public class MainService extends Service {
         }
     }
 
-
     private void refresh() {
         iconWrapper.removeAllViews();
         for (Map.Entry<String, Drawable> entry : Constants.notificationsDrawables.entrySet()) {
@@ -257,8 +254,6 @@ public class MainService extends Service {
                 30000);
     }
 
-    private PowerManager.WakeLock WakeLock1;
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -279,13 +274,6 @@ public class MainService extends Service {
         return null;
     }
 
-    public static double randInt(double min, double max) {
-        double random = new Random().nextInt((int) ((max - min) + 1)) + min;
-        Log.d("Random is ", String.valueOf(random));
-        return random;
-    }
-
-
     public class OnSwipeTouchListener implements View.OnTouchListener {
 
         private final GestureDetector gestureDetector;
@@ -297,6 +285,18 @@ public class MainService extends Service {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             return gestureDetector.onTouchEvent(event);
+        }
+
+        public void onSwipeRight() {
+        }
+
+        public void onSwipeLeft() {
+        }
+
+        public void onSwipeTop() {
+        }
+
+        public void onSwipeBottom() {
         }
 
         private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
@@ -338,18 +338,6 @@ public class MainService extends Service {
                 }
                 return result;
             }
-        }
-
-        public void onSwipeRight() {
-        }
-
-        public void onSwipeLeft() {
-        }
-
-        public void onSwipeTop() {
-        }
-
-        public void onSwipeBottom() {
         }
     }
 

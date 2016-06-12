@@ -1,4 +1,5 @@
 package com.tomer.alwayson;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 

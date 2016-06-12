@@ -1,15 +1,11 @@
 package com.tomer.alwayson.Activities;
 
 import android.Manifest;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
@@ -20,19 +16,15 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -42,18 +34,10 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
-import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.SecretConstants;
-import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.StarterService;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Field;
 
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
@@ -64,6 +48,19 @@ import de.psdev.licensesdialog.model.Notices;
 public class MainActivity extends AppCompatActivity {
     private Prefs prefs;
     private Intent starterServiceIntent;
+    private IInAppBillingService mService;
+    private ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name,
+                                       IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,21 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
         startService(starterServiceIntent);
     }
-
-    private IInAppBillingService mService;
-
-    private ServiceConnection mServiceConn = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name,
-                                       IBinder service) {
-            mService = IInAppBillingService.Stub.asInterface(service);
-        }
-    };
 
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);

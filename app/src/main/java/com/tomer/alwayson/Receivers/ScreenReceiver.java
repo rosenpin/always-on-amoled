@@ -4,13 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
-import android.provider.Settings;
 import android.util.Log;
 
-import com.tomer.alwayson.Activities.DummyBrightnessActivity;
-import com.tomer.alwayson.Activities.DummyHomeButtonActivity;
 import com.tomer.alwayson.Constants;
-import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Services.MainService;
 
 import static android.content.Context.POWER_SERVICE;
@@ -50,8 +46,7 @@ public class ScreenReceiver extends BroadcastReceiver {
             // and do whatever you need to do here
             System.out.println("Screen turned on");
             wasScreenOn = true;
-        }
-        else if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
+        } else if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
             context.stopService(intent1);
             Constants.isShown = false;
         }
