@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -51,8 +52,8 @@ import java.lang.reflect.Field;
 
 
 public class MainActivity extends AppCompatActivity {
-    Prefs prefs;
-    Intent starterServiceIntent;
+    private Prefs prefs;
+    private Intent starterServiceIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,10 +160,7 @@ public class MainActivity extends AppCompatActivity {
                                 1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
                                 Integer.valueOf(0));
                     }
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-
-                } catch (IntentSender.SendIntentException e) {
+                } catch (RemoteException | IntentSender.SendIntentException e) {
                     e.printStackTrace();
                 }
             }
@@ -170,9 +168,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    IInAppBillingService mService;
+    private IInAppBillingService mService;
 
-    ServiceConnection mServiceConn = new ServiceConnection() {
+    private ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
         public void onServiceDisconnected(ComponentName name) {
             mService = null;
@@ -213,8 +211,8 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 View view = new View(getApplicationContext());
-                ((WindowManager) getSystemService("window")).addView(view, lp);
-                ((WindowManager) getSystemService("window")).removeView(view);
+                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
+                ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (!Settings.System.canWrite(getApplicationContext())) {
@@ -224,9 +222,11 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             } catch (Exception e) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         }
 
@@ -238,18 +238,19 @@ public class MainActivity extends AppCompatActivity {
         String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
         String packageName = getPackageName();
 
-// check to see if the enabledNotificationListeners String contains our package name
+        // check to see if the enabledNotificationListeners String contains our package name
         if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
             ((Switch) findViewById(R.id.switch_notifications_alert)).setChecked(false);
-            Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+                Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
         }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 123: {
                 if (grantResults.length > 0
@@ -262,8 +263,8 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
                         View view = new View(getApplicationContext());
-                        ((WindowManager) getSystemService("window")).addView(view, lp);
-                        ((WindowManager) getSystemService("window")).removeView(view);
+                        ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
+                        ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (!Settings.System.canWrite(getApplicationContext())) {
@@ -273,9 +274,11 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     } catch (Exception e) {
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                        }
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "This permission is required so the app can turn on the display when you get a phone call", Toast.LENGTH_LONG).show();
@@ -283,11 +286,7 @@ public class MainActivity extends AppCompatActivity {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
-                return;
             }
-
-            // other 'case' lines to check for other
-            // permissions this app might request
         }
     }
 
@@ -332,7 +331,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1001) {
-
             if (resultCode == RESULT_OK) {
                 Snackbar.make(findViewById(android.R.id.content), "Thank you for your support! :)", Snackbar.LENGTH_LONG).show();
             }

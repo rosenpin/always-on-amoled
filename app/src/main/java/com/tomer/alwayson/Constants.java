@@ -2,12 +2,10 @@ package com.tomer.alwayson;
 
 import android.graphics.drawable.Drawable;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-/**
- * Created by tomer on 6/10/16.
- */
 public class Constants {
     public static boolean isShown;
-    public static ArrayList<Drawable> notificationsDrawables = new ArrayList();
+    public static Map<String, Drawable> notificationsDrawables = new HashMap<>();
 }

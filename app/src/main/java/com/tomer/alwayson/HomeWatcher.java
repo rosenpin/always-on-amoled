@@ -6,10 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 
-/**
- * Created by tomer on 6/11/16.
- */
-
 public class HomeWatcher {
 
     static final String TAG = "hg";
@@ -66,9 +62,9 @@ public class HomeWatcher {
     }
 
     public interface OnHomePressedListener {
-        public void onHomePressed();
+        void onHomePressed();
 
-        public void onHomeLongPressed();
+        void onHomeLongPressed();
     }
 
 }
