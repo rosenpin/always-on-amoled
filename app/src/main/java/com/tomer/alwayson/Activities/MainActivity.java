@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        handlePermissions();
+
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
         prefs = new Prefs(getApplicationContext());
@@ -169,23 +171,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        handlePermissions();
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        try {
+            View view = new View(getApplicationContext());
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!Settings.System.canWrite(getApplicationContext())) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }
+        } catch (Exception e) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        }
     }
 
     private void handlePermissions() {
         boolean phonePermission = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            String[] permissions = {Manifest.permission.READ_PHONE_STATE};
-            for (String permission : permissions) {
-                if (ContextCompat.checkSelfPermission(this,
-                        permission) != PackageManager.PERMISSION_GRANTED) {
-
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{permission},
-                            123);
-                    phonePermission = false;
-
-                }
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.READ_PHONE_STATE)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_PHONE_STATE},
+                        123);
+                phonePermission = false;
             }
         }
         if (phonePermission) {
@@ -267,7 +285,11 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(findViewById(android.R.id.content), "This permission is required so the app can turn on the display when you get a phone call", Snackbar.LENGTH_LONG).setAction("Grant!", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            handlePermissions();
+                            Intent intent = new Intent();
+                            intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                            Uri uri = Uri.fromParts("package", getPackageName(), null);
+                            intent.setData(uri);
+                            startActivity(intent);
                         }
                     }).show();
                 }
@@ -296,8 +318,8 @@ public class MainActivity extends AppCompatActivity {
                     } else
                         ((Switch) findViewById(R.id.cb_touch_to_stop)).setEnabled(true);
                 } else if (prefName.equals(Prefs.KEYS.SHOW_NOTIFICATION.toString())) {
-                    if (!isChecked){
-                        Snackbar.make(findViewById(android.R.id.content),R.string.warning_1_harm_performance,Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
+                    if (!isChecked) {
+                        Snackbar.make(findViewById(android.R.id.content), R.string.warning_1_harm_performance, Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
