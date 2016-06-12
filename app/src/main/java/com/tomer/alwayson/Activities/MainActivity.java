@@ -112,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
+                Intent i = new Intent(Intent.ACTION_SENDTO);
+                i.setData(Uri.parse("mailto:")); // only email apps should handle this
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, "Always On AMOLED");
                 i.putExtra(Intent.EXTRA_TEXT, "Your feedback...");
