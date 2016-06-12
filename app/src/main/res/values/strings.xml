@@ -27,4 +27,6 @@
     <string name="about">About</string>
     <string name="licenses">Licenses</string>
     <string name="settings_licenses_desc">Open source licenses</string>
+    <string name="back_button_to_stop">Back button to dismiss</string>
+    <string name="settings_back_button_to_stop_desc">Click/touch the back button to dismiss</string>
 </resources>

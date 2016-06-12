@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         handleBoolSimplePref((Switch) findViewById(R.id.cb_touch_to_stop), Prefs.KEYS.TOUCH_TO_STOP.toString(), prefs.touchToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_swipe_to_stop), Prefs.KEYS.SWIPE_TO_STOP.toString(), prefs.swipeToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_volume_to_stop), Prefs.KEYS.VOLUME_TO_STOP.toString(), prefs.volumeToStop);
+        handleBoolSimplePref((Switch) findViewById(R.id.cb_back_button_to_stop), Prefs.KEYS.BACK_BUTTON_TO_STOP.toString(), prefs.backButtonToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_show_notification), Prefs.KEYS.SHOW_NOTIFICATION.toString(), prefs.showNotification);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_enabled), Prefs.KEYS.ENABLED.toString(), prefs.enabled);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_move), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);

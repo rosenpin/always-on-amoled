@@ -55,7 +55,7 @@ public class MainService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        startService(new Intent(this,NotificationListener.class));
+        startService(new Intent(this, NotificationListener.class));
         final Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
@@ -75,6 +75,10 @@ public class MainService extends Service {
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN) && prefs.volumeToStop) {
+                    stopSelf();
+                    return true;
+                }
+                if ((event.getKeyCode() == KeyEvent.KEYCODE_BACK) && prefs.backButtonToStop) {
                     stopSelf();
                     return true;
                 }
@@ -159,18 +163,18 @@ public class MainService extends Service {
     private float originalBrightness = 0.7f;
     private int autoBrightnessStatus;
 
-    private void disableButtonBacklight(){
+    private void disableButtonBacklight() {
         try {
             Settings.System.putInt(getContentResolver(), "button_key_light", 0);
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored){}
     }
 
-    private void enableButtonBacklight(){
+    private void enableButtonBacklight() {
         try {
             Settings.System.putInt(getContentResolver(), "button_key_light", -1);
+        } catch (Exception ignored) {
         }
-        catch (Exception ignored){}
     }
 
     private void setBrightness(double brightnessVal, int autoBrightnessStatusVar) {
@@ -215,7 +219,7 @@ public class MainService extends Service {
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
             FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(64, 64, Gravity.CENTER);
-            icon.setPadding(12,0,12,0);
+            icon.setPadding(12, 0, 12, 0);
             icon.setLayoutParams(iconLayoutParams);
 
             icons.add(icon);

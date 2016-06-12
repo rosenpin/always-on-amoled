@@ -82,6 +82,8 @@
                 <include layout="@layout/settings_swipe_to_stop" />
 
                 <include layout="@layout/settings_volume_to_stop" />
+
+                <include layout="@layout/settings_back_button_to_stop" />
             </LinearLayout>
 
             <LinearLayout

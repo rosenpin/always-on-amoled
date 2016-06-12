@@ -10,6 +10,7 @@ public class Prefs {
     public boolean touchToStop;
     public boolean swipeToStop;
     public boolean volumeToStop;
+    public boolean backButtonToStop;
     public boolean showNotification;
     public boolean moveWidget;
     public int brightness;
@@ -27,6 +28,7 @@ public class Prefs {
         touchToStop = prefs.getBoolean(KEYS.TOUCH_TO_STOP.toString(), false);
         swipeToStop = prefs.getBoolean(KEYS.SWIPE_TO_STOP.toString(), false);
         volumeToStop = prefs.getBoolean(KEYS.VOLUME_TO_STOP.toString(), false);
+        backButtonToStop = prefs.getBoolean(KEYS.BACK_BUTTON_TO_STOP.toString(), false);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
@@ -54,6 +56,7 @@ public class Prefs {
         TOUCH_TO_STOP("touchtostop"),
         SWIPE_TO_STOP("swipetostop"),
         VOLUME_TO_STOP("volumetostop"),
+        BACK_BUTTON_TO_STOP("backbuttontostop"),
         SHOW_NOTIFICATION("shownotification"),
         MOVE_WIDGET("reduceamoledburnin"),
         BRIGHTNESS("brightness"),
