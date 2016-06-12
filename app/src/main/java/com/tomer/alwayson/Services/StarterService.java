@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 
 /**
@@ -62,7 +63,7 @@ public class StarterService extends Service {
 
     private void showNotification() {
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
-        builder.setContentTitle("Always On Is Running");
+        builder.setContentTitle(getString(R.string.notification_message));
         builder.setOngoing(true);
         builder.setPriority(Notification.PRIORITY_LOW);
         builder.setSmallIcon(android.R.color.transparent);

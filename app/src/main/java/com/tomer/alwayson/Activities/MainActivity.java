@@ -78,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
         handlePermissions();
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
-
-
         handleBoolSimplePref((Switch) findViewById(R.id.cb_touch_to_stop), Prefs.KEYS.TOUCH_TO_STOP.toString(), prefs.touchToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_swipe_to_stop), Prefs.KEYS.SWIPE_TO_STOP.toString(), prefs.swipeToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_volume_to_stop), Prefs.KEYS.VOLUME_TO_STOP.toString(), prefs.volumeToStop);
@@ -118,17 +116,17 @@ public class MainActivity extends AppCompatActivity {
                     PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
 
                     if (pendingIntent == null) {
-                        Snackbar.make(findViewById(android.R.id.content), "Thank you for your support! :)", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
                         buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
                                 IAPID2, "inapp", googleIAPCode);
                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                         if (pendingIntent == null) {
-                            Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
                             buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
                                     IAPID3, "inapp", googleIAPCode);
                             pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                             if (pendingIntent == null) {
-                                Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
                             } else {
                                 startIntentSenderForResult(pendingIntent.getIntentSender(),
                                         1001, new Intent(), 0, 0,
@@ -306,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 } else {
-                    Snackbar.make(findViewById(android.R.id.content), "This permission is required so the app can turn on the display when you get a phone call", Snackbar.LENGTH_LONG).setAction("Grant!", new View.OnClickListener() {
+                    Snackbar.make(findViewById(android.R.id.content), getString(R.string.warning_2_required_phone_permission), Snackbar.LENGTH_LONG).setAction("Grant!", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent();
@@ -382,12 +380,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(Intent.ACTION_SENDTO);
                 i.setData(Uri.parse("mailto:")); // only email apps should handle this
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "Always On AMOLED");
+                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
                 i.putExtra(Intent.EXTRA_TEXT, "Your feedback...");
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.err_5_no_email_client), Toast.LENGTH_SHORT).show();
                 }
                 return true;
             default:
@@ -399,7 +397,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1001) {
             if (resultCode == RESULT_OK) {
-                Snackbar.make(findViewById(android.R.id.content), "Thank you for your support! :)", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
             }
         }
     }

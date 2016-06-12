@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="center|top"
-        android:text="The app needs permission to draw over other apps"
+        android:text="@string/the_app_needs_permission_to_draw_over_other_apps"
         android:textColor="@android:color/white"
         android:textSize="16sp"/>
 
@@ -39,7 +39,7 @@
 
         <Button
             android:id="@+id/go"
-            android:text="Allow now"
+            android:text="@string/allow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

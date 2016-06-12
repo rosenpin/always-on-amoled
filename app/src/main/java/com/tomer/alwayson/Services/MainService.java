@@ -215,7 +215,7 @@ public class MainService extends Service {
             intent.putExtra("brightness value", brightnessVal);
             // getApplication().startActivity(intent);
         } catch (Exception e) {
-            Toast.makeText(MainService.this, "Please allow settings modification permission for this app!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -271,7 +271,7 @@ public class MainService extends Service {
             ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(frameLayout);
             WakeLock1.release();
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
         }
         setBrightness(originalBrightness / 255, autoBrightnessStatus);
     }

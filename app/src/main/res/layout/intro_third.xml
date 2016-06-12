@@ -16,7 +16,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="Read phone state"
+        android:text="@string/read_phone_state"
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:textStyle="bold"/>
@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="center|top"
-        android:text="The app needs permission to read phone state to turn on the device when you receive a call"
+        android:text="@string/the_app_needs_permission_to_read_phone_state_to_turn_on_the_device_when_you_receive_a_call"
         android:textColor="@android:color/white"
         android:textSize="16sp"/>
 
@@ -39,7 +39,7 @@
 
         <Button
             android:id="@+id/go"
-            android:text="Allow now"
+            android:text="@string/allow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

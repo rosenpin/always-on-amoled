@@ -66,7 +66,7 @@ public class Intro extends AppIntro2 {
         super.onDonePressed(currentFragment);
         for (int i = 0; i < permissions.length; i++) {
             if (!permissions[i]) {
-                Snackbar.make(findViewById(android.R.id.content), "Please allow all permissions", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(android.R.id.content), getString(R.string.please_allow_all_permissions), Snackbar.LENGTH_LONG).show();
                 return;
             }
         }
