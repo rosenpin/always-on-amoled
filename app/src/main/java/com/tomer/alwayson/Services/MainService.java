@@ -25,7 +25,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextClock;
 import android.widget.Toast;
 
 import com.tomer.alwayson.Activities.DummyBrightnessActivity;
@@ -161,6 +160,13 @@ public class MainService extends Service {
     }
 
     private void disableButtonBacklight() {
+        /*Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.putExtra("turn",false);
+        startActivity(intent);*/
         try {
             Settings.System.putInt(getContentResolver(), "button_key_light", 0);
         } catch (Exception ignored) {
@@ -168,6 +174,13 @@ public class MainService extends Service {
     }
 
     private void enableButtonBacklight() {
+        /*
+        Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        intent.putExtra("turn",true);
+        startActivity(intent);*/
         try {
             Settings.System.putInt(getContentResolver(), "button_key_light", -1);
         } catch (Exception ignored) {

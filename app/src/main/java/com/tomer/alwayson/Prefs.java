@@ -16,6 +16,9 @@ public class Prefs {
     public boolean moveWidget;
     public int brightness;
     public boolean notificationsAlerts;
+
+    public boolean permissionGranting;
+
     private SharedPreferences prefs;
     private Context context;
 
@@ -34,6 +37,7 @@ public class Prefs {
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
         brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 100);
+        permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
     }
 
     public void setString(String key, String value) {
@@ -61,6 +65,7 @@ public class Prefs {
         SHOW_NOTIFICATION("shownotification"),
         MOVE_WIDGET("reduceamoledburnin"),
         BRIGHTNESS("brightness"),
+        PERMISSION_GRANTING("permissiongrantingscreen"),
         NOTIFICATION_ALERTS("notificationsalertsfromotherapps");
 
         private final String id;

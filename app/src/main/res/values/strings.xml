@@ -29,4 +29,6 @@
     <string name="settings_licenses_desc">Open source licenses</string>
     <string name="back_button_to_stop">Back button to dismiss</string>
     <string name="settings_back_button_to_stop_desc">Click/touch the back button to dismiss</string>
+    <string name="draw_over_other_apps">Draw over other apps</string>
+    <string name="allow">Allow now</string>
 </resources>

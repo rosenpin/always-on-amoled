@@ -12,6 +12,7 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/time_tv"
         android:format12Hour="hh:mm a"
+        android:singleLine="true"
         android:format24Hour="hh:mm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

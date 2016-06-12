@@ -1,20 +1,22 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/general"
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:background="?android:selectableItemBackground"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:weightSum="1">
 
     <LinearLayout
         android:id="@+id/wrapper"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
+        android:layout_weight="0.2"
         android:gravity="center_vertical"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,18 +30,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_notifications_desc"
-            android:textSize="12sp"
-            />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <Switch
-        android:layout_toEndOf="@+id/wrapper"
         android:id="@+id/cb_move"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="0.8"
         android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:layout_alignParentEnd="true"
-         />
+        android:textSize="16sp" />
 
-</RelativeLayout>
+</LinearLayout>

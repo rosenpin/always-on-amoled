@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         handlePermissions();
-
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
         prefs = new Prefs(getApplicationContext());
@@ -244,6 +243,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (!prefs.permissionGranting) {
+            startActivity(new Intent(getApplicationContext(), Intro.class));
+            finish();
+        }
+
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
         lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         try {

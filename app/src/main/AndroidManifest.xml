@@ -17,6 +17,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".Activities.Intro"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name"
@@ -46,13 +52,16 @@
         <service android:name=".Services.MainService" />
 
         <service android:name=".Services.ServiceTurnOn" />
-        <service android:name=".Services.StarterService" android:label="@string/app_name">
+        <service
+            android:name=".Services.StarterService"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.tomer.alwayson.Services.StarterService" />
             </intent-filter>
         </service>
 
-        <service android:name=".Services.NotificationListener"
+        <service
+            android:name=".Services.NotificationListener"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>

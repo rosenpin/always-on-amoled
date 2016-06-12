@@ -16,8 +16,9 @@ public class DummyCapacitiveButtonsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("DIMMING BUTTONS");
-        setDimButtons(true);
+        setDimButtons(getIntent().getBooleanExtra("turn", true));
         finish();
+
     }
 
     private void setDimButtons(boolean dimButtons) {
