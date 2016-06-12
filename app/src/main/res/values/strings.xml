@@ -43,4 +43,6 @@
     <string name="warning_3_allow_system_modification">Please allow settings modification permission for this app!</string>
     <string name="unknown_error">An error has occurred</string>
     <string name="notification_message">Always On Is Running</string>
+    <string name="community">Community</string>
+    <string name="settings_community_desc">Google Plus community</string>
 </resources>

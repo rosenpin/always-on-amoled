@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         handleBoolSimplePref((Switch) findViewById(R.id.switch_notifications_alert), Prefs.KEYS.NOTIFICATION_ALERTS.toString(), prefs.notificationsAlerts);
         handleSeekBarPref((SeekBar) findViewById(R.id.sb_brightness), Prefs.KEYS.BRIGHTNESS.toString(), prefs.brightness);
         openSourceLicenses();
+        googlePlusCommunitySetup();
 
         Intent serviceIntent =
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
@@ -183,6 +184,18 @@ public class MainActivity extends AppCompatActivity {
                         .setNotices(notices)
                         .build()
                         .show();
+            }
+        });
+    }
+
+    private void googlePlusCommunitySetup(){
+        LinearLayout googleplusLL = (LinearLayout) findViewById(R.id.google_plus_wrapper);
+        assert googleplusLL != null;
+        googleplusLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/communities/104206728795122451273"));
+                startActivity(browserIntent);
             }
         });
     }

@@ -158,6 +158,8 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
+                <include layout="@layout/settings_google_plus" />
+
                 <include layout="@layout/settings_libraries" />
             </LinearLayout>
 
