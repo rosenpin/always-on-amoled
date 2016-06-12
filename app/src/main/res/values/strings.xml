@@ -10,6 +10,8 @@
     <string name="settings_general">General</string>
     <string name="settings_enabled_desc">Enable the service</string>
     <string name="settings_wake_up">Wake up</string>
+    <string name="settings_volume_to_stop">Volume keys to dismiss</string>
+    <string name="settings_volume_to_stop_desc">Press volume keys to dismiss</string>
     <string name="settings_touch_to_stop_desc">Touch the screen to dismiss</string>
     <string name="settings_swipe_to_stop_desc">Swipe up to dismiss the screen</string>
     <string name="settings_notifications_desc">Enable this if the app gets killed in background</string>

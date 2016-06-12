@@ -8,13 +8,14 @@ import android.content.SharedPreferences;
 public class Prefs {
     public boolean enabled;
     public boolean touchToStop;
+    public boolean swipeToStop;
+    public boolean volumeToStop;
     public boolean showNotification;
     public boolean moveWidget;
     public int brightness;
     public boolean notificationsAlerts;
-    SharedPreferences prefs;
-    Context context;
-    public boolean swipeToStop;
+    private SharedPreferences prefs;
+    private Context context;
 
     public Prefs(Context context) {
         prefs = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
@@ -25,6 +26,7 @@ public class Prefs {
         enabled = prefs.getBoolean(KEYS.ENABLED.toString(), true);
         touchToStop = prefs.getBoolean(KEYS.TOUCH_TO_STOP.toString(), false);
         swipeToStop = prefs.getBoolean(KEYS.SWIPE_TO_STOP.toString(), false);
+        volumeToStop = prefs.getBoolean(KEYS.VOLUME_TO_STOP.toString(), false);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
@@ -51,6 +53,7 @@ public class Prefs {
         ENABLED("enabled"),
         TOUCH_TO_STOP("touchtostop"),
         SWIPE_TO_STOP("swipetostop"),
+        VOLUME_TO_STOP("volumetostop"),
         SHOW_NOTIFICATION("shownotification"),
         MOVE_WIDGET("reduceamoledburnin"),
         BRIGHTNESS("brightness"),
@@ -58,7 +61,7 @@ public class Prefs {
 
         private final String id;
 
-        private KEYS(final String text) {
+        KEYS(final String text) {
             this.id = text;
         }
 
