@@ -1,25 +1,19 @@
 package com.tomer.alwayson.Services;
 
-import android.Manifest;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.GestureDetector;
@@ -40,26 +34,38 @@ import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
 public class MainService extends Service {
 
+    private static final String LOG_TAG = MainService.class.getSimpleName();
+
     private FrameLayout frameLayout;
     private TextView textView;
     private View mainView;
     private LinearLayout iconWrapper;
+    private Prefs prefs;
+    private int originalBrightness = 180;
+    private int originalAutoBrightnessStatus;
+    private PowerManager.WakeLock WakeLock1;
+
+    @SuppressWarnings("WeakerAccess")
+    public static double randInt(double min, double max) {
+        double random = new Random().nextInt((int) ((max - min) + 1)) + min;
+        Log.d(LOG_TAG, String.format("Random is: %1$s", random));
+        return random;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
         startService(new Intent(this, NotificationListener.class));
-        final Prefs prefs = new Prefs(getApplicationContext());
+        prefs = new Prefs(this);
         prefs.apply();
 
-        setBrightness(prefs.brightness / 255, 0);
+        setBrightness(prefs.brightness, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
 
         WindowManager.LayoutParams lp;
 
@@ -107,36 +113,7 @@ public class MainService extends Service {
 
         frameLayout.setBackgroundColor(Color.BLACK);
 
-        if (prefs.touchToStop) {
-
-            final GestureDetector gestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    stopSelf();
-                    return true;
-                }
-            });
-
-            frameLayout.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (gestureDetector.onTouchEvent(event)) {
-                        stopSelf();
-                        return true;
-                    }
-
-                    return false;
-                }
-            });
-
-        }
-        if (prefs.swipeToStop) {
-            frameLayout.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
-                public void onSwipeTop() {
-                    stopSelf();
-                }
-            });
-        }
+        frameLayout.setOnTouchListener(new OnDismissListener(this));
 
         try {
             ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(frameLayout, lp);
@@ -150,7 +127,7 @@ public class MainService extends Service {
 
         refresh();
 
-        new android.os.Handler().postDelayed(
+        new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         WakeLock1 = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, "WAKEUP");
@@ -163,9 +140,6 @@ public class MainService extends Service {
 
         disableButtonBacklight();
     }
-
-    private float originalBrightness = 0.7f;
-    private int autoBrightnessStatus;
 
     private void disableButtonBacklight() {
         try {
@@ -181,28 +155,14 @@ public class MainService extends Service {
         }
     }
 
-    private void setBrightness(double brightnessVal, int autoBrightnessStatusVar) {
-
-        autoBrightnessStatus = Settings.System.getInt(getApplicationContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
-
-        try {
-            originalBrightness = Settings.System.getInt(
-                    getContentResolver(), Settings.System.SCREEN_BRIGHTNESS);
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Log.d("ORINGIN BRIGHTNESS = ", String.valueOf(originalBrightness));
-
-        int brightnessInt = (int) (brightnessVal * 255);
-
-        if (brightnessInt < 1) {
-            brightnessInt = 1;
-        }
+    private void setBrightness(int brightnessVal, int autoBrightnessStatusVar) {
+        originalAutoBrightnessStatus = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        originalBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 180);
+        Log.d(LOG_TAG, String.format("Original brightness: %1$s", originalBrightness));
         try {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, autoBrightnessStatusVar);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightnessInt);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightnessVal);
 
             Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -212,7 +172,6 @@ public class MainService extends Service {
             Toast.makeText(MainService.this, "Please allow settings modification permission for this app!", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void refresh() {
         iconWrapper.removeAllViews();
@@ -224,21 +183,19 @@ public class MainService extends Service {
             FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
             icon.setPadding(12, 0, 12, 0);
             icon.setLayoutParams(iconLayoutParams);
-
             iconWrapper.addView(icon);
         }
 
-        String currentDateandTime = android.text.format.DateFormat.getTimeFormat(getApplicationContext()).format(new Date());
-        textView.setText(currentDateandTime);
+        String currentDateAndTime = android.text.format.DateFormat.getTimeFormat(getApplicationContext()).format(new Date());
+        textView.setText(currentDateAndTime);
 
-        new android.os.Handler().postDelayed(
+        new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         refresh();
                     }
                 },
                 5000);
-
     }
 
     private void refreshLong() {
@@ -248,8 +205,7 @@ public class MainService extends Service {
         int height = size.y;
 
         mainView.setY((float) (height / randInt(3, 8)));
-
-        new android.os.Handler().postDelayed(
+        new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         refreshLong();
@@ -257,8 +213,6 @@ public class MainService extends Service {
                 },
                 30000);
     }
-
-    private PowerManager.WakeLock WakeLock1;
 
     @Override
     public void onDestroy() {
@@ -271,7 +225,7 @@ public class MainService extends Service {
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
         }
-        setBrightness(originalBrightness / 255, autoBrightnessStatus);
+        setBrightness(originalBrightness, originalAutoBrightnessStatus);
     }
 
     @Nullable
@@ -280,18 +234,11 @@ public class MainService extends Service {
         return null;
     }
 
-    public static double randInt(double min, double max) {
-        double random = new Random().nextInt((int) ((max - min) + 1)) + min;
-        Log.d("Random is ", String.valueOf(random));
-        return random;
-    }
-
-
-    public class OnSwipeTouchListener implements View.OnTouchListener {
+    private class OnDismissListener implements View.OnTouchListener {
 
         private final GestureDetector gestureDetector;
 
-        public OnSwipeTouchListener(Context ctx) {
+        OnDismissListener(Context ctx) {
             gestureDetector = new GestureDetector(ctx, new GestureListener());
         }
 
@@ -302,7 +249,7 @@ public class MainService extends Service {
 
         private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
-            private static final int SWIPE_THRESHOLD = 100;
+            private static final int SWIPE_THRESHOLD = 150;
             private static final int SWIPE_VELOCITY_THRESHOLD = 100;
 
             @Override
@@ -312,46 +259,39 @@ public class MainService extends Service {
 
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                boolean result = false;
-                try {
-                    float diffY = e2.getY() - e1.getY();
-                    float diffX = e2.getX() - e1.getX();
-                    if (Math.abs(diffX) > Math.abs(diffY)) {
-                        if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
-                            if (diffX > 0) {
-                                onSwipeRight();
-                            } else {
-                                onSwipeLeft();
-                            }
-                        }
-                        result = true;
-                    } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
-                        if (diffY > 0) {
-                            onSwipeBottom();
+                float diffY = e2.getY() - e1.getY();
+                float diffX = e2.getX() - e1.getX();
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                        if (diffX > 0) {
+                            Log.d(LOG_TAG, "Swipe right");
                         } else {
-                            onSwipeTop();
+                            Log.d(LOG_TAG, "Swipe left");
                         }
                     }
-                    result = true;
-
-                } catch (Exception exception) {
-                    exception.printStackTrace();
+                } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                    if (diffY > 0) {
+                        Log.d(LOG_TAG, "Swipe bottom");
+                    } else {
+                        Log.d(LOG_TAG, "Swipe top");
+                        if (prefs.swipeToStop) {
+                            stopSelf();
+                            return true;
+                        }
+                    }
                 }
-                return result;
+                return false;
+            }
+
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Log.d(LOG_TAG, "Double tap");
+                if (prefs.touchToStop) {
+                    stopSelf();
+                    return true;
+                }
+                return false;
             }
         }
-
-        public void onSwipeRight() {
-        }
-
-        public void onSwipeLeft() {
-        }
-
-        public void onSwipeTop() {
-        }
-
-        public void onSwipeBottom() {
-        }
     }
-
 }
