@@ -65,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prefs = new Prefs(getApplicationContext());
+        prefs.apply();
+        if (!prefs.permissionGranting && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            startActivity(new Intent(getApplicationContext(), Intro.class));
+            finish();
+        }
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,8 +78,7 @@ public class MainActivity extends AppCompatActivity {
         handlePermissions();
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
-        prefs = new Prefs(getApplicationContext());
-        prefs.apply();
+
 
         handleBoolSimplePref((Switch) findViewById(R.id.cb_touch_to_stop), Prefs.KEYS.TOUCH_TO_STOP.toString(), prefs.touchToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_swipe_to_stop), Prefs.KEYS.SWIPE_TO_STOP.toString(), prefs.swipeToStop);
@@ -244,10 +249,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (!prefs.permissionGranting) {
-            startActivity(new Intent(getApplicationContext(), Intro.class));
-            finish();
-        }
+
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
         lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
