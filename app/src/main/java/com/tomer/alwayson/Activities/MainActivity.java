@@ -36,6 +36,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -53,6 +54,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+
+import de.psdev.licensesdialog.LicensesDialog;
+import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
+import de.psdev.licensesdialog.model.Notice;
+import de.psdev.licensesdialog.model.Notices;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -80,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         handleBoolSimplePref((Switch) findViewById(R.id.cb_move), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);
         handleBoolSimplePref((Switch) findViewById(R.id.switch_notifications_alert), Prefs.KEYS.NOTIFICATION_ALERTS.toString(), prefs.notificationsAlerts);
         handleSeekBarPref((SeekBar) findViewById(R.id.sb_brightness), Prefs.KEYS.BRIGHTNESS.toString(), prefs.brightness);
+        openSourceLicenses();
 
         Intent serviceIntent =
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
@@ -91,27 +98,20 @@ public class MainActivity extends AppCompatActivity {
         startService(starterServiceIntent);
     }
 
-    private void handleSeekBarPref(SeekBar viewById, final String s, int brightness) {
-        viewById.setProgress(brightness);
-        viewById.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                prefs.setInt(s, progress);
-                Snackbar.make(findViewById(android.R.id.content), String.valueOf(progress), Snackbar.LENGTH_SHORT).show();
-            }
+    private IInAppBillingService mService;
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+    private ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
 
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-    }
-
+        @Override
+        public void onServiceConnected(ComponentName name,
+                                       IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+        }
+    };
 
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
@@ -152,46 +152,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    private IInAppBillingService mService;
-
-    private ServiceConnection mServiceConn = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name,
-                                       IBinder service) {
-            mService = IInAppBillingService.Stub.asInterface(service);
-        }
-    };
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-        try {
-            View view = new View(getApplicationContext());
-            ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
-            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (!Settings.System.canWrite(getApplicationContext())) {
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                }
+    private void handleSeekBarPref(SeekBar viewById, final String s, int brightness) {
+        viewById.setProgress(brightness);
+        viewById.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.setInt(s, progress);
+                Snackbar.make(findViewById(android.R.id.content), String.valueOf(progress), Snackbar.LENGTH_SHORT).show();
             }
-        } catch (Exception e) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
             }
-        }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    private void openSourceLicenses(){
+        LinearLayout licenses_view = (LinearLayout) findViewById(R.id.licenses_wrapper);
+        assert licenses_view != null;
+        licenses_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Notices notices = new Notices();
+                notices.addNotice(new Notice("AppIntro","https://github.com/PaoloRotolo/AppIntro","Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr",new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("LicensesDialog","https://github.com/PSDev/LicensesDialog","",new ApacheSoftwareLicense20()));
+                new LicensesDialog.Builder(MainActivity.this)
+                        .setNotices(notices)
+                        .build()
+                        .show();
+            }
+        });
     }
 
     private void handlePermissions() {
@@ -251,6 +247,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        try {
+            View view = new View(getApplicationContext());
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!Settings.System.canWrite(getApplicationContext())) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }
+        } catch (Exception e) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        }
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 123: {
@@ -298,7 +320,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    void handleBoolSimplePref(Switch cb, final String prefName, boolean val) {
+
+    private void handleBoolSimplePref(Switch cb, final String prefName, boolean val) {
         cb.setChecked(val);
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
