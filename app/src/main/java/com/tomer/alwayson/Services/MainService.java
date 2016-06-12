@@ -25,7 +25,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.TextClock;
 import android.widget.Toast;
 
 import com.tomer.alwayson.Activities.DummyBrightnessActivity;
@@ -33,14 +33,12 @@ import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
-import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
 public class MainService extends Service {
 
     private FrameLayout frameLayout;
-    private TextView textView;
     private View mainView;
     private LinearLayout iconWrapper;
     private float originalBrightness = 0.7f;
@@ -91,10 +89,8 @@ public class MainService extends Service {
             }
         };
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
-        textView = (TextView) mainView.findViewById(R.id.time_tv);
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
 
-        textView.setTextSize(72);
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
         if (!prefs.moveWidget) {
@@ -211,6 +207,7 @@ public class MainService extends Service {
     }
 
     private void refresh() {
+
         iconWrapper.removeAllViews();
         for (Map.Entry<String, Drawable> entry : Constants.notificationsDrawables.entrySet()) {
             Drawable drawable = entry.getValue();
@@ -224,8 +221,6 @@ public class MainService extends Service {
             iconWrapper.addView(icon);
         }
 
-        String currentDateandTime = android.text.format.DateFormat.getTimeFormat(getApplicationContext()).format(new Date());
-        textView.setText(currentDateandTime);
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

@@ -7,14 +7,15 @@
     android:foregroundGravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <TextClock
         android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal"
         android:id="@+id/time_tv"
+        android:format12Hour="hh:mm a"
+        android:format24Hour="hh:mm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TIME"
-        android:textSize="72sp" />
+        android:textSize="88sp" />
 
     <LinearLayout
         android:layout_gravity="center_horizontal"
