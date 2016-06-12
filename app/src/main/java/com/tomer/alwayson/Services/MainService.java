@@ -124,7 +124,6 @@ public class MainService extends Service {
                         stopSelf();
                         return true;
                     }
-
                     return false;
                 }
             });

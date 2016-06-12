@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String IAPID = SecretConstants.getPropertyValue(getBaseContext(), "IAPID");
                     String IAPID2 = SecretConstants.getPropertyValue(getBaseContext(), "IAPID2");
+                    String IAPID3 = SecretConstants.getPropertyValue(getBaseContext(), "IAPID3");
                     String googleIAPCode = SecretConstants.getPropertyValue(getBaseContext(), "googleIAPCode");
                     Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
                             IAPID, "inapp", googleIAPCode);
@@ -137,6 +138,16 @@ public class MainActivity extends AppCompatActivity {
                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                         if (pendingIntent == null) {
                             Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
+                            buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
+                                    IAPID3, "inapp", googleIAPCode);
+                            pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                            if (pendingIntent == null) {
+                                Snackbar.make(findViewById(android.R.id.content), "Thank you for your great support! :)", Snackbar.LENGTH_LONG).show();
+                            } else {
+                                startIntentSenderForResult(pendingIntent.getIntentSender(),
+                                        1001, new Intent(), 0, 0,
+                                        0);
+                            }
                         } else {
                             startIntentSenderForResult(pendingIntent.getIntentSender(),
                                     1001, new Intent(), 0, 0,
@@ -175,15 +186,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void openSourceLicenses(){
+    private void openSourceLicenses() {
         LinearLayout licenses_view = (LinearLayout) findViewById(R.id.licenses_wrapper);
         assert licenses_view != null;
         licenses_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Notices notices = new Notices();
-                notices.addNotice(new Notice("AppIntro","https://github.com/PaoloRotolo/AppIntro","Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr",new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("LicensesDialog","https://github.com/PSDev/LicensesDialog","",new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("AppIntro", "https://github.com/PaoloRotolo/AppIntro", "Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr", new ApacheSoftwareLicense20()));
+                notices.addNotice(new Notice("LicensesDialog", "https://github.com/PSDev/LicensesDialog", "", new ApacheSoftwareLicense20()));
                 new LicensesDialog.Builder(MainActivity.this)
                         .setNotices(notices)
                         .build()
@@ -320,7 +331,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
     private void handleBoolSimplePref(Switch cb, final String prefName, boolean val) {
