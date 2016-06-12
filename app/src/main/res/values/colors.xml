@@ -3,6 +3,5 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#ff5722</color>
-    <color name="amoledBlack">#000000</color>
     <color name="card_background">#FFFFFF</color>
 </resources>
