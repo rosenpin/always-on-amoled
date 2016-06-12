@@ -1,11 +1,12 @@
 # AlwaysOnDisplayAmoled
-Always On Display for Android
-
 <a href="https://play.google.com/store/apps/details?id=com.tomer.alwayson">
     <img alt="Get it on Google Play"
         height="60"
         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
 </a>
+
+Always On Display for Android
+
 
 ## Licensing
 
