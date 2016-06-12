@@ -27,7 +27,7 @@ public class Prefs {
         swipeToStop = prefs.getBoolean(KEYS.SWIPE_TO_STOP.toString(), false);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
-        notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), true);
+        notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
         brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 100);
     }
 
