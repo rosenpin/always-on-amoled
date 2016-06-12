@@ -1,18 +1,25 @@
 package com.tomer.alwayson.Services;
 
+import android.Manifest;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.GestureDetector;
@@ -52,7 +59,7 @@ public class MainService extends Service {
         final Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
-        setBrightness(prefs.brightness/255, 0);
+        setBrightness(prefs.brightness / 255, 0);
 
         WindowManager.LayoutParams lp;
 
@@ -82,8 +89,8 @@ public class MainService extends Service {
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
         if (!prefs.moveWidget) {
-            mainLayoutParams.gravity = Gravity.CENTER;}
-        else {
+            mainLayoutParams.gravity = Gravity.CENTER;
+        } else {
             refreshLong();
             mainLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
         }
@@ -105,7 +112,7 @@ public class MainService extends Service {
             frameLayout.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    if (gestureDetector.onTouchEvent(event)){
+                    if (gestureDetector.onTouchEvent(event)) {
                         stopSelf();
                         return true;
                     }
