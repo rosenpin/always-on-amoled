@@ -9,9 +9,6 @@ import android.util.Log;
 import com.tomer.alwayson.HomeWatcher;
 import com.tomer.alwayson.Services.MainService;
 
-/**
- * Created by tomer on 6/11/16.
- */
 public class DummyHomeButtonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

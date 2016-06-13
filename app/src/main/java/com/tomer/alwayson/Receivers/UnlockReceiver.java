@@ -8,9 +8,6 @@ import android.provider.Settings;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Services.MainService;
 
-/**
- * Created by tomer on 6/13/16.
- */
 public class UnlockReceiver extends BroadcastReceiver {
 
     @Override

@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * Created by PKhurana on 6/11/16.
- */
 public class SecretConstants {
 
     public static String getPropertyValue(Context context, String propertyName) {

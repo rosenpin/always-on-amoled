@@ -3,9 +3,6 @@ package com.tomer.alwayson;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by tomer aka rosenpin on 2/9/16.
- */
 public class Prefs {
     public boolean enabled;
     public boolean touchToStop;

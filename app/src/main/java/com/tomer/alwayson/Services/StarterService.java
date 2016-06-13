@@ -14,9 +14,6 @@ import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 
-/**
- * Created by tomer on 6/11/16.
- */
 public class StarterService extends Service {
     Prefs prefs;
     BroadcastReceiver mReceiver;

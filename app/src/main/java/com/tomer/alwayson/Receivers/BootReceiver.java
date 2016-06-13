@@ -8,10 +8,6 @@ import android.util.Log;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.Services.StarterService;
 
-/**
- * Created by tomer on 6/9/16.
- */
-
 public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {

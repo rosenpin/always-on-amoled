@@ -7,9 +7,6 @@ import com.tomer.alwayson.Services.MainService;
 
 import java.util.Date;
 
-/**
- * Created by tomer on 6/10/16.
- */
 public class CallReceiver extends PhonecallReceiver {
 
     @Override

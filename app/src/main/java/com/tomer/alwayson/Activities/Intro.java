@@ -23,9 +23,7 @@ import com.github.paolorotolo.appintro.AppIntro2;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
-/**
- * Created by tomer on 6/12/16.
- */
+
 public class Intro extends AppIntro2 {
     static Context context;
     static Prefs pref;

@@ -11,11 +11,6 @@ import com.tomer.alwayson.Services.MainService;
 
 import static android.content.Context.POWER_SERVICE;
 
-/**
- * Created by tomer on 6/9/16.
- */
-
-
 public class ScreenReceiver extends BroadcastReceiver {
 
     // thanks Jason

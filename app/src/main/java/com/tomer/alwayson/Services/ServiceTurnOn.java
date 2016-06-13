@@ -6,10 +6,6 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 
-/**
- * Created by tomer on 6/9/16.
- */
-
 public class ServiceTurnOn extends Service {
 
     @Nullable
