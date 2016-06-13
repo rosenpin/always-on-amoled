@@ -11,7 +11,7 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        if (!added.getPackageName().equals("com.tomer.alwayson")) {
+        if (added.isClearable()) {
             Constants.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
         }
     }
