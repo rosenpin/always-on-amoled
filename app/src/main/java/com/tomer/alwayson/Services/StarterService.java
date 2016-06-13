@@ -29,6 +29,7 @@ public class StarterService extends Service {
     public void onDestroy() {
         super.onDestroy();
         hideNotification();
+        unregisterReceiver();
     }
 
     @Override
@@ -47,6 +48,8 @@ public class StarterService extends Service {
 
         if (prefs.showNotification)
             showNotification();
+        else
+            hideNotification();
 
         if (prefs.enabled) {
             unregisterReceiver();
@@ -54,6 +57,9 @@ public class StarterService extends Service {
             if (prefs.notificationsAlerts) {
                 startService(new Intent(getApplicationContext(), NotificationListener.class));
             }
+        } else {
+            hideNotification();
+            unregisterReceiver();
         }
 
     }
@@ -76,12 +82,16 @@ public class StarterService extends Service {
         nMgr.cancelAll();
     }
 
-    boolean unregisterReceiver() {
+    void unregisterReceiver() {
         try {
             unregisterReceiver(mReceiver);
-            return true;
-        } catch (IllegalArgumentException e) {
-            return false;
+        } catch (IllegalArgumentException ignored) {
+        }
+
+        try{
+            mReceiver.abortBroadcast();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
