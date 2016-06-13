@@ -1,0 +1,75 @@
+package com.tomer.alwayson.Services;
+
+import android.app.NotificationManager;
+import android.app.Service;
+import android.appwidget.AppWidgetManager;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.widget.RemoteViews;
+
+import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.R;
+import com.tomer.alwayson.Services.StarterService;
+import com.tomer.alwayson.WidgetProvider;
+
+/**
+ * Created by tomer AKA rosenpin on 6/13/16.
+ */
+public class ToggleService extends Service {
+
+    BroadcastReceiver mReceiver;
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    private Intent starterServiceIntent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        System.out.println("Started toggle service");
+        Prefs prefs = new Prefs(getApplicationContext());
+        prefs.apply();
+        starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
+        prefs.setBool(Prefs.KEYS.ENABLED.toString(), !prefs.enabled);
+
+        hideNotification();
+
+        restartService();
+
+        Context context = this;
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+        ComponentName thisWidget = new ComponentName(context, WidgetProvider.class);
+        if (prefs.enabled) {
+            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
+            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.off));
+        } else {
+            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_green_light));
+            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.on));
+        }
+        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+
+        stopSelf();
+    }
+
+    private void restartService() {
+        stopService(starterServiceIntent);
+        startService(starterServiceIntent);
+    }
+
+    private void hideNotification() {
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager nMgr = (NotificationManager) getApplicationContext().getSystemService(ns);
+        nMgr.cancelAll();
+    }
+
+
+}

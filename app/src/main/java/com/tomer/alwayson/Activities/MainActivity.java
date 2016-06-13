@@ -40,6 +40,7 @@ import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.Services.StarterService;
+import com.tomer.alwayson.Services.WidgetUpdater;
 
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
@@ -50,6 +51,7 @@ import de.psdev.licensesdialog.model.Notices;
 public class MainActivity extends AppCompatActivity {
     private Prefs prefs;
     private Intent starterServiceIntent;
+    private Intent widgetUpdaterService;
     private IInAppBillingService mService;
     private ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
@@ -78,7 +80,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         handlePermissions();
+
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
+        widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
+        startService(widgetUpdaterService);
 
         handleBoolSimplePref((Switch) findViewById(R.id.cb_touch_to_stop), Prefs.KEYS.TOUCH_TO_STOP.toString(), prefs.touchToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_swipe_to_stop), Prefs.KEYS.SWIPE_TO_STOP.toString(), prefs.swipeToStop);
@@ -300,7 +305,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        prefs.apply();
+        handleBoolSimplePref((Switch) findViewById(R.id.cb_enabled), Prefs.KEYS.ENABLED.toString(), prefs.enabled);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
         lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
@@ -410,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
                         findViewById(R.id.cb_show_notification).setEnabled(true);
                         ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
                     }
+                    startService(widgetUpdaterService);
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())) {
                     if (isChecked)

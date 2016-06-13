@@ -48,4 +48,6 @@
     <string name="github">Github</string>
     <string name="settings_github_desc">Open source Github link</string>
     <string name="toggle">toggle</string>
+    <string name="off">Off</string>
+    <string name="on">On</string>
 </resources>

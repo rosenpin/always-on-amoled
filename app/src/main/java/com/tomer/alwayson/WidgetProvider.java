@@ -3,51 +3,40 @@ package com.tomer.alwayson;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.RemoteViews;
 
-import java.util.Random;
+import com.tomer.alwayson.Services.ToggleService;
 
 /**
  * Created by tomer AKA rosenpin on 6/13/16.
  */
 public class WidgetProvider extends AppWidgetProvider {
 
-    private static final String ACTION_CLICK = "ACTION_CLICK";
-
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        Prefs prefs = new Prefs(context);
+        prefs.apply();
 
-        // Get all ids
-        ComponentName thisWidget = new ComponentName(context,
-                WidgetProvider.class);
-        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
-        for (int widgetId : allWidgetIds) {
-            // Create some random data
-            int number = (new Random().nextInt(100));
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+        Intent configIntent = new Intent(context, ToggleService.class);
 
-            RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
-                    R.layout.widget_layout);
-            Log.w("WidgetExample", String.valueOf(number));
-            // Set the text
-
-            // Register an onClickListener
-            Intent intent = new Intent(context, WidgetProvider.class);
-
-            intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
-
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
-                    0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            PendingIntent toggleService = PendingIntent.getBroadcast(context,
-                    0, new Intent(context,ToggleService.class), PendingIntent.FLAG_UPDATE_CURRENT);
-
-            remoteViews.setOnClickPendingIntent(R.id.toggle, toggleService);
-            appWidgetManager.updateAppWidget(widgetId, remoteViews);
+        if (prefs.enabled) {
+            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
+            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.off));
+        } else {
+            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_green_light));
+            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.on));
         }
+
+
+        PendingIntent configPendingIntent = PendingIntent.getService(context, 0, configIntent, 0);
+
+        remoteViews.setOnClickPendingIntent(R.id.toggle, configPendingIntent);
+
+        appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
     }
+
+
 }

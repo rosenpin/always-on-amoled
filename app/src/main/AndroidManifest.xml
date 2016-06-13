@@ -62,7 +62,8 @@
         <service android:name=".Services.MainService" />
 
         <service android:name=".Services.ServiceTurnOn" />
-        <service android:name=".ToggleService"/>
+        <service android:name=".Services.ToggleService"/>
+        <service android:name=".Services.WidgetUpdater"/>
         <service
             android:name=".Services.StarterService"
             android:enabled="true"
