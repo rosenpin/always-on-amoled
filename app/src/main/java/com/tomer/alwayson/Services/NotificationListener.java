@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+import android.util.Log;
 
 import com.tomer.alwayson.Constants;
 
@@ -11,6 +12,7 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
+        Log.d("New notification ",added.getPackageName());
         if (added.isClearable()) {
             Constants.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
         }

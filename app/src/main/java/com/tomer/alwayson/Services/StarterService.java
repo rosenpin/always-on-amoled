@@ -53,6 +53,7 @@ public class StarterService extends Service {
 
         if (prefs.enabled) {
             unregisterReceiver();
+            startService(new Intent(getApplicationContext(), NotificationListener.class));
             registerReceiver(mReceiver, filter);
             if (prefs.notificationsAlerts) {
                 startService(new Intent(getApplicationContext(), NotificationListener.class));
@@ -88,9 +89,9 @@ public class StarterService extends Service {
         } catch (IllegalArgumentException ignored) {
         }
 
-        try{
+        try {
             mReceiver.abortBroadcast();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
