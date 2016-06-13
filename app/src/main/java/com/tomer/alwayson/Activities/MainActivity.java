@@ -365,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
                     } else
                         ((Switch) findViewById(R.id.cb_touch_to_stop)).setEnabled(true);
                 } else if (prefName.equals(Prefs.KEYS.SHOW_NOTIFICATION.toString())) {
-                    if (!isChecked) {
+                    if (!isChecked && ((Switch) findViewById(R.id.cb_enabled)).isChecked()) {
                         Snackbar.make(findViewById(android.R.id.content), R.string.warning_1_harm_performance, Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -375,6 +375,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
+                    if (!isChecked) {
+                        ((Switch) findViewById(R.id.cb_show_notification)).setChecked(false);
+                        ((Switch) findViewById(R.id.cb_show_notification)).setEnabled(false);
+                    } else {
+                        ((Switch) findViewById(R.id.cb_show_notification)).setEnabled(true);
+                    }
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())) {
                     if (isChecked)
