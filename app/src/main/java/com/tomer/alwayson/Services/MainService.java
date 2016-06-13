@@ -75,9 +75,14 @@ public class MainService extends Service {
         frameLayout = new FrameLayout(this) {
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
-                if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN) && prefs.volumeToStop) {
-                    stopSelf();
-                    return true;
+                if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
+                    if (prefs.volumeToStop) {
+                        stopSelf();
+                        return true;
+                    }
+                    else{
+                        return true;
+                    }
                 }
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_BACK) && prefs.backButtonToStop) {
                     stopSelf();
