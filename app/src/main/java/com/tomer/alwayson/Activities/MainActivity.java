@@ -354,16 +354,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (prefName.equals(Prefs.KEYS.TOUCH_TO_STOP.toString())) {
                     if (isChecked) {
-                        ((Switch) findViewById(R.id.cb_swipe_to_stop)).setEnabled(false);
+                        findViewById(R.id.cb_swipe_to_stop).setEnabled(false);
                         ((Switch) findViewById(R.id.cb_swipe_to_stop)).setChecked(false);
                     } else
-                        ((Switch) findViewById(R.id.cb_swipe_to_stop)).setEnabled(true);
+                        findViewById(R.id.cb_swipe_to_stop).setEnabled(true);
                 } else if (prefName.equals(Prefs.KEYS.SWIPE_TO_STOP.toString())) {
                     if (isChecked) {
-                        ((Switch) findViewById(R.id.cb_touch_to_stop)).setEnabled(false);
+                        findViewById(R.id.cb_touch_to_stop).setEnabled(false);
                         ((Switch) findViewById(R.id.cb_touch_to_stop)).setChecked(false);
                     } else
-                        ((Switch) findViewById(R.id.cb_touch_to_stop)).setEnabled(true);
+                        findViewById(R.id.cb_touch_to_stop).setEnabled(true);
                 } else if (prefName.equals(Prefs.KEYS.SHOW_NOTIFICATION.toString())) {
                     if (!isChecked && ((Switch) findViewById(R.id.cb_enabled)).isChecked()) {
                         Snackbar.make(findViewById(android.R.id.content), R.string.warning_1_harm_performance, Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
@@ -377,9 +377,10 @@ public class MainActivity extends AppCompatActivity {
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
                     if (!isChecked) {
                         ((Switch) findViewById(R.id.cb_show_notification)).setChecked(false);
-                        ((Switch) findViewById(R.id.cb_show_notification)).setEnabled(false);
+                        findViewById(R.id.cb_show_notification).setEnabled(false);
                     } else {
-                        ((Switch) findViewById(R.id.cb_show_notification)).setEnabled(true);
+                        findViewById(R.id.cb_show_notification).setEnabled(true);
+                        ((Switch)findViewById(R.id.cb_show_notification)).setChecked(true);
                     }
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())) {

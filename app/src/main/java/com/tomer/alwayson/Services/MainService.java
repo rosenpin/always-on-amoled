@@ -95,6 +95,7 @@ public class MainService extends Service {
         unlockReceiver = new UnlockReceiver();
         IntentFilter filter = new IntentFilter(Intent.ACTION_USER_PRESENT);
         filter.addAction(Intent.ACTION_ASSIST);
+        filter.addAction(Intent.ACTION_ALL_APPS);
         registerReceiver(unlockReceiver, filter);
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
