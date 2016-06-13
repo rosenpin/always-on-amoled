@@ -62,7 +62,6 @@ public class MainService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        startService(new Intent(this, NotificationListener.class));
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
@@ -217,7 +216,7 @@ public class MainService extends Service {
                         refresh();
                     }
                 },
-                5000);
+                3000);
 
     }
 
@@ -235,7 +234,7 @@ public class MainService extends Service {
                         refreshLong();
                     }
                 },
-                30000);
+                20000);
     }
 
     @Override

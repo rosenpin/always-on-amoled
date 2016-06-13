@@ -1,6 +1,7 @@
 package com.tomer.alwayson.Activities;
 
 import android.Manifest;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -107,11 +108,12 @@ public class MainActivity extends AppCompatActivity {
 
         donateButtonSetup();
 
+        stopService(starterServiceIntent);
         startService(starterServiceIntent);
     }
 
     private boolean hasSoftKeys() {
-        boolean hasSoftwareKeys = true;
+        boolean hasSoftwareKeys;
 
         Display d = getWindowManager().getDefaultDisplay();
 
@@ -386,15 +388,18 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.setBool(prefName, isChecked);
                 if (prefName.equals(Prefs.KEYS.SHOW_NOTIFICATION.toString())) {
-                    if (!isChecked && ((Switch) findViewById(R.id.cb_enabled)).isChecked()) {
-                        Snackbar.make(findViewById(android.R.id.content), R.string.warning_1_harm_performance, Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
-                            }
-                        }).show();
-                    }
-                    restartService();
+                    if (!isChecked) {
+                        hideNotification();
+                        if (((Switch) findViewById(R.id.cb_enabled)).isChecked()) {
+                            Snackbar.make(findViewById(android.R.id.content), R.string.warning_1_harm_performance, Snackbar.LENGTH_LONG).setAction(R.string.revert, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
+                                }
+                            }).show();
+                        }
+                    } else
+                        restartService();
                 } else if (prefName.equals(Prefs.KEYS.ENABLED.toString())) {
                     if (!isChecked) {
                         ((Switch) findViewById(R.id.cb_show_notification)).setChecked(false);
@@ -411,6 +416,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void hideNotification() {
+        NotificationManager nMgr = (NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+        nMgr.cancelAll();
     }
 
     private void restartService() {
