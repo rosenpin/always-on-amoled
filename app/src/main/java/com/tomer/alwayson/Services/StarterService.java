@@ -65,7 +65,7 @@ public class StarterService extends Service {
         Notification.Builder builder = new Notification.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.notification_message));
         builder.setOngoing(true);
-        builder.setPriority(Notification.PRIORITY_LOW);
+        builder.setPriority(Notification.PRIORITY_MIN);
         builder.setSmallIcon(android.R.color.transparent);
         Notification notification = builder.build();
         NotificationManager notificationManger =
