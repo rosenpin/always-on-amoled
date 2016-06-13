@@ -9,6 +9,18 @@ import android.util.Log;
 import com.tomer.alwayson.Constants;
 
 public class NotificationListener extends NotificationListenerService {
+    String TAG = "Notification Listener ";
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG,"started");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"destroyed");
+    }
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {

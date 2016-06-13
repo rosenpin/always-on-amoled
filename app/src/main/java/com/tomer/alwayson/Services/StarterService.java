@@ -16,6 +16,7 @@ import com.tomer.alwayson.Receivers.ScreenReceiver;
 public class StarterService extends Service {
     private BroadcastReceiver mReceiver;
     private boolean isRegistered = false;
+    Intent notificationsAlertIntent;
 
     @Nullable
     @Override
@@ -28,6 +29,8 @@ public class StarterService extends Service {
         super.onCreate();
         System.out.println("Starter Service started");
 
+        notificationsAlertIntent = new Intent(getApplicationContext(), NotificationListener.class);
+
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
@@ -36,20 +39,23 @@ public class StarterService extends Service {
                 showNotification();
             }
             if (prefs.notificationsAlerts) {
-                startService(new Intent(getApplicationContext(), NotificationListener.class));
+                startService(notificationsAlertIntent);
             }
             registerReceiver();
         } else {
             hideNotification();
             unregisterReceiver();
+            stopNotificationService();
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        System.out.println("Starter Service destroyed");
         hideNotification();
         unregisterReceiver();
+        stopNotificationService();
     }
 
     private void showNotification() {
@@ -91,6 +97,13 @@ public class StarterService extends Service {
             e.printStackTrace();
         } finally {
             isRegistered = false;
+        }
+    }
+
+    private void stopNotificationService() {
+        try {
+            stopService(notificationsAlertIntent);
+        } catch (Exception ignored) {
         }
     }
 }
