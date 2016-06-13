@@ -88,11 +88,11 @@ public class MainService extends Service {
                         return true;
                     }
                 }
-                if ((event.getKeyCode() == KeyEvent.KEYCODE_BACK) && prefs.backButtonToStop) {
+                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && prefs.backButtonToStop) {
                     stopSelf();
                     return true;
                 }
-                if ((event.getKeyCode() == KeyEvent.KEYCODE_HOME)) {
+                if (event.getKeyCode() == KeyEvent.KEYCODE_HOME) {
                     stopSelf();
                     return true;
                 }
@@ -283,6 +283,9 @@ public class MainService extends Service {
 
             @Override
             public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                if (!isInCenter(e1)) {
+                    return false;
+                }
                 float diffY = e2.getY() - e1.getY();
                 float diffX = e2.getX() - e1.getX();
                 if (Math.abs(diffX) > Math.abs(diffY)) {
@@ -310,12 +313,21 @@ public class MainService extends Service {
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
+                if (!isInCenter(e)) {
+                    return false;
+                }
                 Log.d(LOG_TAG, "Double tap");
                 if (prefs.touchToStop) {
                     stopSelf();
                     return true;
                 }
                 return false;
+            }
+
+            private boolean isInCenter(MotionEvent e) {
+                int width = getResources().getDisplayMetrics().widthPixels;
+                int height = getResources().getDisplayMetrics().heightPixels;
+                return e.getX() > width / 4 && e.getX() < width * 3 / 4 && e.getY() > height / 2.5 && e.getY() < height * 4 / 5;
             }
         }
     }
