@@ -435,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
                 i.setData(Uri.parse("mailto:")); // only email apps should handle this
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                i.putExtra(Intent.EXTRA_TEXT, "Your feedback...");
+                i.putExtra(Intent.EXTRA_TEXT, "");
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {

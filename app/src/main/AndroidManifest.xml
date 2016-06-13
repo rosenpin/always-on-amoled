@@ -48,7 +48,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:label="Example Widget"
+            android:label="Toggle Service"
             android:name=".WidgetProvider" >
             <intent-filter >
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
