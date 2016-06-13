@@ -50,4 +50,5 @@
     <string name="toggle">toggle</string>
     <string name="off">Off</string>
     <string name="on">On</string>
+    <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
 </resources>
