@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
         widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
-        startService(widgetUpdaterService);
 
         handleBoolSimplePref((Switch) findViewById(R.id.cb_touch_to_stop), Prefs.KEYS.TOUCH_TO_STOP.toString(), prefs.touchToStop);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_swipe_to_stop), Prefs.KEYS.SWIPE_TO_STOP.toString(), prefs.swipeToStop);
@@ -329,6 +328,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
+        startService(widgetUpdaterService);
     }
 
     @Override
