@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         handleSeekBarPref((SeekBar) findViewById(R.id.sb_brightness), Prefs.KEYS.BRIGHTNESS.toString(), prefs.brightness);
         openSourceLicenses();
         googlePlusCommunitySetup();
+        githubLink();
 
         Intent serviceIntent =
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
@@ -195,6 +196,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/communities/104206728795122451273"));
+                startActivity(browserIntent);
+            }
+        });
+    }
+
+    private void githubLink(){
+        LinearLayout googleplusLL = (LinearLayout) findViewById(R.id.github_link);
+        assert googleplusLL != null;
+        googleplusLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/rosenpin/AlwaysOnDisplayAmoled"));
                 startActivity(browserIntent);
             }
         });

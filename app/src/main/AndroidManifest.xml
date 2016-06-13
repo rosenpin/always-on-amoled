@@ -40,7 +40,7 @@
         <activity android:name=".Activities.DummyCapacitiveButtonsActivity" />
 
         <receiver android:name=".Receivers.ScreenReceiver" />
-
+        <receiver android:name=".Receivers.UnlockReceiver" />
         <receiver android:name=".Receivers.CallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />

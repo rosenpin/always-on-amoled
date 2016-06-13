@@ -3,6 +3,7 @@ package com.tomer.alwayson.Services;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
@@ -31,6 +32,7 @@ import com.tomer.alwayson.Activities.DummyBrightnessActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.Receivers.UnlockReceiver;
 
 import java.util.Map;
 import java.util.Random;
@@ -43,6 +45,7 @@ public class MainService extends Service {
     private float originalBrightness = 0.7f;
     private int autoBrightnessStatus;
     private PowerManager.WakeLock WakeLock1;
+    private UnlockReceiver unlockReceiver;
 
     public static double randInt(double min, double max) {
         double random = new Random().nextInt((int) ((max - min) + 1)) + min;
@@ -89,6 +92,10 @@ public class MainService extends Service {
         };
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
+        unlockReceiver = new UnlockReceiver();
+        IntentFilter filter = new IntentFilter(Intent.ACTION_USER_PRESENT);
+        filter.addAction(Intent.ACTION_ASSIST);
+        registerReceiver(unlockReceiver, filter);
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
 
@@ -274,6 +281,7 @@ public class MainService extends Service {
             Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
         }
         setBrightness(originalBrightness / 255, autoBrightnessStatus);
+        unregisterReceiver(unlockReceiver);
     }
 
     @Nullable
