@@ -3,27 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    android:gravity="center"
     android:foregroundGravity="center"
+    android:gravity="center"
     android:orientation="vertical">
 
     <TextClock
-        android:textColor="@android:color/white"
-        android:layout_gravity="center_horizontal"
         android:id="@+id/time_tv"
-        android:format12Hour="hh:mm a"
-        android:singleLine="true"
-        android:format24Hour="hh:mm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
         android:textSize="88sp" />
 
     <LinearLayout
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
         android:id="@+id/icons_wrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:orientation="horizontal">
 
     </LinearLayout>
