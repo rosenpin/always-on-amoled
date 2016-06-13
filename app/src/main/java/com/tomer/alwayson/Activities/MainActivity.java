@@ -21,6 +21,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -91,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
         googlePlusCommunitySetup();
         githubLink();
 
+        if (hasSoftKeys())
+            ((LinearLayout) findViewById(R.id.wake_up_settings_wrapper)).removeView(findViewById(R.id.back_button_to_stop_wrapper));
+
         Intent serviceIntent =
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
         serviceIntent.setPackage("com.android.vending");
@@ -100,6 +105,29 @@ public class MainActivity extends AppCompatActivity {
 
         startService(starterServiceIntent);
     }
+
+    private boolean hasSoftKeys() {
+        boolean hasSoftwareKeys = true;
+
+        Display d = getWindowManager().getDefaultDisplay();
+
+        DisplayMetrics realDisplayMetrics = new DisplayMetrics();
+        d.getRealMetrics(realDisplayMetrics);
+
+        int realHeight = realDisplayMetrics.heightPixels;
+        int realWidth = realDisplayMetrics.widthPixels;
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        d.getMetrics(displayMetrics);
+
+        int displayHeight = displayMetrics.heightPixels;
+        int displayWidth = displayMetrics.widthPixels;
+
+        hasSoftwareKeys = (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+
+        return hasSoftwareKeys;
+    }
+
 
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
@@ -380,7 +408,7 @@ public class MainActivity extends AppCompatActivity {
                         findViewById(R.id.cb_show_notification).setEnabled(false);
                     } else {
                         findViewById(R.id.cb_show_notification).setEnabled(true);
-                        ((Switch)findViewById(R.id.cb_show_notification)).setChecked(true);
+                        ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
                     }
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())) {
