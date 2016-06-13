@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void googlePlusCommunitySetup(){
+    private void googlePlusCommunitySetup() {
         LinearLayout googleplusLL = (LinearLayout) findViewById(R.id.google_plus_wrapper);
         assert googleplusLL != null;
         googleplusLL.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void githubLink(){
+    private void githubLink() {
         LinearLayout googleplusLL = (LinearLayout) findViewById(R.id.github_link);
         assert googleplusLL != null;
         googleplusLL.setOnClickListener(new View.OnClickListener() {
@@ -272,7 +272,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
 
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
