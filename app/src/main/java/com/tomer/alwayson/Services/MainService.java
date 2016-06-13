@@ -1,5 +1,6 @@
 package com.tomer.alwayson.Services;
 
+import android.app.ActivityManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -41,6 +42,7 @@ import java.util.Random;
 public class MainService extends Service {
 
     private static final String LOG_TAG = MainService.class.getSimpleName();
+    private static final String NOTIFICATION_LOG_TAG = NotificationListener.class.getSimpleName();
 
     private Prefs prefs;
     private FrameLayout frameLayout;
@@ -54,7 +56,6 @@ public class MainService extends Service {
     @SuppressWarnings("WeakerAccess")
     public static double randInt(double min, double max) {
         double random = new Random().nextInt((int) ((max - min) + 1)) + min;
-        Log.d(LOG_TAG, String.format("Random is: %1$s", random));
         return random;
     }
 
@@ -64,6 +65,9 @@ public class MainService extends Service {
         super.onCreate();
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
+
+        if (prefs.notificationsAlerts && !isNotificationServiceRunning())//Only start the service if it's not already running
+            new Intent(getApplicationContext(), NotificationListener.class);
 
         setBrightness(prefs.brightness, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
 
@@ -235,6 +239,19 @@ public class MainService extends Service {
                     }
                 },
                 20000);
+    }
+
+    private boolean isNotificationServiceRunning() {
+        Class<?> serviceClass = NotificationListener.class;
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.d(NOTIFICATION_LOG_TAG, " Is already running");
+                return true;
+            }
+        }
+        Log.d(NOTIFICATION_LOG_TAG, " Is not running");
+        return false;
     }
 
     @Override

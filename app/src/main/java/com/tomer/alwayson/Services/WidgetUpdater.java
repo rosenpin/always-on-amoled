@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.tomer.alwayson.Prefs;
@@ -17,6 +18,7 @@ import com.tomer.alwayson.WidgetProvider;
  * Created by tomer AKA rosenpin on 6/13/16.
  */
 public class WidgetUpdater extends Service {
+    private static String TAG  = WidgetUpdater.class.getSimpleName();
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -26,8 +28,7 @@ public class WidgetUpdater extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        System.out.println("Started widget updater service");
-
+        Log.i(TAG,"Started");
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
@@ -45,5 +46,11 @@ public class WidgetUpdater extends Service {
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
 
         stopSelf();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG,"Destroyed");
     }
 }

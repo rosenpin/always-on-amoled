@@ -1,6 +1,7 @@
 package com.tomer.alwayson.Activities;
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
@@ -23,6 +24,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,6 +52,7 @@ import de.psdev.licensesdialog.model.Notices;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
     private Prefs prefs;
     private Intent starterServiceIntent;
     private Intent widgetUpdaterService;
@@ -330,7 +333,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-        startService(widgetUpdaterService);
+        if (!isServiceRunning(WidgetUpdater.class))//Only start service if it's not already running
+            startService(widgetUpdaterService);
     }
 
     @Override
@@ -408,7 +412,8 @@ public class MainActivity extends AppCompatActivity {
                         findViewById(R.id.cb_show_notification).setEnabled(true);
                         ((Switch) findViewById(R.id.cb_show_notification)).setChecked(true);
                     }
-                    startService(widgetUpdaterService);
+                    if (!isServiceRunning(WidgetUpdater.class))//Only start service if it's not already running
+                        startService(widgetUpdaterService);
                     restartService();
                 } else if (prefName.equals(Prefs.KEYS.NOTIFICATION_ALERTS.toString())) {
                     if (isChecked)
@@ -428,6 +433,18 @@ public class MainActivity extends AppCompatActivity {
         startService(starterServiceIntent);
     }
 
+    private boolean isServiceRunning(Class<?> serviceClass) {
+        String serviceTag = serviceClass.getSimpleName();
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.d(TAG, "Is already running");
+                return true;
+            }
+        }
+        Log.d(serviceTag, "Is not running");
+        return false;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

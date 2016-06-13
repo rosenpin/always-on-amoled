@@ -9,22 +9,23 @@ import android.util.Log;
 import com.tomer.alwayson.Constants;
 
 public class NotificationListener extends NotificationListenerService {
-    String TAG = "Notification Listener ";
+    public static String TAG = NotificationListenerService.class.getSimpleName();
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG,"started");
+        Log.d(TAG, "started");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"destroyed");
+        Log.d(TAG, "destroyed");
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        Log.d("New notification ",added.getPackageName());
+        Log.i(TAG, "New notification");
         if (added.isClearable()) {
             Constants.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
         }
@@ -32,6 +33,7 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
+        Log.d(TAG, "Notification removed " + removed.getNotification().tickerText);
         Constants.notificationsDrawables.remove(getUniqueKey(removed));
     }
 

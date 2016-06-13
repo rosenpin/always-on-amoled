@@ -1,13 +1,16 @@
 package com.tomer.alwayson.Services;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
@@ -39,7 +42,8 @@ public class StarterService extends Service {
                 showNotification();
             }
             if (prefs.notificationsAlerts) {
-                startService(notificationsAlertIntent);
+                if (!isNotificationServiceRunning()) //Only start the service if it's not already running
+                    startService(notificationsAlertIntent);
             }
             registerReceiver();
         } else {
@@ -106,4 +110,18 @@ public class StarterService extends Service {
         } catch (Exception ignored) {
         }
     }
+
+    private boolean isNotificationServiceRunning() {
+        Class<?> serviceClass = NotificationListener.class;
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.d(NotificationListener.TAG, " Is already running");
+                return true;
+            }
+        }
+        Log.d(NotificationListener.TAG, " Is not running");
+        return false;
+    }
+
 }

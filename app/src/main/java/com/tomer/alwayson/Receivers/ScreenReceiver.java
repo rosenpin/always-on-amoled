@@ -12,16 +12,15 @@ import com.tomer.alwayson.Services.MainService;
 import static android.content.Context.POWER_SERVICE;
 
 public class ScreenReceiver extends BroadcastReceiver {
-
-    // thanks Jason
+    private static String TAG = ScreenReceiver.class.getSimpleName();
     public static boolean wasScreenOn = true;
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.i(TAG, "Received");
         Intent intent1 = new Intent(context, MainService.class);
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-            // do whatever you need to do here
-            System.out.println("Screen turned off");
+            Log.i(TAG,"Screen turned off");
             if (!Constants.isShown) {
                 context.startService(intent1);
                 Constants.isShown = true;
@@ -38,8 +37,7 @@ public class ScreenReceiver extends BroadcastReceiver {
             }
             wasScreenOn = false;
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-            // and do whatever you need to do here
-            System.out.println("Screen turned on");
+            Log.i(TAG,"Screen turned on");
             wasScreenOn = true;
         }
     }
