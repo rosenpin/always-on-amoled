@@ -33,7 +33,6 @@ public class WidgetProvider extends AppWidgetProvider {
                     R.layout.widget_layout);
             Log.w("WidgetExample", String.valueOf(number));
             // Set the text
-            remoteViews.setTextViewText(R.id.update, String.valueOf(number));
 
             // Register an onClickListener
             Intent intent = new Intent(context, WidgetProvider.class);
@@ -47,7 +46,7 @@ public class WidgetProvider extends AppWidgetProvider {
             PendingIntent toggleService = PendingIntent.getBroadcast(context,
                     0, new Intent(context,ToggleService.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
-            remoteViews.setOnClickPendingIntent(R.id.update, toggleService);
+            remoteViews.setOnClickPendingIntent(R.id.toggle, toggleService);
             appWidgetManager.updateAppWidget(widgetId, remoteViews);
         }
     }
