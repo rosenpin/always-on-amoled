@@ -1,20 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/general"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/licenses_wrapper"
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:background="?android:selectableItemBackground"
-    android:orientation="horizontal"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
-        android:id="@+id/licenses_wrapper"
-        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,7 +22,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_licenses_desc"
-            android:textSize="12sp"
-            />
-    </LinearLayout>
-</RelativeLayout>
+            android:textSize="12sp" />
+</LinearLayout>

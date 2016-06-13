@@ -37,9 +37,9 @@
                 android:paddingBottom="10dp">
 
                 <TextView
-                    android:layout_gravity="start"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="start"
                     android:paddingBottom="8dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
@@ -72,18 +72,15 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingTop="16dp"
-                    android:text="@string/settings_wake_up"
+                    android:text="@string/settings_behaviour"
                     android:textAllCaps="true"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <include layout="@layout/settings_touch_to_stop" />
+                <include layout="@layout/settings_move" />
 
-                <include layout="@layout/settings_swipe_to_stop" />
+                <include layout="@layout/settings_notifications_alerts" />
 
-                <include layout="@layout/settings_volume_to_stop" />
-
-                <include layout="@layout/settings_back_button_to_stop" />
             </LinearLayout>
 
             <LinearLayout
@@ -102,15 +99,18 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingTop="16dp"
-                    android:text="@string/settings_behaviour"
+                    android:text="@string/settings_wake_up"
                     android:textAllCaps="true"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <include layout="@layout/settings_move" />
+                <include layout="@layout/settings_touch_to_stop" />
 
-                <include layout="@layout/settings_notifications_alerts" />
+                <include layout="@layout/settings_swipe_to_stop" />
 
+                <include layout="@layout/settings_volume_to_stop" />
+
+                <include layout="@layout/settings_back_button_to_stop" />
             </LinearLayout>
 
             <LinearLayout

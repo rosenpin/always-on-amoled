@@ -1,20 +1,23 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/general"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="wrap_content"
     android:background="?android:selectableItemBackground"
+    android:minHeight="56dp"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:weightSum="1">
+
 
     <LinearLayout
+        android:id="@+id/wrapper"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
-        android:id="@+id/wrapper"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,17 +31,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_enabled_desc"
-            android:textSize="12sp"
-            />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <Switch
-        android:layout_toEndOf="@+id/wrapper"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:layout_alignParentEnd="true"
         android:id="@+id/cb_enabled"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        />
-</RelativeLayout>
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textSize="16sp" />
+</LinearLayout>

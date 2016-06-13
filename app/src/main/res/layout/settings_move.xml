@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/general"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
+    android:layout_height="wrap_content"
+    android:minHeight="56dp"
     android:background="?android:selectableItemBackground"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
@@ -13,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
-        android:layout_weight="0.2"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -21,6 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:singleLine="true"
             android:text="@string/move"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -37,7 +38,7 @@
         android:id="@+id/cb_move"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
         android:gravity="center_vertical"
         android:textSize="16sp" />
 

@@ -14,13 +14,13 @@
     <string name="settings_volume_to_stop_desc">Press volume keys to dismiss</string>
     <string name="settings_touch_to_stop_desc">Touch the screen to dismiss</string>
     <string name="settings_swipe_to_stop_desc">Swipe up to dismiss the screen</string>
-    <string name="settings_notifications_desc">Enable this if the app gets killed in background</string>
+    <string name="settings_notifications_desc">Enable this to keep the app running</string>
     <string name="settings_behaviour">Behaviour</string>
     <string name="settings_appearance">Appearance</string>
     <string name="brightness">Brightness</string>
-    <string name="settings_brightness_desc">Screen brightness while locked</string>
+    <string name="settings_brightness_desc">Screen brightness while off</string>
     <string name="notifications_alerts">Notifications</string>
-    <string name="settings_notifications_alerts_desc">Show notifications from other apps when received on the lockscreen</string>
+    <string name="settings_notifications_alerts_desc">Show notifications from other apps when received</string>
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
     <string name="revert">Revert</string>
     <string name="feedback">Feedback</string>
