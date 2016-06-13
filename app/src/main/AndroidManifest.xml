@@ -47,10 +47,22 @@
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:label="Example Widget"
+            android:name=".WidgetProvider" >
+            <intent-filter >
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider_info" />
+        </receiver>
 
         <service android:name=".Services.MainService" />
 
         <service android:name=".Services.ServiceTurnOn" />
+        <service android:name=".ToggleService"/>
         <service
             android:name=".Services.StarterService"
             android:enabled="true"
