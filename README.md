@@ -15,6 +15,12 @@ You can view a list of known issues and feature requests using [the issue tracke
 https://github.com/rosenpin/AlwaysOnDisplayAmoled/issues). If you don't see your issue (or you
 aren't sure) feel free to [submit it!](https://github.com/rosenpin/AlwaysOnDisplayAmoled/issues/new)
 
+### Translation
+
+I created a translation program for the app.
+If you can and want to contribute, you can do it [right here](https://snapchatgeofilters.oneskyapp.com/collaboration/project/158837) :)
+
+
 ## Licensing
 
 Always On Display is licensed under the [GNU v3 Public License.](license.txt)
