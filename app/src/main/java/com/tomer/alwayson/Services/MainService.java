@@ -86,9 +86,7 @@ public class MainService extends Service {
                     if (prefs.volumeToStop) {
                         stopSelf();
                         return true;
-                    } else {
-                        return true;
-                    }
+                    } else return prefs.disableVolumeKeys;
                 }
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && prefs.backButtonToStop) {
                     stopSelf();
@@ -103,10 +101,9 @@ public class MainService extends Service {
         };
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
+
         unlockReceiver = new UnlockReceiver();
         IntentFilter filter = new IntentFilter();
-
-
         registerReceiver(unlockReceiver, filter);
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);

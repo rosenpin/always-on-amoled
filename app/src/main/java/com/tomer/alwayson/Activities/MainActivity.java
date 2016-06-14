@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         handleBoolSimplePref((Switch) findViewById(R.id.cb_enabled), Prefs.KEYS.ENABLED.toString(), prefs.enabled);
         handleBoolSimplePref((Switch) findViewById(R.id.cb_move), Prefs.KEYS.MOVE_WIDGET.toString(), prefs.moveWidget);
         handleBoolSimplePref((Switch) findViewById(R.id.switch_notifications_alert), Prefs.KEYS.NOTIFICATION_ALERTS.toString(), prefs.notificationsAlerts);
+        handleBoolSimplePref((Switch) findViewById(R.id.switch_disable_volume_keys), Prefs.KEYS.DISABLE_VOLUME_KEYS.toString(), prefs.disableVolumeKeys);
         handleSeekBarPref((SeekBar) findViewById(R.id.sb_brightness), Prefs.KEYS.BRIGHTNESS.toString(), prefs.brightness);
         openSourceLicenses();
         googlePlusCommunitySetup();

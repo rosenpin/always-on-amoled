@@ -51,4 +51,6 @@
     <string name="off">Off</string>
     <string name="on">On</string>
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
+    <string name="disable_volume_keys">Disable volume keys</string>
+    <string name="enable_this_to_prevent_accidental_volume_change">Enable this to prevent accidental volume change</string>
 </resources>
