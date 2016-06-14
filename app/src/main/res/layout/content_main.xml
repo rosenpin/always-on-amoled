@@ -79,6 +79,8 @@
 
                 <include layout="@layout/settings_notifications_alerts" />
 
+                <include layout="@layout/settings_disable_volume_keys" />
+
             </LinearLayout>
 
             <LinearLayout
