@@ -18,11 +18,9 @@ public class Prefs {
     public boolean permissionGranting;
 
     private SharedPreferences prefs;
-    private Context context;
 
     public Prefs(Context context) {
         prefs = context.getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        this.context = context;
     }
 
     public void apply() {
