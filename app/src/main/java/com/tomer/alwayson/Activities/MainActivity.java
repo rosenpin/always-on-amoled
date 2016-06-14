@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
         return hasSoftwareKeys;
     }
 
-
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
         assert donateButton != null;
