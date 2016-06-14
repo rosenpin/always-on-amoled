@@ -165,8 +165,11 @@
 
                 <include layout="@layout/settings_github" />
 
+                <include layout="@layout/settings_translate" />
+
                 <include layout="@layout/settings_libraries" />
 
+                <include layout="@layout/settings_version" />
             </LinearLayout>
 
         </LinearLayout>

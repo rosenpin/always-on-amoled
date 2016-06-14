@@ -84,11 +84,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/wake_up_settings_wrapper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@color/card_background"
-                android:id="@+id/wake_up_settings_wrapper"
                 android:orientation="vertical"
                 android:paddingBottom="10dp">
 
@@ -160,8 +160,11 @@
 
                 <include layout="@layout/settings_github" />
 
+                <include layout="@layout/settings_translate" />
+
                 <include layout="@layout/settings_libraries" />
 
+                <include layout="@layout/settings_version" />
             </LinearLayout>
 
         </LinearLayout>

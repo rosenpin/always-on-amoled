@@ -53,4 +53,8 @@
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
     <string name="disable_volume_keys">Disable volume keys</string>
     <string name="enable_this_to_prevent_accidental_volume_change">Enable this to prevent accidental volume change</string>
+    <string name="app_version">Version</string>
+    <string name="build">build</string>
+    <string name="translate">Translate</string>
+    <string name="help_translating_the_app">Help translating the app</string>
 </resources>

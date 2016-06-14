@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -36,6 +37,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
@@ -101,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         openSourceLicenses();
         googlePlusCommunitySetup();
         githubLink();
+        translate();
+        version();
 
         if (hasSoftKeys())
             ((LinearLayout) findViewById(R.id.wake_up_settings_wrapper)).removeView(findViewById(R.id.back_button_to_stop_wrapper));
@@ -114,6 +118,30 @@ public class MainActivity extends AppCompatActivity {
 
         stopService(starterServiceIntent);
         startService(starterServiceIntent);
+    }
+
+    private void translate() {
+        LinearLayout translateWrapper = (LinearLayout) findViewById(R.id.translate_wrapper);
+        assert translateWrapper != null;
+        translateWrapper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://tomerrosenfeld.oneskyapp.com/collaboration/project/158837"));
+                startActivity(browserIntent);
+            }
+        });
+
+    }
+
+    private void version() {
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            assert findViewById(R.id.version_tv) != null;
+            ((TextView) findViewById(R.id.version_tv)).setText(getString(R.string.app_version) + ": " + pInfo.versionName + " " + getString(R.string.build) + ": " + pInfo.versionCode);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private boolean hasSoftKeys() {
