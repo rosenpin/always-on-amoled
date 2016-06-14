@@ -202,7 +202,9 @@ public class MainActivity extends AppCompatActivity {
                                 if (pendingIntent == null) {
                                     Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
                                 } else {
-
+                                    startIntentSenderForResult(pendingIntent.getIntentSender(),
+                                            1001, new Intent(), 0, 0,
+                                            0);
                                 }
                             } else {
                                 startIntentSenderForResult(pendingIntent.getIntentSender(),
