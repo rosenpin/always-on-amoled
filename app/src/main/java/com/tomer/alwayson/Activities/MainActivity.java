@@ -384,7 +384,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void handleBoolSimplePref(Switch cb, final String prefName, boolean val) {
         cb.setChecked(val);
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

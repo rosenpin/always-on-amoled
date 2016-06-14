@@ -22,7 +22,7 @@ public class WidgetProvider extends AppWidgetProvider {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         Intent configIntent = new Intent(context, ToggleService.class);
 
-        if (prefs.enabled) {
+        if (!prefs.enabled) {
             remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
             remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.off));
         } else {

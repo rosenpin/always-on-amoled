@@ -42,7 +42,6 @@ import java.util.Random;
 public class MainService extends Service {
 
     private static final String LOG_TAG = MainService.class.getSimpleName();
-    private static final String NOTIFICATION_LOG_TAG = NotificationListener.class.getSimpleName();
 
     private Prefs prefs;
     private FrameLayout frameLayout;
@@ -58,7 +57,6 @@ public class MainService extends Service {
         double random = new Random().nextInt((int) ((max - min) + 1)) + min;
         return random;
     }
-
 
     @Override
     public void onCreate() {
@@ -221,7 +219,6 @@ public class MainService extends Service {
                     }
                 },
                 3000);
-
     }
 
     private void refreshLong() {
@@ -246,11 +243,11 @@ public class MainService extends Service {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
-                Log.d(NOTIFICATION_LOG_TAG, " Is already running");
+                Log.d(NotificationListener.TAG, "Is already running");
                 return true;
             }
         }
-        Log.d(NOTIFICATION_LOG_TAG, " Is not running");
+        Log.d(NotificationListener.TAG, "Is not running");
         return false;
     }
 

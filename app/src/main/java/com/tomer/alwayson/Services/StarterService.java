@@ -37,12 +37,16 @@ public class StarterService extends Service {
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
+        if (isServiceRunning(WidgetUpdater.class)) {
+            startService(new Intent(getApplicationContext(), WidgetUpdater.class));
+        }
+
         if (prefs.enabled) {
             if (prefs.showNotification) {
                 showNotification();
             }
             if (prefs.notificationsAlerts) {
-                if (!isNotificationServiceRunning()) //Only start the service if it's not already running
+                if (!isServiceRunning(NotificationListener.class)) //Only start the service if it's not already running
                     startService(notificationsAlertIntent);
             }
             registerReceiver();
@@ -111,16 +115,17 @@ public class StarterService extends Service {
         }
     }
 
-    private boolean isNotificationServiceRunning() {
-        Class<?> serviceClass = NotificationListener.class;
+    private boolean isServiceRunning(Class<?> serviceClass) {
+        String TAG = serviceClass.getSimpleName();
+        String serviceTag = serviceClass.getSimpleName();
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
-                Log.d(NotificationListener.TAG, " Is already running");
+                Log.d(TAG, "Is already running");
                 return true;
             }
         }
-        Log.d(NotificationListener.TAG, " Is not running");
+        Log.d(serviceTag, "Is not running");
         return false;
     }
 
