@@ -176,9 +176,11 @@ public class MainActivity extends AppCompatActivity {
                     String IAPID = SecretConstants.getPropertyValue(getBaseContext(), "IAPID");
                     String IAPID2 = SecretConstants.getPropertyValue(getBaseContext(), "IAPID2");
                     String IAPID3 = SecretConstants.getPropertyValue(getBaseContext(), "IAPID3");
+                    String IAPID4 = SecretConstants.getPropertyValue(getBaseContext(), "IAPID4");
                     String googleIAPCode = SecretConstants.getPropertyValue(getBaseContext(), "googleIAPCode");
                     Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
                             IAPID, "inapp", googleIAPCode);
+                    Log.d("IAPID ", IAPID);
 
                     PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
 
@@ -188,12 +190,20 @@ public class MainActivity extends AppCompatActivity {
                                 IAPID2, "inapp", googleIAPCode);
                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                         if (pendingIntent == null) {
-                            Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks_great), Snackbar.LENGTH_LONG).show();
                             buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
                                     IAPID3, "inapp", googleIAPCode);
                             pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                             if (pendingIntent == null) {
-                                Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks_huge), Snackbar.LENGTH_LONG).show();
+                                buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
+                                        IAPID4, "inapp", googleIAPCode);
+                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                                if (pendingIntent == null) {
+                                    Snackbar.make(findViewById(android.R.id.content), getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
+                                } else {
+
+                                }
                             } else {
                                 startIntentSenderForResult(pendingIntent.getIntentSender(),
                                         1001, new Intent(), 0, 0,

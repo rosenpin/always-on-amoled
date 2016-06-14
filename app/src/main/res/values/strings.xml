@@ -57,4 +57,7 @@
     <string name="build">build</string>
     <string name="translate">Translate</string>
     <string name="help_translating_the_app">Help translating the app</string>
+    <string name="thanks_great">Thank you for your great support! :)</string>
+    <string name="thanks_huge">Thank you for your huge support!! :)</string>
+    <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
 </resources>
