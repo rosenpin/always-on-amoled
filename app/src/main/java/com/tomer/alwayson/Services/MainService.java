@@ -104,9 +104,9 @@ public class MainService extends Service {
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
         unlockReceiver = new UnlockReceiver();
-        IntentFilter filter = new IntentFilter(Intent.ACTION_USER_PRESENT);
-        filter.addAction(Intent.ACTION_ASSIST);
-        filter.addAction(Intent.ACTION_ALL_APPS);
+        IntentFilter filter = new IntentFilter();
+
+
         registerReceiver(unlockReceiver, filter);
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
