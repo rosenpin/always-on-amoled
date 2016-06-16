@@ -12,33 +12,38 @@ import com.tomer.alwayson.Services.MainService;
 import static android.content.Context.POWER_SERVICE;
 
 public class ScreenReceiver extends BroadcastReceiver {
-    private static String TAG = ScreenReceiver.class.getSimpleName();
-    public static boolean wasScreenOn = true;
+
+    private static final String TAG = ScreenReceiver.class.getSimpleName();
+    private static final String WAKE_LOCK_TAG = "ScreenOnWakeLock";
+
+    public static void turnScreenOn(Context c, boolean stopService) {
+        try {
+            if (stopService) {
+                c.stopService(new Intent(c, MainService.class));
+                Constants.isShown = false;
+            }
+            @SuppressWarnings("deprecation")
+            PowerManager.WakeLock wl = ((PowerManager) c.getSystemService(POWER_SERVICE)).newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, WAKE_LOCK_TAG);
+            wl.acquire();
+            wl.release();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i(TAG, "Received");
-        Intent intent1 = new Intent(context, MainService.class);
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-            Log.i(TAG,"Screen turned off");
-            if (!Constants.isShown) {
-                context.startService(intent1);
-                Constants.isShown = true;
+            Log.i(TAG, "Screen turned off\nShown:" + Constants.isShown);
+            if (Constants.isShown) {
+                // Screen turned off with service running, wake up device
+                turnScreenOn(context, true);
             } else {
-                try {
-                    PowerManager.WakeLock wl = ((PowerManager) context.getSystemService(POWER_SERVICE)).newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "tag");
-                    wl.acquire();
-                    context.stopService(intent1);
-                    Constants.isShown = false;
-                    wl.release();
-                } catch (Exception e) {
-                    Log.d("Error: ", e.getMessage());
-                }
+                // Start service when screen is off
+                context.startService(new Intent(context, MainService.class));
             }
-            wasScreenOn = false;
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
-            Log.i(TAG,"Screen turned on");
-            wasScreenOn = true;
+            Log.i(TAG, "Screen turned on\nShown:" + Constants.isShown);
         }
     }
 }
