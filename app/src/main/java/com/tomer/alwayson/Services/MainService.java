@@ -9,6 +9,10 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -34,28 +38,35 @@ import com.tomer.alwayson.Activities.DummyBrightnessActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
 import java.util.Map;
 import java.util.Random;
 
-public class MainService extends Service {
+import eu.chainfire.libsuperuser.Shell;
+
+public class MainService extends Service implements SensorEventListener {
 
     private static final String LOG_TAG = MainService.class.getSimpleName();
+    private static final String WAKE_LOCK_TAG = "StayAwakeWakeLock";
 
     private Prefs prefs;
+    private int originalBrightness = 180;
+    private int originalAutoBrightnessStatus;
+
+    private WindowManager windowManager;
     private FrameLayout frameLayout;
     private View mainView;
     private LinearLayout iconWrapper;
-    private int originalBrightness = 180;
-    private int originalAutoBrightnessStatus;
-    private PowerManager.WakeLock WakeLock1;
+    private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
+
+    private SensorManager sensorManager;
 
     @SuppressWarnings("WeakerAccess")
     public static double randInt(double min, double max) {
-        double random = new Random().nextInt((int) ((max - min) + 1)) + min;
-        return random;
+        return new Random().nextInt((int) ((max - min) + 1)) + min;
     }
 
     @Override
@@ -64,20 +75,33 @@ public class MainService extends Service {
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
-        if (prefs.notificationsAlerts && !isNotificationServiceRunning())//Only start the service if it's not already running
+        stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
+        stayAwakeWakeLock.setReferenceCounted(false);
+        originalAutoBrightnessStatus = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        originalBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 180);
+
+        if (prefs.notificationsAlerts && !isNotificationServiceRunning()) // Only start the service if it's not already running
             new Intent(getApplicationContext(), NotificationListener.class);
 
-        setBrightness(prefs.brightness, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        // Setup UI
+        setLightsOff(true);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                stayAwakeWakeLock.acquire();
+            }
+        }, 500);
 
-        WindowManager.LayoutParams lp;
+        windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
+        WindowManager.LayoutParams windowParams;
         if (Build.VERSION.SDK_INT < 19) {
-            lp = new WindowManager.LayoutParams(-1, -1, 2010, 65794, -2);
+            windowParams = new WindowManager.LayoutParams(-1, -1, 2010, 65794, -2);
         } else {
-            lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+            windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
         }
 
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        windowParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         frameLayout = new FrameLayout(this) {
             @Override
@@ -99,30 +123,26 @@ public class MainService extends Service {
                 return super.dispatchKeyEvent(event);
             }
         };
+        frameLayout.setOnTouchListener(new OnDismissListener(this));
+        frameLayout.setBackgroundColor(Color.BLACK);
+        frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
-        iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
-
-        unlockReceiver = new UnlockReceiver();
-        IntentFilter filter = new IntentFilter();
-        registerReceiver(unlockReceiver, filter);
-
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
         } else {
             refreshLong();
             mainLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
         }
-
         mainView.setLayoutParams(mainLayoutParams);
+        iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
 
-        frameLayout.setBackgroundColor(Color.BLACK);
-
-        frameLayout.setOnTouchListener(new OnDismissListener(this));
+        unlockReceiver = new UnlockReceiver();
+        IntentFilter filter = new IntentFilter();
+        registerReceiver(unlockReceiver, filter);
 
         try {
-            ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(frameLayout, lp);
+            windowManager.addView(frameLayout, windowParams);
         } catch (Exception e) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
@@ -131,70 +151,19 @@ public class MainService extends Service {
             }
         }
 
+        // Sensor handling
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+            sensorManager.registerListener(this, proximitySensor, 250000, 50000);
+        else
+            sensorManager.registerListener(this, proximitySensor, 250000);
+
+        // UI refreshing
         refresh();
-
-        new Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        WakeLock1 = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, "WAKEUP");
-                        WakeLock1.acquire();
-                    }
-                },
-                500);
-
-        frameLayout.setForegroundGravity(Gravity.CENTER);
-
-        disableButtonBacklight();
-    }
-
-    private void disableButtonBacklight() {
-        /*Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
-        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        intent.putExtra("turn",false);
-        startActivity(intent);*/
-        try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", 0);
-        } catch (Exception ignored) {
-        }
-    }
-
-    private void enableButtonBacklight() {
-        /*
-        Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
-        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        intent.putExtra("turn",true);
-        startActivity(intent);*/
-        try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", -1);
-        } catch (Exception ignored) {
-        }
-    }
-
-    private void setBrightness(int brightnessVal, int autoBrightnessStatusVar) {
-        originalAutoBrightnessStatus = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-        originalBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 180);
-        Log.d(LOG_TAG, String.format("Original brightness: %1$s", originalBrightness));
-        try {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, autoBrightnessStatusVar);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightnessVal);
-
-            Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("brightness value", brightnessVal);
-            // getApplication().startActivity(intent);
-        } catch (Exception e) {
-            Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void refresh() {
-
         iconWrapper.removeAllViews();
         for (Map.Entry<String, Drawable> entry : Constants.notificationsDrawables.entrySet()) {
             Drawable drawable = entry.getValue();
@@ -208,7 +177,6 @@ public class MainService extends Service {
             iconWrapper.addView(icon);
         }
 
-
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -219,7 +187,7 @@ public class MainService extends Service {
     }
 
     private void refreshLong() {
-        Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+        Display display = windowManager.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int height = size.y;
@@ -235,6 +203,92 @@ public class MainService extends Service {
                 20000);
     }
 
+    private void setLightsOff(boolean value) {
+        try {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, value ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, value ? prefs.brightness : originalBrightness);
+
+            Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            // getApplication().startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
+        }
+
+        /*Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        intent.putExtra("turn", !value);
+        startActivity(intent);*/
+        try {
+            Settings.System.putInt(getContentResolver(), "button_key_light", value ? 0 : -1);
+        } catch (Exception ignored) {
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        sensorManager.unregisterListener(this);
+        unregisterReceiver(unlockReceiver);
+        super.onDestroy();
+        setLightsOff(false);
+        try {
+            windowManager.removeView(frameLayout);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
+        }
+        stayAwakeWakeLock.release();
+        Constants.isShown = false;
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
+    public void onSensorChanged(final SensorEvent event) {
+        if (event.values[0] < 1) {
+            // Sensor distance smaller than 1cm
+            stayAwakeWakeLock.release();
+            Constants.isShown = false;
+            Constants.sensorIsScreenOff = false;
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if (Shell.SU.available())
+                        Shell.SU.run("input keyevent 26"); // Screen off
+                }
+            }).start();
+        } else {
+            if (!Constants.sensorIsScreenOff) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        onSensorChanged(event);
+                    }
+                }, 200);
+                return;
+            }
+            ScreenReceiver.turnScreenOn(this, false);
+            Constants.isShown = true;
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    stayAwakeWakeLock.acquire();
+                }
+            }, 500);
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
     private boolean isNotificationServiceRunning() {
         Class<?> serviceClass = NotificationListener.class;
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -246,27 +300,6 @@ public class MainService extends Service {
         }
         Log.d(NotificationListener.TAG, "Is not running");
         return false;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        enableButtonBacklight();
-        Constants.isShown = false;
-        try {
-            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(frameLayout);
-            WakeLock1.release();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
-        }
-        setBrightness(originalBrightness, originalAutoBrightnessStatus);
-        unregisterReceiver(unlockReceiver);
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 
     private class OnDismissListener implements View.OnTouchListener {
