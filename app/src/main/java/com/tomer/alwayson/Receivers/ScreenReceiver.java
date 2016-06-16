@@ -34,6 +34,7 @@ public class ScreenReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+            Constants.sensorIsScreenOff = true;
             Log.i(TAG, "Screen turned off\nShown:" + Constants.isShown);
             if (Constants.isShown) {
                 // Screen turned off with service running, wake up device

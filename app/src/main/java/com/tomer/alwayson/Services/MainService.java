@@ -251,11 +251,12 @@ public class MainService extends Service implements SensorEventListener {
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(final SensorEvent event) {
         if (event.values[0] < 1) {
             // Sensor distance smaller than 1cm
             stayAwakeWakeLock.release();
             Constants.isShown = false;
+            Constants.sensorIsScreenOff = false;
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -264,6 +265,15 @@ public class MainService extends Service implements SensorEventListener {
                 }
             }).start();
         } else {
+            if (!Constants.sensorIsScreenOff) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        onSensorChanged(event);
+                    }
+                }, 200);
+                return;
+            }
             ScreenReceiver.turnScreenOn(this, false);
             Constants.isShown = true;
             new Handler().postDelayed(new Runnable() {
