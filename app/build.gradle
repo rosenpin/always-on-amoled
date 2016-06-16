@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
 
     defaultConfig {
         applicationId "com.tomer.alwayson"
         minSdkVersion 18
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 40
         versionName "0.52"
     }
@@ -17,19 +17,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support.constraint:constraint-layout:+'
-    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:design:24.0.0'
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
 }
