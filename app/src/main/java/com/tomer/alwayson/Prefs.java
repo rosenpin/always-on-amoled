@@ -30,7 +30,7 @@ public class Prefs {
         volumeToStop = prefs.getBoolean(KEYS.VOLUME_TO_STOP.toString(), true);
         backButtonToStop = prefs.getBoolean(KEYS.BACK_BUTTON_TO_STOP.toString(), false);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
-        moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), false);
+        moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), true);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
         brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 40);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
