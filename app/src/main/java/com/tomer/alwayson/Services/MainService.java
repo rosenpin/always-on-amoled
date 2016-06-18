@@ -1,6 +1,5 @@
 package com.tomer.alwayson.Services;
 
-import android.app.ActivityManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -10,23 +9,17 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.Display;
-import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -34,20 +27,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.tomer.alwayson.Activities.DummyCapacitiveButtonsActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-import eu.chainfire.libsuperuser.Shell;
 
 public class MainService extends Service implements SensorEventListener, ContextConstatns {
 
@@ -234,13 +223,15 @@ public class MainService extends Service implements SensorEventListener, Context
         if (mainView != null)
             mainView.setAlpha(state && nightMode ? 0.5f : 1);
 
+        /*
+        ToDo: Find a way to start this intent without the main activity getting started in the background
         Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
         intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         intent.putExtra("turn", !state);
-        startActivity(intent);
+        startActivity(intent);*/
         try {
             Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : -1);
         } catch (Exception ignored) {
