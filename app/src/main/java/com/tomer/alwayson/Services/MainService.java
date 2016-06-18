@@ -155,13 +155,23 @@ public class MainService extends Service implements SensorEventListener {
         // Sensor handling
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        Sensor lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
-            sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
+        Sensor lightSensor;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT, false);
         } else {
-            sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
-            sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
+            lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        }
+        if (proximitySensor != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
+            else
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
+        }
+        if (lightSensor != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
+            else
+                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
         }
 
         // UI refreshing
