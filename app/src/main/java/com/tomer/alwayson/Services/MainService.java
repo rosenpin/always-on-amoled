@@ -222,27 +222,27 @@ public class MainService extends Service implements SensorEventListener, Context
                 20000);
     }
 
-    private void setLights(boolean requiredState, boolean nightMode) {
+    private void setLights(boolean state, boolean nightMode) {
         try {
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, requiredState ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, requiredState ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
 
         if (mainView != null)
-            mainView.setAlpha(requiredState && nightMode ? 0.5f : 1);
+            mainView.setAlpha(state && nightMode ? 0.5f : 1);
 
         Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
         intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        intent.putExtra("turn", !requiredState);
+        intent.putExtra("turn", !state);
         startActivity(intent);
         try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", requiredState ? 0 : -1);
+            Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : -1);
         } catch (Exception ignored) {
         }
     }
