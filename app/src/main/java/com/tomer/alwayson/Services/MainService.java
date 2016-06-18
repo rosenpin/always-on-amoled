@@ -230,7 +230,8 @@ public class MainService extends Service implements SensorEventListener {
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
-        mainView.setAlpha(lightsOff && nightMode ? 0.5f : 1);
+        if (mainView != null)
+            mainView.setAlpha(lightsOff && nightMode ? 0.5f : 1);
 
         /*Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
