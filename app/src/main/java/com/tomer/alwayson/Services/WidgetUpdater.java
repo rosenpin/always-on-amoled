@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
@@ -17,8 +18,8 @@ import com.tomer.alwayson.WidgetProvider;
 /**
  * Created by tomer AKA rosenpin on 6/13/16.
  */
-public class WidgetUpdater extends Service {
-    private static String TAG  = WidgetUpdater.class.getSimpleName();
+public class WidgetUpdater extends Service implements ContextConstatns {
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -28,7 +29,7 @@ public class WidgetUpdater extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i(TAG,"Started");
+        Log.i(WIDGET_UPDATER_TAG, "Started");
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
@@ -51,6 +52,6 @@ public class WidgetUpdater extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i(TAG,"Destroyed");
+        Log.i(WIDGET_UPDATER_TAG, "Destroyed");
     }
 }

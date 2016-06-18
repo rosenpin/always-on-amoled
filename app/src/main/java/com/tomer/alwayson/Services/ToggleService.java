@@ -3,7 +3,6 @@ package com.tomer.alwayson.Services;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -13,23 +12,19 @@ import android.widget.RemoteViews;
 
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.WidgetProvider;
 
 /**
  * Created by tomer AKA rosenpin on 6/13/16.
  */
 public class ToggleService extends Service {
-
-    BroadcastReceiver mReceiver;
+    private Intent starterServiceIntent;
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
-
-    private Intent starterServiceIntent;
 
     @Override
     public void onCreate() {
@@ -41,7 +36,6 @@ public class ToggleService extends Service {
         prefs.setBool(Prefs.KEYS.ENABLED.toString(), !prefs.enabled);
 
         hideNotification();
-
         restartService();
 
         Context context = this;
@@ -70,6 +64,4 @@ public class ToggleService extends Service {
         NotificationManager nMgr = (NotificationManager) getApplicationContext().getSystemService(ns);
         nMgr.cancelAll();
     }
-
-
 }

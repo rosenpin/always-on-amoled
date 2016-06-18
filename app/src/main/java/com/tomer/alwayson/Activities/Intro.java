@@ -1,6 +1,7 @@
 package com.tomer.alwayson.Activities;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -35,8 +36,6 @@ public class Intro extends AppIntro2 {
         context = getApplicationContext();
         pref = new Prefs(getApplicationContext());
         pref.apply();
-        // Add your slide's fragments here.
-        // AppIntro will automatically generate the dots indicator and buttons.
 
         addSlide(new First());
         addSlide(new Second());
@@ -62,8 +61,8 @@ public class Intro extends AppIntro2 {
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
-        for (int i = 0; i < permissions.length; i++) {
-            if (!permissions[i]) {
+        for (boolean permission : permissions) {
+            if (!permission) {
                 Snackbar.make(findViewById(android.R.id.content), getString(R.string.please_allow_all_permissions), Snackbar.LENGTH_LONG).show();
                 return;
             }
@@ -152,6 +151,7 @@ public class Intro extends AppIntro2 {
         Button go;
         View v;
 
+        @TargetApi(Build.VERSION_CODES.M)
         @Override
         public void onResume() {
             super.onResume();
@@ -177,6 +177,7 @@ public class Intro extends AppIntro2 {
             }
         }
 
+        @TargetApi(Build.VERSION_CODES.M)
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

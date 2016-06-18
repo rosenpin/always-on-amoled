@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:gravity="center_horizontal"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="#039be5"
     >

@@ -17,9 +17,9 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 
 public class StarterService extends Service {
+    Intent notificationsAlertIntent;
     private BroadcastReceiver mReceiver;
     private boolean isRegistered = false;
-    Intent notificationsAlertIntent;
 
     @Nullable
     @Override
