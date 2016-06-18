@@ -43,6 +43,7 @@ import com.tomer.alwayson.Receivers.UnlockReceiver;
 
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
 
@@ -84,7 +85,7 @@ public class MainService extends Service implements SensorEventListener {
             new Intent(getApplicationContext(), NotificationListener.class);
 
         // Setup UI
-        setLightsOff(true);
+        setLightsOff(true, false);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -154,10 +155,24 @@ public class MainService extends Service implements SensorEventListener {
         // Sensor handling
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-            sensorManager.registerListener(this, proximitySensor, 250000, 50000);
-        else
-            sensorManager.registerListener(this, proximitySensor, 250000);
+        Sensor lightSensor;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT, false);
+        } else {
+            lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        }
+        if (proximitySensor != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
+            else
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
+        }
+        if (lightSensor != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
+            else
+                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
+        }
 
         // UI refreshing
         refresh();
@@ -203,11 +218,11 @@ public class MainService extends Service implements SensorEventListener {
                 20000);
     }
 
-    private void setLightsOff(boolean value) {
+    private void setLightsOff(boolean lightsOff, boolean nightMode) {
         try {
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, value ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, value ? prefs.brightness : originalBrightness);
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, lightsOff ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, lightsOff ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
 
             Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -215,16 +230,17 @@ public class MainService extends Service implements SensorEventListener {
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
+        mainView.setAlpha(lightsOff && nightMode ? 0.5f : 1);
 
         /*Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
         intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        intent.putExtra("turn", !value);
+        intent.putExtra("turn", !lightsOff);
         startActivity(intent);*/
         try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", value ? 0 : -1);
+            Settings.System.putInt(getContentResolver(), "button_key_light", lightsOff ? 0 : -1);
         } catch (Exception ignored) {
         }
     }
@@ -234,7 +250,7 @@ public class MainService extends Service implements SensorEventListener {
         sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
         super.onDestroy();
-        setLightsOff(false);
+        setLightsOff(false, false);
         try {
             windowManager.removeView(frameLayout);
         } catch (Exception e) {
@@ -252,36 +268,43 @@ public class MainService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(final SensorEvent event) {
-        if (event.values[0] < 1) {
-            // Sensor distance smaller than 1cm
-            stayAwakeWakeLock.release();
-            Constants.isShown = false;
-            Constants.sensorIsScreenOff = false;
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    if (Shell.SU.available())
-                        Shell.SU.run("input keyevent 26"); // Screen off
-                }
-            }).start();
-        } else {
-            if (!Constants.sensorIsScreenOff) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        onSensorChanged(event);
+        switch (event.sensor.getType()) {
+            case Sensor.TYPE_PROXIMITY:
+                if (event.values[0] < 1) {
+                    // Sensor distance smaller than 1cm
+                    stayAwakeWakeLock.release();
+                    Constants.isShown = false;
+                    Constants.sensorIsScreenOff = false;
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (Shell.SU.available())
+                                Shell.SU.run("input keyevent 26"); // Screen off
+                        }
+                    }).start();
+                } else {
+                    if (!Constants.sensorIsScreenOff) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                onSensorChanged(event);
+                            }
+                        }, 200);
+                        return;
                     }
-                }, 200);
-                return;
-            }
-            ScreenReceiver.turnScreenOn(this, false);
-            Constants.isShown = true;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    stayAwakeWakeLock.acquire();
+                    ScreenReceiver.turnScreenOn(this, false);
+                    Constants.isShown = true;
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            stayAwakeWakeLock.acquire();
+                        }
+                    }, 500);
                 }
-            }, 500);
+                break;
+            case Sensor.TYPE_LIGHT:
+                setLightsOff(true, event.values[0] < 5);
+                break;
         }
     }
 
