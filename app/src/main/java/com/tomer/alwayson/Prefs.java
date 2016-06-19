@@ -19,6 +19,7 @@ public class Prefs {
     public boolean permissionGranting;
 
     private SharedPreferences prefs;
+    public float textSize;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -34,6 +35,7 @@ public class Prefs {
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), true);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
         brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 40);
+        textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 88);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
     }
@@ -67,6 +69,7 @@ public class Prefs {
         SHOW_NOTIFICATION("persistent_notification"),
         MOVE_WIDGET("move_auto"),
         BRIGHTNESS("brightness"),
+        TEXT_SIZE("font_size"),
         PERMISSION_GRANTING("permissiongrantingscreen"),
         DISABLE_VOLUME_KEYS("disable_volume_keys"),
         NOTIFICATION_ALERTS("notifications_alerts");

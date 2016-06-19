@@ -60,4 +60,6 @@
     <string name="thanks_huge">Thank you for your huge support!! :)</string>
     <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
     <string name="reboot_to_take_affect">Reboot to take affect</string>
+    <string name="settings_font_size_desc">Set the clock font size</string>
+    <string name="settings_font_size">Font size</string>
 </resources>
