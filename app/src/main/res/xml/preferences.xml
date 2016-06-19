@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/settings_general">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="enabled"
+            android:summary="@string/settings_enabled_desc"
+            android:title="@string/enabled" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="persistent_notification"
+            android:summary="@string/cb_show_notification"
+            android:title="@string/settings_notifications_desc" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_behaviour">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="move_auto"
+            android:summary="@string/settings_move_desc"
+            android:title="@string/move" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="notifications_alerts"
+            android:summary="@string/settings_notifications_alerts_desc"
+            android:title="@string/notifications_alerts" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="disable_volume_keys"
+            android:summary="@string/enable_this_to_prevent_accidental_volume_change"
+            android:title="@string/disable_volume_keys" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_wake_up">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="double_tap_dismiss"
+            android:summary="@string/settings_touch_to_stop_desc"
+            android:title="@string/touchToStop" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="swipe_dismiss"
+            android:summary="@string/settings_swipe_to_stop_desc"
+            android:title="@string/swipetostop" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="volume_dismiss"
+            android:summary="@string/settings_volume_to_stop_desc"
+            android:title="@string/settings_volume_to_stop" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="back_button_dismiss"
+            android:summary="@string/settings_back_button_to_stop_desc"
+            android:title="@string/back_button_to_stop" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_appearance">
+
+    </PreferenceCategory>
+</PreferenceScreen>

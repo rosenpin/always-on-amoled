@@ -38,4 +38,5 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     testCompile 'junit:junit:4.12'
+    compile 'com.kakai:material-preferences-headers:1.0.7'
 }

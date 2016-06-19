@@ -6,4 +6,5 @@
     <color name="card_background">#FFFFFF</color>
     <color name="teal">#009688</color>
     <color name="green">#43a047</color>
+    <color name="shell_white_color">#f5f5f5</color>
 </resources>

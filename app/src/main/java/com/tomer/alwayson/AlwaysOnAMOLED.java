@@ -6,6 +6,6 @@ import android.support.v7.app.AppCompatDelegate;
 public class AlwaysOnAMOLED extends Application {
     static {
         AppCompatDelegate.setDefaultNightMode(
-                AppCompatDelegate.MODE_NIGHT_AUTO);
+                AppCompatDelegate.MODE_NIGHT_NO);
     }
 }

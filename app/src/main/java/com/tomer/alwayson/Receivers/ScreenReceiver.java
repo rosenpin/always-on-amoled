@@ -7,6 +7,7 @@ import android.os.PowerManager;
 import android.util.Log;
 
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.Services.MainService;
 
 import static android.content.Context.POWER_SERVICE;
@@ -31,8 +32,13 @@ public class ScreenReceiver extends BroadcastReceiver {
         }
     }
 
+    Prefs prefs;
+
     @Override
     public void onReceive(Context context, Intent intent) {
+        prefs = new Prefs(context);
+        prefs.apply();
+
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             Globals.sensorIsScreenOff = true;
             Log.i(TAG, "Screen turned off\nShown:" + Globals.isShown);
@@ -41,7 +47,7 @@ public class ScreenReceiver extends BroadcastReceiver {
                 turnScreenOn(context, true);
             } else {
                 // Start service when screen is off
-                if (!Globals.inCall)
+                if (!Globals.inCall && prefs.getByKey("enabled",true))
                     context.startService(new Intent(context, MainService.class));
             }
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {

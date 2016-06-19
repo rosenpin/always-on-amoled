@@ -68,7 +68,7 @@ public class Intro extends AppIntro2 {
             }
         }
         pref.setBool(Prefs.KEYS.PERMISSION_GRANTING.toString(), true);
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
         finish();
     }
 
