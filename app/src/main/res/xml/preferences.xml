@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/settings_general">
 
         <SwitchPreference
@@ -56,7 +57,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
-
+        <com.tomer.alwayson.SeekBarPreference
+            android:defaultValue="40"
+            android:key="brightness"
+            android:max="200"
+            android:summary="@string/settings_brightness_desc"
+            android:title="@string/brightness" >
+        </com.tomer.alwayson.SeekBarPreference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about">
@@ -78,7 +85,6 @@
             android:key="open_source_licenses"/>
         <Preference
             android:title="@string/app_version"
-
             android:key="version"/>
     </PreferenceCategory>
 </PreferenceScreen>
