@@ -59,4 +59,5 @@
     <string name="thanks_great">Thank you for your great support! :)</string>
     <string name="thanks_huge">Thank you for your huge support!! :)</string>
     <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
+    <string name="reboot_to_take_affect">Reboot to take affect</string>
 </resources>
