@@ -58,4 +58,27 @@
     <PreferenceCategory android:title="@string/settings_appearance">
 
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/about">
+            <Preference
+                android:title="@string/community"
+                android:summary="@string/settings_community_desc"
+                android:key="community"/>
+        <Preference
+            android:title="@string/github"
+            android:summary="@string/settings_github_desc"
+            android:key="github"/>
+        <Preference
+            android:title="@string/translate"
+            android:summary="@string/help_translating_the_app"
+            android:key="translate"/>
+        <Preference
+            android:title="@string/licenses"
+            android:summary="@string/settings_licenses_desc"
+            android:key="open_source_licenses"/>
+        <Preference
+            android:title="@string/app_version"
+
+            android:key="version"/>
+    </PreferenceCategory>
 </PreferenceScreen>
