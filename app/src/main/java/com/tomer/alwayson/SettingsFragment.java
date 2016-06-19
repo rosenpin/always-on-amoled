@@ -20,6 +20,8 @@ import android.view.Display;
 import android.view.View;
 import android.widget.ListView;
 
+import com.tomer.alwayson.Services.StarterService;
+
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
 import de.psdev.licensesdialog.model.Notice;
@@ -30,6 +32,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private View rootView;
     private Prefs prefs;
     private Context context;
+    private Intent starterService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         context = getActivity().getApplicationContext();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
+        starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
     }
 
     @Override
@@ -176,6 +180,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         if (preference.getKey().equals("persistent_notification")) {
             Snackbar.make(rootView.findViewById(android.R.id.content), R.string.reboot_to_take_affect, Snackbar.LENGTH_LONG);
+        }
+        if (preference.getKey().equals("enabled")) {
+            getActivity().stopService(starterService);
+            getActivity().startService(starterService);
         }
         return true;
     }
