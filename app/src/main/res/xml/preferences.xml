@@ -10,8 +10,8 @@
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="persistent_notification"
-            android:summary="@string/cb_show_notification"
-            android:title="@string/settings_notifications_desc" />
+            android:summary="@string/settings_notifications_desc"
+            android:title="@string/cb_show_notification" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
