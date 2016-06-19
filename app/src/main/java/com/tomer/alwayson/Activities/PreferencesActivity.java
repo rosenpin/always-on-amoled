@@ -80,21 +80,22 @@ public class PreferencesActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), Intro.class));
             finish();
         }
+        else {
+            handlePermissions();
 
-        handlePermissions();
+            starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
+            widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
 
-        starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
-        widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
+            Intent serviceIntent =
+                    new Intent("com.android.vending.billing.InAppBillingService.BIND");
+            serviceIntent.setPackage("com.android.vending");
+            bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
-        Intent serviceIntent =
-                new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        serviceIntent.setPackage("com.android.vending");
-        bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+            donateButtonSetup();
 
-        donateButtonSetup();
-
-        stopService(starterServiceIntent);
-        startService(starterServiceIntent);
+            stopService(starterServiceIntent);
+            startService(starterServiceIntent);
+        }
     }
 
     private void donateButtonSetup() {
