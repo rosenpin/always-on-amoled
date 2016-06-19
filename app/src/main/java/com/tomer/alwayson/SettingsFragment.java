@@ -27,7 +27,7 @@ import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
 import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
 
-public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, ContextConstatns {
 
     private View rootView;
     private Prefs prefs;
@@ -65,6 +65,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         googlePlusCommunitySetup();
         openSourceLicenses();
         githubLink();
+    }
+
+    private void restartService() {
+        getActivity().stopService(starterService);
+        getActivity().startService(starterService);
     }
 
     private void version(Context c) {
@@ -179,11 +184,18 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             }
         }
         if (preference.getKey().equals("persistent_notification")) {
-            Snackbar.make(rootView.findViewById(android.R.id.content), R.string.reboot_to_take_affect, Snackbar.LENGTH_LONG);
+            Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.revert, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((CheckBoxPreference) preference).setChecked(true);
+                    prefs.setBool(preference.getKey(), true);
+                    restartService();
+                }
+            }).show();
+            restartService();
         }
         if (preference.getKey().equals("enabled")) {
-            getActivity().stopService(starterService);
-            getActivity().startService(starterService);
+            restartService();
         }
         return true;
     }
