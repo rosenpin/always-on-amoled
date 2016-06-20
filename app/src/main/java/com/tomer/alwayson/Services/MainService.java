@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,6 +45,7 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
+import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -168,7 +170,7 @@ public class MainService extends Service implements SensorEventListener, Context
         } else {
             lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         }
-        if (proximitySensor != null) {
+        if (proximitySensor != null && prefs.proximityToLock && Shell.SU.available()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
             else
@@ -235,8 +237,30 @@ public class MainService extends Service implements SensorEventListener, Context
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
 
-        if (mainView != null)
-            mainView.setAlpha(state && nightMode ? 0.5f : 1);
+        if (state && mainView != null) {
+            AlphaAnimation old = (AlphaAnimation) mainView.getAnimation();
+            if (old != null) {
+                mainView.clearAnimation();
+                // Finish old animation
+                try {
+                    Field f = old.getClass().getField("mToAlpha");
+                    f.setAccessible(true);
+                    mainView.setAlpha(f.getFloat(old));
+                } catch (NoSuchFieldException | IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+            boolean opaque = mainView.getAlpha() == 1f;
+            if (nightMode && opaque) {
+                AlphaAnimation alpha = new AlphaAnimation(1f, NIGHT_MODE_ALPHA);
+                alpha.setDuration(400);
+                mainView.startAnimation(alpha);
+            } else if (!nightMode && !opaque) {
+                AlphaAnimation alpha = new AlphaAnimation(NIGHT_MODE_ALPHA, 1f);
+                alpha.setDuration(400);
+                mainView.startAnimation(alpha);
+            }
+        }
 
         /*
 //        ToDo: Find a way to start this intent without the main activity getting started in the background
@@ -278,7 +302,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onSensorChanged(final SensorEvent event) {
         switch (event.sensor.getType()) {
             case Sensor.TYPE_PROXIMITY:
-                if (event.values[0] < 1 && prefs.proximityToLock) {
+                if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
                     Globals.isShown = false;
@@ -311,7 +335,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
-                setLights(ON, event.values[0] < 5);
+                setLights(ON, event.values[0] < 2);
                 break;
         }
     }

@@ -178,19 +178,19 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public boolean onPreferenceChange(final Preference preference, Object o) {
         prefs.apply();
-        Log.d("Preference change", preference.getKey() + " Value:" + prefs.getByKey(preference.getKey(), true));
+        Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
 
         if (preference.getKey().equals("notifications_alerts")) {
             if (!((SwitchPreference) preference).isChecked()) {
                 return checkAndGrantNotificationsPermission(context);
             }
         }
-        if (preference.getKey().equals("persistent_notification")) {
+        if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ((CheckBoxPreference) preference).setChecked(true);
-                    prefs.setBool(preference.getKey(), true);
+                    if (preference instanceof CheckBoxPreference)
+                        ((CheckBoxPreference) preference).setChecked(true);
                     restartService();
                 }
             }).show();
@@ -199,13 +199,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (preference.getKey().equals("enabled")) {
             restartService();
         }
-        if (preference.getKey().equals("proximity_to_lock")){
-            if (Shell.SU.available()){
+        if (preference.getKey().equals("proximity_to_lock") && (boolean) o) {
+            if (Shell.SU.available()) {
                 return true;
             }
-            else{
-                Snackbar.make(rootView,"You currently need to be rooted for this feature",Snackbar.LENGTH_LONG).show();
-            }
+            Snackbar.make(rootView, "You currently need to be rooted for this feature", Snackbar.LENGTH_LONG).show();
             return false;
         }
         return true;
