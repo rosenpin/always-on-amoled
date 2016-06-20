@@ -7,13 +7,12 @@ import com.tomer.alwayson.Receivers.UnlockReceiver;
 import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 
-/**
- * Created by tomer AKA rosenpin on 6/18/16.
- */
 public interface ContextConstatns {
     //NAMES
     boolean ON = true;
     boolean OFF = false;
+
+    float NIGHT_MODE_ALPHA = 0.3f;
 
     //TAGS
     String MAIN_SERVICE_LOG_TAG = MainService.class.getSimpleName();
