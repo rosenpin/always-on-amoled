@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -28,7 +27,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
@@ -39,9 +37,6 @@ import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
 
-/**
- * Created by tomer AKA rosenpin on 6/19/16.
- */
 public class PreferencesActivity extends AppCompatActivity {
     Prefs prefs;
     private Intent starterServiceIntent;
@@ -65,7 +60,6 @@ public class PreferencesActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -79,8 +73,7 @@ public class PreferencesActivity extends AppCompatActivity {
         if (!prefs.permissionGranting && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             startActivity(new Intent(getApplicationContext(), Intro.class));
             finish();
-        }
-        else {
+        } else {
             handlePermissions();
 
             starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);

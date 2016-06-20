@@ -1,8 +1,6 @@
 package com.tomer.alwayson.Services;
 
-import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.KeyguardManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +8,6 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -33,7 +30,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -47,8 +43,6 @@ import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
-
-import org.w3c.dom.Text;
 
 import java.util.Map;
 import java.util.Random;
@@ -284,7 +278,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onSensorChanged(final SensorEvent event) {
         switch (event.sensor.getType()) {
             case Sensor.TYPE_PROXIMITY:
-                if (event.values[0] < 1) {
+                if (event.values[0] < 1 && prefs.proximityToLock) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
                     Globals.isShown = false;

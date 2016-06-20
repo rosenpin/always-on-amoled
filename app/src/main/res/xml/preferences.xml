@@ -31,6 +31,11 @@
             android:key="disable_volume_keys"
             android:summary="@string/enable_this_to_prevent_accidental_volume_change"
             android:title="@string/disable_volume_keys" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="proximity_to_lock"
+            android:summary="@string/settings_proximity_to_lock_desc"
+            android:title="@string/proximity_to_lock" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_wake_up">
@@ -57,20 +62,20 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
-        <com.tomer.alwayson.SeekBarPreference
+        <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:key="brightness"
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/brightness" >
-        </com.tomer.alwayson.SeekBarPreference>
-        <com.tomer.alwayson.SeekBarPreference
+        </com.tomer.alwayson.Views.SeekBarPreference>
+        <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="88"
             android:key="font_size"
             android:max="120"
             android:summary="@string/settings_font_size_desc"
             android:title="@string/settings_font_size" >
-        </com.tomer.alwayson.SeekBarPreference>
+        </com.tomer.alwayson.Views.SeekBarPreference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about">

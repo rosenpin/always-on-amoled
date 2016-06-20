@@ -1,4 +1,4 @@
-package com.tomer.alwayson;
+package com.tomer.alwayson.Views;
 
 
 import android.app.AlertDialog;
