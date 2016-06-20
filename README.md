@@ -6,8 +6,6 @@
         src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
 </a>
 
-Always On Display for Android
-
 
 ##Contributing
 
