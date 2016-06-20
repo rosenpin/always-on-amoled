@@ -182,7 +182,7 @@ public class MainService extends Service implements SensorEventListener, Context
             else
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
         }
-        setLights(ON, false);
+        setLights(ON, false, true);
 
         // UI refreshing
         refresh();
@@ -228,7 +228,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 20000);
     }
 
-    private void setLights(boolean state, boolean nightMode) {
+    private void setLights(boolean state, boolean nightMode, boolean first) {
         try {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
@@ -239,7 +239,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         if (state && mainView != null) {
             AlphaAnimation old = (AlphaAnimation) mainView.getAnimation();
-            if (old != null) {
+            if (old != null && first) {
                 mainView.clearAnimation();
                 // Finish old animation
                 try {
@@ -282,7 +282,7 @@ public class MainService extends Service implements SensorEventListener, Context
         sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
         super.onDestroy();
-        setLights(OFF, false);
+        setLights(OFF, false, false);
         try {
             windowManager.removeView(frameLayout);
         } catch (Exception e) {
@@ -335,7 +335,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
-                setLights(ON, event.values[0] < 2);
+                setLights(ON, event.values[0] < 2, false);
                 break;
         }
     }
