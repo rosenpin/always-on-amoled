@@ -10,6 +10,7 @@ public class Prefs {
     public boolean swipeToStop;
     public boolean volumeToStop;
     public boolean backButtonToStop;
+    public boolean proximityToLock;
     public boolean showNotification;
     public boolean moveWidget;
     public int brightness;
@@ -38,6 +39,7 @@ public class Prefs {
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 88);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
+        proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
     }
 
     public void setString(String key, String value) {
@@ -57,7 +59,7 @@ public class Prefs {
     }
 
     public boolean getByKey(String key, boolean b) {
-        return prefs.getBoolean(key,b);
+        return prefs.getBoolean(key, b);
     }
 
     public enum KEYS {
@@ -72,6 +74,7 @@ public class Prefs {
         TEXT_SIZE("font_size"),
         PERMISSION_GRANTING("permissiongrantingscreen"),
         DISABLE_VOLUME_KEYS("disable_volume_keys"),
+        PROXIMITY_TO_LOCK("proximity_to_lock"),
         NOTIFICATION_ALERTS("notifications_alerts");
 
         private final String id;

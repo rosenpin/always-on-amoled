@@ -26,6 +26,7 @@ import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
 import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
+import eu.chainfire.libsuperuser.Shell;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, ContextConstatns {
 
@@ -41,6 +42,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         context = getActivity().getApplicationContext();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
+        findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
     }
 
@@ -196,6 +198,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         if (preference.getKey().equals("enabled")) {
             restartService();
+        }
+        if (preference.getKey().equals("proximity_to_lock")){
+            if (Shell.SU.available()){
+                return true;
+            }
+            else{
+                Snackbar.make(rootView,"You currently need to be rooted for this feature",Snackbar.LENGTH_LONG).show();
+            }
+            return false;
         }
         return true;
     }
