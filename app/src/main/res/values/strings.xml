@@ -4,7 +4,6 @@
     <string name="touchToStop">Double tap to dismiss</string>
     <string name="swipetostop">Swipe up to dismiss</string>
     <string name="cb_show_notification">Show persistent notification</string>
-    <string name="if_the_app_stops_working_sometimes">If the app stops working sometimes</string>
     <string name="move">Move the widget automatically</string>
     <string name="support_the_development">Support the development</string>
     <string name="settings_general">General</string>
@@ -60,4 +59,7 @@
     <string name="thanks_great">Thank you for your great support! :)</string>
     <string name="thanks_huge">Thank you for your huge support!! :)</string>
     <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
+    <string name="reboot_to_take_affect">Reboot to take affect</string>
+    <string name="settings_font_size_desc">Set the clock font size</string>
+    <string name="settings_font_size">Font size</string>
 </resources>

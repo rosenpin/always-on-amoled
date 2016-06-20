@@ -1,6 +1,8 @@
 package com.tomer.alwayson.Services;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.KeyguardManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +10,7 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -21,6 +24,7 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -29,17 +33,22 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextClock;
 import android.widget.Toast;
 
-import com.tomer.alwayson.Activities.DummyBrightnessActivity;
 import com.tomer.alwayson.Constants;
+import com.tomer.alwayson.ContextConstatns;
+import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
+
+import org.w3c.dom.Text;
 
 import java.util.Map;
 import java.util.Random;
@@ -47,13 +56,10 @@ import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class MainService extends Service implements SensorEventListener {
-
-    private static final String LOG_TAG = MainService.class.getSimpleName();
-    private static final String WAKE_LOCK_TAG = "StayAwakeWakeLock";
+public class MainService extends Service implements SensorEventListener, ContextConstatns {
 
     private Prefs prefs;
-    private int originalBrightness = 180;
+    private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
 
     private WindowManager windowManager;
@@ -79,13 +85,13 @@ public class MainService extends Service implements SensorEventListener {
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-        originalBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 180);
+        originalBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 100);
 
         if (prefs.notificationsAlerts && !isNotificationServiceRunning()) // Only start the service if it's not already running
             new Intent(getApplicationContext(), NotificationListener.class);
 
         // Setup UI
-        setLightsOff(true, false);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -128,6 +134,9 @@ public class MainService extends Service implements SensorEventListener {
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
+        TextClock textClock = (TextClock) mainView.findViewById(R.id.time_tv);
+        textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
+
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
@@ -139,8 +148,12 @@ public class MainService extends Service implements SensorEventListener {
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
 
         unlockReceiver = new UnlockReceiver();
-        IntentFilter filter = new IntentFilter();
-        registerReceiver(unlockReceiver, filter);
+        IntentFilter intentFilter = new IntentFilter();
+        //Adding the intent from the pre-defined array filters
+        for (String filter : Constants.unlockFilters) {
+            intentFilter.addAction(filter);
+        }
+        registerReceiver(unlockReceiver, intentFilter);
 
         try {
             windowManager.addView(frameLayout, windowParams);
@@ -173,6 +186,7 @@ public class MainService extends Service implements SensorEventListener {
             else
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
         }
+        setLights(ON, false);
 
         // UI refreshing
         refresh();
@@ -180,7 +194,7 @@ public class MainService extends Service implements SensorEventListener {
 
     private void refresh() {
         iconWrapper.removeAllViews();
-        for (Map.Entry<String, Drawable> entry : Constants.notificationsDrawables.entrySet()) {
+        for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
             Drawable drawable = entry.getValue();
             drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
@@ -218,30 +232,29 @@ public class MainService extends Service implements SensorEventListener {
                 20000);
     }
 
-    private void setLightsOff(boolean lightsOff, boolean nightMode) {
+    private void setLights(boolean state, boolean nightMode) {
         try {
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, lightsOff ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, lightsOff ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
-
-            Intent intent = new Intent(getBaseContext(), DummyBrightnessActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            // getApplication().startActivity(intent);
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
-        if (mainView != null)
-            mainView.setAlpha(lightsOff && nightMode ? 0.5f : 1);
 
-        /*Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
+        if (mainView != null)
+            mainView.setAlpha(state && nightMode ? 0.5f : 1);
+
+        /*
+//        ToDo: Find a way to start this intent without the main activity getting started in the background
+        Intent intent = new Intent(getApplicationContext(), DummyCapacitiveButtonsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_FROM_BACKGROUND);
         intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        intent.putExtra("turn", !lightsOff);
+        intent.putExtra("turn", !state);
         startActivity(intent);*/
         try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", lightsOff ? 0 : -1);
+            Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : -1);
         } catch (Exception ignored) {
         }
     }
@@ -251,14 +264,14 @@ public class MainService extends Service implements SensorEventListener {
         sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
         super.onDestroy();
-        setLightsOff(false, false);
+        setLights(OFF, false);
         try {
             windowManager.removeView(frameLayout);
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
         }
         stayAwakeWakeLock.release();
-        Constants.isShown = false;
+        Globals.isShown = false;
     }
 
     @Nullable
@@ -274,8 +287,8 @@ public class MainService extends Service implements SensorEventListener {
                 if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
-                    Constants.isShown = false;
-                    Constants.sensorIsScreenOff = false;
+                    Globals.isShown = false;
+                    Globals.sensorIsScreenOff = false;
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -284,7 +297,7 @@ public class MainService extends Service implements SensorEventListener {
                         }
                     }).start();
                 } else {
-                    if (!Constants.sensorIsScreenOff) {
+                    if (!Globals.sensorIsScreenOff) {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -294,7 +307,7 @@ public class MainService extends Service implements SensorEventListener {
                         return;
                     }
                     ScreenReceiver.turnScreenOn(this, false);
-                    Constants.isShown = true;
+                    Globals.isShown = true;
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -304,7 +317,7 @@ public class MainService extends Service implements SensorEventListener {
                 }
                 break;
             case Sensor.TYPE_LIGHT:
-                setLightsOff(true, event.values[0] < 5);
+                setLights(ON, event.values[0] < 5);
                 break;
         }
     }
@@ -318,11 +331,11 @@ public class MainService extends Service implements SensorEventListener {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
-                Log.d(NotificationListener.TAG, "Is already running");
+                Log.d(NOTIFICATION_LISTENER_TAG, "Is already running");
                 return true;
             }
         }
-        Log.d(NotificationListener.TAG, "Is not running");
+        Log.d(NOTIFICATION_LISTENER_TAG, "Is not running");
         return false;
     }
 
@@ -359,16 +372,16 @@ public class MainService extends Service implements SensorEventListener {
                 if (Math.abs(diffX) > Math.abs(diffY)) {
                     if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffX > 0) {
-                            Log.d(LOG_TAG, "Swipe right");
+                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe right");
                         } else {
-                            Log.d(LOG_TAG, "Swipe left");
+                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe left");
                         }
                     }
                 } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffY > 0) {
-                        Log.d(LOG_TAG, "Swipe bottom");
+                        Log.d(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
                     } else {
-                        Log.d(LOG_TAG, "Swipe top");
+                        Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
                         if (prefs.swipeToStop) {
                             stopSelf();
                             return true;
@@ -384,7 +397,7 @@ public class MainService extends Service implements SensorEventListener {
                 if (!isInCenter(e)) {
                     return false;
                 }
-                Log.d(LOG_TAG, "Double tap");
+                Log.d(MAIN_SERVICE_LOG_TAG, "Double tap");
                 if (prefs.touchToStop) {
                     stopSelf();
                     return true;

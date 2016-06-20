@@ -13,7 +13,9 @@
 
 
     <application
+        android:name=".AlwaysOnAMOLED"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -25,38 +27,19 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
-            android:name=".Activities.MainActivity"
-            android:label="@string/app_name"
+            android:name=".Activities.PreferencesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.DummyBrightnessActivity" />
-        <activity android:name=".Activities.DummyHomeButtonActivity" />
         <activity android:name=".Activities.DummyCapacitiveButtonsActivity" />
 
         <receiver android:name=".Receivers.ScreenReceiver" />
-        <receiver android:name=".Receivers.UnlockReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.intent.action.ASSIST" />
-                <action android:name="android.intent.action.ALL_APPS" />
-
-                <action android:name="com.android.deskclock.ALARM_ALERT" />
-                <action android:name="com.android.alarmclock.ALARM_ALERT" />
-                <action android:name="com.samsung.sec.android.clockpackage.alarm.ALARM_ALERT" />
-                <action android:name="com.htc.android.worldclock.ALARM_ALERT" />
-                <action android:name="com.sonyericsson.alarm.ALARM_ALERT" />
-                <action android:name="zte.com.cn.alarmclock.ALARM_ALERT" />
-                <action android:name="com.motorola.blur.alarmclock.ALARM_ALERT" />
-                <action android:name="com.urbandroid.sleep.alarmclock.ALARM_ALERT" />
-                <action android:name="com.lge.alarm.alarmclocknew" />
-            </intent-filter>
-        </receiver>
+        <receiver android:name=".Receivers.UnlockReceiver" />
         <receiver android:name=".Receivers.CallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
@@ -77,7 +60,6 @@
 
         <service android:name=".Services.MainService" />
 
-        <service android:name=".Services.ServiceTurnOn" />
         <service android:name=".Services.ToggleService" />
         <service android:name=".Services.WidgetUpdater" />
         <service

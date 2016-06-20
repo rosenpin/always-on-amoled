@@ -6,35 +6,35 @@ import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
-import com.tomer.alwayson.Constants;
+import com.tomer.alwayson.ContextConstatns;
+import com.tomer.alwayson.Globals;
 
-public class NotificationListener extends NotificationListenerService {
-    public static String TAG = NotificationListenerService.class.getSimpleName();
+public class NotificationListener extends NotificationListenerService implements ContextConstatns {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "started");
+        Log.d(NOTIFICATION_LISTENER_TAG, "started");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "destroyed");
+        Log.d(NOTIFICATION_LISTENER_TAG, "destroyed");
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        Log.i(TAG, "New notification");
+        Log.i(NOTIFICATION_LISTENER_TAG, "New notification");
         if (added.isClearable()) {
-            Constants.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
+            Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
         }
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
-        Log.d(TAG, "Notification removed " + removed.getNotification().tickerText);
-        Constants.notificationsDrawables.remove(getUniqueKey(removed));
+        Log.d(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
+        Globals.notificationsDrawables.remove(getUniqueKey(removed));
     }
 
     private String getUniqueKey(StatusBarNotification notification) {

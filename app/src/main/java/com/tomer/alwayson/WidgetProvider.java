@@ -30,13 +30,8 @@ public class WidgetProvider extends AppWidgetProvider {
             remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.on));
         }
 
-
         PendingIntent configPendingIntent = PendingIntent.getService(context, 0, configIntent, 0);
-
         remoteViews.setOnClickPendingIntent(R.id.toggle, configPendingIntent);
-
         appWidgetManager.updateAppWidget(appWidgetIds, remoteViews);
     }
-
-
 }

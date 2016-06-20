@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "com.tomer.alwayson"
-        minSdkVersion 18
+        minSdkVersion 19
         targetSdkVersion 24
-        versionCode 40
-        versionName "0.52"
+        versionCode 41
+        versionName "0.53"
     }
     buildTypes {
         release {
@@ -38,4 +38,5 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     testCompile 'junit:junit:4.12'
+    compile 'com.kakai:material-preferences-headers:1.0.7'
 }
