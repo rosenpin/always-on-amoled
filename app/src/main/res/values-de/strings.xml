@@ -63,6 +63,7 @@
     <string name="reboot_to_take_affect">Neustarten, um Änderungen anzuwenden</string>
     <string name="settings_font_size_desc">Textgröße der Uhrzeit ändern</string>
     <string name="settings_font_size">Textgröße</string>
-    <string name="settings_proximity_to_lock_desc">Sperre das Gerät, wenn du es in deine Tasche steckst, um Energie zu sparen (entsprechender Sensor erforderlich!)</string>
+    <string name="settings_proximity_to_lock_desc">Im Moment NUR MIT ROOT verfügbar\n
+        Sperre das Gerät, wenn du es in deine Tasche steckst, um Energie zu sparen (entsprechender Sensor erforderlich!)</string>
     <string name="proximity_to_lock">Entfernungssensor</string>
 </resources>

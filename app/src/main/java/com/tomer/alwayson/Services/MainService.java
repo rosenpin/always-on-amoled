@@ -168,7 +168,7 @@ public class MainService extends Service implements SensorEventListener, Context
         } else {
             lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         }
-        if (proximitySensor != null) {
+        if (proximitySensor != null && prefs.proximityToLock && Shell.SU.available()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
             else
@@ -236,7 +236,7 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         if (mainView != null)
-            mainView.setAlpha(state && nightMode ? 0.5f : 1);
+            mainView.setAlpha(state && nightMode ? 0.3f : 1);
 
         /*
 //        ToDo: Find a way to start this intent without the main activity getting started in the background
@@ -278,7 +278,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onSensorChanged(final SensorEvent event) {
         switch (event.sensor.getType()) {
             case Sensor.TYPE_PROXIMITY:
-                if (event.values[0] < 1 && prefs.proximityToLock) {
+                if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
                     Globals.isShown = false;
@@ -311,7 +311,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
-                setLights(ON, event.values[0] < 5);
+                setLights(ON, event.values[0] < 3);
                 break;
         }
     }
