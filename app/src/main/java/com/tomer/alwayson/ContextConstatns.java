@@ -15,6 +15,8 @@ public interface ContextConstatns {
     boolean ON = true;
     boolean OFF = false;
 
+    float NIGHT_MODE_ALPHA = 0.3f;
+
     //TAGS
     String MAIN_SERVICE_LOG_TAG = MainService.class.getSimpleName();
     String WAKE_LOCK_TAG = "StayAwakeWakeLock";
