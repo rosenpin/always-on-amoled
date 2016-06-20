@@ -57,20 +57,20 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
-        <com.tomer.alwayson.SeekBarPreference
+        <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:key="brightness"
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/brightness" >
-        </com.tomer.alwayson.SeekBarPreference>
-        <com.tomer.alwayson.SeekBarPreference
+        </com.tomer.alwayson.Views.SeekBarPreference>
+        <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="88"
             android:key="font_size"
             android:max="120"
             android:summary="@string/settings_font_size_desc"
             android:title="@string/settings_font_size" >
-        </com.tomer.alwayson.SeekBarPreference>
+        </com.tomer.alwayson.Views.SeekBarPreference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about">

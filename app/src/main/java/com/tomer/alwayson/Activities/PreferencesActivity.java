@@ -37,9 +37,6 @@ import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
 
-/**
- * Created by tomer AKA rosenpin on 6/19/16.
- */
 public class PreferencesActivity extends AppCompatActivity {
     Prefs prefs;
     private Intent starterServiceIntent;
