@@ -47,8 +47,10 @@ public class ScreenReceiver extends BroadcastReceiver {
                 turnScreenOn(context, true);
             } else {
                 // Start service when screen is off
-                if (!Globals.inCall && prefs.getByKey("enabled",true))
+                if (!Globals.inCall && prefs.getByKey("enabled", true)) {
                     context.startService(new Intent(context, MainService.class));
+                    Globals.isShown = true;
+                }
             }
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             Log.i(TAG, "Screen turned on\nShown:" + Globals.isShown);
