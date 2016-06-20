@@ -13,7 +13,8 @@
     <string name="settings_volume_to_stop_desc">Press volume keys to dismiss</string>
     <string name="settings_touch_to_stop_desc">Double tap the screen to dismiss</string>
     <string name="settings_swipe_to_stop_desc">Swipe up to dismiss the screen</string>
-    <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
+    <string name="settings_notifications_desc">Enable this to keep the app running in background\n
+    Tip: You can block this app\'s notifications on Android 6.0+ without affecting its functionality</string>
     <string name="settings_behaviour">Behaviour</string>
     <string name="settings_appearance">Appearance</string>
     <string name="brightness">Brightness</string>
