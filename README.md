@@ -1,4 +1,4 @@
-# AlwaysOnDisplayAmoled
+# Always On AMOLED 
 
 <a href="https://play.google.com/store/apps/details?id=com.tomer.alwayson">
     <img alt="Get it on Google Play"
