@@ -180,7 +180,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (!prefs.showDate)
             watchFaceWrapper.removeView(calendarTV);
         else
-            calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize / 5.5));
+            calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize / 5));
         if (!prefs.showBattery)
             watchFaceWrapper.removeView(mainView.findViewById(R.id.battery_wrapper));
         else
@@ -410,10 +410,9 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private boolean isNotificationServiceRunning() {
-        Class<?> serviceClass = NotificationListener.class;
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.getName().equals(service.service.getClassName())) {
+            if (NotificationListener.class.getName().equals(service.service.getClassName())) {
                 Log.d(NOTIFICATION_LISTENER_TAG, "Is already running");
                 return true;
             }
