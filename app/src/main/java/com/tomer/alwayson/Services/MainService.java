@@ -179,6 +179,8 @@ public class MainService extends Service implements SensorEventListener, Context
             watchFaceWrapper.removeView(textClock);
         if (!prefs.showDate)
             watchFaceWrapper.removeView(calendarTV);
+        else
+            calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize / 5.5));
         if (!prefs.showBattery)
             watchFaceWrapper.removeView(mainView.findViewById(R.id.battery_wrapper));
         else
