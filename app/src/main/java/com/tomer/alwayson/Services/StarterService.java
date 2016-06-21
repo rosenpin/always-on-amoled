@@ -37,7 +37,7 @@ public class StarterService extends Service {
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
-        if (isServiceRunning(WidgetUpdater.class)) {
+        if (!isServiceRunning(WidgetUpdater.class)) {
             startService(new Intent(getApplicationContext(), WidgetUpdater.class));
         }
 
