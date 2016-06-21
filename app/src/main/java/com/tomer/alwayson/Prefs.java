@@ -38,7 +38,7 @@ public class Prefs {
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
         proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
         showTime = prefs.getBoolean(KEYS.SHOW_TIME.toString(), true);
-        showDate = prefs.getBoolean(KEYS.SHOW_DATE.toString(), false);
+        showDate = prefs.getBoolean(KEYS.SHOW_DATE.toString(), true);
         showBattery = prefs.getBoolean(KEYS.SHOW_BATTERY.toString(), false);
     }
 
