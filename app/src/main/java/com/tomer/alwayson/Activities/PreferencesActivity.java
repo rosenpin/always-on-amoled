@@ -42,6 +42,7 @@ public class PreferencesActivity extends AppCompatActivity {
     private Intent starterServiceIntent;
     private Intent widgetUpdaterService;
     private IInAppBillingService mService;
+    Intent billingServiceIntent;
 
     private ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
@@ -79,10 +80,10 @@ public class PreferencesActivity extends AppCompatActivity {
             starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
             widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
 
-            Intent serviceIntent =
+            billingServiceIntent =
                     new Intent("com.android.vending.billing.InAppBillingService.BIND");
-            serviceIntent.setPackage("com.android.vending");
-            bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+            billingServiceIntent.setPackage("com.android.vending");
+            bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
             donateButtonSetup();
 
@@ -221,5 +222,9 @@ public class PreferencesActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(mServiceConn);
+    }
 }
