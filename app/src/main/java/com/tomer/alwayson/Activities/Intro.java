@@ -24,8 +24,6 @@ import com.github.paolorotolo.appintro.AppIntro2;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 
-import eu.chainfire.libsuperuser.Shell;
-
 
 public class Intro extends AppIntro2 {
     static Context context;

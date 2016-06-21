@@ -18,5 +18,6 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
+
     <include layout="@layout/preferences_activity" />
 </LinearLayout>

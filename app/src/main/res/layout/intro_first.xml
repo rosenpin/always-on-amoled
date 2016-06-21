@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#039be5"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:gravity="center_horizontal"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:background="#039be5"
-    >
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:text="@string/draw_over_other_apps"
         android:textColor="@android:color/white"
         android:textSize="28sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/description"
@@ -30,7 +30,7 @@
         android:gravity="center|top"
         android:text="@string/the_app_needs_permission_to_draw_over_other_apps"
         android:textColor="@android:color/white"
-        android:textSize="16sp"/>
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -40,14 +40,13 @@
 
         <Button
             android:id="@+id/go"
-            android:text="@string/allow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"/>
+            android:paddingRight="16dp"
+            android:text="@string/allow" />
     </LinearLayout>
-
 
 
 </LinearLayout>

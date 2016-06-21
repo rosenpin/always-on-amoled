@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/watchface_wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center_horizontal"
+    android:background="#000000"
     android:foregroundGravity="center"
     android:gravity="center"
-    android:id="@+id/watchface_wrapper"
-    android:background="#000000"
     android:orientation="vertical">
 
     <TextClock
@@ -16,47 +16,47 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:singleLine="true"
-        android:textColor="@android:color/white"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+        android:textColor="@android:color/white" />
 
     <TextView
-        android:textColor="@android:color/white"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:id="@+id/date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/date_tv" />
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@android:color/white" />
 
     <LinearLayout
         android:id="@+id/battery_wrapper"
-        android:paddingTop="8dp"
         android:layout_width="wrap_content"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        android:paddingTop="8dp">
+
         <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:id="@+id/battery_percentage_icon"
-            app:srcCompat="@drawable/ic_battery_90"
-            />
-        <TextView
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_battery_90" />
+
+        <TextView
             android:id="@+id/battery_percentage_tv"
-            android:textColor="@android:color/white"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
     <LinearLayout
-        android:paddingTop="8dp"
         android:id="@+id/icons_wrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
-    </LinearLayout>
+        android:orientation="horizontal"
+        android:paddingTop="8dp"></LinearLayout>
 
 </LinearLayout>

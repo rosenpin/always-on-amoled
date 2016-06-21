@@ -15,14 +15,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 
-public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener, OnClickListener
-{
+public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener, OnClickListener {
     // ------------------------------------------------------------------------------------------
     // Private attributes :
-    private static final String androidns="http://schemas.android.com/apk/res/android";
+    private static final String androidns = "http://schemas.android.com/apk/res/android";
 
     private SeekBar mSeekBar;
-    private TextView mSplashText,mValueText;
+    private TextView mSplashText, mValueText;
     private Context mContext;
 
     private String mDialogMessage, mSuffix;
@@ -30,22 +29,22 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     // ------------------------------------------------------------------------------------------
 
 
-
     // ------------------------------------------------------------------------------------------
     // Constructor :
     public SeekBarPreference(Context context, AttributeSet attrs) {
 
-        super(context,attrs);
+        super(context, attrs);
         mContext = context;
 
         // Get string value for dialogMessage :
         int mDialogMessageId = attrs.getAttributeResourceValue(androidns, "dialogMessage", 0);
-        if(mDialogMessageId == 0) mDialogMessage = attrs.getAttributeValue(androidns, "dialogMessage");
+        if (mDialogMessageId == 0)
+            mDialogMessage = attrs.getAttributeValue(androidns, "dialogMessage");
         else mDialogMessage = mContext.getString(mDialogMessageId);
 
         // Get string value for suffix (text attribute in xml file) :
         int mSuffixId = attrs.getAttributeResourceValue(androidns, "text", 0);
-        if(mSuffixId == 0) mSuffix = attrs.getAttributeValue(androidns, "text");
+        if (mSuffixId == 0) mSuffix = attrs.getAttributeValue(androidns, "text");
         else mSuffix = mContext.getString(mSuffixId);
 
         // Get default and max seekbar values :
@@ -53,7 +52,6 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mMax = attrs.getAttributeIntValue(androidns, "max", 100);
     }
     // ------------------------------------------------------------------------------------------
-
 
 
     // ------------------------------------------------------------------------------------------
@@ -64,7 +62,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         LinearLayout.LayoutParams params;
         LinearLayout layout = new LinearLayout(mContext);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(6,6,6,6);
+        layout.setPadding(6, 6, 6, 6);
 
         mSplashText = new TextView(mContext);
         mSplashText.setPadding(30, 10, 30, 10);
@@ -101,44 +99,50 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     }
 
     @Override
-    protected void onSetInitialValue(boolean restore, Object defaultValue)
-    {
+    protected void onSetInitialValue(boolean restore, Object defaultValue) {
         super.onSetInitialValue(restore, defaultValue);
         if (restore)
             mValue = shouldPersist() ? getPersistedInt(mDefault) : 0;
         else
-            mValue = (Integer)defaultValue;
+            mValue = (Integer) defaultValue;
     }
     // ------------------------------------------------------------------------------------------
-
 
 
     // ------------------------------------------------------------------------------------------
     // OnSeekBarChangeListener methods :
     @Override
-    public void onProgressChanged(SeekBar seek, int value, boolean fromTouch)
-    {
+    public void onProgressChanged(SeekBar seek, int value, boolean fromTouch) {
         String t = String.valueOf(value);
         mValueText.setText(mSuffix == null ? t : t.concat(" " + mSuffix));
     }
 
     @Override
-    public void onStartTrackingTouch(SeekBar seek) {}
-    @Override
-    public void onStopTrackingTouch(SeekBar seek) {}
+    public void onStartTrackingTouch(SeekBar seek) {
+    }
 
-    public void setMax(int max) { mMax = max; }
-    public int getMax() { return mMax; }
+    @Override
+    public void onStopTrackingTouch(SeekBar seek) {
+    }
+
+    public int getMax() {
+        return mMax;
+    }
+
+    public void setMax(int max) {
+        mMax = max;
+    }
+
+    public int getProgress() {
+        return mValue;
+    }
 
     public void setProgress(int progress) {
         mValue = progress;
         if (mSeekBar != null)
             mSeekBar.setProgress(progress);
     }
-    public int getProgress() { return mValue; }
     // ------------------------------------------------------------------------------------------
-
-
 
     // ------------------------------------------------------------------------------------------
     // Set the positive button listener and onClick action :

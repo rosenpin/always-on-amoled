@@ -39,11 +39,10 @@ import com.tomer.alwayson.SettingsFragment;
 
 public class PreferencesActivity extends AppCompatActivity {
     Prefs prefs;
+    Intent billingServiceIntent;
     private Intent starterServiceIntent;
     private Intent widgetUpdaterService;
     private IInAppBillingService mService;
-    Intent billingServiceIntent;
-
     private ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
         public void onServiceDisconnected(ComponentName name) {
@@ -190,8 +189,6 @@ public class PreferencesActivity extends AppCompatActivity {
                 }
             }
         }
-
-
     }
 
     @Override

@@ -16,6 +16,7 @@ public class ScreenReceiver extends BroadcastReceiver {
 
     private static final String TAG = ScreenReceiver.class.getSimpleName();
     private static final String WAKE_LOCK_TAG = "ScreenOnWakeLock";
+    Prefs prefs;
 
     public static void turnScreenOn(Context c, boolean stopService) {
         try {
@@ -31,8 +32,6 @@ public class ScreenReceiver extends BroadcastReceiver {
             e.printStackTrace();
         }
     }
-
-    Prefs prefs;
 
     @Override
     public void onReceive(Context context, Intent intent) {

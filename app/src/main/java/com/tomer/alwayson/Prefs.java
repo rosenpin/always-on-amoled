@@ -15,9 +15,8 @@ public class Prefs {
     public boolean notificationsAlerts;
     public boolean showTime, showDate, showBattery;
     public boolean permissionGranting;
-
-    private SharedPreferences prefs;
     public float textSize;
+    private SharedPreferences prefs;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
