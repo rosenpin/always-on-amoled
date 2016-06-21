@@ -33,8 +33,7 @@ repositories {
 dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
-    compile 'eu.chainfire:libsuperuser:1.0.0.+'
+    compile 'eu.chainfire:libsuperuser:1.0.0.201602271131'
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
-    testCompile 'junit:junit:4.12'
 }
