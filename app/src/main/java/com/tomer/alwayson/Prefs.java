@@ -6,17 +6,14 @@ import android.preference.PreferenceManager;
 
 public class Prefs {
     public boolean enabled;
-    public boolean touchToStop;
-    public boolean swipeToStop;
-    public boolean volumeToStop;
-    public boolean backButtonToStop;
+    public boolean touchToStop, swipeToStop, volumeToStop, backButtonToStop;
     public boolean proximityToLock;
     public boolean showNotification;
     public boolean moveWidget;
     public int brightness;
     public boolean disableVolumeKeys;
     public boolean notificationsAlerts;
-
+    public boolean showTime, showDate, showBattery;
     public boolean permissionGranting;
 
     private SharedPreferences prefs;
@@ -40,6 +37,9 @@ public class Prefs {
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
         proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
+        showTime = prefs.getBoolean(KEYS.SHOW_TIME.toString(), true);
+        showDate = prefs.getBoolean(KEYS.SHOW_DATE.toString(), false);
+        showBattery = prefs.getBoolean(KEYS.SHOW_BATTERY.toString(), false);
     }
 
     public void setString(String key, String value) {
@@ -75,6 +75,9 @@ public class Prefs {
         PERMISSION_GRANTING("permissiongrantingscreen"),
         DISABLE_VOLUME_KEYS("disable_volume_keys"),
         PROXIMITY_TO_LOCK("proximity_to_lock"),
+        SHOW_TIME("show_time"),
+        SHOW_BATTERY("show_battery"),
+        SHOW_DATE("show_date"),
         NOTIFICATION_ALERTS("notifications_alerts");
 
         private final String id;

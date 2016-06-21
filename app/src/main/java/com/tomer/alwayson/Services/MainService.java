@@ -2,6 +2,7 @@ package com.tomer.alwayson.Services;
 
 import android.app.ActivityManager;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -14,12 +15,14 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -35,6 +38,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tomer.alwayson.Constants;
@@ -46,6 +50,10 @@ import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -57,7 +65,8 @@ public class MainService extends Service implements SensorEventListener, Context
     private Prefs prefs;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
-
+    private TextView calendarTV, batteryTV;
+    private AppCompatImageView batteryIV;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private View mainView;
@@ -130,9 +139,20 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
+        LinearLayout watchFaceWrapper = (LinearLayout) mainView.findViewById(R.id.watchface_wrapper);
         TextClock textClock = (TextClock) mainView.findViewById(R.id.time_tv);
+        calendarTV = (TextView) mainView.findViewById(R.id.date_tv);
+        batteryIV = (AppCompatImageView) mainView.findViewById(R.id.battery_percentage_icon);
+        batteryTV = (TextView) mainView.findViewById(R.id.battery_percentage_tv);
+        if (!prefs.showTime)
+            watchFaceWrapper.removeView(textClock);
+        if (!prefs.showDate)
+            watchFaceWrapper.removeView(calendarTV);
+        if (!prefs.showBattery)
+            watchFaceWrapper.removeView(mainView.findViewById(R.id.battery_wrapper));
+        else
+            registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
-
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
@@ -188,7 +208,49 @@ public class MainService extends Service implements SensorEventListener, Context
         refresh();
     }
 
+    private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context ctxt, Intent intent) {
+            int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+            int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+            boolean charging = plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB;
+            Log.d(MAIN_SERVICE_LOG_TAG, "Battery level " + level);
+            Log.d(MAIN_SERVICE_LOG_TAG, "Battery charging " + charging);
+            batteryTV.setText(String.valueOf(level) + "%");
+            int res;
+            if (charging)
+                res = R.drawable.ic_battery_charging;
+            else {
+                if (level > 90)
+                    res = R.drawable.ic_battery_full;
+                else if (level > 70)
+                    res = R.drawable.ic_battery_90;
+                else if (level > 50)
+                    res = R.drawable.ic_battery_60;
+                else if (level > 30)
+                    res = R.drawable.ic_battery_30;
+                else if (level > 20)
+                    res = R.drawable.ic_battery_20;
+                else if (level > 0)
+                    res = R.drawable.ic_battery_alert;
+                else
+                    res = R.drawable.ic_battery_unknown;
+            }
+            batteryIV.setImageResource(res);
+        }
+    };
+
     private void refresh() {
+        if (prefs.showDate) {
+            Calendar calendar = Calendar.getInstance();
+            Date date = calendar.getTime();
+            String dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()).toUpperCase();
+            String month = new SimpleDateFormat("MMMM").format(date.getTime()).toUpperCase();
+            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+            calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
+        }
+
+
         iconWrapper.removeAllViews();
         for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
             Drawable drawable = entry.getValue();
@@ -281,6 +343,8 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onDestroy() {
         sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
+        if (prefs.showBattery)
+            unregisterReceiver(mBatInfoReceiver);
         super.onDestroy();
         setLights(OFF, false, false);
         try {

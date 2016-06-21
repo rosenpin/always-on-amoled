@@ -21,6 +21,9 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.tomer.alwayson.Services.StarterService;
+import com.tomer.alwayson.Views.FeaturesDialog;
+
+import java.util.Objects;
 
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
@@ -28,7 +31,7 @@ import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
 import eu.chainfire.libsuperuser.Shell;
 
-public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, ContextConstatns {
+public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener, ContextConstatns {
 
     private View rootView;
     private Prefs prefs;
@@ -43,6 +46,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
+        findPreference("watchface").setOnPreferenceClickListener(this);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
     }
 
@@ -205,6 +209,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             }
             Snackbar.make(rootView, "You currently need to be rooted for this feature", Snackbar.LENGTH_LONG).show();
             return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if (Objects.equals(preference.getKey(), "watchface")) {
+            FeaturesDialog featuresDialog = new FeaturesDialog(getActivity());
+            featuresDialog.setTitle(getString(R.string.settings_watchface));
+            featuresDialog.show();
         }
         return true;
     }

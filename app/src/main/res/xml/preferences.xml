@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/settings_general">
 
         <SwitchPreference
@@ -62,41 +61,43 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
+        <Preference
+            android:key="watchface"
+            android:summary="@string/settings_watchface_desc"
+            android:title="@string/settings_watchface" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:key="brightness"
             android:max="200"
             android:summary="@string/settings_brightness_desc"
-            android:title="@string/brightness" >
-        </com.tomer.alwayson.Views.SeekBarPreference>
+            android:title="@string/brightness" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="88"
             android:key="font_size"
             android:max="120"
             android:summary="@string/settings_font_size_desc"
-            android:title="@string/settings_font_size" >
-        </com.tomer.alwayson.Views.SeekBarPreference>
+            android:title="@string/settings_font_size" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about">
-            <Preference
-                android:title="@string/community"
-                android:summary="@string/settings_community_desc"
-                android:key="community"/>
         <Preference
-            android:title="@string/github"
+            android:key="community"
+            android:summary="@string/settings_community_desc"
+            android:title="@string/community" />
+        <Preference
+            android:key="github"
             android:summary="@string/settings_github_desc"
-            android:key="github"/>
+            android:title="@string/github" />
         <Preference
-            android:title="@string/translate"
+            android:key="translate"
             android:summary="@string/help_translating_the_app"
-            android:key="translate"/>
+            android:title="@string/translate" />
         <Preference
-            android:title="@string/licenses"
+            android:key="open_source_licenses"
             android:summary="@string/settings_licenses_desc"
-            android:key="open_source_licenses"/>
+            android:title="@string/licenses" />
         <Preference
-            android:title="@string/app_version"
-            android:key="version"/>
+            android:key="version"
+            android:title="@string/app_version" />
     </PreferenceCategory>
 </PreferenceScreen>

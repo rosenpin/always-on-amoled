@@ -2,9 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center_horizontal"
     android:foregroundGravity="center"
     android:gravity="center"
+    android:id="@+id/watchface_wrapper"
+    android:background="#000000"
     android:orientation="vertical">
 
     <TextClock
@@ -14,7 +17,40 @@
         android:layout_gravity="center_horizontal"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="88sp" />
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+
+    <TextView
+        android:textColor="@android:color/white"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_tv" />
+
+
+    <LinearLayout
+        android:id="@+id/battery_wrapper"
+        android:paddingTop="8dp"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/battery_percentage_icon"
+            app:srcCompat="@drawable/ic_battery_90"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22%"
+            android:id="@+id/battery_percentage_tv"
+            android:textColor="@android:color/white"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/icons_wrapper"
