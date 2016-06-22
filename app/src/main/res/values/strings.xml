@@ -62,8 +62,7 @@
     <string name="reboot_to_take_affect">Reboot to take affect</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
     <string name="settings_font_size">Font size</string>
-    <string name="settings_proximity_to_lock_desc">ROOT ONLY at the moment\n
-        Lock the phone when you place your phone in your pocket to save battery (suitable sensor required!)</string>
+    <string name="settings_proximity_to_lock_desc">ROOT ONLY at the moment\nLock the phone when you place your phone in your pocket to save battery (suitable sensor required!)</string>
     <string name="proximity_to_lock">Proximity sensor</string>
     <string name="dialog_battery">Show Battery</string>
     <string name="dialog_calendar">Show Date</string>
