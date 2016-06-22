@@ -222,6 +222,9 @@ public class PreferencesActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(mServiceConn);
+        try {
+            unbindService(mServiceConn);
+        } catch (Exception ignored) {
+        }
     }
 }
