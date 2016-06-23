@@ -258,7 +258,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.showDate) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
-            String dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.getTime()).toUpperCase();
+            String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(date.getTime()).toUpperCase();
             String month = new SimpleDateFormat("MMMM").format(date.getTime()).toUpperCase();
             String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
             calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
