@@ -263,7 +263,7 @@ public class MainService extends Service implements SensorEventListener, Context
         iconWrapper.removeAllViews();
         for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
             Drawable drawable = entry.getValue();
-            drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+            drawable.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
             FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
