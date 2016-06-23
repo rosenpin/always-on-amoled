@@ -70,4 +70,6 @@
     <string name="settings_watchface_desc">Customize the watchface elements</string>
     <string name="settings_watchface">Customize Watchface</string>
     <string name="feature_dialog_desc">Select which elements you want to appear when the device is locked</string>
+    <string name="settings_show_am_pm_desc">Show AM/PM with the clock</string>
+    <string name="settings_show_am_pm">Show AM/PM</string>
 </resources>

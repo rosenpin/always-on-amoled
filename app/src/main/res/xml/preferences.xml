@@ -65,6 +65,10 @@
             android:key="watchface"
             android:summary="@string/settings_watchface_desc"
             android:title="@string/settings_watchface" />
+        <CheckBoxPreference
+            android:key="showampm"
+            android:summary="@string/settings_show_am_pm_desc"
+            android:title="@string/settings_show_am_pm" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:key="brightness"
