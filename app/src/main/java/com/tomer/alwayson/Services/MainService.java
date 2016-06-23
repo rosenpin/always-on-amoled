@@ -182,14 +182,14 @@ public class MainService extends Service implements SensorEventListener, Context
         if (!prefs.showDate)
             watchFaceWrapper.removeView(calendarTV);
         else {
-            calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize / 5));
+            calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
             calendarTV.setTextColor(prefs.textColor);
         }
         if (!prefs.showBattery)
             watchFaceWrapper.removeView(mainView.findViewById(R.id.battery_wrapper));
         else {
             batteryTV.setTextColor(prefs.textColor);
-            batteryIV.setColorFilter(prefs.textColor,PorterDuff.Mode.SRC_ATOP);
+            batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
             registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         }
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
