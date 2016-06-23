@@ -187,8 +187,11 @@ public class MainService extends Service implements SensorEventListener, Context
         }
         if (!prefs.showBattery)
             watchFaceWrapper.removeView(mainView.findViewById(R.id.battery_wrapper));
-        else
+        else {
+            batteryTV.setTextColor(prefs.textColor);
+            batteryIV.setColorFilter(prefs.textColor,PorterDuff.Mode.SRC_ATOP);
             registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        }
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
         textClock.setTextColor(prefs.textColor);
         if (!prefs.showAmPm)
@@ -267,7 +270,7 @@ public class MainService extends Service implements SensorEventListener, Context
             drawable.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
-            icon.setColorFilter(prefs.textColor,PorterDuff.Mode.SRC_ATOP);
+            icon.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
             FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
             icon.setPadding(12, 0, 12, 0);
             icon.setLayoutParams(iconLayoutParams);
