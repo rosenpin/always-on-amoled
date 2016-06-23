@@ -23,8 +23,6 @@ import android.widget.ListView;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.FeaturesDialog;
 
-import java.util.Objects;
-
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
 import de.psdev.licensesdialog.model.Notice;
@@ -47,6 +45,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("watchface").setOnPreferenceClickListener(this);
+        findPreference("textcolor").setOnPreferenceClickListener(this);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
     }
 
@@ -215,10 +214,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if (Objects.equals(preference.getKey(), "watchface")) {
+        if (preference.getKey().equals("watchface")) {
             FeaturesDialog featuresDialog = new FeaturesDialog(getActivity());
             featuresDialog.setTitle(getString(R.string.settings_watchface));
             featuresDialog.show();
+        } else if (preference.getKey().equals("textcolor")) {
+            Globals.colorDialog.show();
         }
         return true;
     }

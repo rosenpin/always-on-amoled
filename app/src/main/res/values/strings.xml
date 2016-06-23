@@ -72,4 +72,6 @@
     <string name="feature_dialog_desc">Select which elements you want to appear when the device is locked</string>
     <string name="settings_show_am_pm_desc">Show AM/PM with the clock</string>
     <string name="settings_show_am_pm">Show AM/PM</string>
+    <string name="settings_text_color">Text Color</string>
+    <string name="settings_text_color_desc">Set the text color</string>
 </resources>

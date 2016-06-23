@@ -16,6 +16,7 @@ public class Prefs {
     public boolean showTime, showDate, showBattery;
     public boolean permissionGranting;
     public float textSize;
+    public int textColor;
     public boolean showAmPm;
     private SharedPreferences prefs;
 
@@ -41,6 +42,7 @@ public class Prefs {
         showDate = prefs.getBoolean(KEYS.SHOW_DATE.toString(), true);
         showBattery = prefs.getBoolean(KEYS.SHOW_BATTERY.toString(), false);
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
+        textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
     }
 
     public void setString(String key, String value) {
@@ -80,6 +82,7 @@ public class Prefs {
         SHOW_BATTERY("show_battery"),
         SHOW_DATE("show_date"),
         SHOW_AM_PM("showampm"),
+        TEXT_COLOR("textcolor"),
         NOTIFICATION_ALERTS("notifications_alerts");
 
         private final String id;

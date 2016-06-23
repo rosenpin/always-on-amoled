@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -29,7 +31,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
+import com.tomer.alwayson.ContextConstatns;
+import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
@@ -37,7 +42,7 @@ import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
 
-public class PreferencesActivity extends AppCompatActivity {
+public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
     Prefs prefs;
     Intent billingServiceIntent;
     private Intent starterServiceIntent;
@@ -65,6 +70,13 @@ public class PreferencesActivity extends AppCompatActivity {
 
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
+
+        Globals.colorDialog = new ColorChooserDialog.Builder(this, R.string.settings_text_color)
+                .titleSub(R.string.settings_text_color_desc)  // title of dialog when viewing shades of a color
+                .doneButton(R.string.md_done_label)  // changes label of the done button
+                .cancelButton(R.string.md_cancel_label)  // changes label of the cancel button
+                .backButton(R.string.md_back_label)  // changes label of the back button
+                .dynamicButtonColor(true);
 
         getFragmentManager().beginTransaction()
                 .replace(R.id.preferences_holder, new SettingsFragment())
@@ -226,5 +238,11 @@ public class PreferencesActivity extends AppCompatActivity {
             unbindService(mServiceConn);
         } catch (Exception ignored) {
         }
+    }
+
+    @Override
+    public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
+        Log.d(ContextConstatns.MAIN_SERVICE_LOG_TAG, String.valueOf(selectedColor));
+        prefs.setInt(Prefs.KEYS.TEXT_COLOR.toString(), selectedColor);
     }
 }

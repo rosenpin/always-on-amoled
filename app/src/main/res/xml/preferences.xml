@@ -69,6 +69,10 @@
             android:key="showampm"
             android:summary="@string/settings_show_am_pm_desc"
             android:title="@string/settings_show_am_pm" />
+        <Preference
+            android:key="textcolor"
+            android:summary="@string/settings_text_color_desc"
+            android:title="@string/settings_text_color"/>
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:key="brightness"

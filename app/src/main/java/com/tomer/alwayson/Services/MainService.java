@@ -188,6 +188,8 @@ public class MainService extends Service implements SensorEventListener, Context
         else
             registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
+        textClock.setTextColor(prefs.textColor);
+        calendarTV.setTextColor(prefs.textColor);
         if (!prefs.showAmPm)
             textClock.setFormat12Hour("K:m");
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
