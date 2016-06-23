@@ -64,6 +64,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private Prefs prefs;
     private int originalBrightness = 100;
+    private boolean proximityToLock;
     private int originalAutoBrightnessStatus;
     private TextView calendarTV, batteryTV;
     private AppCompatImageView batteryIV;
@@ -106,6 +107,7 @@ public class MainService extends Service implements SensorEventListener, Context
             batteryIV.setImageResource(res);
         }
     };
+
 
     @SuppressWarnings("WeakerAccess")
     public static double randInt(double min, double max) {
@@ -223,7 +225,8 @@ public class MainService extends Service implements SensorEventListener, Context
         } else {
             lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         }
-        if (proximitySensor != null && prefs.proximityToLock && Shell.SU.available()) {
+        proximityToLock = prefs.proximityToLock && Shell.SU.available();
+        if (proximitySensor != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
             else
@@ -367,36 +370,38 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onSensorChanged(final SensorEvent event) {
         switch (event.sensor.getType()) {
             case Sensor.TYPE_PROXIMITY:
-                if (event.values[0] < 1) {
-                    // Sensor distance smaller than 1cm
-                    stayAwakeWakeLock.release();
-                    Globals.isShown = false;
-                    Globals.sensorIsScreenOff = false;
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (Shell.SU.available())
-                                Shell.SU.run("input keyevent 26"); // Screen off
+                if (proximityToLock) {
+                    if (event.values[0] < 1) {
+                        // Sensor distance smaller than 1cm
+                        stayAwakeWakeLock.release();
+                        Globals.isShown = false;
+                        Globals.sensorIsScreenOff = false;
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (Shell.SU.available())
+                                    Shell.SU.run("input keyevent 26"); // Screen off
+                            }
+                        }).start();
+                    } else {
+                        if (!Globals.sensorIsScreenOff) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    onSensorChanged(event);
+                                }
+                            }, 200);
+                            return;
                         }
-                    }).start();
-                } else {
-                    if (!Globals.sensorIsScreenOff) {
+                        ScreenReceiver.turnScreenOn(this, false);
+                        Globals.isShown = true;
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                onSensorChanged(event);
+                                stayAwakeWakeLock.acquire();
                             }
-                        }, 200);
-                        return;
+                        }, 500);
                     }
-                    ScreenReceiver.turnScreenOn(this, false);
-                    Globals.isShown = true;
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            stayAwakeWakeLock.acquire();
-                        }
-                    }, 500);
                 }
                 break;
             case Sensor.TYPE_LIGHT:
