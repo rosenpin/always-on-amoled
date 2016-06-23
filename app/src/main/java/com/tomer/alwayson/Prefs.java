@@ -65,6 +65,10 @@ public class Prefs {
         return prefs.getBoolean(key, b);
     }
 
+    public void forceInt(String key, int value) {
+        prefs.edit().putInt(key, value).commit();
+    }
+
     public enum KEYS {
         ENABLED("enabled"),
         TOUCH_TO_STOP("double_tap_dismiss"),

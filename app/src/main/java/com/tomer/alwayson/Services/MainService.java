@@ -250,6 +250,8 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void refresh() {
+        prefs.apply();
+
         if (prefs.showDate) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
@@ -259,13 +261,13 @@ public class MainService extends Service implements SensorEventListener, Context
             calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
         }
 
-
         iconWrapper.removeAllViews();
         for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
             Drawable drawable = entry.getValue();
             drawable.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
             ImageView icon = new ImageView(getApplicationContext());
             icon.setImageDrawable(drawable);
+            icon.setColorFilter(prefs.textColor,PorterDuff.Mode.SRC_ATOP);
             FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
             icon.setPadding(12, 0, 12, 0);
             icon.setLayoutParams(iconLayoutParams);

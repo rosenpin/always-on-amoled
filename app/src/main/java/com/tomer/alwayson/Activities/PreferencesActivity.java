@@ -99,7 +99,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     .doneButton(R.string.md_done_label)
                     .cancelButton(R.string.md_cancel_label)
                     .backButton(R.string.md_back_label)
-                    .preselect(-1)
+                    .preselect(prefs.textColor)
                     .accentMode(true)
                     .dynamicButtonColor(false);
         }
