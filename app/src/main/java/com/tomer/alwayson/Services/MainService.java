@@ -74,6 +74,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
+    private int originalCapacitiveButtonsState;
 
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
@@ -250,6 +251,13 @@ public class MainService extends Service implements SensorEventListener, Context
 
         // UI refreshing
         refresh();
+
+        //All Samsung's shit
+        try {
+            originalCapacitiveButtonsState = Settings.System.getInt(getContentResolver(), "button_key_light");
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void refresh() {
@@ -348,7 +356,7 @@ public class MainService extends Service implements SensorEventListener, Context
         intent.putExtra("turn", !state);
         startActivity(intent);*/
         try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : -1);
+            Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
         } catch (Exception ignored) {
         }
     }
