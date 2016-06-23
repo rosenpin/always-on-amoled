@@ -29,6 +29,7 @@
             android:entryValues="@array/rules_val"
             android:entries="@array/rules"
             android:key="rules"
+            android:defaultValue="always"
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules" />
         <CheckBoxPreference
