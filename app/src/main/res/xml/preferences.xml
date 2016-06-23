@@ -25,6 +25,12 @@
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
             android:title="@string/notifications_alerts" />
+        <ListPreference
+            android:entryValues="@array/rules_val"
+            android:entries="@array/rules"
+            android:key="rules"
+            android:summary="@string/settings_rules_desc"
+            android:title="@string/settings_rules" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="disable_volume_keys"
@@ -72,7 +78,7 @@
         <Preference
             android:key="textcolor"
             android:summary="@string/settings_text_color_desc"
-            android:title="@string/settings_text_color"/>
+            android:title="@string/settings_text_color" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:key="brightness"

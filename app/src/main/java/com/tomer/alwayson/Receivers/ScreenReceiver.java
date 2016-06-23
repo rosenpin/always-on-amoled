@@ -3,6 +3,8 @@ package com.tomer.alwayson.Receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.os.PowerManager;
 import android.util.Log;
 
@@ -16,6 +18,7 @@ public class ScreenReceiver extends BroadcastReceiver {
 
     private static final String TAG = ScreenReceiver.class.getSimpleName();
     private static final String WAKE_LOCK_TAG = "ScreenOnWakeLock";
+    private Context context;
     Prefs prefs;
 
     public static void turnScreenOn(Context c, boolean stopService) {
@@ -38,6 +41,8 @@ public class ScreenReceiver extends BroadcastReceiver {
         prefs = new Prefs(context);
         prefs.apply();
 
+        this.context = context;
+
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             Globals.sensorIsScreenOff = true;
             Log.i(TAG, "Screen turned off\nShown:" + Globals.isShown);
@@ -47,12 +52,31 @@ public class ScreenReceiver extends BroadcastReceiver {
             } else {
                 // Start service when screen is off
                 if (!Globals.inCall && prefs.getByKey("enabled", true)) {
-                    context.startService(new Intent(context, MainService.class));
-                    Globals.isShown = true;
+                    if (shouldStart()) {
+                        context.startService(new Intent(context, MainService.class));
+                        Globals.isShown = true;
+                    }
                 }
             }
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             Log.i(TAG, "Screen turned on\nShown:" + Globals.isShown);
         }
+    }
+
+    private boolean isConnected() {
+        Intent intent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        assert intent != null;
+        int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        return plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB;
+    }
+
+    private boolean shouldStart() {
+        prefs.apply();
+        if (prefs.rules.equals("charging")) {
+            return isConnected();
+        } else if (prefs.rules.equals("discharging")) {
+            return !isConnected();
+        }
+        return true;
     }
 }

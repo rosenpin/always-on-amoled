@@ -2,6 +2,8 @@ package com.tomer.alwayson;
 
 import android.service.notification.NotificationListenerService;
 
+import com.tomer.alwayson.Activities.PreferencesActivity;
+import com.tomer.alwayson.Receivers.ChargeChangeReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.WidgetUpdater;
@@ -15,10 +17,13 @@ public interface ContextConstatns {
 
     //TAGS
     String MAIN_SERVICE_LOG_TAG = MainService.class.getSimpleName();
+    String MAIN_ACTIVITY_LOG_TAG = PreferencesActivity.class.getSimpleName();
     String WAKE_LOCK_TAG = "StayAwakeWakeLock";
 
     String NOTIFICATION_LISTENER_TAG = NotificationListenerService.class.getSimpleName();
 
     String UNLOCK_RECEIVER_TAG = UnlockReceiver.class.getSimpleName();
     String WIDGET_UPDATER_TAG = WidgetUpdater.class.getSimpleName();
+
+    String CHARGER_RECEIVER_LOG_TAG = ChargeChangeReceiver.class.getSimpleName();
 }

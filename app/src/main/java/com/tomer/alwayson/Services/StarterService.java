@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -128,5 +129,4 @@ public class StarterService extends Service {
         Log.d(serviceTag, "Is not running");
         return false;
     }
-
 }

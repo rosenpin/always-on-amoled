@@ -33,7 +33,6 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
-import com.oneskyapp.screenshot.OneSkyScreenshotHelper;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
