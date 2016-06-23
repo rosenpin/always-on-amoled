@@ -71,13 +71,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
-        Globals.colorDialog = new ColorChooserDialog.Builder(this, R.string.settings_text_color)
-                .titleSub(R.string.settings_text_color_desc)  // title of dialog when viewing shades of a color
-                .doneButton(R.string.md_done_label)  // changes label of the done button
-                .cancelButton(R.string.md_cancel_label)  // changes label of the cancel button
-                .backButton(R.string.md_back_label)  // changes label of the back button
-                .dynamicButtonColor(true);
-
         getFragmentManager().beginTransaction()
                 .replace(R.id.preferences_holder, new SettingsFragment())
                 .commit();
@@ -100,6 +93,15 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
             stopService(starterServiceIntent);
             startService(starterServiceIntent);
+
+            Globals.colorDialog = new ColorChooserDialog.Builder(this, R.string.settings_text_color)
+                    .titleSub(R.string.settings_text_color_desc)
+                    .doneButton(R.string.md_done_label)
+                    .cancelButton(R.string.md_cancel_label)
+                    .backButton(R.string.md_back_label)
+                    .preselect(-1)
+                    .accentMode(true)
+                    .dynamicButtonColor(false);
         }
     }
 
