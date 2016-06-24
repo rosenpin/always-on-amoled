@@ -54,7 +54,7 @@ public class ScreenReceiver extends BroadcastReceiver {
                 turnScreenOn(context, true);
             } else {
                 // Start service when screen is off
-                if (!Globals.inCall && prefs.getBoolByKey("enabled", true)) {
+                if (!Globals.inCall && prefs.enabled) {
                     if (shouldStart()) {
                         KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
                         if (myKM.inKeyguardRestrictedInputMode()) {
