@@ -2,6 +2,7 @@ package com.tomer.alwayson.Receivers;
 
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -57,27 +58,46 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                 // Start service when screen is off
                 if (!Globals.inCall && prefs.enabled) {
                     if (shouldStart()) {
-                        KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
-                        if (myKM.inKeyguardRestrictedInputMode()) {
-                            //Screen is locked, start the service
-                            context.startService(new Intent(context, MainService.class));
-                            Globals.isShown = true;
-                        } else {
-                            //Screen is unlocked, wait until the lock timeout is over before starting the service.
-                            int startDelay;
-                            try {
-                                startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", 5000);
-                                Log.d(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
-                            } catch (Exception settingNotFound) {
-                                startDelay = 0;
-                            }
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
+                        if (prefs.getBoolByKey("startafterlock", true)) {
+                            final KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+                            if (myKM.inKeyguardRestrictedInputMode()) {
+                                //Screen is locked, start the service
+                                context.startService(new Intent(context, MainService.class));
+                                Globals.isShown = true;
+                            } else {
+                                //Screen is unlocked, wait until the lock timeout is over before starting the service.
+                                int startDelay;
+                                if (!doesDeviceHaveSecuritySetup(context)) {
+                                    Globals.noLock = true;
                                     context.startService(new Intent(context, MainService.class));
                                     Globals.isShown = true;
+                                    Log.d(SCREEN_RECEIVER_LOG_TAG, "has no lock" + "true");
+                                } else {
+                                    try {
+                                        startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", -1);
+                                        Log.d(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
+                                    } catch (Exception settingNotFound) {
+                                        startDelay = 0;
+                                    }
+                                    if (startDelay > 0) {
+                                        new Handler().postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                if (myKM.inKeyguardRestrictedInputMode()) {
+                                                    context.startService(new Intent(context, MainService.class));
+                                                    Globals.isShown = true;
+                                                }
+                                            }
+                                        }, startDelay);
+                                    } else {
+                                        context.startService(new Intent(context, MainService.class));
+                                        Globals.isShown = true;
+                                    }
                                 }
-                            }, startDelay);
+                            }
+                        } else {
+                            context.startService(new Intent(context, MainService.class));
+                            Globals.isShown = true;
                         }
                     }
                 }
@@ -85,6 +105,27 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             Log.i(TAG, "Screen turned on\nShown:" + Globals.isShown);
         }
+    }
+
+    public static boolean doesDeviceHaveSecuritySetup(Context context) {
+        return isPatternSet(context) || isPassOrPinSet(context);
+    }
+
+
+    private static boolean isPatternSet(Context context) {
+        ContentResolver cr = context.getContentResolver();
+        try {
+            int lockPatternEnable = Settings.Secure.getInt(cr, Settings.Secure.LOCK_PATTERN_ENABLED);
+            return lockPatternEnable == 1;
+        } catch (Settings.SettingNotFoundException e) {
+            return false;
+        }
+    }
+
+
+    private static boolean isPassOrPinSet(Context context) {
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE); //api 16+
+        return keyguardManager.isKeyguardSecure();
     }
 
     private boolean isConnected() {

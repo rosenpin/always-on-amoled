@@ -76,4 +76,7 @@
     <string name="settings_text_color_desc">Set the text color</string>
     <string name="settings_rules_desc">When should the app work?</string>
     <string name="settings_rules">Automatic Rules</string>
+    <string name="settings_startafterlock_desc">Only start the service after the screen is locked. Keep this enabled to keep your device secured and fingerprint sensor functional.</string>
+    <string name="settings_startafterlock">Start after lock</string>
+    <string name="warning_4_device_not_secured">Your device may not be secured now</string>
 </resources>

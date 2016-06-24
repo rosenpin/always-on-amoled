@@ -12,6 +12,11 @@
             android:key="persistent_notification"
             android:summary="@string/settings_notifications_desc"
             android:title="@string/cb_show_notification" />
+        <CheckBoxPreference
+            android:key="startafterlock"
+            android:defaultValue="true"
+            android:summary="@string/settings_startafterlock_desc"
+            android:title="@string/settings_startafterlock" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
@@ -26,10 +31,10 @@
             android:summary="@string/settings_notifications_alerts_desc"
             android:title="@string/notifications_alerts" />
         <ListPreference
-            android:entryValues="@array/rules_val"
-            android:entries="@array/rules"
-            android:key="rules"
             android:defaultValue="always"
+            android:entries="@array/rules"
+            android:entryValues="@array/rules_val"
+            android:key="rules"
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules" />
         <CheckBoxPreference

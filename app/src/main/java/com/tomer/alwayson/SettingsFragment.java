@@ -13,6 +13,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
+import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.util.DisplayMetrics;
@@ -46,6 +47,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
+        findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("watchface").setOnPreferenceClickListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
@@ -179,18 +181,19 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         hasSoftwareKeys = (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
 
-        prefs.setBool("has_soft_keys",hasSoftwareKeys);
+        prefs.setBool("has_soft_keys", hasSoftwareKeys);
 
         return hasSoftwareKeys;
     }
 
     @Override
-    public boolean onPreferenceChange(final Preference preference, Object o) {
+    public boolean onPreferenceChange(final Preference origPreference, Object o) {
+        final TwoStatePreference preference = (TwoStatePreference) origPreference;
         prefs.apply();
         Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
 
         if (preference.getKey().equals("notifications_alerts")) {
-            if (!((SwitchPreference) preference).isChecked()) {
+            if (!preference.isChecked()) {
                 return checkAndGrantNotificationsPermission(context);
             }
         }
@@ -198,8 +201,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (preference instanceof CheckBoxPreference)
-                        ((CheckBoxPreference) preference).setChecked(true);
+                    preference.setChecked(true);
                     restartService();
                 }
             }).show();
@@ -214,6 +216,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             }
             Snackbar.make(rootView, "You currently need to be rooted for this feature", Snackbar.LENGTH_LONG).show();
             return false;
+        } else if (preference.getKey().equals("startafterlock") && !(boolean) o) {
+            Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.revert, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    preference.setChecked(true);
+                }
+            }).show();
         }
         return true;
     }
