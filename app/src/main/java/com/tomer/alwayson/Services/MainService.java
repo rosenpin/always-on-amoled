@@ -248,6 +248,22 @@ public class MainService extends Service implements SensorEventListener, Context
             else
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
         }
+
+        //Delay to stop
+        if (prefs.stopDelay > 0) {
+            final int delayInMilliseconds = prefs.stopDelay * 1000 * 60;
+            Log.d(MAIN_SERVICE_LOG_TAG, "Settings delay to stop in minutes " + delayInMilliseconds);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    stopSelf();
+                    Globals.killedByDelay = true;
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
+                }
+            }, delayInMilliseconds);
+        }
+
+        //Turn lights on
         setLights(ON, false, true);
 
         // UI refreshing

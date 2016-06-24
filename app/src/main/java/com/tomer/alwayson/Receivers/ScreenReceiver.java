@@ -55,6 +55,12 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                 // Screen turned off with service running, wake up device
                 turnScreenOn(context, true);
             } else {
+                //Checking if was killed by delay or naturally, if so, don't restart the service
+                if (Globals.killedByDelay) {
+                    Globals.killedByDelay = false;
+                    Log.d(SCREEN_RECEIVER_LOG_TAG, "Killed by delay and won't restart");
+                    return;
+                }
                 // Start service when screen is off
                 if (!Globals.inCall && prefs.enabled) {
                     if (shouldStart()) {

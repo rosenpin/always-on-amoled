@@ -13,10 +13,19 @@
             android:summary="@string/settings_notifications_desc"
             android:title="@string/cb_show_notification" />
         <CheckBoxPreference
-            android:key="startafterlock"
             android:defaultValue="true"
+            android:key="startafterlock"
             android:summary="@string/settings_startafterlock_desc"
             android:title="@string/settings_startafterlock" />
+        <com.tomer.alwayson.Views.SeekBarPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/settings_stop_delay_desc_short"
+            android:dialogMessage="@string/settings_stop_delay_desc_short_message"
+            android:key="stop_delay"
+            android:max="120"
+            android:summary="@string/settings_stop_delay_desc"
+            android:text="minutes"
+            android:title="@string/settings_stop_delay" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
@@ -87,12 +96,14 @@
             android:title="@string/settings_text_color" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
+            android:dialogTitle="@string/settings_brightness_desc"
             android:key="brightness"
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/brightness" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="88"
+            android:dialogTitle="@string/settings_font_size_desc"
             android:key="font_size"
             android:max="120"
             android:summary="@string/settings_font_size_desc"

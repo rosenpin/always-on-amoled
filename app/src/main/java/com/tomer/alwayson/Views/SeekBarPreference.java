@@ -19,6 +19,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     // ------------------------------------------------------------------------------------------
     // Private attributes :
     private static final String androidns = "http://schemas.android.com/apk/res/android";
+    private int mMin = 0;
 
     private SeekBar mSeekBar;
     private TextView mSplashText, mValueText;
@@ -65,7 +66,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         layout.setPadding(6, 6, 6, 6);
 
         mSplashText = new TextView(mContext);
-        mSplashText.setPadding(30, 10, 30, 10);
+        mSplashText.setPadding(72, 10, 30, 10);
         if (mDialogMessage != null)
             mSplashText.setText(mDialogMessage);
         layout.addView(mSplashText);
@@ -113,7 +114,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     // OnSeekBarChangeListener methods :
     @Override
     public void onProgressChanged(SeekBar seek, int value, boolean fromTouch) {
-        String t = String.valueOf(value);
+        String t = String.valueOf(value + mMin);
         mValueText.setText(mSuffix == null ? t : t.concat(" " + mSuffix));
     }
 
@@ -131,6 +132,10 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 
     public void setMax(int max) {
         mMax = max;
+    }
+
+    public void setMin(int min) {
+        mMin = min;
     }
 
     public int getProgress() {
@@ -159,8 +164,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     public void onClick(View v) {
 
         if (shouldPersist()) {
-
-            mValue = mSeekBar.getProgress();
+            mValue = mSeekBar.getProgress() + mMin;
             persistInt(mSeekBar.getProgress());
             callChangeListener(Integer.valueOf(mSeekBar.getProgress()));
         }

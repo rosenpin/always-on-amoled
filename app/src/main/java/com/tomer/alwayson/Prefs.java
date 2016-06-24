@@ -10,15 +10,16 @@ public class Prefs {
     public boolean proximityToLock;
     public boolean showNotification;
     public boolean moveWidget;
-    public int brightness;
     public boolean disableVolumeKeys;
     public boolean notificationsAlerts;
     public boolean showTime, showDate, showBattery;
     public boolean permissionGranting;
+    public boolean showAmPm;
     public float textSize;
     public int textColor;
+    public int brightness;
+    public int stopDelay;
     public String rules;
-    public boolean showAmPm;
     private SharedPreferences prefs;
 
     public Prefs(Context context) {
@@ -45,6 +46,7 @@ public class Prefs {
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
         textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
         rules = prefs.getString(KEYS.RULES.toString(), "always");
+        stopDelay = prefs.getInt(KEYS.STOP_DELAY.toString(), 0);
     }
 
     public void setString(String key, String value) {
@@ -90,6 +92,7 @@ public class Prefs {
         SHOW_AM_PM("showampm"),
         TEXT_COLOR("textcolor"),
         RULES("rules"),
+        STOP_DELAY("stop_delay"),
         HAS_SOFT_KEYS("has_soft_keys"),
         NOTIFICATION_ALERTS("notifications_alerts");
 

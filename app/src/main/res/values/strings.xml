@@ -79,4 +79,8 @@
     <string name="settings_startafterlock_desc">Only start the service after the screen is locked. Keep this enabled to keep your device secured and fingerprint sensor functional.</string>
     <string name="settings_startafterlock">Start after lock</string>
     <string name="warning_4_device_not_secured">Your device may not be secured now</string>
+    <string name="settings_stop_delay_desc">Stop the always on screen after some time without interaction (Set to 0 to disable)</string>
+    <string name="settings_stop_delay">Stop delay</string>
+    <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
+    <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>
 </resources>

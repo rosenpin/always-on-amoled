@@ -15,4 +15,5 @@ public class Globals {
     public static Map<String, Drawable> notificationsDrawables = new ConcurrentHashMap<>();
     public static ColorChooserDialog.Builder colorDialog;
     public static boolean noLock;
+    public static boolean killedByDelay;
 }
