@@ -253,7 +253,7 @@ public class MainService extends Service implements SensorEventListener, Context
         refresh();
 
         //All Samsung's shit
-        if (prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), true)) {
+        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
             try {
                 originalCapacitiveButtonsState = Settings.System.getInt(getContentResolver(), "button_key_light");
             } catch (Settings.SettingNotFoundException e) {
@@ -357,9 +357,12 @@ public class MainService extends Service implements SensorEventListener, Context
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         intent.putExtra("turn", !state);
         startActivity(intent);*/
-        try {
-            Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-        } catch (Exception ignored) {
+        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
+            try {
+                Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+            }catch (IllegalArgumentException e){
+                e.printStackTrace();
+            }
         }
     }
 
