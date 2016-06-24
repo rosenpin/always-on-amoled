@@ -4,6 +4,7 @@ import android.service.notification.NotificationListenerService;
 
 import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Receivers.ChargeChangeReceiver;
+import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.WidgetUpdater;
@@ -26,4 +27,6 @@ public interface ContextConstatns {
     String WIDGET_UPDATER_TAG = WidgetUpdater.class.getSimpleName();
 
     String CHARGER_RECEIVER_LOG_TAG = ChargeChangeReceiver.class.getSimpleName();
+    String SCREEN_RECEIVER_LOG_TAG = ScreenReceiver.class.getSimpleName();
+
 }

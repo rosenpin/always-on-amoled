@@ -11,13 +11,14 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Log;
 
+import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.Services.MainService;
 
 import static android.content.Context.POWER_SERVICE;
 
-public class ScreenReceiver extends BroadcastReceiver {
+public class ScreenReceiver extends BroadcastReceiver implements ContextConstatns {
 
     private static final String TAG = ScreenReceiver.class.getSimpleName();
     private static final String WAKE_LOCK_TAG = "ScreenOnWakeLock";
@@ -65,7 +66,8 @@ public class ScreenReceiver extends BroadcastReceiver {
                             //Screen is unlocked, wait until the lock timeout is over before starting the service.
                             int startDelay;
                             try {
-                                startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", 0);
+                                startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", 5000);
+                                Log.d(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
                             } catch (Exception settingNotFound) {
                                 startDelay = 0;
                             }
