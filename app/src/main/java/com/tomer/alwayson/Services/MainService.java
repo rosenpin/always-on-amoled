@@ -250,8 +250,8 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         //Delay to stop
-        if (prefs.stopDelay > 0) {
-            final int delayInMilliseconds = prefs.stopDelay * 1000 * 60;
+        if (Integer.parseInt(prefs.stopDelay) > 0) {
+            final int delayInMilliseconds = Integer.parseInt(prefs.stopDelay) * 1000 * 60;
             Log.d(MAIN_SERVICE_LOG_TAG, "Settings delay to stop in minutes " + delayInMilliseconds);
             new Handler().postDelayed(new Runnable() {
                 @Override

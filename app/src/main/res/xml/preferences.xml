@@ -9,6 +9,7 @@
             android:title="@string/enabled" />
         <CheckBoxPreference
             android:defaultValue="true"
+            android:dependency="enabled"
             android:key="persistent_notification"
             android:summary="@string/settings_notifications_desc"
             android:title="@string/cb_show_notification" />
@@ -17,14 +18,13 @@
             android:key="startafterlock"
             android:summary="@string/settings_startafterlock_desc"
             android:title="@string/settings_startafterlock" />
-        <com.tomer.alwayson.Views.SeekBarPreference
+        <ListPreference
             android:defaultValue="0"
-            android:dialogTitle="@string/settings_stop_delay_desc_short"
-            android:dialogMessage="@string/settings_stop_delay_desc_short_message"
+            android:dialogTitle="@string/settings_stop_delay_desc_short_message"
+            android:entries="@array/delays"
+            android:entryValues="@array/delays_vals"
             android:key="stop_delay"
-            android:max="120"
             android:summary="@string/settings_stop_delay_desc"
-            android:text="minutes"
             android:title="@string/settings_stop_delay" />
     </PreferenceCategory>
 
@@ -41,10 +41,11 @@
             android:title="@string/notifications_alerts" />
         <ListPreference
             android:defaultValue="always"
+            android:dialogTitle="@string/settings_rules_desc"
             android:entries="@array/rules"
             android:entryValues="@array/rules_val"
             android:key="rules"
-            android:summary="@string/settings_rules_desc"
+            android:summary="%s"
             android:title="@string/settings_rules" />
         <CheckBoxPreference
             android:defaultValue="true"

@@ -18,7 +18,7 @@ public class Prefs {
     public float textSize;
     public int textColor;
     public int brightness;
-    public int stopDelay;
+    public String  stopDelay;
     public String rules;
     private SharedPreferences prefs;
 
@@ -46,7 +46,7 @@ public class Prefs {
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
         textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
         rules = prefs.getString(KEYS.RULES.toString(), "always");
-        stopDelay = prefs.getInt(KEYS.STOP_DELAY.toString(), 0);
+        stopDelay = prefs.getString(KEYS.STOP_DELAY.toString(), "0");
     }
 
     public void setString(String key, String value) {

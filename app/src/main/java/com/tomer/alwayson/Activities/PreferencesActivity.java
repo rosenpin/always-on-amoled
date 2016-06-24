@@ -64,21 +64,21 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
-
-        getFragmentManager().beginTransaction()
-                .replace(R.id.preferences_holder, new SettingsFragment())
-                .commit();
 
         if (!prefs.permissionGranting && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             startActivity(new Intent(getApplicationContext(), Intro.class));
             finish();
         } else {
+            setContentView(R.layout.activity_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.preferences_holder, new SettingsFragment())
+                    .commit();
+
             handlePermissions();
 
             starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
