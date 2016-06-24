@@ -63,7 +63,7 @@ public class Prefs {
         prefs.edit().putBoolean(key, value).commit();
     }
 
-    public boolean getByKey(String key, boolean b) {
+    public boolean getBoolByKey(String key, boolean b) {
         return prefs.getBoolean(key, b);
     }
 
@@ -90,6 +90,7 @@ public class Prefs {
         SHOW_AM_PM("showampm"),
         TEXT_COLOR("textcolor"),
         RULES("rules"),
+        HAS_SOFT_KEYS("has_soft_keys"),
         NOTIFICATION_ALERTS("notifications_alerts");
 
         private final String id;

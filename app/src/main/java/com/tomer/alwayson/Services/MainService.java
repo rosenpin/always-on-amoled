@@ -253,10 +253,12 @@ public class MainService extends Service implements SensorEventListener, Context
         refresh();
 
         //All Samsung's shit
-        try {
-            originalCapacitiveButtonsState = Settings.System.getInt(getContentResolver(), "button_key_light");
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
+        if (prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), true)) {
+            try {
+                originalCapacitiveButtonsState = Settings.System.getInt(getContentResolver(), "button_key_light");
+            } catch (Settings.SettingNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 

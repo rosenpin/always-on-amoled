@@ -1,11 +1,14 @@
 package com.tomer.alwayson.Receivers;
 
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
+import android.os.Handler;
 import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.Log;
 
 import com.tomer.alwayson.Globals;
@@ -37,7 +40,7 @@ public class ScreenReceiver extends BroadcastReceiver {
     }
 
     @Override
-    public void onReceive(Context context, Intent intent) {
+    public void onReceive(final Context context, Intent intent) {
         prefs = new Prefs(context);
         prefs.apply();
 
@@ -51,10 +54,29 @@ public class ScreenReceiver extends BroadcastReceiver {
                 turnScreenOn(context, true);
             } else {
                 // Start service when screen is off
-                if (!Globals.inCall && prefs.getByKey("enabled", true)) {
+                if (!Globals.inCall && prefs.getBoolByKey("enabled", true)) {
                     if (shouldStart()) {
-                        context.startService(new Intent(context, MainService.class));
-                        Globals.isShown = true;
+                        KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+                        if (myKM.inKeyguardRestrictedInputMode()) {
+                            //Screen is locked, start the service
+                            context.startService(new Intent(context, MainService.class));
+                            Globals.isShown = true;
+                        } else {
+                            //Screen is unlocked, wait until the lock timeout is over before starting the service.
+                            int startDelay;
+                            try {
+                                startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", 0);
+                            } catch (Exception settingNotFound) {
+                                startDelay = 0;
+                            }
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    context.startService(new Intent(context, MainService.class));
+                                    Globals.isShown = true;
+                                }
+                            }, startDelay);
+                        }
                     }
                 }
             }

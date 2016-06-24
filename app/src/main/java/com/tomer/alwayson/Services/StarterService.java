@@ -87,8 +87,6 @@ public class StarterService extends Service {
         unregisterReceiver();
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(Intent.ACTION_USER_PRESENT);
-
         mReceiver = new ScreenReceiver();
         registerReceiver(mReceiver, filter);
         isRegistered = true;

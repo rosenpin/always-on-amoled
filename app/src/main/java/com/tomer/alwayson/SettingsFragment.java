@@ -10,12 +10,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
-import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -23,12 +21,8 @@ import android.view.Display;
 import android.view.View;
 import android.widget.ListView;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.FeaturesDialog;
-
-import java.util.Arrays;
 
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
@@ -55,7 +49,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("watchface").setOnPreferenceClickListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
-        Log.d(String.valueOf(((ListPreference)findPreference("rules")).getValue())," Selected");
+        Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
     }
 
     @Override
@@ -184,6 +178,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         int displayWidth = displayMetrics.widthPixels;
 
         hasSoftwareKeys = (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+
+        prefs.setBool("has_soft_keys",hasSoftwareKeys);
 
         return hasSoftwareKeys;
     }
