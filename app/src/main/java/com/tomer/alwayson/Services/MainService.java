@@ -21,6 +21,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
+import android.provider.Settings.System;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
@@ -123,8 +124,8 @@ public class MainService extends Service implements SensorEventListener, Context
 
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
         stayAwakeWakeLock.setReferenceCounted(false);
-        originalAutoBrightnessStatus = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-        originalBrightness = Settings.System.getInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, 100);
+        originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
 
         if (prefs.notificationsAlerts && !isNotificationServiceRunning()) // Only start the service if it's not already running
             new Intent(getApplicationContext(), NotificationListener.class);
@@ -255,9 +256,19 @@ public class MainService extends Service implements SensorEventListener, Context
         //All Samsung's shit
         if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
             try {
-                originalCapacitiveButtonsState = Settings.System.getInt(getContentResolver(), "button_key_light");
+                originalCapacitiveButtonsState = System.getInt(getContentResolver(), "button_key_light");
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
+                try {
+                    originalCapacitiveButtonsState = (int) System.getLong(getContentResolver(), "button_key_light");
+                } catch (Exception ignored) {
+                    ignored.printStackTrace();
+                    try {
+                        originalCapacitiveButtonsState = Settings.Secure.getInt(getContentResolver(), "button_key_light");
+                    } catch (Exception ignored3) {
+                        ignored3.printStackTrace();
+                    }
+                }
             }
         }
     }
@@ -316,9 +327,9 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
         try {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
+            System.putInt(getContentResolver(),
+                    System.SCREEN_BRIGHTNESS_MODE, state ? System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
+            System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
@@ -359,9 +370,19 @@ public class MainService extends Service implements SensorEventListener, Context
         startActivity(intent);*/
         if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
             try {
-                Settings.System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-            }catch (IllegalArgumentException e){
+                System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+            } catch (IllegalArgumentException e) {
                 e.printStackTrace();
+                try {
+                    System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+                } catch (Exception ignored) {
+                    ignored.printStackTrace();
+                    try {
+                        Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+                    } catch (Exception ignored3) {
+                        ignored3.printStackTrace();
+                    }
+                }
             }
         }
     }
