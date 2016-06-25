@@ -126,6 +126,9 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         } catch (Settings.SettingNotFoundException e) {
             return false;
         }
+        catch (SecurityException e){
+            return false;
+        }
     }
 
 
