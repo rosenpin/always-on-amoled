@@ -198,7 +198,7 @@ public class MainService extends Service implements SensorEventListener, Context
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
         textClock.setTextColor(prefs.textColor);
         if (!prefs.showAmPm)
-            textClock.setFormat12Hour("K:m");
+            textClock.setFormat12Hour("HH:mm");
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
@@ -253,7 +253,8 @@ public class MainService extends Service implements SensorEventListener, Context
         //Delay to stop
         if (Integer.parseInt(prefs.stopDelay) > 0) {
             final int delayInMilliseconds = Integer.parseInt(prefs.stopDelay) * 1000 * 60;
-            Log.d(MAIN_SERVICE_LOG_TAG, "Settings delay to stop in minutes " + delayInMilliseconds);
+            Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
+            Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in milliseconds " + delayInMilliseconds);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -395,15 +396,15 @@ public class MainService extends Service implements SensorEventListener, Context
                     r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
                 } catch (IOException e1) {
                     e1.printStackTrace();
-                }
-                try {
-                    System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                } catch (Exception ignored) {
-                    ignored.printStackTrace();
                     try {
-                        Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                    } catch (Exception ignored3) {
-                        ignored3.printStackTrace();
+                        System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+                    } catch (Exception ignored) {
+                        ignored.printStackTrace();
+                        try {
+                            Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+                        } catch (Exception ignored3) {
+                            ignored3.printStackTrace();
+                        }
                     }
                 }
             }
