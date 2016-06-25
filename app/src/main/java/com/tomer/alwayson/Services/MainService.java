@@ -50,6 +50,7 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -389,6 +390,12 @@ public class MainService extends Service implements SensorEventListener, Context
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
+                try {
+                    Runtime r = Runtime.getRuntime();
+                    r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 try {
                     System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
                 } catch (Exception ignored) {

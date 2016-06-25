@@ -133,7 +133,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
 
     private static boolean isPassOrPinSet(Context context) {
-        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE); //api 16+
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE); 
         return keyguardManager.isKeyguardSecure();
     }
 
