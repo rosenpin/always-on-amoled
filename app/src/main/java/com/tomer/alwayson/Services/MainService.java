@@ -198,7 +198,7 @@ public class MainService extends Service implements SensorEventListener, Context
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
         textClock.setTextColor(prefs.textColor);
         if (!prefs.showAmPm)
-            textClock.setFormat12Hour("HH:mm");
+            textClock.setFormat12Hour("K:mm");
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
@@ -238,16 +238,10 @@ public class MainService extends Service implements SensorEventListener, Context
         }
         proximityToLock = prefs.proximityToLock && Shell.SU.available();
         if (proximitySensor != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
-            else
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
+            sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
         }
         if (lightSensor != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
-            else
-                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
+            sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(5), 500000);
         }
 
         //Delay to stop
@@ -347,7 +341,7 @@ public class MainService extends Service implements SensorEventListener, Context
         try {
             System.putInt(getContentResolver(),
                     System.SCREEN_BRIGHTNESS_MODE, state ? System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
-            System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
+            System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS, state ? (nightMode ? 1 : prefs.brightness) : originalBrightness);
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
@@ -369,11 +363,11 @@ public class MainService extends Service implements SensorEventListener, Context
             if (nightMode && opaque) {
                 AlphaAnimation alpha = new AlphaAnimation(1f, NIGHT_MODE_ALPHA);
                 alpha.setDuration(400);
-                mainView.startAnimation(alpha);
+                mainView.findViewById(R.id.watchface_wrapper).startAnimation(alpha);
             } else if (!nightMode && !opaque) {
                 AlphaAnimation alpha = new AlphaAnimation(NIGHT_MODE_ALPHA, 1f);
                 alpha.setDuration(400);
-                mainView.startAnimation(alpha);
+                mainView.findViewById(R.id.watchface_wrapper).startAnimation(alpha);
             }
         }
 
@@ -473,6 +467,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
+                Log.d("LIGHT IS ", String.valueOf(event.values[0]));
                 setLights(ON, event.values[0] < 2, false);
                 break;
         }
