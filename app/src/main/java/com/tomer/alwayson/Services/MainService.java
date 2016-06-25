@@ -3,6 +3,7 @@ package com.tomer.alwayson.Services;
 import android.app.ActivityManager;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -50,7 +51,6 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -385,22 +385,17 @@ public class MainService extends Service implements SensorEventListener, Context
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
-                try {
-                    Runtime r = Runtime.getRuntime();
-                    r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                    try {
-                        System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                    } catch (Exception ignored) {
-                        ignored.printStackTrace();
-                        try {
-                            Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                        } catch (Exception ignored3) {
-                            ignored3.printStackTrace();
-                        }
-                    }
-                }
+            }
+            try {
+                Intent i = new Intent();
+                i.setComponent(new ComponentName("tomer.com.alwaysonamoledplugin", "tomer.com.alwaysonamoledplugin.CapacitiveButtons"));
+                i.putExtra("state", state);
+                i.putExtra("originalCapacitiveButtonsState", originalCapacitiveButtonsState);
+                ComponentName c = startService(i);
+                Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin");
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "PLUGIN NOT INSTALLED", Toast.LENGTH_LONG).show();
             }
         }
     }

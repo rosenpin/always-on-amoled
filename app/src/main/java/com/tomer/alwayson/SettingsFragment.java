@@ -2,7 +2,9 @@ package com.tomer.alwayson;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -16,6 +18,7 @@ import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -24,6 +27,8 @@ import android.widget.ListView;
 
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.FeaturesDialog;
+
+import java.util.List;
 
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
@@ -48,6 +53,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
+        findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("watchface").setOnPreferenceClickListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
@@ -62,14 +68,26 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         list.setDivider(null);
 
         prefs = new Prefs(context);
-
         if (hasSoftKeys()) {
             findPreference("back_button_dismiss").setEnabled(false);
             ((CheckBoxPreference) findPreference("back_button_dismiss")).setChecked(false);
+        } else {
+            if (!IsPackageInstalled("tomer.com.alwaysonamoledplugin")) { //Prompt to install the plugin
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Plugin is required")
+                        .setMessage("Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.")
+                        .setPositiveButton("Download", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=tomer.com.alwaysonamoledplugin"));
+                                startActivity(browserIntent);
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setCancelable(false)
+                        .show();
+            }
         }
-
-        findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
-
         version(context);
         translate();
         googlePlusCommunitySetup();
@@ -161,6 +179,18 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         return true;
     }
 
+    public boolean IsPackageInstalled(String targetPackage) {
+        List<ApplicationInfo> packages;
+        PackageManager pm;
+
+        pm = context.getPackageManager();
+        packages = pm.getInstalledApplications(0);
+        for (ApplicationInfo packageInfo : packages) {
+            if (packageInfo.packageName.equals(targetPackage))
+                return true;
+        }
+        return false;
+    }
 
     private boolean hasSoftKeys() {
         boolean hasSoftwareKeys;
