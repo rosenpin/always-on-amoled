@@ -66,7 +66,6 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private Prefs prefs;
     private int originalBrightness = 100;
-    private boolean proximityToLock;
     private int originalAutoBrightnessStatus;
     private TextView calendarTV, batteryTV;
     private AppCompatImageView batteryIV;
@@ -376,7 +375,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }
 
-        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
+        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false) && (!state || first)) {
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
