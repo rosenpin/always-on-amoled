@@ -71,7 +71,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             findPreference("back_button_dismiss").setEnabled(false);
             ((CheckBoxPreference) findPreference("back_button_dismiss")).setChecked(false);
         } else {
-            if (!IsPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().equals("samsung")) { //Prompt to install the plugin
+            if (!IsPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().contains("samsung")) { //Prompt to install the plugin
                 new AlertDialog.Builder(getActivity())
                         .setTitle("Plugin is required")
                         .setMessage("Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.")
