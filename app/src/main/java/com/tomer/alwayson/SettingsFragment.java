@@ -1,5 +1,6 @@
 package com.tomer.alwayson;
 
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -59,6 +60,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("watchface").setOnPreferenceClickListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
+        checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
         Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
     }
@@ -163,7 +165,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         });
     }
 
-    private boolean checkAndGrantNotificationsPermission(Context c) {
+    private boolean checkNotificationsPermission(Context c, boolean prompt) {
         ContentResolver contentResolver = c.getContentResolver();
         String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
         String packageName = c.getPackageName();
@@ -171,12 +173,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         // check to see if the enabledNotificationListeners String contains our package name
         if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
             ((SwitchPreference) findPreference("notifications_alerts")).setChecked(false);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 && prompt) {
                 Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-                return false;
+                shouldEnableNotificationsAlerts = true;
             }
+            return false;
         }
         return true;
     }
@@ -226,7 +229,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         if (preference.getKey().equals("notifications_alerts")) {
             if (!preference.isChecked()) {
-                return checkAndGrantNotificationsPermission(context);
+                return checkNotificationsPermission(context, true);
             }
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
@@ -282,6 +285,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
-            ((TwoStatePreference) findPreference("proximity_to_lock")).setChecked(true);
+            ((TwoStatePreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
+    }
+
+    boolean shouldEnableNotificationsAlerts;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)){
+            ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
+        }
     }
 }
