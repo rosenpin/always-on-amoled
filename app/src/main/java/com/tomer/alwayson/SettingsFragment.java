@@ -76,8 +76,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         } else {
             if (!IsPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().contains("samsung")) { //Prompt to install the plugin
                 new AlertDialog.Builder(getActivity())
-                        .setTitle("Plugin is required")
-                        .setMessage("Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.")
+                        .setTitle(getString(R.string.plugin_dialog_title))
+                        .setMessage(getString(R.string.plugin_dialog_desc))
                         .setPositiveButton("Download", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -251,7 +251,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
             Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
-            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Please allow device admin permission to use more features on non-rooted devices.");
+            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
             startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
 
             return false;

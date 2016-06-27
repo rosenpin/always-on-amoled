@@ -5,7 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.R;
+
 public class DAReceiver extends DeviceAdminReceiver {
+
+    Prefs prefs;
 
     void showToast(Context context, String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
@@ -17,12 +22,15 @@ public class DAReceiver extends DeviceAdminReceiver {
 
     @Override
     public CharSequence onDisableRequested(Context context, Intent intent) {
-        return "This will disable some of the app features";
+        return context.getString(R.string.warning_5_device_admin_disable);
     }
 
     @Override
     public void onDisabled(Context context, Intent intent) {
-        showToast(context, "DISABLED");
+        showToast(context, context.getString(R.string.warning_5_device_admin_disabled));
+        prefs = new Prefs(context);
+        prefs.apply();
+        prefs.setBool(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), false);
     }
 
 

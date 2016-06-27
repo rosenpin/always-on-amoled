@@ -62,7 +62,7 @@
     <string name="reboot_to_take_affect">Reboot to take affect</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
     <string name="settings_font_size">Font size</string>
-    <string name="settings_proximity_to_lock_desc">ROOT ONLY at the moment\nLock the phone when you place your phone in your pocket to save battery (suitable sensor required!)</string>
+    <string name="settings_proximity_to_lock_desc">IF YOU ARE UNROOTED, THIS WILL DISABLE FINGERPRINT SCANNER FOR SOME DEVICES\nLock the device when you place your device in your pocket to save battery (suitable sensor required!)</string>
     <string name="proximity_to_lock">Proximity sensor</string>
     <string name="dialog_battery">Show Battery</string>
     <string name="dialog_calendar">Show Date</string>
@@ -83,7 +83,12 @@
     <string name="settings_stop_delay">Stop delay</string>
     <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
     <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>
-    <string name="settings_auto_brightness">Auto brightness</string>
-    <string name="settings_auto_brightness_desc">Adjust the brightness automatically</string>
+    <string name="settings_auto_brightness">Auto night mode</string>
+    <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically</string>
     <string name="device_admin_desc">Enable this to allow extra features for unrooted devices</string>
+    <string name="warning_5_device_admin_disable">This will disable some of the app features</string>
+    <string name="warning_5_device_admin_disabled">Some features might be disabled now</string>
+    <string name="device_admin_explanation">Please allow device admin permission to use more features on non-rooted devices.</string>
+    <string name="plugin_dialog_title">Plugin is required</string>
+    <string name="plugin_dialog_desc">Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.</string>
 </resources>
