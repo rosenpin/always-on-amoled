@@ -24,7 +24,6 @@ import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -51,6 +50,7 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -68,14 +68,14 @@ public class MainService extends Service implements SensorEventListener, Context
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
     private TextView calendarTV, batteryTV;
-    private AppCompatImageView batteryIV;
+    private ImageView batteryIV;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private View mainView;
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
-    private int originalCapacitiveButtonsState;
+    private int originalCapacitiveButtonsState = 1500;
 
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
@@ -177,7 +177,7 @@ public class MainService extends Service implements SensorEventListener, Context
         LinearLayout watchFaceWrapper = (LinearLayout) mainView.findViewById(R.id.watchface_wrapper);
         TextClock textClock = (TextClock) mainView.findViewById(R.id.time_tv);
         calendarTV = (TextView) mainView.findViewById(R.id.date_tv);
-        batteryIV = (AppCompatImageView) mainView.findViewById(R.id.battery_percentage_icon);
+        batteryIV = (ImageView) mainView.findViewById(R.id.battery_percentage_icon);
         batteryTV = (TextView) mainView.findViewById(R.id.battery_percentage_tv);
         if (!prefs.showTime)
             watchFaceWrapper.removeView(textClock);
@@ -241,7 +241,8 @@ public class MainService extends Service implements SensorEventListener, Context
             else
                 sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
         }
-        if (lightSensor != null) {
+        if (lightSensor != null && prefs.getBoolByKey("auto_brightness", false)) {
+            Log.d(MAIN_SERVICE_LOG_TAG,"STARTING LIGHT SENSOR");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
             else
@@ -375,11 +376,27 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }
 
-        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false) && (!state || first)) {
+        if ((!state || first)) {
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
+                try {
+                    Runtime r = Runtime.getRuntime();
+                    r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                    try {
+                        System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+                    } catch (Exception ignored) {
+                        ignored.printStackTrace();
+                        try {
+                            Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
+                        } catch (Exception ignored3) {
+                            ignored3.printStackTrace();
+                        }
+                    }
+                }
             }
             try {
                 Intent i = new Intent();

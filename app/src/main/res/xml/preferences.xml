@@ -54,6 +54,11 @@
             android:title="@string/disable_volume_keys" />
         <CheckBoxPreference
             android:defaultValue="false"
+            android:key="auto_brightness"
+            android:summary="@string/settings_auto_brightness_desc"
+            android:title="@string/settings_auto_brightness" />
+        <CheckBoxPreference
+            android:defaultValue="false"
             android:key="proximity_to_lock"
             android:summary="@string/settings_proximity_to_lock_desc"
             android:title="@string/proximity_to_lock" />

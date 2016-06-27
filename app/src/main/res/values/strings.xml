@@ -83,4 +83,6 @@
     <string name="settings_stop_delay">Stop delay</string>
     <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
     <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>
+    <string name="settings_auto_brightness">Auto brightness</string>
+    <string name="settings_auto_brightness_desc">Adjust the brightness automatically</string>
 </resources>
