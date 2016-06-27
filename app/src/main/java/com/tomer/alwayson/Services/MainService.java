@@ -242,7 +242,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
         }
         if (lightSensor != null && prefs.getBoolByKey("auto_brightness", false)) {
-            Log.d(MAIN_SERVICE_LOG_TAG,"STARTING LIGHT SENSOR");
+            Log.d(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
             else
@@ -376,7 +376,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }
 
-        if ((!state || first)) {
+        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false) && (!state || first)) {
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
