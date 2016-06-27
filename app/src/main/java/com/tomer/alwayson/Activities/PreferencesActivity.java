@@ -2,6 +2,7 @@ package com.tomer.alwayson.Activities;
 
 import android.Manifest;
 import android.app.PendingIntent;
+import android.app.admin.DevicePolicyManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;

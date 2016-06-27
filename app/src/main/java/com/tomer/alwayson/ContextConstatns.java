@@ -29,4 +29,5 @@ public interface ContextConstatns {
     String CHARGER_RECEIVER_LOG_TAG = ChargeChangeReceiver.class.getSimpleName();
     String SCREEN_RECEIVER_LOG_TAG = ScreenReceiver.class.getSimpleName();
 
+    int DEVICE_ADMIN_REQUEST_CODE = 4;
 }

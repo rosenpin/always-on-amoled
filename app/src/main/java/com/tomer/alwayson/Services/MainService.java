@@ -2,6 +2,7 @@ package com.tomer.alwayson.Services;
 
 import android.app.ActivityManager;
 import android.app.Service;
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -47,6 +48,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
@@ -235,7 +237,9 @@ public class MainService extends Service implements SensorEventListener, Context
         } else {
             lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         }
-        if (proximitySensor != null && prefs.proximityToLock && Shell.SU.available()) {
+        DevicePolicyManager mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+        ComponentName mAdminName = new ComponentName(this, DAReceiver.class);
+        if (proximitySensor != null && prefs.proximityToLock && (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName)))) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                 sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
             else
@@ -448,7 +452,10 @@ public class MainService extends Service implements SensorEventListener, Context
                         @Override
                         public void run() {
                             if (Shell.SU.available())
-                                Shell.SU.run("input keyevent 26"); // Screen off
+                                Shell.SU.run("input keyevent 26"); // Screen off using root
+                            else {
+                                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+                            }
                         }
                     }).start();
                 } else {

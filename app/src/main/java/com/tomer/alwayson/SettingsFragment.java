@@ -1,5 +1,7 @@
 package com.tomer.alwayson;
 
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,7 +12,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -26,6 +27,7 @@ import android.view.Display;
 import android.view.View;
 import android.widget.ListView;
 
+import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.FeaturesDialog;
 
@@ -241,10 +243,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             restartService();
         }
         if (preference.getKey().equals("proximity_to_lock") && (boolean) o) {
-            if (Shell.SU.available()) {
+            DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+            ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
+            if (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName))) {
                 return true;
             }
-            Snackbar.make(rootView, "You currently need to be rooted for this feature", Snackbar.LENGTH_LONG).show();
+
+            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
+            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Please allow device admin permission to use more features on non-rooted devices.");
+            startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
+
             return false;
         } else if (preference.getKey().equals("startafterlock") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.revert, new View.OnClickListener() {
@@ -267,5 +276,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Globals.colorDialog.show();
         }
         return true;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
+            ((TwoStatePreference) findPreference("proximity_to_lock")).setChecked(true);
     }
 }
