@@ -47,6 +47,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private Prefs prefs;
     private Context context;
     private Intent starterService;
+    boolean shouldEnableNotificationsAlerts;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -288,12 +289,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             ((TwoStatePreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
     }
 
-    boolean shouldEnableNotificationsAlerts;
-
     @Override
     public void onResume() {
         super.onResume();
-        if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)){
+        if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)) {
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
     }

@@ -453,9 +453,8 @@ public class MainService extends Service implements SensorEventListener, Context
                         public void run() {
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
-                            else {
+                            else
                                 ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
-                            }
                         }
                     }).start();
                 } else {
