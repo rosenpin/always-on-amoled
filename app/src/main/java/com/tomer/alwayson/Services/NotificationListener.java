@@ -25,7 +25,7 @@ public class NotificationListener extends NotificationListenerService implements
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        Log.i(NOTIFICATION_LISTENER_TAG, "New notification");
+        Log.i(NOTIFICATION_LISTENER_TAG, "New notification from" + added.getPackageName());
         if (added.isClearable()) {
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
         }
