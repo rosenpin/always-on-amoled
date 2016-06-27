@@ -27,7 +27,7 @@ public class DAReceiver extends DeviceAdminReceiver {
 
     @Override
     public void onDisabled(Context context, Intent intent) {
-        showToast(context, context.getString(R.string.warning_5_device_admin_disabled));
+        showToast(context, context.getString(R.string.warning_6_device_admin_disabled));
         prefs = new Prefs(context);
         prefs.apply();
         prefs.setBool(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), false);
