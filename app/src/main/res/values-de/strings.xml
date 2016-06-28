@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Always On AMOLED</string>
-    <string name="enabled">Aktivieren</string>
+    <string name="settings_enabled">Aktivieren</string>
     <string name="touchToStop">Doppelt tippen zum Aufwecken</string>
     <string name="swipetostop">Nach oben wischen zum Aufwecken</string>
     <string name="cb_show_notification">Zeige dauerhafte Benachrichtigung</string>
@@ -25,7 +25,7 @@
     <string name="revert">Rückgängig machen</string>
     <string name="feedback">Feedback</string>
     <string name="about">Über</string>
-    <string name="licenses">Lizenzen</string>
+    <string name="settings_licenses">Lizenzen</string>
     <string name="settings_licenses_desc">Open-Source Lizenzen</string>
     <string name="back_button_to_stop">Zurück Taste zum Aufwecken</string>
     <string name="settings_back_button_to_stop_desc">Drücke die \"Zurück\" Taste, um das Gerät aufzuwecken</string>
@@ -43,9 +43,9 @@
     <string name="warning_3_allow_system_modification">Bitte erlaube dieser App, die Systemeinstellungen zu ändern!</string>
     <string name="unknown_error">Ein Fehler ist aufgetreten</string>
     <string name="notification_message">Läuft dauerhaft</string>
-    <string name="community">Community</string>
+    <string name="settings_community">Community</string>
     <string name="settings_community_desc">Google Plus Community</string>
-    <string name="github">GitHub</string>
+    <string name="settings_github">GitHub</string>
     <string name="settings_github_desc">Open Source Github Link</string>
     <string name="toggle">Umschalten</string>
     <string name="off">Aus</string>
@@ -55,7 +55,7 @@
     <string name="settings_disable_volume_keys_desc">Aktiviere, um eine versehentliche Lautstärkeänderung zu verhindern</string>
     <string name="app_version">Version</string>
     <string name="build">Versions-Code</string>
-    <string name="translate">Translate</string>
+    <string name="settings_translate">Translate</string>
     <string name="help_translating_the_app">Hilf, die App in deine Sprache zu übersetzen</string>
     <string name="thanks_great">Danke für deine großartige Unterstützung! :)</string>
     <string name="thanks_huge">Danke für deine riesige Unterstützung!! :)</string>

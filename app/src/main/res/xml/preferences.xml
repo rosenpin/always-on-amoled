@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/settings_general">
         <SwitchPreference
             android:defaultValue="true"
             android:key="enabled"
             android:summary="@string/settings_enabled_desc"
-            android:title="@string/enabled" />
+            android:title="@string/settings_enabled" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:dependency="enabled"
@@ -17,26 +18,18 @@
             android:key="startafterlock"
             android:summary="@string/settings_startafterlock_desc"
             android:title="@string/settings_startafterlock" />
-        <ListPreference
-            android:defaultValue="0"
-            android:dialogTitle="@string/settings_stop_delay_desc_short_message"
-            android:entries="@array/delays"
-            android:entryValues="@array/delays_vals"
-            android:key="stop_delay"
-            android:summary="@string/settings_stop_delay_desc"
-            android:title="@string/settings_stop_delay" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/settings_behaviour">
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="notifications_alerts"
-            android:summary="@string/settings_notifications_alerts_desc"
-            android:title="@string/notifications_alerts" />
         <PreferenceScreen
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules">
             <PreferenceCategory android:title="@string/settings_general">
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dialogTitle="@string/settings_stop_delay_desc_short_message"
+                    android:entries="@array/delays"
+                    android:entryValues="@array/delays_vals"
+                    android:key="stop_delay"
+                    android:summary="@string/settings_stop_delay_desc"
+                    android:title="@string/settings_stop_delay" />
                 <ListPreference
                     android:defaultValue="always"
                     android:dialogTitle="@string/settings_rules_desc"
@@ -55,6 +48,14 @@
                     android:title="@string/settings_rules_battery" />
             </PreferenceCategory>
         </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_behaviour">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="notifications_alerts"
+            android:summary="@string/settings_notifications_alerts_desc"
+            android:title="@string/notifications_alerts" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="move_auto"
@@ -146,19 +147,19 @@
         <Preference
             android:key="community"
             android:summary="@string/settings_community_desc"
-            android:title="@string/community" />
+            android:title="@string/settings_community" />
         <Preference
             android:key="github"
             android:summary="@string/settings_github_desc"
-            android:title="@string/github" />
+            android:title="@string/settings_github" />
         <Preference
             android:key="translate"
             android:summary="@string/help_translating_the_app"
-            android:title="@string/translate" />
+            android:title="@string/settings_translate" />
         <Preference
             android:key="open_source_licenses"
             android:summary="@string/settings_licenses_desc"
-            android:title="@string/licenses" />
+            android:title="@string/settings_licenses" />
         <Preference
             android:key="version"
             android:title="@string/app_version" />
