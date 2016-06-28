@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/settings_general">
-
         <SwitchPreference
             android:defaultValue="true"
             android:key="enabled"
@@ -34,14 +33,28 @@
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
             android:title="@string/notifications_alerts" />
-        <ListPreference
-            android:defaultValue="always"
-            android:dialogTitle="@string/settings_rules_desc"
-            android:entries="@array/rules"
-            android:entryValues="@array/rules_val"
-            android:key="rules"
-            android:summary="%s"
-            android:title="@string/settings_rules" />
+        <PreferenceScreen
+            android:summary="@string/settings_rules_desc"
+            android:title="@string/settings_rules">
+            <PreferenceCategory android:title="@string/settings_general">
+                <ListPreference
+                    android:defaultValue="always"
+                    android:dialogTitle="@string/settings_rules_desc"
+                    android:entries="@array/rules_charging"
+                    android:entryValues="@array/rules_charging_vals"
+                    android:key="rules"
+                    android:summary="%s"
+                    android:title="@string/settings_rules_cahrging" />
+                <ListPreference
+                    android:defaultValue="11"
+                    android:dialogTitle="@string/settings_rules_desc"
+                    android:entries="@array/rules_battery"
+                    android:entryValues="@array/rules_battery_vals"
+                    android:key="battery_rules"
+                    android:summary="%s"
+                    android:title="@string/settings_rules_battery" />
+            </PreferenceCategory>
+        </PreferenceScreen>
         <SwitchPreference
             android:defaultValue="true"
             android:key="move_auto"

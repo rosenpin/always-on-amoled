@@ -6,7 +6,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.hardware.Camera;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -64,7 +63,9 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                 }
                 // Start service when screen is off
                 if (!Globals.inCall && prefs.enabled) {
-                    if (shouldStart()) {
+                    boolean toStart = shouldStart();
+                    Log.d("SHOULD START ", String.valueOf(toStart));
+                    if (toStart) {
                         if (prefs.getBoolByKey("startafterlock", true)) {
                             final KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
                             if (myKM.inKeyguardRestrictedInputMode()) {
@@ -125,12 +126,10 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
             return lockPatternEnable == 1;
         } catch (Settings.SettingNotFoundException e) {
             return false;
-        }
-        catch (SecurityException e){
+        } catch (SecurityException e) {
             return false;
         }
     }
-
 
     private static boolean isPassOrPinSet(Context context) {
         KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
@@ -147,10 +146,21 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
     private boolean shouldStart() {
         prefs.apply();
         if (prefs.rules.equals("charging")) {
-            return isConnected();
+            return isConnected() && getBatteryLevel() > prefs.batteryRules;
         } else if (prefs.rules.equals("discharging")) {
-            return !isConnected();
+            return !isConnected() && getBatteryLevel() > prefs.batteryRules;
         }
-        return true;
+        return getBatteryLevel() > prefs.batteryRules;
+    }
+
+    public float getBatteryLevel() {
+        Intent batteryIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        assert batteryIntent != null;
+        int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        if (level == -1 || scale == -1) {
+            return 50.0f;
+        }
+        return ((float) level / (float) scale) * 100.0f;
     }
 }

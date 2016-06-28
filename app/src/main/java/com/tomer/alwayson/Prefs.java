@@ -23,6 +23,7 @@ public class Prefs {
     private SharedPreferences prefs;
     public String orientation;
     public boolean stopOnCamera;
+    public int batteryRules;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -51,6 +52,7 @@ public class Prefs {
         stopDelay = prefs.getString(KEYS.STOP_DELAY.toString(), "0");
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
+        batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "11"));
     }
 
     public void setString(String key, String value) {
@@ -100,6 +102,7 @@ public class Prefs {
         HAS_SOFT_KEYS("has_soft_keys"),
         ORIENTATION("screen_orientation"),
         STOP_ON_CAMERA("stop_on_camera"),
+        BATTERY_RULES("battery_rules"),
         NOTIFICATION_ALERTS("notifications_alerts");
 
         private final String id;

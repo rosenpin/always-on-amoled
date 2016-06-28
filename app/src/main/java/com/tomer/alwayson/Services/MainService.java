@@ -295,8 +295,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
             }
         }
-
-
     }
 
     public boolean isCameraUsebyApp() {

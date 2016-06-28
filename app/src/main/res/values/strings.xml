@@ -98,4 +98,6 @@
     <string name="settings_orientation">Screen orientation</string>
     <string name="settings_stop_on_camera_desc">Stop the always on when the camera is launched (Should keep enabled on Nexus/Samsung devices)</string>
     <string name="settings_stop_on_camera">Allow camera shortcuts</string>
+    <string name="settings_rules_cahrging">Charging rules</string>
+    <string name="settings_rules_battery">Battery rules</string>
 </resources>

@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="rules">
-        <item>Always</item>
+    <string-array name="rules_charging">
+        <item>Both</item>
         <item>While charging</item>
         <item>While not charging</item>
     </string-array>
-    <string-array name="rules_val">
+    <string-array name="rules_charging_vals">
         <item>always</item>
         <item>charging</item>
         <item>discharging</item>
     </string-array>
+
+    <string-array name="rules_battery">
+        <item>Always</item>
+        <item>50% or higher</item>
+        <item>30% or higher</item>
+        <item>20% or higher</item>
+        <item>10% or higher</item>
+    </string-array>
+    <string-array name="rules_battery_vals">
+        <item>0</item>
+        <item>50</item>
+        <item>30</item>
+        <item>20</item>
+        <item>10</item>
+    </string-array>
+
     <string-array name="delays">
         <item>Disabled</item>
         <item>2 Minutes</item>
