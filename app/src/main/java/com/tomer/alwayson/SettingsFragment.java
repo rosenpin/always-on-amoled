@@ -249,16 +249,29 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         if (preference.getKey().equals("proximity_to_lock") && (boolean) o) {
             DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-            ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
+            final ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
             if (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName))) {
                 return true;
             }
 
-            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
-            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
-            startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
-
+            new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.warning) + "!")
+                    .setMessage(getString(R.string.warning_7_disable_fingerprint))
+                    .setPositiveButton(getString(android.R.string.yes), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+                            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
+                            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
+                            startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
+                        }
+                    })
+                    .setNegativeButton(getString(android.R.string.no), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .show();
             return false;
         } else if (preference.getKey().equals("startafterlock") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.revert, new View.OnClickListener() {
