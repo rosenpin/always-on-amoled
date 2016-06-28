@@ -92,10 +92,14 @@
             android:key="watchface"
             android:summary="@string/settings_watchface_desc"
             android:title="@string/settings_watchface" />
-        <CheckBoxPreference
-            android:key="showampm"
-            android:summary="@string/settings_show_am_pm_desc"
-            android:title="@string/settings_show_am_pm" />
+        <ListPreference
+            android:defaultValue="vertical"
+            android:dialogTitle="@string/settings_orientation"
+            android:entries="@array/orientations"
+            android:entryValues="@array/orientations_vals"
+            android:key="screen_orientation"
+            android:summary="%s"
+            android:title="@string/settings_orientation" />
         <Preference
             android:key="textcolor"
             android:summary="@string/settings_text_color_desc"
@@ -114,6 +118,10 @@
             android:max="120"
             android:summary="@string/settings_font_size_desc"
             android:title="@string/settings_font_size" />
+        <CheckBoxPreference
+            android:key="showampm"
+            android:summary="@string/settings_show_am_pm_desc"
+            android:title="@string/settings_show_am_pm" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/about">

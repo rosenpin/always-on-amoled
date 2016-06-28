@@ -95,4 +95,5 @@
     <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically</string>
     <string name="warning">WARNING</string>
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
+    <string name="settings_orientation">Screen orientation</string>
 </resources>

@@ -7,8 +7,8 @@
     android:layout_gravity="center_horizontal"
     android:background="#000000"
     android:foregroundGravity="center"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextClock
         android:id="@+id/time_tv"

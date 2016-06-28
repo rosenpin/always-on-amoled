@@ -10,7 +10,7 @@
         <item>charging</item>
         <item>discharging</item>
     </string-array>
-    <string-array name="delays" >
+    <string-array name="delays">
         <item>Disabled</item>
         <item>2 Minutes</item>
         <item>5 Minutes</item>
@@ -29,5 +29,13 @@
         <item>30</item>
         <item>60</item>
         <item>120</item>
+    </string-array>
+    <string-array name="orientations">
+        <item>Vertical (Portrait)</item>
+        <item>Horizontal (Landscape)</item>
+    </string-array>
+    <string-array name="orientations_vals">
+        <item>vertical</item>
+        <item>horizontal</item>
     </string-array>
 </resources>

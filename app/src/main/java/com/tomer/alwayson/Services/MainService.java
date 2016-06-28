@@ -8,6 +8,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
@@ -181,6 +182,8 @@ public class MainService extends Service implements SensorEventListener, Context
         calendarTV = (TextView) mainView.findViewById(R.id.date_tv);
         batteryIV = (ImageView) mainView.findViewById(R.id.battery_percentage_icon);
         batteryTV = (TextView) mainView.findViewById(R.id.battery_percentage_tv);
+        if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
+            windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
         if (!prefs.showTime)
             watchFaceWrapper.removeView(textClock);
         if (!prefs.showDate)
@@ -323,7 +326,8 @@ public class MainService extends Service implements SensorEventListener, Context
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        refresh();
+                        if (Globals.isShown)
+                            refresh();
                     }
                 },
                 3000);
@@ -333,17 +337,22 @@ public class MainService extends Service implements SensorEventListener, Context
         Display display = windowManager.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        int height = size.y;
+        int height = prefs.orientation.equals("vertical") ? size.y : size.x;
+        int width = prefs.orientation.equals("vertical") ? size.x : size.y;
 
-        mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
+        if (prefs.orientation.equals("vertical"))
+            mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
+        else
+            mainView.setY((float) (width - randInt(width / 1.3, width * 1.3)));
 
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        refreshLong();
+                        if (Globals.isShown)
+                            refreshLong();
                     }
                 },
-                20000);
+                780);
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
