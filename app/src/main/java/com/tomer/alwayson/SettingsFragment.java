@@ -232,6 +232,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (!preference.isChecked()) {
                 return checkNotificationsPermission(context, true);
             }
+            return true;
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.revert, new View.OnClickListener() {
