@@ -51,8 +51,8 @@
     <string name="off">Aus</string>
     <string name="on">An</string>
     <string name="settings_move_desc">Aktiviere, um AMOLED Burn-In zu vermeiden</string>
-    <string name="disable_volume_keys">Deaktiviere Lautstärketasten</string>
-    <string name="enable_this_to_prevent_accidental_volume_change">Aktiviere, um eine versehentliche Lautstärkeänderung zu verhindern</string>
+    <string name="settings_disable_volume_keys">Deaktiviere Lautstärketasten</string>
+    <string name="settings_disable_volume_keys_desc">Aktiviere, um eine versehentliche Lautstärkeänderung zu verhindern</string>
     <string name="app_version">Version</string>
     <string name="build">Versions-Code</string>
     <string name="translate">Translate</string>

@@ -18,10 +18,11 @@ public class Prefs {
     public float textSize;
     public int textColor;
     public int brightness;
-    public String  stopDelay;
+    public String stopDelay;
     public String rules;
     private SharedPreferences prefs;
     public String orientation;
+    public boolean stopOnCamera;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -49,6 +50,7 @@ public class Prefs {
         rules = prefs.getString(KEYS.RULES.toString(), "always");
         stopDelay = prefs.getString(KEYS.STOP_DELAY.toString(), "0");
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
+        stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
     }
 
     public void setString(String key, String value) {
@@ -97,6 +99,7 @@ public class Prefs {
         STOP_DELAY("stop_delay"),
         HAS_SOFT_KEYS("has_soft_keys"),
         ORIENTATION("screen_orientation"),
+        STOP_ON_CAMERA("stop_on_camera"),
         NOTIFICATION_ALERTS("notifications_alerts");
 
         private final String id;

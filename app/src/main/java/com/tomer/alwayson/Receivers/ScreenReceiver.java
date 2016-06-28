@@ -6,6 +6,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.Camera;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -117,7 +118,6 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         return isPatternSet(context) || isPassOrPinSet(context);
     }
 
-
     private static boolean isPatternSet(Context context) {
         ContentResolver cr = context.getContentResolver();
         try {
@@ -133,7 +133,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
 
     private static boolean isPassOrPinSet(Context context) {
-        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE); 
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         return keyguardManager.isKeyguardSecure();
     }
 

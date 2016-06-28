@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -124,7 +125,6 @@ public class MainService extends Service implements SensorEventListener, Context
         super.onCreate();
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
-
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
@@ -295,11 +295,26 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
             }
         }
+
+
+    }
+
+    public boolean isCameraUsebyApp() {
+        Camera camera = null;
+        try {
+            camera = Camera.open();
+        } catch (RuntimeException e) {
+            return true;
+        } finally {
+            if (camera != null) camera.release();
+        }
+        return false;
     }
 
     private void refresh() {
         prefs.apply();
-
+        if (isCameraUsebyApp() && prefs.stopOnCamera)
+            stopSelf();
         if (prefs.showDate) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
@@ -343,7 +358,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.orientation.equals("vertical"))
             mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
         else
-            mainView.setY((float) (width - randInt(width / 1.3, width * 1.3)));
+            mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
 
         new Handler().postDelayed(
                 new Runnable() {

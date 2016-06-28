@@ -30,11 +30,6 @@
 
     <PreferenceCategory android:title="@string/settings_behaviour">
         <SwitchPreference
-            android:defaultValue="true"
-            android:key="move_auto"
-            android:summary="@string/settings_move_desc"
-            android:title="@string/move" />
-        <SwitchPreference
             android:defaultValue="false"
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
@@ -47,11 +42,21 @@
             android:key="rules"
             android:summary="%s"
             android:title="@string/settings_rules" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="move_auto"
+            android:summary="@string/settings_move_desc"
+            android:title="@string/move" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="stop_on_camera"
+            android:summary="@string/settings_stop_on_camera_desc"
+            android:title="@string/settings_stop_on_camera" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="disable_volume_keys"
-            android:summary="@string/enable_this_to_prevent_accidental_volume_change"
-            android:title="@string/disable_volume_keys" />
+            android:summary="@string/settings_disable_volume_keys_desc"
+            android:title="@string/settings_disable_volume_keys" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="auto_brightness"

@@ -30,8 +30,6 @@
     <string name="toggle">toggle</string>
     <string name="off">Off</string>
     <string name="on">On</string>
-    <string name="disable_volume_keys">Disable volume keys</string>
-    <string name="enable_this_to_prevent_accidental_volume_change">Enable this to prevent accidental volume change</string>
     <string name="app_version">Version</string>
     <string name="build">build</string>
     <string name="translate">Translate</string>
@@ -57,6 +55,8 @@
     <string name="warning_5_device_admin_disable">This will disable some of the app features</string>
     <string name="warning_6_device_admin_disabled">Some features might be disabled now</string>
 
+    <string name="settings_disable_volume_keys">Disable volume keys</string>
+    <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
     <string name="settings_notifications_alerts_desc">Show notifications from other apps when received</string>
     <string name="settings_brightness_desc">Screen brightness while off</string>
     <string name="settings_general">General</string>
@@ -96,4 +96,6 @@
     <string name="warning">WARNING</string>
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
     <string name="settings_orientation">Screen orientation</string>
+    <string name="settings_stop_on_camera_desc">Stop the always on when the camera is launched (Should keep enabled on Nexus/Samsung devices)</string>
+    <string name="settings_stop_on_camera">Allow camera shortcuts</string>
 </resources>
