@@ -2,8 +2,6 @@ package com.tomer.alwayson.Activities;
 
 import android.Manifest;
 import android.app.PendingIntent;
-import android.app.admin.DevicePolicyManager;
-import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +12,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PowerManager;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.support.annotation.ColorInt;
@@ -172,13 +169,11 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     private void handlePermissions() {
         boolean phonePermission = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.READ_PHONE_STATE)
-                    != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_PHONE_STATE},
+                        new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA},
                         123);
-                phonePermission = false;
             }
         }
         if (phonePermission) {

@@ -239,15 +239,14 @@ public class Intro extends AppIntro2 {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             v = inflater.inflate(R.layout.intro_third, container, false);
             go = (Button) v.findViewById(R.id.go);
-            if (ContextCompat.checkSelfPermission(context,
-                    Manifest.permission.READ_PHONE_STATE)
-                    != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 permissions[permissions.length - 1] = false;
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE},
+                                new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA},
                                 123);
                     }
                 });
