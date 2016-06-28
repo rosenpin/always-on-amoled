@@ -352,7 +352,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             refreshLong();
                     }
                 },
-                780);
+                20000);
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
