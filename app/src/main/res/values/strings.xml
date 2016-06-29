@@ -56,6 +56,26 @@
     <string name="warning_5_device_admin_disable">This will disable some of the app features</string>
     <string name="warning_6_device_admin_disabled">Some features might be disabled now</string>
 
+
+    <string name="rules_both">Both</string>
+    <string name="rules_while_charging">While charging</string>
+    <string name="rules_while_not_charging">While not charging</string>
+    <string name="rules_always">Always</string>
+    <string name="rules_battery_50">50% or higher</string>
+    <string name="rules_battery_30">30% or higher</string>
+    <string name="rules_battery_20">20% or higher</string>
+    <string name="rules_battery_10">10% or higher</string>
+    <string name="rules_disabled">Disabled</string>
+    <string name="rules_minutes_2">2 Minutes</string>
+    <string name="rules_minutes_5">5 Minutes</string>
+    <string name="rules_minutes_10">10 Minutes</string>
+    <string name="rules_minutes_15">15 Minutes</string>
+    <string name="rules_minutes_30">30 Minutes</string>
+    <string name="rules_hour">An Hour</string>
+    <string name="rules_hours_2">2 Hours</string>
+    <string name="rules_orientation_vertical">Vertical (Portrait)</string>
+    <string name="rules_orientation_horizontal">Horizontal (Landscape)</string>
+
     <string name="settings_disable_volume_keys">Disable volume keys</string>
     <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
     <string name="settings_notifications_alerts_desc">Show notifications from other apps when received</string>
