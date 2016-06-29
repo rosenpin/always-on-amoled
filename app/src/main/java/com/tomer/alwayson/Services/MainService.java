@@ -202,7 +202,9 @@ public class MainService extends Service implements SensorEventListener, Context
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
         textClock.setTextColor(prefs.textColor);
         if (!prefs.showAmPm)
-            textClock.setFormat12Hour("K:mm");
+            textClock.setFormat12Hour("k:mm");
+        else
+            textClock.setFormat12Hour("k:mm aaa");
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
