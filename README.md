@@ -16,7 +16,7 @@ aren't sure) feel free to [submit it!](https://github.com/rosenpin/AlwaysOnDispl
 ### Translation
 
 I created a translation program for the app.
-If you can and want to contribute, you can do it [right here](https://tomerrosenfeld.oneskyapp.com/collaboration/project/158837) :)
+If you can and want to contribute, you can do it [right here](https://crowdin.com/project/always-on-amoled) :)
 
 
 ## Licensing
