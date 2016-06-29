@@ -179,6 +179,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 shouldEnableNotificationsAlerts = true;
+            } else if (prompt) {
+                startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+                shouldEnableNotificationsAlerts = true;
             }
             return false;
         }
