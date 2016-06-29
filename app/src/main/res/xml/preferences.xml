@@ -21,7 +21,7 @@
         <PreferenceScreen
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules">
-            <PreferenceCategory android:title="@string/settings_general">
+            <PreferenceCategory android:title="@string/settings_rules">
                 <ListPreference
                     android:defaultValue="0"
                     android:dialogTitle="@string/settings_stop_delay_desc_short_message"

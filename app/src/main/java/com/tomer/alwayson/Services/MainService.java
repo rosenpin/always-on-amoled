@@ -131,7 +131,7 @@ public class MainService extends Service implements SensorEventListener, Context
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
 
         if (prefs.notificationsAlerts && !isNotificationServiceRunning()) // Only start the service if it's not already running
-            new Intent(getApplicationContext(), NotificationListener.class);
+            startService(new Intent(getApplicationContext(), NotificationListener.class));
 
         // Setup UI
 
