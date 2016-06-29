@@ -120,7 +120,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("translate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://tomerrosenfeld.oneskyapp.com/collaboration/project/158837"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/always-on-amoled"));
                 startActivity(browserIntent);
                 return false;
             }
