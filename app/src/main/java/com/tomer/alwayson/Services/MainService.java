@@ -295,6 +295,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
             }
         }
+        setButtonsLight(true);
     }
 
     public boolean isCameraUsebyApp() {
@@ -401,8 +402,28 @@ public class MainService extends Service implements SensorEventListener, Context
                 mainView.startAnimation(alpha);
             }
         }
+    }
 
-        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false) && (!state || first)) {
+    @Override
+    public void onDestroy() {
+        sensorManager.unregisterListener(this);
+        unregisterReceiver(unlockReceiver);
+        if (prefs.showBattery)
+            unregisterReceiver(mBatInfoReceiver);
+        super.onDestroy();
+        setButtonsLight(false);
+        setLights(OFF, false, false);
+        try {
+            windowManager.removeView(frameLayout);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
+        }
+        stayAwakeWakeLock.release();
+        Globals.isShown = false;
+    }
+
+    private void setButtonsLight(boolean state) {
+        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
@@ -438,22 +459,6 @@ public class MainService extends Service implements SensorEventListener, Context
         }
     }
 
-    @Override
-    public void onDestroy() {
-        sensorManager.unregisterListener(this);
-        unregisterReceiver(unlockReceiver);
-        if (prefs.showBattery)
-            unregisterReceiver(mBatInfoReceiver);
-        super.onDestroy();
-        setLights(OFF, false, false);
-        try {
-            windowManager.removeView(frameLayout);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
-        }
-        stayAwakeWakeLock.release();
-        Globals.isShown = false;
-    }
 
     @Nullable
     @Override
