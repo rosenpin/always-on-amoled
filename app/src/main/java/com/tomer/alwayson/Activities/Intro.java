@@ -209,9 +209,8 @@ public class Intro extends AppIntro2 {
         @Override
         public void onResume() {
             super.onResume();
-            if (ContextCompat.checkSelfPermission(context,
-                    Manifest.permission.READ_PHONE_STATE)
-                    != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 permissions[permissions.length - 1] = false;
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
                 go.setText(getString(R.string.allow));
@@ -220,7 +219,7 @@ public class Intro extends AppIntro2 {
                     @Override
                     public void onClick(View v) {
                         ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE},
+                                new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.CAMERA},
                                 123);
                     }
                 });

@@ -17,7 +17,7 @@
     <string name="draw_over_other_apps">Draw over other apps</string>
     <string name="allow">Allow now</string>
     <string name="read_phone_state">Read phone state</string>
-    <string name="the_app_needs_permission_to_read_phone_state_to_turn_on_the_device_when_you_receive_a_call">The app needs permission to read phone state to turn on the device when you receive a call</string>
+    <string name="intro_third_desc">The app needs permission to read phone state to turn on the device when you receive a call.\nThe app needs permission to access the camera to turn on the device when you launch the camera (With shortcuts).</string>
     <string name="the_app_needs_permission_to_draw_over_other_apps">The app needs permission to draw over other apps</string>
     <string name="the_app_needs_permission_to_change_the_device_brightness">The app needs permission to change the device brightness</string>
     <string name="modify_system_settings">Modify system settings</string>

@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="center|top"
-        android:text="@string/the_app_needs_permission_to_read_phone_state_to_turn_on_the_device_when_you_receive_a_call"
+        android:text="@string/intro_third_desc"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 

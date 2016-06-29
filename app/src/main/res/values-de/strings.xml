@@ -32,7 +32,7 @@
     <string name="draw_over_other_apps">Über anderen Apps darstellen</string>
     <string name="allow">Jetzt zulassen</string>
     <string name="read_phone_state">Telefonstatus lesen</string>
-    <string name="the_app_needs_permission_to_read_phone_state_to_turn_on_the_device_when_you_receive_a_call">Zum Aufwecken des Geräts, wenn du einen Anruf erhältst</string>
+    <string name="intro_third_desc">Zum Aufwecken des Geräts, wenn du einen Anruf erhältst</string>
     <string name="the_app_needs_permission_to_draw_over_other_apps">Die App benötigt die Erlaubnis, um das Widget über dem Sperrbildschirm darzustellen</string>
     <string name="the_app_needs_permission_to_change_the_device_brightness">Die App benötigt die Erlaubnis, um die Helligkeit des Displays zu ändern</string>
     <string name="modify_system_settings">Ändere die Systemeinstellungen</string>
