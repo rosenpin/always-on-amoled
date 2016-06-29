@@ -343,7 +343,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             refresh();
                     }
                 },
-                3000);
+                8000);
     }
 
     private void refreshLong() {
