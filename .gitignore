@@ -49,4 +49,5 @@ app/src/main/assets/secretconstants.properties
 .idea
 
 #Crowdin
-scripts/crowdin.key
+crowdin.yaml
+crowdin-cli.jar

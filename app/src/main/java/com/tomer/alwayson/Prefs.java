@@ -115,7 +115,6 @@ public class Prefs {
         public String toString() {
             return id;
         }
-
     }
 }
 
