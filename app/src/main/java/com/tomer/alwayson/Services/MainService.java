@@ -134,14 +134,6 @@ public class MainService extends Service implements SensorEventListener, Context
             startService(new Intent(getApplicationContext(), NotificationListener.class));
 
         // Setup UI
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                stayAwakeWakeLock.acquire();
-            }
-        }, 500);
-
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         WindowManager.LayoutParams windowParams;
@@ -279,9 +271,6 @@ public class MainService extends Service implements SensorEventListener, Context
             }, delayInMilliseconds);
         }
 
-        //Turn lights on
-        setLights(ON, false, true);
-
         // UI refreshing
         refresh();
 
@@ -303,7 +292,20 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
             }
         }
+
+        //Turn capacitive buttons lights off
         setButtonsLight(true);
+
+        //Turn lights on
+        setLights(ON, false, true);
+
+        //Turn screen on with delay
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                stayAwakeWakeLock.acquire();
+            }
+        }, 500);
     }
 
     public boolean isCameraUsebyApp() {
