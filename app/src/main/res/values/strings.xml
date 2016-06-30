@@ -7,7 +7,7 @@
     <string name="menu_feedback">Feedback</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
-    <string name="intro_permissions">Read phone state</string>
+    <string name="intro_permissions">Read phone state and Camera permission</string>
     <string name="intro_permissions_desc">The app needs permission to read phone state to turn on the device when you receive a call.\nThe app needs permission to access the camera to turn on the device when you launch the camera (With shortcuts).</string>
     <string name="intro_draw_over">Draw over other apps</string>
     <string name="intro_draw_over_desc">The app needs permission to draw over other apps</string>
