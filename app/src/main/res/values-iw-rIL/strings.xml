@@ -5,40 +5,17 @@
   <!--Actions-->
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
-  <string name="thanks">תודה עבור תמיכתך! :)</string>
-  <string name="thanks_great">תודה עבור תמיכתך! :)</string>
-  <string name="thanks_huge">תודה עבור תמיכתך העצומה!! :)</string>
-  <string name="thanks_crazy">תודה עבור תמיכתך המטורפת!!!! :)</string>
   <!--Widget-->
   <!--Device admin-->
-  <string name="device_admin_desc">יש לאפשר זאת כדי לקבל אפשרויות נוספות ללא רוט</string>
-  <string name="device_admin_explanation">נא לאפשר מנהל התקן כדי להשתמש באפשרויות נוספות ללא רוט</string>
   <!--Plugin-->
-  <string name="plugin_dialog_title">תוסף נחוץ</string>
-  <string name="plugin_dialog_desc">נראה שלמכשיר שלך יש כפתורי חומרה, כדי לקבל את אורם במהלך פעולת השירות, יש להתקין את התוסף.</string>
   <!--Errors-->
   <!--Warnings-->
-  <string name="warning_4_device_not_secured">מכשירך עשוי להיות לא מאובטח כעת</string>
-  <string name="warning_5_device_admin_disable">זה ינטרל חלק מאפשרויות האפליקציה</string>
-  <string name="warning_6_device_admin_disabled">חלק מהאפשרויות עשויות לא לעבוד כעת</string>
   <!--Charging rules-->
   <!--Battery rules-->
   <!--Timeout delay rule-->
   <!--Orientation-->
   <!--Settings headers-->
-  <string name="settings_rules">כללים אוטומטיים</string>
   <!--Settings titles-->
-  <string name="settings_enabled">הפעלה</string>
-  <string name="settings_font_size">גודל פונט</string>
-  <string name="settings_startafterlock">התחל לאחר נעילה</string>
-  <string name="settings_stop_delay">דיליי עצירה</string>
-  <string name="settings_auto_brightness">מצב לילה אוטומטי</string>
   <!--Settings descriptions-->
-  <string name="settings_auto_brightness_desc">עמעם את המסך כאשר בסביבה חשוכה</string>
-  <string name="settings_stop_delay_desc_short_message">הפסק את תצוגת השירות לאחר:</string>
-  <string name="settings_stop_delay_desc">עצור את פעולת האפליקציה לאחר זמן ממושך ללא שימוש במכשיר כדי לחסוך סוללה</string>
-  <string name="settings_startafterlock_desc">התחל את השירות רק לאחר שהמסך ננעל. יש להשאיר אפשרות זו פעילה כדי לשמור על מכשירך מאובטח ועל סורק האצבע פעיל.</string>
-  <string name="settings_rules_desc">מתי על האפליקציה לעבוד?</string>
-  <string name="settings_font_size_desc">קבע את גודל טקסט השעון</string>
   <!--Settings Helpers-->
 </resources>
