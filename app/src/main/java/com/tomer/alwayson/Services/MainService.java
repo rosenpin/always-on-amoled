@@ -199,12 +199,18 @@ public class MainService extends Service implements SensorEventListener, Context
             batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
             registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         }
+
+        //Setting clock text color and size
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
         textClock.setTextColor(prefs.textColor);
-        if (!prefs.showAmPm)
-            textClock.setFormat12Hour("k:mm");
-        else
-            textClock.setFormat12Hour("k:mm aaa");
+
+        //Settings clock format
+        if (!prefs.showAmPm) {
+            Log.d(MAIN_SERVICE_LOG_TAG, "showAmPm" + prefs.showAmPm);
+            textClock.setFormat12Hour("h:mm");
+        }
+        textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
+
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
