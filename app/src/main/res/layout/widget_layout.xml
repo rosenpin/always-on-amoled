@@ -8,6 +8,6 @@
         android:id="@+id/toggle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/toggle"
-        android:text="@string/toggle" />
+        android:contentDescription="@string/widget_toggle"
+        android:text="@string/widget_toggle" />
 </LinearLayout>

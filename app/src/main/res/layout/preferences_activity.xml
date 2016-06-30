@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:height="64dp"
         android:background="@color/colorAccent"
-        android:text="@string/support_the_development"
+        android:text="@string/action_support_the_development"
         android:textColor="@android:color/white" />
 
     <LinearLayout

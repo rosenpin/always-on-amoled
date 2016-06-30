@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text='@string/feature_dialog_desc'
+        android:text="@string/settings_feature_dialog_desc"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault" />
 
     <CheckBox
@@ -26,19 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/dialog_time" />
+        android:text="@string/settings_features_dialog_time" />
 
     <CheckBox
         android:id="@+id/dialog_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_calendar" />
+        android:text="@string/settings_features_dialog_calendar" />
 
     <CheckBox
         android:id="@+id/dialog_battery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_battery" />
+        android:text="@string/settings_features_dialog_battery" />
 
     <Button
         android:id="@+id/dialog_done"

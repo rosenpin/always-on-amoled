@@ -62,7 +62,7 @@ public class Intro extends AppIntro2 {
         super.onDonePressed(currentFragment);
         for (boolean permission : permissions) {
             if (!permission) {
-                Snackbar.make(findViewById(android.R.id.content), getString(R.string.please_allow_all_permissions), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(android.R.id.content), getString(R.string.warning_8_intro_allow_all), Snackbar.LENGTH_LONG).show();
                 return;
             }
         }
@@ -97,7 +97,7 @@ public class Intro extends AppIntro2 {
             } catch (Exception e) {
                 permissions[0] = false;
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
-                go.setText(getString(R.string.allow));
+                go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -156,7 +156,7 @@ public class Intro extends AppIntro2 {
             if (!Settings.System.canWrite(context)) {
                 permissions[1] = false;
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
-                go.setText(getString(R.string.allow));
+                go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -213,7 +213,7 @@ public class Intro extends AppIntro2 {
                     || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 permissions[permissions.length - 1] = false;
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
-                go.setText(getString(R.string.allow));
+                go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override

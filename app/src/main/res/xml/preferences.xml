@@ -12,7 +12,7 @@
             android:dependency="enabled"
             android:key="persistent_notification"
             android:summary="@string/settings_notifications_desc"
-            android:title="@string/cb_show_notification" />
+            android:title="@string/settings_persistent_notification" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="startafterlock"
@@ -55,12 +55,12 @@
             android:defaultValue="false"
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
-            android:title="@string/notifications_alerts" />
+            android:title="@string/settings_notifications" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="move_auto"
             android:summary="@string/settings_move_desc"
-            android:title="@string/move" />
+            android:title="@string/settings_move_auto" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="stop_on_camera"
@@ -80,7 +80,7 @@
             android:defaultValue="false"
             android:key="proximity_to_lock"
             android:summary="@string/settings_proximity_to_lock_desc"
-            android:title="@string/proximity_to_lock" />
+            android:title="@string/settings_proximity" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_wake_up">
@@ -88,12 +88,12 @@
             android:defaultValue="false"
             android:key="double_tap_dismiss"
             android:summary="@string/settings_touch_to_stop_desc"
-            android:title="@string/touchToStop" />
+            android:title="@string/settings_double_tap_wake" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="swipe_dismiss"
             android:summary="@string/settings_swipe_to_stop_desc"
-            android:title="@string/swipetostop" />
+            android:title="@string/settings_swipe_wake" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="volume_dismiss"
@@ -103,7 +103,7 @@
             android:defaultValue="false"
             android:key="back_button_dismiss"
             android:summary="@string/settings_back_button_to_stop_desc"
-            android:title="@string/back_button_to_stop" />
+            android:title="@string/settings_back_button_wake" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
@@ -129,7 +129,7 @@
             android:key="brightness"
             android:max="200"
             android:summary="@string/settings_brightness_desc"
-            android:title="@string/brightness" />
+            android:title="@string/settings_brightness" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="88"
             android:dialogTitle="@string/settings_font_size_desc"
@@ -154,7 +154,7 @@
             android:title="@string/settings_github" />
         <Preference
             android:key="translate"
-            android:summary="@string/help_translating_the_app"
+            android:summary="@string/settings_about_translate"
             android:title="@string/settings_translate" />
         <Preference
             android:key="open_source_licenses"
@@ -162,6 +162,6 @@
             android:title="@string/settings_licenses" />
         <Preference
             android:key="version"
-            android:title="@string/app_version" />
+            android:title="@string/settings_app_version" />
     </PreferenceCategory>
 </PreferenceScreen>

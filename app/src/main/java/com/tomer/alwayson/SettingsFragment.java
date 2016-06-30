@@ -109,7 +109,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         try {
             PackageInfo pInfo = c.getPackageManager().getPackageInfo(c.getPackageName(), 0);
             assert findPreference("version") != null;
-            findPreference("version").setSummary(getString(R.string.app_version) + ": " + pInfo.versionName + " " + getString(R.string.build) + ": " + pInfo.versionCode);
+            findPreference("version").setSummary(getString(R.string.settings_app_version) + ": " + pInfo.versionName + " " + getString(R.string.settings_version_desc) + ": " + pInfo.versionCode);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -238,7 +238,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             return true;
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
-            Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.revert, new View.OnClickListener() {
+            Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     preference.setChecked(true);
@@ -277,7 +277,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     .show();
             return false;
         } else if (preference.getKey().equals("startafterlock") && !(boolean) o) {
-            Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.revert, new View.OnClickListener() {
+            Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     preference.setChecked(true);

@@ -222,7 +222,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getApplicationContext(), getString(R.string.err_5_no_email_client), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_1_no_email_client), Toast.LENGTH_SHORT).show();
                 }
                 return true;
             default:

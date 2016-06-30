@@ -16,7 +16,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="@string/modify_system_settings"
+        android:text="@string/intro_modify"
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -27,7 +27,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="center|top"
-        android:text="@string/the_app_needs_permission_to_change_the_device_brightness"
+        android:text="@string/intro_modify_desc"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
@@ -44,7 +44,7 @@
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="@string/allow" />
+            android:text="@string/intro_allow_now" />
     </LinearLayout>
 
 

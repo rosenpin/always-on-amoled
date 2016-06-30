@@ -24,10 +24,10 @@ public class WidgetProvider extends AppWidgetProvider {
 
         if (!prefs.enabled) {
             remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.off));
+            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_off));
         } else {
             remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_green_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.on));
+            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_on));
         }
 
         PendingIntent configPendingIntent = PendingIntent.getService(context, 0, configIntent, 0);
