@@ -37,4 +37,5 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
+    testCompile 'junit:junit:4.12'
 }

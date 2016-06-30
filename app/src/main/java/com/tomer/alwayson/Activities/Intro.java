@@ -219,7 +219,7 @@ public class Intro extends AppIntro2 {
                     @Override
                     public void onClick(View v) {
                         ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.CAMERA},
+                                new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA},
                                 123);
                     }
                 });

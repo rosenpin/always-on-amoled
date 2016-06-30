@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Charging rules-->
     <string-array name="rules_charging">
         <item>@string/rules_both</item>
         <item>@string/rules_while_charging</item>
@@ -10,7 +11,7 @@
         <item>charging</item>
         <item>discharging</item>
     </string-array>
-
+    <!--Battery rules-->
     <string-array name="rules_battery">
         <item>@string/rules_always</item>
         <item>@string/rules_battery_50</item>
@@ -25,7 +26,7 @@
         <item>20</item>
         <item>10</item>
     </string-array>
-
+    <!--Delay rules-->
     <string-array name="delays">
         <item>@string/rules_disabled</item>
         <item>@string/rules_minutes_1</item>
@@ -48,6 +49,7 @@
         <item>60</item>
         <item>120</item>
     </string-array>
+    <!--Orientation settings-->
     <string-array name="orientations">
         <item>@string/rules_orientation_vertical</item>
         <item>@string/rules_orientation_horizontal</item>

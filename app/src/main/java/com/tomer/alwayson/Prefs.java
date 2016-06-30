@@ -20,10 +20,10 @@ public class Prefs {
     public int brightness;
     public String stopDelay;
     public String rules;
-    private SharedPreferences prefs;
     public String orientation;
     public boolean stopOnCamera;
     public int batteryRules;
+    private SharedPreferences prefs;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);

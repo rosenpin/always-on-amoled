@@ -43,11 +43,11 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener, ContextConstatns {
 
+    boolean shouldEnableNotificationsAlerts;
     private View rootView;
     private Prefs prefs;
     private Context context;
     private Intent starterService;
-    boolean shouldEnableNotificationsAlerts;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

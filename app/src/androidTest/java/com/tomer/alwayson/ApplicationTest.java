@@ -1,4 +1,4 @@
-package com.example.tomer.asdfasdfasdfasdfasdf;
+package com.tomer.alwayson;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

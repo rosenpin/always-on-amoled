@@ -1,7 +1,6 @@
 package com.tomer.alwayson;
 
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 

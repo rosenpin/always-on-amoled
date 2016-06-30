@@ -23,8 +23,8 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
     private static final String TAG = ScreenReceiver.class.getSimpleName();
     private static final String WAKE_LOCK_TAG = "ScreenOnWakeLock";
-    private Context context;
     Prefs prefs;
+    private Context context;
 
     public static void turnScreenOn(Context c, boolean stopService) {
         try {
@@ -39,6 +39,27 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean doesDeviceHaveSecuritySetup(Context context) {
+        return isPatternSet(context) || isPassOrPinSet(context);
+    }
+
+    private static boolean isPatternSet(Context context) {
+        ContentResolver cr = context.getContentResolver();
+        try {
+            int lockPatternEnable = Settings.Secure.getInt(cr, Settings.Secure.LOCK_PATTERN_ENABLED);
+            return lockPatternEnable == 1;
+        } catch (Settings.SettingNotFoundException e) {
+            return false;
+        } catch (SecurityException e) {
+            return false;
+        }
+    }
+
+    private static boolean isPassOrPinSet(Context context) {
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        return keyguardManager.isKeyguardSecure();
     }
 
     @Override
@@ -113,27 +134,6 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             Log.i(TAG, "Screen turned on\nShown:" + Globals.isShown);
         }
-    }
-
-    public static boolean doesDeviceHaveSecuritySetup(Context context) {
-        return isPatternSet(context) || isPassOrPinSet(context);
-    }
-
-    private static boolean isPatternSet(Context context) {
-        ContentResolver cr = context.getContentResolver();
-        try {
-            int lockPatternEnable = Settings.Secure.getInt(cr, Settings.Secure.LOCK_PATTERN_ENABLED);
-            return lockPatternEnable == 1;
-        } catch (Settings.SettingNotFoundException e) {
-            return false;
-        } catch (SecurityException e) {
-            return false;
-        }
-    }
-
-    private static boolean isPassOrPinSet(Context context) {
-        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
-        return keyguardManager.isKeyguardSecure();
     }
 
     private boolean isConnected() {
