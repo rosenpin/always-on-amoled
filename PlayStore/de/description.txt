@@ -1,22 +1,22 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Hole dir jetzt ein "Always-On Display" für dein Smartphone oder Tablet.
+Lass deinen Bildschirm dauerhaft an.
+Die erste Open Source "Always On" App!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Nur durch anschauen.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Das ist möglich gemacht worden durch die AMOLED-Display Technologie. Die meisten Displays bleiben schwarz, bis auf ein paar Pixel.
 
 ★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
+Always On Bildschirm
+Benachrichtigungen - sieh Benachrichtigungen ohne dein Gerät zu berühren
 • Automatic rules - preserve battery using predefined rules
 • Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
+• Auto-Nacht-Modus - Bildschirm in dunkler Umgebung automatisch Dimmen
+Pocket Mode - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
+Lege fest, wie herum du die Bildschirmorientierung haben willst
 • Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+KOSTENLOS UND OPEN SOURCE!
 
 Before using please enable 'draw over apps' permission for this app.
 
@@ -26,8 +26,8 @@ Permissions
 <b>Camera permission</b>
 The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
 <b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
+Diese App benötigt die "Telefon-Berechtigung" um einkommende Anrufe zu erkennen, den Always On Bildschirm auszublenden und stattdessen direkt den Anruf-Bildschirm zu zeigen.
+"Verändere System Einstellungen" Berechtigung
 The app needs permission to modify system settings to change the brightness of the lock screen.
 
 

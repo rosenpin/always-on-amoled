@@ -4,7 +4,24 @@
   <!--App name-->
   <string name="app_name">얼웨이즈 온 아몰레드</string>
   <!--Actions-->
+  <string name="action_support_the_development">개발자 지원하기</string>
+  <string name="action_revert">되돌리기</string>
+  <string name="menu_feedback">피드백</string>
   <!--Intro-->
+  <string name="intro_allow_now">지금 권한 부여</string>
+  <string name="intro_permissions">전화 상태 읽기 권환과 카메라 권한</string>
+  <string name="intro_permissions_desc">이 앱은 전화가 왔을 때 디바이스를 켜기 위해 전화 상태 읽기 권한이 필요합니다.\n이 앱은 카메라 바로가기를 이용해 카메라를 실행하기 위해 카메라 권한이 필요합니다.</string>
+  <string name="intro_draw_over">다른 앱 위에 표시</string>
+  <string name="intro_draw_over_desc">이 앱은 다른 앱 위에 표시하는 권한이 필요합니다</string>
+  <string name="intro_modify_desc">이 앱은 디바이스의 밝기를 조절하는 권한이 필요합니다</string>
+  <string name="intro_modify">시스템 설정 변경</string>
+  <string name="intro_wake_ups">화면을 켜는 방법</string>
+  <string name="intro_wake_ups_desc">\"항상 켜짐\" 상태에서 디바이스를 켤 방법을 선택하십시오. 나중에 바꿀 수 있습니다.</string>
+  <string name="intro_checkbox_volume_keys">볼륨 키로 켜기</string>
+  <string name="intro_checkbox_swipe_up">화면 중앙을 위로 밀어 켜기</string>
+  <string name="intro_checkbox_double_tap">화면 중앙을 두번 탭해 켜기</string>
+  <string name="intro_notifications">알림</string>
+  <string name="intro_notifications_desc">\"항상 켜짐\" 상태에서 다른 앱들의 알림을 받고 싶으십니까? 그렇다면 \"지금 권한 부여\" 버튼을 눌러주십시오</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">지원해주셔서 감사합니다 :)</string>
   <string name="thanks_great">큰 지원에 감사합니다 :)</string>
@@ -13,6 +30,9 @@
   <string name="notification_message">얼웨이즈 온이 작동중입니다</string>
   <string name="reboot_to_take_affect">재시작해야 작동합니다</string>
   <!--Widget-->
+  <string name="widget_toggle">토글</string>
+  <string name="widget_off">끔</string>
+  <string name="widget_on">켬</string>
   <!--Device admin-->
   <string name="device_admin_desc">루팅되지 않은 디바이스에게 더 많은 기능을 부여하기 위해 활성화하십시오</string>
   <string name="device_admin_explanation">루팅되지 않은 디바이스에 더 많은 기능을 부여하기 위해 관리자 권한을 부여해 주십시오.</string>
@@ -20,6 +40,8 @@
   <string name="plugin_dialog_title">플러그인이 필요합니다</string>
   <string name="plugin_dialog_desc">이 디바이스에는 하드웨어 버튼이 있는 것 같습니다. 서비스가 작동중 버튼이 꺼지게 하려면 플러그인을 설치하십시오.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">오류가 발생했습니다</string>
+  <string name="error_1_no_email_client">이메일 앱이 설치되지 않았습니다.</string>
   <!--Warnings-->
   <string name="warning">경고</string>
   <string name="warning_1_harm_performance">이것은 앱의 기능을 손상시킬 수 있습니다.</string>
@@ -29,6 +51,8 @@
   <string name="warning_5_device_admin_disable">이것은 앱의 몇가지 기능을 비활성화시킬 것입니다.</string>
   <string name="warning_6_device_admin_disabled">몇가지 기능이 비활성화 되었습니다.</string>
   <string name="warning_7_disable_fingerprint">이 기능은 지문 센서를 비활성화시킬 수도 있습니다. 정말 이 기능을 활성화하시겠습니까?</string>
+  <string name="warning_8_intro_allow_all">모든 권한을 부여해 주십시오</string>
+  <string name="warning_9_allow_notification">알림 접근 권한을 부여해 주십시오</string>
   <!--Charging rules-->
   <string name="rules_both">양쪽 다</string>
   <string name="rules_while_charging">충전 중일 때</string>
@@ -41,6 +65,7 @@
   <string name="rules_battery_10">10% 이상</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">중지됨</string>
+  <string name="rules_minutes_1">1분</string>
   <string name="rules_minutes_2">2분</string>
   <string name="rules_minutes_5">5분</string>
   <string name="rules_minutes_10">10분</string>
@@ -53,6 +78,7 @@
   <string name="rules_orientation_horizontal">가로 화면</string>
   <!--Settings headers-->
   <string name="settings_behaviour">행동</string>
+  <string name="settings_about">앱에 관하여</string>
   <string name="settings_appearance">모습</string>
   <string name="settings_general">일반</string>
   <string name="settings_wake_up">화면 켜기</string>
@@ -60,9 +86,17 @@
   <!--Settings titles-->
   <string name="settings_enabled">활성화</string>
   <string name="settings_disable_volume_keys">볼륨 키 비활성화</string>
-  <string name="settings_volume_to_stop">볼륨 키로 닫기</string>
+  <string name="settings_double_tap_wake">두번 탭해 켜기</string>
+  <string name="settings_back_button_wake">뒤 버튼으로 켜기</string>
+  <string name="settings_swipe_wake">위로 밀어 켜기</string>
+  <string name="settings_brightness">밝기</string>
+  <string name="settings_notifications">알림</string>
+  <string name="settings_persistent_notification">알림 계속 보이기</string>
+  <string name="settings_move_auto">위젯을 자동으로 움직이기</string>
+  <string name="settings_volume_to_stop">볼륨 키로 켜기</string>
   <string name="settings_font_size">글자 크기</string>
   <string name="settings_watchface">시계 구성요소</string>
+  <string name="settings_proximity">근접 센서</string>
   <string name="settings_show_am_pm">오전/오후 보이기</string>
   <string name="settings_text_color">글자 색</string>
   <string name="settings_startafterlock">잠긴 후에만 작동</string>
@@ -73,8 +107,10 @@
   <string name="settings_rules_cahrging">충전 중 규칙</string>
   <string name="settings_rules_battery">배터리 규칙</string>
   <string name="settings_translate">번역</string>
+  <string name="settings_github">Github</string>
   <string name="settings_community">커뮤니티</string>
   <string name="settings_licenses">라이센스</string>
+  <string name="settings_app_version">버전</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">카메라가 작동 중 얼웨이즈 온 스크린을 중지 (넥서스/삼성 디바이스에서는 이 기능이 켜져 있어야 합니다)</string>
   <string name="settings_auto_brightness_desc">어두운 환경에서 자동으로 스크린을 어둡게 합니다.</string>
@@ -88,18 +124,24 @@
   <string name="settings_watchface_desc">시계 구성요소를 바꿉니다</string>
   <string name="settings_proximity_to_lock_desc">몇몇에 디바이스에서 루팅되어있지 않다면 지문 센서가 비활성화 됩니다\n디바이스가 주머니 속에 있을 때 디바이스를 잠가 배터리를 절약합니다(센서 필요)</string>
   <string name="settings_licenses_desc">오픈 소스 라이센스</string>
-  <string name="settings_back_button_to_stop_desc">뒤 버튼을 클릭/터치해서 닫습니다</string>
+  <string name="settings_back_button_to_stop_desc">뒤 버튼을 클릭/터치해서 화면을 켭니다</string>
   <string name="settings_community_desc">구글 플러스 커뮤니티</string>
   <string name="settings_github_desc">Github 오픈 소스 링크</string>
   <string name="settings_move_desc">아몰레드 번인을 방지하기 위해 활성화하십시오</string>
   <string name="settings_font_size_desc">시계의 글자 크기</string>
-  <string name="settings_volume_to_stop_desc">볼륨 키를 눌러 닫습니다</string>
-  <string name="settings_touch_to_stop_desc">스크린을 두번 탭해 닫습니다</string>
-  <string name="settings_swipe_to_stop_desc">스크린을 위로 밀어 닫습니다</string>
+  <string name="settings_volume_to_stop_desc">볼륨 키를 눌러 화면을 켭니다</string>
+  <string name="settings_touch_to_stop_desc">화면을 두번 탭해 켭니다</string>
+  <string name="settings_swipe_to_stop_desc">화면을 위로 밀어 켭니다</string>
   <string name="settings_notifications_desc">앱이 백그라운드에서 계속 작동되게 하려면 활성화하십시오\n팁: 안드로이드 6.0 이상에서는 이 앱의 알림을 차단해도 기능에 영향을 주지 않습니다.</string>
   <string name="settings_enabled_desc">서비스를 활성화합니다.</string>
   <string name="settings_disable_volume_keys_desc">실수로 볼륨을 바꾸는 것을 막기 위해 활성화하십시오</string>
   <string name="settings_notifications_alerts_desc">다른 앱의 알림을 표시합니다</string>
   <string name="settings_brightness_desc">작동중 화면의 밝기</string>
+  <string name="settings_about_translate">앱을 번역하는 것을 도와주십시오</string>
+  <string name="settings_version_desc">빌드</string>
   <!--Settings Helpers-->
+  <string name="settings_feature_dialog_desc">디바이스가 잠겼을 때 나타나게 하고 싶은 것들을 선택하십시오</string>
+  <string name="settings_features_dialog_battery">배터리 양 보이기</string>
+  <string name="settings_features_dialog_calendar">날짜 보이기</string>
+  <string name="settings_features_dialog_time">시각 보이기</string>
 </resources>
