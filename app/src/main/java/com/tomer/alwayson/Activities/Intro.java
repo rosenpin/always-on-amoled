@@ -2,6 +2,7 @@ package com.tomer.alwayson.Activities;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,6 +20,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro2;
 import com.tomer.alwayson.Prefs;
@@ -40,6 +44,8 @@ public class Intro extends AppIntro2 {
         addSlide(new First());
         addSlide(new Second());
         addSlide(new Third());
+        addSlide(new Fourth());
+        addSlide(new Fifth());
         permissions = new boolean[3];
 
 
@@ -257,5 +263,96 @@ public class Intro extends AppIntro2 {
             }
             return v;
         }
+    }
+
+    public static class Fourth extends Fragment {
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View v = inflater.inflate(R.layout.intro_fourth, container, false);
+            pref.apply();
+            CheckBox[] checkBoxes = {(CheckBox) v.findViewById(R.id.intro_checkbox_double_tap), (CheckBox) v.findViewById(R.id.intro_checkbox_swipe_up), (CheckBox) v.findViewById(R.id.intro_checkbox_volume_keys)};
+            for (int i = 0; i < checkBoxes.length; i++) {
+                final int finalI = i;
+                checkBoxes[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        switch (finalI) {
+                            case 0:
+                                pref.setBool(Prefs.KEYS.TOUCH_TO_STOP.toString(), b);
+                                break;
+                            case 1:
+                                pref.setBool(Prefs.KEYS.SWIPE_TO_STOP.toString(), b);
+                                break;
+                            case 2:
+                                pref.setBool(Prefs.KEYS.VOLUME_TO_STOP.toString(), b);
+                                break;
+                        }
+                    }
+                });
+            }
+            return v;
+        }
+    }
+
+    public static class Fifth extends Fragment {
+        View v;
+        boolean shouldEnableNotificationsAlerts;
+        Button go;
+
+        @Nullable
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            v = inflater.inflate(R.layout.intro_fifth, container, false);
+            go = (Button) v.findViewById(R.id.go);
+            go.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (checkNotificationsPermission(getContext(), true)) {
+                        go.setTextColor(context.getResources().getColor(R.color.green));
+                        go.setText(getString(R.string.done_button));
+                        go.setEnabled(false);
+                        pref.forceBool(Prefs.KEYS.NOTIFICATION_ALERTS.toString(), true);
+                    }
+                }
+            });
+            return v;
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            if (shouldEnableNotificationsAlerts && checkNotificationsPermission(getContext(), false)) {
+                go.setTextColor(context.getResources().getColor(R.color.green));
+                go.setText(getString(R.string.done_button));
+                go.setEnabled(false);
+                pref.forceBool(Prefs.KEYS.NOTIFICATION_ALERTS.toString(), true);
+            }
+        }
+
+        private boolean checkNotificationsPermission(Context c, boolean prompt) {
+            ContentResolver contentResolver = c.getContentResolver();
+            String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
+            String packageName = c.getPackageName();
+
+            // check to see if the enabledNotificationListeners String contains our package name
+            if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 && prompt) {
+                    Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    shouldEnableNotificationsAlerts = true;
+                } else if (prompt) {
+                    startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+                    shouldEnableNotificationsAlerts = true;
+                }
+                Toast.makeText(getContext(), R.string.warning_9_allow_notification, Toast.LENGTH_LONG).show();
+                return false;
+            }
+            return true;
+        }
+
+
     }
 }

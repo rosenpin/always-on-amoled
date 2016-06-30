@@ -13,6 +13,11 @@
     <string name="intro_draw_over_desc">The app needs permission to draw over other apps</string>
     <string name="intro_modify_desc">The app needs permission to change the device brightness</string>
     <string name="intro_modify">Modify system settings</string>
+    <string name="intro_wake_ups">Wake up methods</string>
+    <string name="intro_wake_ups_desc">Choose how you want to be able to wake up your phone from \"always on\" state. Don\'t worry, you can change it in the app later.</string>
+    <string name="intro_checkbox_volume_keys">Volume keys to unlock</string>
+    <string name="intro_checkbox_swipe_up">Swipe up from the center of the screen to unlock</string>
+    <string name="intro_checkbox_double_tap">Double tap on the center of the screen to unlcok</string>
     <!--Feedback,Toasts & messages-->
     <string name="thanks">Thank you for your support! :)</string>
     <string name="thanks_great">Thank you for your great support! :)</string>
@@ -134,4 +139,7 @@
     <string name="settings_features_dialog_battery">Show Battery</string>
     <string name="settings_features_dialog_calendar">Show Date</string>
     <string name="settings_features_dialog_time">Show Time</string>
+    <string name="intro_notifications">Notifications alerts</string>
+    <string name="intro_notifications_desc">Do you want to receive notifications from other apps while the screen is in \"always on\" state? If you do, click the \"allow now\" button</string>
+    <string name="warning_9_allow_notification">Please allow notification access for the app</string>
 </resources>

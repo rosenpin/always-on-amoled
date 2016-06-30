@@ -39,6 +39,7 @@
         android:orientation="vertical">
 
         <Button
+            android:background="@color/shell_white_color"
             android:id="@+id/go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +48,4 @@
             android:paddingRight="16dp"
             android:text="@string/intro_allow_now" />
     </LinearLayout>
-
-
 </LinearLayout>
