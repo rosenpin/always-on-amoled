@@ -18,6 +18,8 @@
     <string name="intro_checkbox_volume_keys">Volume keys to unlock</string>
     <string name="intro_checkbox_swipe_up">Swipe up from the center of the screen to unlock</string>
     <string name="intro_checkbox_double_tap">Double tap on the center of the screen to unlcok</string>
+    <string name="intro_notifications">Notifications alerts</string>
+    <string name="intro_notifications_desc">Do you want to receive notifications from other apps while the screen is in \"always on\" state? If you do, click the \"allow now\" button</string>
     <!--Feedback,Toasts & messages-->
     <string name="thanks">Thank you for your support! :)</string>
     <string name="thanks_great">Thank you for your great support! :)</string>
@@ -48,6 +50,7 @@
     <string name="warning_6_device_admin_disabled">Some features might be disabled now</string>
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
     <string name="warning_8_intro_allow_all">Please allow all permissions</string>
+    <string name="warning_9_allow_notification">Please allow notification access for the app</string>
     <!--Charging rules-->
     <string name="rules_both">Both</string>
     <string name="rules_while_charging">While charging</string>
@@ -139,7 +142,4 @@
     <string name="settings_features_dialog_battery">Show Battery</string>
     <string name="settings_features_dialog_calendar">Show Date</string>
     <string name="settings_features_dialog_time">Show Time</string>
-    <string name="intro_notifications">Notifications alerts</string>
-    <string name="intro_notifications_desc">Do you want to receive notifications from other apps while the screen is in \"always on\" state? If you do, click the \"allow now\" button</string>
-    <string name="warning_9_allow_notification">Please allow notification access for the app</string>
 </resources>
