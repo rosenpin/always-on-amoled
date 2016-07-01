@@ -41,22 +41,86 @@
   <string name="plugin_dialog_desc">Es scheint als ob dein Gerät Hardwarebuttons besitzt. Um diese abzuschalten wenn der Dienst ausgeführt wird, musst du das Plug-In installieren.</string>
   <!--Errors-->
   <string name="error_0_unknown_error">Ein Fehler ist aufgetreten</string>
+  <string name="error_1_no_email_client">Derzeit sind keine E-Mail Clients installiert.</string>
   <!--Warnings-->
   <string name="warning">ACHTUNG</string>
+  <string name="warning_1_harm_performance">Dies kann die Leistung der App beeinträchtigen</string>
+  <string name="warning_2_required_phone_permission">Diese Berechtigung wird benötigt um den Bildschirm anzuschalten, wenn du einen Anruf empfängst</string>
+  <string name="warning_3_allow_system_modification">Bitte erteilen sie der App die Berechtigung Einstellungen modifizieren zu dürfen!</string>
+  <string name="warning_4_device_not_secured">Dein Gerät ist jetzt vielleicht nicht gesichert</string>
+  <string name="warning_5_device_admin_disable">Dies wird einige App-Features deaktivieren</string>
+  <string name="warning_6_device_admin_disabled">Einige Funktionen sind unter Umständen nun deaktiviert</string>
+  <string name="warning_7_disable_fingerprint">Dies könnte die Fingerabdrucksensor-Funktionalität beeinträchtigen, bist du dir sicher, dass du dies aktivieren möchtest?</string>
+  <string name="warning_8_intro_allow_all">Bitte erteile alle nötigen Berechtigungen</string>
+  <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
   <!--Charging rules-->
+  <string name="rules_both">Beide</string>
+  <string name="rules_while_charging">Während Ladenvorgangs</string>
+  <string name="rules_while_not_charging">Während Entladung</string>
   <!--Battery rules-->
+  <string name="rules_always">Immer</string>
+  <string name="rules_battery_50">50 % oder höher</string>
+  <string name="rules_battery_30">30 % oder höher</string>
+  <string name="rules_battery_20">20 % oder höher</string>
+  <string name="rules_battery_10">10 % oder höher</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Deaktiviert</string>
+  <string name="rules_minutes_1">1 Minute</string>
+  <string name="rules_minutes_2">2 Minuten</string>
+  <string name="rules_minutes_5">5 Minuten</string>
+  <string name="rules_minutes_10">10 Minuten</string>
+  <string name="rules_minutes_15">15 Minuten</string>
+  <string name="rules_minutes_30">30 Minuten</string>
+  <string name="rules_hour">Eine Stunde</string>
+  <string name="rules_hours_2">2 Stunden</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">Vertikal (Hochformat)</string>
+  <string name="rules_orientation_horizontal">Horizontal (Querformat)</string>
   <!--Settings headers-->
+  <string name="settings_behaviour">Verhalten</string>
   <string name="settings_about">Über</string>
   <string name="settings_appearance">Darstellung</string>
+  <string name="settings_general">Allgemein</string>
+  <string name="settings_wake_up">Aufwachen</string>
+  <string name="settings_rules">Automatische Regeln</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aktiviert</string>
+  <string name="settings_disable_volume_keys">Lautstärketasten deaktivieren</string>
+  <string name="settings_double_tap_wake">Doppelt tippen um abzulehnen</string>
+  <string name="settings_back_button_wake">Zurück-Button um abzulehnen</string>
+  <string name="settings_swipe_wake">Nach oben wischen um abzulehnen</string>
   <string name="settings_brightness">Helligkeit</string>
   <string name="settings_notifications">Benachrichtigungen</string>
   <string name="settings_persistent_notification">Permanent die Benachrichtigung anzeigen</string>
+  <string name="settings_move_auto">Das Widget automatisch verschieben</string>
+  <string name="settings_volume_to_stop">Lautstärketasten um zu stoppen</string>
+  <string name="settings_font_size">Schriftgröße</string>
   <string name="settings_proximity">Näherungssensor</string>
+  <string name="settings_show_am_pm">Zeige AM/PM</string>
+  <string name="settings_text_color">Textfarbe</string>
+  <string name="settings_startafterlock">Starten nach Sperrung</string>
+  <string name="settings_stop_delay">Verzögerung stoppen</string>
+  <string name="settings_auto_brightness">Auto-Nachtmodus</string>
+  <string name="settings_orientation">Bildschirmausrichtung</string>
+  <string name="settings_stop_on_camera">Kamerashortcuts erlauben</string>
+  <string name="settings_rules_cahrging">Laderegeln</string>
+  <string name="settings_rules_battery">Batterieregeln</string>
+  <string name="settings_translate">Übersetzen</string>
+  <string name="settings_github">GitHub</string>
+  <string name="settings_community">Community</string>
+  <string name="settings_licenses">Lizenzen</string>
+  <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">Den Always On Screen stoppen wenn die Kamera gestartet wird (sollte immer aktiviert sein auf Nexus/Samsung-Geräten)</string>
+  <string name="settings_auto_brightness_desc">Dimme den Bildschirm bei dunkler Umgebung automatisch</string>
+  <string name="settings_stop_delay_desc_short">Auf 0 setzen um abzuschalten</string>
+  <string name="settings_stop_delay_desc_short_message">Beenden Sie den Always On Service nach:</string>
+  <string name="settings_proximity_to_lock_desc">WENN DU KEINE ROOT-RECHTE BESITZT WIRD DIES DEN FINGERPRINT-SENSOR FÜR EINIGE GERÄTE DEAKTIVIEREN\n Sperre das Gerät wenn du es in eine Tasche z.B. legst, um Batterie zu sparen (geeigneten Sensor benötigt!)</string>
+  <string name="settings_licenses_desc">Open-Source-Lizenzen</string>
+  <string name="settings_about_translate">Hilf bei der Übersetzung der App</string>
+  <string name="settings_version_desc">build</string>
   <!--Settings Helpers-->
+  <string name="settings_features_dialog_battery">Akkustatus anzeigen</string>
+  <string name="settings_features_dialog_calendar">Datum anzeigen</string>
+  <string name="settings_features_dialog_time">Zeit anzeigen</string>
 </resources>

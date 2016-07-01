@@ -3,13 +3,34 @@
 <resources>
   <!--App name-->
   <!--Actions-->
+  <string name="action_support_the_development">תמיכה בפיתוח</string>
+  <string name="action_revert">בטל שינויים</string>
+  <string name="menu_feedback">משוב</string>
   <!--Intro-->
+  <string name="intro_allow_now">אפשר עכשיו</string>
+  <string name="intro_permissions">הרשאה לקרוא את מצב הטלפון וגישה למצלמה</string>
+  <string name="intro_permissions_desc">האפליקציה צריכה גישה לסטטוס הטלפון כדי להדליק את מכשירך כאשר מתקבלת שיחה\nהאפליקציה צריכה גישה למצלמה כדי להדליק את מכשירך כאשר נפתחת המצלמה (בעזרת קיצורים).</string>
+  <string name="intro_draw_over">הצגה מעל יישומים אחרות</string>
+  <string name="intro_draw_over_desc">האפליקציה צריכה הרשאה להופיע מעל יישומים אחרים</string>
+  <string name="intro_modify_desc">האפליקציה צריכה הרשאה כדי לשנות את בהירות המסך</string>
+  <string name="intro_modify">שינוי הגדרות מערכת</string>
+  <string name="intro_wake_ups">דרכים להדלקת המכשיר</string>
+  <string name="intro_wake_ups_desc">בחר כיצד ברצונך להיות מסוגל להדליק את הטלפון ממנוחה. אל תדאג, תוכל לשנות זאת מאוחר יותר בהגדרות האפליקציה.</string>
+  <string name="intro_checkbox_volume_keys">פתיחה באמצעות כפתורי הווליום</string>
+  <string name="intro_checkbox_swipe_up">החלק כלפי מעלה ממרכז המסך כדי להדליק את מכשירך</string>
+  <string name="intro_checkbox_double_tap">לחיצה כפולה במרכז המסך כדי להדליק את מכשירך</string>
+  <string name="intro_notifications">התראות הודעות</string>
+  <string name="intro_notifications_desc">האם ברצונך לקבל הודעות מיישומים אחרים בזמן שהמסך נעול? אם כן, לחץ על \"אפשר עכשיו\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">תודה עבור תמיכתך! :)</string>
   <string name="thanks_great">תודה עבור תמיכתך! :)</string>
   <string name="thanks_huge">תודה עבור תמיכתך העצומה!! :)</string>
   <string name="thanks_crazy">תודה עבור תמיכתך המטורפת!!!! :)</string>
+  <string name="reboot_to_take_affect">יש לכבות ולהדליק את המכשיר כדי להחיל פעולה זו</string>
   <!--Widget-->
+  <string name="widget_toggle">שינוי מצב</string>
+  <string name="widget_off">כבוי</string>
+  <string name="widget_on">מופעל</string>
   <!--Device admin-->
   <string name="device_admin_desc">יש לאפשר זאת כדי לקבל אפשרויות נוספות ללא רוט</string>
   <string name="device_admin_explanation">נא לאפשר מנהל התקן כדי להשתמש באפשרויות נוספות ללא רוט</string>
@@ -17,28 +38,108 @@
   <string name="plugin_dialog_title">תוסף נחוץ</string>
   <string name="plugin_dialog_desc">נראה שלמכשיר שלך יש כפתורי חומרה, כדי לקבל את אורם במהלך פעולת השירות, יש להתקין את התוסף.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">התרחשה שגיאה</string>
+  <string name="error_1_no_email_client">אין יישומי אימייל מותקנים.</string>
   <!--Warnings-->
+  <string name="warning">אזהרה</string>
+  <string name="warning_1_harm_performance">זה יכול לפגוע בביצועים של היישום</string>
+  <string name="warning_2_required_phone_permission">הרשאה זו נדרשת כדי להדליק את המסך כאשר אתה מקבל שיחת טלפון</string>
+  <string name="warning_3_allow_system_modification">בבקשה לאפשר הרשאת שינוי הגדרות עבור יישום זה!</string>
   <string name="warning_4_device_not_secured">מכשירך עשוי להיות לא מאובטח כעת</string>
   <string name="warning_5_device_admin_disable">זה ינטרל חלק מאפשרויות האפליקציה</string>
   <string name="warning_6_device_admin_disabled">חלק מהאפשרויות עשויות לא לעבוד כעת</string>
+  <string name="warning_7_disable_fingerprint">זה עלול לבטל את הפונקציונליות של חיישן טביעות אצבע, האם אתה בטוח כי ברצונך לאפשר את זאת?</string>
+  <string name="warning_8_intro_allow_all">בבקשה לאפשר את כל ההרשאות</string>
+  <string name="warning_9_allow_notification">יש לאפשר גישה להתראות עבור האפליקציה</string>
   <!--Charging rules-->
+  <string name="rules_both">גם וגם</string>
+  <string name="rules_while_charging">במהלך טעינה</string>
+  <string name="rules_while_not_charging">כאשר לא בטעינה</string>
   <!--Battery rules-->
+  <string name="rules_always">תמיד</string>
+  <string name="rules_battery_50">50% ומעלה</string>
+  <string name="rules_battery_30">30% ומעלה</string>
+  <string name="rules_battery_20">20% ומעלה</string>
+  <string name="rules_battery_10">10% ומעלה</string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">לא מאופשר</string>
+  <string name="rules_minutes_1">דקה אחת</string>
+  <string name="rules_minutes_2">שתי דקות</string>
+  <string name="rules_minutes_5">חמש דקות</string>
+  <string name="rules_minutes_10">עשר דקות</string>
+  <string name="rules_minutes_15">15 דקות</string>
+  <string name="rules_minutes_30">30 דקות</string>
+  <string name="rules_hour">שעה</string>
+  <string name="rules_hours_2">שעתיים</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">אנכי (לאורך)</string>
+  <string name="rules_orientation_horizontal">אופקי (לרוחב)</string>
   <!--Settings headers-->
+  <string name="settings_behaviour">התנהגות</string>
+  <string name="settings_about">אודות</string>
+  <string name="settings_appearance">מראה</string>
+  <string name="settings_general">כללי</string>
+  <string name="settings_wake_up">התעוררות</string>
   <string name="settings_rules">כללים אוטומטיים</string>
   <!--Settings titles-->
   <string name="settings_enabled">הפעלה</string>
+  <string name="settings_disable_volume_keys">בטל מקשי עוצמת הקול</string>
+  <string name="settings_double_tap_wake">הקשה כפולה לפתיחה</string>
+  <string name="settings_back_button_wake">כפתור חזרה לפתיחה</string>
+  <string name="settings_swipe_wake">החלקה מעלה כדי לפתוח</string>
+  <string name="settings_brightness">בהירות</string>
+  <string name="settings_notifications">התראות</string>
+  <string name="settings_persistent_notification">הצג התראה מקובעת</string>
+  <string name="settings_move_auto">הזזת התצוגה באופן אוטומטי</string>
+  <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
   <string name="settings_font_size">גודל פונט</string>
+  <string name="settings_watchface">התאמה אישית של התצוגה</string>
+  <string name="settings_proximity">חיישן קרבה</string>
+  <string name="settings_show_am_pm">הצג AM/PM</string>
+  <string name="settings_text_color">צבע טקסט</string>
   <string name="settings_startafterlock">התחל לאחר נעילה</string>
   <string name="settings_stop_delay">דיליי עצירה</string>
   <string name="settings_auto_brightness">מצב לילה אוטומטי</string>
+  <string name="settings_orientation">כיוון מסך</string>
+  <string name="settings_stop_on_camera">קיצורי דרך להפעלת המצלמה</string>
+  <string name="settings_rules_cahrging">כללים מבוססי טעינה</string>
+  <string name="settings_rules_battery">כללים מבוססי סוללה</string>
+  <string name="settings_translate">תרגום</string>
+  <string name="settings_github">Github</string>
+  <string name="settings_community">קהילה</string>
+  <string name="settings_licenses">רשיונות</string>
+  <string name="settings_app_version">גירסה</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">הדלקת המסך כאשר המצלמה נפתחת (יש להשאיר מאופשר במכשירי נקסוס או סמסונג)</string>
   <string name="settings_auto_brightness_desc">עמעם את המסך כאשר בסביבה חשוכה</string>
+  <string name="settings_stop_delay_desc_short">בחר 0 כדי לנטרל</string>
   <string name="settings_stop_delay_desc_short_message">הפסק את תצוגת השירות לאחר:</string>
   <string name="settings_stop_delay_desc">עצור את פעולת האפליקציה לאחר זמן ממושך ללא שימוש במכשיר כדי לחסוך סוללה</string>
   <string name="settings_startafterlock_desc">התחל את השירות רק לאחר שהמסך ננעל. יש להשאיר אפשרות זו פעילה כדי לשמור על מכשירך מאובטח ועל סורק האצבע פעיל.</string>
   <string name="settings_rules_desc">מתי על האפליקציה לעבוד?</string>
+  <string name="settings_text_color_desc">קבע את צבע הטקסט</string>
+  <string name="settings_show_am_pm_desc">הצג AM/PM עם השעון (רק עבור זמן 12 שעות)</string>
+  <string name="settings_watchface_desc">התאמה אישית של אלמנטים המופיעים בתצוגה</string>
+  <string name="settings_proximity_to_lock_desc">אם מכשירך לא פרוץ, זה אפשרות זו תבטל את חיישן סריקת האצבע עבור מכשירים מסוימים\n כיבוי המכשיר כאשר הוא מוכנס לכיס כדי לחסוך סוללה</string>
+  <string name="settings_licenses_desc">רשיונות קוד פתוח</string>
+  <string name="settings_back_button_to_stop_desc">לחץ על כפתור חזרה לפתיחה</string>
+  <string name="settings_community_desc">קהילת גוגל פלוס</string>
+  <string name="settings_github_desc">קישור Github לקוד הפתוח</string>
+  <string name="settings_move_desc">אפשר כדי להמנע מ AMOLED burn in</string>
   <string name="settings_font_size_desc">קבע את גודל טקסט השעון</string>
+  <string name="settings_volume_to_stop_desc">לחיצה על מקשי עוצמת הקול תדליק את המסך</string>
+  <string name="settings_touch_to_stop_desc">לחיצה כפולה על המסך תדליק אותו</string>
+  <string name="settings_swipe_to_stop_desc">משיכה כלפי מעלה ממרכז המסך תדליק אותו</string>
+  <string name="settings_notifications_desc">אפשר את זה כדי לשמור על האפליקציה פעילה ברקע\nטיפ: באנדרואיד 6 ומעלה ניתן לחסום התראות מהאפליקציה בלי אפקט על ביצועיה</string>
+  <string name="settings_enabled_desc">הפעל את השירות</string>
+  <string name="settings_disable_volume_keys_desc">אפשר אפשרות זו כדי להמנע מלחיצות בשוגג של כפתורי הוולויום</string>
+  <string name="settings_notifications_alerts_desc">הצג התראות מאפליקציות אחרות כאשר הן מתקבלות</string>
+  <string name="settings_brightness_desc">בהירות המסך כאשר הוא כבוי</string>
+  <string name="settings_about_translate">עזרו לתרגם את האפליקציה</string>
+  <string name="settings_version_desc">בניה</string>
   <!--Settings Helpers-->
+  <string name="settings_feature_dialog_desc">בחר את הרכיבים שברצונך שיופיע כאשר המכשיר נעול</string>
+  <string name="settings_features_dialog_battery">הצג מצב סוללה</string>
+  <string name="settings_features_dialog_calendar">הצג תאריך</string>
+  <string name="settings_features_dialog_time">הצג זמן</string>
 </resources>

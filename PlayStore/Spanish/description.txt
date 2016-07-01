@@ -1,0 +1,35 @@
+Obtén una pantalla siempre encendida para tu teléfono o tableta.
+Mantén tu pantalla encendida todo el tiempo.
+La primera aplicación de pantalla siempre encendida de código abierto!
+
+La idea es proveer a los usuarios información acerca de la hora, fecha, notificaciones y más, sin tener que si quiera tocar el teléfono. Solo mirándola.
+
+Esto es posible gracias a la tecnología de pantallas AMOLED. La mayoría de la pantalla se mantiene apagada excepto por algunos pocos píxeles.
+
+★Características notables
+• Pantalla siempre encendida
+• Notificaciones - mira tus notificaciones sin tocar tu dispositivo
+• Reglas automáticas - ahorra batería utilizando reglas predefinidas
+• Movimiento automático - evita quemadura de la pantalla AMOLED
+• Modo nocturno automático - oscurece la pantalla automáticamente en ambientes oscuros
+• Modo bolsillo - bloquea el dispositivo cuando lo dejas en tu bolsillo, para ahorrar batería
+• Dos golpes para despertar + deslizar arriba para despertar + teclas de volumen para despertar + botón de volver para despertar
+• Fuerza orientación - elige tu orientación de pantalla preferida
+• Personalización - cambia el color del texto, su tamaño, el brillo y más
+• ¡GRATIS Y DE CÓDIGO ABIERTO!
+
+Antes de usar esta aplicación, habilita el permiso para "dibujar sobre otras aplicaciónes" para esta aplicación.
+
+Esta aplicación es BETA, y por lo tanto todavía tiene bugs y le faltan características.
+
+Permisos
+<b>Permisos de Cámara</b>
+La aplicación necesita permiso de cámara para reconocer su apertura y quitar la pantalla " siempre encendida".
+<b>Permisos de telefonía</b>
+La aplicación necesita permisos de telefonía para reconocer llamadas entrantes, cerrar la pantalla "siempre encendida" y mostrrar la pantalla de llamada entrante.
+<b>Modificar configuración de permisos de sistema</b>
+La aplicación necesita permiso para modificar la configuración de sistema, para poder cambiar el brillo de la pantalla de bloqueo.
+
+
+Comunidad Google Plus
+https://plus.google.com/communities/104206728795122451273
