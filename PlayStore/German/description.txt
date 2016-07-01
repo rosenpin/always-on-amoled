@@ -2,15 +2,15 @@ Hole dir jetzt ein "Always-On Display" für dein Smartphone oder Tablet.
 Lass deinen Bildschirm dauerhaft an.
 Die erste Open Source "Always On" App!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Nur durch anschauen.
+Die Idee von dem ist, dem Benutzer Informationen über Zeit, Datum, Benachrichtigungen und vielem mehr zu geben, ohne das Gerät berühren zu müssen. Nur durch anschauen.
 
 Das ist möglich gemacht worden durch die AMOLED-Display Technologie. Die meisten Displays bleiben schwarz, bis auf ein paar Pixel.
 
-★Notable features
+★ Bemerkenswerte Funktionen
 Always On Bildschirm
 Benachrichtigungen - sieh Benachrichtigungen ohne dein Gerät zu berühren
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
+•  Automatische Regeln - erhalte Batterie durch vordefinierte Regeln
+• Auto-Bewegung - AMOLED Burn-in-vermeiden
 • Auto-Nacht-Modus - Bildschirm in dunkler Umgebung automatisch Dimmen
 Pocket Mode - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
@@ -24,11 +24,11 @@ The app is in BETA, it still has bugs and lacks features.
 
 Permissions
 <b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
+Diese App benötigt die Kameraberechtigung um erkennen zu können wenn die Kamera gestartet wird und den "always on" Bildschirm auszublenden.
+<b>Telefonberechtigung</b>
 Diese App benötigt die "Telefon-Berechtigung" um einkommende Anrufe zu erkennen, den Always On Bildschirm auszublenden und stattdessen direkt den Anruf-Bildschirm zu zeigen.
 "Verändere System Einstellungen" Berechtigung
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Die App benötigt die Berechtigung Systemeinstellungen zu verändern, um die Helligkeit des Sperrbildschirms einzustellen.
 
 
 Google Plus Community

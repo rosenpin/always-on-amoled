@@ -4,29 +4,82 @@
   <!--App name-->
   <string name="app_name">Întotdeauna On AMOLED</string>
   <!--Actions-->
+  <string name="action_support_the_development">Contribuie pentru dezvoltarea aplicației</string>
+  <string name="menu_feedback">Spune-ne părerea ta</string>
   <!--Intro-->
+  <string name="intro_allow_now">Activează permisiunile</string>
+  <string name="intro_permissions">Urmărirea stării telefonului și a camerei</string>
+  <string name="intro_permissions_desc">Această aplicație are nevoie de aceste permisiuni pentru a urmări starea telefonului atunci când aprindeți ecranul sau atunci când primiți un apel. Aplicația are nevoie de permisiuni pentru a deschide camera atunci când o deschideți cu ajutorul shortcut-urilor de pe ecranul de blocare.</string>
+  <string name="intro_draw_over">Funcționare peste alte aplicații</string>
+  <string name="intro_draw_over_desc">Această aplicație are nevoie de permisiuni pentru a funcționa peste alte aplicații</string>
+  <string name="intro_modify_desc">Această aplicație are nevoie de permisiuni pentru a schimba luminozitatea ecranului</string>
+  <string name="intro_modify">Permisiuni pentru modificarea setărilor sistemului</string>
+  <string name="intro_wake_ups">Metode de aprindere</string>
+  <string name="intro_wake_ups_desc">Alege cum vrei ca telefonul să se aprindă din starea \"Always on\". Nu-ți face griji, le poți modifica după în aplicație.</string>
+  <string name="intro_checkbox_volume_keys">Ieșire din starea \"Always on\" prin folosirea butoanelor de volum.</string>
+  <string name="intro_checkbox_swipe_up">Glisează în sus din centrul ecranului pentru a ieși din starea \"Always on\"</string>
+  <string name="intro_checkbox_double_tap">Apasă de două ori în centrul ecranului pentru a ieși din starea \"Always on\".</string>
+  <string name="intro_notifications">Notificări pe ecranul \"Always on\".</string>
+  <string name="intro_notifications_desc">Dorești să primești notificările aplicațiilor pe ecranul \"Always on\"? Această acțiune are nevoie de permisiunile dumneavoastră.</string>
   <!--Feedback,Toasts & messages-->
-  <string name="thanks">Iti multumesc pentru sprijin! :)</string>
-  <string name="thanks_great">Vă mulțumesc pentru sprijinul acordat mare! :)</string>
-  <string name="thanks_huge">Vă mulțumesc pentru sprijin imens !! :)</string>
-  <string name="thanks_crazy">Va multumim pentru sprijinul acordat CRAZY !!! :)</string>
-  <string name="notification_message">Întotdeauna on execută</string>
-  <string name="reboot_to_take_affect">Reboot pentru a intra în vigoare</string>
+  <string name="thanks">Îți mulțumesc pentru sprijin! :)</string>
+  <string name="thanks_great">Îți mulțumesc pentru sprijinul acordat! :)</string>
+  <string name="thanks_huge">Îți mulțumesc pentru imensul sprijin! :)</string>
+  <string name="thanks_crazy">Îți mulțumesc pentru sprijinul nemaipomenit! :)</string>
+  <string name="notification_message">Serviciul \"Always on\" funcționează.</string>
+  <string name="reboot_to_take_affect">Repornește telefonul ca acțiunile să se activeze.</string>
   <!--Widget-->
+  <string name="widget_toggle">Comutator</string>
+  <string name="widget_off">Always on - oprit</string>
+  <string name="widget_on">Always on - pornit</string>
   <!--Device admin-->
+  <string name="device_admin_desc">Activează această funcție pentru a debloca alte funcții pentru dispozitivele care nu beneficiază de root.</string>
+  <string name="device_admin_explanation">Va rog sa oferiti permisiunile de administrator pentru a uitiliza mai multe caracteristici pe dispozitivele care nu beneficiaza de root.</string>
   <!--Plugin-->
+  <string name="plugin_dialog_title">Pentru această acțiune este nevoie de un plugin.</string>
+  <string name="plugin_dialog_desc">Se pare că dispozitivul are butoane fizice. Pentru a le face să se oprească în timp ce serviciul este pornit, te rugăm să instalezi plugin-ul.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">A intervenit o eroare.</string>
+  <string name="error_1_no_email_client">Nu există nicio aplicație de tip email instalată.</string>
   <!--Warnings-->
+  <string name="warning">AVERTISMENT</string>
   <string name="warning_1_harm_performance">Acest lucru poate afecta performanța aplicației</string>
   <string name="warning_2_required_phone_permission">Această permisiune este necesară, astfel încât aplicația poate activa pe ecran atunci când primiți un apel telefonic</string>
   <string name="warning_3_allow_system_modification">Vă rugăm să permiteți modificarea setărilor permisiune pentru această aplicație!</string>
+  <string name="warning_4_device_not_secured">S-ar putea ca dispozitivul să nu fie în siguranță acum.</string>
+  <string name="warning_5_device_admin_disable">Această acțiune v-a dezactiva anumite funcții ale aplicației.</string>
+  <string name="warning_6_device_admin_disabled">Anumite funcții s-ar putea să fie dezactivate acum.</string>
+  <string name="warning_7_disable_fingerprint">Această acțiune v-a dezactiva sensorul de amprente. Sunteți sigur că activați această funcție?</string>
+  <string name="warning_8_intro_allow_all">Te rog să oferi toate permisiunile!</string>
+  <string name="warning_9_allow_notification">Te rog să oferi permisiunile necesare ca aplicația să citească notificările aplicațiilor.</string>
   <!--Charging rules-->
+  <string name="rules_both">Mereu</string>
+  <string name="rules_while_charging">În timpul încărcării</string>
+  <string name="rules_while_not_charging">În timpul descărcării</string>
   <!--Battery rules-->
+  <string name="rules_always">Mereu</string>
+  <string name="rules_battery_50"> Baterie 50% sau peste</string>
+  <string name="rules_battery_30">Baterie 30% sau peste</string>
+  <string name="rules_battery_20">Baterie 20% sau peste</string>
+  <string name="rules_battery_10">Baterie 10% sau peste</string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">Dezactivat</string>
+  <string name="rules_minutes_1">Un minut</string>
+  <string name="rules_minutes_2">Două minute</string>
+  <string name="rules_minutes_5">Cinci minute</string>
+  <string name="rules_minutes_10">Zece minute</string>
+  <string name="rules_minutes_15">Cinsprezece minute</string>
+  <string name="rules_minutes_30">Treizeci de minute</string>
+  <string name="rules_hour">O oră</string>
+  <string name="rules_hours_2">Două ore</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">Vertical (Portret)</string>
+  <string name="rules_orientation_horizontal">Orizontal (Peisaj)</string>
   <!--Settings headers-->
-  <string name="settings_behaviour">comportament</string>
+  <string name="settings_behaviour">Comportament</string>
+  <string name="settings_about">Despre</string>
   <string name="settings_appearance">Aspect</string>
+  <string name="settings_general">Generale</string>
   <string name="settings_wake_up">Trezeşte-te</string>
   <string name="settings_rules">Reguli automate</string>
   <!--Settings titles-->
