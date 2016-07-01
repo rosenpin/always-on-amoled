@@ -5,6 +5,13 @@
   <string name="app_name">Всегда Включенный Амолэд</string>
   <!--Actions-->
   <!--Intro-->
+  <string name="intro_draw_over">Отображать поверх других приложений</string>
+  <string name="intro_draw_over_desc">Приложению необходимо разрешение для отображения поверх других приложений</string>
+  <string name="intro_wake_ups">Методы пробуждения</string>
+  <string name="intro_checkbox_volume_keys">Разблокировка клавишами громкости</string>
+  <string name="intro_checkbox_swipe_up">Разблокировка свайпом от центра экрана</string>
+  <string name="intro_checkbox_double_tap">Разблокировка двойным тапом по экрану</string>
+  <string name="intro_notifications">Уведомления</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Спасибо за вашу поддержку! :)</string>
   <string name="thanks_great">Благодарим Вас за поддержку! :)</string>
@@ -15,14 +22,29 @@
   <!--Widget-->
   <!--Device admin-->
   <!--Plugin-->
+  <string name="plugin_dialog_title">Необходима установка плагина</string>
+  <string name="plugin_dialog_desc">На вашем устройстве есть подсветка аппаратных кнопок. Для ее отключения во время работы сервиса необходима установка дополнительного плагина.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">Произошла ошибка</string>
+  <string name="error_1_no_email_client">Нет установленных почтовых приложений.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Это может навредить производительности приложения</string>
   <string name="warning_2_required_phone_permission">Это разрешение требуется, чтобы приложение могло включить дисплей, когда вы получаете телефонный звонок</string>
   <string name="warning_3_allow_system_modification">Пожалуйста, позвольте разрешения изменения настроек для этого приложения!</string>
+  <string name="warning_4_device_not_secured">Ваше устройство не может быть безопасно</string>
+  <string name="warning_5_device_admin_disable">Это отключает некоторые функции приложения</string>
+  <string name="warning_6_device_admin_disabled">Некоторые функции могут быть отключены</string>
+  <string name="warning_7_disable_fingerprint">Это может отключить возможность использования сканера отпечатков пальцев, вы уверены что хотите это включить?</string>
   <!--Charging rules-->
+  <string name="rules_both">Оба варианта</string>
+  <string name="rules_while_charging">Только во время зарядки</string>
+  <string name="rules_while_not_charging">Только не во время зарядки</string>
   <!--Battery rules-->
+  <string name="rules_always">Всегда</string>
+  <string name="rules_battery_50">50% и выше</string>
+  <string name="rules_battery_30">30% и выше</string>
   <!--Timeout delay rule-->
+  <string name="rules_hour">1 час</string>
   <!--Orientation-->
   <!--Settings headers-->
   <string name="settings_behaviour">Поведение</string>
@@ -37,6 +59,9 @@
   <string name="settings_show_am_pm">Показать AM / PM</string>
   <string name="settings_text_color">Цвет текста</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">Выключать сервис когда запущено приложение Камера (необходимо дердать запущенным на устройствах Nexus/Samsung)</string>
+  <string name="settings_auto_brightness_desc">Автоматически затемнять экран в темноте</string>
+  <string name="settings_stop_delay_desc_short">Установи значение 0 для отключения</string>
   <string name="settings_text_color_desc">Установить цвет текста</string>
   <string name="settings_show_am_pm_desc">Показать AM / PM вместе с часами (только для 12-ти часового формата времени)</string>
   <string name="settings_watchface_desc">Настроить элементы циферблата</string>

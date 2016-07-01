@@ -16,6 +16,12 @@
   <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Lichthelligkeit des Displays zu ändern</string>
   <string name="intro_modify">Systemeinstellungen ändern</string>
   <string name="intro_wake_ups">Aufwach-Methoden</string>
+  <string name="intro_wake_ups_desc">Wähle, wie du dein Gerät aufwecken willst vom \"always on\" Status. Keine Sorge, du kannst die Einstellung später in der App ändern.</string>
+  <string name="intro_checkbox_volume_keys">Lautstärketasten zum Entsperren</string>
+  <string name="intro_checkbox_swipe_up">Streiche nach oben aus der Mitte des Bildschirms um zu entsperren</string>
+  <string name="intro_checkbox_double_tap">Tippe zweimal in die Mitte des Bildschirms, um zu entsperren</string>
+  <string name="intro_notifications">Benachrichtigungs-Alarm</string>
+  <string name="intro_notifications_desc">Möchtest du Benachrichtigungen von anderen Apps erhalten, während der Bildschirm im \"always on\" Modus ist? Wenn du das willst, klicke auf \"jetzt zulassen\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Danke für eure Unterstützung! :)</string>
   <string name="thanks_great">Danke für deine großartige Unterstützung! :)</string>
@@ -29,8 +35,12 @@
   <string name="widget_on">Aktiviert</string>
   <!--Device admin-->
   <string name="device_admin_desc">Aktiviere dies, um Extra-Funktionen für ungerootete Geräte freizuschalten</string>
+  <string name="device_admin_explanation">Erlaube der App \"Geräteadminberechtigung\" um mehr Features auf ungerooteten Geräten benutzen zu können.</string>
   <!--Plugin-->
+  <string name="plugin_dialog_title">Plug-In wird benötigt</string>
+  <string name="plugin_dialog_desc">Es scheint als ob dein Gerät Hardwarebuttons besitzt. Um diese abzuschalten wenn der Dienst ausgeführt wird, musst du das Plug-In installieren.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">Ein Fehler ist aufgetreten</string>
   <!--Warnings-->
   <string name="warning">ACHTUNG</string>
   <!--Charging rules-->
