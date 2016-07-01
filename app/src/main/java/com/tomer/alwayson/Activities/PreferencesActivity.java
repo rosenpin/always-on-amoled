@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -214,11 +215,17 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.feedback:
+                PackageInfo pInfo = null;
+                try {
+                    pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+                } catch (PackageManager.NameNotFoundException ignored) {
+                }
                 Intent i = new Intent(Intent.ACTION_SENDTO);
                 i.setData(Uri.parse("mailto:")); // only email apps should handle this
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                i.putExtra(Intent.EXTRA_TEXT, "");
+                assert pInfo != null;
+                i.putExtra(Intent.EXTRA_TEXT, "version:" + pInfo.versionName + "\n" + "Device:" + Build.MANUFACTURER + " " + Build.DEVICE + "\n" + prefs.toString());
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.Map;
+
 public class Prefs {
     public boolean enabled;
     public boolean touchToStop, swipeToStop, volumeToStop, backButtonToStop;
@@ -119,6 +121,17 @@ public class Prefs {
         public String toString() {
             return id;
         }
+    }
+
+    public String toString() {
+        Map<String, ?> keys = prefs.getAll();
+        StringBuilder string = new StringBuilder();
+        string.append("Prefs");
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+            string.append(entry.getKey() + ": " +
+                    entry.getValue().toString() + "\n");
+        }
+        return string.toString();
     }
 }
 
