@@ -115,8 +115,15 @@
   <string name="settings_auto_brightness_desc">Dimme den Bildschirm bei dunkler Umgebung automatisch</string>
   <string name="settings_stop_delay_desc_short">Auf 0 setzen um abzuschalten</string>
   <string name="settings_stop_delay_desc_short_message">Beenden Sie den Always On Service nach:</string>
+  <string name="settings_stop_delay_desc">Stoppe den always on Bildschirm nach einiger Zeit ohne Interaktion um Batterie zu sparen</string>
+  <string name="settings_startafterlock_desc">Starte den Dienst nur, nachdem der Bildschirm gesperrt ist. Behalte diese Einstellung um dein Gerät sicher und deinen Fingerprint-Sensor in voller Funktion zu erhalten.</string>
+  <string name="settings_rules_desc">Wann soll der always on Bildschirm funktionieren?</string>
+  <string name="settings_text_color_desc">Lege die Textfarbe fest</string>
+  <string name="settings_show_am_pm_desc">Zeige AM/PM mit der Uhr an (nur für 12h Zeit)</string>
+  <string name="settings_watchface_desc">Passe die Darstellung der Uhr an</string>
   <string name="settings_proximity_to_lock_desc">WENN DU KEINE ROOT-RECHTE BESITZT WIRD DIES DEN FINGERPRINT-SENSOR FÜR EINIGE GERÄTE DEAKTIVIEREN\n Sperre das Gerät wenn du es in eine Tasche z.B. legst, um Batterie zu sparen (geeigneten Sensor benötigt!)</string>
   <string name="settings_licenses_desc">Open-Source-Lizenzen</string>
+  <string name="settings_enabled_desc">Aktivier den Dienst</string>
   <string name="settings_about_translate">Hilf bei der Übersetzung der App</string>
   <string name="settings_version_desc">build</string>
   <!--Settings Helpers-->

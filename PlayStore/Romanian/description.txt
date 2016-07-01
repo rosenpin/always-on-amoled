@@ -1,16 +1,16 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+ Funcție „Always on” pentru smartphone-ul sau tableta ta.
+Menține ecranul pornit tot timpul.
+Prima aplicație „Always on” cu sursă deschisă!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+Idea este de a le oferi utilizatorilor informații oră, dată, notificări și multe altele fără ca aceștia să atingă telefonul. Oferă-i o șansă. 
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Această aplicație este posibilă datorită display-urilor AMOLED. O mare parte din ecran este închis complet cu excepția a câțiva pixeli.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
+Specificații:
+ - „Always on” 
+- Notificări - privește notificările fără să îți atingi telefonul.
+- Setări automate - economisește bateria folosind setările.
+- Mișcare automată a textului - evită arderea pixelilor.
 • Auto night mode - dim the screen automatically in dark environment
 • Pocket mode - lock the device when you leave it in your pocket to save battery
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
