@@ -111,7 +111,7 @@
     <string name="settings_app_version">Version</string>
     <!--Settings descriptions-->
     <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched (Should keep enabled on Nexus/Samsung devices)</string>
-    <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically</string>
+    <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically (Sensors may use more battery)</string>
     <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
     <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>
     <string name="settings_stop_delay_desc">Stop the always on screen after some time without interaction to save battery</string>
@@ -120,7 +120,7 @@
     <string name="settings_text_color_desc">Set the text color</string>
     <string name="settings_show_am_pm_desc">Show AM/PM with the clock (only for 12h time)</string>
     <string name="settings_watchface_desc">Customize the watchface elements</string>
-    <string name="settings_proximity_to_lock_desc">IF YOU ARE UNROOTED, THIS WILL DISABLE FINGERPRINT SCANNER FOR SOME DEVICES\nLock the device when you place your device in your pocket to save battery (suitable sensor required!)</string>
+    <string name="settings_proximity_to_lock_desc">Lock the device when you place your device in your pocket to save battery (Sensors may use more battery)</string>
     <string name="settings_licenses_desc">Open source licenses</string>
     <string name="settings_back_button_to_stop_desc">Click/touch the back button to dismiss</string>
     <string name="settings_community_desc">Google Plus community</string>
@@ -142,4 +142,5 @@
     <string name="settings_features_dialog_battery">Show Battery</string>
     <string name="settings_features_dialog_calendar">Show Date</string>
     <string name="settings_features_dialog_time">Show Time</string>
+    <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
 </resources>

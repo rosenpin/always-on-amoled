@@ -80,6 +80,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
     private int originalCapacitiveButtonsState = 1500;
+    private int height, width;
 
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
@@ -116,7 +117,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
 
     @SuppressWarnings("WeakerAccess")
-    public static double randInt(double min, double max) {
+    private double randInt(double min, double max) {
         return new Random().nextInt((int) ((max - min) + 1)) + min;
     }
 
@@ -129,6 +130,14 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (isCameraUsedByApp() && prefs.stopOnCamera) //Check if user just opened the camera, if so, dismiss
+                    stopSelf();
+            }
+        }, 700);//Delay: Because it takes some time to start the camera on some devices
 
         if (prefs.notificationsAlerts && !isNotificationServiceRunning()) // Only start the service if it's not already running
             startService(new Intent(getApplicationContext(), NotificationListener.class));
@@ -215,6 +224,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         unlockReceiver = new UnlockReceiver();
         IntentFilter intentFilter = new IntentFilter();
+
         //Adding the intent from the pre-defined array filters
         for (String filter : Constants.unlockFilters) {
             intentFilter.addAction(filter);
@@ -232,28 +242,35 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         // Sensor handling
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        Sensor lightSensor;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT, false);
-        } else {
-            lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        if (prefs.proximityToLock || prefs.autoNightMode) //If any sensor is required
+            sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        //If proximity option is on, set it up
+        if (prefs.proximityToLock) {
+            Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+            DevicePolicyManager mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
+            ComponentName mAdminName = new ComponentName(this, DAReceiver.class);
+            if (proximitySensor != null && (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName)))) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
+                else
+                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
+            }
         }
-        DevicePolicyManager mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-        ComponentName mAdminName = new ComponentName(this, DAReceiver.class);
-        if (proximitySensor != null && prefs.proximityToLock && (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName)))) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
-            else
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
-        }
-        if (lightSensor != null && prefs.getBoolByKey("auto_brightness", false)) {
-            Log.d(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
-            else
-                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
+        //If auto night mode option is on, set it up
+        if (prefs.autoNightMode) {
+            Sensor lightSensor;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT, false);
+            } else {
+                lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+            }
+            if (lightSensor != null) {
+                Log.d(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+                    sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
+                else
+                    sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
+            }
         }
 
         //Delay to stop
@@ -271,6 +288,13 @@ public class MainService extends Service implements SensorEventListener, Context
             }, delayInMilliseconds);
         }
 
+        //Finding height and width of screen to later move the display
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        height = prefs.orientation.equals("vertical") ? size.y : size.x;
+        width = prefs.orientation.equals("vertical") ? size.x : size.y;
+
         // UI refreshing
         refresh();
 
@@ -279,15 +303,15 @@ public class MainService extends Service implements SensorEventListener, Context
             try {
                 originalCapacitiveButtonsState = System.getInt(getContentResolver(), "button_key_light");
             } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
+                Log.d(MAIN_SERVICE_LOG_TAG, "First method of getting the buttons status failed.");
                 try {
                     originalCapacitiveButtonsState = (int) System.getLong(getContentResolver(), "button_key_light");
                 } catch (Exception ignored) {
-                    ignored.printStackTrace();
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Second method of getting the buttons status failed.");
                     try {
                         originalCapacitiveButtonsState = Settings.Secure.getInt(getContentResolver(), "button_key_light");
                     } catch (Exception ignored3) {
-                        ignored3.printStackTrace();
+                        Log.d(MAIN_SERVICE_LOG_TAG, "Third method of getting the buttons status failed.");
                     }
                 }
             }
@@ -308,7 +332,7 @@ public class MainService extends Service implements SensorEventListener, Context
         }, 500);
     }
 
-    public boolean isCameraUsebyApp() {
+    public boolean isCameraUsedByApp() {
         Camera camera = null;
         try {
             camera = Camera.open();
@@ -321,30 +345,21 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void refresh() {
-        prefs.apply();
-        if (isCameraUsebyApp() && prefs.stopOnCamera)
-            stopSelf();
-        if (prefs.showDate) {
-            Calendar calendar = Calendar.getInstance();
-            Date date = calendar.getTime();
-            String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(date.getTime()).toUpperCase();
-            String month = new SimpleDateFormat("MMMM").format(date.getTime()).toUpperCase();
-            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
-            calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
-        }
-
-        iconWrapper.removeAllViews();
-        for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
-            Drawable drawable = entry.getValue();
-            drawable.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-            ImageView icon = new ImageView(getApplicationContext());
-            icon.setImageDrawable(drawable);
-            icon.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-            FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
-            icon.setPadding(12, 0, 12, 0);
-            icon.setLayoutParams(iconLayoutParams);
-
-            iconWrapper.addView(icon);
+        Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
+        if (Globals.notificationChanged) {
+            iconWrapper.removeAllViews();
+            for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
+                Drawable drawable = entry.getValue();
+                drawable.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
+                ImageView icon = new ImageView(getApplicationContext());
+                icon.setImageDrawable(drawable);
+                icon.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
+                FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
+                icon.setPadding(12, 0, 12, 0);
+                icon.setLayoutParams(iconLayoutParams);
+                iconWrapper.addView(icon);
+            }
+            Globals.notificationChanged = false;
         }
 
         new Handler().postDelayed(
@@ -354,20 +369,24 @@ public class MainService extends Service implements SensorEventListener, Context
                             refresh();
                     }
                 },
-                8000);
+                6000);
     }
 
     private void refreshLong() {
-        Display display = windowManager.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int height = prefs.orientation.equals("vertical") ? size.y : size.x;
-        int width = prefs.orientation.equals("vertical") ? size.x : size.y;
-
+        Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         if (prefs.orientation.equals("vertical"))
             mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
         else
             mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
+
+        if (prefs.showDate) {
+            Calendar calendar = Calendar.getInstance();
+            Date date = calendar.getTime();
+            String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(date.getTime()).toUpperCase();
+            String month = new SimpleDateFormat("MMMM").format(date.getTime()).toUpperCase();
+            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+            calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
+        }
 
         new Handler().postDelayed(
                 new Runnable() {
@@ -437,20 +456,20 @@ public class MainService extends Service implements SensorEventListener, Context
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
+                Log.d(MAIN_SERVICE_LOG_TAG, "First method of settings the buttons state failed.");
                 try {
                     Runtime r = Runtime.getRuntime();
                     r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
                 } catch (IOException e1) {
-                    e1.printStackTrace();
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Second method of settings the buttons state failed.");
                     try {
                         System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
                     } catch (Exception ignored) {
-                        ignored.printStackTrace();
+                        Log.d(MAIN_SERVICE_LOG_TAG, "Third method of settings the buttons state failed.");
                         try {
                             Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
                         } catch (Exception ignored3) {
-                            ignored3.printStackTrace();
+                            Log.d(MAIN_SERVICE_LOG_TAG, "Fourth method of settings the buttons state failed.");
                         }
                     }
                 }
@@ -463,8 +482,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 ComponentName c = startService(i);
                 Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin");
             } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(), "PLUGIN NOT INSTALLED", Toast.LENGTH_LONG).show();
+                Log.d(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
+                Toast.makeText(getApplicationContext(), getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
             }
         }
     }

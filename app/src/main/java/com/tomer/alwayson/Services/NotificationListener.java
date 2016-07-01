@@ -28,6 +28,7 @@ public class NotificationListener extends NotificationListenerService implements
         Log.i(NOTIFICATION_LISTENER_TAG, "New notification from" + added.getPackageName());
         if (added.isClearable()) {
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
+            Globals.notificationChanged = true;
         }
     }
 
@@ -35,6 +36,7 @@ public class NotificationListener extends NotificationListenerService implements
     public void onNotificationRemoved(StatusBarNotification removed) {
         Log.d(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
         Globals.notificationsDrawables.remove(getUniqueKey(removed));
+        Globals.notificationChanged = true;
     }
 
     private String getUniqueKey(StatusBarNotification notification) {
@@ -45,7 +47,6 @@ public class NotificationListener extends NotificationListenerService implements
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return notification.getNotification().getSmallIcon().loadDrawable(this);
         } else {
-            //noinspection deprecation
             return getResources().getDrawable(notification.getNotification().icon);
         }
     }

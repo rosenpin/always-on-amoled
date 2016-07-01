@@ -22,8 +22,10 @@ public class Prefs {
     public String rules;
     public String orientation;
     public boolean stopOnCamera;
+    public boolean autoNightMode;
     public int batteryRules;
     private SharedPreferences prefs;
+
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -53,6 +55,7 @@ public class Prefs {
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "11"));
+        autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
     }
 
     public void setString(String key, String value) {
@@ -97,6 +100,7 @@ public class Prefs {
         SHOW_DATE("show_date"),
         SHOW_AM_PM("showampm"),
         TEXT_COLOR("textcolor"),
+        AUTO_NIGHT_MODE("auto_brightness"),
         RULES("rules"),
         STOP_DELAY("stop_delay"),
         HAS_SOFT_KEYS("has_soft_keys"),

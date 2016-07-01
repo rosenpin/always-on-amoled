@@ -41,35 +41,41 @@ public class Intro extends AppIntro2 {
         pref = new Prefs(getApplicationContext());
         pref.apply();
 
-        addSlide(new First());
-        addSlide(new Second());
-        addSlide(new Third());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            permissions = new boolean[3];
+            skipButtonEnabled = false;
+            addSlide(new First());
+            addSlide(new Second());
+            addSlide(new Third());
+        } else {
+            skipButtonEnabled = true;
+        }
+
         addSlide(new Fourth());
         addSlide(new Fifth());
-        permissions = new boolean[3];
-
 
         setNextPageSwipeLock(true);
-
-        // Hide Skip/Done button.
         setProgressButtonEnabled(true);
         setVibrate(false);
-        skipButtonEnabled = false;
-
     }
 
     @Override
     public void onSkipPressed(Fragment currentFragment) {
         super.onSkipPressed(currentFragment);
+        pref.setBool(Prefs.KEYS.PERMISSION_GRANTING.toString(), true);
+        startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
+        finish();
     }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
         super.onDonePressed(currentFragment);
-        for (boolean permission : permissions) {
-            if (!permission) {
-                Snackbar.make(findViewById(android.R.id.content), getString(R.string.warning_8_intro_allow_all), Snackbar.LENGTH_LONG).show();
-                return;
+        if (permissions != null) {
+            for (boolean permission : permissions) {
+                if (!permission) {
+                    Snackbar.make(findViewById(android.R.id.content), getString(R.string.warning_8_intro_allow_all), Snackbar.LENGTH_LONG).show();
+                    return;
+                }
             }
         }
         pref.setBool(Prefs.KEYS.PERMISSION_GRANTING.toString(), true);
