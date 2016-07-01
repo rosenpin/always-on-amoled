@@ -83,6 +83,8 @@
   <string name="settings_wake_up">Trezeşte-te</string>
   <string name="settings_rules">Reguli automate</string>
   <!--Settings titles-->
+  <string name="settings_enabled">Activeaza</string>
+  <string name="settings_disable_volume_keys">Dezactiveaza butoanele de volum</string>
   <string name="settings_volume_to_stop">Tastele de volum pentru a respinge</string>
   <string name="settings_font_size">Marimea fontului</string>
   <string name="settings_watchface">personaliza Watchface</string>
