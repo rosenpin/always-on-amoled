@@ -4,6 +4,7 @@
   <!--App name-->
   <string name="app_name">Always On AMOLED</string>
   <!--Actions-->
+  <string name="action_support_the_development">Support the development</string>
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
   <!--Widget-->

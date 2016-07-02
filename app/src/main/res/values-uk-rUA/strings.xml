@@ -10,14 +10,18 @@
   <!--Intro-->
   <string name="intro_allow_now">Дозволити зараз</string>
   <string name="intro_permissions">Стан прочитання телефону і дозвіл камери</string>
+  <string name="intro_permissions_desc">Додаток вимагає дозволу на читання стану телефону, щоб включити пристрій під час надходження виклику. \n Додаток вимагає дозволу на доступ до камери, щоб включити пристрій при запуску камери (з використанням ярликів).</string>
   <string name="intro_draw_over">Відображатися над іншими додатками</string>
   <string name="intro_draw_over_desc">Додатку треба дозвіл відображатися над іншими додатками</string>
   <string name="intro_modify_desc">Додатку треба дозвіл на зміну яскравості пристрою</string>
   <string name="intro_modify">Змінити системні налаштування</string>
   <string name="intro_wake_ups">Метод пробудження</string>
+  <string name="intro_wake_ups_desc">Виберіть, як ви хочете, щоб пробудити ваш телефон з \"always on\" стану. Не хвилюйтеся, ви можете змінити його в додатку пізніше.</string>
   <string name="intro_checkbox_volume_keys">Клавіші регулювання гучності для розблокування</string>
   <string name="intro_checkbox_swipe_up">Проведіть угору від центру екрана, щоб розблокувати</string>
   <string name="intro_checkbox_double_tap">Подвійне натискання на центральній частині екрана, щоб розблокувати</string>
+  <string name="intro_notifications">Сповіщення</string>
+  <string name="intro_notifications_desc">Ви хочете отримувати сповіщення від інших додатків, в той час як на екрані \"always on\" стан? Якщо так, то натисніть кнопку \"Дозволити зараз\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Дякуємо Вам за підтримку! :)</string>
   <string name="thanks_great">Дякуємо Вам за велику підтримку! :)</string>
@@ -30,6 +34,8 @@
   <string name="widget_off">Вимкнено</string>
   <string name="widget_on">Увімкнено</string>
   <!--Device admin-->
+  <string name="device_admin_desc">Ввімкніть цю опцію, щоб дозволити додатку додаткові можливості для не root пристроїв</string>
+  <string name="device_admin_explanation">Будь ласка, надайте дозволу адміністратора пристрою, щоб використовувати більше можливостей на не root пристроях.</string>
   <!--Plugin-->
   <string name="plugin_dialog_title">Необхідний плаґін</string>
   <string name="plugin_dialog_desc">Схоже, що пристрій має апаратні кнопки, щоб змусити їх вимкнути, коли працює служба, будь ласка, встановіть плаґін.</string>
@@ -39,6 +45,14 @@
   <!--Warnings-->
   <string name="warning">УВАГА</string>
   <string name="warning_1_harm_performance">Це може зашкодити продуктивності додатку</string>
+  <string name="warning_2_required_phone_permission">Цей дозвіл потрібно додатку, щоб включити дисплей, коли ви отримуєте телефонний дзвінок</string>
+  <string name="warning_3_allow_system_modification">Будь ласка, дозвольте налаштування модифікації для цього додатку!</string>
+  <string name="warning_4_device_not_secured">Ваш пристрій, можливо, не підтримується зараз</string>
+  <string name="warning_5_device_admin_disable">Це дозволить відключити деякі функції додатку</string>
+  <string name="warning_6_device_admin_disabled">Деякі функції можуть бути недоступні на даний момент</string>
+  <string name="warning_7_disable_fingerprint">Це може відключити функціональність сенсору відбитків пальців, ви впевнені, що хочете увімкнути цю функцію?</string>
+  <string name="warning_8_intro_allow_all">Будь ласка, надайте всі дозволи</string>
+  <string name="warning_9_allow_notification">Будь ласка, надайте доступ повідомленням для додатку</string>
   <!--Charging rules-->
   <string name="rules_both">Обидва</string>
   <string name="rules_while_charging">Під час заряджання</string>
@@ -57,7 +71,7 @@
   <string name="rules_minutes_10">10 хвилин</string>
   <string name="rules_minutes_15">15 хвилин</string>
   <string name="rules_minutes_30">30 хвилин</string>
-  <string name="rules_hour">Годину</string>
+  <string name="rules_hour">1 годину</string>
   <string name="rules_hours_2">2 години</string>
   <!--Orientation-->
   <string name="rules_orientation_vertical">Вертикальна (портрет)</string>
@@ -67,16 +81,17 @@
   <string name="settings_about">Про додаток</string>
   <string name="settings_appearance">Зовнішній вигляд</string>
   <string name="settings_general">Загальні</string>
-  <string name="settings_wake_up">Пробудження</string>
+  <string name="settings_wake_up">Методи пробудження</string>
   <string name="settings_rules">Автоматичні правила</string>
   <!--Settings titles-->
   <string name="settings_enabled">Always On</string>
-  <string name="settings_disable_volume_keys">Вимкнути клавішу регулювання гучності</string>
+  <string name="settings_disable_volume_keys">Вимкнути клавішу рег. гучності</string>
   <string name="settings_double_tap_wake">Подвійне натискання</string>
   <string name="settings_back_button_wake">Клавіша \"Назад\"</string>
   <string name="settings_swipe_wake">Свайп угору</string>
   <string name="settings_brightness">Яскравість</string>
   <string name="settings_notifications">Сповіщення</string>
+  <string name="settings_persistent_notification">Показати постійне повідомлення</string>
   <string name="settings_move_auto">Переміщення віджету автоматично</string>
   <string name="settings_volume_to_stop">Клавіша регулювання гучності</string>
   <string name="settings_font_size">Розмір шрифту</string>
@@ -88,6 +103,7 @@
   <string name="settings_stop_delay">Затримка</string>
   <string name="settings_auto_brightness">Нічний режим</string>
   <string name="settings_orientation">Орієнтація екрану</string>
+  <string name="settings_stop_on_camera">Дозволити ярлики камери</string>
   <string name="settings_rules_cahrging">Щодо заряджання</string>
   <string name="settings_rules_battery">Правила для акумулятора</string>
   <string name="settings_translate">Переклад</string>
@@ -96,17 +112,27 @@
   <string name="settings_licenses">Ліцензія</string>
   <string name="settings_app_version">Версія</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">Вимикати сервіс, коли запущено додаток Камера (необхідно тримати запущеним на пристроях Nexus / Samsung)</string>
+  <string name="settings_auto_brightness_desc">Зменшення яскравості екрану в темних середовищах - автоматично (датчики можуть використовувати більше заряду акумулятора)</string>
+  <string name="settings_stop_delay_desc_short">Встановіть 0, щоб вимкнути це</string>
+  <string name="settings_stop_delay_desc_short_message">Зупинити службу Always On після:</string>
+  <string name="settings_stop_delay_desc">Зупинити always on на екрані, після деякого часу, без взаємодії для економії заряду акумулятора</string>
+  <string name="settings_startafterlock_desc">Запустити службу тільки після того, як екран заблокований. Тримайте це увімкненим, щоб вберегти пристрій у безпеці і функціональним сканером відбитків пальців.</string>
+  <string name="settings_rules_desc">Коли повинен працювати always on на екрані?</string>
   <string name="settings_text_color_desc">Встановити колір тексту</string>
   <string name="settings_show_am_pm_desc">Показати AM/PM з годинником (тільки для 12 год. режиму)</string>
+  <string name="settings_watchface_desc">Налаштування елементів віджету</string>
+  <string name="settings_proximity_to_lock_desc">Блокувати пристрій, коли він знаходиться в кишені для економії заряду акумулятора (датчики можуть використовувати більше заряду акумулятора)</string>
   <string name="settings_licenses_desc">Ліцензії з відкр. кодом</string>
-  <string name="settings_back_button_to_stop_desc">Натисніть кнопку \"назад\" для пробудження</string>
+  <string name="settings_back_button_to_stop_desc">Натисніть кнопку \"Назад\" для пробудження</string>
   <string name="settings_community_desc">Google Plus спільнота</string>
   <string name="settings_github_desc">Відкрите джерело Github</string>
   <string name="settings_move_desc">Включіть для автоматичного руху віджету на екрані</string>
   <string name="settings_font_size_desc">Встановіть розмір шрифту годинника</string>
   <string name="settings_volume_to_stop_desc">Натисність клавішу регул. гучності для пробудження</string>
-  <string name="settings_touch_to_stop_desc">Двічі торкніться екрана для пробудження</string>
-  <string name="settings_swipe_to_stop_desc">Свайп угору для пробудження</string>
+  <string name="settings_touch_to_stop_desc">Двічі торкніться екрану для пробудження</string>
+  <string name="settings_swipe_to_stop_desc">Проведіть догори для пробудження</string>
+  <string name="settings_notifications_desc">Увімкніть цю опцію, щоб тримати додаток у робочому фоновому режимі \nПорада: Ви можете блокувати повідомлення цього додатка на Android 6.0+, не впливаючи на його функціональність</string>
   <string name="settings_enabled_desc">Вкл./Викл. додаток</string>
   <string name="settings_disable_volume_keys_desc">Активуйте це, щоб запобігти випадковій зміні гучності</string>
   <string name="settings_notifications_alerts_desc">Відображати сповіщення з інших застосунків</string>
@@ -118,4 +144,5 @@
   <string name="settings_features_dialog_battery">Відображати заряд акумулятора</string>
   <string name="settings_features_dialog_calendar">Відображати дату</string>
   <string name="settings_features_dialog_time">Відображати час</string>
+  <string name="error_2_plugin_not_installed">Плаґін не встановлено!</string>
 </resources>

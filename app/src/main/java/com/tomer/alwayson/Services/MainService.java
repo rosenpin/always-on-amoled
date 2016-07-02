@@ -1,6 +1,5 @@
 package com.tomer.alwayson.Services;
 
-import android.app.ActivityManager;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -295,6 +294,7 @@ public class MainService extends Service implements SensorEventListener, Context
         width = prefs.orientation.equals("vertical") ? size.x : size.y;
 
         // UI refreshing
+        Globals.notificationChanged = true; //Show notifications at first launch
         refresh();
 
         //All Samsung's stuff

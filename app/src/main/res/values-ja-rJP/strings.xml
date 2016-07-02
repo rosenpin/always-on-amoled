@@ -15,6 +15,13 @@
   <string name="intro_draw_over_desc">このアプリは他のアプリの上に表示する許可が必要です</string>
   <string name="intro_modify_desc">このアプリは端末の明るさを変更する許可が必要です</string>
   <string name="intro_modify">システム設定の変更</string>
+  <string name="intro_wake_ups">ウェイクアップの方法</string>
+  <string name="intro_wake_ups_desc">Always Onから復帰する方法を選んでください。この設定は後で変更することができます。</string>
+  <string name="intro_checkbox_volume_keys">ボリュームキーでロック解除</string>
+  <string name="intro_checkbox_swipe_up">スクリーンの中心からスワイプアップしてロック解除</string>
+  <string name="intro_checkbox_double_tap">スクリーンの中心からダブルタップしてロック解除</string>
+  <string name="intro_notifications">通知アラート</string>
+  <string name="intro_notifications_desc">Always On時に他のアプリからの通知を受け取りますか？受け取る場合は、\"今すぐ許可\"ボタンを押してください</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">ご支援していただきありがとうございます！</string>
   <string name="thanks_great">ご支援いただき誠にありがとうございます！</string>
@@ -45,6 +52,7 @@
   <string name="warning_6_device_admin_disabled">無効化されている機能があります</string>
   <string name="warning_7_disable_fingerprint">これは指紋認証機能を無効化するかもしれませんが、これを有効にしますか？</string>
   <string name="warning_8_intro_allow_all">すべての権限を許可してください。</string>
+  <string name="warning_9_allow_notification">アプリに通知へのアクセスを許可してください</string>
   <!--Charging rules-->
   <string name="rules_both">両方</string>
   <string name="rules_while_charging">充電時</string>
@@ -108,6 +116,13 @@
   <string name="settings_auto_brightness_desc">周りが暗いときは自動で画面を暗くする</string>
   <string name="settings_stop_delay_desc_short">これをオフにするには0に設定してください</string>
   <string name="settings_stop_delay_desc_short_message">以下の後はAlways Onを停止する:</string>
+  <string name="settings_stop_delay_desc">バッテリー節約のためにある程度の時間が経過すると自動でAlways Onを停止します</string>
+  <string name="settings_startafterlock_desc">スクリーンロック時のみサービスを開始します。お使いの端末のセキュリティと指紋認証を維持するには、これを有効にしておいてください。</string>
+  <string name="settings_rules_desc">いつAlways Onを起動しますか？</string>
+  <string name="settings_text_color_desc">文字色を設定</string>
+  <string name="settings_show_am_pm_desc">時計に午前/午後を表示 (12時間設定の場合のみ有効)</string>
+  <string name="settings_watchface_desc">ウォッチフェイスに表示するものをカスタマイズできます</string>
+  <string name="settings_proximity_to_lock_desc">バッテリー節約のために端末がポケットの中にあるとき端末をロックする (センサーがさらにバッテリーを使う可能性はあります)</string>
   <string name="settings_licenses_desc">オープンソースライセンス</string>
   <string name="settings_back_button_to_stop_desc">バックキーを押して閉じる</string>
   <string name="settings_community_desc">Google+ コミュニティ</string>

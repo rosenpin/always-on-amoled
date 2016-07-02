@@ -4,6 +4,7 @@
   <!--App name-->
   <string name="app_name">Always-on Amoled</string>
   <!--Actions-->
+  <string name="action_support_the_development">Supporta lo sviluppo</string>
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Grazie per il tuo supporto! :)</string>
