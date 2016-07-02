@@ -1,34 +1,34 @@
-Ottenere un display sempre acceso per il tuo telefono o tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Otteni un display sempre acceso per il tuo telefono o tablet.
+Mantieni il tuo schermo acceso tutto il tempo.
+Always on app è la prima open Source!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+L'idea è quella di fornire agli utenti informazioni su, ora, data, notifiche e altro ancora e il tutto senza dover toccare il telefono. Tutto solo giardandolo.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Ciò è reso possibile grazie al display AMOLED. La maggior parte dello schermo rimane nero ad eccezione di un paio di pixel.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★Caratteristiche principali
+• Schermo sempre acceso
+• Notifiche - visualizza le notifiche senza toccare il tuo dispositivo
+• regole automatiche - preserva la batteria utilizzando regole predefinite
+• Movimento automatico - evita il burn-in dell'AMOLED
+• Modalità notte automatica - ridurre la luminosità dello schermo automaticamente in ambiente buio
+• Modalità tasca - blocca il dispositivo quando lo metti in tasca per risparmiare batteria
+•  Per riattivare: doppio tap - strisciare verso l'alto - tasti del volume - pulsante Indietro
+• Forza orientamento - imposta l'orientamento dello schermo preferito
+• Personalizzazione - cambia il colore del testo, la dimensione del testo, la luminosità e molto altro
+• libero e open source!
 
-Before using please enable 'draw over apps' permission for this app.
+Prima dell'utilizzo per favore abilita il permesso 'disegna su apps' per questa applicazione.
 
-The app is in BETA, it still has bugs and lacks features.
+L'applicazione è in versione BETA, ha ancora dei bug e manca di funzionalità.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Permessi
+<b>permesso Camera<b>
+L'applicazione ha bisogno del permesso fotocamera per riconoscere la fotocamera e lanciare l'evento  per disattivare il "always on" screen.
+</b>permesso telefono</b>
+l'applicazione richiede il permesso del telefono per riconoscere le chiamate in arrivo, disattivare "the always on screen" e mostrare la schermata di chiamata in arrivo
+</b>permesso di midifica impistazioni di sistema</b>
+L'applicazione necessita del permesso di modificare le impostazioni di sistema per modificare la luminosità dello schermo di blocco.
 
 
 Google Plus Community

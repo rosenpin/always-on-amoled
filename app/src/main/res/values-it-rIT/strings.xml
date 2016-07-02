@@ -5,7 +5,23 @@
   <string name="app_name">Always-on Amoled</string>
   <!--Actions-->
   <string name="action_support_the_development">Supporta lo sviluppo</string>
+  <string name="action_revert">Ritorna</string>
+  <string name="menu_feedback">Feedback</string>
   <!--Intro-->
+  <string name="intro_allow_now">Consenti ora</string>
+  <string name="intro_permissions">Leggi lo stato del telefono e permesso fotocamera</string>
+  <string name="intro_permissions_desc">L\'applicazione ha bisogno del permesso di leggere lo stato del telefono per accendere il dispositivo quando ricevi una chiamata.\nL\'applicazione ha bisogno del permesso di accedere alla telecamera per accendere il dispositivo quando avvii la fotocamera (con tasti di scelta rapida).</string>
+  <string name="intro_draw_over">Attiingere da altre apps</string>
+  <string name="intro_draw_over_desc">L\'app richiede il permesso per attingere da altre apps</string>
+  <string name="intro_modify_desc">L\'app richiede il permesso per cambiare la luminosità dello schermo</string>
+  <string name="intro_modify">Modifica impostazioni di sistema</string>
+  <string name="intro_wake_ups">Metodi di attivazione</string>
+  <string name="intro_wake_ups_desc">Scegli come vuoi abilitare l\'attivazione del telefono dallo stato di \"always on\". Non ti preoccupare, è possibile modificarla nell\'app succcessivamente.</string>
+  <string name="intro_checkbox_volume_keys">Tasi volume per sbloccare</string>
+  <string name="intro_checkbox_swipe_up">Swipe in su dal centro dello schermo per sbloccare</string>
+  <string name="intro_checkbox_double_tap">Doppio tap nel centro dello schermo per sbloccare</string>
+  <string name="intro_notifications">Avvisi notifiche</string>
+  <string name="intro_notifications_desc">Vuoi ricevere notifiche da altre applicazioni mentre lo schermo è in stato \"always on\"? Se lo vuoi, fai clic sul pulsante \"permette ora\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Grazie per il tuo supporto! :)</string>
   <string name="thanks_great">Grazie per il tuo supporto! :)</string>
@@ -14,6 +30,8 @@
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="reboot_to_take_affect">Riavvia per far funzionare</string>
   <!--Widget-->
+  <string name="widget_off">Spento</string>
+  <string name="widget_on">Acceso</string>
   <!--Device admin-->
   <string name="device_admin_desc">Attiva questa opzione per consentire funzioni extra per i dispositivi senza root</string>
   <string name="device_admin_explanation">Si prega di consentire il permesso di amministratore per utilizzare più funzioni su dispositivi senza root</string>
@@ -21,7 +39,10 @@
   <string name="plugin_dialog_title">È necessario un plugin</string>
   <string name="plugin_dialog_desc">Sembra che il dispositivo dispone di pulsanti hardware, per farli spegnere quando il servizio è in esecuzione, si prega di installare il plugin.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">C\'è stato un errore</string>
+  <string name="error_1_no_email_client">Non ci sono client di posta elettronica installati.</string>
   <!--Warnings-->
+  <string name="warning">ATTENZIONE</string>
   <string name="warning_1_harm_performance">Questo può limitare le prestazioni dell\'applicazione </string>
   <string name="warning_2_required_phone_permission">È richiesta questa autorizzazione perché l\'applicazione possa accendere lo schermo quando si riceve una chiamata</string>
   <string name="warning_3_allow_system_modification">Si prega di consentire impostazioni di autorizzazione di modifica per questa applicazione!</string>
