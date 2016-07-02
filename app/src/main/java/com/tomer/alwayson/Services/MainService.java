@@ -37,7 +37,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
-import android.widget.AnalogClock;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -173,7 +172,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 return super.dispatchKeyEvent(event);
             }
         };
-        frameLayout.setOnTouchListener(new OnDismissListener(this));
+        if (prefs.touchToStop || prefs.swipeToStop)
+            frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
@@ -307,12 +307,7 @@ public class MainService extends Service implements SensorEventListener, Context
         setLights(ON, false, true);
 
         //Turn screen on with delay
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                stayAwakeWakeLock.acquire();
-            }
-        }, 500);
+        stayAwakeWakeLock.acquire();
     }
 
     private boolean isCameraUsedByApp() {

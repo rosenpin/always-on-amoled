@@ -69,11 +69,11 @@
     <string name="rules_minutes_10">10 Minutes</string>
     <string name="rules_minutes_15">15 Minutes</string>
     <string name="rules_minutes_30">30 Minutes</string>
-    <string name="rules_hour">An Hour</string>
+    <string name="rules_hour">1 Hour</string>
     <string name="rules_hours_2">2 Hours</string>
     <!--Orientation-->
-    <string name="rules_orientation_vertical">Vertical (Portrait)</string>
-    <string name="rules_orientation_horizontal">Horizontal (Landscape)</string>
+    <string name="rules_orientation_vertical">Portrait (Vertical)</string>
+    <string name="rules_orientation_horizontal">Landscape (Horizontal)</string>
     <!--Settings headers-->
     <string name="settings_behaviour">Behaviour</string>
     <string name="settings_about">About</string>
