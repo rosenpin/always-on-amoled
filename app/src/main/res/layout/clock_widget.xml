@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/watchface_wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,54 +9,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextClock
-        android:id="@+id/time_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:textColor="@android:color/white" />
+    <include layout="@layout/clock" />
 
-    <TextView
-        android:id="@+id/date_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
-        android:textColor="@android:color/white" />
+    <include layout="@layout/date" />
 
-    <LinearLayout
-        android:id="@+id/battery_wrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="8dp">
+    <include layout="@layout/battery" />
 
-        <ImageView
-            android:id="@+id/battery_percentage_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_battery_90" />
-
-        <TextView
-            android:id="@+id/battery_percentage_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
-            android:textColor="@android:color/white" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/icons_wrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:paddingTop="8dp"></LinearLayout>
+    <include layout="@layout/notifications" />
 
 </LinearLayout>
