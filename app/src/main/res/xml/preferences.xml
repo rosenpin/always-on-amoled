@@ -109,7 +109,7 @@
         <PreferenceScreen
             android:summary="@string/settings_watchface_desc"
             android:title="@string/settings_watchface">
-            <PreferenceCategory android:title="@string/settings_watchface">
+            <PreferenceCategory android:title="@string/settings_watchface_styles">
                 <ListPreference
                     android:defaultValue="1"
                     android:dialogTitle="@string/settings_watchface_clock"
@@ -134,6 +134,24 @@
                     android:key="watchface_battery"
                     android:summary="%s"
                     android:title="@string/settings_watchface_battery" />
+
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+                <com.tomer.alwayson.Views.SeekBarPreference
+                    android:defaultValue="88"
+                    android:dialogTitle="@string/settings_font_size_desc"
+                    android:key="font_size"
+                    android:max="120"
+                    android:summary="@string/settings_font_size_desc"
+                    android:title="@string/settings_font_size" />
+                <Preference
+                    android:key="textcolor"
+                    android:summary="@string/settings_text_color_desc"
+                    android:title="@string/settings_text_color" />
+                <CheckBoxPreference
+                    android:key="showampm"
+                    android:summary="@string/settings_show_am_pm_desc"
+                    android:title="@string/settings_show_am_pm" />
             </PreferenceCategory>
         </PreferenceScreen>
 
@@ -145,10 +163,6 @@
             android:key="screen_orientation"
             android:summary="%s"
             android:title="@string/settings_orientation" />
-        <Preference
-            android:key="textcolor"
-            android:summary="@string/settings_text_color_desc"
-            android:title="@string/settings_text_color" />
         <com.tomer.alwayson.Views.SeekBarPreference
             android:defaultValue="40"
             android:dialogTitle="@string/settings_brightness_desc"
@@ -156,17 +170,6 @@
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/settings_brightness" />
-        <com.tomer.alwayson.Views.SeekBarPreference
-            android:defaultValue="88"
-            android:dialogTitle="@string/settings_font_size_desc"
-            android:key="font_size"
-            android:max="120"
-            android:summary="@string/settings_font_size_desc"
-            android:title="@string/settings_font_size" />
-        <CheckBoxPreference
-            android:key="showampm"
-            android:summary="@string/settings_show_am_pm_desc"
-            android:title="@string/settings_show_am_pm" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_about">

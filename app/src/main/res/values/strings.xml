@@ -92,7 +92,7 @@
     <string name="settings_persistent_notification">Show persistent notification</string>
     <string name="settings_move_auto">Move the widget automatically</string>
     <string name="settings_volume_to_stop">Volume keys to dismiss</string>
-    <string name="settings_font_size">Font size</string>
+    <string name="settings_font_size">Text size</string>
     <string name="settings_watchface">Customize Watchface</string>
     <string name="settings_proximity">Proximity sensor</string>
     <string name="settings_show_am_pm">Show AM/PM</string>
@@ -146,4 +146,6 @@
     <string name="settings_watchface_clock">Clock style</string>
     <string name="settings_watchface_date">Date style</string>
     <string name="settings_watchface_battery">Battery style</string>
+    <string name="settings_watchface_miscellaneous">Miscellaneous</string>
+    <string name="settings_watchface_styles">Styles</string>
 </resources>
