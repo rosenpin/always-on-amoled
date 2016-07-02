@@ -111,13 +111,29 @@
             android:title="@string/settings_watchface">
             <PreferenceCategory android:title="@string/settings_watchface">
                 <ListPreference
-                    android:defaultValue="digital"
+                    android:defaultValue="1"
                     android:dialogTitle="@string/settings_watchface_clock"
                     android:entries="@array/customize_clock"
                     android:entryValues="@array/customize_clock_vals"
-                    android:key="customize_clock"
+                    android:key="watchface_clock"
                     android:summary="%s"
                     android:title="@string/settings_watchface_clock" />
+                <ListPreference
+                    android:defaultValue="1"
+                    android:dialogTitle="@string/settings_watchface_date"
+                    android:entries="@array/customize_date"
+                    android:entryValues="@array/customize_date_vals"
+                    android:key="watchface_date"
+                    android:summary="%s"
+                    android:title="@string/settings_watchface_date" />
+                <ListPreference
+                    android:defaultValue="0"
+                    android:dialogTitle="@string/settings_watchface_battery"
+                    android:entries="@array/customize_battery"
+                    android:entryValues="@array/customize_battery_vals"
+                    android:key="watchface_battery"
+                    android:summary="%s"
+                    android:title="@string/settings_watchface_battery" />
             </PreferenceCategory>
         </PreferenceScreen>
 

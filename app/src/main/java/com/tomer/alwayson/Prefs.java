@@ -14,7 +14,7 @@ public class Prefs {
     public boolean moveWidget;
     public boolean disableVolumeKeys;
     public boolean notificationsAlerts;
-    public boolean showTime, showDate, showBattery;
+    public int clockStyle, dateStyle, batteryStyle;
     public boolean permissionGranting;
     public boolean showAmPm;
     public float textSize;
@@ -27,10 +27,11 @@ public class Prefs {
     public boolean autoNightMode;
     public int batteryRules;
     private SharedPreferences prefs;
-
+    private Context context;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.context = context;
     }
 
     public void apply() {
@@ -47,9 +48,9 @@ public class Prefs {
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
         proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
-        showTime = prefs.getBoolean(KEYS.SHOW_TIME.toString(), true);
-        showDate = prefs.getBoolean(KEYS.SHOW_DATE.toString(), true);
-        showBattery = prefs.getBoolean(KEYS.SHOW_BATTERY.toString(), false);
+        clockStyle = Integer.parseInt(prefs.getString(KEYS.TIME_STYLE.toString(), "1"));
+        dateStyle = Integer.parseInt(prefs.getString(KEYS.DATE_STYLE.toString(), "1"));
+        batteryStyle = Integer.parseInt(prefs.getString(KEYS.BATTERY_STYLE.toString(), "0"));
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
         textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
         rules = prefs.getString(KEYS.RULES.toString(), "always");
@@ -97,9 +98,9 @@ public class Prefs {
         PERMISSION_GRANTING("permissiongrantingscreen"),
         DISABLE_VOLUME_KEYS("disable_volume_keys"),
         PROXIMITY_TO_LOCK("proximity_to_lock"),
-        SHOW_TIME("show_time"),
-        SHOW_BATTERY("show_battery"),
-        SHOW_DATE("show_date"),
+        TIME_STYLE("watchface_clock"),
+        DATE_STYLE("watchface_date"),
+        BATTERY_STYLE("watchface_battery"),
         SHOW_AM_PM("showampm"),
         TEXT_COLOR("textcolor"),
         AUTO_NIGHT_MODE("auto_brightness"),

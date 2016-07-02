@@ -176,28 +176,11 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
-        LinearLayout watchFaceWrapper = (LinearLayout) mainView.findViewById(R.id.watchface_wrapper);
-        TextClock textClock = (TextClock) mainView.findViewById(R.id.time_tv);
-        calendarTV = (TextView) mainView.findViewById(R.id.date_tv);
-        batteryIV = (ImageView) mainView.findViewById(R.id.battery_percentage_icon);
-        batteryTV = (TextView) mainView.findViewById(R.id.battery_percentage_tv);
+        TextClock textClock = (TextClock) mainView.findViewById(R.id.digital_clock);
         if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
             windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-        if (!prefs.showTime)
-            watchFaceWrapper.removeView(textClock);
-        if (!prefs.showDate)
-            watchFaceWrapper.removeView(calendarTV);
-        else {
-            calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
-            calendarTV.setTextColor(prefs.textColor);
-        }
-        if (!prefs.showBattery)
-            watchFaceWrapper.removeView(mainView.findViewById(R.id.battery_wrapper));
-        else {
-            batteryTV.setTextColor(prefs.textColor);
-            batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-            registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        }
+
+        setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
 
         //Setting clock text color and size
         textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
@@ -331,7 +314,7 @@ public class MainService extends Service implements SensorEventListener, Context
         }, 500);
     }
 
-    public boolean isCameraUsedByApp() {
+    private boolean isCameraUsedByApp() {
         Camera camera = null;
         try {
             camera = Camera.open();
@@ -341,6 +324,42 @@ public class MainService extends Service implements SensorEventListener, Context
             if (camera != null) camera.release();
         }
         return false;
+    }
+
+    private void setUpElements(LinearLayout watchfaceWrapper, LinearLayout clockWrapper, LinearLayout dateWrapper, LinearLayout batteryWrapper) {
+        switch (prefs.clockStyle) {
+            case 0:
+                watchfaceWrapper.removeView(clockWrapper);
+                break;
+            case 1:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+                break;
+            case 2:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                break;
+        }
+        switch (prefs.dateStyle) {
+            case 0:
+                watchfaceWrapper.removeView(dateWrapper);
+                break;
+            case 1:
+                calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
+                calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
+                calendarTV.setTextColor(prefs.textColor);
+                break;
+        }
+        switch (prefs.batteryStyle) {
+            case 0:
+                watchfaceWrapper.removeView(batteryWrapper);
+                break;
+            case 1:
+                batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
+                batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
+                batteryTV.setTextColor(prefs.textColor);
+                batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
+                registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                break;
+        }
     }
 
     private void refresh() {
@@ -378,7 +397,7 @@ public class MainService extends Service implements SensorEventListener, Context
         else
             mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
 
-        if (prefs.showDate) {
+        if (prefs.dateStyle != 0) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
             String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(date.getTime()).toUpperCase();
@@ -437,7 +456,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
-        if (prefs.showBattery)
+        if (prefs.batteryStyle != 0)
             unregisterReceiver(mBatInfoReceiver);
         super.onDestroy();
         setButtonsLight(false);
