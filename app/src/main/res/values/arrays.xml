@@ -58,4 +58,13 @@
         <item>vertical</item>
         <item>horizontal</item>
     </string-array>
+
+    <string-array name="customize_clock" >
+        <item>Digital</item>
+        <item>Analog</item>
+    </string-array>
+    <string-array name="customize_clock_vals" >
+        <item>digital</item>
+        <item>analog</item>
+    </string-array>
 </resources>

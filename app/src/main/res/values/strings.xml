@@ -143,4 +143,5 @@
     <string name="settings_features_dialog_calendar">Show Date</string>
     <string name="settings_features_dialog_time">Show Time</string>
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
+    <string name="settings_watchface_clock">Clock style</string>
 </resources>

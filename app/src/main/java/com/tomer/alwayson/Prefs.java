@@ -56,7 +56,7 @@ public class Prefs {
         stopDelay = prefs.getString(KEYS.STOP_DELAY.toString(), "0");
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
-        batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "11"));
+        batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
     }
 

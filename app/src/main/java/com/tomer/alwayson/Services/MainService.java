@@ -434,7 +434,8 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
-        sensorManager.unregisterListener(this);
+        if (sensorManager != null)
+            sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
         if (prefs.showBattery)
             unregisterReceiver(mBatInfoReceiver);
