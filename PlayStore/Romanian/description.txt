@@ -1,4 +1,4 @@
- Funcție „Always on” pentru smartphone-ul sau tableta ta.
+Funcție „Always on” pentru smartphone-ul sau tableta ta.
 Menține ecranul pornit tot timpul.
 Prima aplicație „Always on” cu sursă deschisă!
 
@@ -11,25 +11,25 @@ Specificații:
 - Notificări - privește notificările fără să îți atingi telefonul.
 - Setări automate - economisește bateria folosind setările.
 - Mișcare automată a textului - evită arderea pixelilor.
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+- Mod de noapte - luminozitatea se reduce automat în locurile cu lumină scăzută.
+- Mod buzunar - blochează dispozitivul atunci când îl pui în buzunar pentru a salva energia bateriei.
+- Moduri de trezire : apăsare de două ori, glisare, butoane volum și cu ajutorul butonului „Înapoi”.
+- Orientare forțată - setează-ți modul preferat.
+- Personalizare - schimbă culoarea textului, mărimea textului, luminozitatea ecranului și altele.
+- Sursă gratis și deschisă!
 
-Before using please enable 'draw over apps' permission for this app.
+Înainte de utilizare, vă rog să oferiți permisiunea de "Funcționare peste aplicații" pentru această aplicație.
 
-The app is in BETA, it still has bugs and lacks features.
+Aplicația este în versiunea BETA, deci conține bug-uri.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Permisiuni:
+<b>Permisiuni pentru cameră</b>
+Această aplicație are nevoie de permisiuni pentru a urmări starea camerei și de a opri serviciul „Always on”.
+<b>Permisiuni apel</b>
+Această aplicație are nevoie de permisiuni pentru a urmări apelurile primite, de a opri serviciul „Always on” și de arăta ecranul din timpul apelului.
+<b>Modificarea setărilor sistemului</b>
+Această aplicație are nevoie de permisiuni pentru a modifica luminozitatea ecranului.
 
 
-Google Plus Community
+Comunitatea Google+ :
 https://plus.google.com/communities/104206728795122451273

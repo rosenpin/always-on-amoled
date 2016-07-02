@@ -46,8 +46,7 @@ public class StarterService extends Service {
                 showNotification();
             }
             if (prefs.notificationsAlerts) {
-                if (!isServiceRunning(NotificationListener.class)) //Only start the service if it's not already running
-                    startService(notificationsAlertIntent);
+                startService(notificationsAlertIntent);
             }
             registerReceiver();
         } else {

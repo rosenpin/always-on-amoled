@@ -47,6 +47,8 @@
             android:layout_gravity="center"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
             android:textColor="@android:color/white" />
+
+
     </LinearLayout>
 
     <LinearLayout

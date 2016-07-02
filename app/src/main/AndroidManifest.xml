@@ -11,7 +11,10 @@
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -41,7 +44,7 @@
 
         <activity android:name=".Activities.DummyCapacitiveButtonsActivity" />
 
-        <receiver android:name=".Receivers.ScreenReceiver" />
+        <receiver android:name=".Receivers.ScreenReceiver"/>
         <receiver android:name=".Receivers.UnlockReceiver" />
         <receiver android:name=".Receivers.CallReceiver">
             <intent-filter>

@@ -139,8 +139,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }, 700);//Delay: Because it takes some time to start the camera on some devices
 
-        if (prefs.notificationsAlerts && !isNotificationServiceRunning()) // Only start the service if it's not already running
-            startService(new Intent(getApplicationContext(), NotificationListener.class));
+        startService(new Intent(getApplicationContext(), NotificationListener.class));
 
         // Setup UI
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -250,10 +249,11 @@ public class MainService extends Service implements SensorEventListener, Context
             DevicePolicyManager mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
             ComponentName mAdminName = new ComponentName(this, DAReceiver.class);
             if (proximitySensor != null && (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName)))) {
+                Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400), 100000);
+                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6), 500000);
                 else
-                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(400));
+                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6));
             }
         }
         //If auto night mode option is on, set it up
@@ -277,7 +277,6 @@ public class MainService extends Service implements SensorEventListener, Context
         if (Integer.parseInt(prefs.stopDelay) > 0) {
             final int delayInMilliseconds = Integer.parseInt(prefs.stopDelay) * 1000 * 60;
             Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
-            Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in milliseconds " + delayInMilliseconds);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -488,7 +487,6 @@ public class MainService extends Service implements SensorEventListener, Context
         }
     }
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -541,18 +539,6 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-    }
-
-    private boolean isNotificationServiceRunning() {
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (NotificationListener.class.getName().equals(service.service.getClassName())) {
-                Log.d(NOTIFICATION_LISTENER_TAG, "Is already running");
-                return true;
-            }
-        }
-        Log.d(NOTIFICATION_LISTENER_TAG, "Is not running");
-        return false;
     }
 
     private class OnDismissListener implements View.OnTouchListener {
