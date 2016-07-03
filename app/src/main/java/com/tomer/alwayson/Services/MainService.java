@@ -11,6 +11,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.hardware.Sensor;
@@ -75,6 +76,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private View mainView;
+    TextClock textClock;
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
@@ -177,7 +179,7 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
-        TextClock textClock = (TextClock) mainView.findViewById(R.id.digital_clock);
+        textClock = (TextClock) mainView.findViewById(R.id.digital_clock);
         if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
             windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 
@@ -323,6 +325,9 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setUpElements(LinearLayout watchfaceWrapper, LinearLayout clockWrapper, LinearLayout dateWrapper, LinearLayout batteryWrapper) {
+        calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
+        batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
+        batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
         switch (prefs.clockStyle) {
             case 0:
                 watchfaceWrapper.removeView(clockWrapper);
@@ -339,7 +344,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 watchfaceWrapper.removeView(dateWrapper);
                 break;
             case 1:
-                calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
                 calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
                 calendarTV.setTextColor(prefs.textColor);
                 break;
@@ -349,13 +353,32 @@ public class MainService extends Service implements SensorEventListener, Context
                 watchfaceWrapper.removeView(batteryWrapper);
                 break;
             case 1:
-                batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
-                batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
                 batteryTV.setTextColor(prefs.textColor);
                 batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
                 registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
+        Typeface font = Typeface.DEFAULT;
+        switch (prefs.font) {
+            case 1:
+                font = Typeface.DEFAULT_BOLD;
+                break;
+            case 2:
+                font = Typeface.defaultFromStyle(Typeface.ITALIC);
+                break;
+            case 3:
+                font = Typeface.SERIF;
+                break;
+            case 4:
+                font = Typeface.SANS_SERIF;
+                break;
+            case 5:
+                font = Typeface.MONOSPACE;
+                break;
+        }
+        textClock.setTypeface(font);
+        batteryTV.setTypeface(font);
+        calendarTV.setTypeface(font);
     }
 
     private void refresh() {

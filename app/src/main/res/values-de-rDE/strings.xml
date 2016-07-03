@@ -4,14 +4,14 @@
   <!--App name-->
   <string name="app_name">Always On AMOLED</string>
   <!--Actions-->
-  <string name="action_support_the_development">Unterstütze die Entwicklung</string>
+  <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="action_revert">Rückgängig machen</string>
   <string name="menu_feedback">Feedback</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen und Kamera-Berechtigung</string>
   <string name="intro_permissions_desc">Diese App benötigt die Berechtigung \"Telefon-Status lesen\" um das Gerät einzuschalten, wenn du einen Anruf bekommst.\nDie App benötigt die Berechtigung für die Kamera um das Gerät anzuschalten wenn du die Kameraapp per Shortcut startest.</string>
-  <string name="intro_draw_over">Über andere Apps einblenden</string>
+  <string name="intro_draw_over">Über anderen Apps einblenden</string>
   <string name="intro_draw_over_desc">Die App braucht die Berechtigung um sich über andere Apps einblenden zu können</string>
   <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Lichthelligkeit des Displays zu ändern</string>
   <string name="intro_modify">Systemeinstellungen ändern</string>
@@ -23,16 +23,15 @@
   <string name="intro_notifications">Benachrichtigungs-Alarm</string>
   <string name="intro_notifications_desc">Möchtest du Benachrichtigungen von anderen Apps erhalten, während der Bildschirm im \"always on\" Modus ist? Wenn du das willst, klicke auf \"jetzt zulassen\"</string>
   <!--Feedback,Toasts & messages-->
-  <string name="thanks">Danke für eure Unterstützung! :)</string>
+  <string name="thanks">Danke für deine Unterstützung! :)</string>
   <string name="thanks_great">Danke für deine großartige Unterstützung! :)</string>
   <string name="thanks_huge">Danke für deine riesige Unterstützung! :)</string>
-  <string name="thanks_crazy">Vielen Dank für deine CRAZY Unterstützung!!! :)</string>
   <string name="notification_message">Always On ist aktiv</string>
   <string name="reboot_to_take_affect">Starte neu um die Änderungen wirksam zu machen</string>
   <!--Widget-->
   <string name="widget_toggle">auswahl umkehren</string>
-  <string name="widget_off">Deaktiviert</string>
-  <string name="widget_on">Aktiviert</string>
+  <string name="widget_off">Aus</string>
+  <string name="widget_on">An</string>
   <!--Device admin-->
   <string name="device_admin_desc">Aktiviere dies, um Extra-Funktionen für ungerootete Geräte freizuschalten</string>
   <string name="device_admin_explanation">Erlaube der App \"Geräteadminberechtigung\" um mehr Features auf ungerooteten Geräten benutzen zu können.</string>
@@ -55,8 +54,8 @@
   <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
   <!--Charging rules-->
   <string name="rules_both">Beide</string>
-  <string name="rules_while_charging">Während Ladenvorgangs</string>
-  <string name="rules_while_not_charging">Während Entladung</string>
+  <string name="rules_while_charging">Während des Ladenvorgangs</string>
+  <string name="rules_while_not_charging">Während des Entladens</string>
   <!--Battery rules-->
   <string name="rules_always">Immer</string>
   <string name="rules_battery_50">50 % oder höher</string>
@@ -91,21 +90,20 @@
   <string name="settings_swipe_wake">Nach oben wischen um abzulehnen</string>
   <string name="settings_brightness">Helligkeit</string>
   <string name="settings_notifications">Benachrichtigungen</string>
-  <string name="settings_persistent_notification">Permanent die Benachrichtigung anzeigen</string>
+  <string name="settings_persistent_notification">Durchgängige Benachrichtigung anzeigen</string>
   <string name="settings_move_auto">Das Widget automatisch verschieben</string>
   <string name="settings_volume_to_stop">Lautstärketasten um zu stoppen</string>
   <string name="settings_font_size">Schriftgröße</string>
-  <string name="settings_watchface">Darstellung der Uhr anpassen</string>
+  <string name="settings_watchface">Darstellung anpassen</string>
   <string name="settings_proximity">Näherungssensor</string>
   <string name="settings_show_am_pm">Zeige AM/PM</string>
   <string name="settings_text_color">Textfarbe</string>
   <string name="settings_startafterlock">Starten nach Sperrung</string>
-  <string name="settings_stop_delay">Verzögerung stoppen</string>
   <string name="settings_auto_brightness">Auto-Nachtmodus</string>
   <string name="settings_orientation">Bildschirmausrichtung</string>
   <string name="settings_stop_on_camera">Kamerashortcuts erlauben</string>
   <string name="settings_rules_cahrging">Laderegeln</string>
-  <string name="settings_rules_battery">Batterieregeln</string>
+  <string name="settings_rules_battery">Akkuregeln</string>
   <string name="settings_translate">Übersetzen</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
@@ -113,7 +111,7 @@
   <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Den Always On Screen stoppen wenn die Kamera gestartet wird (sollte immer aktiviert sein auf Nexus/Samsung-Geräten)</string>
-  <string name="settings_auto_brightness_desc">Dimme den Bildschirm bei dunkler Umgebung automatisch</string>
+  <string name="settings_auto_brightness_desc">Dimme den Bildschirm in dunkler Umgebung automatisch</string>
   <string name="settings_stop_delay_desc_short">Auf 0 setzen um abzuschalten</string>
   <string name="settings_stop_delay_desc_short_message">Beenden Sie den Always On Service nach:</string>
   <string name="settings_stop_delay_desc">Stoppe den always on Bildschirm nach einiger Zeit ohne Interaktion um Batterie zu sparen</string>
@@ -123,19 +121,22 @@
   <string name="settings_show_am_pm_desc">Zeige AM/PM mit der Uhr an (nur für 12h Zeit)</string>
   <string name="settings_watchface_desc">Passe die Darstellung der Uhr an</string>
   <string name="settings_proximity_to_lock_desc">WENN DU KEINE ROOT-RECHTE BESITZT WIRD DIES DEN FINGERPRINT-SENSOR FÜR EINIGE GERÄTE DEAKTIVIEREN\n Sperre das Gerät wenn du es in eine Tasche z.B. legst, um Batterie zu sparen (geeigneten Sensor benötigt!)</string>
-  <string name="settings_licenses_desc">Open-Source-Lizenzen</string>
+  <string name="settings_licenses_desc">Open-Source Lizenzen</string>
   <string name="settings_community_desc">Google Plus Community</string>
   <string name="settings_github_desc">Open Source Github Link</string>
   <string name="settings_move_desc">Aktiviere dies um einen AMOLED Burn-In zu vermeiden</string>
   <string name="settings_font_size_desc">Stelle Größe der Uhr ein</string>
   <string name="settings_volume_to_stop_desc">Lautstärketasten drücken um zu stoppen</string>
-  <string name="settings_enabled_desc">Aktivier den Dienst</string>
-  <string name="settings_brightness_desc">Bildschirmhelligkeit während ausgeschaltet</string>
+  <string name="settings_enabled_desc">Aktiviere den Dienst</string>
   <string name="settings_about_translate">Hilf bei der Übersetzung der App</string>
   <string name="settings_version_desc">build</string>
   <!--Settings Helpers-->
-  <string name="settings_features_dialog_battery">Akkustatus anzeigen</string>
+  <string name="settings_feature_dialog_desc">Wähle welche Elemente du auf dem Bilschirm im ausgeschalteten Zustand sehen willst</string>
+  <string name="settings_features_dialog_battery">Akkustand anzeigen</string>
   <string name="settings_features_dialog_calendar">Datum anzeigen</string>
   <string name="settings_features_dialog_time">Zeit anzeigen</string>
-  <string name="error_2_plugin_not_installed">PLUG-IN IST NICHT INSTALLIERT</string>
+  <string name="error_2_plugin_not_installed">PLUGIN IST NICHT INSTALLIERT</string>
+  <string name="settings_watchface_clock">Uhrenstil</string>
+  <string name="settings_watchface_date">Datumssichtbarkeit</string>
+  <string name="settings_watchface_battery">Akkusichtbarkeit</string>
 </resources>

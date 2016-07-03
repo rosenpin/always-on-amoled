@@ -30,6 +30,7 @@
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="reboot_to_take_affect">Riavvia per far funzionare</string>
   <!--Widget-->
+  <string name="widget_toggle">interruttore</string>
   <string name="widget_off">Spento</string>
   <string name="widget_on">Acceso</string>
   <!--Device admin-->
@@ -49,17 +50,48 @@
   <string name="warning_4_device_not_secured">Il tuo dispositivo non è sicuro adesso</string>
   <string name="warning_5_device_admin_disable">Questo disabiliterà alcune delle caratteristiche delle applicazioni</string>
   <string name="warning_6_device_admin_disabled">Alcune funzionalità potrebbero essere disattivate ora</string>
+  <string name="warning_7_disable_fingerprint">Questo potrebbe disattivare la funzionalità sensore di impronte digitali, sei sicuro di volerlo attivare?</string>
+  <string name="warning_8_intro_allow_all">Si prega di consentire tutte le autorizzazioni</string>
+  <string name="warning_9_allow_notification">Si prega di consentire l\'accesso notifica dell\'app</string>
   <!--Charging rules-->
+  <string name="rules_both">Entrambi</string>
+  <string name="rules_while_charging">Durante la carica</string>
+  <string name="rules_while_not_charging">Mentre non ricarica</string>
   <!--Battery rules-->
+  <string name="rules_always">Sempre</string>
+  <string name="rules_battery_50">50% o superiore</string>
+  <string name="rules_battery_30">30% o superiore</string>
+  <string name="rules_battery_20">20% o superiore</string>
+  <string name="rules_battery_10">10% o superiore</string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">Disabilitato</string>
+  <string name="rules_minutes_1">1 minuto</string>
+  <string name="rules_minutes_2">2 minuti</string>
+  <string name="rules_minutes_5">5 minuti</string>
+  <string name="rules_minutes_10">10 minuti</string>
+  <string name="rules_minutes_15">15 minuti</string>
+  <string name="rules_minutes_30">30 minuti</string>
+  <string name="rules_hour">Un\'ora</string>
+  <string name="rules_hours_2">2 ore</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">Verticale (Portrait)</string>
+  <string name="rules_orientation_horizontal">Orizzontale (Landscape)</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamento</string>
+  <string name="settings_about">Info</string>
   <string name="settings_appearance">Aspetto</string>
   <string name="settings_general">Generale</string>
   <string name="settings_wake_up">Risveglia</string>
   <string name="settings_rules">Regole automatiche </string>
   <!--Settings titles-->
+  <string name="settings_enabled">Abilita</string>
+  <string name="settings_disable_volume_keys">Disabilita tasti volume</string>
+  <string name="settings_double_tap_wake">Doppio tap per disattivare</string>
+  <string name="settings_back_button_wake">Tasto indietro per disattivare</string>
+  <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
+  <string name="settings_brightness">Luminosità</string>
+  <string name="settings_notifications">Notifiche</string>
+  <string name="settings_persistent_notification">Mostra notifiche persistenti</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
   <string name="settings_font_size">Dimensione del font</string>
   <string name="settings_watchface">Personalizza watchface</string>

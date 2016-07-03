@@ -146,4 +146,7 @@
   <string name="settings_features_dialog_calendar">Afișează data</string>
   <string name="settings_features_dialog_time">Afișează ceasul</string>
   <string name="error_2_plugin_not_installed">Plugin-ul nu este instalat!</string>
+  <string name="settings_watchface_clock">Format ceas</string>
+  <string name="settings_watchface_date">Format dată</string>
+  <string name="settings_watchface_battery">Format baterie</string>
 </resources>

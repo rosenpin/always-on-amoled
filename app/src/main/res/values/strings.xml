@@ -105,7 +105,7 @@
     <string name="settings_rules_cahrging">Charging rules</string>
     <string name="settings_rules_battery">Battery rules</string>
     <string name="settings_translate">Translate</string>
-    <string name="settings_github">Github</string>
+    <string name="settings_github">GitHub</string>
     <string name="settings_community">Community</string>
     <string name="settings_licenses">Licenses</string>
     <string name="settings_app_version">Version</string>
@@ -119,12 +119,12 @@
     <string name="settings_rules_desc">When should the always on screen work?</string>
     <string name="settings_text_color_desc">Set the text color</string>
     <string name="settings_show_am_pm_desc">Show AM/PM with the clock (only for 12h time)</string>
-    <string name="settings_watchface_desc">Customize the watchface elements</string>
+    <string name="settings_watchface_desc">Customize the always on screen</string>
     <string name="settings_proximity_to_lock_desc">Lock the device when you place your device in your pocket to save battery (Sensors may use more battery)</string>
     <string name="settings_licenses_desc">Open source licenses</string>
     <string name="settings_back_button_to_stop_desc">Click/touch the back button to dismiss</string>
     <string name="settings_community_desc">Google Plus community</string>
-    <string name="settings_github_desc">Open source Github link</string>
+    <string name="settings_github_desc">Open source GitHub link</string>
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
     <string name="settings_volume_to_stop_desc">Press volume keys to dismiss</string>
@@ -148,4 +148,5 @@
     <string name="settings_watchface_battery">Battery style</string>
     <string name="settings_watchface_miscellaneous">Miscellaneous</string>
     <string name="settings_watchface_styles">Styles</string>
+    <string name="settings_font">Font</string>
 </resources>

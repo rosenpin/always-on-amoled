@@ -27,11 +27,11 @@ public class Prefs {
     public boolean autoNightMode;
     public int batteryRules;
     private SharedPreferences prefs;
-    private Context context;
+    public int font;
+
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.context = context;
     }
 
     public void apply() {
@@ -59,6 +59,7 @@ public class Prefs {
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
+        font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
     }
 
     public void setString(String key, String value) {
@@ -110,7 +111,8 @@ public class Prefs {
         ORIENTATION("screen_orientation"),
         STOP_ON_CAMERA("stop_on_camera"),
         BATTERY_RULES("battery_rules"),
-        NOTIFICATION_ALERTS("notifications_alerts");
+        NOTIFICATION_ALERTS("notifications_alerts"),
+        FONT("font");
 
         private final String id;
 
