@@ -60,9 +60,9 @@
     </string-array>
 
     <string-array name="customize_clock">
-        <item>Disabled</item>
-        <item>Digital</item>
-        <item>Analog</item>
+        <item>@string/rules_disabled</item>
+        <item>@string/settings_watch_digital</item>
+        <item>@string/settings_watch_analog</item>
     </string-array>
     <string-array name="customize_clock_vals">
         <item>0</item>
@@ -71,8 +71,8 @@
     </string-array>
 
     <string-array name="customize_date">
-        <item>Disabled</item>
-        <item>Text</item>
+        <item>@string/rules_disabled</item>
+        <item>@string/settings_rules_text</item>
     </string-array>
     <string-array name="customize_date_vals">
         <item>0</item>
@@ -80,20 +80,20 @@
     </string-array>
 
     <string-array name="customize_battery">
-        <item>Disabled</item>
-        <item>Enabled</item>
+        <item>@string/rules_disabled</item>
+        <item>@string/settings_enabled</item>
     </string-array>
     <string-array name="customize_battery_vals">
         <item>0</item>
         <item>1</item>
     </string-array>
     <string-array name="fonts" >
-        <item>Default</item>
-        <item>Default bold</item>
-        <item>Default italic</item>
-        <item>Serif</item>
-        <item>Sans Serif</item>
-        <item>Monospace</item>
+        <item>@string/settings_font_default</item>
+        <item>@string/settings_font_default_bold</item>
+        <item>@string/settings_font_default_italic</item>
+        <item>@string/settings_font_serif</item>
+        <item>@string/settings_font_sans_serif</item>
+        <item>@string/settings_font_monospace</item>
     </string-array>
     <string-array name="fonts_vals" >
         <item>0</item>

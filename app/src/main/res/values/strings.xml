@@ -40,6 +40,7 @@
     <!--Errors-->
     <string name="error_0_unknown_error">An error has occurred</string>
     <string name="error_1_no_email_client">There are no email clients installed.</string>
+    <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
     <!--Warnings-->
     <string name="warning">WARNING</string>
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
@@ -137,16 +138,23 @@
     <string name="settings_brightness_desc">Screen brightness while off</string>
     <string name="settings_about_translate">Help translating the app</string>
     <string name="settings_version_desc">build</string>
-    <!--Settings Helpers-->
     <string name="settings_feature_dialog_desc">Select which elements you want to appear when the device is locked</string>
     <string name="settings_features_dialog_battery">Show Battery</string>
     <string name="settings_features_dialog_calendar">Show Date</string>
     <string name="settings_features_dialog_time">Show Time</string>
-    <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
     <string name="settings_watchface_clock">Clock style</string>
     <string name="settings_watchface_date">Date style</string>
     <string name="settings_watchface_battery">Battery style</string>
     <string name="settings_watchface_miscellaneous">Miscellaneous</string>
     <string name="settings_watchface_styles">Styles</string>
     <string name="settings_font">Font</string>
+    <string name="settings_watch_digital">Digital</string>
+    <string name="settings_watch_analog">Analog</string>
+    <string name="settings_rules_text">Text</string>
+    <string name="settings_font_default">Default</string>
+    <string name="settings_font_default_bold">Default bold</string>
+    <string name="settings_font_default_italic">Default italic</string>
+    <string name="settings_font_serif">Serif</string>
+    <string name="settings_font_sans_serif">Sans Serif</string>
+    <string name="settings_font_monospace">Monospace</string>
 </resources>
