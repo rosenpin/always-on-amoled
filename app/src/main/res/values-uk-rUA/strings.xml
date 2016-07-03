@@ -128,7 +128,7 @@
   <string name="settings_back_button_to_stop_desc">Натисніть кнопку \"Назад\" для пробудження</string>
   <string name="settings_community_desc">Google Plus спільнота</string>
   <string name="settings_github_desc">Відкрите джерело Github</string>
-  <string name="settings_move_desc">Включіть для автоматичного руху віджету на екрані</string>
+  <string name="settings_move_desc">Включіть для автоматичного руху віджету на екрані (щоб уникнути вигоряння)</string>
   <string name="settings_font_size_desc">Встановіть розмір шрифту годинника</string>
   <string name="settings_volume_to_stop_desc">Натисність клавішу регул. гучності для пробудження</string>
   <string name="settings_touch_to_stop_desc">Двічі торкніться екрану для пробудження</string>
@@ -144,4 +144,19 @@
   <string name="settings_features_dialog_battery">Відображати заряд акумулятора</string>
   <string name="settings_features_dialog_calendar">Відображати дату</string>
   <string name="settings_features_dialog_time">Відображати час</string>
+  <string name="settings_watchface_clock">Стиль годинника</string>
+  <string name="settings_watchface_date">Стиль дати</string>
+  <string name="settings_watchface_battery">Стиль значка акумулятора</string>
+  <string name="settings_watchface_miscellaneous">Різне</string>
+  <string name="settings_watchface_styles">Стилі</string>
+  <string name="settings_font">Шрифт</string>
+  <string name="settings_watch_digital">Цифровий</string>
+  <string name="settings_watch_analog">Аналоговий</string>
+  <string name="settings_rules_text">Текст</string>
+  <string name="settings_font_default">За замовчуванням</string>
+  <string name="settings_font_default_bold">За замовчуванням жирним шрифтом</string>
+  <string name="settings_font_default_italic">За замовчуванням курсив</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Моноширинний</string>
 </resources>

@@ -19,14 +19,13 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     // ------------------------------------------------------------------------------------------
     // Private attributes :
     private static final String androidns = "http://schemas.android.com/apk/res/android";
-    private int mMin = 0;
 
     private SeekBar mSeekBar;
     private TextView mSplashText, mValueText;
     private Context mContext;
 
     private String mDialogMessage, mSuffix;
-    private int mDefault, mMax, mValue = 0;
+    private int mDefault, mMax, mValue = 0, mMin = 1;
     // ------------------------------------------------------------------------------------------
 
 
@@ -165,8 +164,8 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 
         if (shouldPersist()) {
             mValue = mSeekBar.getProgress() + mMin;
-            persistInt(mSeekBar.getProgress());
-            callChangeListener(Integer.valueOf(mSeekBar.getProgress()));
+            persistInt(mSeekBar.getProgress() + mMin);
+            callChangeListener(mSeekBar.getProgress() + mMin);
         }
 
         ((AlertDialog) getDialog()).dismiss();

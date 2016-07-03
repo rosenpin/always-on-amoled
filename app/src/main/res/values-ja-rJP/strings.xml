@@ -42,6 +42,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">エラーが発生しました</string>
   <string name="error_1_no_email_client">メールクライアントがインストールされていません。</string>
+  <string name="error_2_plugin_not_installed">プラグインがインストールされていません</string>
   <!--Warnings-->
   <string name="warning">警告</string>
   <string name="warning_1_harm_performance">アプリのパフォーマンスを妨げる可能性があります</string>
@@ -132,7 +133,30 @@
   <string name="settings_volume_to_stop_desc">ボリュームキーを押して閉じる</string>
   <string name="settings_touch_to_stop_desc">スクリーンをダブルタップして閉じる</string>
   <string name="settings_swipe_to_stop_desc">スクリーンをスワイプアップして閉じる</string>
+  <string name="settings_notifications_desc">アプリをバックグラウンドで起動させておくにはこれを有効にします\nヒント: Android 6.0以上の場合は昨日に影響を与えることなくアプリの通知をブロックできます</string>
   <string name="settings_enabled_desc">サービスを有効にする</string>
+  <string name="settings_disable_volume_keys_desc">間違って音量を変えないようにこれを有効にしてください</string>
   <string name="settings_notifications_alerts_desc">他のアプリからの通知を受信すると通知を表示</string>
   <string name="settings_brightness_desc">オフの間の画面の明るさ</string>
+  <string name="settings_about_translate">アプリの翻訳を手伝う</string>
+  <string name="settings_version_desc">ビルド</string>
+  <string name="settings_feature_dialog_desc">端末ロック時どれをどれを表示するか選んでください</string>
+  <string name="settings_features_dialog_battery">バッテリーを表示</string>
+  <string name="settings_features_dialog_calendar">日付を表示</string>
+  <string name="settings_features_dialog_time">時間を表示</string>
+  <string name="settings_watchface_clock">時計のスタイル</string>
+  <string name="settings_watchface_date">日付のスタイル</string>
+  <string name="settings_watchface_battery">バッテリーのスタイル</string>
+  <string name="settings_watchface_miscellaneous">その他</string>
+  <string name="settings_watchface_styles">スタイル</string>
+  <string name="settings_font">フォント</string>
+  <string name="settings_watch_digital">デジタル</string>
+  <string name="settings_watch_analog">アナログ</string>
+  <string name="settings_rules_text">テキスト</string>
+  <string name="settings_font_default">デフォルト</string>
+  <string name="settings_font_default_bold">デフォルト (太字)</string>
+  <string name="settings_font_default_italic">デフォルト (斜体)</string>
+  <string name="settings_font_serif">セリフ</string>
+  <string name="settings_font_sans_serif">サンセリフ</string>
+  <string name="settings_font_monospace">等幅</string>
 </resources>

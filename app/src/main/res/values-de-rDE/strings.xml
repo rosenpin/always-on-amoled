@@ -10,9 +10,9 @@
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen und Kamera-Berechtigung</string>
-  <string name="intro_permissions_desc">Diese App benötigt die Berechtigung \"Telefon-Status lesen\" um das Gerät einzuschalten, wenn du einen Anruf bekommst.\nDie App benötigt die Berechtigung für die Kamera um das Gerät anzuschalten wenn du die Kameraapp per Shortcut startest.</string>
+  <string name="intro_permissions_desc">Diese App benötigt die Berechtigung \"Telefonstatus lesen\" um das Gerät einzuschalten, wenn du einen Anruf bekommst.\nDie App benötigt die Berechtigung für die Kamera um das Gerät anzuschalten wenn du die Kameraapp per Shortcut startest.</string>
   <string name="intro_draw_over">Über anderen Apps einblenden</string>
-  <string name="intro_draw_over_desc">Die App braucht die Berechtigung um sich über andere Apps einblenden zu können</string>
+  <string name="intro_draw_over_desc">Die App braucht die Berechtigung, sich über andere Apps einblenden zu können</string>
   <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Lichthelligkeit des Displays zu ändern</string>
   <string name="intro_modify">Systemeinstellungen ändern</string>
   <string name="intro_wake_ups">Aufwach-Methoden</string>
@@ -26,6 +26,7 @@
   <string name="thanks">Danke für deine Unterstützung! :)</string>
   <string name="thanks_great">Danke für deine großartige Unterstützung! :)</string>
   <string name="thanks_huge">Danke für deine riesige Unterstützung! :)</string>
+  <string name="thanks_crazy">Danke für deinen VERÜCKTEN Support!! :)</string>
   <string name="notification_message">Always On ist aktiv</string>
   <string name="reboot_to_take_affect">Starte neu um die Änderungen wirksam zu machen</string>
   <!--Widget-->
@@ -71,11 +72,11 @@
   <string name="rules_minutes_10">10 Minuten</string>
   <string name="rules_minutes_15">15 Minuten</string>
   <string name="rules_minutes_30">30 Minuten</string>
-  <string name="rules_hour">Eine Stunde</string>
+  <string name="rules_hour">1 Stunde</string>
   <string name="rules_hours_2">2 Stunden</string>
   <!--Orientation-->
-  <string name="rules_orientation_vertical">Vertikal (Hochformat)</string>
-  <string name="rules_orientation_horizontal">Horizontal (Querformat)</string>
+  <string name="rules_orientation_vertical">Hochformat</string>
+  <string name="rules_orientation_horizontal">Querformat</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Verhalten</string>
   <string name="settings_about">Über</string>
@@ -100,6 +101,7 @@
   <string name="settings_show_am_pm">Zeige AM/PM</string>
   <string name="settings_text_color">Textfarbe</string>
   <string name="settings_startafterlock">Starten nach Sperrung</string>
+  <string name="settings_stop_delay">Stopp-Verzögerung</string>
   <string name="settings_auto_brightness">Auto-Nachtmodus</string>
   <string name="settings_orientation">Bildschirmausrichtung</string>
   <string name="settings_stop_on_camera">Kamerashortcuts erlauben</string>
@@ -123,12 +125,19 @@
   <string name="settings_watchface_desc">Passe die Darstellung der Uhr an</string>
   <string name="settings_proximity_to_lock_desc">WENN DU KEINE ROOT-RECHTE BESITZT WIRD DIES DEN FINGERPRINT-SENSOR FÜR EINIGE GERÄTE DEAKTIVIEREN\n Sperre das Gerät wenn du es in eine Tasche z.B. legst, um Batterie zu sparen (geeigneten Sensor benötigt!)</string>
   <string name="settings_licenses_desc">Open-Source Lizenzen</string>
+  <string name="settings_back_button_to_stop_desc">Tippe auf den Zurück-Button um always on zu stoppen</string>
   <string name="settings_community_desc">Google Plus Community</string>
-  <string name="settings_github_desc">Open Source Github Link</string>
+  <string name="settings_github_desc">Open-Source Github Link</string>
   <string name="settings_move_desc">Aktiviere dies um einen AMOLED Burn-In zu vermeiden</string>
-  <string name="settings_font_size_desc">Stelle Größe der Uhr ein</string>
+  <string name="settings_font_size_desc">Stelle die Größe der Uhr ein</string>
   <string name="settings_volume_to_stop_desc">Lautstärketasten drücken um zu stoppen</string>
+  <string name="settings_touch_to_stop_desc">Doppelt tippen zum Ausblenden</string>
+  <string name="settings_swipe_to_stop_desc">Wische hoch um auszublenden</string>
+  <string name="settings_notifications_desc">Aktiviere dies um die App im Hintergrund am Laufen zu halten\nTipp: Du kannst die Benachrichtigung der App auf Android 6.0+ blocken ohne deren Funktionalität einzuschränken</string>
   <string name="settings_enabled_desc">Aktiviere den Dienst</string>
+  <string name="settings_disable_volume_keys_desc">Aktiviere dies um eine versehentliche Verstellung der Lautstärke zu vermeiden</string>
+  <string name="settings_notifications_alerts_desc">Zeige Benachrichtigungen von anderen Apps</string>
+  <string name="settings_brightness_desc">Bildschirmhelligkeit wenn ausgeschaltet</string>
   <string name="settings_about_translate">Hilf bei der Übersetzung der App</string>
   <string name="settings_version_desc">build</string>
   <string name="settings_feature_dialog_desc">Wähle welche Elemente du auf dem Bilschirm im ausgeschalteten Zustand sehen willst</string>
@@ -136,6 +145,18 @@
   <string name="settings_features_dialog_calendar">Datum anzeigen</string>
   <string name="settings_features_dialog_time">Zeit anzeigen</string>
   <string name="settings_watchface_clock">Uhrenstil</string>
-  <string name="settings_watchface_date">Datumssichtbarkeit</string>
-  <string name="settings_watchface_battery">Akkusichtbarkeit</string>
+  <string name="settings_watchface_date">Datum</string>
+  <string name="settings_watchface_battery">Akkuanzeige</string>
+  <string name="settings_watchface_miscellaneous">Verschiedenes</string>
+  <string name="settings_watchface_styles">Stil</string>
+  <string name="settings_font">Schriftart</string>
+  <string name="settings_watch_digital">Digital</string>
+  <string name="settings_watch_analog">Analog</string>
+  <string name="settings_rules_text">Text</string>
+  <string name="settings_font_default">Standard</string>
+  <string name="settings_font_default_bold">Standard Fett</string>
+  <string name="settings_font_default_italic">Standard Kursiv</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
 </resources>

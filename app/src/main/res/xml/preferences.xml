@@ -47,6 +47,32 @@
                     android:title="@string/settings_rules_battery" />
             </PreferenceCategory>
         </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/settings_gestures_desc"
+            android:title="@string/settings_gestures">
+            <PreferenceCategory android:title="@string/settings_wake_up">
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="double_tap_dismiss"
+                    android:summary="@string/settings_touch_to_stop_desc"
+                    android:title="@string/settings_double_tap_wake" />
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="swipe_dismiss"
+                    android:summary="@string/settings_swipe_to_stop_desc"
+                    android:title="@string/settings_swipe_wake" />
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="volume_dismiss"
+                    android:summary="@string/settings_volume_to_stop_desc"
+                    android:title="@string/settings_volume_to_stop" />
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="back_button_dismiss"
+                    android:summary="@string/settings_back_button_to_stop_desc"
+                    android:title="@string/settings_back_button_wake" />
+            </PreferenceCategory>
+        </PreferenceScreen>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
@@ -82,29 +108,6 @@
             android:title="@string/settings_proximity" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/settings_wake_up">
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="double_tap_dismiss"
-            android:summary="@string/settings_touch_to_stop_desc"
-            android:title="@string/settings_double_tap_wake" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="swipe_dismiss"
-            android:summary="@string/settings_swipe_to_stop_desc"
-            android:title="@string/settings_swipe_wake" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="volume_dismiss"
-            android:summary="@string/settings_volume_to_stop_desc"
-            android:title="@string/settings_volume_to_stop" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="back_button_dismiss"
-            android:summary="@string/settings_back_button_to_stop_desc"
-            android:title="@string/settings_back_button_wake" />
-    </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/settings_appearance">
         <PreferenceScreen
             android:summary="@string/settings_watchface_desc"
@@ -136,7 +139,7 @@
                     android:title="@string/settings_watchface_battery" />
 
             </PreferenceCategory>
-            <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+            <PreferenceCategory android:title="@string/settings_watchface_text_font">
                 <ListPreference
                     android:defaultValue="0"
                     android:dialogTitle="@string/settings_font"
@@ -156,6 +159,8 @@
                     android:key="textcolor"
                     android:summary="@string/settings_text_color_desc"
                     android:title="@string/settings_text_color" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
                 <CheckBoxPreference
                     android:key="showampm"
                     android:summary="@string/settings_show_am_pm_desc"

@@ -13,50 +13,50 @@
   <string name="intro_permissions_desc">L\'applicazione ha bisogno del permesso di leggere lo stato del telefono per accendere il dispositivo quando ricevi una chiamata.\nL\'applicazione ha bisogno del permesso di accedere alla telecamera per accendere il dispositivo quando avvii la fotocamera (con tasti di scelta rapida).</string>
   <string name="intro_draw_over">Attiingere da altre apps</string>
   <string name="intro_draw_over_desc">L\'app richiede il permesso per attingere da altre apps</string>
-  <string name="intro_modify_desc">L\'app richiede il permesso per cambiare la luminosità dello schermo</string>
-  <string name="intro_modify">Modifica impostazioni di sistema</string>
+  <string name="intro_modify_desc">L\'app ha bisogno dell\'autorizzazione per modificare la luminosità del dispositivo</string>
+  <string name="intro_modify">Modificare le impostazioni di sistema</string>
   <string name="intro_wake_ups">Metodi di attivazione</string>
   <string name="intro_wake_ups_desc">Scegli come vuoi abilitare l\'attivazione del telefono dallo stato di \"always on\". Non ti preoccupare, è possibile modificarla nell\'app succcessivamente.</string>
-  <string name="intro_checkbox_volume_keys">Tasi volume per sbloccare</string>
+  <string name="intro_checkbox_volume_keys">Tasti volume per sbloccare</string>
   <string name="intro_checkbox_swipe_up">Swipe in su dal centro dello schermo per sbloccare</string>
   <string name="intro_checkbox_double_tap">Doppio tap nel centro dello schermo per sbloccare</string>
   <string name="intro_notifications">Avvisi notifiche</string>
-  <string name="intro_notifications_desc">Vuoi ricevere notifiche da altre applicazioni mentre lo schermo è in stato \"always on\"? Se lo vuoi, fai clic sul pulsante \"permette ora\"</string>
+  <string name="intro_notifications_desc">Vuoi ricevere notifiche da altre applicazioni mentre lo schermo è in stato \"always on\"? Se lo vuoi, fai clic sul pulsante \"consenti ora\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Grazie per il tuo supporto! :)</string>
-  <string name="thanks_great">Grazie per il tuo supporto! :)</string>
+  <string name="thanks_great">Grazie per il tuo grande supporto! :)</string>
   <string name="thanks_huge">Grazie per il tuo enorme supporto! :)</string>
-  <string name="thanks_crazy">Grazie per il tuo assurdo supporto!!! :)</string>
+  <string name="thanks_crazy">Grazie per il tuo pazzo supporto!!! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
-  <string name="reboot_to_take_affect">Riavvia per far funzionare</string>
+  <string name="reboot_to_take_affect">Riavvia per rendere effettive le modifiche</string>
   <!--Widget-->
   <string name="widget_toggle">interruttore</string>
   <string name="widget_off">Spento</string>
   <string name="widget_on">Acceso</string>
   <!--Device admin-->
-  <string name="device_admin_desc">Attiva questa opzione per consentire funzioni extra per i dispositivi senza root</string>
-  <string name="device_admin_explanation">Si prega di consentire il permesso di amministratore per utilizzare più funzioni su dispositivi senza root</string>
+  <string name="device_admin_desc">Attiva questa opzione per consentire funzioni extra per i dispositivi senza root (sbloccato)</string>
+  <string name="device_admin_explanation">Si prega di consentire il permesso di amministratore per utilizzare più funzioni sui dispositivi senza root.</string>
   <!--Plugin-->
   <string name="plugin_dialog_title">È necessario un plugin</string>
-  <string name="plugin_dialog_desc">Sembra che il dispositivo dispone di pulsanti hardware, per farli spegnere quando il servizio è in esecuzione, si prega di installare il plugin.</string>
+  <string name="plugin_dialog_desc">Sembra che il dispositivo dispone di pulsanti hardware, per spegnerli quando il servizio è in esecuzione, si prega di installare il plugin.</string>
   <!--Errors-->
-  <string name="error_0_unknown_error">C\'è stato un errore</string>
+  <string name="error_0_unknown_error">Si è verificato un errore</string>
   <string name="error_1_no_email_client">Non ci sono client di posta elettronica installati.</string>
-  <string name="error_2_plugin_not_installed">Il plugin non è installato</string>
+  <string name="error_2_plugin_not_installed">IL PLUGIN NON E\' INSTALLATO</string>
   <!--Warnings-->
   <string name="warning">ATTENZIONE</string>
-  <string name="warning_1_harm_performance">Questo può limitare le prestazioni dell\'applicazione </string>
-  <string name="warning_2_required_phone_permission">È richiesta questa autorizzazione perché l\'applicazione possa accendere lo schermo quando si riceve una chiamata</string>
-  <string name="warning_3_allow_system_modification">Si prega di consentire impostazioni di autorizzazione di modifica per questa applicazione!</string>
-  <string name="warning_4_device_not_secured">Il tuo dispositivo non è sicuro adesso</string>
-  <string name="warning_5_device_admin_disable">Questo disabiliterà alcune delle caratteristiche delle applicazioni</string>
+  <string name="warning_1_harm_performance">Questo può danneggiare le prestazioni dell\'applicazione</string>
+  <string name="warning_2_required_phone_permission">Questa autorizzazione è necessaria così l\'app può accendere lo schermo del telefono quando si riceve una chiamata</string>
+  <string name="warning_3_allow_system_modification">Si prega di autorizzare la modifica delle impostazioni per questa applicazione!</string>
+  <string name="warning_4_device_not_secured">Il tuo dispositivo può non essere fissato ora</string>
+  <string name="warning_5_device_admin_disable">Questo disabiliterà alcune caratteristiche dell\'applicazione</string>
   <string name="warning_6_device_admin_disabled">Alcune funzionalità potrebbero essere disattivate ora</string>
-  <string name="warning_7_disable_fingerprint">Questo potrebbe disattivare la funzionalità sensore di impronte digitali, sei sicuro di volerlo attivare?</string>
-  <string name="warning_8_intro_allow_all">Si prega di consentire tutte le autorizzazioni</string>
-  <string name="warning_9_allow_notification">Si prega di consentire l\'accesso notifica dell\'app</string>
+  <string name="warning_7_disable_fingerprint">Questo potrebbe disattivare la funzionalità del sensore di impronte digitali, sei sicuro di volerlo attivare?</string>
+  <string name="warning_8_intro_allow_all">Per favore consenti tutte le autorizzazioni</string>
+  <string name="warning_9_allow_notification">Per favore consenti l\'accesso notifica dell\'app</string>
   <!--Charging rules-->
   <string name="rules_both">Entrambi</string>
-  <string name="rules_while_charging">Durante la carica</string>
+  <string name="rules_while_charging">Mentre carica</string>
   <string name="rules_while_not_charging">Mentre non ricarica</string>
   <!--Battery rules-->
   <string name="rules_always">Sempre</string>
@@ -79,11 +79,11 @@
   <string name="rules_orientation_horizontal">Orizzontale (Landscape)</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamento</string>
-  <string name="settings_about">Info</string>
+  <string name="settings_about">Riguardo</string>
   <string name="settings_appearance">Aspetto</string>
   <string name="settings_general">Generale</string>
   <string name="settings_wake_up">Risveglia</string>
-  <string name="settings_rules">Regole automatiche </string>
+  <string name="settings_rules">Regole automatiche</string>
   <!--Settings titles-->
   <string name="settings_enabled">Abilita</string>
   <string name="settings_disable_volume_keys">Disabilita tasti volume</string>
@@ -92,10 +92,10 @@
   <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
   <string name="settings_brightness">Luminosità</string>
   <string name="settings_notifications">Notifiche</string>
-  <string name="settings_persistent_notification">Mostra notifiche persistenti</string>
-  <string name="settings_move_auto">Muovi il widget automaticamente</string>
+  <string name="settings_persistent_notification">Mostra notifica persistente</string>
+  <string name="settings_move_auto">Muovi automaticamente il widget</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
-  <string name="settings_font_size">Dimensione del font</string>
+  <string name="settings_font_size">Dimensione del testo (font)</string>
   <string name="settings_watchface">Personalizza watchface</string>
   <string name="settings_proximity">Sensore di prossimità</string>
   <string name="settings_show_am_pm">Mostra AM/PM</string>
@@ -105,40 +105,41 @@
   <string name="settings_auto_brightness">Modalità notte automatica</string>
   <string name="settings_orientation">Orientamento schermo</string>
   <string name="settings_stop_on_camera">Permetti collegamento fotocamera</string>
-  <string name="settings_rules_cahrging">Regole di ricarica</string>
+  <string name="settings_rules_cahrging">Regole di carica</string>
   <string name="settings_rules_battery">Regole della batteria</string>
-  <string name="settings_translate">Traduzione</string>
+  <string name="settings_translate">Tradurre</string>
+  <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
   <string name="settings_licenses">Licenze</string>
   <string name="settings_app_version">Versione</string>
   <!--Settings descriptions-->
-  <string name="settings_stop_on_camera_desc">Ferma \"Always on display\" quando la fotocamera è avviata (dovrebbe restare attivo su dispositivi Nexus o Samsung)</string>
-  <string name="settings_auto_brightness_desc">Scurisci lo schermo automaticamente quando è buio</string>
+  <string name="settings_stop_on_camera_desc">Ferma \"Always on display\" quando la fotocamera è avviata (dovrebbe rimanere attivo su dispositivi Nexus o Samsung)</string>
+  <string name="settings_auto_brightness_desc">Scurisci lo schermo automaticamente quando è buio (i sensori possono consumare più batteria)</string>
   <string name="settings_stop_delay_desc_short">Imposta a 0 per spegnere</string>
   <string name="settings_stop_delay_desc_short_message">Ferma il sevizio Always-on dopo:</string>
   <string name="settings_stop_delay_desc">Arresta l\'always-on dopo un po\' di tempo senza interazione per risparmiare la batteria</string>
-  <string name="settings_startafterlock_desc">Fai partire il servizio quando lo schemo è bloccato. Mantieni questo per avere il dispositivo protetto e il sensore di impronte digitali funzionante</string>
+  <string name="settings_startafterlock_desc">Avvia il servizio solo quando lo schermo è bloccato. Mantieni questo abilitato per avere il dispositivo protetto e il sensore di impronte digitali funzionante,.</string>
   <string name="settings_rules_desc">Quando \"Always on display\" dovrebbe funzionare?</string>
   <string name="settings_text_color_desc">Imposta il colore del testo</string>
-  <string name="settings_show_am_pm_desc">Mostra la dicitura \"AM/PM\" nell\'orologio (solo per il formato 12 ore)</string>
-  <string name="settings_watchface_desc">Personalizza gli elementi della watchface</string>
+  <string name="settings_show_am_pm_desc">Visualizza AM/PM nell\'orologio (solo nel formato 12 ore)</string>
+  <string name="settings_watchface_desc">Personalizza lo schermo di Always On</string>
   <string name="settings_proximity_to_lock_desc">Blocca il dispositivo quando metti il telefono in tasca per risparmiare batteria (il sensore potrebbe usare molta batteria)</string>
   <string name="settings_licenses_desc">Licenze open source</string>
   <string name="settings_back_button_to_stop_desc">Clicca/tocca il tasto back per disattivare</string>
-  <string name="settings_community_desc">Comunità di Google Plus </string>
+  <string name="settings_community_desc">Comunità di Google Plus</string>
   <string name="settings_github_desc">Link open source di Github</string>
-  <string name="settings_move_desc">Attiva questa opzione per evitare che lo schermo si rovini</string>
+  <string name="settings_move_desc">Attiva questa opzione per evitare il burn in dello schermo AMOLED</string>
   <string name="settings_font_size_desc">Imposta la dimensione del carattere dell\'orologio</string>
   <string name="settings_volume_to_stop_desc">Premi i tasti del volume per disattivare</string>
   <string name="settings_touch_to_stop_desc">Doppio tocco per disattivare</string>
   <string name="settings_swipe_to_stop_desc">Swipe verso l\'alto per disattivare lo schermo</string>
-  <string name="settings_notifications_desc">Attivare per mantenere l\'applicazione attiva in background</string>
+  <string name="settings_notifications_desc">Abilitare per mantenere l\'applicazione attiva in background\nTip: Tu puoi bloccare le notifiche di questa su Android 6.0 e versioni successive senza compromettere la sua funzionalità</string>
   <string name="settings_enabled_desc">Attiva il servizio</string>
-  <string name="settings_disable_volume_keys_desc">Attiva questa funzione per prevenire modifiche del volume accidentali</string>
+  <string name="settings_disable_volume_keys_desc">Attiva questa funzione per prevenire modifiche accidentali del cambio volume</string>
   <string name="settings_notifications_alerts_desc">Mostra notifiche ricevute di altre applicazioni </string>
   <string name="settings_brightness_desc">Luminosità dello schermo mentre è spento</string>
-  <string name="settings_about_translate">Aiutaci a tradurre l\'app</string>
-  <string name="settings_version_desc">build</string>
+  <string name="settings_about_translate">Aiuta a tradurre l\'app</string>
+  <string name="settings_version_desc">costruisci</string>
   <string name="settings_feature_dialog_desc">Seleziona quali elementi vuoi che appaiano quando il dispositivo è bloccato</string>
   <string name="settings_features_dialog_battery">Mostra batteria</string>
   <string name="settings_features_dialog_calendar">Mostra data</string>
@@ -148,4 +149,14 @@
   <string name="settings_watchface_battery">Stile della batteria</string>
   <string name="settings_watchface_miscellaneous">Varie</string>
   <string name="settings_watchface_styles">Stili</string>
+  <string name="settings_font">Carattere</string>
+  <string name="settings_watch_digital">Digitale</string>
+  <string name="settings_watch_analog">Analogico</string>
+  <string name="settings_rules_text">Testo</string>
+  <string name="settings_font_default">Predefinito</string>
+  <string name="settings_font_default_bold">Predefinito grassetto</string>
+  <string name="settings_font_default_italic">Predefinito corsivo</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
 </resources>

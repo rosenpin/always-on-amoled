@@ -132,7 +132,7 @@
   <string name="settings_font_size_desc">- setați dimensiunea fontului ceasului.</string>
   <string name="settings_volume_to_stop_desc">- apăsați tastele de volum pentru a ieși.</string>
   <string name="settings_touch_to_stop_desc">- apasă de două ori pentru a ieși.</string>
-  <string name="settings_swipe_to_stop_desc">- glisați în sus pentru a respinge ecranul.</string>
+  <string name="settings_swipe_to_stop_desc">- glisați în sus pentru a ieși.</string>
   <string name="settings_notifications_desc">- activează pentru a menține aplicația în fundal.
 \nPont: Poți bloca notificările aplicației în versiunea de Android 6.0 fără ca aceasta să aibă de suferit.</string>
   <string name="settings_enabled_desc">- activați serviciul</string>
@@ -146,6 +146,18 @@
   <string name="settings_features_dialog_calendar">Afișează data</string>
   <string name="settings_features_dialog_time">Afișează ceasul</string>
   <string name="settings_watchface_clock">Format ceas</string>
-  <string name="settings_watchface_date">Format dată</string>
-  <string name="settings_watchface_battery">Format baterie</string>
+  <string name="settings_watchface_date">Afișare dată</string>
+  <string name="settings_watchface_battery">Afișare procentaj baterie</string>
+  <string name="settings_watchface_miscellaneous">Diverse</string>
+  <string name="settings_watchface_styles">Personalizare</string>
+  <string name="settings_font">Font</string>
+  <string name="settings_watch_digital">Digital</string>
+  <string name="settings_watch_analog">Analog</string>
+  <string name="settings_rules_text">Text</string>
+  <string name="settings_font_default">Implicit</string>
+  <string name="settings_font_default_bold">Implicit bold</string>
+  <string name="settings_font_default_italic">Implicit cursiv</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospaţiu</string>
 </resources>

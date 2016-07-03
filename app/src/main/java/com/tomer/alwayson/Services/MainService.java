@@ -198,7 +198,6 @@ public class MainService extends Service implements SensorEventListener, Context
         if (!prefs.moveWidget) {
             mainLayoutParams.gravity = Gravity.CENTER;
         } else {
-            refreshLong();
             mainLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
         }
         mainView.setLayoutParams(mainLayoutParams);
@@ -281,6 +280,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Globals.notificationChanged = true; //Show notifications at first launch
         startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
         refresh();
+        refreshLong();
 
         //All Samsung's stuff
         if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
@@ -410,11 +410,12 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refreshLong() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (prefs.orientation.equals("vertical"))
-            mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
-        else
-            mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
-
+        if (prefs.moveWidget) {
+            if (prefs.orientation.equals("vertical"))
+                mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
+            else
+                mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
+        }
         if (prefs.dateStyle != 0) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
@@ -467,6 +468,11 @@ public class MainService extends Service implements SensorEventListener, Context
                 mainView.startAnimation(alpha);
             }
         }
+    }
+
+    private void openAppByPM(String pm) {
+        Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(pm);
+        startActivity(LaunchIntent);
     }
 
     @Override

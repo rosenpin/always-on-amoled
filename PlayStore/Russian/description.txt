@@ -1,19 +1,19 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Поставьте  Always on display на ваш телефон или планшет.
+Ваш экран всегда включен.
+Первое приложение Always on display  с  открытым программным кодом.
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+Идея заключается в том, чтобы предоставить пользователям информацию о  времени , дате и уведомлениях  без необходимости прикасаться к телефону. Просто взгляните на это.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Это стало возможным благодаря AMOLED дисплеям. Большая часть экрана остается черным , за исключением несколько пикселей.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
+Особенные функции
+Always On Screen
+• Уведомления - Просмотр уведомлений не касаясь вашего устройства
 • Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
+• Auto movement- избегание выгорание AMOLED дисплея 
+• Автоматическое ночной режим - яркость экрана автоматически переходит в ночной режим.
+• Pocket  режим - заблокировать устройство, когда вы оставляете  его в кармане для экономии заряда батареи
+• Двойное нажатие по экрану  + Проведите пальцем для  ответа на телефоный звонок   + клавиши громкости
 • Force orientation - set your preferred screen orientation
 • Customization - change the text color, text size, brightness and more
 • FREE AND OPEN SOURCE!

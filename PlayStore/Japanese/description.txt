@@ -1,35 +1,35 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+お使いの端末にもAlways On Displayを手に入れよう。
+いつもスクリーンはオンのままに。
+初のAlways Onのオープンソースアプリです！
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+ユーザーに時間、日付、通知などの情報を提供しその全てを画面に触れずに手に入れられるように設計されています。 ただ画面を見るだけです。
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+AMOLEDディスプレイの端末でご利用になれます。 少しのピクセルを除いて画面の大部分は黒いまま。
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★ 目玉機能
+・ Always On スクリーン
+・ 通知 - 端末に触れずに通知をチェック
+・ 自動化ルール - 決めておいたルールでバッテリー節約
+・ 自動で移動 - AMOLEDの焼き付きを回避
+・ 自動夜間モード - 周りが暗いときは自動で画面を暗くする
+・ ポケットモード - バッテリー節約のためにポケットの中では端末をロック
+・ ダブルタップでウェイクアップ + スワイプアップでウェイクアップ + ボリュームキーでウェイクアップ + バックキーでウェイクアップ
+・ 向きの固定 - お好きな向きに画面をセット
+・ カスタマイズ - テキストの色・サイズ、明るさ、などなど
+・ 無料、そしてオープンソース！
 
-Before using please enable 'draw over apps' permission for this app.
+使用前にこのアプリが 'アプリの上に重ねて表示する' 許可を有効にしてください。
 
-The app is in BETA, it still has bugs and lacks features.
+このアプリはベータ版であり、まだバグがあり機能は不完全です。
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+権限
+<b>カメラの権限</b>
+カメラの起動を認識し "Always On" スクリーンを閉じるために、カメラの権限が必要です。
+<b>電話の権限</b>
+着信を認識し "Always On" スクリーンを閉じて着信画面を表示するために、電話の権限が必要です。
+<b>システム設定の変更権限</b>
+ロックスクリーンの画面の明るさを変更するために、システム設定の変更権限が必要です。
 
 
-Google Plus Community
+Google+ コミュニティ
 https://plus.google.com/communities/104206728795122451273

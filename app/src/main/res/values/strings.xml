@@ -1,6 +1,7 @@
 <resources>
-    <!--App name-->
+    <!--App name & Activities title-->
     <string name="app_name">Always On AMOLED</string>
+    <string name="title_donation">Support The Development</string>
     <!--Actions-->
     <string name="action_support_the_development">Support the development</string>
     <string name="action_revert">Revert</string>
@@ -95,7 +96,7 @@
     <string name="settings_volume_to_stop">Volume keys to dismiss</string>
     <string name="settings_font_size">Text size</string>
     <string name="settings_watchface">Customize Watchface</string>
-    <string name="settings_proximity">Proximity sensor</string>
+    <string name="settings_proximity">Proximity sensor (Pocket mode)</string>
     <string name="settings_show_am_pm">Show AM/PM</string>
     <string name="settings_text_color">Text Color</string>
     <string name="settings_startafterlock">Start after lock</string>
@@ -157,4 +158,7 @@
     <string name="settings_font_serif">Serif</string>
     <string name="settings_font_sans_serif">Sans Serif</string>
     <string name="settings_font_monospace">Monospace</string>
+    <string name="settings_gestures"><![CDATA[Gestures & inputs]]></string>
+    <string name="settings_gestures_desc">Wake up gestures, custom gestures and more</string>
+    <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
 </resources>

@@ -4,13 +4,18 @@
   <!--App name-->
   <string name="app_name">Всегда Включенный Амолэд</string>
   <!--Actions-->
+  <string name="action_support_the_development">Поддержать разработчика.</string>
   <string name="action_revert">Вернуться</string>
   <string name="menu_feedback">Отзыв</string>
   <!--Intro-->
   <string name="intro_allow_now">Разрешить сейчас</string>
+  <string name="intro_permissions_desc">Приложению необходимо получить  разрешение на чтение телефона когда он в режиме ожидания. Приложению необходимо предоставить разрешение на доступ к камере для включения камеры  при нажатие клавиш. </string>
   <string name="intro_draw_over">Отображать поверх других приложений</string>
   <string name="intro_draw_over_desc">Приложению необходимо разрешение для отображения поверх других приложений</string>
+  <string name="intro_modify_desc">Приложение требует разрешения на изменение яркости устройства</string>
+  <string name="intro_modify">Изменение настроек системы</string>
   <string name="intro_wake_ups">Методы пробуждения</string>
+  <string name="intro_wake_ups_desc">Выберете как вы хотите пробудить ваш телефон с состояния  \"always on\". Не переживайте , вы можете изменить это позже </string>
   <string name="intro_checkbox_volume_keys">Разблокировка клавишами громкости</string>
   <string name="intro_checkbox_swipe_up">Разблокировка свайпом от центра экрана</string>
   <string name="intro_checkbox_double_tap">Разблокировка двойным тапом по экрану</string>
@@ -95,7 +100,7 @@
   <string name="settings_back_button_to_stop_desc">Нажмите / коснитесь кнопки \"возврата\", чтобы отключить</string>
   <string name="settings_community_desc">Google Plus сообщество</string>
   <string name="settings_github_desc">Ссылка на исходный код Github</string>
-  <string name="settings_move_desc">Включить эту опцию, чтобы предотвратить выгорание Амолэд экрана</string>
+  <string name="settings_move_desc">Включить эту опцию, чтобы предотвратить выгорание AMOLED экрана</string>
   <string name="settings_font_size_desc">Установить размер шрифта часов</string>
   <string name="settings_volume_to_stop_desc">Нажать кнопки громкости, чтобы отключить</string>
   <string name="settings_touch_to_stop_desc">Двойное нажатие на экран, чтобы отключить</string>
@@ -104,4 +109,21 @@
   <string name="settings_notifications_alerts_desc">Показывать уведомления от других приложений при получении</string>
   <string name="settings_brightness_desc">Яркость экрана во время блокировки</string>
   <string name="settings_version_desc">Сборка</string>
+  <string name="settings_features_dialog_battery">Показать батарею</string>
+  <string name="settings_features_dialog_calendar">Показать дату</string>
+  <string name="settings_features_dialog_time">Показать время</string>
+  <string name="settings_watchface_clock">Стиль часов</string>
+  <string name="settings_watchface_date">Стиль даты</string>
+  <string name="settings_watchface_battery">Стиль индикатора батареи</string>
+  <string name="settings_watchface_miscellaneous">Прочее</string>
+  <string name="settings_watchface_styles">Стили</string>
+  <string name="settings_font">Шрифт</string>
+  <string name="settings_watch_digital">Цифровой</string>
+  <string name="settings_watch_analog">Аналоговый</string>
+  <string name="settings_rules_text">Текст</string>
+  <string name="settings_font_default">По умолчанию</string>
+  <string name="settings_font_default_bold">По умолчанию жирный</string>
+  <string name="settings_font_default_italic">По умолчанию курсив</string>
+  <string name="settings_font_serif">Serif (засечки)</string>
+  <string name="settings_font_monospace">Моноширинный</string>
 </resources>

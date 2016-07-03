@@ -30,6 +30,7 @@ import android.widget.ListView;
 
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
+import com.tomer.alwayson.Views.SeekBarPreference;
 
 import java.util.List;
 
@@ -59,6 +60,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
+        ((SeekBarPreference) findPreference("font_size")).setMin(20);
         checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
         Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
