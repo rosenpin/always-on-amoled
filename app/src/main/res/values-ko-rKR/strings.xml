@@ -139,7 +139,6 @@
   <string name="settings_brightness_desc">작동중 화면의 밝기</string>
   <string name="settings_about_translate">앱을 번역하는 것을 도와주십시오</string>
   <string name="settings_version_desc">빌드</string>
-  <!--Settings Helpers-->
   <string name="settings_feature_dialog_desc">디바이스가 잠겼을 때 나타나게 하고 싶은 것들을 선택하십시오</string>
   <string name="settings_features_dialog_battery">배터리 양 보이기</string>
   <string name="settings_features_dialog_calendar">날짜 보이기</string>

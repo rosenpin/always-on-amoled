@@ -137,7 +137,6 @@
   <string name="settings_brightness_desc">בהירות המסך כאשר הוא כבוי</string>
   <string name="settings_about_translate">עזרו לתרגם את האפליקציה</string>
   <string name="settings_version_desc">בניה</string>
-  <!--Settings Helpers-->
   <string name="settings_feature_dialog_desc">בחר את הרכיבים שברצונך שיופיע כאשר המכשיר נעול</string>
   <string name="settings_features_dialog_battery">הצג מצב סוללה</string>
   <string name="settings_features_dialog_calendar">הצג תאריך</string>

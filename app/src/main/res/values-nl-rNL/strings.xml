@@ -46,5 +46,4 @@
   <string name="settings_enabled_desc">Zet de service aan</string>
   <string name="settings_notifications_alerts_desc">Laat notificaties zien van andere apps wanneer deze worden ontvangen</string>
   <string name="settings_brightness_desc">Scherm helderheid wanneer uit</string>
-  <!--Settings Helpers-->
 </resources>

@@ -42,6 +42,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">Ocurrió un error</string>
   <string name="error_1_no_email_client">No hay clientes de correo electrónico instalados.</string>
+  <string name="error_2_plugin_not_installed">Plugin no instalado</string>
   <!--Warnings-->
   <string name="warning">ATENCIÓN</string>
   <string name="warning_1_harm_performance">Esto puede afectar al rendimiento de la aplicación</string>
@@ -139,10 +140,8 @@
   <string name="settings_brightness_desc">Brillo de pantalla estando apagada</string>
   <string name="settings_about_translate">Ayuda a traducir la aplicación</string>
   <string name="settings_version_desc">compilación</string>
-  <!--Settings Helpers-->
   <string name="settings_feature_dialog_desc">Elije qué elementos quieres que aparezcan cuando el dispositivo esta bloqueado</string>
   <string name="settings_features_dialog_battery">Mostrar batería</string>
   <string name="settings_features_dialog_calendar">Mostrar fecha</string>
   <string name="settings_features_dialog_time">Mostrar hora</string>
-  <string name="error_2_plugin_not_installed">Plugin no instalado</string>
 </resources>

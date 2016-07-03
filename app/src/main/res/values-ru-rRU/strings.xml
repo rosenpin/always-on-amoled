@@ -104,5 +104,4 @@
   <string name="settings_notifications_alerts_desc">Показывать уведомления от других приложений при получении</string>
   <string name="settings_brightness_desc">Яркость экрана во время блокировки</string>
   <string name="settings_version_desc">Сборка</string>
-  <!--Settings Helpers-->
 </resources>

@@ -47,5 +47,4 @@
   <string name="settings_enabled_desc">啟用服務</string>
   <string name="settings_notifications_alerts_desc">當收到通知時，在其他應用程式顯示</string>
   <string name="settings_brightness_desc">關閉時的亮度</string>
-  <!--Settings Helpers-->
 </resources>

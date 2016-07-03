@@ -42,6 +42,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">A intervenit o eroare.</string>
   <string name="error_1_no_email_client">Nu există nicio aplicație de tip email instalată.</string>
+  <string name="error_2_plugin_not_installed">Plugin-ul nu este instalat!</string>
   <!--Warnings-->
   <string name="warning">AVERTISMENT</string>
   <string name="warning_1_harm_performance">Acest lucru poate afecta performanța aplicației.</string>
@@ -140,12 +141,10 @@
   <string name="settings_brightness_desc">- luminozitatea ecranului „Always on”.</string>
   <string name="settings_about_translate">Apreciez enorm efortul acordat!</string>
   <string name="settings_version_desc">numărul</string>
-  <!--Settings Helpers-->
   <string name="settings_feature_dialog_desc">Bifează elementele care dorești să îți apară pe ecranul \"Always on\":</string>
   <string name="settings_features_dialog_battery">Afișează nivelul bateriei</string>
   <string name="settings_features_dialog_calendar">Afișează data</string>
   <string name="settings_features_dialog_time">Afișează ceasul</string>
-  <string name="error_2_plugin_not_installed">Plugin-ul nu este instalat!</string>
   <string name="settings_watchface_clock">Format ceas</string>
   <string name="settings_watchface_date">Format dată</string>
   <string name="settings_watchface_battery">Format baterie</string>

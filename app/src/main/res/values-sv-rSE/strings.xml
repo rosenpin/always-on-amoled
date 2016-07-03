@@ -66,5 +66,4 @@
   <string name="settings_stop_delay_desc">Stäng av always on screen efter en tid utan interagering för att spara batteri. </string>
   <string name="settings_startafterlock_desc">Starta endast tjänsten efter att skärmen är låst. Håll detta aktiverat för att din enhet fortsättningsvis ska vara säker samt att fingeravtrycksläsaren ska fungera. </string>
   <string name="settings_disable_volume_keys_desc">Aktivera detta för att undvika att råka ändra volymen. </string>
-  <!--Settings Helpers-->
 </resources>

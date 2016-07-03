@@ -41,6 +41,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">Ein Fehler ist aufgetreten</string>
   <string name="error_1_no_email_client">Derzeit sind keine E-Mail Clients installiert.</string>
+  <string name="error_2_plugin_not_installed">PLUGIN IST NICHT INSTALLIERT</string>
   <!--Warnings-->
   <string name="warning">ACHTUNG</string>
   <string name="warning_1_harm_performance">Dies kann die Leistung der App beeinträchtigen</string>
@@ -130,12 +131,10 @@
   <string name="settings_enabled_desc">Aktiviere den Dienst</string>
   <string name="settings_about_translate">Hilf bei der Übersetzung der App</string>
   <string name="settings_version_desc">build</string>
-  <!--Settings Helpers-->
   <string name="settings_feature_dialog_desc">Wähle welche Elemente du auf dem Bilschirm im ausgeschalteten Zustand sehen willst</string>
   <string name="settings_features_dialog_battery">Akkustand anzeigen</string>
   <string name="settings_features_dialog_calendar">Datum anzeigen</string>
   <string name="settings_features_dialog_time">Zeit anzeigen</string>
-  <string name="error_2_plugin_not_installed">PLUGIN IST NICHT INSTALLIERT</string>
   <string name="settings_watchface_clock">Uhrenstil</string>
   <string name="settings_watchface_date">Datumssichtbarkeit</string>
   <string name="settings_watchface_battery">Akkusichtbarkeit</string>

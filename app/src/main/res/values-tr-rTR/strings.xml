@@ -49,5 +49,4 @@
   <string name="settings_enabled_desc">Servisi etkinleştir </string>
   <string name="settings_notifications_alerts_desc">Diğer uygulamalarda alınan bildirimleri göster</string>
   <string name="settings_brightness_desc">Ekran parlaklığı kapalıyken</string>
-  <!--Settings Helpers-->
 </resources>

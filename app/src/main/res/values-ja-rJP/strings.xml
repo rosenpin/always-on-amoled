@@ -135,5 +135,4 @@
   <string name="settings_enabled_desc">サービスを有効にする</string>
   <string name="settings_notifications_alerts_desc">他のアプリからの通知を受信すると通知を表示</string>
   <string name="settings_brightness_desc">オフの間の画面の明るさ</string>
-  <!--Settings Helpers-->
 </resources>

@@ -5,11 +5,11 @@
   <string name="app_name">Always-on Amoled</string>
   <!--Actions-->
   <string name="action_support_the_development">Supporta lo sviluppo</string>
-  <string name="action_revert">Ritorna</string>
+  <string name="action_revert">Ripristina</string>
   <string name="menu_feedback">Feedback</string>
   <!--Intro-->
   <string name="intro_allow_now">Consenti ora</string>
-  <string name="intro_permissions">Leggi lo stato del telefono e permesso fotocamera</string>
+  <string name="intro_permissions">Leggi lo stato del telefono e i permessi della fotocamera</string>
   <string name="intro_permissions_desc">L\'applicazione ha bisogno del permesso di leggere lo stato del telefono per accendere il dispositivo quando ricevi una chiamata.\nL\'applicazione ha bisogno del permesso di accedere alla telecamera per accendere il dispositivo quando avvii la fotocamera (con tasti di scelta rapida).</string>
   <string name="intro_draw_over">Attiingere da altre apps</string>
   <string name="intro_draw_over_desc">L\'app richiede il permesso per attingere da altre apps</string>
@@ -42,6 +42,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">C\'è stato un errore</string>
   <string name="error_1_no_email_client">Non ci sono client di posta elettronica installati.</string>
+  <string name="error_2_plugin_not_installed">Il plugin non è installato</string>
   <!--Warnings-->
   <string name="warning">ATTENZIONE</string>
   <string name="warning_1_harm_performance">Questo può limitare le prestazioni dell\'applicazione </string>
@@ -92,21 +93,36 @@
   <string name="settings_brightness">Luminosità</string>
   <string name="settings_notifications">Notifiche</string>
   <string name="settings_persistent_notification">Mostra notifiche persistenti</string>
+  <string name="settings_move_auto">Muovi il widget automaticamente</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
   <string name="settings_font_size">Dimensione del font</string>
   <string name="settings_watchface">Personalizza watchface</string>
+  <string name="settings_proximity">Sensore di prossimità</string>
   <string name="settings_show_am_pm">Mostra AM/PM</string>
   <string name="settings_text_color">Colore del testo</string>
   <string name="settings_startafterlock">Parti dopo il blocco</string>
   <string name="settings_stop_delay">Ritardo di arresto</string>
   <string name="settings_auto_brightness">Modalità notte automatica</string>
+  <string name="settings_orientation">Orientamento schermo</string>
+  <string name="settings_stop_on_camera">Permetti collegamento fotocamera</string>
+  <string name="settings_rules_cahrging">Regole di ricarica</string>
+  <string name="settings_rules_battery">Regole della batteria</string>
+  <string name="settings_translate">Traduzione</string>
+  <string name="settings_community">Community</string>
+  <string name="settings_licenses">Licenze</string>
+  <string name="settings_app_version">Versione</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">Ferma \"Always on display\" quando la fotocamera è avviata (dovrebbe restare attivo su dispositivi Nexus o Samsung)</string>
   <string name="settings_auto_brightness_desc">Scurisci lo schermo automaticamente quando è buio</string>
   <string name="settings_stop_delay_desc_short">Imposta a 0 per spegnere</string>
   <string name="settings_stop_delay_desc_short_message">Ferma il sevizio Always-on dopo:</string>
   <string name="settings_stop_delay_desc">Arresta l\'always-on dopo un po\' di tempo senza interazione per risparmiare la batteria</string>
   <string name="settings_startafterlock_desc">Fai partire il servizio quando lo schemo è bloccato. Mantieni questo per avere il dispositivo protetto e il sensore di impronte digitali funzionante</string>
+  <string name="settings_rules_desc">Quando \"Always on display\" dovrebbe funzionare?</string>
+  <string name="settings_text_color_desc">Imposta il colore del testo</string>
+  <string name="settings_show_am_pm_desc">Mostra la dicitura \"AM/PM\" nell\'orologio (solo per il formato 12 ore)</string>
   <string name="settings_watchface_desc">Personalizza gli elementi della watchface</string>
+  <string name="settings_proximity_to_lock_desc">Blocca il dispositivo quando metti il telefono in tasca per risparmiare batteria (il sensore potrebbe usare molta batteria)</string>
   <string name="settings_licenses_desc">Licenze open source</string>
   <string name="settings_back_button_to_stop_desc">Clicca/tocca il tasto back per disattivare</string>
   <string name="settings_community_desc">Comunità di Google Plus </string>
@@ -118,7 +134,18 @@
   <string name="settings_swipe_to_stop_desc">Swipe verso l\'alto per disattivare lo schermo</string>
   <string name="settings_notifications_desc">Attivare per mantenere l\'applicazione attiva in background</string>
   <string name="settings_enabled_desc">Attiva il servizio</string>
+  <string name="settings_disable_volume_keys_desc">Attiva questa funzione per prevenire modifiche del volume accidentali</string>
   <string name="settings_notifications_alerts_desc">Mostra notifiche ricevute di altre applicazioni </string>
   <string name="settings_brightness_desc">Luminosità dello schermo mentre è spento</string>
-  <!--Settings Helpers-->
+  <string name="settings_about_translate">Aiutaci a tradurre l\'app</string>
+  <string name="settings_version_desc">build</string>
+  <string name="settings_feature_dialog_desc">Seleziona quali elementi vuoi che appaiano quando il dispositivo è bloccato</string>
+  <string name="settings_features_dialog_battery">Mostra batteria</string>
+  <string name="settings_features_dialog_calendar">Mostra data</string>
+  <string name="settings_features_dialog_time">Mostra orario</string>
+  <string name="settings_watchface_clock">Stile dell\'orologio</string>
+  <string name="settings_watchface_date">Stile della data</string>
+  <string name="settings_watchface_battery">Stile della batteria</string>
+  <string name="settings_watchface_miscellaneous">Varie</string>
+  <string name="settings_watchface_styles">Stili</string>
 </resources>

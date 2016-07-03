@@ -140,8 +140,6 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }, 700);//Delay: Because it takes some time to start the camera on some devices
 
-        startService(new Intent(getApplicationContext(), NotificationListener.class));
-
         // Setup UI
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
@@ -281,6 +279,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         // UI refreshing
         Globals.notificationChanged = true; //Show notifications at first launch
+        startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
         refresh();
 
         //All Samsung's stuff

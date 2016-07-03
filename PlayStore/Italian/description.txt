@@ -1,10 +1,10 @@
-Prendi un display sempre acceso per il tuo telefono o tablet.
+Ottieni un "always on display" per il tuo cellulare o tablet.
 Mantieni il tuo schermo acceso tutto il tempo.
-Always on app è la prima open Source!
+La prima app "always on" open source!
 
-L'idea è quella di fornire agli utenti informazioni su, ora, data, notifiche e altro ancora e il tutto senza dover toccare il telefono. Tutto solo giardandolo.
+L'idea è quella di fornire agli utenti informazioni su ora, data, notifiche e altro ancora e il tutto senza dover toccare il telefono. Tutto questo soltanto guardandolo.
 
-Ciò è reso possibile grazie al display AMOLED. La maggior parte dello schermo rimane nero ad eccezione di un paio di pixel.
+Ciò è reso possibile grazie ai display AMOLED. La maggior parte dello schermo rimane nero ad eccezione di un paio di pixel.
 
 ★Caratteristiche principali
 • Schermo sempre acceso

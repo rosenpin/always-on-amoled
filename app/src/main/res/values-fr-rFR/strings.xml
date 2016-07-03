@@ -40,5 +40,4 @@
   <string name="settings_enabled_desc">Activer l\'application </string>
   <string name="settings_notifications_alerts_desc">Montrer les notifications envoyées par une autre application </string>
   <string name="settings_brightness_desc">Luminosité de l\'écran lorsqu\'il est éteint </string>
-  <!--Settings Helpers-->
 </resources>

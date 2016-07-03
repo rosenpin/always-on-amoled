@@ -42,6 +42,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">Сталася помилка</string>
   <string name="error_1_no_email_client">Немає ніяких встановлених поштових клієнтів.</string>
+  <string name="error_2_plugin_not_installed">Плаґін не встановлено!</string>
   <!--Warnings-->
   <string name="warning">УВАГА</string>
   <string name="warning_1_harm_performance">Це може зашкодити продуктивності додатку</string>
@@ -139,10 +140,8 @@
   <string name="settings_brightness_desc">Налаштуйте яскравість віджету</string>
   <string name="settings_about_translate">Допомогти перекласти додаток</string>
   <string name="settings_version_desc">Збірка</string>
-  <!--Settings Helpers-->
   <string name="settings_feature_dialog_desc">Виберіть елементи, які відображатимуться, коли пристрій заблоковано</string>
   <string name="settings_features_dialog_battery">Відображати заряд акумулятора</string>
   <string name="settings_features_dialog_calendar">Відображати дату</string>
   <string name="settings_features_dialog_time">Відображати час</string>
-  <string name="error_2_plugin_not_installed">Плаґін не встановлено!</string>
 </resources>
