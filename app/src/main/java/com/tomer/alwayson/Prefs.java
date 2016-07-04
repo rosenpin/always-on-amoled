@@ -41,10 +41,10 @@ public class Prefs {
     public void apply() {
         enabled = prefs.getBoolean(KEYS.ENABLED.toString(), true);
         try {
-            doubleTapToStop = prefs.getString(KEYS.DOUBLE_TAP_TO_STOP.toString(), "").equals("unlock");
-            swipeToStop = prefs.getString(KEYS.SWIPE_TO_STOP.toString(), "").equals("unlock");
-            volumeToStop = prefs.getString(KEYS.VOLUME_TO_STOP.toString(), "").equals("unlock");
-            backButtonToStop = prefs.getString(KEYS.BACK_BUTTON_TO_STOP.toString(), "").equals("unlock");
+            doubleTapToStop = prefs.getString(KEYS.DOUBLE_TAP_TO_STOP.toString(), "unlock").equals("unlock");
+            swipeToStop = prefs.getString(KEYS.SWIPE_TO_STOP.toString(), "off").equals("unlock");
+            volumeToStop = prefs.getString(KEYS.VOLUME_TO_STOP.toString(), "off").equals("unlock");
+            backButtonToStop = prefs.getString(KEYS.BACK_BUTTON_TO_STOP.toString(), "off").equals("unlock");
         } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.DOUBLE_TAP_TO_STOP.toString()).apply();
             prefs.edit().remove(KEYS.SWIPE_TO_STOP.toString()).apply();

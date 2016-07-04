@@ -158,14 +158,26 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
-                    if (prefs.volumeToStop) {
+                    if (prefs.getStringByKey(VOLUME_KEYS, "off").equals("speak")) {
+                        tts = new TextToSpeech(getApplicationContext(), MainService.this);
+                        tts.setLanguage(Locale.getDefault());
+                        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+                        return true;
+                    } else if (prefs.volumeToStop) {
                         stopSelf();
                         return true;
                     } else return prefs.disableVolumeKeys;
                 }
-                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && prefs.backButtonToStop) {
-                    stopSelf();
-                    return true;
+                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+                    if (prefs.backButtonToStop)
+                        stopSelf();
+                    if (prefs.getStringByKey(BACK_BUTTON, "off").equals("speak")) {
+                        tts = new TextToSpeech(getApplicationContext(), MainService.this);
+                        tts.setLanguage(Locale.getDefault());
+                        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+                        return true;
+                    }
+                    return false;
                 }
                 if (event.getKeyCode() == KeyEvent.KEYCODE_HOME) {
                     stopSelf();
@@ -174,7 +186,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 return super.dispatchKeyEvent(event);
             }
         };
-        if (true)
+        if (!prefs.getStringByKey(DOUBLE_TAP, "off").equals("off") || !prefs.getStringByKey(SWIPE_UP, "off").equals("off"))
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
@@ -190,10 +202,8 @@ public class MainService extends Service implements SensorEventListener, Context
         textClock.setTextColor(prefs.textColor);
 
         //Settings clock format
-        if (!prefs.showAmPm) {
-            Log.d(MAIN_SERVICE_LOG_TAG, "showAmPm" + prefs.showAmPm);
+        if (!prefs.showAmPm)
             textClock.setFormat12Hour("h:mm");
-        }
         textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -558,12 +568,14 @@ public class MainService extends Service implements SensorEventListener, Context
 
     TextToSpeech tts;
     boolean toStopTTS;
+
     @Override
     public void onInit(int status) {
-        if (toStopTTS){
+        if (toStopTTS) {
             try {
                 tts.speak(" ", TextToSpeech.QUEUE_FLUSH, null);
-            }catch (NullPointerException ignored){}
+            } catch (NullPointerException ignored) {
+            }
             return;
         }
         if (status == TextToSpeech.SUCCESS) {
@@ -670,7 +682,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             stopSelf();
                             return true;
                         }
-                        if (prefs.getStringByKey(SWIPE_UP, "").equals("speak")) {
+                        if (prefs.getStringByKey(SWIPE_UP, "off").equals("speak")) {
                             tts = new TextToSpeech(getApplicationContext(), MainService.this);
                             tts.setLanguage(Locale.getDefault());
                             tts.speak("Text to say aloud", TextToSpeech.QUEUE_ADD, null);
@@ -693,7 +705,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     stopSelf();
                     return true;
                 }
-                if (prefs.getStringByKey(DOUBLE_TAP, "").equals("speak")) {
+                if (prefs.getStringByKey(DOUBLE_TAP, "unlock").equals("speak")) {
                     tts = new TextToSpeech(getApplicationContext(), MainService.this);
                     tts.setLanguage(Locale.getDefault());
                     tts.speak("", TextToSpeech.QUEUE_FLUSH, null);

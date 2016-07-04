@@ -91,6 +91,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                             final KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
                             if (myKM.inKeyguardRestrictedInputMode()) {
                                 //Screen is locked, start the service
+                                Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is locked");
                                 context.startService(new Intent(context, MainService.class));
                                 Globals.isShown = true;
                             } else {
@@ -100,8 +101,10 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                                     Globals.noLock = true;
                                     context.startService(new Intent(context, MainService.class));
                                     Globals.isShown = true;
-                                    Log.d(SCREEN_RECEIVER_LOG_TAG, "has no lock" + "true");
+                                    Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is unlocked");
+                                    return;
                                 } else {
+                                    Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is locked but has a timeout");
                                     try {
                                         startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", -1);
                                         Log.d(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
