@@ -13,7 +13,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -27,7 +26,9 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.SeekBarPreference;
@@ -61,6 +62,29 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
+        String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
+        for (String preference : preferencespList) {
+            findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object o) {
+                    Log.d("Object value ", (String) o);
+                    if (o.equals("speak")) {
+                        if (Globals.ownedItems.size() > 0) {
+                            if (!isPackageInstalled("com.google.android.tts", context)) {
+                                openURL("https://play.google.com/store/apps/details?id=com.google.android.tts");
+                                Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
+                            }
+                            Log.d("Purchased items", String.valueOf(Globals.ownedItems));
+                            return true;
+                        } else {
+                            PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView);
+                        }
+                        return false;
+                    }
+                    return true;
+                }
+            });
+        }
         checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
         Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
@@ -74,8 +98,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         list.setDivider(null);
         prefs = new Prefs(context);
         if (hasSoftKeys()) {
-            findPreference("back_button_dismiss").setEnabled(false);
-            ((CheckBoxPreference) findPreference("back_button_dismiss")).setChecked(false);
+            findPreference("back_button").setEnabled(false);
         } else {
             if (!IsPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().contains("samsung")) { //Prompt to install the plugin
                 new AlertDialog.Builder(getActivity())
@@ -105,6 +128,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         getActivity().startService(starterService);
     }
 
+    private void openURL(String url) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
+    }
+
     private void version(Context c) {
         try {
             PackageInfo pInfo = c.getPackageManager().getPackageInfo(c.getPackageName(), 0);
@@ -120,8 +148,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("translate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://crowdin.com/project/always-on-amoled"));
-                startActivity(browserIntent);
+                openURL("https://crowdin.com/project/always-on-amoled");
                 return false;
             }
         });
@@ -148,8 +175,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("community").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/communities/104206728795122451273"));
-                startActivity(browserIntent);
+                openURL("https://plus.google.com/communities/104206728795122451273");
                 return false;
             }
         });
@@ -159,8 +185,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("github").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/rosenpin/AlwaysOnDisplayAmoled"));
-                startActivity(browserIntent);
+                openURL("https://github.com/rosenpin/AlwaysOnDisplayAmoled");
                 return false;
             }
         });
@@ -225,6 +250,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         return hasSoftwareKeys;
     }
 
+    private boolean isPackageInstalled(String packagename, Context context) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(final Preference origPreference, Object o) {
         final TwoStatePreference preference = (TwoStatePreference) origPreference;
@@ -257,7 +292,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 return true;
             }
 
-            new AlertDialog.Builder(getActivity()).setTitle(getString(R.string.warning) + "!")
+            new AlertDialog.Builder(getActivity()).setTitle(getString(android.R.string.dialog_alert_title) + "!")
                     .setMessage(getString(R.string.warning_7_disable_fingerprint))
                     .setPositiveButton(getString(android.R.string.yes), new DialogInterface.OnClickListener() {
                         @Override
@@ -298,6 +333,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d(MAIN_SERVICE_LOG_TAG, "Activity result" + resultCode);
         if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
             ((TwoStatePreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
     }
@@ -308,5 +344,50 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)) {
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
+    }
+
+
+    private void temporaryUnusedFunctionToSetAppToOpen() {
+        //Todo fix open app/shortcut from service
+        /*
+        for (final String KEY : wakeUpList) {
+            findPreference(KEY).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object o) { //Support for opening apps/shortcuts after gesture.
+                     if (o.toString().equals("open_app")) {
+                        Intent shortcutsIntent = new Intent(Intent.ACTION_CREATE_SHORTCUT);
+                        List<ResolveInfo> shortcuts = context.getPackageManager().queryIntentActivities(shortcutsIntent, 0);
+                        final String[][] apps = new String[3][shortcuts.size()];
+                        for (int i = 0; i < shortcuts.size(); i++) {
+                            apps[0][i] = (String) shortcuts.get(i).loadLabel(context.getPackageManager());
+                            apps[1][i] = shortcuts.get(i).activityInfo.targetActivity;
+                            apps[2][i] = shortcuts.get(i).activityInfo.packageName;
+                        }
+                        new MaterialDialog.Builder(getActivity())
+                                .title(R.string.settings_gestures_select_app)
+                                .items(apps[0])
+                                .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                                    @Override
+                                    public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+
+                                        Intent intent = new Intent();
+                                        intent.setComponent(new ComponentName(apps[2][which], apps[1][which]));
+                                        startActivityForResult(intent, 5);
+                                        if (view != null) {
+                                            prefs.setString(KEY + "_app", apps[1][which]);
+                                            Log.d("Selected shortcut ", apps[1][which]);
+                                        }
+                                        return true;
+                                    }
+                                })
+                                .positiveText(android.R.string.ok)
+                                .show();
+                    } else {
+                        prefs.getSharedPrefs().edit().remove(KEY + "_app").apply();
+                    }
+                    return true;
+                }
+            });
+        }*/
     }
 }

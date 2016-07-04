@@ -286,13 +286,13 @@ public class Intro extends AppIntro2 {
                     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                         switch (finalI) {
                             case 0:
-                                pref.setBool(Prefs.KEYS.TOUCH_TO_STOP.toString(), b);
+                                pref.setString(Prefs.KEYS.DOUBLE_TAP_TO_STOP.toString(), b ? "unlock" : "off");
                                 break;
                             case 1:
-                                pref.setBool(Prefs.KEYS.SWIPE_TO_STOP.toString(), b);
+                                pref.setString(Prefs.KEYS.SWIPE_TO_STOP.toString(), b ? "unlock" : "off");
                                 break;
                             case 2:
-                                pref.setBool(Prefs.KEYS.VOLUME_TO_STOP.toString(), b);
+                                pref.setString(Prefs.KEYS.VOLUME_TO_STOP.toString(), b ? "unlock" : "off");
                                 break;
                         }
                     }

@@ -31,4 +31,9 @@ public interface ContextConstatns {
 
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
     int DEVICE_ADMIN_REQUEST_CODE = 4;
+
+    String DOUBLE_TAP = "double_tap";
+    String SWIPE_UP = "swipe_up";
+    String VOLUME_KEYS = "volume_keys";
+    String BACK_BUTTON = "back_button";
 }

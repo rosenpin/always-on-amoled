@@ -3,12 +3,14 @@ package com.tomer.alwayson;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.Map;
 
 public class Prefs {
     public boolean enabled;
-    public boolean touchToStop, swipeToStop, volumeToStop, backButtonToStop;
+    public boolean doubleTapToStop, swipeToStop, volumeToStop, backButtonToStop;
     public boolean proximityToLock;
     public boolean showNotification;
     public boolean moveWidget;
@@ -28,18 +30,28 @@ public class Prefs {
     public int batteryRules;
     private SharedPreferences prefs;
     public int font;
+    Context context;
 
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.context = context;
     }
 
     public void apply() {
         enabled = prefs.getBoolean(KEYS.ENABLED.toString(), true);
-        touchToStop = prefs.getBoolean(KEYS.TOUCH_TO_STOP.toString(), false);
-        swipeToStop = prefs.getBoolean(KEYS.SWIPE_TO_STOP.toString(), false);
-        volumeToStop = prefs.getBoolean(KEYS.VOLUME_TO_STOP.toString(), true);
-        backButtonToStop = prefs.getBoolean(KEYS.BACK_BUTTON_TO_STOP.toString(), false);
+        try {
+            doubleTapToStop = prefs.getString(KEYS.DOUBLE_TAP_TO_STOP.toString(), "").equals("unlock");
+            swipeToStop = prefs.getString(KEYS.SWIPE_TO_STOP.toString(), "").equals("unlock");
+            volumeToStop = prefs.getString(KEYS.VOLUME_TO_STOP.toString(), "").equals("unlock");
+            backButtonToStop = prefs.getString(KEYS.BACK_BUTTON_TO_STOP.toString(), "").equals("unlock");
+        } catch (ClassCastException e) {
+            prefs.edit().remove(KEYS.DOUBLE_TAP_TO_STOP.toString()).apply();
+            prefs.edit().remove(KEYS.SWIPE_TO_STOP.toString()).apply();
+            prefs.edit().remove(KEYS.VOLUME_TO_STOP.toString()).apply();
+            prefs.edit().remove(KEYS.BACK_BUTTON_TO_STOP.toString()).apply();
+            Toast.makeText(context, "ERROR, YOUR PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
+        }
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), true);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
@@ -86,12 +98,16 @@ public class Prefs {
         prefs.edit().putInt(key, value).commit();
     }
 
+    public String getStringByKey(String key, String s) {
+        return prefs.getString(key, s);
+    }
+
     public enum KEYS {
         ENABLED("enabled"),
-        TOUCH_TO_STOP("double_tap_dismiss"),
-        SWIPE_TO_STOP("swipe_dismiss"),
-        VOLUME_TO_STOP("volume_dismiss"),
-        BACK_BUTTON_TO_STOP("back_button_dismiss"),
+        DOUBLE_TAP_TO_STOP("double_tap"),
+        SWIPE_TO_STOP("swipe_up"),
+        VOLUME_TO_STOP("volume_keys"),
+        BACK_BUTTON_TO_STOP("back_button"),
         SHOW_NOTIFICATION("persistent_notification"),
         MOVE_WIDGET("move_auto"),
         BRIGHTNESS("brightness"),
@@ -135,6 +151,10 @@ public class Prefs {
                     entry.getValue().toString() + "\n");
         }
         return string.toString();
+    }
+
+    public SharedPreferences getSharedPrefs() {
+        return prefs;
     }
 }
 

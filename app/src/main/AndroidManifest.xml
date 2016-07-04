@@ -3,9 +3,9 @@
     package="com.tomer.alwayson"
     android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.android.vending.BILLING" />
@@ -40,7 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.DummyCapacitiveButtonsActivity" />
 
         <receiver android:name=".Receivers.ScreenReceiver" />
         <receiver android:name=".Receivers.UnlockReceiver" />
@@ -62,7 +61,9 @@
                 android:resource="@xml/widget_provider_info" />
         </receiver>
 
-        <service android:name=".Services.MainService" />
+        <service
+            android:name=".Services.MainService"
+            android:permission="android.permission.DISABLE_KEYGUARD"></service>
         <service android:name=".Services.ToggleService" />
         <service android:name=".Services.WidgetUpdater" />
         <service

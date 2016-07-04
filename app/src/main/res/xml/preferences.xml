@@ -51,25 +51,33 @@
             android:summary="@string/settings_gestures_desc"
             android:title="@string/settings_gestures">
             <PreferenceCategory android:title="@string/settings_wake_up">
-                <CheckBoxPreference
-                    android:defaultValue="false"
-                    android:key="double_tap_dismiss"
-                    android:summary="@string/settings_touch_to_stop_desc"
+                <ListPreference
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:defaultValue="unlock"
+                    android:key="double_tap"
+                    android:summary="%s"
                     android:title="@string/settings_double_tap_wake" />
-                <CheckBoxPreference
-                    android:defaultValue="false"
-                    android:key="swipe_dismiss"
-                    android:summary="@string/settings_swipe_to_stop_desc"
+                <ListPreference
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:defaultValue="off"
+                    android:key="swipe_up"
+                    android:summary="%s"
                     android:title="@string/settings_swipe_wake" />
-                <CheckBoxPreference
-                    android:defaultValue="false"
-                    android:key="volume_dismiss"
-                    android:summary="@string/settings_volume_to_stop_desc"
+                <ListPreference
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:defaultValue="off"
+                    android:key="volume_keys"
+                    android:summary="%s"
                     android:title="@string/settings_volume_to_stop" />
-                <CheckBoxPreference
-                    android:defaultValue="false"
-                    android:key="back_button_dismiss"
-                    android:summary="@string/settings_back_button_to_stop_desc"
+                <ListPreference
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:defaultValue="off"
+                    android:key="back_button"
+                    android:summary="%s"
                     android:title="@string/settings_back_button_wake" />
             </PreferenceCategory>
         </PreferenceScreen>

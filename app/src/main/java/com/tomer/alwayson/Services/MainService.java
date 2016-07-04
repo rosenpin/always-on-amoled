@@ -26,7 +26,9 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -66,7 +68,7 @@ import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class MainService extends Service implements SensorEventListener, ContextConstatns {
+public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
 
     private Prefs prefs;
     private int originalBrightness = 100;
@@ -172,7 +174,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 return super.dispatchKeyEvent(event);
             }
         };
-        if (prefs.touchToStop || prefs.swipeToStop)
+        if (true)
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
@@ -477,6 +479,12 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        toStopTTS = true;
+        TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
+        tts.setLanguage(Locale.getDefault());
+        tts.speak("Text to say aloud", TextToSpeech.QUEUE_FLUSH, null);
+
+
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
@@ -531,10 +539,40 @@ public class MainService extends Service implements SensorEventListener, Context
         }
     }
 
+    public float getBatteryLevel() {
+        Intent batteryIntent = getApplicationContext().registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        assert batteryIntent != null;
+        int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        if (level == -1 || scale == -1) {
+            return 50.0f;
+        }
+        return ((float) level / (float) scale) * 100.0f;
+    }
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    TextToSpeech tts;
+    boolean toStopTTS;
+    @Override
+    public void onInit(int status) {
+        if (toStopTTS){
+            try {
+                tts.speak(" ", TextToSpeech.QUEUE_FLUSH, null);
+            }catch (NullPointerException ignored){}
+            return;
+        }
+        if (status == TextToSpeech.SUCCESS) {
+            tts.speak("The time is " + (String) DateFormat.format("hh:mm aaa", Calendar.getInstance().getTime()), TextToSpeech.QUEUE_FLUSH, null);
+            if (Globals.notificationsDrawables.size() > 0)
+                tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
+            tts.speak("Battery is at " + (int) getBatteryLevel() + " percent", TextToSpeech.QUEUE_ADD, null);
+        }
+
     }
 
     @Override
@@ -585,8 +623,8 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
-    private class OnDismissListener implements View.OnTouchListener {
 
+    private class OnDismissListener implements View.OnTouchListener {
         private final GestureDetector gestureDetector;
 
         OnDismissListener(Context ctx) {
@@ -632,6 +670,13 @@ public class MainService extends Service implements SensorEventListener, Context
                             stopSelf();
                             return true;
                         }
+                        if (prefs.getStringByKey(SWIPE_UP, "").equals("speak")) {
+                            tts = new TextToSpeech(getApplicationContext(), MainService.this);
+                            tts.setLanguage(Locale.getDefault());
+                            tts.speak("Text to say aloud", TextToSpeech.QUEUE_ADD, null);
+                            tts.speak(String.valueOf(textClock.getText()), TextToSpeech.QUEUE_ADD, null);
+                            return true;
+                        }
                     }
 
                 }
@@ -643,10 +688,15 @@ public class MainService extends Service implements SensorEventListener, Context
                 if (!isInCenter(e)) {
                     return false;
                 }
-                Log.d(MAIN_SERVICE_LOG_TAG, "Double tap");
-                if (prefs.touchToStop) {
+                Log.d(MAIN_SERVICE_LOG_TAG, "Double tap" + prefs.getStringByKey(DOUBLE_TAP, ""));
+                if (prefs.doubleTapToStop) {
                     stopSelf();
                     return true;
+                }
+                if (prefs.getStringByKey(DOUBLE_TAP, "").equals("speak")) {
+                    tts = new TextToSpeech(getApplicationContext(), MainService.this);
+                    tts.setLanguage(Locale.getDefault());
+                    tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
                 }
                 return false;
             }

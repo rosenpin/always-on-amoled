@@ -53,6 +53,7 @@
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
     <string name="warning_8_intro_allow_all">Please allow all permissions</string>
     <string name="warning_9_allow_notification">Please allow notification access for the app</string>
+    <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
     <!--Charging rules-->
     <string name="rules_both">Both</string>
     <string name="rules_while_charging">While charging</string>
@@ -81,19 +82,19 @@
     <string name="settings_about">About</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_general">General</string>
-    <string name="settings_wake_up">Wake up</string>
+    <string name="settings_wake_up">Gestures &amp; actions</string>
     <string name="settings_rules">Automatic Rules</string>
     <!--Settings titles-->
     <string name="settings_enabled">Enable</string>
     <string name="settings_disable_volume_keys">Disable volume keys</string>
-    <string name="settings_double_tap_wake">Double tap to dismiss</string>
-    <string name="settings_back_button_wake">Back button to dismiss</string>
-    <string name="settings_swipe_wake">Swipe up to dismiss</string>
+    <string name="settings_double_tap_wake">Double tap action</string>
+    <string name="settings_back_button_wake">Back button action</string>
+    <string name="settings_volume_to_stop">Volume keys action</string>
+    <string name="settings_swipe_wake">Swipe up action</string>
     <string name="settings_brightness">Brightness</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_persistent_notification">Show persistent notification</string>
     <string name="settings_move_auto">Move the widget automatically</string>
-    <string name="settings_volume_to_stop">Volume keys to dismiss</string>
     <string name="settings_font_size">Text size</string>
     <string name="settings_watchface">Customize Watchface</string>
     <string name="settings_proximity">Proximity sensor (Pocket mode)</string>
@@ -117,7 +118,7 @@
     <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
     <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>
     <string name="settings_stop_delay_desc">Stop the always on screen after some time without interaction to save battery</string>
-    <string name="settings_startafterlock_desc">Only start the service after the screen is locked. Keep this enabled to keep your device secured and fingerprint sensor functional.</string>
+    <string name="settings_startafterlock_desc">Only start the service after the screen is locked. Keep this enabled to keep your device secured and fingerprint sensor functional</string>
     <string name="settings_rules_desc">When should the always on screen work?</string>
     <string name="settings_text_color_desc">Set the text color</string>
     <string name="settings_show_am_pm_desc">Show AM/PM with the clock (only for 12h time)</string>
@@ -132,7 +133,7 @@
     <string name="settings_volume_to_stop_desc">Press volume keys to dismiss</string>
     <string name="settings_touch_to_stop_desc">Double tap the screen to dismiss</string>
     <string name="settings_swipe_to_stop_desc">Swipe up to dismiss the screen</string>
-    <string name="settings_notifications_desc">Enable this to keep the app running in background\nTip: You can block this app\'s notifications on Android 6.0+ without affecting its functionality</string>
+    <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
     <string name="settings_enabled_desc">Enable the service</string>
     <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
     <string name="settings_notifications_alerts_desc">Show notifications from other apps when received</string>
@@ -159,6 +160,7 @@
     <string name="settings_font_sans_serif">Sans Serif</string>
     <string name="settings_font_monospace">Monospace</string>
     <string name="settings_gestures"><![CDATA[Gestures & inputs]]></string>
-    <string name="settings_gestures_desc">Wake up gestures, custom gestures and more</string>
+    <string name="settings_gestures_desc">Double tap to wake, swipe up to wake and more</string>
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
+    <string name="settings_select_action">Select action</string>
 </resources>

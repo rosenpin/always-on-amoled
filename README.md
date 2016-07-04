@@ -23,5 +23,5 @@ If you can and want to contribute, you can do it [right here](https://crowdin.co
 ## Licensing
 Always On Display is licensed under the [GNU v3 Public License.](LICENSE)
 
-In addition to the terms set by the GNU v3 Public License, I ask that if you use
-any code from this repository that you send me a message to let me know.
+In addition to the terms set by the GNU v3 Public License, I require you to send me a message to let me know if you use
+any code from this repository.

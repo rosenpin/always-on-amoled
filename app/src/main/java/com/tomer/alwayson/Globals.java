@@ -1,9 +1,12 @@
 package com.tomer.alwayson;
 
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.android.vending.billing.IInAppBillingService;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -16,4 +19,6 @@ public class Globals {
     public static ColorChooserDialog.Builder colorDialog;
     public static boolean noLock;
     public static boolean killedByDelay;
+    public static ArrayList<String> ownedItems;
+    public static IInAppBillingService mService;
 }
