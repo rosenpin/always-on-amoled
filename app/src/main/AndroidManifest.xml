@@ -61,9 +61,7 @@
                 android:resource="@xml/widget_provider_info" />
         </receiver>
 
-        <service
-            android:name=".Services.MainService"
-            android:permission="android.permission.DISABLE_KEYGUARD"></service>
+        <service android:name=".Services.MainService"/>
         <service android:name=".Services.ToggleService" />
         <service android:name=".Services.WidgetUpdater" />
         <service
