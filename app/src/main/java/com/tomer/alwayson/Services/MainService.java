@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
@@ -159,9 +160,7 @@ public class MainService extends Service implements SensorEventListener, Context
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
                     if (prefs.getStringByKey(VOLUME_KEYS, "off").equals("speak")) {
-                        tts = new TextToSpeech(getApplicationContext(), MainService.this);
-                        tts.setLanguage(Locale.getDefault());
-                        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+                        speakCurrentStatus();
                         return true;
                     } else if (prefs.volumeToStop) {
                         stopSelf();
@@ -172,10 +171,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     if (prefs.backButtonToStop)
                         stopSelf();
                     if (prefs.getStringByKey(BACK_BUTTON, "off").equals("speak")) {
-                        tts = new TextToSpeech(getApplicationContext(), MainService.this);
-                        tts.setLanguage(Locale.getDefault());
-                        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
-                        return true;
+                        speakCurrentStatus();
                     }
                     return false;
                 }
@@ -482,6 +478,12 @@ public class MainService extends Service implements SensorEventListener, Context
         }
     }
 
+    private void speakCurrentStatus() {
+        tts = new TextToSpeech(getApplicationContext(), MainService.this);
+        tts.setLanguage(Locale.getDefault());
+        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+    }
+
     private void openAppByPM(String pm) {
         Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(pm);
         startActivity(LaunchIntent);
@@ -535,17 +537,29 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 }
             }
-            try {
-                Intent i = new Intent();
-                i.setComponent(new ComponentName("tomer.com.alwaysonamoledplugin", "tomer.com.alwaysonamoledplugin.CapacitiveButtons"));
-                i.putExtra("state", state);
-                i.putExtra("originalCapacitiveButtonsState", originalCapacitiveButtonsState);
-                ComponentName c = startService(i);
-                Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin");
-            } catch (Exception e) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
-                Toast.makeText(getApplicationContext(), getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
+            if (isPackageInstalled("tomer.com.alwaysonamoledplugin", getApplicationContext())) {
+                try {
+                    Intent i = new Intent();
+                    i.setComponent(new ComponentName("tomer.com.alwaysonamoledplugin", "tomer.com.alwaysonamoledplugin.CapacitiveButtons"));
+                    i.putExtra("state", state);
+                    i.putExtra("originalCapacitiveButtonsState", originalCapacitiveButtonsState);
+                    ComponentName c = startService(i);
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin");
+                } catch (Exception e) {
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
+                }
             }
+        }
+    }
+
+    private boolean isPackageInstalled(String packagename, Context context) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
         }
     }
 
@@ -635,7 +649,6 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
-
     private class OnDismissListener implements View.OnTouchListener {
         private final GestureDetector gestureDetector;
 
@@ -683,10 +696,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             return true;
                         }
                         if (prefs.getStringByKey(SWIPE_UP, "off").equals("speak")) {
-                            tts = new TextToSpeech(getApplicationContext(), MainService.this);
-                            tts.setLanguage(Locale.getDefault());
-                            tts.speak("Text to say aloud", TextToSpeech.QUEUE_ADD, null);
-                            tts.speak(String.valueOf(textClock.getText()), TextToSpeech.QUEUE_ADD, null);
+                            speakCurrentStatus();
                             return true;
                         }
                     }
@@ -706,9 +716,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     return true;
                 }
                 if (prefs.getStringByKey(DOUBLE_TAP, "unlock").equals("speak")) {
-                    tts = new TextToSpeech(getApplicationContext(), MainService.this);
-                    tts.setLanguage(Locale.getDefault());
-                    tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+                    speakCurrentStatus();
                 }
                 return false;
             }
