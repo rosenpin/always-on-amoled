@@ -4,7 +4,7 @@
   <!--App name-->
   <string name="app_name">Always On AMOLED</string>
   <!--Actions-->
-  <string name="action_support_the_development">Apoya el desarrollo</string>
+  <string name="action_support_the_development">Support the development</string>
   <string name="action_revert">Revertir</string>
   <string name="menu_feedback">Opiniones</string>
   <!--Intro-->
@@ -144,4 +144,19 @@
   <string name="settings_features_dialog_battery">Mostrar batería</string>
   <string name="settings_features_dialog_calendar">Mostrar fecha</string>
   <string name="settings_features_dialog_time">Mostrar hora</string>
+  <string name="settings_watchface_clock">Clock style</string>
+  <string name="settings_watchface_date">Date style</string>
+  <string name="settings_watchface_battery">Battery style</string>
+  <string name="settings_watchface_miscellaneous">Miscellaneous</string>
+  <string name="settings_watchface_styles">Styles</string>
+  <string name="settings_font">Font</string>
+  <string name="settings_watch_digital">Digital</string>
+  <string name="settings_watch_analog">Analog</string>
+  <string name="settings_rules_text">Text</string>
+  <string name="settings_font_default">Default</string>
+  <string name="settings_font_default_bold">Default bold</string>
+  <string name="settings_font_default_italic">Default italic</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
 </resources>

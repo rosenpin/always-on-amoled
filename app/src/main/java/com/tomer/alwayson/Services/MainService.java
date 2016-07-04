@@ -494,7 +494,7 @@ public class MainService extends Service implements SensorEventListener, Context
         toStopTTS = true;
         TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
         tts.setLanguage(Locale.getDefault());
-        tts.speak("Text to say aloud", TextToSpeech.QUEUE_FLUSH, null);
+        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
 
 
         if (sensorManager != null)

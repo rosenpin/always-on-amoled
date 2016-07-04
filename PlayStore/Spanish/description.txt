@@ -1,5 +1,5 @@
 Obtén una pantalla siempre encendida para tu teléfono o tableta.
-Mantén tu pantalla encendida todo el tiempo.
+Keep your screen on all the time.
 ¡La primera aplicación Always On de código abierto!
 
 La idea es dar a los usuarios información acerca de la hora, fecha, notificaciones y más, sin tener que tocar el teléfono. Solo mirándola.
