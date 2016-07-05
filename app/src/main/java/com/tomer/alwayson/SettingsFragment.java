@@ -62,6 +62,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
+        findPreference("uninstall").setOnPreferenceClickListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -326,6 +327,18 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public boolean onPreferenceClick(Preference preference) {
         if (preference.getKey().equals("textcolor")) {
             Globals.colorDialog.show();
+        } else if (preference.getKey().equals("uninstall")) {
+            Log.d(MAIN_ACTIVITY_LOG_TAG, "uninstall clicked");
+            try {
+                ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
+                DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                dpm.removeActiveAdmin(devAdminReceiver);
+            } catch (Exception ignored) {
+            }
+            Uri packageUri = Uri.parse("package:" + context.getPackageName());
+            Intent uninstallIntent =
+                    new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
+            startActivity(uninstallIntent);
         }
         return true;
     }
@@ -345,7 +358,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
     }
-
 
     private void temporaryUnusedFunctionToSetAppToOpen() {
         //Todo fix open app/shortcut from service

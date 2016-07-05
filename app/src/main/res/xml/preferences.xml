@@ -52,30 +52,30 @@
             android:title="@string/settings_gestures">
             <PreferenceCategory android:title="@string/settings_wake_up">
                 <ListPreference
+                    android:defaultValue="unlock"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:defaultValue="unlock"
                     android:key="double_tap"
                     android:summary="%s"
                     android:title="@string/settings_double_tap_wake" />
                 <ListPreference
+                    android:defaultValue="off"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:defaultValue="off"
                     android:key="swipe_up"
                     android:summary="%s"
                     android:title="@string/settings_swipe_wake" />
                 <ListPreference
+                    android:defaultValue="off"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:defaultValue="off"
                     android:key="volume_keys"
                     android:summary="%s"
                     android:title="@string/settings_volume_to_stop" />
                 <ListPreference
+                    android:defaultValue="off"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:defaultValue="off"
                     android:key="back_button"
                     android:summary="%s"
                     android:title="@string/settings_back_button_wake" />
@@ -191,6 +191,14 @@
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/settings_brightness" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+        <Preference
+            android:key="uninstall"
+            android:summary="@string/settings_uninstall_desc"
+            android:title="@string/settings_uninstall">
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_about">

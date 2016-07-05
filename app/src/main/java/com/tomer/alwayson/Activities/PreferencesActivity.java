@@ -259,9 +259,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                             }
                                             break;
                                     }
-                                    context.startIntentSenderForResult(pendingIntent.getIntentSender(),
-                                            1001, new Intent(), 0, 0,
-                                            0);
+                                    context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
                                 } catch (Exception e) {
                                     Snackbar.make(rootView, context.getString(R.string.unknown_error), Snackbar.LENGTH_LONG).show();
                                 }
@@ -278,6 +276,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         if (requestCode == 1001) {
             Log.d("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
+                Toast.makeText(getApplicationContext(),R.string.warning_11_need_to_reset_app,Toast.LENGTH_LONG).show();
                 resetPaymentService();
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
             }
@@ -292,8 +291,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             }
 
             @Override
-            public void onServiceConnected(ComponentName name,
-                                           IBinder service) {
+            public void onServiceConnected(ComponentName name, IBinder service) {
                 mService = IInAppBillingService.Stub.asInterface(service);
                 try {
                     Globals.ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");

@@ -171,4 +171,7 @@
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
     <string name="settings_select_action">Select action</string>
     <string name="support_how_much">How much would you like to donate?</string>
+    <string name="warning_11_need_to_reset_app">You might need to reset the app to take effect</string>
+    <string name="settings_uninstall">Uninstall</string>
+    <string name="settings_uninstall_desc">Uninstall the app</string>
 </resources>

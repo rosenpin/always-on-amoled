@@ -87,6 +87,7 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
     <string-array name="fonts">
         <item>@string/settings_font_default</item>
         <item>@string/settings_font_default_bold</item>
@@ -103,6 +104,7 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
     <string-array name="gestures_actions">
         <item>@string/widget_off</item>
         <item>@string/unlock</item>
@@ -115,6 +117,7 @@
         <!-- <item>open_app</item>-->
         <item>speak</item>
     </string-array>
+
     <string-array name="support_items" >
         <item>@string/support_1</item>
         <item>@string/support_2</item>
