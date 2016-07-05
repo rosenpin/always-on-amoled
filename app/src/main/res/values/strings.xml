@@ -3,9 +3,16 @@
     <string name="app_name">Always On AMOLED</string>
     <string name="title_donation">Support The Development</string>
     <!--Actions-->
-    <string name="action_support_the_development">Support the development</string>
+    <string name="unlock">Unlock</string>
     <string name="action_revert">Revert</string>
     <string name="menu_feedback">Feedback</string>
+    <!--Support-->
+    <string name="action_support_the_development">Support the development</string>
+    <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
+    <string name="support_1">1$ The price of a refreshing coke</string>
+    <string name="support_2">2$ The price of a tasty chocolate bar</string>
+    <string name="support_5">5$ The price of a cool ice-coffee</string>
+    <string name="support_10">10$ The price of a delicious pizza</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state and Camera permission</string>
@@ -163,4 +170,5 @@
     <string name="settings_gestures_desc">Double tap to wake, swipe up to wake and more</string>
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
     <string name="settings_select_action">Select action</string>
+    <string name="support_how_much">How much would you like to donate?</string>
 </resources>

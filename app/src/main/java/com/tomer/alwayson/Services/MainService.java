@@ -29,6 +29,7 @@ import android.provider.Settings;
 import android.provider.Settings.System;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
@@ -420,9 +421,9 @@ public class MainService extends Service implements SensorEventListener, Context
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         if (prefs.moveWidget) {
             if (prefs.orientation.equals("vertical"))
-                mainView.setY((float) (height - randInt(height / 1.4, height * 1.4)));
+                mainView.animate().translationY((float) (height - randInt(height / 1.4, height * 1.4))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
             else
-                mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
+                mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
         }
         if (prefs.dateStyle != 0) {
             Calendar calendar = Calendar.getInstance();
@@ -440,7 +441,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             refreshLong();
                     }
                 },
-                20000);
+                24000);
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
@@ -598,7 +599,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
             tts.speak("Battery is at " + (int) getBatteryLevel() + " percent", TextToSpeech.QUEUE_ADD, null);
         }
-
     }
 
     @Override

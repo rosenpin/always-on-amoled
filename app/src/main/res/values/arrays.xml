@@ -104,10 +104,10 @@
         <item>5</item>
     </string-array>
     <string-array name="gestures_actions">
-        <item>Off</item>
-        <item>Unlock</item>
+        <item>@string/widget_off</item>
+        <item>@string/unlock</item>
         <!--  <item>Open an app</item>-->
-        <item>Say current time, notifications and battery status out loud</item>
+        <item>@string/gestures_action_speak</item>
     </string-array>
     <string-array name="gestures_actions_vals">
         <item>off</item>
@@ -116,9 +116,9 @@
         <item>speak</item>
     </string-array>
     <string-array name="support_items" >
-        <item>1$ The price of a refreshing drink</item>
-        <item>2$ The price of a tasty chocolate bar</item>
-        <item>5$ The price of a cool ice-coffee</item>
-        <item>10$ The price of a delicious pizza</item>
+        <item>@string/support_1</item>
+        <item>@string/support_2</item>
+        <item>@string/support_5</item>
+        <item>@string/support_10</item>
     </string-array>
 </resources>

@@ -1,35 +1,35 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Få en alltid på display för din telefon eller surfplatta.
+Håll din skärm på hela tiden.
+Den första alltid på appen med öppen källkod!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+Tanken är att förse användarna med information om, tid, datum, meddelanden och mer och allt utan att behöva röra telefonen. Bara genom att titta på den.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Detta görs möjligt tack vare AMOLED skärmar. Mestadels av skärmen förblir svart med undantag för ett fåtal pixlar.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★Anmärkningsvärda funktioner
+• Alltid på skärm
+• Meddelanden - Visa meddelanden utan att röra din enhet
+• Automatiska regler - bevara batteriet med hjälp av fördefinierade regler
+• Automatisk rörelse - undvika AMOLED inbränning
+• Auto nattläge - tona ned skärmen automatiskt i mörk miljö
+• Ficka läge - låsa enheten när du lämnar den i fickan för att spara batteri
+Dubbeltryck för att väcka + Dra upp för att väcka + volymknapparna för att vakna + bakåtknappen för att väcka
+Force orientering - ställa in önskad skärmorientering
+• Anpassning - ändra textfärg, textstorlek, ljusstyrka och mer
+• FRI OCH ÖPPEN KÄLLKOD!
 
-Before using please enable 'draw over apps' permission for this app.
+Innan du använder Vänligen aktivera "dra över appar" tillstånd för denna app.
 
-The app is in BETA, it still has bugs and lacks features.
+Appen är i BETA, den har fortfarande buggar och saknar funktioner.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Behörigheter
+<b>Kamera tillstånd</b>
+Appen behöver kamera tillstånd för att känna igen kamerastart och stänga av "alltid på" skärmen.
+<b>Telefon tillstånd</b>
+Appen behöver telefon tillåtelse att känna igen inkommande samtal, avvisa alltid på skärmen och visa inkommande samtalsskärmen.
+<b>Tillstånd för att ändra system inställningar</b>
+Appen behöver behörighet att ändra inställningar för att ändra ljusstyrkan på låsskärmen.
 
 
-Google Plus Community
+Google Plus gemenskap
 https://plus.google.com/communities/104206728795122451273

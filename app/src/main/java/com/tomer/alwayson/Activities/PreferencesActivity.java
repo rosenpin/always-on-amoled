@@ -196,6 +196,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     public static void promptToSupport(final Activity context, final IInAppBillingService mService, final View rootView) {
         new MaterialDialog.Builder(context)
                 .title(R.string.action_support_the_development)
+                .content(R.string.support_how_much)
                 .items(R.array.support_items)
                 .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
@@ -204,7 +205,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                 Bundle buyIntentBundle;
                                 PendingIntent pendingIntent = null;
                                 try {
-
                                     switch (which) {
                                         case 0:
                                             String IAPID = SecretConstants.getPropertyValue(context, "IAPID");
