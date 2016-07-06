@@ -6,8 +6,12 @@
     <string name="unlock">Unlock</string>
     <string name="action_revert">Revert</string>
     <string name="menu_feedback">Feedback</string>
+    <string name="disclaimer">DISCLAIMER</string>
+    <string name="disclaimer_desc">Always On AMOLED developers will not be held responsible to any damage that may occur to your device.</string>
+    <string name="agree">Agree</string>
     <!--Support-->
     <string name="action_support_the_development">Support the development</string>
+    <string name="support_how_much">How much would you like to donate?</string>
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
     <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
     <string name="support_1">1$ The price of a refreshing coke</string>
@@ -172,7 +176,6 @@
     <string name="settings_gestures_desc">Double tap to wake, swipe up to wake and more</string>
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
     <string name="settings_select_action">Select action</string>
-    <string name="support_how_much">How much would you like to donate?</string>
     <string name="warning_11_need_to_reset_app">You might need to reset the app to take effect</string>
     <string name="settings_uninstall">Uninstall</string>
     <string name="settings_uninstall_desc">Uninstall the app</string>

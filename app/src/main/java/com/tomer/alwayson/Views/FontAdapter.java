@@ -2,6 +2,7 @@ package com.tomer.alwayson.Views;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.R;
 
 
 public class FontAdapter extends BaseAdapter {
@@ -51,6 +53,10 @@ public class FontAdapter extends BaseAdapter {
 
         ((TextView) view.findViewById(android.R.id.text1)).setText(items[position]);
         ((TextView) view.findViewById(android.R.id.text1)).setTypeface(font);
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(com.afollestad.materialdialogs.commons.R.color.abc_primary_text_material_dark));
+        else
+            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(com.afollestad.materialdialogs.commons.R.color.abc_primary_text_material_light));
         return view;
     }
 

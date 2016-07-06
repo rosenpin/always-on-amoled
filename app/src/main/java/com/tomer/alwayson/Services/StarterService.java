@@ -106,10 +106,7 @@ public class StarterService extends Service {
     }
 
     private void stopNotificationService() {
-        try {
-            stopService(notificationsAlertIntent);
-        } catch (Exception ignored) {
-        }
+
     }
 
     private boolean isServiceRunning(Class<?> serviceClass) {
