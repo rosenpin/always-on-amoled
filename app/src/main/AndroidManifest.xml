@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tomer.alwayson"
-    android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+    android:permission="android.permission.WAKE_LOCK"
+    >
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -11,6 +11,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -61,7 +62,7 @@
                 android:resource="@xml/widget_provider_info" />
         </receiver>
 
-        <service android:name=".Services.MainService"/>
+        <service android:name=".Services.MainService" />
         <service android:name=".Services.ToggleService" />
         <service android:name=".Services.WidgetUpdater" />
         <service

@@ -86,6 +86,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private UnlockReceiver unlockReceiver;
     private int originalCapacitiveButtonsState = 1500;
     private int height, width;
+    private int originalTimeout;
 
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
@@ -135,6 +136,7 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
+        originalTimeout = System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 120000);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -445,6 +447,8 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
+        if (!state)
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
         try {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
@@ -613,13 +617,17 @@ public class MainService extends Service implements SensorEventListener, Context
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            Log.d(MAIN_SERVICE_LOG_TAG, "Trying to lock");
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
-                            else
-                                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+                            else {
+                                Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000);
+                                //((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+                            }
                         }
                     }).start();
                 } else {
+                    Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
                     if (!Globals.sensorIsScreenOff) {
                         new Handler().postDelayed(new Runnable() {
                             @Override
