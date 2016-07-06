@@ -3,11 +3,14 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">J</string>
   <!--Actions-->
+  <string name="unlock">Unlock</string>
   <string name="action_revert">Revertir</string>
   <string name="menu_feedback">Opiniones</string>
   <!--Support-->
   <string name="action_support_the_development">Support the development</string>
+  <string name="gestures_action_speak">Hi</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ver el estado del teléfono y permisos de Cámara</string>

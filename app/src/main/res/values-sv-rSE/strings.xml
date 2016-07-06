@@ -12,6 +12,9 @@
   <string name="action_support_the_development">Stödj utvecklaren</string>
   <string name="gestures_action_speak">Säg aktuell tid, meddelanden och batteristatus högt</string>
   <string name="support_1">1 $ Priset på en uppfriskande Cola</string>
+  <string name="support_2">21sek -Priset för en god chokladbar</string>
+  <string name="support_5">55sek -Priset på en kall iskaffe</string>
+  <string name="support_10">105sek -Priset på en utsökt pizza</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus och kamera tillstånd</string>
@@ -59,6 +62,7 @@
   <string name="warning_7_disable_fingerprint">Detta kan avaktivera fingeravtrycksläsarens funktion. Är du säker på att du vill aktivera detta? </string>
   <string name="warning_8_intro_allow_all">Tillåt alla behörigheter</string>
   <string name="warning_9_allow_notification">Tillåt åtkomst för aviseringar i appen</string>
+  <string name="warning_10_tts_not_installed">Installera en text till tal-motor först</string>
   <!--Charging rules-->
   <string name="rules_both">Båda. </string>
   <string name="rules_while_charging">Medan enheten laddas. </string>
@@ -164,4 +168,9 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Fast bredd</string>
+  <string name="settings_gestures"><![CDATA[Gester & inmatning]]></string>
+  <string name="settings_gestures_desc">Dubbeltryck för att vakna, dra upp att vakna och mer</string>
+  <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
+  <string name="settings_select_action">Välj åtgärd</string>
+  <string name="support_how_much">Hur mycket skulle du vilja donera?</string>
 </resources>
