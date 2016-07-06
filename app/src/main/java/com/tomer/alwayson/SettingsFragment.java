@@ -322,13 +322,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
             startActivity(uninstallIntent);
         } else if (preference.getKey().equals("font")) {
-            final FontAdapter fontAdapter = new FontAdapter(context, R.array.fonts, R.array.fonts_vals);
+            final FontAdapter fontAdapter = new FontAdapter(context, R.array.fonts);
             new MaterialDialog.Builder(getActivity())
                     .title(R.string.settings_choose_font)
                     .adapter(fontAdapter, new MaterialDialog.ListCallback() {
                         @Override
                         public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                            Log.d("Selceted", fontAdapter.getItemValue(which));
                             if (which > 5) {
                                 if (Globals.ownedItems.size() > 0) {
                                     prefs.forceString("font", String.valueOf(which));

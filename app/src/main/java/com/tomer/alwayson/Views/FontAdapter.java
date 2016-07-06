@@ -14,14 +14,12 @@ import com.tomer.alwayson.Prefs;
 public class FontAdapter extends BaseAdapter {
 
     String[] items;
-    String[] itemsvalue;
     Context context;
     Prefs prefs;
 
-    public FontAdapter(Context context, int items, int itemsValue) {
+    public FontAdapter(Context context, int items) {
         this.context = context;
         this.items = context.getResources().getStringArray(items);
-        this.itemsvalue = context.getResources().getStringArray(itemsValue);
         prefs = new Prefs(context);
         prefs.apply();
     }
@@ -39,10 +37,6 @@ public class FontAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return position;
-    }
-
-    public String getItemValue(int position) {
-        return itemsvalue[position];
     }
 
     @Override
@@ -77,20 +71,22 @@ public class FontAdapter extends BaseAdapter {
             case 6:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/dotted.ttf");
             case 7:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/ginga.ttf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/ralewaydots.ttf");
             case 8:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/grinched.ttf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/ginga.ttf");
             case 9:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/parryhotter.ttf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/grinched.ttf");
             case 10:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/snackpatrol.otf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/parryhotter.ttf");
             case 11:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/trashco.ttf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/snackpatrol.otf");
             case 12:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/homoarak.ttf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/trashco.ttf");
             case 13:
-                return Typeface.createFromAsset(context.getAssets(), "fonts/waltograph.ttf");
+                return Typeface.createFromAsset(context.getAssets(), "fonts/homoarak.ttf");
             case 14:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/waltograph.ttf");
+            case 15:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/halo3.ttf");
         }
         return Typeface.DEFAULT;

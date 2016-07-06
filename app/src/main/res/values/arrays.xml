@@ -96,6 +96,7 @@
         <item>@string/settings_font_sans_serif</item>
         <item>@string/settings_font_monospace</item>
         <item>Dotted</item>
+        <item>Raleway Dots</item>
         <item>Ginga</item>
         <item>Grinched</item>
         <item>Parry Hotter</item>
@@ -104,23 +105,6 @@
         <item>Homoarak</item>
         <item>Waltograph</item>
         <item>Halo 3</item>
-    </string-array>
-    <string-array name="fonts_vals">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>11</item>
-        <item>12</item>
-        <item>13</item>
-        <item>14</item>
     </string-array>
 
     <string-array name="gestures_actions">
