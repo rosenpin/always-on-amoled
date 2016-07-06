@@ -240,10 +240,7 @@ public class MainService extends Service implements SensorEventListener, Context
             Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             if (proximitySensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6), 500000);
-                else
-                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6));
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6), 500000);
             }
         }
         //If auto night mode option is on, set it up
@@ -256,10 +253,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
             if (lightSensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                    sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
-                else
-                    sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15));
+                sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
             }
         }
 
