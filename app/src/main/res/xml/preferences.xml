@@ -138,7 +138,7 @@
                     android:summary="@string/settings_choose_font"
                     android:title="@string/settings_font" />
                 <com.tomer.alwayson.Views.SeekBarPreference
-                    android:defaultValue="88"
+                    android:defaultValue="80"
                     android:dialogTitle="@string/settings_font_size_desc"
                     android:key="font_size"
                     android:max="120"
