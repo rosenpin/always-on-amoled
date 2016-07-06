@@ -55,6 +55,7 @@ import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
+import com.tomer.alwayson.Views.FontAdapter;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -364,24 +365,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
-        Typeface font = Typeface.DEFAULT;
-        switch (prefs.font) {
-            case 1:
-                font = Typeface.DEFAULT_BOLD;
-                break;
-            case 2:
-                font = Typeface.defaultFromStyle(Typeface.ITALIC);
-                break;
-            case 3:
-                font = Typeface.SERIF;
-                break;
-            case 4:
-                font = Typeface.SANS_SERIF;
-                break;
-            case 5:
-                font = Typeface.MONOSPACE;
-                break;
-        }
+        Log.d("Font to apply ", String.valueOf(prefs.font));
+        Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
         textClock.setTypeface(font);
         batteryTV.setTypeface(font);
         calendarTV.setTypeface(font);
@@ -443,8 +428,6 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
-        if (!state)
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
         try {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
@@ -492,17 +475,22 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        //Stopping tts if it's running
         toStopTTS = true;
         TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
         tts.setLanguage(Locale.getDefault());
         tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
 
+        //Resetting the timeout
+        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
 
+        //Unregister receivers
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
         if (prefs.batteryStyle != 0)
             unregisterReceiver(mBatInfoReceiver);
+
         super.onDestroy();
         setButtonsLight(false);
         setLights(OFF, false, false);
@@ -607,9 +595,9 @@ public class MainService extends Service implements SensorEventListener, Context
             case Sensor.TYPE_PROXIMITY:
                 if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
-                    stayAwakeWakeLock.release();
                     Globals.isShown = false;
                     Globals.sensorIsScreenOff = false;
+                    stayAwakeWakeLock.release();
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -617,13 +605,14 @@ public class MainService extends Service implements SensorEventListener, Context
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
                             else {
+                                if (stayAwakeWakeLock.isHeld())
+                                    stayAwakeWakeLock.release();
                                 Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000);
                                 //((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                             }
                         }
                     }).start();
                 } else {
-                    Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
                     if (!Globals.sensorIsScreenOff) {
                         new Handler().postDelayed(new Runnable() {
                             @Override

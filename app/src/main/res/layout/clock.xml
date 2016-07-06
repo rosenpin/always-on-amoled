@@ -17,6 +17,7 @@
     <AnalogClock
         android:id="@+id/analog_clock"
         android:layout_width="wrap_content"
+        android:dial="@drawable/back"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white" />
 </LinearLayout>

@@ -90,6 +90,10 @@ public class Prefs {
         prefs.edit().putBoolean(key, value).commit();
     }
 
+    public void forceString(String key, String value) {
+        prefs.edit().putString(key, value).commit();
+    }
+
     public boolean getBoolByKey(String key, boolean b) {
         return prefs.getBoolean(key, b);
     }

@@ -9,6 +9,7 @@
     <!--Support-->
     <string name="action_support_the_development">Support the development</string>
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
+    <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
     <string name="support_1">1$ The price of a refreshing coke</string>
     <string name="support_2">2$ The price of a tasty chocolate bar</string>
     <string name="support_5">5$ The price of a cool ice-coffee</string>
@@ -157,6 +158,7 @@
     <string name="settings_watchface_miscellaneous">Miscellaneous</string>
     <string name="settings_watchface_styles">Styles</string>
     <string name="settings_font">Font</string>
+    <string name="settings_choose_font">Choose your font</string>
     <string name="settings_watch_digital">Digital</string>
     <string name="settings_watch_analog">Analog</string>
     <string name="settings_rules_text">Text</string>

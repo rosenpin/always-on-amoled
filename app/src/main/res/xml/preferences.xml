@@ -132,13 +132,10 @@
 
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/settings_watchface_text_font">
-                <ListPreference
+                <Preference
                     android:defaultValue="0"
-                    android:dialogTitle="@string/settings_font"
-                    android:entries="@array/fonts"
-                    android:entryValues="@array/fonts_vals"
                     android:key="font"
-                    android:summary="%s"
+                    android:summary="@string/settings_choose_font"
                     android:title="@string/settings_font" />
                 <com.tomer.alwayson.Views.SeekBarPreference
                     android:defaultValue="88"

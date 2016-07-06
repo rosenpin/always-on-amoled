@@ -28,9 +28,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
+import com.tomer.alwayson.Views.FontAdapter;
 import com.tomer.alwayson.Views.SeekBarPreference;
 
 import java.util.List;
@@ -63,6 +65,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("textcolor").setOnPreferenceClickListener(this);
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
         findPreference("uninstall").setOnPreferenceClickListener(this);
+        findPreference("font").setOnPreferenceClickListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -78,7 +81,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                             Log.d("Purchased items", String.valueOf(Globals.ownedItems));
                             return true;
                         } else {
-                            PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView);
+                            PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                         }
                         return false;
                     }
@@ -318,6 +321,28 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Intent uninstallIntent =
                     new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
             startActivity(uninstallIntent);
+        } else if (preference.getKey().equals("font")) {
+            final FontAdapter fontAdapter = new FontAdapter(context, R.array.fonts, R.array.fonts_vals);
+            new MaterialDialog.Builder(getActivity())
+                    .title(R.string.settings_choose_font)
+                    .adapter(fontAdapter, new MaterialDialog.ListCallback() {
+                        @Override
+                        public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
+                            Log.d("Selceted", fontAdapter.getItemValue(which));
+                            if (which > 5) {
+                                if (Globals.ownedItems.size() > 0) {
+                                    prefs.forceString("font", String.valueOf(which));
+                                } else {
+                                    PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                                }
+                            } else {
+                                prefs.forceString("font", String.valueOf(which));
+                            }
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
+            return false;
         }
         return true;
     }

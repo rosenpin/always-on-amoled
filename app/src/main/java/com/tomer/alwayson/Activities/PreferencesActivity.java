@@ -13,9 +13,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PowerManager;
 import android.os.RemoteException;
-import android.os.SystemClock;
 import android.provider.Settings;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -59,6 +57,8 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         super.onCreate(savedInstanceState);
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
+
+
         resetPaymentService();
         if (!prefs.permissionGranting) {
             startActivity(new Intent(getApplicationContext(), Intro.class));
@@ -104,7 +104,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         donateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PreferencesActivity.promptToSupport(PreferencesActivity.this, mService, findViewById(android.R.id.content));
+                PreferencesActivity.promptToSupport(PreferencesActivity.this, mService, findViewById(android.R.id.content), false);
             }
         });
 
@@ -195,10 +195,10 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         prefs.setInt(Prefs.KEYS.TEXT_COLOR.toString(), selectedColor);
     }
 
-    public static void promptToSupport(final Activity context, final IInAppBillingService mService, final View rootView) {
+    public static void promptToSupport(final Activity context, final IInAppBillingService mService, final View rootView, boolean supporterFeature) {
         new MaterialDialog.Builder(context)
                 .title(R.string.action_support_the_development)
-                .content(R.string.support_how_much)
+                .content(supporterFeature ? R.string.supporter_feature_only : R.string.support_how_much)
                 .items(R.array.support_items)
                 .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
