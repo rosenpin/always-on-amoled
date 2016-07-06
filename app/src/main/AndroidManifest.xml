@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tomer.alwayson"
-    android:permission="android.permission.WAKE_LOCK"
-    >
+    android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

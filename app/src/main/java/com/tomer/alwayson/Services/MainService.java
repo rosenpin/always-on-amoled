@@ -280,7 +280,8 @@ public class MainService extends Service implements SensorEventListener, Context
 
         // UI refreshing
         Globals.notificationChanged = true; //Show notifications at first launch
-        startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
+        if (prefs.notificationsAlerts)
+            startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
         refresh();
         refreshLong();
 

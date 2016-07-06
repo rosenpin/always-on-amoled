@@ -40,6 +40,7 @@ import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
+import com.tomer.alwayson.Services.NotificationListener;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
@@ -57,8 +58,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         super.onCreate(savedInstanceState);
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
-
-
         resetPaymentService();
         if (!prefs.permissionGranting) {
             startActivity(new Intent(getApplicationContext(), Intro.class));
