@@ -1,7 +1,6 @@
 package com.tomer.alwayson.Services;
 
 import android.app.Service;
-import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -54,7 +53,6 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 
@@ -239,9 +237,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
             Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-            DevicePolicyManager mDPM = (DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE);
-            ComponentName mAdminName = new ComponentName(this, DAReceiver.class);
-            if (proximitySensor != null && (Shell.SU.available() || (mDPM != null && mDPM.isAdminActive(mAdminName)))) {
+            if (proximitySensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
                     sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6), 500000);
