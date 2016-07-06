@@ -11,6 +11,7 @@
   <!--Support-->
   <string name="action_support_the_development">Support the development</string>
   <string name="gestures_action_speak">Hi</string>
+  <string name="support_2">2$ The price of a tasty chocolate bar</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ver el estado del teléfono y permisos de Cámara</string>

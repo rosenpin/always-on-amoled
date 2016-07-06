@@ -3,9 +3,33 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">Ondersteun de ontwikkelaar</string>
   <!--Actions-->
+  <string name="unlock">Ontgrendel</string>
+  <string name="action_revert">Terugzetten</string>
+  <string name="menu_feedback">Feedback</string>
   <!--Support-->
+  <string name="action_support_the_development">Ondersteun de ontwikkelaar</string>
+  <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
+  <string name="support_1">1$ De prijs van een verfrissende cola</string>
+  <string name="support_2">2$ De prijs van een lekkere chocoladereep</string>
+  <string name="support_5">5$ De prijs van een koude ijskoffie</string>
+  <string name="support_10">10$ De prijs van een lekkere pizza</string>
   <!--Intro-->
+  <string name="intro_allow_now">Nu toestaan</string>
+  <string name="intro_permissions">Lezen van telefoonstatus en toestemming tot de camera</string>
+  <string name="intro_permissions_desc">De app heeft toestemming nodig om de telefoon status te lezen en het apparaat aan te zetten wanneer er een inkomende oproep is.\nDe app heeft toestemming voor de camera nodig om het apparaat aan te zetten wanneer je de camera opstart (Met snelkoppelingen).</string>
+  <string name="intro_draw_over">Teken over andere apps</string>
+  <string name="intro_draw_over_desc">De app heeft toegang nodig om over andere apps te tekenen</string>
+  <string name="intro_modify_desc">De app heeft toegang nodig om de helderheid van je apparaat aan te passen</string>
+  <string name="intro_modify">Aanpassen systeem instellingen</string>
+  <string name="intro_wake_ups">Methodes voor het wakker maken van je apparaat</string>
+  <string name="intro_wake_ups_desc">Kies hoe je je apparaat wilt wakker kunnen laten maken van de always on scherm. Dit kun je in de app later altijd wijzigen.</string>
+  <string name="intro_checkbox_volume_keys">Ontgrendelen met de volumeknoppen</string>
+  <string name="intro_checkbox_swipe_up">Swipe omhoog vanaf het midden van het scherm om te ontgrendelen</string>
+  <string name="intro_checkbox_double_tap">Dubbel klikken in het midden van het scherm om te ontgrendelen</string>
+  <string name="intro_notifications">Meldingen van notificaties</string>
+  <string name="intro_notifications_desc">Wil je notificaties van andere apps krijgen terwijl het always on scherm aan staan? Wanneer je dit wilt klik dan op de \"nu toestaan\" knop</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Bedankt voor je support! :)</string>
   <string name="thanks_great">Bedankt voor je geweldige support! :) </string>
@@ -14,13 +38,30 @@
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
   <string name="reboot_to_take_affect">Start opnieuw op om dit in werking te laten treden </string>
   <!--Widget-->
+  <string name="widget_toggle">aan of uit zetten</string>
+  <string name="widget_off">Uit</string>
+  <string name="widget_on">Aan</string>
   <!--Device admin-->
+  <string name="device_admin_desc">Zet dit aan om extra functionaliteit te krijgen voor niet geroote apparaten</string>
+  <string name="device_admin_explanation">Sta alsjeblieft de apparaat admin toestemming toe om meer functies te gebruiken voor niet geroote apparaten.</string>
   <!--Plugin-->
+  <string name="plugin_dialog_title">Plugin is nodig</string>
+  <string name="plugin_dialog_desc">Het lijkt er op dat je apparaat hardware knoppen heeft, wanneer je wilt dat deze uit gaan wanneer de service aan staat, installeer dan alsjeblieft de plugin.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">Een probleem heeft zich voorgedaan. Rapporteer dit alsjeblieft aan de ontwikkelaar </string>
+  <string name="error_1_no_email_client">Er zijn geen email cliënten geïnstalleerd.</string>
+  <string name="error_2_plugin_not_installed">PLUGIN IS NIET GEÏNSTALLEERD</string>
   <!--Warnings-->
+  <string name="warning">WAARSCHUWING</string>
   <string name="warning_1_harm_performance">Dit kan de snelheid van de applicatie beïnvloeden</string>
   <string name="warning_2_required_phone_permission">Deze toegang is vereist zodat de app je scherm aan kan zetten wanneer je gebeld wordt</string>
   <string name="warning_3_allow_system_modification">Houdt u rekening met de instellingen modificatie toestemming voor </string>
+  <string name="warning_4_device_not_secured">Je apparaat is mogelijk nu niet beschermd</string>
+  <string name="warning_5_device_admin_disable">Dit zal sommige functies van de app uit zetten</string>
+  <string name="warning_6_device_admin_disabled">Sommige functies zijn nu mogelijk uitgezet</string>
+  <string name="warning_7_disable_fingerprint">Dit kan de vingersensor functionaliteit uit zetten, weet je zeker dat je deze functie aan wilt zetten?</string>
+  <string name="warning_8_intro_allow_all">Sta alsjeblieft alle toestemming toe</string>
+  <string name="warning_9_allow_notification">Sta alsjeblieft de notificatie toestemming toe voor de app</string>
   <!--Charging rules-->
   <!--Battery rules-->
   <!--Timeout delay rule-->
