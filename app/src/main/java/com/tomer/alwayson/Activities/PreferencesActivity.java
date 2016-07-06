@@ -259,6 +259,32 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 e.printStackTrace();
                                             }
                                             break;
+                                        case 4:
+                                            String IAPID5 = SecretConstants.getPropertyValue(context, "IAPID5");
+                                            try {
+                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
+                                                        IAPID5, "inapp", googleIAPCode);
+                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                                                if (pendingIntent == null)
+                                                    Snackbar.make(rootView, context.getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
+                                            } catch (RemoteException e) {
+                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                                                e.printStackTrace();
+                                            }
+                                            break;
+                                        case 5:
+                                            String IAPID6 = SecretConstants.getPropertyValue(context, "IAPID6");
+                                            try {
+                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
+                                                        IAPID6, "inapp", googleIAPCode);
+                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                                                if (pendingIntent == null)
+                                                    Snackbar.make(rootView, context.getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
+                                            } catch (RemoteException e) {
+                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                                                e.printStackTrace();
+                                            }
+                                            break;
                                     }
                                     context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
                                 } catch (Exception e) {
@@ -280,6 +306,11 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 Toast.makeText(getApplicationContext(), R.string.warning_11_need_to_reset_app, Toast.LENGTH_LONG).show();
                 resetPaymentService();
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
+                try {
+                    mService.consumePurchase(3, getPackageName(), data.getStringExtra("INAPP_PURCHASE_DATA"));
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

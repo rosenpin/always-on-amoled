@@ -125,5 +125,7 @@
         <item>@string/support_2</item>
         <item>@string/support_5</item>
         <item>@string/support_10</item>
+        <item>@string/support_20</item>
+        <item>@string/support_50</item>
     </string-array>
 </resources>

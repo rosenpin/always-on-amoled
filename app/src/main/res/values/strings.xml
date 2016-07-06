@@ -17,7 +17,9 @@
     <string name="support_1">1$ The price of a refreshing coke</string>
     <string name="support_2">2$ The price of a tasty chocolate bar</string>
     <string name="support_5">5$ The price of a cool ice-coffee</string>
-    <string name="support_10">10$ The price of a delicious pizza</string>
+    <string name="support_10">10$ The price of a big ass Starbucks coffee</string>
+    <string name="support_20">20$ The price of a delicious pizza</string>
+    <string name="support_50">50$ The price of a dinner for two</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state and Camera permission</string>
