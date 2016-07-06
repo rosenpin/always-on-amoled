@@ -3,7 +3,9 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">Підтримати розробку</string>
   <!--Actions-->
+  <string name="unlock">Розблок.</string>
   <string name="action_revert">Скасувати</string>
   <string name="menu_feedback">Зворотній зв\'язок</string>
   <!--Support-->
@@ -86,7 +88,7 @@
   <string name="settings_wake_up">Методи пробудження</string>
   <string name="settings_rules">Автоматичні правила</string>
   <!--Settings titles-->
-  <string name="settings_enabled">Always On</string>
+  <string name="settings_enabled">Увімкнений</string>
   <string name="settings_disable_volume_keys">Вимкнути клавішу рег. гучності</string>
   <string name="settings_double_tap_wake">Подвійне натискання</string>
   <string name="settings_back_button_wake">Клавіша \"Назад\"</string>
@@ -160,4 +162,8 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Моноширинний</string>
+  <string name="settings_gestures"><![CDATA[Рухи & входи]]></string>
+  <string name="settings_watchface_text_font"><![CDATA[Текст & шрифт]]></string>
+  <string name="settings_select_action">Оберіть дію</string>
+  <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
 </resources>

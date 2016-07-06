@@ -215,7 +215,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 if (pendingIntent == null)
                                                     Snackbar.make(rootView, context.getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
                                             } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.unknown_error), Snackbar.LENGTH_LONG).show();
+                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                                 e.printStackTrace();
                                             }
                                             break;
@@ -228,7 +228,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 if (pendingIntent == null)
                                                     Snackbar.make(rootView, context.getString(R.string.thanks_great), Snackbar.LENGTH_LONG).show();
                                             } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.unknown_error), Snackbar.LENGTH_LONG).show();
+                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                                 e.printStackTrace();
                                             }
                                             break;
@@ -241,7 +241,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 if (pendingIntent == null)
                                                     Snackbar.make(rootView, context.getString(R.string.thanks_huge), Snackbar.LENGTH_LONG).show();
                                             } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.unknown_error), Snackbar.LENGTH_LONG).show();
+                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                                 e.printStackTrace();
                                             }
                                             break;
@@ -254,14 +254,14 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 if (pendingIntent == null)
                                                     Snackbar.make(rootView, context.getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
                                             } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.unknown_error), Snackbar.LENGTH_LONG).show();
+                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                                 e.printStackTrace();
                                             }
                                             break;
                                     }
                                     context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
                                 } catch (Exception e) {
-                                    Snackbar.make(rootView, context.getString(R.string.unknown_error), Snackbar.LENGTH_LONG).show();
+                                    Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
                                 }
 
                                 return true;
@@ -276,7 +276,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         if (requestCode == 1001) {
             Log.d("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
-                Toast.makeText(getApplicationContext(),R.string.warning_11_need_to_reset_app,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.warning_11_need_to_reset_app, Toast.LENGTH_LONG).show();
                 resetPaymentService();
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
             }

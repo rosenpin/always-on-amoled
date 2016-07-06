@@ -509,7 +509,7 @@ public class MainService extends Service implements SensorEventListener, Context
         try {
             windowManager.removeView(frameLayout);
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), getString(R.string.unknown_error), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.error_0_unknown_error), Toast.LENGTH_SHORT).show();
         }
         stayAwakeWakeLock.release();
         Globals.isShown = false;

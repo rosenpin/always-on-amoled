@@ -1,35 +1,35 @@
 ارجو الترجمه الى عربي
-Keep your screen on all the time.
-The first open source always on app!
+تبقى الشاشة الخاصة بك في كل وقت.
+المصدر المفتوح الأول دائماً في التطبيق!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+والفكرة لتزويد المستخدمين بمعلومات حول، والوقت، والإخطارات وأكثر ودون الحاجة للمس الهاتف. بمجرد النظر إليها.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+وقد أمكن بفضل لعرض شاشة لمس. يبقى معظم الشاشة سوداء باستثناء بضع بكسل.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+ميزات ★Notable
+• دائماً على الشاشة
+• إشعارات-عرض إعلامات دون لمس الجهاز الخاص بك
+• القواعد التلقائية--الحفاظ على البطارية باستخدام القواعد المعرفة مسبقاً
+• حركة آليا--تجنب حرق في شاشة لمس
+• وضع ألي ليلة-تعتيم الشاشة تلقائياً في بيئة مظلمة
+• وضع الجيب-قفل الجهاز عند ترك الأمر في جيبك لحفظ البطارية
+اضغط مرتين • تنبيه + مرر حتى أعقاب + مفاتيح الصوت للتنبيه + زر الخلف لتنبيه
+• قوة التوجه--تعيين اتجاه الشاشة المفضل
+• التخصيص--تغيير لون النص، وحجم النص، والسطوع وأكثر
+• الحرة والمفتوحة المصدر!
 
-Before using please enable 'draw over apps' permission for this app.
+قبل استخدام الرجاء تمكين الإذن 'رسم أكثر من تطبيقات' لهذا التطبيق.
 
-The app is in BETA, it still has bugs and lacks features.
+التطبيق في بيتا، وأنها لا تزال الأخطاء ويفتقر إلى الميزات.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+الأذونات
+<b>إذن الكاميرا</b>
+التطبيق يحتاج إلى إذن الكاميرا للاعتراف بحدث إطلاق الكاميرا وإغلاق الشاشة "دائماً على".
+<b>إذن الهاتف</b>
+التطبيق يحتاج إلى إذن الهاتف للاعتراف بالمكالمات الواردة وترفض دائماً على الشاشة وإظهار شاشة مكالمة واردة.
+<b>الإذن تعديل إعدادات النظام</b>
+التطبيق يحتاج إلى إذن لتعديل إعدادات النظام لتغيير درجة سطوع الشاشة قفل.
 
 
-Google Plus Community
+مجتمع قوقل بلس
 https://plus.google.com/communities/104206728795122451273

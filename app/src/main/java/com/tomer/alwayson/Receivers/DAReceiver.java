@@ -33,7 +33,6 @@ public class DAReceiver extends DeviceAdminReceiver {
         prefs.setBool(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), false);
     }
 
-
 }
 
 

@@ -3,11 +3,15 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always on AMOLED</string>
+  <string name="title_donation">Stödj utvecklaren</string>
   <!--Actions-->
+  <string name="unlock">Lås upp</string>
   <string name="action_revert">Återgå</string>
   <string name="menu_feedback">Feedback</string>
   <!--Support-->
   <string name="action_support_the_development">Stödj utvecklaren</string>
+  <string name="gestures_action_speak">Säg aktuell tid, meddelanden och batteristatus högt</string>
+  <string name="support_1">1 $ Priset på en uppfriskande Cola</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus och kamera tillstånd</string>

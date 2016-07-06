@@ -8,12 +8,6 @@
             android:title="@string/settings_enabled" />
         <CheckBoxPreference
             android:defaultValue="true"
-            android:dependency="enabled"
-            android:key="persistent_notification"
-            android:summary="@string/settings_notifications_desc"
-            android:title="@string/settings_persistent_notification" />
-        <CheckBoxPreference
-            android:defaultValue="true"
             android:key="startafterlock"
             android:summary="@string/settings_startafterlock_desc"
             android:title="@string/settings_startafterlock" />
@@ -94,16 +88,6 @@
             android:key="move_auto"
             android:summary="@string/settings_move_desc"
             android:title="@string/settings_move_auto" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="stop_on_camera"
-            android:summary="@string/settings_stop_on_camera_desc"
-            android:title="@string/settings_stop_on_camera" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="disable_volume_keys"
-            android:summary="@string/settings_disable_volume_keys_desc"
-            android:title="@string/settings_disable_volume_keys" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="auto_brightness"
@@ -194,6 +178,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="stop_on_camera"
+            android:summary="@string/settings_stop_on_camera_desc"
+            android:title="@string/settings_stop_on_camera" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="disable_volume_keys"
+            android:summary="@string/settings_disable_volume_keys_desc"
+            android:title="@string/settings_disable_volume_keys" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="enabled"
+            android:key="persistent_notification"
+            android:summary="@string/settings_notifications_desc"
+            android:title="@string/settings_persistent_notification" />
         <Preference
             android:key="uninstall"
             android:summary="@string/settings_uninstall_desc"

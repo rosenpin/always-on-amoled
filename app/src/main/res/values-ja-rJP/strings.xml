@@ -3,11 +3,18 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">開発を支援する</string>
   <!--Actions-->
+  <string name="unlock">ロック解除</string>
   <string name="action_revert">戻す</string>
   <string name="menu_feedback">フィードバック</string>
   <!--Support-->
   <string name="action_support_the_development">開発を支援する</string>
+  <string name="gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
+  <string name="support_1">$1 リフレッシュできるコーラ1本分</string>
+  <string name="support_2">$2 うまいチョコバー1本分</string>
+  <string name="support_5">$5 すてきなアイスコーヒー1杯分</string>
+  <string name="support_10">$10 おいしいピッツァ1枚分</string>
   <!--Intro-->
   <string name="intro_allow_now">今すぐ許可</string>
   <string name="intro_permissions">端末のステータス読み取りとカメラの許可</string>
@@ -55,6 +62,7 @@
   <string name="warning_7_disable_fingerprint">これは指紋認証機能を無効化するかもしれませんが、これを有効にしますか？</string>
   <string name="warning_8_intro_allow_all">すべての権限を許可してください。</string>
   <string name="warning_9_allow_notification">アプリに通知へのアクセスを許可してください</string>
+  <string name="warning_10_tts_not_installed">まずテキスト読み上げエンジンをインストールしてください</string>
   <!--Charging rules-->
   <string name="rules_both">両方</string>
   <string name="rules_while_charging">充電時</string>
@@ -160,4 +168,9 @@
   <string name="settings_font_serif">セリフ</string>
   <string name="settings_font_sans_serif">サンセリフ</string>
   <string name="settings_font_monospace">等幅</string>
+  <string name="settings_gestures"><![CDATA[ジェスチャーと入力]]></string>
+  <string name="settings_gestures_desc">ダブルタップで起動、スワイプアップで起動、など</string>
+  <string name="settings_watchface_text_font"><![CDATA[テキストとフォント]]></string>
+  <string name="settings_select_action">アクションを選択</string>
+  <string name="support_how_much">いくら寄付していただけますか？</string>
 </resources>

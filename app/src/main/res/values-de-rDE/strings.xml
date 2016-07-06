@@ -3,7 +3,9 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">Unterstütze den Entwickler</string>
   <!--Actions-->
+  <string name="unlock">Bildschirm anschalten</string>
   <string name="action_revert">Rückgängig machen</string>
   <string name="menu_feedback">Feedback</string>
   <!--Support-->
@@ -55,8 +57,9 @@
   <string name="warning_7_disable_fingerprint">Dies könnte die Fingerabdrucksensor-Funktionalität beeinträchtigen, bist du dir sicher, dass du dies aktivieren möchtest?</string>
   <string name="warning_8_intro_allow_all">Bitte erteile alle nötigen Berechtigungen</string>
   <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
+  <string name="warning_10_tts_not_installed">Installiere bitte zuerst eine Text-zu-Sprache App (z. B. Google TTS)</string>
   <!--Charging rules-->
-  <string name="rules_both">Beide</string>
+  <string name="rules_both">Beim Laden und Entladen</string>
   <string name="rules_while_charging">Während des Ladenvorgangs</string>
   <string name="rules_while_not_charging">Während des Entladens</string>
   <!--Battery rules-->
@@ -160,4 +163,9 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures"><![CDATA[Gesten & Eingabe]]></string>
+  <string name="settings_gestures_desc">Doppelt tippen zum Aufwecken, wischen zum Aufwecken und mehr</string>
+  <string name="settings_watchface_text_font"><![CDATA[Text & Schrift]]></string>
+  <string name="settings_select_action">Aktion auswählen</string>
+  <string name="support_how_much">Wie viel möchtest du spenden?</string>
 </resources>

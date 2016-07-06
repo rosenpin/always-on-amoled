@@ -4,10 +4,12 @@
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
   <!--Actions-->
+  <string name="unlock">פתח</string>
   <string name="action_revert">בטל שינויים</string>
   <string name="menu_feedback">משוב</string>
   <!--Support-->
   <string name="action_support_the_development">תמיכה בפיתוח</string>
+  <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
   <!--Intro-->
   <string name="intro_allow_now">אפשר עכשיו</string>
   <string name="intro_permissions">הרשאה לקרוא את מצב הטלפון וגישה למצלמה</string>
@@ -55,6 +57,7 @@
   <string name="warning_7_disable_fingerprint">זה עלול לבטל את הפונקציונליות של חיישן טביעות אצבע, האם אתה בטוח כי ברצונך לאפשר את זאת?</string>
   <string name="warning_8_intro_allow_all">בבקשה לאפשר את כל ההרשאות</string>
   <string name="warning_9_allow_notification">יש לאפשר גישה להתראות עבור האפליקציה</string>
+  <string name="warning_10_tts_not_installed">יש להתקין מנוע טקסט לדיבור</string>
   <!--Charging rules-->
   <string name="rules_both">גם וגם</string>
   <string name="rules_while_charging">במהלך טעינה</string>
@@ -160,4 +163,9 @@
   <string name="settings_font_serif">סריף</string>
   <string name="settings_font_sans_serif">סאנס סריף</string>
   <string name="settings_font_monospace">מונוספייס</string>
+  <string name="settings_gestures"><![CDATA[מחוות וקלט]]></string>
+  <string name="settings_gestures_desc">הקשה כפולה להדלקה, משיכה מעלה להדלקה ועוד</string>
+  <string name="settings_watchface_text_font"><![CDATA[גופן וטקסט]]></string>
+  <string name="settings_select_action">בחר פעולה</string>
+  <string name="support_how_much">כמה תרצה לתרום?</string>
 </resources>

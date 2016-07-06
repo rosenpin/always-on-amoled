@@ -1,35 +1,35 @@
-Tốt.
-Keep your screen on all the time.
-The first open source always on app!
+Nhận được một màn hình luôn hiển thị trên điện thoại hoặc máy tính bảng của bạn.
+Giữ màn hình của bạn trong suốt thời gian.
+Đầu tiên mở mã nguồn ứng dụng luôn luôn hiển thị!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+Ý tưởng là để cung cấp cho người dùng với các thông tin về thời gian, ngày tháng, thông báo và nhiều hơn nữa và tất cả mà không cần chạm vào điện thoại. Chỉ nhìn vào nó.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Điều này được thực hiện nhờ vào hiển thị AMOLED. Hầu hết các màn hình vẫn đen ngoại trừ một vài điểm ảnh.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★ Các tính năng đáng chú ý
+• Luôn hiển thị màn hình
+• Thông báo - xem các thông báo mà không cần chạm vào thiết bị của bạn
+• Tự động quản lí - bảo quản pin sử dụng quy tắc được xác định trước
+• Tự động di chuyển - tránh bật AMOLED
+• Chế độ tự động ban đêm - mờ màn hình tự động trong môi trường tối
+• Chế độ Pocket - khóa điện thoại khi bạn để nó trong túi của bạn để tiết kiệm pin
+• Nhấn đúp để bật + Trượt lên để đánh thức các phím âm lượng + để đánh thức + nút Back để đánh thức
+• Định hướng Force - thiết lập định hướng màn hình ưa thích của bạn
+• Customization - thay đổi màu chữ, cỡ chữ, độ sáng và nhiều hơn nữa
+• MIỄN PHÍ VÀ MỞ NGUỒN!
 
-Before using please enable 'draw over apps' permission for this app.
+Trước khi sử dụng xin vui lòng cho phép ' vẽ trên ứng dụng ' phép cho ứng dụng này.
 
-The app is in BETA, it still has bugs and lacks features.
+Ứng dụng được trong THỬ NGHIỆM, nó vẫn còn lỗi và thiếu các tính năng.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Các quyền
+<b>Cho phép máy ảnh</b>
+Các ứng dụng cần máy ảnh cho phép công nhận tổ chức sự kiện ra mắt máy ảnh và bỏ qua màn hình "luôn vào".
+<b>Cho phép điện thoại</b>
+Các ứng dụng cần sự cho phép điện thoại để nhận cuộc gọi đến, bỏ luôn vào màn hình và hiển thị màn hình gọi đến.
+<b>Sửa đổi hệ thống cài đặt cấp phép</b>
+Các ứng dụng cần sự cho phép để sửa đổi các thiết lập hệ thống để thay đổi độ sáng của màn hình khóa.
 
 
-Google Plus Community
+Cộng đồng Google Plus
 https://plus.google.com/communities/104206728795122451273
