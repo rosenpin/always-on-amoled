@@ -168,7 +168,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
                 i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
                 assert pInfo != null;
-                i.putExtra(Intent.EXTRA_TEXT, "version:" + pInfo.versionName + "\n" + "Device:" + Build.MANUFACTURER + " " + Build.MODEL + " " + Build.DEVICE + "\n" + prefs.toString());
+                i.putExtra(Intent.EXTRA_TEXT, "version:" + pInfo.versionName + "\n" + "Device:" + Build.MANUFACTURER + " " + Build.MODEL + " " + Build.DEVICE + "\n" + "Version: " + android.os.Build.VERSION.SDK_INT + "\n" + prefs.toString());
                 try {
                     startActivity(Intent.createChooser(i, "Send mail..."));
                 } catch (android.content.ActivityNotFoundException ex) {

@@ -164,7 +164,7 @@
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
   <string name="settings_gestures"><![CDATA[Gesten & Eingabe]]></string>
-  <string name="settings_gestures_desc">Doppelt tippen zum Aufwecken, wischen zum Aufwecken und mehr</string>
+  <string name="settings_gestures_desc">Doppelt tippen zum Aufwecken, wischen zum Aufwecken und mehr Einstellungsmöglichkeiten</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Schrift]]></string>
   <string name="settings_select_action">Aktion auswählen</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>

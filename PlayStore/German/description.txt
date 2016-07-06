@@ -13,7 +13,7 @@ Das wird möglich gemacht durch die AMOLED-Display Technologie. Der größte Tei
 • Auto-Bewegung - AMOLED Burn-in-vermeiden
 • Auto-Nachtmodus - Bildschirm in dunkler Umgebung automatisch Dimmen
 • Pocket Mode - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
-• Doppelt tippen, Hochwischen, Lautstärketasten oder die "Zurück"-Taste zum Aufwecken deines Gerätes festlegen
+• Doppelt tippen, Hochwischen, Lautstärketasten oder die Zurück-Taste zum Aufwecken deines Gerätes festlegen
 • Wähle deine bevorzugte Bildschirmorientierung
 • Anpassung - ändere die Textfarbe, Textgröße, Helligkeit und mehr
 • KOSTENLOS UND OPEN SOURCE!
