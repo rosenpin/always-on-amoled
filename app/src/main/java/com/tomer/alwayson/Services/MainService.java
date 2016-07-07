@@ -303,8 +303,14 @@ public class MainService extends Service implements SensorEventListener, Context
         //Turn lights on
         setLights(ON, false, true);
 
-        //Turn screen on with delay
-        stayAwakeWakeLock.acquire();
+        //Turn screen on
+        new Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        stayAwakeWakeLock.acquire();
+                    }
+                },
+                1000);
     }
 
     private boolean isCameraUsedByApp() {

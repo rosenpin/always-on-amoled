@@ -55,6 +55,19 @@ public class HandsOverlay implements DialOverlay {
         updateHands(calendar);
 
         canvas.save();
+
+        if (Analog24HClock.hourOnTop) {
+            canvas.rotate(mMinRot, cX, cY);
+
+            if (sizeChanged) {
+                w = mMinute.getIntrinsicWidth();
+                h = mMinute.getIntrinsicHeight();
+                mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
+            }
+            mMinute.draw(canvas);
+            canvas.restore();
+        }
+
         canvas.rotate(mHourRot, cX, cY);
 
         if (sizeChanged) {
@@ -66,15 +79,18 @@ public class HandsOverlay implements DialOverlay {
         canvas.restore();
 
         canvas.save();
-        canvas.rotate(mMinRot, cX, cY);
 
-        if (sizeChanged) {
-            w = mMinute.getIntrinsicWidth();
-            h = mMinute.getIntrinsicHeight();
-            mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
+        if (!Analog24HClock.hourOnTop) {
+            canvas.rotate(mMinRot, cX, cY);
+
+            if (sizeChanged) {
+                w = mMinute.getIntrinsicWidth();
+                h = mMinute.getIntrinsicHeight();
+                mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
+            }
+            mMinute.draw(canvas);
+            canvas.restore();
         }
-        mMinute.draw(canvas);
-        canvas.restore();
     }
 
     public void setShowSeconds(boolean showSeconds) {

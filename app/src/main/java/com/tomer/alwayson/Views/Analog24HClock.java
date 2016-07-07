@@ -11,13 +11,11 @@ import android.view.View;
 
 import com.tomer.alwayson.R;
 
-import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-
+import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
 
 
 /**
@@ -53,6 +51,7 @@ public class Analog24HClock extends View {
         super(context, attrs);
         init(context, attrs, 0);
     }
+
     public Analog24HClock(Context context) {
         super(context);
 
@@ -87,7 +86,9 @@ public class Analog24HClock extends View {
     }
 
     public static boolean is24;
-    public void init(Context context, int style,boolean is24) {
+    public static boolean hourOnTop;
+
+    public void init(Context context, int style, boolean is24) {
         Analog24HClock.is24 = is24;
         final TypedArray attrs = context.obtainStyledAttributes(attributeSet, R.styleable.Analog24HClock, defStyle, 0);
         Drawable face = attrs.getDrawable(R.styleable.Analog24HClock_face);
@@ -96,18 +97,22 @@ public class Analog24HClock extends View {
 
         switch (style) {
             case 0:
+                Analog24HClock.hourOnTop = false;
                 setFace(R.drawable.clock_face);
                 hourHand = context.getResources().getDrawable(R.drawable.hour_hand);
                 minuteHand = context.getResources().getDrawable(R.drawable.minute_hand);
                 break;
             case 1:
+                Analog24HClock.hourOnTop = false;
                 setFace(com.tomer.alwayson.R.drawable.s7_face);
                 hourHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.s7_hour_hand);
                 minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.s7_minute_hand);
                 break;
             case 2:
+                Analog24HClock.hourOnTop = true;
                 setFace(com.tomer.alwayson.R.drawable.pebble_face);
                 hourHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_hour_hand);
+                hourHand .setAlpha(225);
                 minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_minute_hand);
                 break;
         }
