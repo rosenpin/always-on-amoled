@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#607d8b"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -40,24 +39,24 @@
 
         <CheckBox
             android:id="@+id/intro_checkbox_double_tap"
-            android:checked="true"
             android:layout_width="match_parent"
-            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/intro_checkbox_double_tap"
-            android:layout_height="wrap_content" />
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/intro_checkbox_swipe_up"
             android:layout_width="match_parent"
-            android:text="@string/intro_checkbox_swipe_up"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/white"/>
+            android:text="@string/intro_checkbox_swipe_up"
+            android:textColor="@android:color/white" />
 
         <CheckBox
-            android:textColor="@android:color/white"
             android:id="@+id/intro_checkbox_volume_keys"
-            android:text="@string/intro_checkbox_volume_keys"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/intro_checkbox_volume_keys"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>

@@ -73,6 +73,9 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
 
+    TextClock textClock;
+    TextToSpeech tts;
+    boolean toStopTTS;
     private Prefs prefs;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
@@ -81,14 +84,12 @@ public class MainService extends Service implements SensorEventListener, Context
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private View mainView;
-    TextClock textClock;
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
     private int originalCapacitiveButtonsState = 1500;
     private int height, width;
     private int originalTimeout;
-
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
@@ -121,7 +122,6 @@ public class MainService extends Service implements SensorEventListener, Context
             batteryIV.setImageResource(res);
         }
     };
-
 
     @SuppressWarnings("WeakerAccess")
     private double randInt(double min, double max) {
@@ -602,9 +602,6 @@ public class MainService extends Service implements SensorEventListener, Context
     public IBinder onBind(Intent intent) {
         return null;
     }
-
-    TextToSpeech tts;
-    boolean toStopTTS;
 
     @Override
     public void onInit(int status) {

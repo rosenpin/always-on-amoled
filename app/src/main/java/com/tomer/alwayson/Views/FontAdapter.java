@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.tomer.alwayson.Prefs;
-import com.tomer.alwayson.R;
 
 
 public class FontAdapter extends BaseAdapter {
@@ -24,40 +23,6 @@ public class FontAdapter extends BaseAdapter {
         this.items = context.getResources().getStringArray(items);
         prefs = new Prefs(context);
         prefs.apply();
-    }
-
-    @Override
-    public int getCount() {
-        return items.length;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return items[position];
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        Typeface font = getFontByNumber(context, position);
-        if (view == null) {
-            final LayoutInflater inflater = (LayoutInflater)
-                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(android.R.layout.select_dialog_singlechoice, parent, false);
-        }
-
-        ((TextView) view.findViewById(android.R.id.text1)).setText(items[position]);
-        ((TextView) view.findViewById(android.R.id.text1)).setTypeface(font);
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_dark));
-        else
-            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_light));
-        return view;
     }
 
     public static Typeface getFontByNumber(Context context, int number) {
@@ -98,6 +63,40 @@ public class FontAdapter extends BaseAdapter {
                 return Typeface.createFromAsset(context.getAssets(), "fonts/ubuntu.ttf");
         }
         return Typeface.DEFAULT;
+    }
+
+    @Override
+    public int getCount() {
+        return items.length;
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return items[position];
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view = convertView;
+        Typeface font = getFontByNumber(context, position);
+        if (view == null) {
+            final LayoutInflater inflater = (LayoutInflater)
+                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            view = inflater.inflate(android.R.layout.select_dialog_singlechoice, parent, false);
+        }
+
+        ((TextView) view.findViewById(android.R.id.text1)).setText(items[position]);
+        ((TextView) view.findViewById(android.R.id.text1)).setTypeface(font);
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_dark));
+        else
+            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_light));
+        return view;
     }
 }
 

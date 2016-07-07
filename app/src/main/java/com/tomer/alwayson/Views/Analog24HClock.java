@@ -27,21 +27,19 @@ import info.staticfree.android.twentyfourhour.overlay.HandsOverlay;
  */
 public class Analog24HClock extends View {
 
+    private final ArrayList<DialOverlay> mDialOverlay = new ArrayList<DialOverlay>();
+    AttributeSet attributeSet;
+    int defStyle;
     private Calendar mCalendar;
     private Drawable mFace;
-
     private int mDialWidth;
     private int mDialHeight;
-
     private int mBottom;
     private int mTop;
     private int mLeft;
     private int mRight;
     private boolean mSizeChanged;
-
     private HandsOverlay mHandsOverlay;
-
-    private final ArrayList<DialOverlay> mDialOverlay = new ArrayList<DialOverlay>();
 
     public Analog24HClock(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -52,15 +50,11 @@ public class Analog24HClock extends View {
         super(context, attrs);
         init(context, attrs, 0);
     }
-
     public Analog24HClock(Context context) {
         super(context);
 
         init(context, null, 0);
     }
-
-    AttributeSet attributeSet;
-    int defStyle;
 
     public void init(Context context, AttributeSet attributeSet, int defStyle) {
         this.attributeSet = attributeSet;

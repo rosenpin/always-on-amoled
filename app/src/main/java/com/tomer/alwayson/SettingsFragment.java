@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
@@ -268,11 +269,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     @Override
-    public boolean onPreferenceChange(final Preference origPreference, Object o) {
-        if (origPreference.getKey().equals("watchface_clock")) {
+    public boolean onPreferenceChange(final Preference preference, Object o) {
+        if (preference.getKey().equals("watchface_clock")) {
             int value = Integer.parseInt((String) o);
             if (value > 2) {
-                Log.d(MAIN_ACTIVITY_LOG_TAG,"Chose a pro watchface");
                 if (Globals.ownedItems.size() > 0) {
                     return true;
                 } else {
@@ -284,21 +284,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             }
         }
 
-        final TwoStatePreference preference = (TwoStatePreference) origPreference;
         prefs.apply();
         Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
 
         if (preference.getKey().equals("notifications_alerts")) {
-            if (!preference.isChecked()) {
-                return checkNotificationsPermission(context, true);
-            }
-            return true;
+            return (boolean) o || checkNotificationsPermission(context, true);
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    preference.setChecked(true);
+                    ((CheckBoxPreference) preference).setChecked(true);
                     restartService();
                 }
             }).show();
@@ -316,7 +312,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    preference.setChecked(true);
+                    ((CheckBoxPreference) preference).setChecked(true);
                 }
             }).show();
         }

@@ -3,7 +3,6 @@ package com.tomer.alwayson;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Map;
@@ -28,9 +27,9 @@ public class Prefs {
     public boolean stopOnCamera;
     public boolean autoNightMode;
     public int batteryRules;
-    private SharedPreferences prefs;
     public int font;
     Context context;
+    private SharedPreferences prefs;
 
 
     public Prefs(Context context) {
@@ -106,6 +105,21 @@ public class Prefs {
         return prefs.getString(key, s);
     }
 
+    public String toString() {
+        Map<String, ?> keys = prefs.getAll();
+        StringBuilder string = new StringBuilder();
+        string.append("Prefs");
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+            string.append(entry.getKey() + ": " +
+                    entry.getValue().toString() + "\n");
+        }
+        return string.toString();
+    }
+
+    public SharedPreferences getSharedPrefs() {
+        return prefs;
+    }
+
     public enum KEYS {
         ENABLED("enabled"),
         DOUBLE_TAP_TO_STOP("double_tap"),
@@ -144,21 +158,6 @@ public class Prefs {
         public String toString() {
             return id;
         }
-    }
-
-    public String toString() {
-        Map<String, ?> keys = prefs.getAll();
-        StringBuilder string = new StringBuilder();
-        string.append("Prefs");
-        for (Map.Entry<String, ?> entry : keys.entrySet()) {
-            string.append(entry.getKey() + ": " +
-                    entry.getValue().toString() + "\n");
-        }
-        return string.toString();
-    }
-
-    public SharedPreferences getSharedPrefs() {
-        return prefs;
     }
 }
 

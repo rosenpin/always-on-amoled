@@ -1,7 +1,6 @@
 package com.tomer.alwayson;
 
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
