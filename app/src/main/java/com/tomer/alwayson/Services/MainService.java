@@ -84,6 +84,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private View mainView;
+    private WindowManager.LayoutParams windowParams;
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
@@ -129,7 +130,36 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     @Override
-    public int onStartCommand(final Intent origIntent, int flags, int startId) {
+    public int onStartCommand(Intent origIntent, int flags, int startId) {
+        windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+
+        windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
+            windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+        try {
+            windowManager.addView(frameLayout, windowParams);
+        } catch (Exception e) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        }
+        return super.onStartCommand(origIntent, flags, startId);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
+        prefs = new Prefs(getApplicationContext());
+        prefs.apply();
+        stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
+        stayAwakeWakeLock.setReferenceCounted(false);
+        originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
+        originalTimeout = System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 120000);
+        Log.d("Original timeout", String.valueOf(originalTimeout));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -141,11 +171,6 @@ public class MainService extends Service implements SensorEventListener, Context
         // Setup UI
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
-        WindowManager.LayoutParams windowParams;
-        windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-
-        Log.d("demo mode", String.valueOf(origIntent.getBooleanExtra("demo", false)));
-        windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         frameLayout = new FrameLayout(this) {
             @Override
@@ -180,9 +205,6 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
 
-        if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
-            windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-
         setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -201,17 +223,11 @@ public class MainService extends Service implements SensorEventListener, Context
         for (String filter : Constants.unlockFilters) {
             intentFilter.addAction(filter);
         }
-        registerReceiver(unlockReceiver, intentFilter);
-
         try {
-            windowManager.addView(frameLayout, windowParams);
-        } catch (Exception e) {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
+            unregisterReceiver(unlockReceiver);
+        } catch (Exception ignored) {
         }
+        registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
         if (prefs.proximityToLock || prefs.autoNightMode) //If any sensor is required
@@ -221,7 +237,7 @@ public class MainService extends Service implements SensorEventListener, Context
             Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             if (proximitySensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(5), 50000);
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(900), 100000);
             }
         }
         //If auto night mode option is on, set it up
@@ -299,21 +315,6 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 },
                 1000);
-        return super.onStartCommand(origIntent, flags, startId);
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
-        prefs = new Prefs(getApplicationContext());
-        prefs.apply();
-        stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
-        stayAwakeWakeLock.setReferenceCounted(false);
-        originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-        originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
-        originalTimeout = System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 120000);
-
     }
 
     private boolean isCameraUsedByApp() {
@@ -526,6 +527,7 @@ public class MainService extends Service implements SensorEventListener, Context
         tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
 
         //Resetting the timeout
+        Log.d("Original timeout", String.valueOf(originalTimeout));
         Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
 
         //Unregister receivers
@@ -636,20 +638,17 @@ public class MainService extends Service implements SensorEventListener, Context
             case Sensor.TYPE_PROXIMITY:
                 if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
-                    Globals.isShown = false;
-                    Globals.sensorIsScreenOff = false;
                     stayAwakeWakeLock.release();
+                    Globals.isShown = false;
+                    Globals.sensorIsScreenOff = true;
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Trying to lock");
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
                             else {
-                                if (stayAwakeWakeLock.isHeld())
-                                    stayAwakeWakeLock.release();
-                                Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000);
-                                //((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+                                stayAwakeWakeLock.release();
+                                Log.d(MAIN_SERVICE_LOG_TAG, "Set auto lock timeout - " + Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000));
                             }
                         }
                     }).start();

@@ -331,6 +331,14 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (isServiceRunning(MainService.class)) {
+            stopService(new Intent(getApplicationContext(), MainService.class));
+        }
+    }
+
     private boolean isServiceRunning(Class<?> serviceClass) {
         String TAG = serviceClass.getSimpleName();
         String serviceTag = serviceClass.getSimpleName();
