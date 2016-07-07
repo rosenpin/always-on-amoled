@@ -9,14 +9,14 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.tomer.alwayson.Views.Analog24Utils.HandsOverlay;
+import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
 import info.staticfree.android.twentyfourhour.lib.R;
-import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
+
 
 /**
  * A widget that displays the time as a 12-at-the-top 24 hour analog clock. By

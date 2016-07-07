@@ -1,4 +1,4 @@
-package com.tomer.alwayson.Views.Analog24Utils;
+package com.tomer.alwayson.Views;
 
 
 import android.content.Context;
@@ -7,9 +7,10 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Views.Analog24HClock;
 
 import java.util.Calendar;
+
+import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
 
 
 public class HandsOverlay implements DialOverlay {
