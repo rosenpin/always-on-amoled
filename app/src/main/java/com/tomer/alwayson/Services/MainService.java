@@ -414,7 +414,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refresh() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-        if (Globals.notificationChanged) {
+        if (Globals.notificationChanged && prefs.notificationsAlerts) {
             iconWrapper.removeAllViews();
             for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
                 Drawable drawable = entry.getValue();
