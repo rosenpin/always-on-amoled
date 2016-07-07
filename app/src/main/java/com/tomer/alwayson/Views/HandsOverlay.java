@@ -76,7 +76,6 @@ public class HandsOverlay implements DialOverlay {
             mHour.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
         }
         mHour.draw(canvas);
-        canvas.restore();
 
         canvas.save();
 

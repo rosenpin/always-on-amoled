@@ -44,6 +44,7 @@
             android:background="@color/shell_white_color"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
+            android:text="@string/intro_allow_now"
             android:textColor="@android:color/black" />
     </LinearLayout>
 </LinearLayout>
