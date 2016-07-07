@@ -2,6 +2,7 @@ package com.tomer.alwayson.Activities;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
@@ -24,6 +25,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,6 +42,7 @@ import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
+import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
@@ -185,6 +188,15 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
             donateButtonSetup();
 
+            findViewById(R.id.preview).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent demoService = new Intent(getApplicationContext(), MainService.class);
+                    demoService.putExtra("demo",true);
+                    startService(demoService);
+                }
+            });
+
             stopService(starterServiceIntent);
             startService(starterServiceIntent);
 
@@ -307,6 +319,30 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
             }
         }
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (isServiceRunning(MainService.class)) {
+            stopService(new Intent(getApplicationContext(), MainService.class));
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private boolean isServiceRunning(Class<?> serviceClass) {
+        String TAG = serviceClass.getSimpleName();
+        String serviceTag = serviceClass.getSimpleName();
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                Log.d(TAG, "Is already running");
+                return true;
+            }
+        }
+        Log.d(serviceTag, "Is not running");
+        return false;
     }
 
     void resetPaymentService() {

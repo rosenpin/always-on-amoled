@@ -129,17 +129,7 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        Log.d(MAIN_SERVICE_LOG_TAG,"Main service has started");
-        prefs = new Prefs(getApplicationContext());
-        prefs.apply();
-        stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
-        stayAwakeWakeLock.setReferenceCounted(false);
-        originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-        originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
-        originalTimeout = System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 120000);
-
+    public int onStartCommand(final Intent origIntent, int flags, int startId) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -152,13 +142,10 @@ public class MainService extends Service implements SensorEventListener, Context
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         WindowManager.LayoutParams windowParams;
-        if (Build.VERSION.SDK_INT < 19) {
-            windowParams = new WindowManager.LayoutParams(-1, -1, 2010, 65794, -2);
-        } else {
-            windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-        }
+        windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
 
-        windowParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        Log.d("demo mode", String.valueOf(origIntent.getBooleanExtra("demo", false)));
+        windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         frameLayout = new FrameLayout(this) {
             @Override
@@ -312,6 +299,21 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 },
                 1000);
+        return super.onStartCommand(origIntent, flags, startId);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
+        prefs = new Prefs(getApplicationContext());
+        prefs.apply();
+        stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
+        stayAwakeWakeLock.setReferenceCounted(false);
+        originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
+        originalTimeout = System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 120000);
+
     }
 
     private boolean isCameraUsedByApp() {
@@ -516,7 +518,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
-        Log.d(MAIN_SERVICE_LOG_TAG,"Main service has stopped");
+        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         //Stopping tts if it's running
         toStopTTS = true;
         TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
