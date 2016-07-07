@@ -107,7 +107,7 @@
             <PreferenceCategory android:title="@string/settings_watchface_styles">
                 <ListPreference
                     android:defaultValue="1"
-                    android:dialogTitle="@string/settings_watchface_clock"
+                    android:dialogTitle="@string/settings_watchface_clock_desc"
                     android:entries="@array/customize_clock"
                     android:entryValues="@array/customize_clock_vals"
                     android:key="watchface_clock"
