@@ -344,12 +344,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                             if (which > 5) {
                                 if (Globals.ownedItems.size() > 0) {
-                                    prefs.forceString("font", String.valueOf(which));
+                                    prefs.setString("font", String.valueOf(which));
                                 } else {
                                     PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                                 }
                             } else {
-                                prefs.forceString("font", String.valueOf(which));
+                                prefs.setString("font", String.valueOf(which));
                             }
                             dialog.dismiss();
                         }

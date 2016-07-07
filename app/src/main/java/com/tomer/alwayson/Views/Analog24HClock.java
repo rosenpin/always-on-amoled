@@ -9,13 +9,14 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.tomer.alwayson.Views.Analog24Utils.HandsOverlay;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
 import info.staticfree.android.twentyfourhour.lib.R;
 import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
-import info.staticfree.android.twentyfourhour.overlay.HandsOverlay;
 
 /**
  * A widget that displays the time as a 12-at-the-top 24 hour analog clock. By
@@ -83,7 +84,9 @@ public class Analog24HClock extends View {
         mHandsOverlay = new HandsOverlay(hourHand, minuteHand);
     }
 
-    public void init(Context context, int style) {
+    public static boolean is24;
+    public void init(Context context, int style,boolean is24) {
+        Analog24HClock.is24 = is24;
         final TypedArray attrs = context.obtainStyledAttributes(attributeSet, R.styleable.Analog24HClock, defStyle, 0);
         Drawable face = attrs.getDrawable(R.styleable.Analog24HClock_face);
         Drawable hourHand = attrs.getDrawable(R.styleable.Analog24HClock_hour_hand);

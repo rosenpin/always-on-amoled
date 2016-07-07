@@ -356,7 +356,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.width = (int) (prefs.textSize * 7.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
-                analog24HClock.init(this, 0);
+                analog24HClock.init(this, 0, true);
                 break;
             case 4:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
@@ -367,7 +367,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.width = (int) (prefs.textSize * 7);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
-                analog24HClock.init(this, 1);
+                analog24HClock.init(this, 1, false);
                 break;
             case 5:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
@@ -378,7 +378,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.width = (int) (prefs.textSize * 7);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
-                analog24HClock.init(this, 2);
+                analog24HClock.init(this, 2, false);
                 break;
         }
         switch (prefs.dateStyle) {

@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.Views.Analog24HClock;
 
 import java.util.Calendar;
 
@@ -91,7 +92,7 @@ public class HandsOverlay implements DialOverlay {
     }
 
     public static float getHourHandAngle(int h, int m) {
-        return ((12 + h) / 24.0f * 360) % 360 + (m / 60.0f) * 360 / 24.0f;
+        return Analog24HClock.is24 ? ((12 + h) / 24.0f * 360) % 360 + (m / 60.0f) * 360 / 24.0f : ((12 + h) / 12.0f * 360) % 360 + (m / 60.0f) * 360 / 12.0f;
     }
 
 }
