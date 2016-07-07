@@ -9,8 +9,8 @@ public class AlwaysOnAMOLED extends Application {
         try {
             AppCompatDelegate.setDefaultNightMode(
                     AppCompatDelegate.MODE_NIGHT_AUTO);
-        }catch (NoClassDefFoundError e){
-            Log.i("Error in application","Android failed to do its job.");
+        } catch (NoClassDefFoundError e) {
+            Log.i("Error in application", "Android failed to do its job.");
         }
     }
 }

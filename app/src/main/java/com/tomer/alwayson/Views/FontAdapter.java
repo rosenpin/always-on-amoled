@@ -54,9 +54,9 @@ public class FontAdapter extends BaseAdapter {
         ((TextView) view.findViewById(android.R.id.text1)).setText(items[position]);
         ((TextView) view.findViewById(android.R.id.text1)).setTypeface(font);
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(com.afollestad.materialdialogs.commons.R.color.abc_primary_text_material_dark));
+            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_dark));
         else
-            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(com.afollestad.materialdialogs.commons.R.color.abc_primary_text_material_light));
+            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_light));
         return view;
     }
 
@@ -94,6 +94,8 @@ public class FontAdapter extends BaseAdapter {
                 return Typeface.createFromAsset(context.getAssets(), "fonts/waltograph.ttf");
             case 15:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/halo3.ttf");
+            case 16:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/ubuntu.ttf");
         }
         return Typeface.DEFAULT;
     }

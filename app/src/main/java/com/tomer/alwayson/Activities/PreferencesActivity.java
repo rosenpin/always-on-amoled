@@ -306,11 +306,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 Toast.makeText(getApplicationContext(), R.string.warning_11_need_to_reset_app, Toast.LENGTH_LONG).show();
                 resetPaymentService();
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
-                try {
-                    mService.consumePurchase(3, getPackageName(), data.getStringExtra("INAPP_PURCHASE_DATA"));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
@@ -329,6 +324,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     Globals.ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                     Globals.mService = mService;
                     Log.d("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
+
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
