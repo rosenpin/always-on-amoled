@@ -233,7 +233,7 @@ public class MainService extends Service implements SensorEventListener, Context
             Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             if (proximitySensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(6), 500000);
+                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.SECONDS.toMicros(5), 50000);
             }
         }
         //If auto night mode option is on, set it up
