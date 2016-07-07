@@ -107,6 +107,9 @@ public class Analog24HClock extends View {
                 minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.s7_minute_hand);
                 break;
             case 2:
+                setFace(com.tomer.alwayson.R.drawable.pebble_face);
+                hourHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_hour_hand);
+                minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_minute_hand);
                 break;
         }
         mCalendar = Calendar.getInstance();

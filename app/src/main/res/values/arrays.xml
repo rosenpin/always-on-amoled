@@ -65,6 +65,7 @@
         <item>@string/settings_watch_analog</item>
         <item>@string/settings_watch_analog_24_classic</item>
         <item>@string/settings_watch_analog_s7</item>
+        <item>@string/settings_watch_analog_pebble</item>
     </string-array>
     <string-array name="customize_clock_vals">
         <item>0</item>
@@ -72,6 +73,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="customize_date">
@@ -133,4 +135,5 @@
         <item>@string/support_20</item>
         <item>@string/support_50</item>
     </string-array>
+    <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
 </resources>

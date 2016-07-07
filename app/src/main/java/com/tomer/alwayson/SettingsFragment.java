@@ -39,6 +39,7 @@ import java.util.List;
 
 import de.psdev.licensesdialog.LicensesDialog;
 import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
+import de.psdev.licensesdialog.licenses.GnuGeneralPublicLicense30;
 import de.psdev.licensesdialog.licenses.MITLicense;
 import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
@@ -165,6 +166,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 Notices notices = new Notices();
                 notices.addNotice(new Notice("AppIntro", "https://github.com/PaoloRotolo/AppIntro", "Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr", new ApacheSoftwareLicense20()));
                 notices.addNotice(new Notice("material-dialogs", "https://github.com/afollestad/material-dialogs", "Copyright (c) 2014-2016 Aidan Michael Follestad", new MITLicense()));
+                notices.addNotice(new Notice("24hAnalogWidget", "https://github.com/xxv/24hAnalogWidget", "Copyright (C) 2011-2014 Steve Pomeroy", new GnuGeneralPublicLicense30()));
                 notices.addNotice(new Notice("LicensesDialog", "https://github.com/PSDev/LicensesDialog", "", new ApacheSoftwareLicense20()));
                 new LicensesDialog.Builder(getActivity())
                         .setNotices(notices)
