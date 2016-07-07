@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/clock_wrapper"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <TextClock
         android:id="@+id/digital_clock"
@@ -19,4 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white" />
+
+    <com.tomer.alwayson.Views.Analog24HClock
+        android:id="@+id/analog_classic_24"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:layout_marginBottom="0dp"
+        android:paddingBottom="0dp" />
+
 </LinearLayout>

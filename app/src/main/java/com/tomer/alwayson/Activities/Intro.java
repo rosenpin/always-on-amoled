@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,8 +26,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.Theme;
 import com.github.paolorotolo.appintro.AppIntro2;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
@@ -147,7 +151,10 @@ public class Intro extends AppIntro2 {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            v = inflater.inflate(R.layout.intro_first, container, false);
+            v = inflater.inflate(R.layout.intro_screen, container, false);
+            v.findViewById(R.id.background).setBackgroundColor(Color.parseColor("#039be5"));
+            ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_draw_over);
+            ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_draw_over_desc);
             try {
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
                 lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
@@ -211,7 +218,10 @@ public class Intro extends AppIntro2 {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            v = inflater.inflate(R.layout.intro_second, container, false);
+            v = inflater.inflate(R.layout.intro_screen, container, false);
+            v.findViewById(R.id.background).setBackgroundColor(Color.parseColor("#795548"));
+            ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_modify);
+            ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_modify_desc);
             go = (Button) v.findViewById(R.id.go);
             if (!Settings.System.canWrite(context)) {
                 permissions[1] = false;
@@ -268,7 +278,10 @@ public class Intro extends AppIntro2 {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            v = inflater.inflate(R.layout.intro_third, container, false);
+            v = inflater.inflate(R.layout.intro_screen, container, false);
+            v.findViewById(R.id.background).setBackgroundColor(Color.parseColor("#009688"));
+            ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_permissions);
+            ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_permissions_desc);
             go = (Button) v.findViewById(R.id.go);
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -330,7 +343,10 @@ public class Intro extends AppIntro2 {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            v = inflater.inflate(R.layout.intro_fifth, container, false);
+            v = inflater.inflate(R.layout.intro_screen, container, false);
+            v.findViewById(R.id.background).setBackgroundColor(Color.parseColor("#9c27b0"));
+            ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_notifications);
+            ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_notifications_desc);
             go = (Button) v.findViewById(R.id.go);
             go.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Analog24HClock">
+        <attr name="face" format="reference" />
+        <attr name="minute_hand" format="reference" />
+        <attr name="hour_hand" format="reference" />
+    </declare-styleable>
+</resources>

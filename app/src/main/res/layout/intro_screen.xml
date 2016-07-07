@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
+    android:id="@+id/background"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin">
@@ -16,7 +17,6 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="@string/intro_permissions"
         android:textColor="@android:color/white"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -27,7 +27,6 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="center|top"
-        android:text="@string/intro_permissions_desc"
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
@@ -38,13 +37,13 @@
         android:orientation="vertical">
 
         <Button
-            android:background="@color/shell_white_color"
             android:id="@+id/go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@color/shell_white_color"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="@string/intro_allow_now" />
+            android:textColor="@android:color/black"
+            android:paddingRight="16dp" />
     </LinearLayout>
 </LinearLayout>

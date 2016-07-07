@@ -181,4 +181,7 @@
     <string name="warning_11_need_to_reset_app">You might need to reset the app to take effect</string>
     <string name="settings_uninstall">Uninstall</string>
     <string name="settings_uninstall_desc">Uninstall the app</string>
+    <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
+    <string name="settings_watch_analog_24_classic">Classic 24 Analog</string>
+    <string name="settings_watch_analog_s7">S7 style analog clock</string>
 </resources>

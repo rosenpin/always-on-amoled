@@ -39,6 +39,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
@@ -55,6 +56,7 @@ import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
+import com.tomer.alwayson.Views.Analog24HClock;
 import com.tomer.alwayson.Views.FontAdapter;
 
 import java.io.IOException;
@@ -189,20 +191,11 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
-        textClock = (TextClock) mainView.findViewById(R.id.digital_clock);
+
         if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
             windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 
         setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
-
-        //Setting clock text color and size
-        textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
-        textClock.setTextColor(prefs.textColor);
-
-        //Settings clock format
-        if (!prefs.showAmPm)
-            textClock.setFormat12Hour("h:mm");
-        textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         if (!prefs.moveWidget) {
@@ -327,18 +320,54 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setUpElements(LinearLayout watchfaceWrapper, LinearLayout clockWrapper, LinearLayout dateWrapper, LinearLayout batteryWrapper) {
+        Log.d("Font to apply ", String.valueOf(prefs.font));
+        Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
         calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
         batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
         batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
+        Analog24HClock analog24HClock;
+        ViewGroup.LayoutParams lp;
         switch (prefs.clockStyle) {
             case 0:
                 watchfaceWrapper.removeView(clockWrapper);
                 break;
             case 1:
+                TextClock textClock = (TextClock) clockWrapper.findViewById(R.id.digital_clock);
+                textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
+                textClock.setTextColor(prefs.textColor);
+                if (!prefs.showAmPm)
+                    textClock.setFormat12Hour("h:mm");
+                textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
+                textClock.setTypeface(font);
+
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
                 break;
             case 2:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
+                break;
+            case 3:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+
+                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp.height = (int) (prefs.textSize * 7.5);
+                lp.width = (int) (prefs.textSize * 7.5);
+                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
+                analog24HClock.init(this, 0);
+                break;
+            case 4:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+
+                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp.height = (int) (prefs.textSize * 8);
+                lp.width = (int) (prefs.textSize * 7);
+                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
+                analog24HClock.init(this, 1);
                 break;
         }
         switch (prefs.dateStyle) {
@@ -348,6 +377,7 @@ public class MainService extends Service implements SensorEventListener, Context
             case 1:
                 calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
                 calendarTV.setTextColor(prefs.textColor);
+                calendarTV.setTypeface(font);
                 break;
         }
         switch (prefs.batteryStyle) {
@@ -359,12 +389,10 @@ public class MainService extends Service implements SensorEventListener, Context
                 batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
                 registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
+
         }
-        Log.d("Font to apply ", String.valueOf(prefs.font));
-        Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
-        textClock.setTypeface(font);
+        Log.d("Date", String.valueOf(prefs.dateStyle));
         batteryTV.setTypeface(font);
-        calendarTV.setTypeface(font);
     }
 
     private void refresh() {
@@ -399,7 +427,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         if (prefs.moveWidget) {
             if (prefs.orientation.equals("vertical"))
-                mainView.animate().translationY((float) (height - randInt(height / 1.4, height * 1.4))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                mainView.animate().translationY((float) (height - randInt(height / 1.3, height * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
             else
                 mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
         }
