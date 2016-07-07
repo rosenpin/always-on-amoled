@@ -8,10 +8,14 @@
   <string name="unlock">Ontgrendel</string>
   <string name="action_revert">Terugzetten</string>
   <string name="menu_feedback">Feedback</string>
+  <string name="disclaimer">DISCLAIMER</string>
+  <string name="disclaimer_desc">De ontwikkelaars van Always On AMOLED kunnen niet aansprakelijk gesteld worden voor mogelijke schade aan je apparaat.</string>
+  <string name="agree">Instemmen</string>
   <!--Support-->
   <string name="action_support_the_development">Ondersteun de ontwikkelaar</string>
   <string name="support_how_much">Hoeveel zou je willen doneren?</string>
   <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
+  <string name="supporter_feature_only">Deze functie is alleen beschikbaar voor donateurs, je kunt kiezen hoeveel je wilt doneren om een supporter te worden, hoeveel zou je willen doneren?</string>
   <string name="support_1">1$ De prijs van een verfrissende cola</string>
   <string name="support_2">2$ De prijs van een lekkere chocoladereep</string>
   <string name="support_5">5$ De prijs van een koude ijskoffie</string>
@@ -160,6 +164,7 @@
   <string name="settings_watchface_miscellaneous">Verschillende</string>
   <string name="settings_watchface_styles">Stijlen</string>
   <string name="settings_font">Lettertype</string>
+  <string name="settings_choose_font">Kies je lettertype</string>
   <string name="settings_watch_digital">Digitaal</string>
   <string name="settings_watch_analog">Analoog</string>
   <string name="settings_rules_text">Tekst</string>

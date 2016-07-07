@@ -184,4 +184,5 @@
     <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
     <string name="settings_watch_analog_24_classic">Classic 24 Analog</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
+    <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
 </resources>

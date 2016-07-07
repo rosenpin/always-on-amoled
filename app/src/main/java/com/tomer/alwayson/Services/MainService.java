@@ -131,6 +131,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(MAIN_SERVICE_LOG_TAG,"Main service has started");
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
@@ -358,8 +359,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
-                lp.height = (int) (prefs.textSize * 8);
-                lp.width = (int) (prefs.textSize * 7);
+                lp.height = (int) (prefs.textSize * 10);
+                lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 0, true);
@@ -369,8 +370,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
-                lp.height = (int) (prefs.textSize * 8);
-                lp.width = (int) (prefs.textSize * 7);
+                lp.height = (int) (prefs.textSize * 10);
+                lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 1, false);
@@ -380,8 +381,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
-                lp.height = (int) (prefs.textSize * 8);
-                lp.width = (int) (prefs.textSize * 7);
+                lp.height = (int) (prefs.textSize * 10);
+                lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 2, false);
@@ -515,6 +516,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        Log.d(MAIN_SERVICE_LOG_TAG,"Main service has stopped");
         //Stopping tts if it's running
         toStopTTS = true;
         TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
