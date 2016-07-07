@@ -288,7 +288,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
 
         if (preference.getKey().equals("notifications_alerts")) {
-            return (boolean) o || checkNotificationsPermission(context, true);
+            if ((boolean) o) {
+                return checkNotificationsPermission(context, true);
+            }
+            return true;
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
