@@ -8,9 +8,14 @@
   <string name="unlock">ロック解除</string>
   <string name="action_revert">戻す</string>
   <string name="menu_feedback">フィードバック</string>
+  <string name="disclaimer">免責事項</string>
+  <string name="disclaimer_desc">Always On AMOLED 開発者は、お使いのデバイスに発生しうるいかなる損害も責任を負いかねます。</string>
+  <string name="agree">同意</string>
   <!--Support-->
   <string name="action_support_the_development">開発を支援する</string>
+  <string name="support_how_much">いくら寄付していただけますか？</string>
   <string name="gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
+  <string name="supporter_feature_only">この機能は支援していただくことでご利用になれます。支援者になるために寄付する額をお選びいただけますが、いくらご支援していただけますか？</string>
   <string name="support_1">$1 リフレッシュできるコーラ1本分</string>
   <string name="support_2">$2 うまいチョコバー1本分</string>
   <string name="support_5">$5 すてきなアイスコーヒー1杯分</string>
@@ -159,6 +164,7 @@
   <string name="settings_watchface_miscellaneous">その他</string>
   <string name="settings_watchface_styles">スタイル</string>
   <string name="settings_font">フォント</string>
+  <string name="settings_choose_font">フォントを選択</string>
   <string name="settings_watch_digital">デジタル</string>
   <string name="settings_watch_analog">アナログ</string>
   <string name="settings_rules_text">テキスト</string>
@@ -172,5 +178,7 @@
   <string name="settings_gestures_desc">ダブルタップで起動、スワイプアップで起動、など</string>
   <string name="settings_watchface_text_font"><![CDATA[テキストとフォント]]></string>
   <string name="settings_select_action">アクションを選択</string>
-  <string name="support_how_much">いくら寄付していただけますか？</string>
+  <string name="warning_11_need_to_reset_app">有効にするにはアプリをリセットする必要があるかもしれません。</string>
+  <string name="settings_uninstall">アンインストール</string>
+  <string name="settings_uninstall_desc">アプリをアンインストール</string>
 </resources>

@@ -3,11 +3,23 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always on pentru display-urile AMOLED</string>
+  <string name="title_donation">Contribuie la dezvoltarea aplicației</string>
   <!--Actions-->
+  <string name="unlock">Deblochează</string>
   <string name="action_revert">Restaurează la valorile precedente</string>
   <string name="menu_feedback">Spune-ne părerea ta</string>
+  <string name="disclaimer">AVERTISMENT</string>
+  <string name="disclaimer_desc">Dezvoltatorii nu sunt răspunzători de eventualele probleme care pot apărea cu telefonul dumneavoastră în urma instalării aplicației.</string>
+  <string name="agree">Sunt de acord</string>
   <!--Support-->
   <string name="action_support_the_development">CONTRIBUIE LA DEZVOLTAREA APLICAȚIEI</string>
+  <string name="support_how_much">Cât de mult ați dori să donați?</string>
+  <string name="gestures_action_speak">Spune cu voce tare ora, notificările şi nivelul bateriei</string>
+  <string name="supporter_feature_only">Această opțiune este valabilă doar pentru donatori. Poți alege cât de mult ca să devi un donator. Cât de mult dorești să donezi?</string>
+  <string name="support_1">1$ - prețul unei doze de Coca Cola.</string>
+  <string name="support_2">2$ - prețul unei ciocolate.</string>
+  <string name="support_5">5$ - prețul unui cești de cafea foarte bună.</string>
+  <string name="support_10">10$ - prețul unei pizza.</string>
   <!--Intro-->
   <string name="intro_allow_now">Oferă permisiunile</string>
   <string name="intro_permissions">Urmărirea stării telefonului și a camerei</string>
@@ -33,7 +45,7 @@
   <!--Widget-->
   <string name="widget_toggle">Comutator</string>
   <string name="widget_off">Always on - oprit</string>
-  <string name="widget_on">Always on - pornit</string>
+  <string name="widget_on">Activat</string>
   <!--Device admin-->
   <string name="device_admin_desc">Activează această funcție pentru a debloca alte funcții pentru dispozitivele care nu beneficiază de root.</string>
   <string name="device_admin_explanation">Vă rog să oferiți permisiunile de administrator pentru a uitiliza mai multe caracteristici pe dispozitivele care nu beneficiază de root.</string>
@@ -55,6 +67,7 @@
   <string name="warning_7_disable_fingerprint">Această acțiune v-a dezactiva sensorul de amprente. Sunteți sigur că activați această funcție?</string>
   <string name="warning_8_intro_allow_all">Te rog să oferi toate permisiunile!</string>
   <string name="warning_9_allow_notification">Te rog să oferi permisiunile necesare ca aplicația să citească notificările aplicațiilor.</string>
+  <string name="warning_10_tts_not_installed">Vă rugăm să instalaţi mai întâi un motor de text în vorbire</string>
   <!--Charging rules-->
   <string name="rules_both">Mereu</string>
   <string name="rules_while_charging">În timpul încărcării</string>
@@ -152,6 +165,7 @@
   <string name="settings_watchface_miscellaneous">Diverse</string>
   <string name="settings_watchface_styles">Personalizare</string>
   <string name="settings_font">Font</string>
+  <string name="settings_choose_font">- alege fontul</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
   <string name="settings_rules_text">Text</string>
@@ -161,4 +175,11 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospaţiu</string>
+  <string name="settings_gestures"><![CDATA[Gesturi și intrări]]></string>
+  <string name="settings_gestures_desc">Apasă de două ori ca să ieși, glisează în sus și altele</string>
+  <string name="settings_watchface_text_font"><![CDATA[Text și font]]></string>
+  <string name="settings_select_action">Selectează o acțiune</string>
+  <string name="warning_11_need_to_reset_app">Ar trebui să restartezi telefonul ca setările să ia efect.</string>
+  <string name="settings_uninstall">Altele</string>
+  <string name="settings_uninstall_desc">Dezinstalează aplicația</string>
 </resources>

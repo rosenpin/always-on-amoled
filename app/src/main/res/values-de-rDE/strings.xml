@@ -3,13 +3,23 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
-  <string name="title_donation">Unterstütze den Entwickler</string>
+  <string name="title_donation">Unterstütze die Entwicklung</string>
   <!--Actions-->
   <string name="unlock">Bildschirm anschalten</string>
   <string name="action_revert">Rückgängig machen</string>
   <string name="menu_feedback">Feedback</string>
+  <string name="disclaimer">HAFTUNGSAUSSCHLUSS</string>
+  <string name="disclaimer_desc">Die \"Always On\" Entwickler sind nicht verantwortlich für jegliche Schäden, die möglicherweise an deinem Gerät entstehen.</string>
+  <string name="agree">Zustimmen</string>
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
+  <string name="support_how_much">Wie viel möchtest du spenden?</string>
+  <string name="gestures_action_speak">Sage die aktuelle Zeit, Benachrichtigungen und den Akkustand laut aus</string>
+  <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen du spenden willst um ein Unterstützer zu werden. Wieviel willst du spenden?</string>
+  <string name="support_1">1$ der Preis einer erfrischenden Coke</string>
+  <string name="support_2">2$ der Preis von einem leckerem Schokoriegel</string>
+  <string name="support_5">5$ der Preis für einen coolen Eiskaffe</string>
+  <string name="support_10">10$ der Preis für eine köstliche Pizza</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen und Kamera-Berechtigung</string>
@@ -154,6 +164,7 @@
   <string name="settings_watchface_miscellaneous">Verschiedenes</string>
   <string name="settings_watchface_styles">Stil</string>
   <string name="settings_font">Schriftart</string>
+  <string name="settings_choose_font">Wähle deine Schriftart</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
   <string name="settings_rules_text">Text</string>
@@ -167,5 +178,7 @@
   <string name="settings_gestures_desc">Doppelt tippen zum Aufwecken, wischen zum Aufwecken und mehr Einstellungsmöglichkeiten</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Schrift]]></string>
   <string name="settings_select_action">Aktion auswählen</string>
-  <string name="support_how_much">Wie viel möchtest du spenden?</string>
+  <string name="warning_11_need_to_reset_app">Möglicherweise musst du die App zurücksetzen um einen Effekt zu erzielen</string>
+  <string name="settings_uninstall">Deinstallieren</string>
+  <string name="settings_uninstall_desc">App deinstallieren</string>
 </resources>

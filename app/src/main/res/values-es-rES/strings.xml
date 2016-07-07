@@ -8,10 +8,18 @@
   <string name="unlock">Unlock</string>
   <string name="action_revert">Revertir</string>
   <string name="menu_feedback">Opiniones</string>
+  <string name="disclaimer">DESCARGO DE RESPONSABILIDAD</string>
+  <string name="disclaimer_desc">Los desarrolladores siempre en AMOLED no se hará responsables de cualquier daño que pueda sufrir tu dispositivo.</string>
+  <string name="agree">Aceptar</string>
   <!--Support-->
   <string name="action_support_the_development">Support the development</string>
+  <string name="support_how_much">¿Cuánto quieres donar?</string>
   <string name="gestures_action_speak">Hi</string>
+  <string name="supporter_feature_only">Esta función sólo está disponible para los fanáticos, puede elegir cuánto quieres donar para convertirse en un seguidor, ¿cuánto te gustaría donar?</string>
+  <string name="support_1">1$ el precio de una refrescante Coca-Cola</string>
   <string name="support_2">2$ The price of a tasty chocolate bar</string>
+  <string name="support_5">5$ el precio de un café de hielo fresco</string>
+  <string name="support_10">10$ el precio de una pizza deliciosa</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ver el estado del teléfono y permisos de Cámara</string>
@@ -59,6 +67,7 @@
   <string name="warning_7_disable_fingerprint">Esto podría desactivar el sensor de huellas dactilares, ¿está seguro de que desea continuar?</string>
   <string name="warning_8_intro_allow_all">Por favor activa todos los permisos para la aplicación</string>
   <string name="warning_9_allow_notification">Por favor permite acceso a las notificaciones</string>
+  <string name="warning_10_tts_not_installed">Por favor instale primero un motor de texto a voz</string>
   <!--Charging rules-->
   <string name="rules_both">Ambos</string>
   <string name="rules_while_charging">Cuando está cargando</string>
@@ -155,6 +164,7 @@
   <string name="settings_watchface_miscellaneous">Miscellaneous</string>
   <string name="settings_watchface_styles">Styles</string>
   <string name="settings_font">Font</string>
+  <string name="settings_choose_font">Elegir la fuente</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
   <string name="settings_rules_text">Text</string>
@@ -164,4 +174,11 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures"><![CDATA[Gestos y la insumos]]></string>
+  <string name="settings_gestures_desc">Doble toque a despertar, pase hasta despertar y más</string>
+  <string name="settings_watchface_text_font"><![CDATA[Fuente del texto y]]></string>
+  <string name="settings_select_action">Seleccionar Acción</string>
+  <string name="warning_11_need_to_reset_app">Puede que necesite reiniciar la aplicación para tomar efecto</string>
+  <string name="settings_uninstall">Desinstalar</string>
+  <string name="settings_uninstall_desc">Desinstalar la aplicación</string>
 </resources>

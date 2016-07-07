@@ -10,6 +10,7 @@
   <string name="menu_feedback">Feedback</string>
   <!--Support-->
   <string name="action_support_the_development">Ondersteun de ontwikkelaar</string>
+  <string name="support_how_much">Hoeveel zou je willen doneren?</string>
   <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
   <string name="support_1">1$ De prijs van een verfrissende cola</string>
   <string name="support_2">2$ De prijs van een lekkere chocoladereep</string>
@@ -172,7 +173,6 @@
   <string name="settings_gestures_desc">Dubbel klikken om wakker te maken, omhoog swipen om wakker te maken, en meer</string>
   <string name="settings_watchface_text_font"><![CDATA[Tekst en lettertype]]></string>
   <string name="settings_select_action">Selecteer actie</string>
-  <string name="support_how_much">Hoeveel zou je willen doneren?</string>
   <string name="warning_11_need_to_reset_app">Je moet mogelijk de app opnieuw opstarten voordat de veranderingen effect hebben</string>
   <string name="settings_uninstall">Deinstalleer</string>
   <string name="settings_uninstall_desc">Deinstalleer de app</string>

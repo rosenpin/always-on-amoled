@@ -9,6 +9,7 @@
   <string name="menu_feedback">משוב</string>
   <!--Support-->
   <string name="action_support_the_development">תמיכה בפיתוח</string>
+  <string name="support_how_much">כמה תרצה לתרום?</string>
   <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
   <!--Intro-->
   <string name="intro_allow_now">אפשר עכשיו</string>
@@ -167,5 +168,4 @@
   <string name="settings_gestures_desc">הקשה כפולה להדלקה, משיכה מעלה להדלקה ועוד</string>
   <string name="settings_watchface_text_font"><![CDATA[גופן וטקסט]]></string>
   <string name="settings_select_action">בחר פעולה</string>
-  <string name="support_how_much">כמה תרצה לתרום?</string>
 </resources>

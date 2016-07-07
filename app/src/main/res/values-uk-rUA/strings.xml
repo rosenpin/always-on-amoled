@@ -8,8 +8,18 @@
   <string name="unlock">Розблок.</string>
   <string name="action_revert">Скасувати</string>
   <string name="menu_feedback">Зворотній зв\'язок</string>
+  <string name="disclaimer">ВІДМОВА ВІД ВІДПОВІДАЛЬНОСТІ</string>
+  <string name="disclaimer_desc">Розробники Always On AMOLED не несуть відповідальності за будь-які збитки, які можуть виникнути в пристрої.</string>
+  <string name="agree">Погоджуюся</string>
   <!--Support-->
   <string name="action_support_the_development">Підтримати розробку</string>
+  <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
+  <string name="gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
+  <string name="supporter_feature_only">Ця функція доступна тільки для прихильників, ви можете вибрати, скільки ви хочете пожертвувати, щоб стати прихильником, скільки б ви хотіли пожертвувати?</string>
+  <string name="support_1">1$ на кокс</string>
+  <string name="support_2">2$ на смачну плитку шоколаду</string>
+  <string name="support_5">5$ на смачну холодну каву</string>
+  <string name="support_10">10$ на смачну піцу</string>
   <!--Intro-->
   <string name="intro_allow_now">Дозволити зараз</string>
   <string name="intro_permissions">Стан прочитання телефону і дозвіл камери</string>
@@ -57,6 +67,7 @@
   <string name="warning_7_disable_fingerprint">Це може відключити функціональність сенсору відбитків пальців, ви впевнені, що хочете увімкнути цю функцію?</string>
   <string name="warning_8_intro_allow_all">Будь ласка, надайте всі дозволи</string>
   <string name="warning_9_allow_notification">Будь ласка, надайте доступ повідомленням для додатку</string>
+  <string name="warning_10_tts_not_installed">Будь ласка, встановіть текст-промови спочатку</string>
   <!--Charging rules-->
   <string name="rules_both">Обидва</string>
   <string name="rules_while_charging">Під час заряджання</string>
@@ -153,6 +164,7 @@
   <string name="settings_watchface_miscellaneous">Різне</string>
   <string name="settings_watchface_styles">Стилі</string>
   <string name="settings_font">Шрифт</string>
+  <string name="settings_choose_font">Виберіть шрифт</string>
   <string name="settings_watch_digital">Цифровий</string>
   <string name="settings_watch_analog">Аналоговий</string>
   <string name="settings_rules_text">Текст</string>
@@ -162,8 +174,11 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Моноширинний</string>
-  <string name="settings_gestures"><![CDATA[Рухи & входи]]></string>
+  <string name="settings_gestures"><![CDATA[Жести пробудження]]></string>
+  <string name="settings_gestures_desc">Подвійне натискання, свайп і багато іншого</string>
   <string name="settings_watchface_text_font"><![CDATA[Текст & шрифт]]></string>
   <string name="settings_select_action">Оберіть дію</string>
-  <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
+  <string name="warning_11_need_to_reset_app">Можливо, потрібно перезавантажити додаток, щоб зміни набули чинності</string>
+  <string name="settings_uninstall">Видалити</string>
+  <string name="settings_uninstall_desc">Видалити додаток</string>
 </resources>
