@@ -67,6 +67,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
+        findPreference("watchface_clock").setOnPreferenceChangeListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -268,6 +269,21 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     @Override
     public boolean onPreferenceChange(final Preference origPreference, Object o) {
+        if (origPreference.getKey().equals("watchface_clock")) {
+            int value = Integer.parseInt((String) o);
+            if (value > 2) {
+                Log.d(MAIN_ACTIVITY_LOG_TAG,"Chose a pro watchface");
+                if (Globals.ownedItems.size() > 0) {
+                    return true;
+                } else {
+                    PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        }
+
         final TwoStatePreference preference = (TwoStatePreference) origPreference;
         prefs.apply();
         Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
