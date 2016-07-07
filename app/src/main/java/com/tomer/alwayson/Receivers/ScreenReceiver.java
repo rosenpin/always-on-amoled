@@ -102,11 +102,12 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                                     context.startService(new Intent(context, MainService.class));
                                     Globals.isShown = true;
                                     Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is unlocked");
-                                    return;
                                 } else {
                                     Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is locked but has a timeout");
                                     try {
-                                        startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", -1);
+                                        startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", 5000);
+                                        if (startDelay == -1)
+                                            startDelay = (int) Settings.Secure.getLong(context.getContentResolver(), "lock_screen_lock_after_timeout", 5000);
                                         Log.d(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
                                     } catch (Exception settingNotFound) {
                                         startDelay = 0;
