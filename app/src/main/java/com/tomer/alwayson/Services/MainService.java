@@ -131,18 +131,21 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
-        windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+        if (windowParams == null) {
+            windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
 
-        windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-        if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
-            windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-        try {
-            windowManager.addView(frameLayout, windowParams);
-        } catch (Exception e) {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+            windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+            if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
+                windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+            try {
+                windowManager.addView(frameLayout, windowParams);
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         }
         return super.onStartCommand(origIntent, flags, startId);
