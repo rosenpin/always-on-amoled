@@ -28,9 +28,8 @@ public class HandsOverlay implements DialOverlay {
 
         mUseLargeFace = useLargeFace;
 
-        mHour = r.getDrawable(mUseLargeFace ? R.drawable.hour_hand_large : R.drawable.hour_hand);
-        mMinute = r.getDrawable(mUseLargeFace ? R.drawable.minute_hand_large
-                : R.drawable.minute_hand);
+        mHour = r.getDrawable(R.drawable.hour_hand);
+        mMinute = r.getDrawable(R.drawable.minute_hand);
     }
 
     public HandsOverlay(Drawable hourHand, Drawable minuteHand) {

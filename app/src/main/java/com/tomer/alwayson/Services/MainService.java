@@ -352,8 +352,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
-                lp.height = (int) (prefs.textSize * 7.5);
-                lp.width = (int) (prefs.textSize * 7.5);
+                lp.height = (int) (prefs.textSize * 8);
+                lp.width = (int) (prefs.textSize * 7);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 0, true);

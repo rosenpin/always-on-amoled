@@ -9,13 +9,15 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.tomer.alwayson.R;
+
 import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import info.staticfree.android.twentyfourhour.lib.R;
+
 
 
 /**
