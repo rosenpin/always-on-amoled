@@ -211,7 +211,7 @@ public class MainService extends Service implements SensorEventListener, Context
         setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        if (!prefs.moveWidget) {
+        if (prefs.moveWidget == 0) {
             mainLayoutParams.gravity = Gravity.CENTER;
         } else {
             mainLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
@@ -314,6 +314,15 @@ public class MainService extends Service implements SensorEventListener, Context
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
+                        //Greenify integration
+                        if (isPackageInstalled("com.oasisfeng.greenify", getApplicationContext())) {
+                            Intent i = new Intent();
+                            i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
+                            i.putExtra("noop-toast", true);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(i);
+                        }
+                        //Turn on the display
                         stayAwakeWakeLock.acquire();
                     }
                 },
@@ -350,7 +359,11 @@ public class MainService extends Service implements SensorEventListener, Context
                 textClock.setTextColor(prefs.textColor);
                 if (!prefs.showAmPm)
                     textClock.setFormat12Hour("h:mm");
-                textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().getLocales().get(0));
+                } else {
+                    textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
+                }
                 textClock.setTypeface(font);
 
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
@@ -449,11 +462,19 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refreshLong() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (prefs.moveWidget) {
-            if (prefs.orientation.equals("vertical"))
-                mainView.animate().translationY((float) (height - randInt(height / 1.3, height * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
-            else
-                mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+        switch (prefs.moveWidget) {
+            case 1:
+                if (prefs.orientation.equals("vertical"))
+                    mainView.setX((float) (height - randInt(height / 1.3, height * 1.3)));
+                else
+                    mainView.setY((float) (width - randInt(width / 1.3, width * 1.3)));
+                break;
+            case 2:
+                if (prefs.orientation.equals("vertical"))
+                    mainView.animate().translationY((float) (height - randInt(height / 1.3, height * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                else
+                    mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                break;
         }
         if (prefs.dateStyle != 0) {
             Calendar calendar = Calendar.getInstance();
@@ -582,7 +603,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     i.putExtra("state", state);
                     i.putExtra("originalCapacitiveButtonsState", originalCapacitiveButtonsState);
                     ComponentName c = startService(i);
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin");
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin to control the buttons lights");
                 } catch (Exception e) {
                     Log.d(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
                     Toast.makeText(getApplicationContext(), getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();

@@ -34,7 +34,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_marginEnd="@dimen/fab_margin"
-            android:src="@android:drawable/ic_media_play" />
+            android:src="@drawable/ic_play_arrow" />
 
     </FrameLayout>
 </LinearLayout>

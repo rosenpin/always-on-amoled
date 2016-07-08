@@ -75,6 +75,11 @@
                     android:title="@string/settings_back_button_wake" />
             </PreferenceCategory>
         </PreferenceScreen>
+        <CheckBoxPreference
+            android:key="greenify"
+            android:title="@string/greenify_integration"
+            android:summary="@string/greenify_integration_desc"
+            android:defaultValue="true"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
@@ -83,10 +88,13 @@
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
             android:title="@string/settings_notifications" />
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="move_auto"
-            android:summary="@string/settings_move_desc"
+        <ListPreference
+            android:defaultValue="2"
+            android:key="movement_style"
+            android:entries="@array/settings_move"
+            android:entryValues="@array/settings_move_values"
+            android:dialogTitle="@string/settings_move_desc"
+            android:summary="%s"
             android:title="@string/settings_move_auto" />
         <CheckBoxPreference
             android:defaultValue="false"

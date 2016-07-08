@@ -127,12 +127,23 @@
         <item>speak</item>
     </string-array>
 
-    <string-array name="support_items" >
+    <string-array name="support_items">
         <item>@string/support_1</item>
         <item>@string/support_2</item>
         <item>@string/support_5</item>
         <item>@string/support_10</item>
         <item>@string/support_20</item>
         <item>@string/support_50</item>
+    </string-array>
+
+    <string-array name="settings_move">
+        <item>@string/move_disable</item>
+        <item>@string/move_move</item>
+        <item>@string/move_move_animation</item>
+    </string-array>
+    <string-array name="settings_move_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 </resources>

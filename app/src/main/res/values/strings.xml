@@ -185,4 +185,9 @@
     <string name="settings_watch_analog_24_classic">Classic 24 Analog</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
     <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
+    <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
+    <string name="move_move">Move the widget automatically</string>
+    <string name="move_move_animation">Move the widget automatically with an animation</string>
+    <string name="greenify_integration">Greenify integration</string>
+    <string name="greenify_integration_desc">Enable greenify while the always on service is visible to significantly save battery!</string>
 </resources>

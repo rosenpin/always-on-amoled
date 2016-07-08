@@ -12,7 +12,7 @@ public class Prefs {
     public boolean doubleTapToStop, swipeToStop, volumeToStop, backButtonToStop;
     public boolean proximityToLock;
     public boolean showNotification;
-    public boolean moveWidget;
+    public int moveWidget;
     public boolean disableVolumeKeys;
     public boolean notificationsAlerts;
     public int clockStyle, dateStyle, batteryStyle;
@@ -52,7 +52,7 @@ public class Prefs {
             Toast.makeText(context, "ERROR, YOUR PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
         }
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
-        moveWidget = prefs.getBoolean(KEYS.MOVE_WIDGET.toString(), true);
+        moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
         brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 20);
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
@@ -127,7 +127,7 @@ public class Prefs {
         VOLUME_TO_STOP("volume_keys"),
         BACK_BUTTON_TO_STOP("back_button"),
         SHOW_NOTIFICATION("persistent_notification"),
-        MOVE_WIDGET("move_auto"),
+        MOVE_WIDGET("movement_style"),
         BRIGHTNESS("brightness"),
         TEXT_SIZE("font_size"),
         PERMISSION_GRANTING("permissiongrantingscreen"),

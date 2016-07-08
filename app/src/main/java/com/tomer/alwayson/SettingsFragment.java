@@ -69,6 +69,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
         findPreference("watchface_clock").setOnPreferenceChangeListener(this);
+        findPreference("greenify").setOnPreferenceChangeListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -77,8 +78,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     Log.d("Object value ", (String) o);
                     if (o.equals("speak")) {
                         if (Globals.ownedItems.size() > 0) {
-                            if (!isPackageInstalled("com.google.android.tts", context)) {
-                                openURL("https://play.google.com/store/apps/details?id=com.google.android.tts");
+                            if (!isPackageInstalled("com.google.android.tts")) {
+                                openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
                                 Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
                             }
                             Log.d("Purchased items", String.valueOf(Globals.ownedItems));
@@ -95,6 +96,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
         Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
+        if (!isPackageInstalled("com.oasisfeng.greenify")) {
+            ((TwoStatePreference) findPreference("greenify")).setChecked(false);
+        }
     }
 
     @Override
@@ -107,15 +111,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (hasSoftKeys()) {
             findPreference("back_button").setEnabled(false);
         } else {
-            if (!IsPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().contains("samsung")) { //Prompt to install the plugin
+            if (!isPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().contains("samsung")) { //Prompt to install the plugin
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.plugin_dialog_title))
                         .setMessage(getString(R.string.plugin_dialog_desc))
                         .setPositiveButton("Download", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=tomer.com.alwaysonamoledplugin"));
-                                startActivity(browserIntent);
+                                openPlayStoreUrl("tomer.com.alwaysonamoledplugin", getActivity());
                                 dialogInterface.dismiss();
                             }
                         })
@@ -135,9 +138,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         getActivity().startService(starterService);
     }
 
-    private void openURL(String url) {
+    public static void openURL(String url, Activity context) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        startActivity(browserIntent);
+        browserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(browserIntent);
     }
 
     private void version(Context c) {
@@ -155,7 +159,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("translate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                openURL("https://crowdin.com/project/always-on-amoled");
+                openURL("https://crowdin.com/project/always-on-amoled", getActivity());
                 return false;
             }
         });
@@ -183,7 +187,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("community").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                openURL("https://plus.google.com/communities/104206728795122451273");
+                openURL("https://plus.google.com/communities/104206728795122451273", getActivity());
                 return false;
             }
         });
@@ -193,7 +197,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("github").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                openURL("https://github.com/rosenpin/AlwaysOnDisplayAmoled");
+                openURL("https://github.com/rosenpin/AlwaysOnDisplayAmoled", getActivity());
                 return false;
             }
         });
@@ -221,7 +225,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         return true;
     }
 
-    public boolean IsPackageInstalled(String targetPackage) {
+    public boolean isPackageInstalled(String targetPackage) {
         List<ApplicationInfo> packages;
         PackageManager pm;
 
@@ -256,16 +260,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         prefs.setBool("has_soft_keys", hasSoftwareKeys);
 
         return hasSoftwareKeys;
-    }
-
-    private boolean isPackageInstalled(String packagename, Context context) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
     }
 
     @Override
@@ -318,8 +312,23 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     ((CheckBoxPreference) preference).setChecked(true);
                 }
             }).show();
+        } else if (preference.getKey().equals("greenify") && (boolean) o) {
+            if (isPackageInstalled("com.oasisfeng.greenify")) {
+                return true;
+            } else {
+                openPlayStoreUrl("com.oasisfeng.greenify", getActivity());
+                return false;
+            }
         }
         return true;
+    }
+
+    public static void openPlayStoreUrl(String appName, Activity context) {
+        try {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appName)));
+        } catch (Exception e) {
+            openURL("https://play.google.com/store/apps/details?id=" + appName, context);
+        }
     }
 
     @Override

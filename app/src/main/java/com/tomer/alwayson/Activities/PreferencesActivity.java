@@ -54,6 +54,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     private Intent widgetUpdaterService;
     private IInAppBillingService mService;
     private ServiceConnection mServiceConn;
+    private boolean demo;
 
     public static void promptToSupport(final Activity context, final IInAppBillingService mService, final View rootView, boolean supporterFeature) {
         new MaterialDialog.Builder(context)
@@ -191,8 +192,9 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             findViewById(R.id.preview).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    demo = true;
                     Intent demoService = new Intent(getApplicationContext(), MainService.class);
-                    demoService.putExtra("demo",true);
+                    demoService.putExtra("demo", true);
                     startService(demoService);
                 }
             });
@@ -323,7 +325,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (isServiceRunning(MainService.class)) {
             stopService(new Intent(getApplicationContext(), MainService.class));
             return false;
@@ -334,8 +336,9 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     @Override
     protected void onPause() {
         super.onPause();
-        if (isServiceRunning(MainService.class)) {
+        if (isServiceRunning(MainService.class) && demo) {
             stopService(new Intent(getApplicationContext(), MainService.class));
+            demo = false;
         }
     }
 
