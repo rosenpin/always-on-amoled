@@ -28,11 +28,7 @@ import android.provider.Settings;
 import android.provider.Settings.System;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityManagerCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.widget.AppCompatImageView;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
@@ -81,7 +77,6 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
 
-    TextClock textClock;
     TextToSpeech tts;
     boolean toStopTTS;
     private Prefs prefs;
@@ -461,7 +456,7 @@ public class MainService extends Service implements SensorEventListener, Context
             Globals.notificationChanged = false;
         }
 
-        if (Globals.newNotification != null) {
+        if (Globals.newNotification != null && prefs.getBoolByKey("notifications_alerts_preview", true)) {
             showMessage(Globals.newNotification);
         }
 
@@ -553,7 +548,7 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void showMessage(final NotificationListener.Notification notification) {
-        if (mainView.findViewById(R.id.message_box).getAnimation()!=null){
+        if (mainView.findViewById(R.id.message_box).getAnimation() != null) {
             mainView.findViewById(R.id.message_box).clearAnimation();
         }
         Animation fadeIn = new AlphaAnimation(0, 1);

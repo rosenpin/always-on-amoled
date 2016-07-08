@@ -76,10 +76,10 @@
             </PreferenceCategory>
         </PreferenceScreen>
         <CheckBoxPreference
+            android:defaultValue="true"
             android:key="greenify"
-            android:title="@string/greenify_integration"
             android:summary="@string/greenify_integration_desc"
-            android:defaultValue="true"/>
+            android:title="@string/greenify_integration" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
@@ -88,12 +88,17 @@
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
             android:title="@string/settings_notifications" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notifications_alerts_preview"
+            android:summary="@string/settings_notifications_alerts_preview_desc"
+            android:title="@string/settings_notifications_alerts_preview" />
         <ListPreference
             android:defaultValue="2"
-            android:key="movement_style"
+            android:dialogTitle="@string/settings_move_desc"
             android:entries="@array/settings_move"
             android:entryValues="@array/settings_move_values"
-            android:dialogTitle="@string/settings_move_desc"
+            android:key="movement_style"
             android:summary="%s"
             android:title="@string/settings_move_auto" />
         <CheckBoxPreference
@@ -202,8 +207,7 @@
         <Preference
             android:key="uninstall"
             android:summary="@string/settings_uninstall_desc"
-            android:title="@string/settings_uninstall">
-        </Preference>
+            android:title="@string/settings_uninstall"></Preference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_about">
