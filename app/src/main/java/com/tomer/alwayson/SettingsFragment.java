@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,7 +22,9 @@ import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -351,6 +354,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             final FontAdapter fontAdapter = new FontAdapter(context, R.array.fonts);
             new MaterialDialog.Builder(getActivity())
                     .title(R.string.settings_choose_font)
+                    .backgroundColor(Color.BLACK)
+                    .titleColor(Color.WHITE)
                     .adapter(fontAdapter, new MaterialDialog.ListCallback() {
                         @Override
                         public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {

@@ -23,5 +23,5 @@ public class Globals {
     public static ArrayList<String> ownedItems;
     public static IInAppBillingService mService;
     public static NotificationListener.Notification newNotification;
-    public static MainService mainService;
+    public static boolean nightMode;
 }

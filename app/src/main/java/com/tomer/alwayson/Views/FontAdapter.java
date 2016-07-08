@@ -1,8 +1,8 @@
 package com.tomer.alwayson.Views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +61,8 @@ public class FontAdapter extends BaseAdapter {
                 return Typeface.createFromAsset(context.getAssets(), "fonts/halo3.ttf");
             case 16:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/ubuntu.ttf");
+            case 17:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/pixel.ttf");
         }
         return Typeface.DEFAULT;
     }
@@ -92,10 +94,7 @@ public class FontAdapter extends BaseAdapter {
 
         ((TextView) view.findViewById(android.R.id.text1)).setText(items[position]);
         ((TextView) view.findViewById(android.R.id.text1)).setTypeface(font);
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_dark));
-        else
-            ((TextView) view.findViewById(android.R.id.text1)).setTextColor(context.getResources().getColor(android.R.color.primary_text_light));
+        ((TextView) view.findViewById(android.R.id.text1)).setTextColor(Color.WHITE);
         return view;
     }
 }

@@ -84,11 +84,6 @@ public class NotificationListener extends NotificationListenerService implements
         public Intent getIntent() {
             return intent;
         }
-
-        interface NotificationHandler {
-            public void onNotificationArrived();
-        }
-
     }
 
 
