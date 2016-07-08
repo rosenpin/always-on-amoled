@@ -558,7 +558,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //Fade out animation
         Animation fadeOut = new AlphaAnimation(1, 0);
         fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setStartOffset(30000);
+        fadeOut.setStartOffset(90000);
         fadeOut.setDuration(1000);
         //Set the notification text and icon
         ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
