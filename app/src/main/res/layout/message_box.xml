@@ -7,11 +7,11 @@
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_horizontal_margin"
     android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
     android:minHeight="72dp"
     android:paddingBottom="4dp"
     android:paddingTop="4dp"
-    android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
     android:visibility="invisible"
     app:cardBackgroundColor="@color/shell_white_color"
     app:cardCornerRadius="16dp"
@@ -21,10 +21,10 @@
         android:id="@+id/message_box_inner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alpha="0.9"
-
         android:layout_marginEnd="16dp"
+
         android:layout_marginStart="16dp"
+        android:alpha="0.9"
         android:orientation="vertical">
 
         <ImageView

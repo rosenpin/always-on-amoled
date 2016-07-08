@@ -90,8 +90,8 @@
             android:title="@string/settings_notifications" />
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="notifications_alerts_preview"
             android:dependency="notifications_alerts"
+            android:key="notifications_alerts_preview"
             android:summary="@string/settings_notifications_alerts_preview_desc"
             android:title="@string/settings_notifications_alerts_preview" />
         <ListPreference

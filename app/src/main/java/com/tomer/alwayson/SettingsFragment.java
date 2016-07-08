@@ -22,9 +22,7 @@ import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.content.res.AppCompatResources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -56,6 +54,20 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private Prefs prefs;
     private Context context;
     private Intent starterService;
+
+    public static void openURL(String url, Activity context) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        browserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(browserIntent);
+    }
+
+    public static void openPlayStoreUrl(String appName, Activity context) {
+        try {
+            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appName)));
+        } catch (Exception e) {
+            openURL("https://play.google.com/store/apps/details?id=" + appName, context);
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,12 +151,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private void restartService() {
         getActivity().stopService(starterService);
         getActivity().startService(starterService);
-    }
-
-    public static void openURL(String url, Activity context) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        browserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(browserIntent);
     }
 
     private void version(Context c) {
@@ -324,14 +330,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             }
         }
         return true;
-    }
-
-    public static void openPlayStoreUrl(String appName, Activity context) {
-        try {
-            context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appName)));
-        } catch (Exception e) {
-            openURL("https://play.google.com/store/apps/details?id=" + appName, context);
-        }
     }
 
     @Override

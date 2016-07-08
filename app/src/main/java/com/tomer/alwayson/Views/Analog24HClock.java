@@ -28,6 +28,8 @@ import info.staticfree.android.twentyfourhour.overlay.DialOverlay;
  */
 public class Analog24HClock extends View {
 
+    public static boolean is24;
+    public static boolean hourOnTop;
     private final ArrayList<DialOverlay> mDialOverlay = new ArrayList<DialOverlay>();
     AttributeSet attributeSet;
     int defStyle;
@@ -85,9 +87,6 @@ public class Analog24HClock extends View {
         mHandsOverlay = new HandsOverlay(hourHand, minuteHand);
     }
 
-    public static boolean is24;
-    public static boolean hourOnTop;
-
     public void init(Context context, int style, boolean is24) {
         Analog24HClock.is24 = is24;
         final TypedArray attrs = context.obtainStyledAttributes(attributeSet, R.styleable.Analog24HClock, defStyle, 0);
@@ -113,7 +112,7 @@ public class Analog24HClock extends View {
                 setFace(com.tomer.alwayson.R.drawable.pebble_face);
                 hourHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_hour_hand);
                 assert hourHand != null;
-                hourHand .setAlpha(225);
+                hourHand.setAlpha(225);
                 minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_minute_hand);
                 break;
         }

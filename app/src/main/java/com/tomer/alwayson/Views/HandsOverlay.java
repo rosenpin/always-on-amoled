@@ -17,11 +17,10 @@ public class HandsOverlay implements DialOverlay {
 
     private final Drawable mHour;
     private final Drawable mMinute;
-
+    private final boolean mUseLargeFace;
     private float mHourRot;
     private float mMinRot;
     private boolean mShowSeconds;
-    private final boolean mUseLargeFace;
 
     public HandsOverlay(Context context, boolean useLargeFace) {
         final Resources r = context.getResources();
@@ -46,6 +45,10 @@ public class HandsOverlay implements DialOverlay {
 
         mHour = r.getDrawable(hourHandRes);
         mMinute = r.getDrawable(minuteHandRes);
+    }
+
+    public static float getHourHandAngle(int h, int m) {
+        return Analog24HClock.is24 ? ((12 + h) / 24.0f * 360) % 360 + (m / 60.0f) * 360 / 24.0f : ((12 + h) / 12.0f * 360) % 360 + (m / 60.0f) * 360 / 12.0f;
     }
 
     @Override
@@ -104,10 +107,6 @@ public class HandsOverlay implements DialOverlay {
 
         mHourRot = getHourHandAngle(h, m);
         mMinRot = (m / 60.0f) * 360 + (mShowSeconds ? ((s / 60.0f) * 360 / 60.0f) : 0);
-    }
-
-    public static float getHourHandAngle(int h, int m) {
-        return Analog24HClock.is24 ? ((12 + h) / 24.0f * 360) % 360 + (m / 60.0f) * 360 / 24.0f : ((12 + h) / 12.0f * 360) % 360 + (m / 60.0f) * 360 / 12.0f;
     }
 
 }

@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
-import com.tomer.alwayson.R;
 
 public class NotificationListener extends NotificationListenerService implements ContextConstatns {
 

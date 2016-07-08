@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
-import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.NotificationListener;
 
 import java.util.ArrayList;
