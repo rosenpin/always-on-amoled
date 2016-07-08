@@ -23,6 +23,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -55,7 +56,14 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     private IInAppBillingService mService;
     private ServiceConnection mServiceConn;
     private boolean demo;
-
+    static {
+        try {
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_AUTO);
+        } catch (NoClassDefFoundError e) {
+            Log.i("Error in application", "Android failed to do its job.");
+        }
+    }
     public static void promptToSupport(final Activity context, final IInAppBillingService mService, final View rootView, boolean supporterFeature) {
         new MaterialDialog.Builder(context)
                 .title(R.string.action_support_the_development)

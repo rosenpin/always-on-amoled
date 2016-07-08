@@ -28,7 +28,11 @@ import android.provider.Settings;
 import android.provider.Settings.System;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityManagerCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.AppCompatImageView;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
@@ -133,8 +137,10 @@ public class MainService extends Service implements SensorEventListener, Context
     public int onStartCommand(Intent origIntent, int flags, int startId) {
         if (windowParams == null) {
             windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-
-            windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+            if (origIntent != null)
+                windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+            else
+                windowParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
                 windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
             try {
@@ -173,6 +179,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         // Setup UI
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+        setTheme(R.style.AppTheme);
 
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         frameLayout = new FrameLayout(this) {
@@ -450,6 +457,10 @@ public class MainService extends Service implements SensorEventListener, Context
             Globals.notificationChanged = false;
         }
 
+        if (Globals.newNotification != null) {
+            showMessage(Globals.newNotification);
+        }
+
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -458,6 +469,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 },
                 6000);
+
     }
 
     private void refreshLong() {
@@ -534,6 +546,22 @@ public class MainService extends Service implements SensorEventListener, Context
         tts = new TextToSpeech(getApplicationContext(), MainService.this);
         tts.setLanguage(Locale.getDefault());
         tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    private void showMessage(final NotificationListener.Notification notification) {
+        mainView.findViewById(R.id.message_box).setVisibility(View.VISIBLE);
+        ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
+        ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
+        ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
+        Globals.newNotification = null;
+        new Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        mainView.findViewById(R.id.message_box).setVisibility(View.INVISIBLE);
+                    }
+                },
+                10000);
+
     }
 
     private void openAppByPM(String pm) {

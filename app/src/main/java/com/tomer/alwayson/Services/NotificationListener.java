@@ -1,5 +1,8 @@
 package com.tomer.alwayson.Services;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
@@ -8,6 +11,7 @@ import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.R;
 
 public class NotificationListener extends NotificationListenerService implements ContextConstatns {
 
@@ -29,6 +33,7 @@ public class NotificationListener extends NotificationListenerService implements
         if (added.isClearable()) {
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
             Globals.notificationChanged = true;
+            Globals.newNotification = new Notification(added.getNotification().extras.getString("android.title"), added.getNotification().extras.getString("android.text"), getIcon(added));
         }
     }
 
@@ -50,4 +55,41 @@ public class NotificationListener extends NotificationListenerService implements
             return getResources().getDrawable(notification.getNotification().icon);
         }
     }
+
+    public static class Notification {
+        Drawable icon;
+        String title, message;
+        Intent intent;
+
+        public Notification(String title, String message, Drawable icon) {
+            this.icon = icon;
+            this.title = title;
+            this.message = message;
+            this.intent = intent;
+        }
+
+        public Drawable getIcon() {
+            icon.mutate().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+            return icon;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public Intent getIntent() {
+            return intent;
+        }
+
+        interface NotificationHandler {
+            public void onNotificationArrived();
+        }
+
+    }
+
+
 }

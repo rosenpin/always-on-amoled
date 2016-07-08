@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/watchface_wrapper"
     android:layout_width="match_parent"
@@ -17,4 +19,5 @@
 
     <include layout="@layout/notifications" />
 
+    <include layout="@layout/message_box" />
 </LinearLayout>

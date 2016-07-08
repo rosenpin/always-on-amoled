@@ -4,6 +4,8 @@ import android.graphics.drawable.Drawable;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
+import com.tomer.alwayson.Services.MainService;
+import com.tomer.alwayson.Services.NotificationListener;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -20,4 +22,6 @@ public class Globals {
     public static boolean killedByDelay;
     public static ArrayList<String> ownedItems;
     public static IInAppBillingService mService;
+    public static NotificationListener.Notification newNotification;
+    public static MainService mainService;
 }
