@@ -45,7 +45,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -549,18 +553,26 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void showMessage(final NotificationListener.Notification notification) {
-        mainView.findViewById(R.id.message_box).setVisibility(View.VISIBLE);
+        if (mainView.findViewById(R.id.message_box).getAnimation()!=null){
+            mainView.findViewById(R.id.message_box).clearAnimation();
+        }
+        Animation fadeIn = new AlphaAnimation(0, 1);
+        fadeIn.setInterpolator(new DecelerateInterpolator()); //add this
+        fadeIn.setDuration(1000);
+
+        Animation fadeOut = new AlphaAnimation(1, 0);
+        fadeOut.setInterpolator(new AccelerateInterpolator()); //and this
+        fadeOut.setStartOffset(10000);
+        fadeOut.setDuration(1000);
+
         ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
         ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
         ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
         Globals.newNotification = null;
-        new Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        mainView.findViewById(R.id.message_box).setVisibility(View.INVISIBLE);
-                    }
-                },
-                10000);
+        AnimationSet animation = new AnimationSet(false); //change to false
+        animation.addAnimation(fadeIn);
+        animation.addAnimation(fadeOut);
+        mainView.findViewById(R.id.message_box).setAnimation(animation);
 
     }
 
