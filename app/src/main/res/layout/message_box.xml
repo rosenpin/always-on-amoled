@@ -13,7 +13,7 @@
     android:paddingBottom="4dp"
     android:paddingTop="4dp"
     android:visibility="invisible"
-    app:cardBackgroundColor="@color/shell_white_color"
+    app:cardBackgroundColor="@android:color/background_light"
     app:cardCornerRadius="16dp"
     app:cardElevation="12dp">
 
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Text goes here"
-                android:textColor="@color/defaultTextColor" />
+                android:textColor="@android:color/primary_text_light" />
 
             <TextView
                 android:id="@+id/message_box_message"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Text goes here"
-                android:textColor="@color/defaultTextColor" />
+                android:textColor="@android:color/secondary_text_light" />
 
         </LinearLayout>
 

@@ -1,12 +1,12 @@
 package com.tomer.alwayson.Services;
 
-import android.content.Intent;
-import android.graphics.Color;
+import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
@@ -29,10 +29,13 @@ public class NotificationListener extends NotificationListenerService implements
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
         Log.d(NOTIFICATION_LISTENER_TAG, "New notification from" + added.getPackageName());
-        if (added.isClearable()) {
+        if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
             Globals.notificationChanged = true;
-            Globals.newNotification = new Notification(added.getNotification().extras.getString("android.title"), added.getNotification().extras.getString("android.text"), getIcon(added));
+            String title = "" + added.getNotification().extras.getString("android.title");
+            String content = "" + added.getNotification().extras.getString("android.text");
+            Drawable icon = getIcon(added);
+            Globals.newNotification = new Notification(this, title, content, icon);
         }
     }
 
@@ -56,19 +59,19 @@ public class NotificationListener extends NotificationListenerService implements
     }
 
     public static class Notification {
-        Drawable icon;
-        String title, message;
-        Intent intent;
+        private Drawable icon;
+        private String title, message;
+        private Context context;
 
-        public Notification(String title, String message, Drawable icon) {
+        public Notification(Context context, String title, String message, Drawable icon) {
             this.icon = icon;
             this.title = title;
             this.message = message;
-            this.intent = intent;
+            this.context = context;
         }
 
         public Drawable getIcon() {
-            icon.mutate().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+            icon.mutate().setColorFilter(ContextCompat.getColor(context, android.R.color.primary_text_light), PorterDuff.Mode.MULTIPLY);
             return icon;
         }
 
@@ -78,10 +81,6 @@ public class NotificationListener extends NotificationListenerService implements
 
         public String getMessage() {
             return message;
-        }
-
-        public Intent getIntent() {
-            return intent;
         }
     }
 
