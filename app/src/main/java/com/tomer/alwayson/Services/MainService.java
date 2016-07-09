@@ -132,13 +132,16 @@ public class MainService extends Service implements SensorEventListener, Context
         return new Random().nextInt((int) ((max - min) + 1)) + min;
     }
 
+    boolean demo;
+
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
         if (windowParams == null) {
             windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-            if (origIntent != null)
+            if (origIntent != null) {
+                demo = origIntent.getBooleanExtra("demo", false);
                 windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-            else
+            } else
                 windowParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
                 windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
@@ -212,8 +215,7 @@ public class MainService extends Service implements SensorEventListener, Context
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
-        mainView = layoutInflater.inflate(R.layout.clock_widget, frameLayout);
-
+        mainView = layoutInflater.inflate(prefs.orientation.equals("vertical")?R.layout.clock_widget:R.layout.clock_widget_horizontal, frameLayout);
         setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -321,13 +323,14 @@ public class MainService extends Service implements SensorEventListener, Context
                 new Runnable() {
                     public void run() {
                         //Greenify integration
-                        if (isPackageInstalled("com.oasisfeng.greenify", getApplicationContext())) {
-                            Intent i = new Intent();
-                            i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
-                            i.putExtra("noop-toast", true);
-                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(i);
-                        }
+                        if (!demo)
+                            if (isPackageInstalled("com.oasisfeng.greenify", getApplicationContext())) {
+                                Intent i = new Intent();
+                                i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
+                                i.putExtra("noop-toast", true);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(i);
+                            }
                         //Turn on the display
                         stayAwakeWakeLock.acquire();
                     }
@@ -549,7 +552,6 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void showMessage(final NotificationListener.Notification notification) {
         if (!notification.getTitle().equals("null")) {
-            if (prefs.orientation.equals("vertical")) {
                 //Clear previous animation
                 if (mainView.findViewById(R.id.message_box).getAnimation() != null)
                     mainView.findViewById(R.id.message_box).clearAnimation();
@@ -572,8 +574,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 animation.addAnimation(fadeIn);
                 animation.addAnimation(fadeOut);
                 mainView.findViewById(R.id.message_box).setAnimation(animation);
-            } else {
-            }
+
         }
     }
 

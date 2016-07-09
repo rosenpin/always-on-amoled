@@ -17,5 +17,5 @@
 
     <include layout="@layout/notifications" />
 
-    <include layout="@layout/message_box" />
+    <include layout="@layout/message_box_horizontal" />
 </LinearLayout>
