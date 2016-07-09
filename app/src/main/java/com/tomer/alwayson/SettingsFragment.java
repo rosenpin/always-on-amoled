@@ -365,15 +365,21 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     .adapter(fontAdapter, new MaterialDialog.ListCallback() {
                         @Override
                         public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                            if (which > 5)
-                                if (Globals.ownedItems != null)
-                                    if (Globals.ownedItems.size() > 0)
+                            if (which > 5) {
+                                Log.d(MAIN_ACTIVITY_LOG_TAG, "Which is greater than 5");
+                                if (Globals.ownedItems != null) {
+                                    Log.d(MAIN_ACTIVITY_LOG_TAG, "Owned items != null");
+                                    if (Globals.ownedItems.size() > 0) {
+                                        Log.d(MAIN_ACTIVITY_LOG_TAG, "Owned items size > 0");
                                         prefs.setString("font", String.valueOf(which));
-                                    else
+                                        dialog.dismiss();
+                                    } else
                                         PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
-                                else
+                                } else {
+                                    Log.d(MAIN_ACTIVITY_LOG_TAG, "Owned items == null");
                                     PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
-                            else {
+                                }
+                            } else {
                                 prefs.setString("font", String.valueOf(which));
                                 dialog.dismiss();
                             }
@@ -382,7 +388,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     .show();
             return false;
         }
-
         return true;
     }
 
