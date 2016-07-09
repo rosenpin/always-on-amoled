@@ -3,6 +3,7 @@ package com.tomer.alwayson;
 import android.service.notification.NotificationListenerService;
 
 import com.tomer.alwayson.Activities.PreferencesActivity;
+import com.tomer.alwayson.Receivers.BootReceiver;
 import com.tomer.alwayson.Receivers.ChargeChangeReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
@@ -28,6 +29,7 @@ public interface ContextConstatns {
 
     String CHARGER_RECEIVER_LOG_TAG = ChargeChangeReceiver.class.getSimpleName();
     String SCREEN_RECEIVER_LOG_TAG = ScreenReceiver.class.getSimpleName();
+    String BOOT_RECEIVER = BootReceiver.class.getSimpleName();
 
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
     int DEVICE_ADMIN_REQUEST_CODE = 4;

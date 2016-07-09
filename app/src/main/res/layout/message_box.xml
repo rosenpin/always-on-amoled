@@ -10,11 +10,11 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:minHeight="72dp"
-    android:visibility="invisible"
     android:paddingBottom="4dp"
     android:paddingTop="4dp"
-    app:cardCornerRadius="8dp"
+    android:visibility="invisible"
     app:cardBackgroundColor="@android:color/background_light"
+    app:cardCornerRadius="8dp"
     app:cardElevation="12dp">
 
     <RelativeLayout

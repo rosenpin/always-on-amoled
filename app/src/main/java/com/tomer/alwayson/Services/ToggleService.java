@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 
 import com.tomer.alwayson.Prefs;
@@ -42,13 +43,10 @@ public class ToggleService extends Service {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         ComponentName thisWidget = new ComponentName(context, WidgetProvider.class);
-        if (prefs.enabled) {
-            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_off));
-        } else {
-            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_green_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_on));
-        }
+
+        remoteViews.setTextColor(R.id.toggle, ContextCompat.getColor(context, prefs.enabled ? android.R.color.holo_red_light : android.R.color.holo_green_light));
+        remoteViews.setTextViewText(R.id.toggle, prefs.enabled ? context.getString(R.string.widget_off) : context.getString(R.string.widget_on));
+
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
 
         stopSelf();

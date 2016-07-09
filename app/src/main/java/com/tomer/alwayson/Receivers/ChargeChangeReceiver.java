@@ -19,23 +19,20 @@ public class ChargeChangeReceiver extends BroadcastReceiver implements ContextCo
         if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Connected");
             if (prefs.rules.equals("discharging")) {
-                if (Globals.isShown) {
+                if (Globals.isShown)
                     context.stopService(new Intent(context, MainService.class));
-                }
             }
         } else if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Disconnected");
             if (prefs.rules.equals("charging")) {
-                if (Globals.isShown) {
+                if (Globals.isShown)
                     context.stopService(new Intent(context, MainService.class));
-                }
             }
         } else if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Battery changed");
             if (prefs.batteryRules < getBatteryLevel(intent)) {
-                if (Globals.isShown) {
+                if (Globals.isShown)
                     context.stopService(new Intent(context, MainService.class));
-                }
             }
         }
     }
