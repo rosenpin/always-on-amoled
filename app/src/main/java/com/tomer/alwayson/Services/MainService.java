@@ -550,7 +550,7 @@ public class MainService extends Service implements SensorEventListener, Context
         tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
     }
 
-    private void showMessage(final NotificationListener.Notification notification) {
+    private void showMessage(final NotificationListener.NotificationHolder notification) {
         if (!notification.getTitle().equals("null")) {
                 //Clear previous animation
                 if (mainView.findViewById(R.id.message_box).getAnimation() != null)

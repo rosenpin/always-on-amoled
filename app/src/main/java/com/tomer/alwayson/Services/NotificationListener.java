@@ -1,5 +1,6 @@
 package com.tomer.alwayson.Services;
 
+import android.app.Notification;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -32,10 +33,14 @@ public class NotificationListener extends NotificationListenerService implements
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
             Globals.notificationChanged = true;
-            String title = "" + added.getNotification().extras.getString("android.title");
-            String content = "" + added.getNotification().extras.getString("android.text");
+            String title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE);
+            String content = "" + added.getNotification().extras.getString(Notification.EXTRA_TEXT);
+            if (content.equals("null"))
+                content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_TEXT_LINES);
+            if (content.equals("null"))
+                content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT);
             Drawable icon = getIcon(added);
-            Globals.newNotification = new Notification(this, title, content, icon);
+            Globals.newNotification = new NotificationHolder(this, title, content, icon);
         }
     }
 
@@ -58,12 +63,12 @@ public class NotificationListener extends NotificationListenerService implements
         }
     }
 
-    public static class Notification {
+    public static class NotificationHolder {
         private Drawable icon;
         private String title, message;
         private Context context;
 
-        public Notification(Context context, String title, String message, Drawable icon) {
+        public NotificationHolder(Context context, String title, String message, Drawable icon) {
             this.icon = icon;
             this.title = title;
             this.message = message;

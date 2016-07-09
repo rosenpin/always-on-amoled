@@ -21,6 +21,6 @@ public class Globals {
     public static boolean killedByDelay;
     public static ArrayList<String> ownedItems;
     public static IInAppBillingService mService;
-    public static NotificationListener.Notification newNotification;
+    public static NotificationListener.NotificationHolder newNotification;
     public static boolean nightMode;
 }

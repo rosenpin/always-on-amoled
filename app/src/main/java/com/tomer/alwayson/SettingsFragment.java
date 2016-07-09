@@ -366,17 +366,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         @Override
                         public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                             if (which > 5) {
-                                Log.d(MAIN_ACTIVITY_LOG_TAG, "Which is greater than 5");
                                 if (Globals.ownedItems != null) {
-                                    Log.d(MAIN_ACTIVITY_LOG_TAG, "Owned items != null");
                                     if (Globals.ownedItems.size() > 0) {
-                                        Log.d(MAIN_ACTIVITY_LOG_TAG, "Owned items size > 0");
                                         prefs.setString("font", String.valueOf(which));
                                         dialog.dismiss();
                                     } else
                                         PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                                 } else {
-                                    Log.d(MAIN_ACTIVITY_LOG_TAG, "Owned items == null");
                                     PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                                 }
                             } else {
