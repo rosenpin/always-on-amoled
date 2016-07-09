@@ -14,7 +14,6 @@
     android:paddingTop="4dp"
     android:visibility="invisible"
     app:cardBackgroundColor="@android:color/background_light"
-    app:cardCornerRadius="16dp"
     app:cardElevation="12dp">
 
     <RelativeLayout
