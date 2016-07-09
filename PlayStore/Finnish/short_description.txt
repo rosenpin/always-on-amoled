@@ -1,3 +1,2 @@
-Saa aina päällä oleva näyttö ominaisuus
-Pidä näyttösi päällä koko ajan
-Todella vähäinen akun käyttö
+Get an always on display with minimal battery drain
+Keep your screen on all the time!

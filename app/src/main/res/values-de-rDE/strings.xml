@@ -3,7 +3,7 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
-  <string name="title_donation">Unterstütze die Entwicklung</string>
+  <string name="title_donation">Unterstütze den Entwickler</string>
   <!--Actions-->
   <string name="unlock">Bildschirm anschalten</string>
   <string name="action_revert">Rückgängig machen</string>
@@ -15,10 +15,10 @@
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
   <string name="gestures_action_speak">Sage die aktuelle Zeit, Benachrichtigungen und den Akkustand laut aus</string>
-  <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen du spenden willst um ein Unterstützer zu werden. Wieviel willst du spenden?</string>
+  <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
   <string name="support_1">1$ der Preis einer erfrischenden Coke</string>
   <string name="support_2">2$ der Preis von einem leckerem Schokoriegel</string>
-  <string name="support_5">5$ der Preis für einen coolen Eiskaffe</string>
+  <string name="support_5">5$, der Preis für einen kühlen Eiskaffe</string>
   <string name="support_10">10$ der Preis für einen großen Starbucks-Kaffee</string>
   <string name="support_20">20$ der Preis für eine leckere Pizza</string>
   <string name="support_50">50$ der Preis für ein Dinner zu zweit</string>
@@ -71,7 +71,6 @@
   <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
   <string name="warning_10_tts_not_installed">Installiere bitte zuerst eine Text-zu-Sprache App (z. B. Google TTS)</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">Beim Laden und Entladen</string>
   <string name="rules_while_charging">Während des Ladenvorgangs</string>
   <string name="rules_while_not_charging">Während des Entladens</string>
   <!--Battery rules-->
@@ -187,4 +186,11 @@
   <string name="settings_watch_analog_24_classic">Klassisch 24 Analog</string>
   <string name="settings_watch_analog_s7">S7 Stil analoge Uhr</string>
   <string name="settings_watch_analog_pebble">Pebble Stil analoge Uhr</string>
+  <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Bildschirme)</string>
+  <string name="move_move">Verschiebe das Widget automatisch</string>
+  <string name="move_move_animation">Verschiebe das Widget automatisch mit einer Animation</string>
+  <string name="greenify_integration">Greenify Einbindung</string>
+  <string name="greenify_integration_desc">Aktiviere Greenify während der always on Service sichtbar ist um deutlich Batterie zu sparen. Sei dir sicher dass du vorher Greenify in den Eingabehilfe-Einstellungen aktiviert hast</string>
+  <string name="settings_notifications_alerts_preview_desc">Zeige Benachrichtigungsinhalt wenn empfangen</string>
+  <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
 </resources>

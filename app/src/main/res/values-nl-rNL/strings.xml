@@ -71,7 +71,6 @@
   <string name="warning_9_allow_notification">Sta alsjeblieft de notificatie toestemming toe voor de app</string>
   <string name="warning_10_tts_not_installed">Installeer eerst een text naar spraak machine</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">Beide</string>
   <string name="rules_while_charging">Tijdens het opladen</string>
   <string name="rules_while_not_charging">Tijdens het niet opladen</string>
   <!--Battery rules-->
@@ -187,4 +186,11 @@
   <string name="settings_watch_analog_24_classic">Klassieke 24 uurs analoog</string>
   <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
+  <string name="move_disable">Uitgeschakeld (niet aanbevolen voor AMOLED schermen)</string>
+  <string name="move_move">Laat de widget automatisch bewegen</string>
+  <string name="move_move_animation">Laat de widget automatisch met een animatie verplaatsen</string>
+  <string name="greenify_integration">Greenify integratie</string>
+  <string name="greenify_integration_desc">Gebruik Greenify wanneer de always on service aan staat om de batterij aanzienlijk te besparen. Zorg er voor dat Greenify aan staat bij de toegankelijkheids instellingen</string>
+  <string name="settings_notifications_alerts_preview_desc">Laat de inhoud van notificaties zien wanneer deze binnenkomen</string>
+  <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
 </resources>

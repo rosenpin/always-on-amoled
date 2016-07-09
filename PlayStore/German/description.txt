@@ -10,9 +10,9 @@ Das wird möglich gemacht durch die AMOLED-Display Technologie. Der größte Tei
 • Dauerhaft eingeschalteter Bildschirm
 • Benachrichtigungen - sieh Benachrichtigungen ohne dein Gerät zu berühren
 • Automatische Regeln - spare Batterie durch vordefinierte Regeln
-• Auto-Bewegung - AMOLED Burn-in-vermeiden
+• Auto-Bewegung - AMOLED Burn-in vermeiden
 • Auto-Nachtmodus - Bildschirm in dunkler Umgebung automatisch Dimmen
-• Pocket Mode - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
+• Taschenmodus - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
 • Doppelt tippen, Hochwischen, Lautstärketasten oder die Zurück-Taste zum Aufwecken deines Gerätes festlegen
 • Wähle deine bevorzugte Bildschirmorientierung
 • Anpassung - ändere die Textfarbe, Textgröße, Helligkeit und mehr
@@ -24,7 +24,7 @@ Diese App ist im BETA-Stadium, es existieren noch Bugs und es fehlen Features.
 
 Berechtigungen
 <b>Kamera-Berechtigung</b>
-Diese App benötigt die Kamera-Berechtigung um erkennen zu können, wenn die Kamera gestartet wird und den "always on" Bildschirm auszublenden.
+Diese App benötigt die Kameraberechtigung um erkennen zu können wenn die Kamera gestartet wird und den "always on" Bildschirm auszublenden.
 <b>Telefon-Berechtigung</b>
 Diese App benötigt die "Telefon-Berechtigung" um einkommende Anrufe zu erkennen, den Always On Bildschirm auszublenden und stattdessen direkt den Anruf-Bildschirm zu zeigen.
 "Verändere System Einstellungen" Berechtigung

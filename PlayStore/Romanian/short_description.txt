@@ -1,3 +1,2 @@
-Obține funcția „Always on”.
-Menține ecranul pornit tot timpul.
-Consum de energie foarte scăzut.
+Get an always on display with minimal battery drain
+Keep your screen on all the time!

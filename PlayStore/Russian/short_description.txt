@@ -1,3 +1,2 @@
-Получить  Always on display.
-Ваш экран всегда включен
-Минимальное энергопотребление.
+Get an always on display with minimal battery drain
+Keep your screen on all the time!

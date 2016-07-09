@@ -16,7 +16,8 @@ Always On Screen
 • Двойное нажатие по экрану  + Проведите пальцем для  ответа на телефоный звонок   + клавиши громкости
 • Force orientation - set your preferred screen orientation
 • Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+Бесплатно и открытый исходный код 
+
 
 Before using please enable 'draw over apps' permission for this app.
 

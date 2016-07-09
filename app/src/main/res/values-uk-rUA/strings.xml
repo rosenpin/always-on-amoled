@@ -69,7 +69,6 @@
   <string name="warning_9_allow_notification">Будь ласка, надайте доступ повідомленням для додатку</string>
   <string name="warning_10_tts_not_installed">Будь ласка, встановіть текст-промови спочатку</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">Обидва</string>
   <string name="rules_while_charging">Під час заряджання</string>
   <string name="rules_while_not_charging">Коли не заряджається</string>
   <!--Battery rules-->

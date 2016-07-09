@@ -53,7 +53,6 @@
   <string name="warning_6_device_admin_disabled">Некоторые функции могут быть отключены</string>
   <string name="warning_7_disable_fingerprint">Это может отключить возможность использования сканера отпечатков пальцев, вы уверены что хотите это включить?</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">Оба варианта</string>
   <string name="rules_while_charging">Только во время зарядки</string>
   <string name="rules_while_not_charging">Только не во время зарядки</string>
   <!--Battery rules-->

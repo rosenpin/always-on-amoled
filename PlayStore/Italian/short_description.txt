@@ -1,3 +1,2 @@
-Ottieni tutte le informazioni del display
-Tieni il tuo schermo attivo tutto il tempo
-Minimo consumo della batteria
+Get an always on display with minimal battery drain
+Keep your screen on all the time!

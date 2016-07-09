@@ -71,7 +71,6 @@
   <string name="warning_9_allow_notification">יש לאפשר גישה להתראות עבור האפליקציה</string>
   <string name="warning_10_tts_not_installed">יש להתקין מנוע טקסט לדיבור</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">גם וגם</string>
   <string name="rules_while_charging">במהלך טעינה</string>
   <string name="rules_while_not_charging">כאשר לא בטעינה</string>
   <!--Battery rules-->

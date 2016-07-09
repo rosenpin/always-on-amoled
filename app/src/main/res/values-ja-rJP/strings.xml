@@ -71,7 +71,6 @@
   <string name="warning_9_allow_notification">アプリに通知へのアクセスを許可してください</string>
   <string name="warning_10_tts_not_installed">まずテキスト読み上げエンジンをインストールしてください</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">両方</string>
   <string name="rules_while_charging">充電時</string>
   <string name="rules_while_not_charging">非充電時</string>
   <!--Battery rules-->
@@ -187,4 +186,11 @@
   <string name="settings_watch_analog_24_classic">クラシックアナログ24</string>
   <string name="settings_watch_analog_s7">S7スタイル アナログ時計</string>
   <string name="settings_watch_analog_pebble">Pebbleスタイル アナログ時計</string>
+  <string name="move_disable">無効 (AMOLED ディスプレイでは非推奨)</string>
+  <string name="move_move">ウィジェットを自動で移動</string>
+  <string name="move_move_animation">アニメーションつきでウィジェットを自動で移動</string>
+  <string name="greenify_integration">Greenifyに統合</string>
+  <string name="greenify_integration_desc">Akways Onサービスの表示中に大幅にバッテリーを節約するにはGreenifyを有効にします。ユーザー補助の設定でGreenifyを有効にしてください。</string>
+  <string name="settings_notifications_alerts_preview_desc">通知を受信すると通知内容を表示</string>
+  <string name="settings_notifications_alerts_preview">通知内容</string>
 </resources>
