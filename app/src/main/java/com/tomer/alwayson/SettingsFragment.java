@@ -104,7 +104,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                             }
                         } else {
-                            Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_SHORT).show();
+                            PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                         }
                         return false;
                     }
@@ -287,9 +287,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                         return false;
                     }
-                }else
-                {
-                    Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_SHORT).show();
+                } else {
+                    PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                 }
             } else {
                 return true;
@@ -366,21 +365,24 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     .adapter(fontAdapter, new MaterialDialog.ListCallback() {
                         @Override
                         public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                            if (which > 5) {
-                                if (Globals.ownedItems.size() > 0) {
-                                    prefs.setString("font", String.valueOf(which));
-                                } else {
+                            if (which > 5)
+                                if (Globals.ownedItems != null)
+                                    if (Globals.ownedItems.size() > 0)
+                                        prefs.setString("font", String.valueOf(which));
+                                    else
+                                        PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                                else
                                     PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
-                                }
-                            } else {
+                            else {
                                 prefs.setString("font", String.valueOf(which));
+                                dialog.dismiss();
                             }
-                            dialog.dismiss();
                         }
                     })
                     .show();
             return false;
         }
+
         return true;
     }
 
