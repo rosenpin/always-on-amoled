@@ -92,15 +92,19 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 public boolean onPreferenceChange(Preference preference, Object o) {
                     Log.d("Object value ", (String) o);
                     if (o.equals("speak")) {
-                        if (Globals.ownedItems.size() > 0) {
-                            if (!isPackageInstalled("com.google.android.tts")) {
-                                openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
-                                Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
+                        if (Globals.ownedItems != null) {
+                            if (Globals.ownedItems.size() > 0) {
+                                if (!isPackageInstalled("com.google.android.tts")) {
+                                    openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
+                                    Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
+                                }
+                                Log.d("Purchased items", String.valueOf(Globals.ownedItems));
+                                return true;
+                            } else {
+                                PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
                             }
-                            Log.d("Purchased items", String.valueOf(Globals.ownedItems));
-                            return true;
                         } else {
-                            PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                            Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_SHORT).show();
                         }
                         return false;
                     }
@@ -276,11 +280,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (preference.getKey().equals("watchface_clock")) {
             int value = Integer.parseInt((String) o);
             if (value > 2) {
-                if (Globals.ownedItems.size() > 0) {
-                    return true;
-                } else {
-                    PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
-                    return false;
+                if (Globals.ownedItems != null) {
+                    if (Globals.ownedItems.size() > 0) {
+                        return true;
+                    } else {
+                        PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                        return false;
+                    }
+                }else
+                {
+                    Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_SHORT).show();
                 }
             } else {
                 return true;
