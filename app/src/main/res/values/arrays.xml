@@ -2,7 +2,7 @@
 <resources>
     <!--Charging rules-->
     <string-array name="rules_charging">
-        <item>@string/rules_both</item>
+        <item>@string/rules_both_charging</item>
         <item>@string/rules_while_charging</item>
         <item>@string/rules_while_not_charging</item>
     </string-array>

@@ -56,7 +56,7 @@
   <string name="warning_8_intro_allow_all">Per favore consenti tutte le autorizzazioni</string>
   <string name="warning_9_allow_notification">Per favore consenti l\'accesso notifica dell\'app</string>
   <!--Charging rules-->
-  <string name="rules_both">Entrambi</string>
+  <string name="rules_both_charging">Entrambi</string>
   <string name="rules_while_charging">Mentre carica</string>
   <string name="rules_while_not_charging">Mentre non ricarica</string>
   <!--Battery rules-->

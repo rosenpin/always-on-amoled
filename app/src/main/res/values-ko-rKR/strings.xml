@@ -71,7 +71,7 @@
   <string name="warning_9_allow_notification">알림 접근 권한을 부여해 주십시오</string>
   <string name="warning_10_tts_not_installed">먼저 글 소리 변환 엔진을 깔아주세요</string>
   <!--Charging rules-->
-  <string name="rules_both">양쪽 다</string>
+  <string name="rules_both_charging">양쪽 다</string>
   <string name="rules_while_charging">충전 중일 때</string>
   <string name="rules_while_not_charging">충전 중이 아닐 때</string>
   <!--Battery rules-->

@@ -52,7 +52,7 @@
   <string name="warning_9_allow_notification">Lütfen bildirim erişimine izin verin</string>
   <string name="warning_10_tts_not_installed">Lütfen önce bir metinden konuşmaya motoru yükleyin</string>
   <!--Charging rules-->
-  <string name="rules_both">Her ikisi de</string>
+  <string name="rules_both_charging">Her ikisi de</string>
   <string name="rules_while_charging">Şarj olurken</string>
   <string name="rules_while_not_charging">Deşarj olurken</string>
   <!--Battery rules-->

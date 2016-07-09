@@ -71,7 +71,7 @@
   <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
   <string name="warning_10_tts_not_installed">Installiere bitte zuerst eine Text-zu-Sprache App (z. B. Google TTS)</string>
   <!--Charging rules-->
-  <string name="rules_both">Beim Laden und Entladen</string>
+  <string name="rules_both_charging">Beim Laden und Entladen</string>
   <string name="rules_while_charging">Während des Ladenvorgangs</string>
   <string name="rules_while_not_charging">Während des Entladens</string>
   <!--Battery rules-->

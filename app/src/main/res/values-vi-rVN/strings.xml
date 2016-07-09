@@ -69,7 +69,7 @@
   <string name="warning_9_allow_notification">Please allow notification access for the app</string>
   <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
   <!--Charging rules-->
-  <string name="rules_both">Both</string>
+  <string name="rules_both_charging">Both</string>
   <string name="rules_while_charging">While charging</string>
   <string name="rules_while_not_charging">While not charging</string>
   <!--Battery rules-->

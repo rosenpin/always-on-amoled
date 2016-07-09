@@ -3,7 +3,7 @@
     <string name="app_name">Always On AMOLED</string>
     <string name="title_donation">Support The Development</string>
     <!--Actions-->
-    <string name="unlock">Unlock</string>
+    <string name="unlock">Turn the screen on</string>
     <string name="action_revert">Revert</string>
     <string name="menu_feedback">Feedback</string>
     <string name="disclaimer">DISCLAIMER</string>
@@ -69,7 +69,7 @@
     <string name="warning_9_allow_notification">Please allow notification access for the app</string>
     <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
     <!--Charging rules-->
-    <string name="rules_both">Both</string>
+    <string name="rules_both_charging">Both, while charging and while discharging</string>
     <string name="rules_while_charging">While charging</string>
     <string name="rules_while_not_charging">While not charging</string>
     <!--Battery rules-->

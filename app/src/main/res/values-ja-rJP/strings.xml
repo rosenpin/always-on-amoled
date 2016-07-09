@@ -71,7 +71,7 @@
   <string name="warning_9_allow_notification">アプリに通知へのアクセスを許可してください</string>
   <string name="warning_10_tts_not_installed">まずテキスト読み上げエンジンをインストールしてください</string>
   <!--Charging rules-->
-  <string name="rules_both">両方</string>
+  <string name="rules_both_charging">両方</string>
   <string name="rules_while_charging">充電時</string>
   <string name="rules_while_not_charging">非充電時</string>
   <!--Battery rules-->

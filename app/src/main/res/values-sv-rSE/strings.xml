@@ -71,7 +71,7 @@
   <string name="warning_9_allow_notification">Tillåt åtkomst för aviseringar i appen</string>
   <string name="warning_10_tts_not_installed">Installera en text till tal-motor först</string>
   <!--Charging rules-->
-  <string name="rules_both">Båda</string>
+  <string name="rules_both_charging">Båda</string>
   <string name="rules_while_charging">Medan enheten laddas</string>
   <string name="rules_while_not_charging">Medan enheten inte laddas</string>
   <!--Battery rules-->

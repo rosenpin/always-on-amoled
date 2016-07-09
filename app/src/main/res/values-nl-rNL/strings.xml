@@ -71,7 +71,7 @@
   <string name="warning_9_allow_notification">Sta alsjeblieft de notificatie toestemming toe voor de app</string>
   <string name="warning_10_tts_not_installed">Installeer eerst een text naar spraak machine</string>
   <!--Charging rules-->
-  <string name="rules_both">Beide</string>
+  <string name="rules_both_charging">Beide</string>
   <string name="rules_while_charging">Tijdens het opladen</string>
   <string name="rules_while_not_charging">Tijdens het niet opladen</string>
   <!--Battery rules-->

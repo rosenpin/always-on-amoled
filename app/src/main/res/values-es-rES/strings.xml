@@ -69,7 +69,7 @@
   <string name="warning_9_allow_notification">Por favor permite acceso a las notificaciones</string>
   <string name="warning_10_tts_not_installed">Por favor instale primero un motor de texto a voz</string>
   <!--Charging rules-->
-  <string name="rules_both">Ambos</string>
+  <string name="rules_both_charging">Ambos</string>
   <string name="rules_while_charging">Cuando está cargando</string>
   <string name="rules_while_not_charging">Cuando no está cargando</string>
   <!--Battery rules-->
