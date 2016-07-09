@@ -5,4 +5,4 @@
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
     android:orientation="horizontal"
-    android:paddingTop="8dp" />
+    android:paddingTop="@dimen/medium_spacing" />

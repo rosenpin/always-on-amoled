@@ -9,15 +9,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp"
+        android:paddingBottom="@dimen/small_spacing"
+        android:paddingTop="@dimen/small_spacing"
         android:text='@string/settings_watchface'
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/medium_spacing"
         android:text="@string/settings_feature_dialog_desc"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault" />
 
@@ -25,7 +25,7 @@
         android:id="@+id/dialog_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/medium_spacing"
         android:text="@string/settings_features_dialog_time" />
 
     <CheckBox

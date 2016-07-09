@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/shell_white_color"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:text="@string/intro_allow_now"
             android:textColor="@android:color/black" />
     </LinearLayout>
