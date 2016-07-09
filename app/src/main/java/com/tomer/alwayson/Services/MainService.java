@@ -78,6 +78,7 @@ import eu.chainfire.libsuperuser.Shell;
 public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
 
     TextToSpeech tts;
+    boolean demo;
     boolean toStopTTS;
     private Prefs prefs;
     private int originalBrightness = 100;
@@ -131,8 +132,6 @@ public class MainService extends Service implements SensorEventListener, Context
     private double randInt(double min, double max) {
         return new Random().nextInt((int) ((max - min) + 1)) + min;
     }
-
-    boolean demo;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -215,7 +214,7 @@ public class MainService extends Service implements SensorEventListener, Context
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
-        mainView = layoutInflater.inflate(prefs.orientation.equals("vertical")?R.layout.clock_widget:R.layout.clock_widget_horizontal, frameLayout);
+        mainView = layoutInflater.inflate(prefs.orientation.equals("vertical") ? R.layout.clock_widget : R.layout.clock_widget_horizontal, frameLayout);
         setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -553,35 +552,30 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void showMessage(final NotificationListener.NotificationHolder notification) {
         if (!notification.getTitle().equals("null")) {
-                //Clear previous animation
-                if (mainView.findViewById(R.id.message_box).getAnimation() != null)
-                    mainView.findViewById(R.id.message_box).clearAnimation();
-                //Fade in animation
-                Animation fadeIn = new AlphaAnimation(0, 1);
-                fadeIn.setInterpolator(new DecelerateInterpolator());
-                fadeIn.setDuration(1000);
-                //Fade out animation
-                Animation fadeOut = new AlphaAnimation(1, 0);
-                fadeOut.setInterpolator(new AccelerateInterpolator());
-                fadeOut.setStartOffset(90000);
-                fadeOut.setDuration(1000);
-                //Set the notification text and icon
-                ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
-                ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
-                ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
-                Globals.newNotification = null;
-                //Run animations
-                AnimationSet animation = new AnimationSet(false);
-                animation.addAnimation(fadeIn);
-                animation.addAnimation(fadeOut);
-                mainView.findViewById(R.id.message_box).setAnimation(animation);
+            //Clear previous animation
+            if (mainView.findViewById(R.id.message_box).getAnimation() != null)
+                mainView.findViewById(R.id.message_box).clearAnimation();
+            //Fade in animation
+            Animation fadeIn = new AlphaAnimation(0, 1);
+            fadeIn.setInterpolator(new DecelerateInterpolator());
+            fadeIn.setDuration(1000);
+            //Fade out animation
+            Animation fadeOut = new AlphaAnimation(1, 0);
+            fadeOut.setInterpolator(new AccelerateInterpolator());
+            fadeOut.setStartOffset(90000);
+            fadeOut.setDuration(1000);
+            //Set the notification text and icon
+            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
+            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
+            ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
+            Globals.newNotification = null;
+            //Run animations
+            AnimationSet animation = new AnimationSet(false);
+            animation.addAnimation(fadeIn);
+            animation.addAnimation(fadeOut);
+            mainView.findViewById(R.id.message_box).setAnimation(animation);
 
         }
-    }
-
-    private void openAppByPM(String pm) {
-        Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(pm);
-        startActivity(LaunchIntent);
     }
 
     @Override

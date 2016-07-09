@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 
 import com.tomer.alwayson.Services.ToggleService;
@@ -22,13 +23,8 @@ public class WidgetProvider extends AppWidgetProvider {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
         Intent configIntent = new Intent(context, ToggleService.class);
 
-        if (!prefs.enabled) {
-            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_off));
-        } else {
-            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_green_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_on));
-        }
+        remoteViews.setTextColor(R.id.toggle, ContextCompat.getColor(context, !prefs.enabled ? android.R.color.holo_red_light : android.R.color.holo_green_light));
+        remoteViews.setTextViewText(R.id.toggle, !prefs.enabled ? context.getString(R.string.widget_off) : context.getString(R.string.widget_on));
 
         PendingIntent configPendingIntent = PendingIntent.getService(context, 0, configIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.toggle, configPendingIntent);

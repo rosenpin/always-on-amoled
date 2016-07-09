@@ -31,7 +31,6 @@ public class Prefs {
     Context context;
     private SharedPreferences prefs;
 
-
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.context = context;
@@ -85,22 +84,27 @@ public class Prefs {
         prefs.edit().putBoolean(key, value).apply();
     }
 
+    @Deprecated
     public void forceBool(String key, boolean value) {
         prefs.edit().putBoolean(key, value).commit();
     }
 
+    @Deprecated
     public void forceString(String key, String value) {
         prefs.edit().putString(key, value).commit();
     }
 
-    public boolean getBoolByKey(String key, boolean b) {
-        return prefs.getBoolean(key, b);
-    }
-
+    @Deprecated
     public void forceInt(String key, int value) {
         prefs.edit().putInt(key, value).commit();
     }
 
+    @Deprecated
+    public boolean getBoolByKey(String key, boolean b) {
+        return prefs.getBoolean(key, b);
+    }
+
+    @Deprecated
     public String getStringByKey(String key, String s) {
         return prefs.getString(key, s);
     }
