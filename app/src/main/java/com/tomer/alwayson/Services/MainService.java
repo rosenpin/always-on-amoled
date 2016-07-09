@@ -347,6 +347,7 @@ public class MainService extends Service implements SensorEventListener, Context
         } finally {
             if (camera != null) camera.release();
         }
+        if (camera != null) camera.release();
         return false;
     }
 

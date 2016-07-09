@@ -34,10 +34,12 @@ public class NotificationListener extends NotificationListenerService implements
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
             Globals.notificationChanged = true;
             String title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE);
+            if (title.equals("null"))
+                title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE_BIG);
             String content = "" + added.getNotification().extras.getString(Notification.EXTRA_TEXT);
-            if (content.equals("null"))
+            if (content.equals("null") || content.isEmpty())
                 content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_TEXT_LINES);
-            if (content.equals("null"))
+            if (content.equals("null") || content.isEmpty())
                 content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT);
             Drawable icon = getIcon(added);
             Globals.newNotification = new NotificationHolder(this, title, content, icon);
