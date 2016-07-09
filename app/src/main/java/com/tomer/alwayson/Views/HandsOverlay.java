@@ -58,19 +58,34 @@ public class HandsOverlay implements DialOverlay {
         updateHands(calendar);
 
         canvas.save();
+        if (!Analog24HClock.hourOnTop)
+            drawHours(canvas, cX, cY, w, h, calendar, sizeChanged);
+        else
+            drawMinutes(canvas, cX, cY, w, h, calendar, sizeChanged);
+        canvas.restore();
 
-        if (Analog24HClock.hourOnTop) {
-            canvas.rotate(mMinRot, cX, cY);
+        canvas.save();
+        if (!Analog24HClock.hourOnTop)
+            drawMinutes(canvas, cX, cY, w, h, calendar, sizeChanged);
+        else
+            drawHours(canvas, cX, cY, w, h, calendar, sizeChanged);
+        canvas.restore();
+    }
 
-            if (sizeChanged) {
-                w = mMinute.getIntrinsicWidth();
-                h = mMinute.getIntrinsicHeight();
-                mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
-            }
-            mMinute.draw(canvas);
-            canvas.restore();
+    private void drawMinutes(Canvas canvas, int cX, int cY, int w, int h, Calendar calendar,
+                             boolean sizeChanged) {
+        canvas.rotate(mMinRot, cX, cY);
+
+        if (sizeChanged) {
+            w = mMinute.getIntrinsicWidth();
+            h = mMinute.getIntrinsicHeight();
+            mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
         }
+        mMinute.draw(canvas);
+    }
 
+    private void drawHours(Canvas canvas, int cX, int cY, int w, int h, Calendar calendar,
+                           boolean sizeChanged) {
         canvas.rotate(mHourRot, cX, cY);
 
         if (sizeChanged) {
@@ -79,20 +94,6 @@ public class HandsOverlay implements DialOverlay {
             mHour.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
         }
         mHour.draw(canvas);
-
-        canvas.save();
-
-        if (!Analog24HClock.hourOnTop) {
-            canvas.rotate(mMinRot, cX, cY);
-
-            if (sizeChanged) {
-                w = mMinute.getIntrinsicWidth();
-                h = mMinute.getIntrinsicHeight();
-                mMinute.setBounds(cX - (w / 2), cY - (h / 2), cX + (w / 2), cY + (h / 2));
-            }
-            mMinute.draw(canvas);
-            canvas.restore();
-        }
     }
 
     public void setShowSeconds(boolean showSeconds) {
