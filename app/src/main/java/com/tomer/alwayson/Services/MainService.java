@@ -476,9 +476,9 @@ public class MainService extends Service implements SensorEventListener, Context
         switch (prefs.moveWidget) {
             case 1:
                 if (prefs.orientation.equals("vertical"))
-                    mainView.setX((float) (height - randInt(height / 1.3, height * 1.3)));
+                    mainView.setY((float) (height - randInt(height / 1.3, height * 1.3)));
                 else
-                    mainView.setY((float) (width - randInt(width / 1.3, width * 1.3)));
+                    mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
                 break;
             case 2:
                 if (prefs.orientation.equals("vertical"))
@@ -548,28 +548,31 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void showMessage(final NotificationListener.Notification notification) {
-        //Clear previous animation
-        if (mainView.findViewById(R.id.message_box).getAnimation() != null)
-            mainView.findViewById(R.id.message_box).clearAnimation();
-        //Fade in animation
-        Animation fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setInterpolator(new DecelerateInterpolator());
-        fadeIn.setDuration(1000);
-        //Fade out animation
-        Animation fadeOut = new AlphaAnimation(1, 0);
-        fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setStartOffset(90000);
-        fadeOut.setDuration(1000);
-        //Set the notification text and icon
-        ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
-        ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
-        ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
-        Globals.newNotification = null;
-        //Run animations
-        AnimationSet animation = new AnimationSet(false);
-        animation.addAnimation(fadeIn);
-        animation.addAnimation(fadeOut);
-        mainView.findViewById(R.id.message_box).setAnimation(animation);
+        if (prefs.orientation.equals("vertical")) {
+            //Clear previous animation
+            if (mainView.findViewById(R.id.message_box).getAnimation() != null)
+                mainView.findViewById(R.id.message_box).clearAnimation();
+            //Fade in animation
+            Animation fadeIn = new AlphaAnimation(0, 1);
+            fadeIn.setInterpolator(new DecelerateInterpolator());
+            fadeIn.setDuration(1000);
+            //Fade out animation
+            Animation fadeOut = new AlphaAnimation(1, 0);
+            fadeOut.setInterpolator(new AccelerateInterpolator());
+            fadeOut.setStartOffset(90000);
+            fadeOut.setDuration(1000);
+            //Set the notification text and icon
+            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
+            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
+            ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
+            Globals.newNotification = null;
+            //Run animations
+            AnimationSet animation = new AnimationSet(false);
+            animation.addAnimation(fadeIn);
+            animation.addAnimation(fadeOut);
+            mainView.findViewById(R.id.message_box).setAnimation(animation);
+        } else {
+        }
     }
 
     private void openAppByPM(String pm) {
