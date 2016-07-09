@@ -189,7 +189,7 @@
     <string name="move_move">Move the widget automatically</string>
     <string name="move_move_animation">Move the widget automatically with an animation</string>
     <string name="greenify_integration">Greenify integration</string>
-    <string name="greenify_integration_desc">Enable greenify while the always on service is visible to significantly save battery. Make sure to enable Greenify in the accessibility settings</string>
+    <string name="greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
     <string name="settings_notifications_alerts_preview_desc">Show notification content when received</string>
     <string name="settings_notifications_alerts_preview">Notification content</string>
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
