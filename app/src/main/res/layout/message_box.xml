@@ -13,6 +13,7 @@
     android:paddingBottom="4dp"
     android:paddingTop="4dp"
     android:visibility="invisible"
+    app:cardCornerRadius="12dp"
     app:cardBackgroundColor="@android:color/background_light"
     app:cardElevation="12dp">
 
