@@ -3,14 +3,25 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">תמיכה בפיתוח</string>
   <!--Actions-->
   <string name="unlock">פתח</string>
   <string name="action_revert">בטל שינויים</string>
   <string name="menu_feedback">משוב</string>
+  <string name="disclaimer">אזהרה חשובה</string>
+  <string name="disclaimer_desc">המפתחים אינם אחראיים לכל הנזק העלול להיגרם למכשירך.</string>
+  <string name="agree">מסכים(מה)</string>
   <!--Support-->
   <string name="action_support_the_development">תמיכה בפיתוח</string>
   <string name="support_how_much">כמה תרצה לתרום?</string>
   <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
+  <string name="supporter_feature_only">אפשרות זו זמינה לתומכים בלבד, ניתן לבחור כמה תירצו לתרום כדי להפוך לתומכים, כמה תירצו לתרום?</string>
+  <string name="support_1">דולר אחד - מחיר של פחית קולה</string>
+  <string name="support_2">שני דולרים - המחיר של חפיסת שוקולד</string>
+  <string name="support_5">5 דולר - המחיר של אייס קפה</string>
+  <string name="support_10">10 דולר - המחיר של ארוחה במקדונלדס</string>
+  <string name="support_20">20 דולר - המחיר של פיצה עם תוספות</string>
+  <string name="support_50">50 דולר - המחיר של ארוחה במסעדה</string>
   <!--Intro-->
   <string name="intro_allow_now">אפשר עכשיו</string>
   <string name="intro_permissions">הרשאה לקרוא את מצב הטלפון וגישה למצלמה</string>
@@ -155,6 +166,7 @@
   <string name="settings_watchface_miscellaneous">שונות</string>
   <string name="settings_watchface_styles">סיגנונות</string>
   <string name="settings_font">פונט</string>
+  <string name="settings_choose_font">בחר את הפונט המועדף עליך</string>
   <string name="settings_watch_digital">דיגיטלי</string>
   <string name="settings_watch_analog">אנלוגי</string>
   <string name="settings_rules_text">טקסט</string>
@@ -168,4 +180,18 @@
   <string name="settings_gestures_desc">הקשה כפולה להדלקה, משיכה מעלה להדלקה ועוד</string>
   <string name="settings_watchface_text_font"><![CDATA[גופן וטקסט]]></string>
   <string name="settings_select_action">בחר פעולה</string>
+  <string name="warning_11_need_to_reset_app">ייתכן שתצטרך לאתחל את האפליקציה כדי להחיל את השינויים</string>
+  <string name="settings_uninstall">הסר התקנה</string>
+  <string name="settings_uninstall_desc">הסירו את האפליקציה</string>
+  <string name="settings_watchface_clock_desc">בחר את סגנון השעון האהוב שלך</string>
+  <string name="settings_watch_analog_24_classic">אנלוגי קלאסי 24</string>
+  <string name="settings_watch_analog_s7">שעון אנלוגי בסגנון S7</string>
+  <string name="settings_watch_analog_pebble">שעון אנלוגי בסגנון פבל</string>
+  <string name="move_disable">כבוי (לא מומלץ עבור מסכי אמולד)</string>
+  <string name="move_move">הזזת התצוגה באופן אוטומטי</string>
+  <string name="move_move_animation">הזזת התצוגה באופן אוטומטי עם אנימציה</string>
+  <string name="greenify_integration">אינטגרציה של Greenify</string>
+  <string name="greenify_integration_desc">הפעל את Greenify כאשר התצוגה מופעלת כדי לחסוך סוללה. יש לאפשר את Greenify באפשרויות הנגישות</string>
+  <string name="settings_notifications_alerts_preview_desc">הצג את תוכן ההתראות כאשר הן מתקבלות</string>
+  <string name="settings_notifications_alerts_preview">תוכן התראות</string>
 </resources>

@@ -20,6 +20,8 @@
   <string name="support_2">2$ De prijs van een lekkere chocoladereep</string>
   <string name="support_5">5$ De prijs van een koude ijskoffie</string>
   <string name="support_10">10$ De prijs van een lekkere pizza</string>
+  <string name="support_20">20$ De prijs van een heerlijke pizza</string>
+  <string name="support_50">50$ De prijs van een diner voor twee</string>
   <!--Intro-->
   <string name="intro_allow_now">Nu toestaan</string>
   <string name="intro_permissions">Lezen van telefoonstatus en toestemming tot de camera</string>
@@ -181,4 +183,8 @@
   <string name="warning_11_need_to_reset_app">Je moet mogelijk de app opnieuw opstarten voordat de veranderingen effect hebben</string>
   <string name="settings_uninstall">Deinstalleer</string>
   <string name="settings_uninstall_desc">Deinstalleer de app</string>
+  <string name="settings_watchface_clock_desc">Kies je favoriete klokstijl</string>
+  <string name="settings_watch_analog_24_classic">Klassieke 24 uurs analoog</string>
+  <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
+  <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
 </resources>

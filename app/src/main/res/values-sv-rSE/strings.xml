@@ -5,7 +5,7 @@
   <string name="app_name">Always on AMOLED</string>
   <string name="title_donation">Stödj utvecklaren</string>
   <!--Actions-->
-  <string name="unlock">Lås upp</string>
+  <string name="unlock">Låsa upp</string>
   <string name="action_revert">Återgå</string>
   <string name="menu_feedback">Feedback</string>
   <string name="disclaimer">Villkor</string>
@@ -14,12 +14,14 @@
   <!--Support-->
   <string name="action_support_the_development">Stödj utvecklaren</string>
   <string name="support_how_much">Hur mycket skulle du vilja donera?</string>
-  <string name="gestures_action_speak">Säg aktuell tid, meddelanden och batteristatus högt</string>
+  <string name="gestures_action_speak">Säga aktuell tid, meddelanden och batteristatus högt</string>
   <string name="supporter_feature_only">Den här funktionen är endast tillgänglig för supportrar, du kan välja hur mycket du vill donera för att bli en supporter, hur mycket vill du donera?</string>
   <string name="support_1">1 $ Priset på en uppfriskande Cola</string>
   <string name="support_2">21kr     Priset för en god chokladbar</string>
   <string name="support_5">55kr     Priset på en kall iskaffe</string>
   <string name="support_10">105kr     Priset på en utsökt pizza</string>
+  <string name="support_20">215kr     Priset på en utsökt pizza</string>
+  <string name="support_50">539kr     Priset på en middag för två</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus och behörighet för kamera</string>
@@ -101,10 +103,10 @@
   <!--Settings titles-->
   <string name="settings_enabled">Aktivera</string>
   <string name="settings_disable_volume_keys">Avaktivera volymknapparna</string>
-  <string name="settings_double_tap_wake">Dubbeltryck för att avfärda</string>
-  <string name="settings_back_button_wake">Tillbaka-knappen för att avfärda</string>
-  <string name="settings_volume_to_stop">Volymknapparna för att avfärda</string>
-  <string name="settings_swipe_wake">Dra uppåt för att avfärda</string>
+  <string name="settings_double_tap_wake">Dubbeltryck i mitten på skärmen för att:</string>
+  <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
+  <string name="settings_volume_to_stop">Volymknapparna för att:</string>
+  <string name="settings_swipe_wake">Dra uppåt för att:</string>
   <string name="settings_brightness">Ljusstyrka</string>
   <string name="settings_notifications">Aviseringar</string>
   <string name="settings_persistent_notification">Visa alltid notifikation</string>
@@ -142,7 +144,7 @@
   <string name="settings_back_button_to_stop_desc">Klicka/toucha bakåtknappen att avfärda</string>
   <string name="settings_community_desc">Google Plus gemenskap</string>
   <string name="settings_github_desc">Öppen källkod GitHub länk</string>
-  <string name="settings_move_desc">Aktivera det här att undvika AMOLED inbränning</string>
+  <string name="settings_move_desc">Aktivera det här för att undvika AMOLED inbränning</string>
   <string name="settings_font_size_desc">Ange klockstorlek</string>
   <string name="settings_volume_to_stop_desc">Tryck på volymknapparna för att avfärda</string>
   <string name="settings_touch_to_stop_desc">Dubbeltryck på skärmen för att avfärda</string>
@@ -174,11 +176,22 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Fast bredd</string>
-  <string name="settings_gestures"><![CDATA[Gester & inmatning]]></string>
+  <string name="settings_gestures"><![CDATA[Gester & funktioner]]></string>
   <string name="settings_gestures_desc">Dubbeltryck för att väcka, dra upp för att väcka och mer</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
   <string name="settings_select_action">Välj åtgärd</string>
   <string name="warning_11_need_to_reset_app">Du kan behöva återställa appen för att träda i kraft</string>
   <string name="settings_uninstall">Avinstallera</string>
   <string name="settings_uninstall_desc">Avinstallera appen</string>
+  <string name="settings_watchface_clock_desc">Välj din favorit klockstil</string>
+  <string name="settings_watch_analog_24_classic">Klassisk 24h (analog)</string>
+  <string name="settings_watch_analog_s7">Galaxy S7 (analog)</string>
+  <string name="settings_watch_analog_pebble">Pebble (analog)</string>
+  <string name="move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
+  <string name="move_move">Flytta widgeten automatiskt</string>
+  <string name="move_move_animation">Flytta widgeten automatiskt med en animering</string>
+  <string name="greenify_integration">Greenify integration</string>
+  <string name="greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
+  <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
+  <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
 </resources>

@@ -2,7 +2,7 @@ Krijg een always on scherm voor je telefoon of tablet.
 Hou je scherm altijd aan.
 De eerste open source always on app!
 
-Het idee is om gebruikers informatie van over, de tijd, datum, notificaties en meer te verstrekken zonder je telefoon aan te hoeven raken. Gewoon door er naar te kijken.
+Het idee is om gebruikers informatie over de tijd, datum, notificaties en meer te verstrekken zonder je telefoon aan te hoeven raken. Gewoon door er naar te kijken.
 
 Dit is mogelijk gemaakt door AMOLED schermen. Het grootste gedeelte van het scherm blijft zwart afgezien van een paar pixels.
 

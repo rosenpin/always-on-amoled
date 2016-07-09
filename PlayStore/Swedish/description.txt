@@ -1,32 +1,32 @@
-Få en alltid på display för din telefon eller surfplatta.
+Få en "always on" display för din telefon eller surfplatta.
 Håll din skärm på hela tiden.
-Den första alltid på appen med öppen källkod!
+Den första "always on" appen med öppen källkod!
 
-Tanken är att förse användarna med information om, tid, datum, meddelanden och mer och allt utan att behöva röra telefonen. Bara genom att titta på den.
+Tanken är att förse användarna med information om, tid, datum, meddelanden och mer utan att behöva röra telefonen. Bara genom att titta på den.
 
-Detta görs möjligt tack vare AMOLED skärmar. Större delar av skärmen förblir svart med undantag för ett fåtal pixlar.
+Detta görs möjligt tack vare AMOLED skärmar. Det mesta av skärmen förblir svart med undantag för ett fåtal pixlar.
 
 ★Anmärkningsvärda funktioner
 •    Alltid på skärm
 •    Meddelanden - Visa meddelanden utan att röra din enhet
-•    Automatiska regler - bevara batteriet med hjälp av förbestämda regler
-•    Automatisk rörelse - undvik AMOLED inbränning
-•    Auto nattläge - tona ned skärmen automatiskt i mörk miljö
-• Fickläge - lås enheten när du lämnar den i fickan för att spara batteri
+•    Automatiska regler - Spara ström med hjälp av förbestämda regler
+•    Automatisk rörelse - Undvik AMOLED inbränning
+•    Automatiskt nattläge - Tona ned skärmen automatiskt i mörk miljö
+• Fickläge - Spara ström genom att låsa enheten när du stoppar ner den i fickan
 • Dubbeltryck för att väcka + Dra upp för att väcka + volymknapparna för att väcka + bakåtknappen för att väcka
 •    Skärmorientering - ställ in önskad skärmorientering
-•    Anpassning - ändra textfärg, textstorlek, ljusstyrka och mer
+•    Anpassning - Ändra textfärg, textstorlek, ljusstyrka och mer
 •    FRI OCH ÖPPEN KÄLLKOD!
 
-Innan du använder vänligen aktivera tillstånd för att "dra över appar" i denna app.
+Innan du använder vänligen aktivera behörighet för att "dra över appar" i denna app.
 
 Denna app är i BETA, den har fortfarande buggar och saknar funktioner.
 
 Behörigheter
 Behörighet för kamera
-Appen behöver behörighet för kameran för att känna igen kamerastart för att stänga av "alltid på" skärmen.
+Appen behöver behörighet för kameran för att känna igen kamerastart för att stänga av "always on" skärmen.
 Telefon behörighet
-Appen behöver behörighet för samtal för att känna igen inkommande samtal, avvisa alltid på skärmen och visa inkommande samtalsskärmen.
+Appen behöver behörighet för samtal för att känna igen inkommande samtal, avvisa 'always on" skärmen och visa inkommande samtalsskärmen.
 Behörighet för att ändra system inställningar
 Appen behöver behörighet att ändra inställningar för att ändra ljusstyrkan på låsskärmen.
 

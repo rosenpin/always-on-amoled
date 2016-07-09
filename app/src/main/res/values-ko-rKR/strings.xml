@@ -3,11 +3,25 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">얼웨이즈 온 아몰레드</string>
+  <string name="title_donation">개발자를 돕기</string>
   <!--Actions-->
+  <string name="unlock">열기</string>
   <string name="action_revert">되돌리기</string>
   <string name="menu_feedback">피드백</string>
+  <string name="disclaimer">면책 조항</string>
+  <string name="disclaimer_desc">Always On AMOLED의 개발자는 당신의 기기에 일어날 수 있는 어떠한 위험에도 책임을 지지 않습니다.</string>
+  <string name="agree">알겠습니다</string>
   <!--Support-->
   <string name="action_support_the_development">개발자 지원하기</string>
+  <string name="support_how_much">얼마큼 기부해 주실 건가요?</string>
+  <string name="gestures_action_speak">현재 시간, 알림과 배터리 상태를 크게 읽습니다.</string>
+  <string name="supporter_feature_only">이 기능은 도움을 주신 분들만 쓸 수 있습니다. 기부하고 싶은 만큼 기부한 뒤 이 기능을 쓸 수 있습니다. 얼마큼 기부해 주시겠습니까?</string>
+  <string name="support_1">시원한 콜라를 사 마실 수 있는 1 달러</string>
+  <string name="support_2">맛난 초코바를 사먹을 수 있는 2 달러</string>
+  <string name="support_5">차가운 아이스 카피응 사 마실 수 있는 5 달러</string>
+  <string name="support_10">고급 스타벅스 커피를를 사 마실 수 있는 10 달러</string>
+  <string name="support_20">맛있는 피자를 사먹을 수 있는 20 달러</string>
+  <string name="support_50">두 사람이 저녁을 먹을 수 있는 50 달러</string>
   <!--Intro-->
   <string name="intro_allow_now">지금 권한 부여</string>
   <string name="intro_permissions">전화 상태 읽기 권환과 카메라 권한</string>
@@ -43,6 +57,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">오류가 발생했습니다</string>
   <string name="error_1_no_email_client">이메일 앱이 설치되지 않았습니다.</string>
+  <string name="error_2_plugin_not_installed">플러그인이 깔려 있지 않습니다</string>
   <!--Warnings-->
   <string name="warning">경고</string>
   <string name="warning_1_harm_performance">이것은 앱의 기능을 손상시킬 수 있습니다.</string>
@@ -54,6 +69,7 @@
   <string name="warning_7_disable_fingerprint">이 기능은 지문 센서를 비활성화시킬 수도 있습니다. 정말 이 기능을 활성화하시겠습니까?</string>
   <string name="warning_8_intro_allow_all">모든 권한을 부여해 주십시오</string>
   <string name="warning_9_allow_notification">알림 접근 권한을 부여해 주십시오</string>
+  <string name="warning_10_tts_not_installed">먼저 글 소리 변환 엔진을 깔아주세요</string>
   <!--Charging rules-->
   <string name="rules_both">양쪽 다</string>
   <string name="rules_while_charging">충전 중일 때</string>
@@ -144,4 +160,36 @@
   <string name="settings_features_dialog_battery">배터리 양 보이기</string>
   <string name="settings_features_dialog_calendar">날짜 보이기</string>
   <string name="settings_features_dialog_time">시각 보이기</string>
+  <string name="settings_watchface_clock">시계 스타일</string>
+  <string name="settings_watchface_date">날짜 스타일</string>
+  <string name="settings_watchface_battery">배터리 스타일</string>
+  <string name="settings_watchface_miscellaneous">그 밖의 것</string>
+  <string name="settings_watchface_styles">스타일</string>
+  <string name="settings_font">글꼴</string>
+  <string name="settings_choose_font">글꼴을 고르세요</string>
+  <string name="settings_watch_digital">디지털</string>
+  <string name="settings_watch_analog">아날로그</string>
+  <string name="settings_rules_text">글자</string>
+  <string name="settings_font_default">기본</string>
+  <string name="settings_font_default_bold">기본 굵게</string>
+  <string name="settings_font_default_italic">기본 기울임</string>
+  <string name="settings_font_monospace">너비</string>
+  <string name="settings_gestures"><![CDATA[제스처 및 입력]]></string>
+  <string name="settings_gestures_desc">두 번 터치해 열기, 위로 밀어 열기 등등</string>
+  <string name="settings_watchface_text_font"><![CDATA[텍스트 및 글꼴]]></string>
+  <string name="settings_select_action">작업 고르기</string>
+  <string name="warning_11_need_to_reset_app">앱을 다시 설정해야 할 수도 있습니다</string>
+  <string name="settings_uninstall">지우기</string>
+  <string name="settings_uninstall_desc">앱 지우기</string>
+  <string name="settings_watchface_clock_desc">마음에 드는 시계 스타일 고르기</string>
+  <string name="settings_watch_analog_24_classic">클래식 아날로그 24시</string>
+  <string name="settings_watch_analog_s7">S7 스타일 아날로그 시계</string>
+  <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
+  <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
+  <string name="move_move">위젯을 자동으로 움직이기</string>
+  <string name="move_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
+  <string name="greenify_integration">Greenify 통합</string>
+  <string name="greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
+  <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
+  <string name="settings_notifications_alerts_preview">알림 내용</string>
 </resources>

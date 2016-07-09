@@ -22,8 +22,8 @@ Before using please enable 'draw over apps' permission for this app.
 
 The app is in BETA, it still has bugs and lacks features.
 
-Permissions
-<b>Camera permission</b>
+Разрешения
+<b>Разрешение на камеру </b>
 The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
 <b>Phone permission</b>
 The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
@@ -31,5 +31,5 @@ The app needs phone permission to recognize incoming calls, dismiss the always o
 The app needs permission to modify system settings to change the brightness of the lock screen.
 
 
-Google Plus Community
+Google Plus сообщество
 https://plus.google.com/communities/104206728795122451273
