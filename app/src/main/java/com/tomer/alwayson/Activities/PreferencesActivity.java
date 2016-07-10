@@ -222,44 +222,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
     }
 
-
-    private void printLogs(){
-        try {
-            Process process = Runtime.getRuntime().exec("logcat -d");
-            BufferedReader bufferedReader = new BufferedReader(
-                    new InputStreamReader(process.getInputStream()));
-
-            StringBuilder log = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                log.append(line);
-            }
-            Button donateButton = (Button) findViewById(R.id.donate);
-            donateButton.setText(log.toString());
-            if (log.toString().contains("UpdateMapPokemon")){
-                Log.e(MAIN_ACTIVITY_LOG_TAG,"POKEMON UPDATED!");
-                Notification.Builder builder = new Notification.Builder(getApplicationContext());
-                builder.setContentTitle("New pokemon!");
-                builder.setOngoing(false);
-                builder.setPriority(Notification.PRIORITY_MAX);
-                builder.setSmallIcon(android.R.color.holo_red_dark);
-                Notification notification = builder.build();
-                NotificationManager notificationManger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                notificationManger.notify(1, notification);
-            }
-
-        } catch (IOException e) {
-            Log.d(MAIN_ACTIVITY_LOG_TAG,"FAILED TO READ LOGS");
-        }
-        new Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                      printLogs();
-                    }
-                },
-                1000);
-    }
-
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
         assert donateButton != null;
