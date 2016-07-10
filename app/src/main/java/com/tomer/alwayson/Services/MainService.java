@@ -322,7 +322,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     public void run() {
                         //Greenify integration
                         if (!demo)
-                            if (isPackageInstalled("com.oasisfeng.greenify", getApplicationContext())) {
+                            if (isPackageInstalled("com.oasisfeng.greenify", getApplicationContext()) && prefs.greenify) {
                                 Intent i = new Intent();
                                 i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
                                 i.putExtra("noop-toast", true);

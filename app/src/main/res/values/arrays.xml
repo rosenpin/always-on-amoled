@@ -113,6 +113,9 @@
         <item>Halo 3</item>
         <item>Ubuntu</item>
         <item>Press start 2P Regular</item>
+        <item>Roboto</item>
+        <item>Roboto thin</item>
+        <item>Roboto light</item>
     </string-array>
 
     <string-array name="gestures_actions">

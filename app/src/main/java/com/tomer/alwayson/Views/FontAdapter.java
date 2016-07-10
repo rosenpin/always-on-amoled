@@ -63,6 +63,12 @@ public class FontAdapter extends BaseAdapter {
                 return Typeface.createFromAsset(context.getAssets(), "fonts/ubuntu.ttf");
             case 17:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/pixel.ttf");
+            case 18:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/roboto.ttf");
+            case 19:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/roboto_thin.ttf");
+            case 20:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/roboto_light.ttf");
         }
         return Typeface.DEFAULT;
     }

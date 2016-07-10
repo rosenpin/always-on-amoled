@@ -28,6 +28,7 @@ public class Prefs {
     public boolean autoNightMode;
     public int batteryRules;
     public int font;
+    public boolean greenify;
     Context context;
     private SharedPreferences prefs;
 
@@ -70,6 +71,7 @@ public class Prefs {
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
         font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
+        greenify = prefs.getBoolean("greenify",true);
     }
 
     public void setString(String key, String value) {
