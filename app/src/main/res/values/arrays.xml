@@ -150,14 +150,14 @@
 
     <string-array name="settings_proximity">
         <item>Disabled</item>
+        <item>Normal: Takes a long time to start, allows fingerprint recognition</item>
         <item>Root: Best option, works fast and allows fingerprint recognition</item>
         <item>Device Admin: Works fast but disables fingerprint recognition</item>
-        <item>Normal: Takes a long time to start, allows fingerprint recognition</item>
     </string-array>
     <string-array name="settings_proximity_values">
         <item>0</item>
+        <item>3</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
     </string-array>
 </resources>
