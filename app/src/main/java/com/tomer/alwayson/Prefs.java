@@ -10,7 +10,7 @@ import java.util.Map;
 public class Prefs {
     public boolean enabled;
     public boolean doubleTapToStop, swipeToStop, volumeToStop, backButtonToStop;
-    public boolean proximityToLock;
+    public int proximityToLock;
     public boolean showNotification;
     public int moveWidget;
     public boolean disableVolumeKeys;
@@ -57,7 +57,7 @@ public class Prefs {
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
-        proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
+        proximityToLock = Integer.parseInt(prefs.getString(KEYS.PROXIMITY_TO_LOCK.toString(), "0"));
         clockStyle = Integer.parseInt(prefs.getString(KEYS.TIME_STYLE.toString(), "1"));
         dateStyle = Integer.parseInt(prefs.getString(KEYS.DATE_STYLE.toString(), "1"));
         batteryStyle = Integer.parseInt(prefs.getString(KEYS.BATTERY_STYLE.toString(), "0"));
@@ -136,7 +136,7 @@ public class Prefs {
         TEXT_SIZE("font_size"),
         PERMISSION_GRANTING("permissiongrantingscreen"),
         DISABLE_VOLUME_KEYS("disable_volume_keys"),
-        PROXIMITY_TO_LOCK("proximity_to_lock"),
+        PROXIMITY_TO_LOCK("proximity_to_lock_method"),
         TIME_STYLE("watchface_clock"),
         DATE_STYLE("watchface_date"),
         BATTERY_STYLE("watchface_battery"),

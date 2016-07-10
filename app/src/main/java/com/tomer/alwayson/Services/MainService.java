@@ -1,6 +1,7 @@
 package com.tomer.alwayson.Services;
 
 import android.app.Service;
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -240,10 +241,10 @@ public class MainService extends Service implements SensorEventListener, Context
         registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
-        if (prefs.proximityToLock || prefs.autoNightMode) //If any sensor is required
+        if (prefs.proximityToLock != 0 || prefs.autoNightMode) //If any sensor is required
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
-        if (prefs.proximityToLock) {
+        if (prefs.proximityToLock != 0) {
             Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             if (proximitySensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
@@ -708,8 +709,11 @@ public class MainService extends Service implements SensorEventListener, Context
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
                             else {
-                                stayAwakeWakeLock.release();
-                                Log.d(MAIN_SERVICE_LOG_TAG, "Set auto lock timeout - " + Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000));
+                                if (prefs.proximityToLock == 3) {
+                                    stayAwakeWakeLock.release();
+                                    Log.d(MAIN_SERVICE_LOG_TAG, "Set auto lock timeout - " + Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000)); //Screen off using timeout
+                                } else if (prefs.proximityToLock == 2)
+                                    ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                             }
                         }
                     }).start();

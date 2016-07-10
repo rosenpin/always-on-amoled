@@ -218,8 +218,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     .accentMode(true)
                     .dynamicButtonColor(false);
         }
-   //    printLogs();
-
     }
 
     private void donateButtonSetup() {

@@ -107,9 +107,11 @@
             android:key="auto_brightness"
             android:summary="@string/settings_auto_brightness_desc"
             android:title="@string/settings_auto_brightness" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="proximity_to_lock"
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/settings_proximity"
+            android:entryValues="@array/settings_proximity_values"
+            android:key="proximity_to_lock_method"
             android:summary="@string/settings_proximity_to_lock_desc"
             android:title="@string/settings_proximity" />
     </PreferenceCategory>

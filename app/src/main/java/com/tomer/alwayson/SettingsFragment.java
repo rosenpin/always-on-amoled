@@ -76,7 +76,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         context = getActivity().getApplicationContext();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
-        findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
+        findPreference("proximity_to_lock_method").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
@@ -317,8 +317,39 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (preference.getKey().equals("enabled")) {
             restartService();
         }
-        if (preference.getKey().equals("proximity_to_lock") && (boolean) o) {
-            if (Shell.SU.available()) {
+        if (preference.getKey().equals("proximity_to_lock_method")) {
+            if (o.toString().equals("1")) {
+                if (Shell.SU.available()) {
+                    return true;
+                }
+                Toast.makeText(context, R.string.warning_11_no_root, Toast.LENGTH_LONG).show();
+                return false;
+            } else if (o.toString().equals("2")) {
+                DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+                final ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
+                if ((mDPM != null && mDPM.isAdminActive(mAdminName))) {
+                    return true;
+                }
+                new AlertDialog.Builder(getActivity()).setTitle(getString(android.R.string.dialog_alert_title) + "!")
+                        .setMessage(getString(R.string.warning_7_disable_fingerprint))
+                        .setPositiveButton(getString(android.R.string.yes), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+                                intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
+                                intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
+                                startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
+                            }
+                        })
+                        .setNegativeButton(getString(android.R.string.no), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .show();
+                return false;
+            } else if (o.toString().equals("3")) {
                 return true;
             }
             return true;
@@ -392,7 +423,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         super.onActivityResult(requestCode, resultCode, data);
         Log.d(MAIN_SERVICE_LOG_TAG, "Activity result" + resultCode);
         if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
-            ((TwoStatePreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
+            ((ListPreference) findPreference("proximity_to_lock_method")).setValue(resultCode == Activity.RESULT_OK ? "2" : "0");
     }
 
     @Override

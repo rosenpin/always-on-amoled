@@ -195,4 +195,5 @@
     <string name="settings_notifications_alerts_preview_desc">Show notification content when received</string>
     <string name="settings_notifications_alerts_preview">Notification content</string>
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
+    <string name="warning_11_no_root">Device must be rooted to use this feature!</string>
 </resources>
