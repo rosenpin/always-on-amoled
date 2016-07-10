@@ -270,7 +270,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         hasSoftwareKeys = (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
 
-        prefs.setBool("has_soft_keys", hasSoftwareKeys);
+        prefs.setBool(Prefs.KEYS.HAS_SOFT_KEYS.toString(), hasSoftwareKeys);
 
         return hasSoftwareKeys;
     }

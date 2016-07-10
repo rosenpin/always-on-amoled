@@ -27,8 +27,11 @@ public class Prefs {
     public boolean stopOnCamera;
     public boolean autoNightMode;
     public int batteryRules;
+    public boolean startAfterLock;
     public int font;
     public boolean greenify;
+    public boolean notificationPreview;
+    public boolean hasSoftKeys;
     Context context;
     private SharedPreferences prefs;
 
@@ -71,7 +74,10 @@ public class Prefs {
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
         font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
-        greenify = prefs.getBoolean("greenify",true);
+        greenify = prefs.getBoolean("greenify", true);
+        hasSoftKeys = prefs.getBoolean(KEYS.HAS_SOFT_KEYS.toString(), false);
+        startAfterLock = prefs.getBoolean(KEYS.START_AFTER_LOCK.toString(), true);
+        notificationPreview = prefs.getBoolean(KEYS.NOTIFICATION_PREVIEW.toString(), true);
     }
 
     public void setString(String key, String value) {
@@ -152,7 +158,9 @@ public class Prefs {
         STOP_ON_CAMERA("stop_on_camera"),
         BATTERY_RULES("battery_rules"),
         NOTIFICATION_ALERTS("notifications_alerts"),
-        FONT("font");
+        FONT("font"),
+        START_AFTER_LOCK("startafterlock"),
+        NOTIFICATION_PREVIEW("notifications_alerts_preview");
 
         private final String id;
 

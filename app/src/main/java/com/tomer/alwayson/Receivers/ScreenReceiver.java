@@ -87,7 +87,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                     boolean toStart = shouldStart();
                     Log.d("SHOULD START ", String.valueOf(toStart));
                     if (toStart) {
-                        if (prefs.getBoolByKey("startafterlock", true)) {
+                        if (prefs.startAfterLock) {
                             final KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
                             if (myKM.inKeyguardRestrictedInputMode()) {
                                 //Screen is locked, start the service

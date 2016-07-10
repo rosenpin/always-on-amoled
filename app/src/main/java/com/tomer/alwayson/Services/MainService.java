@@ -292,7 +292,7 @@ public class MainService extends Service implements SensorEventListener, Context
         refreshLong(true);
 
         //All Samsung's stuff
-        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
+        if (!prefs.hasSoftKeys) {
             try {
                 originalCapacitiveButtonsState = System.getInt(getContentResolver(), "button_key_light");
             } catch (Settings.SettingNotFoundException e) {
@@ -311,7 +311,7 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         //Turn capacitive buttons lights off
-        setButtonsLight(true);
+        setButtonsLight(OFF);
 
         //Turn lights on
         setLights(ON, false, true);
@@ -457,7 +457,7 @@ public class MainService extends Service implements SensorEventListener, Context
             Globals.notificationChanged = false;
         }
 
-        if (Globals.newNotification != null && prefs.getBoolByKey("notifications_alerts_preview", true)) {
+        if (Globals.newNotification != null && prefs.notificationPreview) {
             showMessage(Globals.newNotification);
         }
 
@@ -603,7 +603,7 @@ public class MainService extends Service implements SensorEventListener, Context
             unregisterReceiver(mBatInfoReceiver);
 
         super.onDestroy();
-        setButtonsLight(false);
+        setButtonsLight(ON);
         setLights(OFF, false, false);
         try {
             windowManager.removeView(frameLayout);
@@ -614,7 +614,8 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setButtonsLight(boolean state) {
-        if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
+        state = !state;
+        if (!prefs.hasSoftKeys) {
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
             } catch (IllegalArgumentException e) {
