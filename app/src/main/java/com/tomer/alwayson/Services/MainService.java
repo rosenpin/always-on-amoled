@@ -289,7 +289,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.notificationsAlerts)
             startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
         refresh();
-        refreshLong();
+        refreshLong(true);
 
         //All Samsung's stuff
         if (!prefs.getBoolByKey(Prefs.KEYS.HAS_SOFT_KEYS.toString(), false)) {
@@ -476,22 +476,23 @@ public class MainService extends Service implements SensorEventListener, Context
 
     }
 
-    private void refreshLong() {
+    private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        switch (prefs.moveWidget) {
-            case MOVE_NO_ANIMATION:
-                if (prefs.orientation.equals("vertical"))
-                    mainView.setY((float) (height - randInt(height / 1.3, height * 1.3)));
-                else
-                    mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
-                break;
-            case MOVE_WITH_ANIMATION:
-                if (prefs.orientation.equals("vertical"))
-                    mainView.animate().translationY((float) (height - randInt(height / 1.3, height * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
-                else
-                    mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
-                break;
-        }
+        if (!first)
+            switch (prefs.moveWidget) {
+                case MOVE_NO_ANIMATION:
+                    if (prefs.orientation.equals("vertical"))
+                        mainView.setY((float) (height - randInt(height / 1.3, height * 1.2)));
+                    else
+                        mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
+                    break;
+                case MOVE_WITH_ANIMATION:
+                    if (prefs.orientation.equals("vertical"))
+                        mainView.animate().translationY((float) (height - randInt(height / 1.3, height * 1.2))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                    else
+                        mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                    break;
+            }
         if (prefs.dateStyle != DISABLED) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
@@ -505,7 +506,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 new Runnable() {
                     public void run() {
                         if (Globals.isShown)
-                            refreshLong();
+                            refreshLong(false);
                     }
                 },
                 16000);
