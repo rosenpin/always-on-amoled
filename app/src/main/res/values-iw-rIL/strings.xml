@@ -44,6 +44,7 @@
   <string name="thanks_crazy">תודה עבור תמיכתך המטורפת!!!! :)</string>
   <string name="notification_message">Always On Amoled רץ ברקע</string>
   <string name="reboot_to_take_affect">יש לכבות ולהדליק את המכשיר כדי להחיל פעולה זו</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">שינוי מצב</string>
   <string name="widget_off">כבוי</string>

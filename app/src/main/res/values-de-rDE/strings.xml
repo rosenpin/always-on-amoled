@@ -9,14 +9,14 @@
   <string name="action_revert">Rückgängig machen</string>
   <string name="menu_feedback">Feedback</string>
   <string name="disclaimer">HAFTUNGSAUSSCHLUSS</string>
-  <string name="disclaimer_desc">Die \"Always On\" Entwickler sind nicht verantwortlich für jegliche Schäden, die möglicherweise an deinem Gerät entstehen.</string>
+  <string name="disclaimer_desc">Die \"Always On AMOLED\" Entwickler sind nicht verantwortlich für jegliche Schäden, die möglicherweise an deinem Gerät entstehen.</string>
   <string name="agree">Zustimmen</string>
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
   <string name="gestures_action_speak">Sage die aktuelle Zeit, Benachrichtigungen und den Akkustand laut aus</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
-  <string name="support_1">1$ der Preis einer erfrischenden Coke</string>
+  <string name="support_1">1$, der Preis einer erfrischenden Cola</string>
   <string name="support_2">2$ der Preis von einem leckerem Schokoriegel</string>
   <string name="support_5">5$, der Preis für einen kühlen Eiskaffe</string>
   <string name="support_10">10$ der Preis für einen großen Starbucks-Kaffee</string>
@@ -44,6 +44,8 @@
   <string name="thanks_crazy">Danke für deinen VERÜCKTEN Support!! :)</string>
   <string name="notification_message">Always On ist aktiv</string>
   <string name="reboot_to_take_affect">Starte neu um die Änderungen wirksam zu machen</string>
+  <!-- Content description-->
+  <string name="notification_icon">Benachrichtigungs-Icon</string>
   <!--Widget-->
   <string name="widget_toggle">auswahl umkehren</string>
   <string name="widget_off">Aus</string>
@@ -61,16 +63,17 @@
   <!--Warnings-->
   <string name="warning">ACHTUNG</string>
   <string name="warning_1_harm_performance">Dies kann die Leistung der App beeinträchtigen</string>
-  <string name="warning_2_required_phone_permission">Diese Berechtigung wird benötigt um den Bildschirm anzuschalten, wenn du einen Anruf empfängst</string>
+  <string name="warning_2_required_phone_permission">Diese Berechtigung wird benötigt, um den Bildschirm anzuschalten, wenn du einen Anruf empfängst</string>
   <string name="warning_3_allow_system_modification">Bitte erteilen sie der App die Berechtigung Einstellungen modifizieren zu dürfen!</string>
   <string name="warning_4_device_not_secured">Dein Gerät ist jetzt vielleicht nicht gesichert</string>
-  <string name="warning_5_device_admin_disable">Dies wird einige App-Features deaktivieren</string>
+  <string name="warning_5_device_admin_disable">Dies wird einige Features der App deaktivieren</string>
   <string name="warning_6_device_admin_disabled">Einige Funktionen sind unter Umständen nun deaktiviert</string>
-  <string name="warning_7_disable_fingerprint">Dies könnte die Fingerabdrucksensor-Funktionalität beeinträchtigen, bist du dir sicher, dass du dies aktivieren möchtest?</string>
-  <string name="warning_8_intro_allow_all">Bitte erteile alle nötigen Berechtigungen</string>
+  <string name="warning_7_disable_fingerprint">Dies könnte die Funktionalität des Fingerabdruck-Sensors beeinträchtigen, bist du dir sicher, dass du das aktivieren möchtest?</string>
+  <string name="warning_8_intro_allow_all">Bitte erteile alle benötigten Berechtigungen</string>
   <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
-  <string name="warning_10_tts_not_installed">Installiere bitte zuerst eine Text-zu-Sprache App (z. B. Google TTS)</string>
+  <string name="warning_10_tts_not_installed">Installiere bitte zuerst eine Text-zu-Sprache App</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Beide, während des Ladens und Entladens</string>
   <string name="rules_while_charging">Während des Ladenvorgangs</string>
   <string name="rules_while_not_charging">Während des Entladens</string>
   <!--Battery rules-->
@@ -129,7 +132,7 @@
   <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Den Always On Screen stoppen wenn die Kamera gestartet wird (sollte immer aktiviert sein auf Nexus/Samsung-Geräten)</string>
-  <string name="settings_auto_brightness_desc">Dimme den Bildschirm in dunkler Umgebung automatisch</string>
+  <string name="settings_auto_brightness_desc">Dimme den Bildschirm in dunkler Umgebung automatisch (Sensoren könnten mehr Energie verbrauchen)</string>
   <string name="settings_stop_delay_desc_short">Auf 0 setzen um abzuschalten</string>
   <string name="settings_stop_delay_desc_short_message">Beenden Sie den Always On Service nach:</string>
   <string name="settings_stop_delay_desc">Stoppe den always on Bildschirm nach einiger Zeit ohne Interaktion um Batterie zu sparen</string>
@@ -176,7 +179,7 @@
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
   <string name="settings_gestures"><![CDATA[Gesten & Eingabe]]></string>
-  <string name="settings_gestures_desc">Doppelt tippen zum Aufwecken, wischen zum Aufwecken und mehr Einstellungsmöglichkeiten</string>
+  <string name="settings_gestures_desc">Doppelt tippen zum Aufwecken, wischen zum Aufwecken und andere Einstellungsmöglichkeiten</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Schrift]]></string>
   <string name="settings_select_action">Aktion auswählen</string>
   <string name="warning_11_need_to_reset_app">Möglicherweise musst du die App zurücksetzen um einen Effekt zu erzielen</string>
@@ -193,4 +196,5 @@
   <string name="greenify_integration_desc">Aktiviere Greenify während der always on Service sichtbar ist um deutlich Batterie zu sparen. Sei dir sicher dass du vorher Greenify in den Eingabehilfe-Einstellungen aktiviert hast</string>
   <string name="settings_notifications_alerts_preview_desc">Zeige Benachrichtigungsinhalt wenn empfangen</string>
   <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
+  <string name="error_IAP">Fehler! Bitte versichere dich, dass du mit dem Internet verbunden bist, und starte die App neu.</string>
 </resources>

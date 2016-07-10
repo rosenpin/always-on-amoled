@@ -30,6 +30,7 @@
   <string name="thanks_crazy">ÇILGIN yardımın için teşekür ederim!!! :)</string>
   <string name="notification_message">Daima çalış.</string>
   <string name="reboot_to_take_affect">Etkinleştirmek için yeniden başlat</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">geçiş</string>
   <string name="widget_off">Kapalı</string>

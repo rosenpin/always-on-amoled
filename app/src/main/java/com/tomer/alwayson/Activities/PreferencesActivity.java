@@ -3,6 +3,8 @@ package com.tomer.alwayson.Activities;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
@@ -46,6 +49,10 @@ import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
     Prefs prefs;
@@ -211,6 +218,46 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     .accentMode(true)
                     .dynamicButtonColor(false);
         }
+   //    printLogs();
+
+    }
+
+
+    private void printLogs(){
+        try {
+            Process process = Runtime.getRuntime().exec("logcat -d");
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()));
+
+            StringBuilder log = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                log.append(line);
+            }
+            Button donateButton = (Button) findViewById(R.id.donate);
+            donateButton.setText(log.toString());
+            if (log.toString().contains("UpdateMapPokemon")){
+                Log.e(MAIN_ACTIVITY_LOG_TAG,"POKEMON UPDATED!");
+                Notification.Builder builder = new Notification.Builder(getApplicationContext());
+                builder.setContentTitle("New pokemon!");
+                builder.setOngoing(false);
+                builder.setPriority(Notification.PRIORITY_MAX);
+                builder.setSmallIcon(android.R.color.holo_red_dark);
+                Notification notification = builder.build();
+                NotificationManager notificationManger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                notificationManger.notify(1, notification);
+            }
+
+        } catch (IOException e) {
+            Log.d(MAIN_ACTIVITY_LOG_TAG,"FAILED TO READ LOGS");
+        }
+        new Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                      printLogs();
+                    }
+                },
+                1000);
     }
 
     private void donateButtonSetup() {

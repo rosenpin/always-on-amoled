@@ -31,12 +31,12 @@
   <string name="intro_modify_desc">Appen behöver behörighet att ändra enhetens ljusstyrka</string>
   <string name="intro_modify">Ändra systeminställningar</string>
   <string name="intro_wake_ups">Metoder för att väcka skärmen</string>
-  <string name="intro_wake_ups_desc">Välj hur du vill att kunna väcka telefonen från \"alltid på\" tillstånd. Oroa dig inte, du kan ändra det i appen senare.</string>
+  <string name="intro_wake_ups_desc">Välj hur du vill att kunna väcka telefonen från \"always on\" tillstånd. Oroa dig inte, du kan ändra det i appen senare.</string>
   <string name="intro_checkbox_volume_keys">Volymknapparna för att låsa upp</string>
   <string name="intro_checkbox_swipe_up">Dra upp från mitten av skärmen för att låsa upp</string>
   <string name="intro_checkbox_double_tap">Dubbeltryck på mitten av skärmen för att låsa upp</string>
   <string name="intro_notifications">Varningsmeddelanden</string>
-  <string name="intro_notifications_desc">Vill du få meddelanden från andra program medan skärmen är i \"alltid på\" tillstånd? Om du vill, klicka på knappen \"tillåt nu\"</string>
+  <string name="intro_notifications_desc">Vill du få meddelanden från andra program medan skärmen är i \"always on\" tillstånd? Om du vill, klicka på knappen \"tillåt nu\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Tack för ditt stöd! :)</string>
   <string name="thanks_great">Tack för ditt fantastiska stöd! :)</string>
@@ -44,6 +44,7 @@
   <string name="thanks_crazy">Tack för ditt GALNA stöd!!! :)</string>
   <string name="notification_message">Always On är igång</string>
   <string name="reboot_to_take_affect">Starta om för att träda i kraft</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">växla</string>
   <string name="widget_off">Av</string>
@@ -71,6 +72,7 @@
   <string name="warning_9_allow_notification">Tillåt åtkomst för aviseringar i appen</string>
   <string name="warning_10_tts_not_installed">Installera en text till tal-motor först</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Båda, när enheten laddas och laddas ur</string>
   <string name="rules_while_charging">Medan enheten laddas</string>
   <string name="rules_while_not_charging">Medan enheten inte laddas</string>
   <!--Battery rules-->
@@ -193,4 +195,5 @@
   <string name="greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
   <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
+  <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
 </resources>

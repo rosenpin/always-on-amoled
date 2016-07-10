@@ -44,6 +44,8 @@
   <string name="thanks_crazy">엄청난 지원에 감사합니다 :)</string>
   <string name="notification_message">항상 켜짐이 작동중입니다</string>
   <string name="reboot_to_take_affect">재시작해야 작동합니다</string>
+  <!-- Content description-->
+  <string name="notification_icon">알림 아이콘</string>
   <!--Widget-->
   <string name="widget_toggle">토글</string>
   <string name="widget_off">끔</string>
@@ -71,6 +73,7 @@
   <string name="warning_9_allow_notification">알림 접근 권한을 부여해 주십시오</string>
   <string name="warning_10_tts_not_installed">먼저 글 소리 변환 엔진을 깔아주세요</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">충전하고 있을 때와 아닐 때 둘 다</string>
   <string name="rules_while_charging">충전 중일 때</string>
   <string name="rules_while_not_charging">충전 중이 아닐 때</string>
   <!--Battery rules-->
@@ -174,7 +177,7 @@
   <string name="settings_font_default_italic">기본 기울임</string>
   <string name="settings_font_serif">세리프</string>
   <string name="settings_font_sans_serif">산세리프</string>
-  <string name="settings_font_monospace">너비</string>
+  <string name="settings_font_monospace">모노스페이스</string>
   <string name="settings_gestures"><![CDATA[제스처 및 입력]]></string>
   <string name="settings_gestures_desc">두 번 터치해 열기, 위로 밀어 열기 등등</string>
   <string name="settings_watchface_text_font"><![CDATA[텍스트 및 글꼴]]></string>
@@ -193,4 +196,5 @@
   <string name="greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
+  <string name="error_IAP">에러가 났습니다! 인터넷에 이어져 있는지 확인한 뒤 앱을 다시 켜주세요</string>
 </resources>

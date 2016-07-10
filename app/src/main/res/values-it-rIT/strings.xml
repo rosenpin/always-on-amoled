@@ -31,6 +31,7 @@
   <string name="thanks_crazy">Grazie per il tuo pazzo supporto!!! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="reboot_to_take_affect">Riavvia per rendere effettive le modifiche</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">interruttore</string>
   <string name="widget_off">Spento</string>

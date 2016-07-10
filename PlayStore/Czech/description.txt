@@ -1,35 +1,35 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Získej funkci Vždy spuštěno pro svůj telefon nebo tablet.
+Nech svou obrazovku stále spuštěnou.
+První Open source Vždy spuštěno aplikace!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+Myšlenkou je poskytovat uživatelům informace o, čase, datumu, oznámení a další a aniž by museli dotknout telefonu. Pouhým pohledem.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Toto je možné díky AMOLED displejům. Většina obrazovky zůstane vyplá, až na pár pixelů.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+Pozoruhodné funkce
+Vždy spuštěná obrazovka
+Notifikace - Zobrazit notifikace bez jediného dotknutí Vašeho zařízení
+Automatická pravidla-šetřit baterii pomocí předdefinovaných pravidel
+Auto pohyb-předejít AMOLED burn-in
+• Automatický noční režim - automaticky zeslabit obrazovku v temném prostředí
+Kapesní mod-zamkne zařízení když ho umístíte do kapsy aby ušetřil baterii
+Probudit dvojklikem+potáhnout nahoru pro probuzení+Probudit tlačítky hlasitosti+Probudit tlačítkem zpet
+Orientace-Nastavte orientaci obrazovky
+• Úpravy - změnit barvu textu, velikost textu, jas a další
+Zdarma a Open source!
 
-Before using please enable 'draw over apps' permission for this app.
+Před použitím povolte 'zůstat nad aplikacemi' oprávnění pro tuto aplikaci.
 
-The app is in BETA, it still has bugs and lacks features.
+Tato aplikace je stále v betaverzi a stále má chyby a nedostatky ve funkcích.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Oprávnění
+<b>Oprávnění fotoaparátu</b>
+Aplikace potřebuje oprávnění k ovládání kamery aby mohla vypnou funkci Vždy spuštěné obrazovky 
+<b>Oprávnění telefonu</b>
+Aplikace potřebuje oprávnění telefonu aby poznala příchozí hovory a mohla vypnout vždy zaplou obrazovku a ukázat příchozí hovory.
+<b>Oprávnění k úpravě systémového nastavení</b>
+Aplikace potřebuje oprávnění ke změně nastavení systému ke změně jasu uzamčené obrazovky.
 
 
-Google Plus Community
+Komunita Google Plus
 https://plus.google.com/communities/104206728795122451273

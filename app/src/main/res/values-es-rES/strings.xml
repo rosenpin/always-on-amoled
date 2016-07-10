@@ -42,6 +42,7 @@
   <string name="thanks_crazy">¡¡¡Gracias por tu ESPECTACULAR ayuda!!! :)</string>
   <string name="notification_message">Always On está encendido</string>
   <string name="reboot_to_take_affect">Reinicia para que tome efecto</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">alternar</string>
   <string name="widget_off">Apagado</string>

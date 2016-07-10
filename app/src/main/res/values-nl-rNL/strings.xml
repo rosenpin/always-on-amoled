@@ -44,6 +44,8 @@
   <string name="thanks_crazy">Bedankt voor je ONGELOOFLIJKE support!!! :) </string>
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
   <string name="reboot_to_take_affect">Start opnieuw op om dit in werking te laten treden </string>
+  <!-- Content description-->
+  <string name="notification_icon">Notificatie icoon</string>
   <!--Widget-->
   <string name="widget_toggle">aan of uit zetten</string>
   <string name="widget_off">Uit</string>
@@ -71,6 +73,7 @@
   <string name="warning_9_allow_notification">Sta alsjeblieft de notificatie toestemming toe voor de app</string>
   <string name="warning_10_tts_not_installed">Installeer eerst een text naar spraak machine</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Zowel tijdens het opladen als wanneer het apparaat niet aan het opladen is</string>
   <string name="rules_while_charging">Tijdens het opladen</string>
   <string name="rules_while_not_charging">Tijdens het niet opladen</string>
   <!--Battery rules-->
@@ -193,4 +196,5 @@
   <string name="greenify_integration_desc">Gebruik Greenify wanneer de always on service aan staat om de batterij aanzienlijk te besparen. Zorg er voor dat Greenify aan staat bij de toegankelijkheids instellingen</string>
   <string name="settings_notifications_alerts_preview_desc">Laat de inhoud van notificaties zien wanneer deze binnenkomen</string>
   <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
+  <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
 </resources>

@@ -33,6 +33,7 @@
   <string name="thanks_crazy">Спасибо за Вашу безумную поддержку !!! :)</string>
   <string name="notification_message">Always On работает</string>
   <string name="reboot_to_take_affect">Нужна перезагрузка,чтобы изменения вступили в силу</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_off">Выкл.</string>
   <string name="widget_on">Вкл.</string>

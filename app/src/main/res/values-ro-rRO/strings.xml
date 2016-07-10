@@ -42,6 +42,7 @@
   <string name="thanks_crazy">Îți mulțumesc pentru sprijinul nemaipomenit! :)</string>
   <string name="notification_message">Serviciul „Always on” funcționează.</string>
   <string name="reboot_to_take_affect">Repornește telefonul ca acțiunile să ia efect.</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">Comutator</string>
   <string name="widget_off">Always on - oprit</string>

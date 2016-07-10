@@ -42,6 +42,7 @@
   <string name="thanks_crazy">Дякуємо Вам за ШАЛЕНУ підтримку!!! :)</string>
   <string name="notification_message">Always On працює</string>
   <string name="reboot_to_take_affect">Перезавантажте для отримання ефекту</string>
+  <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">Переключити</string>
   <string name="widget_off">Вимкнено</string>
