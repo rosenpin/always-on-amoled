@@ -581,6 +581,8 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        //Dismissing the wakelock holder
+        stayAwakeWakeLock.release();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         //Stopping tts if it's running
         toStopTTS = true;
@@ -607,7 +609,6 @@ public class MainService extends Service implements SensorEventListener, Context
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), getString(R.string.error_0_unknown_error), Toast.LENGTH_SHORT).show();
         }
-        stayAwakeWakeLock.release();
         Globals.isShown = false;
     }
 
