@@ -96,6 +96,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private int originalCapacitiveButtonsState = 1500;
     private int height, width;
     private int originalTimeout;
+    Analog24HClock analog24HClock;
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
@@ -219,11 +220,8 @@ public class MainService extends Service implements SensorEventListener, Context
         setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        if (prefs.moveWidget == 0) {
-            mainLayoutParams.gravity = Gravity.CENTER;
-        } else {
-            mainLayoutParams.gravity = Gravity.CENTER_HORIZONTAL;
-        }
+        mainLayoutParams.gravity = prefs.moveWidget == DISABLED ? Gravity.CENTER : Gravity.CENTER_HORIZONTAL;
+
         mainView.setLayoutParams(mainLayoutParams);
         iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
 
@@ -241,10 +239,10 @@ public class MainService extends Service implements SensorEventListener, Context
         registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
-        if (prefs.proximityToLock != 0 || prefs.autoNightMode) //If any sensor is required
+        if (prefs.proximityToLock != DISABLED || prefs.autoNightMode) //If any sensor is required
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
-        if (prefs.proximityToLock != 0) {
+        if (prefs.proximityToLock != DISABLED) {
             Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
             if (proximitySensor != null) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
@@ -266,8 +264,8 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         //Delay to stop
-        if (Integer.parseInt(prefs.stopDelay) > 0) {
-            final int delayInMilliseconds = Integer.parseInt(prefs.stopDelay) * 1000 * 60;
+        if (prefs.stopDelay > DISABLED) {
+            final int delayInMilliseconds = prefs.stopDelay * 1000 * 60;
             Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -357,13 +355,15 @@ public class MainService extends Service implements SensorEventListener, Context
         calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
         batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
         batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
-        Analog24HClock analog24HClock;
         ViewGroup.LayoutParams lp;
+        if (prefs.clockStyle > ANALOG_CLOCK)
+            analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
+
         switch (prefs.clockStyle) {
-            case 0:
+            case DISABLED:
                 watchfaceWrapper.removeView(clockWrapper);
                 break;
-            case 1:
+            case DIGITAL_CLOCK:
                 TextClock textClock = (TextClock) clockWrapper.findViewById(R.id.digital_clock);
                 textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
                 textClock.setTextColor(prefs.textColor);
@@ -379,11 +379,11 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
                 break;
-            case 2:
+            case ANALOG_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
                 break;
-            case 3:
+            case ANALOG24_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
@@ -391,10 +391,9 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
-                analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 0, true);
                 break;
-            case 4:
+            case S7_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
@@ -402,10 +401,9 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
-                analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 1, false);
                 break;
-            case 5:
+            case PEBBLE_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
 
@@ -413,12 +411,11 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
-                analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
                 analog24HClock.init(this, 2, false);
                 break;
         }
         switch (prefs.dateStyle) {
-            case 0:
+            case DISABLED:
                 watchfaceWrapper.removeView(dateWrapper);
                 break;
             case 1:
@@ -464,6 +461,10 @@ public class MainService extends Service implements SensorEventListener, Context
             showMessage(Globals.newNotification);
         }
 
+        if (analog24HClock != null) {
+            analog24HClock.setTime(Calendar.getInstance());
+        }
+
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -478,20 +479,20 @@ public class MainService extends Service implements SensorEventListener, Context
     private void refreshLong() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         switch (prefs.moveWidget) {
-            case 1:
+            case MOVE_NO_ANIMATION:
                 if (prefs.orientation.equals("vertical"))
                     mainView.setY((float) (height - randInt(height / 1.3, height * 1.3)));
                 else
                     mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
                 break;
-            case 2:
+            case MOVE_WITH_ANIMATION:
                 if (prefs.orientation.equals("vertical"))
                     mainView.animate().translationY((float) (height - randInt(height / 1.3, height * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
                 else
                     mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
                 break;
         }
-        if (prefs.dateStyle != 0) {
+        if (prefs.dateStyle != DISABLED) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
             String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(date.getTime()).toUpperCase();
@@ -575,7 +576,6 @@ public class MainService extends Service implements SensorEventListener, Context
             animation.addAnimation(fadeIn);
             animation.addAnimation(fadeOut);
             mainView.findViewById(R.id.message_box).setAnimation(animation);
-
         }
     }
 
@@ -709,10 +709,10 @@ public class MainService extends Service implements SensorEventListener, Context
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
                             else {
-                                if (prefs.proximityToLock == 3) {
+                                if (prefs.proximityToLock == PROXIMITY_NORMAL_MODE) {
                                     stayAwakeWakeLock.release();
                                     Log.d(MAIN_SERVICE_LOG_TAG, "Set auto lock timeout - " + Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000)); //Screen off using timeout
-                                } else if (prefs.proximityToLock == 2)
+                                } else if (prefs.proximityToLock == PROXIMITY_DEVICE_ADMIN_MODE)
                                     ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                             }
                         }

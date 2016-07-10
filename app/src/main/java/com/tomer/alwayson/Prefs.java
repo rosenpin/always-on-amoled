@@ -21,7 +21,7 @@ public class Prefs {
     public float textSize;
     public int textColor;
     public int brightness;
-    public String stopDelay;
+    public int stopDelay;
     public String rules;
     public String orientation;
     public boolean stopOnCamera;
@@ -64,7 +64,7 @@ public class Prefs {
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
         textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
         rules = prefs.getString(KEYS.RULES.toString(), "always");
-        stopDelay = prefs.getString(KEYS.STOP_DELAY.toString(), "0");
+        stopDelay = Integer.parseInt(prefs.getString(KEYS.STOP_DELAY.toString(), "0"));
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));

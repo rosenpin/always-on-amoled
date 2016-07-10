@@ -38,4 +38,15 @@ public interface ContextConstatns {
     String SWIPE_UP = "swipe_up";
     String VOLUME_KEYS = "volume_keys";
     String BACK_BUTTON = "back_button";
+
+    int PROXIMITY_NORMAL_MODE = 3;
+    int PROXIMITY_DEVICE_ADMIN_MODE = 2;
+    int DISABLED = 0;
+    int MOVE_NO_ANIMATION = 1;
+    int MOVE_WITH_ANIMATION = 2;
+    int DIGITAL_CLOCK = 1;
+    int ANALOG_CLOCK = 2;
+    int ANALOG24_CLOCK = 3;
+    int S7_CLOCK = 4;
+    int PEBBLE_CLOCK = 5;
 }
