@@ -61,7 +61,11 @@ public class Prefs {
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
-        proximityToLock = Integer.parseInt(prefs.getString(KEYS.PROXIMITY_TO_LOCK.toString(), "0"));
+        try {
+            proximityToLock = Integer.parseInt(prefs.getString(KEYS.PROXIMITY_TO_LOCK.toString(), "0"));
+        }catch (ClassCastException e){
+            prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
+        }
         clockStyle = Integer.parseInt(prefs.getString(KEYS.TIME_STYLE.toString(), "1"));
         dateStyle = Integer.parseInt(prefs.getString(KEYS.DATE_STYLE.toString(), "1"));
         batteryStyle = Integer.parseInt(prefs.getString(KEYS.BATTERY_STYLE.toString(), "0"));
