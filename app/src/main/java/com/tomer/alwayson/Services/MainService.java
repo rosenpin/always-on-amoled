@@ -175,8 +175,9 @@ public class MainService extends Service implements SensorEventListener, Context
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isCameraUsedByApp() && prefs.stopOnCamera) //Check if user just opened the camera, if so, dismiss
-                    stopSelf();
+                if (prefs.stopOnCamera)
+                    if (isCameraUsedByApp()) //Check if user just opened the camera, if so, dismiss
+                        stopSelf();
             }
         }, 700);//Delay: Because it takes some time to start the camera on some devices
 
@@ -333,7 +334,7 @@ public class MainService extends Service implements SensorEventListener, Context
                         stayAwakeWakeLock.acquire();
                     }
                 },
-                1000);
+                500);
     }
 
     private boolean isCameraUsedByApp() {
@@ -565,7 +566,7 @@ public class MainService extends Service implements SensorEventListener, Context
             //Fade out animation
             Animation fadeOut = new AlphaAnimation(1, 0);
             fadeOut.setInterpolator(new AccelerateInterpolator());
-            fadeOut.setStartOffset(90000);
+            fadeOut.setStartOffset(70000);
             fadeOut.setDuration(1000);
             //Set the notification text and icon
             ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
@@ -808,9 +809,6 @@ public class MainService extends Service implements SensorEventListener, Context
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                if (!isInCenter(e)) {
-                    return false;
-                }
                 Log.d(MAIN_SERVICE_LOG_TAG, "Double tap" + prefs.getStringByKey(DOUBLE_TAP, ""));
                 if (prefs.doubleTapToStop) {
                     stopSelf();
@@ -818,6 +816,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 if (prefs.getStringByKey(DOUBLE_TAP, "unlock").equals("speak")) {
                     speakCurrentStatus();
+                    return true;
                 }
                 return false;
             }
