@@ -16,7 +16,7 @@
   <string name="support_how_much">Hur mycket skulle du vilja donera?</string>
   <string name="gestures_action_speak">Säga aktuell tid, meddelanden och batteristatus högt</string>
   <string name="supporter_feature_only">Den här funktionen är endast tillgänglig för supportrar, du kan välja hur mycket du vill donera för att bli en supporter, hur mycket vill du donera?</string>
-  <string name="support_1">1 $ Priset på en uppfriskande Cola</string>
+  <string name="support_1">11kr     Priset på en uppfriskande Cola</string>
   <string name="support_2">21kr     Priset för en god chokladbar</string>
   <string name="support_5">55kr     Priset på en kall iskaffe</string>
   <string name="support_10">105kr     Priset på en utsökt pizza</string>
@@ -45,6 +45,7 @@
   <string name="notification_message">Always On är igång</string>
   <string name="reboot_to_take_affect">Starta om för att träda i kraft</string>
   <!-- Content description-->
+  <string name="notification_icon">Aviseringsikon</string>
   <!--Widget-->
   <string name="widget_toggle">växla</string>
   <string name="widget_off">Av</string>
@@ -54,7 +55,7 @@
   <string name="device_admin_explanation">Ge tillåtelse för enhetens admin att använda fler funktioner på enheter som inte är rootade. </string>
   <!--Plugin-->
   <string name="plugin_dialog_title">Plugin krävs. </string>
-  <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att få dessa att stänga av när appen är igång, var god installera plugin (Plugin for Always On AMOLED).</string>
+  <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att stänga av dessa när appen är igång, var god installera plugin (Plugin for Always On AMOLED).</string>
   <!--Errors-->
   <string name="error_0_unknown_error">Ett fel har uppstått. Vänligen rapportera till utvecklaren </string>
   <string name="error_1_no_email_client">Det finns inget e-postprogram installerat.</string>
@@ -102,7 +103,7 @@
   <string name="settings_wake_up">Gester och funktioner</string>
   <string name="settings_rules">Automatiska regler</string>
   <!--Settings titles-->
-  <string name="settings_enabled">Aktivera</string>
+  <string name="settings_enabled">Aktiverat</string>
   <string name="settings_disable_volume_keys">Avaktivera volymknapparna</string>
   <string name="settings_double_tap_wake">Dubbeltryck i mitten på skärmen för att:</string>
   <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
@@ -196,4 +197,5 @@
   <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
   <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
+  <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen!</string>
 </resources>

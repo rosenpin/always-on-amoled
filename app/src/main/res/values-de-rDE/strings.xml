@@ -14,7 +14,7 @@
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
-  <string name="gestures_action_speak">Sage die aktuelle Zeit, Benachrichtigungen und den Akkustand laut aus</string>
+  <string name="gestures_action_speak">Spricht die aktuelle Zeit, Benachrichtigungen und den Akkustand mit der installierten Sprachengine</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
   <string name="support_1">1$, der Preis einer erfrischenden Cola</string>
   <string name="support_2">2$ der Preis von einem leckerem Schokoriegel</string>
@@ -197,4 +197,5 @@
   <string name="settings_notifications_alerts_preview_desc">Zeige Benachrichtigungsinhalt wenn empfangen</string>
   <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
   <string name="error_IAP">Fehler! Bitte versichere dich, dass du mit dem Internet verbunden bist, und starte die App neu.</string>
+  <string name="warning_11_no_root">Deim Gerät muss für dieses Feature gerootet sein!</string>
 </resources>

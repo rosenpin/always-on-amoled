@@ -197,4 +197,5 @@
   <string name="settings_notifications_alerts_preview_desc">Laat de inhoud van notificaties zien wanneer deze binnenkomen</string>
   <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
   <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
+  <string name="warning_11_no_root">Apparaat moet geroot zijn om deze functie te gebruiken!</string>
 </resources>

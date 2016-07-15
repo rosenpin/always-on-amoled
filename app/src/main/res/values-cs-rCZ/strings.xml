@@ -197,4 +197,5 @@
   <string name="settings_notifications_alerts_preview_desc">Zobrazit obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
   <string name="error_IAP">Došlo k chybě! Prosím ujistěte se, že jste připojeni k Internetu a restartujte aplikaci</string>
+  <string name="warning_11_no_root">Pro použití této funkce musí být vaše zařízení rootlé!</string>
 </resources>

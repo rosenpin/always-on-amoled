@@ -197,4 +197,5 @@
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
   <string name="error_IAP">에러가 났습니다! 인터넷에 이어져 있는지 확인한 뒤 앱을 다시 켜주세요</string>
+  <string name="warning_11_no_root">이 기능을 쓰려면 루팅해야 합니다!</string>
 </resources>

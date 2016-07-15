@@ -7,7 +7,7 @@ Tanken är att förse användarna med information om, tid, datum, meddelanden oc
 Detta görs möjligt tack vare AMOLED skärmar. Det mesta av skärmen förblir svart med undantag för ett fåtal pixlar.
 
 ★Anmärkningsvärda funktioner
-•    Alltid på skärm
+•    Always on skärm
 •    Meddelanden - Visa meddelanden utan att röra din enhet
 •    Automatiska regler - Spara ström med hjälp av förbestämda regler
 •    Automatisk rörelse - Undvik AMOLED inbränning

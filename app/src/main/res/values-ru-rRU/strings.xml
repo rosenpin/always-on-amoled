@@ -8,13 +8,23 @@
   <string name="unlock">Разблокировать</string>
   <string name="action_revert">Вернуться</string>
   <string name="menu_feedback">Отзыв</string>
+  <string name="disclaimer">ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ</string>
   <string name="disclaimer_desc">Разрабочики данного приложения не несут отвественности за причиненный  вред вашему устройству </string>
   <string name="agree">Принять</string>
   <!--Support-->
   <string name="action_support_the_development">Поддержать разработчика.</string>
   <string name="support_how_much">На сколько   хотели бы  вы поддержать разработчика  ?</string>
+  <string name="gestures_action_speak">Приложение может сказать в слух о заряде батареи и время дату.</string>
+  <string name="supporter_feature_only">Эта функция доступна для фанатов  , вы можете выбрать сколько вы хотите пожертвовать , чтобы стать сторонником , сколько бы вы хотели пожертвовать ?</string>
+  <string name="support_1">1$ на колу  </string>
+  <string name="support_2">2$ на шоколадку </string>
+  <string name="support_5">5$ на айс кофе </string>
+  <string name="support_10">10$ на чертово Старбакс кофе </string>
+  <string name="support_20">20$ на пиццу </string>
+  <string name="support_50">50$ на ужин для двоих </string>
   <!--Intro-->
   <string name="intro_allow_now">Разрешить сейчас</string>
+  <string name="intro_permissions">Прочитать состояние телефона и разрешение камеры</string>
   <string name="intro_permissions_desc">Приложению необходимо получить  разрешение на чтение телефона когда он в режиме ожидания. Приложению необходимо предоставить разрешение на доступ к камере для включения камеры  при нажатие клавиш. </string>
   <string name="intro_draw_over">Отображать поверх других приложений</string>
   <string name="intro_draw_over_desc">Приложению необходимо разрешение для отображения поверх других приложений</string>
@@ -26,6 +36,7 @@
   <string name="intro_checkbox_swipe_up">Разблокировка свайпом от центра экрана</string>
   <string name="intro_checkbox_double_tap">Разблокировка двойным тапом по экрану</string>
   <string name="intro_notifications">Уведомления</string>
+  <string name="intro_notifications_desc">Вы хотите получать уведомления от других приложений, когда экран находится в состоянии «Always on »? Если вы это сделаете, нажмите на кнопку «Разрешить»</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Спасибо за вашу поддержку! :)</string>
   <string name="thanks_great">Благодарим Вас за поддержку! :)</string>
@@ -34,16 +45,21 @@
   <string name="notification_message">Always On работает</string>
   <string name="reboot_to_take_affect">Нужна перезагрузка,чтобы изменения вступили в силу</string>
   <!-- Content description-->
+  <string name="notification_icon">Значок уведомления</string>
   <!--Widget-->
+  <string name="widget_toggle">Переключение</string>
   <string name="widget_off">Выкл.</string>
   <string name="widget_on">Вкл.</string>
   <!--Device admin-->
+  <string name="device_admin_desc">Включите с целью разрешения дополнительных настроек для устройств без рута</string>
+  <string name="device_admin_explanation">Пожалуйста, включите   права  администратора на телефое  для  использование больше возможностей</string>
   <!--Plugin-->
   <string name="plugin_dialog_title">Необходима установка плагина</string>
   <string name="plugin_dialog_desc">На вашем устройстве есть подсветка аппаратных кнопок. Для ее отключения во время работы сервиса необходима установка дополнительного плагина.</string>
   <!--Errors-->
   <string name="error_0_unknown_error">Произошла ошибка</string>
   <string name="error_1_no_email_client">Нет установленных почтовых приложений.</string>
+  <string name="error_2_plugin_not_installed">ПЛАГИН НЕ УСТАНОВЛЕН</string>
   <!--Warnings-->
   <string name="warning">ВНИМАНИЕ</string>
   <string name="warning_1_harm_performance">Это может навредить производительности приложения</string>
@@ -53,7 +69,11 @@
   <string name="warning_5_device_admin_disable">Это отключает некоторые функции приложения</string>
   <string name="warning_6_device_admin_disabled">Некоторые функции могут быть отключены</string>
   <string name="warning_7_disable_fingerprint">Это может отключить возможность использования сканера отпечатков пальцев, вы уверены что хотите это включить?</string>
+  <string name="warning_8_intro_allow_all">Пожалуйста, позвольте все разрешения</string>
+  <string name="warning_9_allow_notification">Включите  уведомления для приложения</string>
+  <string name="warning_10_tts_not_installed">Пожалуйста, сначала установить модуль преобразования текста в речь</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">И во время зарядки от сети, и от батареи</string>
   <string name="rules_while_charging">Только во время зарядки</string>
   <string name="rules_while_not_charging">Только не во время зарядки</string>
   <!--Battery rules-->
@@ -84,13 +104,27 @@
   <string name="settings_rules">Автоматические Правила</string>
   <!--Settings titles-->
   <string name="settings_enabled">Включить</string>
+  <string name="settings_disable_volume_keys">Выключить клавиши громкости</string>
+  <string name="settings_double_tap_wake">Двойное нажатие</string>
+  <string name="settings_back_button_wake">Действия кнопки \"назад\"</string>
   <string name="settings_volume_to_stop">Кнопки громкости, чтобы отключить</string>
+  <string name="settings_swipe_wake">Смахивание по экрану </string>
   <string name="settings_brightness">Яркость</string>
   <string name="settings_notifications">Уведомления</string>
+  <string name="settings_persistent_notification">Всегда  показывать   уведомления</string>
+  <string name="settings_move_auto">Автоматически перемещать виджет</string>
   <string name="settings_font_size">Размер шрифта</string>
   <string name="settings_watchface">Настроить циферблат</string>
+  <string name="settings_proximity">Датчик приближения (когда в кармане )</string>
   <string name="settings_show_am_pm">Показать AM / PM</string>
   <string name="settings_text_color">Цвет текста</string>
+  <string name="settings_startafterlock">Включение  после блокировки</string>
+  <string name="settings_stop_delay">Период отключения</string>
+  <string name="settings_auto_brightness">Автоматический ночной режим</string>
+  <string name="settings_orientation">Ориентация экрана</string>
+  <string name="settings_stop_on_camera">Разрешить значок   камеры</string>
+  <string name="settings_rules_cahrging">Правила зарядки </string>
+  <string name="settings_rules_battery">Правила баттареи </string>
   <string name="settings_translate">Перевод</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Сообщество </string>
@@ -100,9 +134,14 @@
   <string name="settings_stop_on_camera_desc">Выключать сервис когда запущено приложение Камера (необходимо дердать запущенным на устройствах Nexus/Samsung)</string>
   <string name="settings_auto_brightness_desc">Автоматически затемнять экран в темноте</string>
   <string name="settings_stop_delay_desc_short">Установи значение 0 для отключения</string>
+  <string name="settings_stop_delay_desc_short_message">Остановите Always ON после:</string>
+  <string name="settings_stop_delay_desc">Остановить Always ON через некоторое время без взаимодействия , для экономии заряда батареи</string>
+  <string name="settings_startafterlock_desc">Включается только после блокировки экрана. Держите эту функцию включённой, чтобы держать устройство в безопасности и рабочим отпечаткос пальца</string>
+  <string name="settings_rules_desc">Когда приложение должно работать?</string>
   <string name="settings_text_color_desc">Установить цвет текста</string>
   <string name="settings_show_am_pm_desc">Показать AM / PM вместе с часами (только для 12-ти часового формата времени)</string>
   <string name="settings_watchface_desc">Настроить элементы циферблата</string>
+  <string name="settings_proximity_to_lock_desc">Заблокировать устройство, когда вы размещаете ваше устройство в кармане для экономии батареи (датчики могут использовать больше заряда )</string>
   <string name="settings_licenses_desc">Лицензии с открытым исходным кодом</string>
   <string name="settings_back_button_to_stop_desc">Нажмите / коснитесь кнопки \"возврата\", чтобы отключить</string>
   <string name="settings_community_desc">Google Plus сообщество</string>
@@ -112,10 +151,14 @@
   <string name="settings_volume_to_stop_desc">Нажать кнопки громкости, чтобы отключить</string>
   <string name="settings_touch_to_stop_desc">Двойное нажатие на экран, чтобы отключить</string>
   <string name="settings_swipe_to_stop_desc">Провести вверх, чтобы отключить</string>
+  <string name="settings_notifications_desc">Работа в фоновом режиме </string>
   <string name="settings_enabled_desc">Включение службы</string>
+  <string name="settings_disable_volume_keys_desc">Для предотвращения случайного изменения громкости </string>
   <string name="settings_notifications_alerts_desc">Показывать уведомления от других приложений при получении</string>
   <string name="settings_brightness_desc">Яркость экрана во время блокировки</string>
+  <string name="settings_about_translate">Помощь в переводе приложения</string>
   <string name="settings_version_desc">Сборка</string>
+  <string name="settings_feature_dialog_desc">Выберитесли какие из элементов будет доступны  на заблокированном экране</string>
   <string name="settings_features_dialog_battery">Показать батарею</string>
   <string name="settings_features_dialog_calendar">Показать дату</string>
   <string name="settings_features_dialog_time">Показать время</string>
@@ -125,6 +168,7 @@
   <string name="settings_watchface_miscellaneous">Прочее</string>
   <string name="settings_watchface_styles">Стили</string>
   <string name="settings_font">Шрифт</string>
+  <string name="settings_choose_font">Выбрать шрифт</string>
   <string name="settings_watch_digital">Цифровой</string>
   <string name="settings_watch_analog">Аналоговый</string>
   <string name="settings_rules_text">Текст</string>
@@ -133,10 +177,25 @@
   <string name="settings_font_default_italic">По умолчанию курсив</string>
   <string name="settings_font_serif">Serif (засечки)</string>
   <string name="settings_font_monospace">Моноширинный</string>
+  <string name="settings_gestures"><![CDATA[Жесты ]]></string>
+  <string name="settings_gestures_desc">Двойной тап для пробуждения </string>
+  <string name="settings_watchface_text_font"><![CDATA[Текст и шрифт]]></string>
+  <string name="settings_select_action">Выберите действие</string>
+  <string name="warning_11_need_to_reset_app">Потребоваться перезапустить приложение, чтобы изменения  вступили в силу</string>
   <string name="settings_uninstall">Удалить</string>
   <string name="settings_uninstall_desc">Удалить  приложение</string>
   <string name="settings_watchface_clock_desc">Выбрать ваш любимый стиль часов
 </string>
+  <string name="settings_watch_analog_24_classic">Классические  часы </string>
   <string name="settings_watch_analog_s7">Cтиль S7 часов </string>
   <string name="settings_watch_analog_pebble">Стиль Pebble  часов </string>
+  <string name="move_disable">Отключить (не рекомендуется для AMOLED экранов)</string>
+  <string name="move_move">Автоматически перемещать виджет</string>
+  <string name="move_move_animation">Автомотическое  перемещение виджета с анимацией</string>
+  <string name="greenify_integration">Интеграция Greenify</string>
+  <string name="greenify_integration_desc">Включить  Greenify это функция  улучшит жизнь батареи. Убедитесь в включение  Greenify в параметрах </string>
+  <string name="settings_notifications_alerts_preview_desc">Показывать  содержимое уведомления при получение </string>
+  <string name="settings_notifications_alerts_preview">Содержание  уведомления </string>
+  <string name="error_IAP">Ошибка! Пожалуйста, убедитесь, что вы подключены к Интернету  и перезапустите приложение   </string>
+  <string name="warning_11_no_root">Устройство должно быть с  ROOT чтобы  использовать эту функцию!</string>
 </resources>

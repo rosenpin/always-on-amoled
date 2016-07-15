@@ -7,30 +7,30 @@
 Это стало возможным благодаря AMOLED дисплеям. Большая часть экрана остается черным , за исключением несколько пикселей.
 
 Особенные функции
-Always On Screen
+Всегда включённый экран
 • Уведомления - Просмотр уведомлений не касаясь вашего устройства
-• Automatic rules - preserve battery using predefined rules
+Автоматический сохранение заряда батарея с особенным правилами
 • Auto movement- избегание выгорание AMOLED дисплея 
 • Автоматическое ночной режим - яркость экрана автоматически переходит в ночной режим.
 • Pocket  режим - заблокировать устройство, когда вы оставляете  его в кармане для экономии заряда батареи
 • Двойное нажатие по экрану  + Проведите пальцем для  ответа на телефоный звонок   + клавиши громкости
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
+Установка ориентации экрана.
+В настройках можете изменить цвет текста размер текста и многое другое.
 Бесплатно и открытый исходный код 
 
 
-Before using please enable 'draw over apps' permission for this app.
+Перед включением в настройках выберите разрешить приложения.
 
-The app is in BETA, it still has bugs and lacks features.
+Приложение находится в бета-версии , он все еще есть ошибки и недостатки возможностей.
 
 Разрешения
-<b>Разрешение на камеру </b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Разрешение на камеру
+В приложение необходимо дать разрешение для камеры. Длч кнопки распознание.
+Разрешение в телефоне 
+Разрешение потребности приложений телефона распознавать входящие звонки , отклонить всегда на экране и отображения экрана входящего вызова .
+Изменение разрешения системных настроек
+Приложение требует разрешения на изменение настроек системы , чтобы изменить яркость экрана блокировки .
 
 
 Google Plus сообщество
-https://plus.google.com/communities/104206728795122451273
+На адрес https://plus.google.com/communities/104206728795122451273
