@@ -497,7 +497,6 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         if (prefs.clockStyle == S7_DIGITAL) {
-
             String hour;
             SimpleDateFormat sdf;
             if (DateFormat.is24HourFormat(this)) {
@@ -510,16 +509,7 @@ public class MainService extends Service implements SensorEventListener, Context
             sdf = new SimpleDateFormat("mm", Locale.getDefault());
             String minute = sdf.format(new Date());
 
-
-            Calendar calendar = Calendar.getInstance();
-            Date date = calendar.getTime();
-            String dayOfWeek = new SimpleDateFormat("EEE", Locale.getDefault()).format(date.getTime()) + ".";
-            String month = new SimpleDateFormat("MMM", Locale.getDefault()).format(date.getTime()).toUpperCase();
-            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
-            calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
-
             ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setText(hour);
-            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(dayOfWeek + "\n" + currentDate + " " + month);
             ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setText(minute);
         }
 
@@ -558,6 +548,14 @@ public class MainService extends Service implements SensorEventListener, Context
             String month = new SimpleDateFormat("MMMM").format(date.getTime()).toUpperCase();
             String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
             calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
+        }
+        if (prefs.clockStyle == S7_DIGITAL){
+            Calendar calendar = Calendar.getInstance();
+            Date date = calendar.getTime();
+            String dayOfWeek = new SimpleDateFormat("EEE", Locale.getDefault()).format(date.getTime()) + ".";
+            String month = new SimpleDateFormat("MMM", Locale.getDefault()).format(date.getTime()).toUpperCase();
+            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(dayOfWeek + "\n" + currentDate + " " + month);
         }
 
         new Handler().postDelayed(
