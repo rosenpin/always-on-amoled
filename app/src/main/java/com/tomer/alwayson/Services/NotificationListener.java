@@ -75,6 +75,10 @@ public class NotificationListener extends NotificationListenerService implements
             this.title = title;
             this.message = message;
             this.context = context;
+            if (this.message.equals("null"))
+                this.message = "";
+            if (this.title.equals("null"))
+                this.title = "";
         }
 
         public Drawable getIcon() {
