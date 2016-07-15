@@ -430,8 +430,11 @@ public class MainService extends Service implements SensorEventListener, Context
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 9.2));
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
-                ((TextView) mainView.findViewById(R.id.battery_percentage_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
-                mainView.findViewById(R.id.battery_percentage_icon).getLayoutParams().height = (int) (prefs.textSize * 1);
+                batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
+                ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
+                batteryIVlp.height = (int) (prefs.textSize);
+                batteryIV.setLayoutParams(batteryIVlp);
+
                 prefs.dateStyle = DISABLED;
 
                 watchfaceWrapper.removeView(dateWrapper);
@@ -446,6 +449,10 @@ public class MainService extends Service implements SensorEventListener, Context
                 batteryTV.setTextColor(prefs.textColor);
                 batteryTV.setTypeface(font);
                 batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
+                batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
+                ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
+                batteryIVlp.height = (int) (prefs.textSize);
+                batteryIV.setLayoutParams(batteryIVlp);
                 registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
