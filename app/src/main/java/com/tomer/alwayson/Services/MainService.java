@@ -502,7 +502,7 @@ public class MainService extends Service implements SensorEventListener, Context
             if (DateFormat.is24HourFormat(this)) {
                 sdf = new SimpleDateFormat("HH", Locale.getDefault());
             } else
-                sdf = new SimpleDateFormat("hh", Locale.getDefault());
+                sdf = new SimpleDateFormat("h", Locale.getDefault());
 
             hour = sdf.format(new Date());
 
@@ -549,7 +549,7 @@ public class MainService extends Service implements SensorEventListener, Context
             String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
             calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
         }
-        if (prefs.clockStyle == S7_DIGITAL){
+        if (prefs.clockStyle == S7_DIGITAL) {
             Calendar calendar = Calendar.getInstance();
             Date date = calendar.getTime();
             String dayOfWeek = new SimpleDateFormat("EEE", Locale.getDefault()).format(date.getTime()) + ".";
@@ -621,7 +621,7 @@ public class MainService extends Service implements SensorEventListener, Context
             //Fade out animation
             Animation fadeOut = new AlphaAnimation(1, 0);
             fadeOut.setInterpolator(new AccelerateInterpolator());
-            fadeOut.setStartOffset(70000);
+            fadeOut.setStartOffset(40000);
             fadeOut.setDuration(1000);
             //Set the notification text and icon
             ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
@@ -667,6 +667,13 @@ public class MainService extends Service implements SensorEventListener, Context
             Toast.makeText(getApplicationContext(), getString(R.string.error_0_unknown_error), Toast.LENGTH_SHORT).show();
         }
         Globals.isShown = false;
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Globals.killedByDelay = false;
+            }
+        }, 15000);
     }
 
     private void setButtonsLight(boolean state) {
