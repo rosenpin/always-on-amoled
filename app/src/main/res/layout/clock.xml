@@ -26,4 +26,9 @@
         android:layout_height="168dp"
         android:layout_marginBottom="0dp"
         android:paddingBottom="0dp" />
+
+    <include
+        android:id="@+id/s7_digital"
+        layout="@layout/s7_digital" />
+
 </LinearLayout>

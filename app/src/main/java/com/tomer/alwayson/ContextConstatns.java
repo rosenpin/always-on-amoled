@@ -49,4 +49,5 @@ public interface ContextConstatns {
     int ANALOG24_CLOCK = 3;
     int S7_CLOCK = 4;
     int PEBBLE_CLOCK = 5;
+    int S7_DIGITAL = 6;
 }

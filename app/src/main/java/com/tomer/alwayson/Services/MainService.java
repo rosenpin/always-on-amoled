@@ -218,7 +218,7 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = layoutInflater.inflate(prefs.orientation.equals("vertical") ? R.layout.clock_widget : R.layout.clock_widget_horizontal, frameLayout);
-        setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(R.id.battery_wrapper));
+        setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper));
 
         LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         mainLayoutParams.gravity = prefs.moveWidget == DISABLED ? Gravity.CENTER : Gravity.CENTER_HORIZONTAL;
@@ -354,8 +354,8 @@ public class MainService extends Service implements SensorEventListener, Context
         Log.d("Font to apply ", String.valueOf(prefs.font));
         Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
         calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
-        batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
-        batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
+        batteryIV = (ImageView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_icon : R.id.s7_battery_percentage_icon);
+        batteryTV = (TextView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_tv : R.id.s7_battery_percentage_tv);
         ViewGroup.LayoutParams lp;
         if (prefs.clockStyle > ANALOG_CLOCK)
             analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
@@ -379,14 +379,17 @@ public class MainService extends Service implements SensorEventListener, Context
 
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
                 break;
             case ANALOG_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
                 break;
             case ANALOG24_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
@@ -397,6 +400,7 @@ public class MainService extends Service implements SensorEventListener, Context
             case S7_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
@@ -407,12 +411,42 @@ public class MainService extends Service implements SensorEventListener, Context
             case PEBBLE_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
                 analog24HClock.init(this, 2, false);
+                break;
+            case S7_DIGITAL:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
+                ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTypeface(font);
+                ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTypeface(font);
+                ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTypeface(font);
+
+                ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 9.2));
+                ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
+                ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
+                ((TextView) mainView.findViewById(R.id.battery_percentage_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
+                mainView.findViewById(R.id.battery_percentage_icon).getLayoutParams().height = (int) (prefs.textSize * 1);
+                prefs.dateStyle = DISABLED;
+
+                watchfaceWrapper.removeView(dateWrapper);
+                watchfaceWrapper.removeView(batteryWrapper);
+                break;
+        }
+        switch (prefs.batteryStyle) {
+            case 0:
+                watchfaceWrapper.removeView(batteryWrapper);
+                break;
+            case 1:
+                batteryTV.setTextColor(prefs.textColor);
+                batteryTV.setTypeface(font);
+                batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
+                registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
         switch (prefs.dateStyle) {
@@ -425,19 +459,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 calendarTV.setTypeface(font);
                 break;
         }
-        switch (prefs.batteryStyle) {
-            case 0:
-                watchfaceWrapper.removeView(batteryWrapper);
-                break;
-            case 1:
-                batteryTV.setTextColor(prefs.textColor);
-                batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-                registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-                break;
-
-        }
         Log.d("Date", String.valueOf(prefs.dateStyle));
-        batteryTV.setTypeface(font);
     }
 
     private void refresh() {
@@ -464,6 +486,25 @@ public class MainService extends Service implements SensorEventListener, Context
 
         if (analog24HClock != null) {
             analog24HClock.setTime(Calendar.getInstance());
+        }
+
+        if (prefs.clockStyle == S7_DIGITAL) {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH", Locale.getDefault());
+            String hour = sdf.format(new Date());
+            sdf = new SimpleDateFormat("mm", Locale.getDefault());
+            String minute = sdf.format(new Date());
+
+
+            Calendar calendar = Calendar.getInstance();
+            Date date = calendar.getTime();
+            String dayOfWeek = new SimpleDateFormat("EEE", Locale.getDefault()).format(date.getTime()) + ".";
+            String month = new SimpleDateFormat("MMM", Locale.getDefault()).format(date.getTime()).toUpperCase();
+            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
+            calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
+
+            ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setText(hour);
+            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(dayOfWeek + "\n" + currentDate + " " + month);
+            ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setText(minute);
         }
 
         new Handler().postDelayed(

@@ -14,12 +14,12 @@
     <string name="support_how_much">How much would you like to donate?</string>
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
     <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
-    <string name="support_1">1$ The price of a refreshing coke</string>
-    <string name="support_2">2$ The price of a tasty chocolate bar</string>
-    <string name="support_5">5$ The price of a cool ice-coffee</string>
-    <string name="support_10">10$ The price of a big ass Starbucks coffee</string>
-    <string name="support_20">20$ The price of a delicious pizza</string>
-    <string name="support_50">50$ The price of a dinner for two</string>
+    <string name="support_1">1$: The price of a refreshing coke</string>
+    <string name="support_2">2$: The price of a tasty chocolate bar</string>
+    <string name="support_5">5$: The price of a cool ice-coffee</string>
+    <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
+    <string name="support_20">20$: The price of a delicious pizza</string>
+    <string name="support_50">50$: The price of a dinner for two</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state and Camera permission</string>
@@ -114,6 +114,9 @@
     <string name="settings_font_size">Text size</string>
     <string name="settings_watchface">Customize Watchface</string>
     <string name="settings_proximity">Proximity sensor (Pocket mode)</string>
+    <string name="settings_proximity_root">\nRoot Mode:\nBest option, works fast and allows fingerprint recognition\n</string>
+    <string name="settings_proximity_normal">Normal Mode (Recommended):\nTakes a long time to start, allows fingerprint recognition</string>
+    <string name="settings_proximity_device_admin">Device Admin Mode:\nWorks fast but disables fingerprint recognition</string>
     <string name="settings_show_am_pm">Show AM/PM</string>
     <string name="settings_text_color">Text Color</string>
     <string name="settings_startafterlock">Start after lock</string>
@@ -186,6 +189,7 @@
     <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
     <string name="settings_watch_analog_24_classic">Classic 24 Analog</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
+    <string name="settings_watch_digital_s7">S7 style digital clock (not customizable)</string>
     <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
     <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
     <string name="move_move">Move the widget automatically</string>
