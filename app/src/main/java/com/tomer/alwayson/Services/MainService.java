@@ -497,8 +497,16 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         if (prefs.clockStyle == S7_DIGITAL) {
-            SimpleDateFormat sdf = new SimpleDateFormat("HH", Locale.getDefault());
-            String hour = sdf.format(new Date());
+
+            String hour;
+            SimpleDateFormat sdf;
+            if (DateFormat.is24HourFormat(this)) {
+                sdf = new SimpleDateFormat("HH", Locale.getDefault());
+            } else
+                sdf = new SimpleDateFormat("hh", Locale.getDefault());
+
+            hour = sdf.format(new Date());
+
             sdf = new SimpleDateFormat("mm", Locale.getDefault());
             String minute = sdf.format(new Date());
 
