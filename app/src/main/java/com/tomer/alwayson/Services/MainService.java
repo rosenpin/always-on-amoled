@@ -436,6 +436,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 batteryIV.setLayoutParams(batteryIVlp);
 
                 prefs.dateStyle = DISABLED;
+                prefs.batteryStyle = 1;
 
                 watchfaceWrapper.removeView(dateWrapper);
                 watchfaceWrapper.removeView(batteryWrapper);
