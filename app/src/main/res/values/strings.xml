@@ -202,4 +202,6 @@
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
     <string name="warning_11_no_root">Device must be rooted to use this feature!</string>
     <string name="report_sent">Report sent!</string>
+    <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
+    <string name="thanks_short">Thank you</string>
 </resources>

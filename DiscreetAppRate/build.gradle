@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+
+version '2.0.5'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+
+    buildTypes {
+        defaultConfig {
+            minSdkVersion 8
+            targetSdkVersion 22
+            versionCode 1
+            versionName "2.0.5"
+        }
+    }
+}
+
+android.libraryVariants
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact 'build/outputs/aar/DiscreetAppRate-release.aar'
+            artifactId 'discreetapprate'
+            groupId 'fr.nicolaspomepuy'
+        }
+    }
+}
+
+def isReleaseBuild() {
+    return version.contains("SNAPSHOT") == false
+}
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+signing {
+    required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:22.2.1'
+}
