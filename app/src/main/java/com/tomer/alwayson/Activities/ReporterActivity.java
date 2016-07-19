@@ -36,5 +36,4 @@ public class ReporterActivity extends IssueReporterActivity {
             extraInfo.put(preference[0], preference[1]);
         }
     }
-
 }

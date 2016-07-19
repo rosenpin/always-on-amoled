@@ -378,16 +378,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Globals.colorDialog.show();
         } else if (preference.getKey().equals("uninstall")) {
             Log.d(MAIN_ACTIVITY_LOG_TAG, "uninstall clicked");
-            try {
-                ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
-                DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-                dpm.removeActiveAdmin(devAdminReceiver);
-            } catch (Exception ignored) {
-            }
-            Uri packageUri = Uri.parse("package:" + context.getPackageName());
-            Intent uninstallIntent =
-                    new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
-            startActivity(uninstallIntent);
+            PreferencesActivity.uninstall(context, prefs);
         } else if (preference.getKey().equals("font")) {
             final FontAdapter fontAdapter = new FontAdapter(context, R.array.fonts);
             new MaterialDialog.Builder(getActivity())

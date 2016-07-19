@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.PendingIntent;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -40,6 +41,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.StarterService;
@@ -260,6 +262,21 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         }
     }
 
+    public static void uninstall(Context context, Prefs prefs) {
+        try {
+            ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
+            DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+            dpm.removeActiveAdmin(devAdminReceiver);
+            if (prefs.proximityToLock == 2)
+                prefs.setString(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), "0");
+        } catch (Exception ignored) {
+        }
+        Uri packageUri = Uri.parse("package:" + context.getPackageName());
+        Intent uninstallIntent =
+                new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
+        context.startActivity(uninstallIntent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -272,24 +289,19 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.feedback:
-                /*PackageInfo pInfo = null;
-                try {
-                    pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-                } catch (PackageManager.NameNotFoundException ignored) {
-                }
-                Intent i = new Intent(Intent.ACTION_SENDTO);
-                i.setData(Uri.parse("mailto:")); // only email apps should handle this
-                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomerosenfeld007@gmail.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                assert pInfo != null;
-                i.putExtra(Intent.EXTRA_TEXT, "version:" + pInfo.versionName + "\n" + "Device:" + Build.MANUFACTURER + " " + Build.MODEL + " " + Build.DEVICE + "\n" + "Version: " + android.os.Build.VERSION.SDK_INT + "\n" + prefs.toString());
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(getApplicationContext(), getString(R.string.error_1_no_email_client), Toast.LENGTH_SHORT).show();
-                }
-                */
                 startActivity(new Intent(getApplicationContext(), ReporterActivity.class));
+                return true;
+            case R.id.uninstall:
+                uninstall(this, prefs);
+                return true;
+            case R.id.community:
+                SettingsFragment.openURL("https://plus.google.com/communities/104206728795122451273", this);
+                return true;
+            case R.id.github:
+                SettingsFragment.openURL("https://github.com/rosenpin/AlwaysOnDisplayAmoled", this);
+                return true;
+            case R.id.translate:
+                SettingsFragment.openURL("https://crowdin.com/project/always-on-amoled", this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

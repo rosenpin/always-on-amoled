@@ -31,6 +31,7 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Activities.ReporterActivity"
+            android:parentActivityName=".Activities.PreferencesActivity"
             android:theme="@style/ReporterTheme"/>
         <activity
             android:name=".Activities.PreferencesActivity"
