@@ -81,13 +81,6 @@ public class Intro extends AppIntro2 {
         setVibrate(false);
     }
 
-    @Override
-    public void onSkipPressed(Fragment currentFragment) {
-        super.onSkipPressed(currentFragment);
-        pref.setBool(Prefs.KEYS.PERMISSION_GRANTING.toString(), true);
-        startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
-        finish();
-    }
 
     @Override
     public void onDonePressed(Fragment currentFragment) {
@@ -125,9 +118,7 @@ public class Intro extends AppIntro2 {
                 View view = new View(context);
                 ((WindowManager) context.getSystemService(WINDOW_SERVICE)).addView(view, lp);
                 ((WindowManager) context.getSystemService(WINDOW_SERVICE)).removeView(view);
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
             } catch (Exception e) {
                 permissions[0] = false;
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
@@ -160,9 +151,7 @@ public class Intro extends AppIntro2 {
                 ((WindowManager) context.getSystemService(WINDOW_SERVICE)).addView(view, lp);
                 ((WindowManager) context.getSystemService(WINDOW_SERVICE)).removeView(view);
                 Button go = (Button) v.findViewById(R.id.go);
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
                 permissions[0] = true;
             } catch (Exception e) {
                 permissions[0] = false;
@@ -206,9 +195,7 @@ public class Intro extends AppIntro2 {
             } else {
                 permissions[1] = true;
                 Button go = (Button) v.findViewById(R.id.go);
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
             }
         }
 
@@ -233,9 +220,7 @@ public class Intro extends AppIntro2 {
                 });
             } else {
                 permissions[1] = true;
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
             }
 
             return v;
@@ -265,9 +250,7 @@ public class Intro extends AppIntro2 {
                 });
             } else {
                 permissions[permissions.length - 1] = true;
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
             }
 
         }
@@ -277,7 +260,7 @@ public class Intro extends AppIntro2 {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             v = inflater.inflate(R.layout.intro_screen, container, false);
-            v.findViewById(R.id.background).setBackgroundColor(Color.parseColor("#009688"));
+            v.findViewById(R.id.background).setBackgroundColor(ContextCompat.getColor(context, R.color.intro_background_3));
             ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_permissions);
             ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_permissions_desc);
             go = (Button) v.findViewById(R.id.go);
@@ -294,9 +277,7 @@ public class Intro extends AppIntro2 {
                 });
             } else {
                 permissions[permissions.length - 1] = true;
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
             }
             return v;
         }
@@ -350,9 +331,7 @@ public class Intro extends AppIntro2 {
                 @Override
                 public void onClick(View view) {
                     if (checkNotificationsPermission(getContext(), true)) {
-                        go.setTextColor(context.getResources().getColor(R.color.green));
-                        go.setText(getString(R.string.done_button));
-                        go.setEnabled(false);
+                        go.setVisibility(View.INVISIBLE);
                         pref.forceBool(Prefs.KEYS.NOTIFICATION_ALERTS.toString(), true);
                     }
                 }
@@ -364,9 +343,7 @@ public class Intro extends AppIntro2 {
         public void onResume() {
             super.onResume();
             if (shouldEnableNotificationsAlerts && checkNotificationsPermission(getContext(), false)) {
-                go.setTextColor(context.getResources().getColor(R.color.green));
-                go.setText(getString(R.string.done_button));
-                go.setEnabled(false);
+                go.setVisibility(View.INVISIBLE);
                 pref.forceBool(Prefs.KEYS.NOTIFICATION_ALERTS.toString(), true);
             }
         }
