@@ -165,6 +165,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onCreate() {
         super.onCreate();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
+        Globals.isServiceRunning = true;
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
@@ -658,6 +659,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onDestroy() {
         //Dismissing the wakelock holder
+        Globals.isServiceRunning = false;
         stayAwakeWakeLock.release();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         //Stopping tts if it's running
@@ -823,7 +825,8 @@ public class MainService extends Service implements SensorEventListener, Context
                                 refresh();
                                 refreshLong(true);
                             }
-                            stayAwakeWakeLock.acquire();
+                            if (Globals.isServiceRunning)
+                                stayAwakeWakeLock.acquire();
                         }
                     }, prefs.proximityToLock != PROXIMITY_NORMAL_MODE ? 1000 : 5000);
                 }

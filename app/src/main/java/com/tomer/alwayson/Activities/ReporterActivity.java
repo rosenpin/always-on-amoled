@@ -37,9 +37,4 @@ public class ReporterActivity extends IssueReporterActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast.makeText(ReporterActivity.this, getString(R.string.report_sent), Toast.LENGTH_SHORT).show();
-    }
 }

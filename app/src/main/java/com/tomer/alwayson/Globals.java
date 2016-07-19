@@ -23,4 +23,5 @@ public class Globals {
     public static IInAppBillingService mService;
     public static NotificationListener.NotificationHolder newNotification;
     public static boolean nightMode;
+    public static boolean isServiceRunning;
 }
