@@ -13,21 +13,23 @@ import com.tomer.alwayson.SecretConstants;
 
 
 public class ReporterActivity extends IssueReporterActivity {
-    //Where should the issues go?
-    //(http://github.com/username/repository)
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setGuestEmailRequired(true);
+    }
+
     @Override
     public GithubTarget getTarget() {
         return new GithubTarget("rosenpin", "AlwaysOnDisplayAmoled");
     }
 
-    //[Optional] Auth token to open issues if users don't have a GitHub account
-    //You can register a bot account on GitHub and copy ist OAuth2 token here.
     @Override
     public String getGuestToken() {
         return SecretConstants.getPropertyValue(this,"github-key");
     }
 
-    //[Optional] Include other relevant info in the bug report (like custom variables)
     @Override
     public void onSaveExtraInfo(ExtraInfo extraInfo) {
         Prefs prefs = new Prefs(this);

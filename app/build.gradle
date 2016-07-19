@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 110
-        versionName "0.88 C"
+        versionCode 111
+        versionName "0.88 D"
     }
     buildTypes {
         release {
@@ -38,7 +38,7 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
-    compile 'com.heinrichreimersoftware:android-issue-reporter:1.2.5'
+    compile 'com.heinrichreimersoftware:android-issue-reporter:1.2.6'
     compile project(':lib')
     compile project(':DiscreetAppRate')
     testCompile 'junit:junit:4.12'
