@@ -2,9 +2,9 @@ Få en "always on" display för din telefon eller surfplatta.
 Håll din skärm på hela tiden.
 Den första "always on" appen med öppen källkod!
 
-Tanken är att förse användarna med information om, tid, datum, meddelanden och mer utan att behöva röra telefonen. Bara genom att titta på den.
+Tanken är att förse användarna med information om, tid, datum, meddelanden och mer, utan att behöva röra telefonen. Bara genom att titta på den
 
-Detta görs möjligt tack vare AMOLED skärmar. Det mesta av skärmen förblir svart med undantag för ett fåtal pixlar.
+Detta görs möjligt tack vare AMOLED skärmar Det mesta av skärmen förblir svart med undantag för ett fåtal pixlar
 
 ★Anmärkningsvärda funktioner
 •    Always on skärm
@@ -25,10 +25,10 @@ Denna app är i BETA, den har fortfarande buggar och saknar funktioner.
 Behörigheter
 Behörighet för kamera
 Appen behöver behörighet för kameran för att känna igen kamerastart för att stänga av "always on" skärmen.
-Telefon behörighet
-Appen behöver behörighet för samtal för att känna igen inkommande samtal, avvisa 'always on" skärmen och visa inkommande samtalsskärmen.
+Telefonbehörighet
+Appen behöver behörighet för samtal för att känna igen inkommande samtal, avvisa 'always on" skärmen och visa inkommande samtalsskärmen
 Behörighet för att ändra system inställningar
-Appen behöver behörighet att ändra inställningar för att ändra ljusstyrkan på låsskärmen.
+Appen behöver behörighet att ändra inställningar för att ändra ljusstyrkan på låsskärmen
 
 
 Google Plus gemenskap

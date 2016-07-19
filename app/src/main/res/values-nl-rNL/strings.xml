@@ -116,6 +116,9 @@
   <string name="settings_font_size">Lettergrootte </string>
   <string name="settings_watchface">Pas de watchface aan</string>
   <string name="settings_proximity">Nabijheidssensor (Broekzak modus)</string>
+  <string name="settings_proximity_root">\nRoot Modus:\nBeste optie, werkt snel en behoud vingerafdruk scannen\n</string>
+  <string name="settings_proximity_normal">Normale Modus (Aanbevolen):\nDuurt lang om te starten, behoud vingerafdruk scannen</string>
+  <string name="settings_proximity_device_admin">Admin Modus:\nWerkt snel, maar vingerafdruk scannen werkt niet meer</string>
   <string name="settings_show_am_pm">Laat AM/PM zien</string>
   <string name="settings_text_color">Tekstkleur</string>
   <string name="settings_startafterlock">Start na het vergrendelen</string>
@@ -188,6 +191,7 @@
   <string name="settings_watchface_clock_desc">Kies je favoriete klokstijl</string>
   <string name="settings_watch_analog_24_classic">Klassieke 24 uurs analoog</string>
   <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
+  <string name="settings_watch_digital_s7">S7 digitale klok stijl (niet aan te passen)</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
   <string name="move_disable">Uitgeschakeld (niet aanbevolen voor AMOLED schermen)</string>
   <string name="move_move">Laat de widget automatisch bewegen</string>

@@ -3,23 +3,25 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
-  <string name="title_donation">J</string>
+  <string name="title_donation">Apoya al desarrollador</string>
   <!--Actions-->
-  <string name="unlock">Unlock</string>
+  <string name="unlock">Encender la pantalla</string>
   <string name="action_revert">Revertir</string>
   <string name="menu_feedback">Opiniones</string>
   <string name="disclaimer">DESCARGO DE RESPONSABILIDAD</string>
-  <string name="disclaimer_desc">Los desarrolladores siempre en AMOLED no se hará responsables de cualquier daño que pueda sufrir tu dispositivo.</string>
+  <string name="disclaimer_desc">Los desarrolladores de Always On AMOLED no se hará responsables de cualquier daño que pueda sufrir tu dispositivo.</string>
   <string name="agree">Aceptar</string>
   <!--Support-->
-  <string name="action_support_the_development">Support the development</string>
+  <string name="action_support_the_development">Apoya al desarrollo</string>
   <string name="support_how_much">¿Cuánto quieres donar?</string>
-  <string name="gestures_action_speak">Hi</string>
-  <string name="supporter_feature_only">Esta función sólo está disponible para los fanáticos, puede elegir cuánto quieres donar para convertirse en un seguidor, ¿cuánto te gustaría donar?</string>
+  <string name="gestures_action_speak">Mostrar el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
+  <string name="supporter_feature_only">Esta función sólo está disponible para los donantes, puede elegir cuánto quieres donar para convertirse en un seguidor, ¿cuánto te gustaría donar?</string>
   <string name="support_1">1$ el precio de una refrescante Coca-Cola</string>
   <string name="support_2">2$ The price of a tasty chocolate bar</string>
   <string name="support_5">5$ el precio de un café de hielo fresco</string>
   <string name="support_10">10$ el precio de una pizza deliciosa</string>
+  <string name="support_20">20$: El precio de una deliciosa pizza</string>
+  <string name="support_50">50$: El precio de una cena para dos personas</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ver el estado del teléfono y permisos de Cámara</string>
@@ -66,10 +68,11 @@
   <string name="warning_5_device_admin_disable">Esto inhabilitará algunas de las características de la aplicación</string>
   <string name="warning_6_device_admin_disabled">Algunas caracteristicas estan desactivadas ahora</string>
   <string name="warning_7_disable_fingerprint">Esto podría desactivar el sensor de huellas dactilares, ¿está seguro de que desea continuar?</string>
-  <string name="warning_8_intro_allow_all">Por favor activa todos los permisos para la aplicación</string>
+  <string name="warning_8_intro_allow_all">Por favor activa todos los permisos necesarios para el funcionamiento de la aplicación</string>
   <string name="warning_9_allow_notification">Por favor permite acceso a las notificaciones</string>
-  <string name="warning_10_tts_not_installed">Por favor instale primero un motor de texto a voz</string>
+  <string name="warning_10_tts_not_installed">Por favor instale primero un conversor de texto a voz</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Ambos, mientras el terminal se esta cargando como cuando se esta descargando</string>
   <string name="rules_while_charging">Cuando está cargando</string>
   <string name="rules_while_not_charging">Cuando no está cargando</string>
   <!--Battery rules-->
@@ -181,4 +184,18 @@
   <string name="warning_11_need_to_reset_app">Puede que necesite reiniciar la aplicación para tomar efecto</string>
   <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_uninstall_desc">Desinstalar la aplicación</string>
+  <string name="settings_watchface_clock_desc">Elije tu tipo de reloj preferido</string>
+  <string name="settings_watch_analog_24_classic">Reloj 24 horas analogico clasico</string>
+  <string name="settings_watch_analog_s7">Estilo del reloj analogico del Galaxy S7</string>
+  <string name="settings_watch_digital_s7">Estilo del reloj digital del Galaxy S7 No Personalizable</string>
+  <string name="settings_watch_analog_pebble">Estilo del reloj analogico Pebble</string>
+  <string name="move_disable">Desactivado (no recomendado para pantallas AMOLED)</string>
+  <string name="move_move">Mover el widget automaticamente</string>
+  <string name="move_move_animation">Mover el widget automaticamente con una animacion</string>
+  <string name="greenify_integration">Integracion con Greenify</string>
+  <string name="greenify_integration_desc">Activa Greenify cuando Always On se activa. Esto sirve para alargar la duracion de la bateria. Asegurate de tener activado Greenify en las opciones de accesibilidad</string>
+  <string name="settings_notifications_alerts_preview_desc">Muestra el contenido de las notificaciones recibidas</string>
+  <string name="settings_notifications_alerts_preview">Contenido de las notificaciones</string>
+  <string name="error_IAP">Error! Por favor asegurate de que estas conectado a internet y reinicia la app</string>
+  <string name="warning_11_no_root">El dispositivo debe tener acceso root para utilizar esta funcion!</string>
 </resources>

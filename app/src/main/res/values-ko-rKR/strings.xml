@@ -116,6 +116,9 @@
   <string name="settings_font_size">글자 크기</string>
   <string name="settings_watchface">시계 구성요소</string>
   <string name="settings_proximity">근접 센서</string>
+  <string name="settings_proximity_root">\n루팅 모드:\n 가장 좋음, 빠르고 지문 인식이 됨\n</string>
+  <string name="settings_proximity_normal">일반 모드 (권장):\n오래 걸림, 지문 인식이 됨</string>
+  <string name="settings_proximity_device_admin">디바이스 관리자 모드:\n빠르지만 지문 인식이 안 될 수 있음</string>
   <string name="settings_show_am_pm">오전/오후 보이기</string>
   <string name="settings_text_color">글자 색</string>
   <string name="settings_startafterlock">잠긴 후에만 작동</string>
@@ -188,6 +191,7 @@
   <string name="settings_watchface_clock_desc">마음에 드는 시계 스타일 고르기</string>
   <string name="settings_watch_analog_24_classic">클래식 아날로그 24시</string>
   <string name="settings_watch_analog_s7">S7 스타일 아날로그 시계</string>
+  <string name="settings_watch_digital_s7">S7 스타일 디지털 시계 (꾸밀 수 없음)</string>
   <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
   <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
   <string name="move_move">위젯을 자동으로 움직이기</string>

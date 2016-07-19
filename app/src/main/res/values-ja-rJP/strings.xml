@@ -116,6 +116,9 @@
   <string name="settings_font_size">フォントの大きさ</string>
   <string name="settings_watchface">ウォッチフェイスをカスタマイズ</string>
   <string name="settings_proximity">近接センサー</string>
+  <string name="settings_proximity_root">\nルートモード:\n起動も早く、指紋認証も使えます\n</string>
+  <string name="settings_proximity_normal">通常モード (推奨):\n機動までに時間がかかりますが、指紋認証は使えます</string>
+  <string name="settings_proximity_device_admin">デバイス管理者モード:\n起動は早いですが、指紋認証は使えません</string>
   <string name="settings_show_am_pm">午前/午後を表示</string>
   <string name="settings_text_color">文字色</string>
   <string name="settings_startafterlock">ロック後に開始</string>
@@ -188,6 +191,7 @@
   <string name="settings_watchface_clock_desc">お好きな時計のスタイルを選択</string>
   <string name="settings_watch_analog_24_classic">クラシックアナログ24</string>
   <string name="settings_watch_analog_s7">S7スタイル アナログ時計</string>
+  <string name="settings_watch_digital_s7">S7スタイル デジタル時計 (カスタマイズ不可)</string>
   <string name="settings_watch_analog_pebble">Pebbleスタイル アナログ時計</string>
   <string name="move_disable">無効 (AMOLED ディスプレイでは非推奨)</string>
   <string name="move_move">ウィジェットを自動で移動</string>

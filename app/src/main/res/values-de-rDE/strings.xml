@@ -17,11 +17,11 @@
   <string name="gestures_action_speak">Spricht die aktuelle Zeit, Benachrichtigungen und den Akkustand mit der installierten Sprachengine</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
   <string name="support_1">1$, der Preis einer erfrischenden Cola</string>
-  <string name="support_2">2$ der Preis von einem leckerem Schokoriegel</string>
+  <string name="support_2">2$: der Preis eines leckeren Schokoriegels</string>
   <string name="support_5">5$, der Preis für einen kühlen Eiskaffe</string>
-  <string name="support_10">10$ der Preis für einen großen Starbucks-Kaffee</string>
-  <string name="support_20">20$ der Preis für eine leckere Pizza</string>
-  <string name="support_50">50$ der Preis für ein Dinner zu zweit</string>
+  <string name="support_10">10$: der Preis für einen großen Starbucks-Kaffee</string>
+  <string name="support_20">20$: der Preis einer leckeren Pizza</string>
+  <string name="support_50">50$: der Preis für ein Dinner zu zweit</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen und Kamera-Berechtigung</string>
@@ -116,6 +116,9 @@
   <string name="settings_font_size">Schriftgröße</string>
   <string name="settings_watchface">Darstellung anpassen</string>
   <string name="settings_proximity">Näherungssensor</string>
+  <string name="settings_proximity_root">\nRoot-Modus:\n Beste Wahl, arbeitet schnell und ermöglicht die Erkennung des Fingerabdrucks\n</string>
+  <string name="settings_proximity_normal">Normaler Modus (Empfohlen):\nBraucht lange zum Starten, erkennt Fingerabdrücke</string>
+  <string name="settings_proximity_device_admin">Geräteadministrator-Modus:\nArbeitet schnell, aber deaktiviert die Fingerabdruckerkennung</string>
   <string name="settings_show_am_pm">Zeige AM/PM</string>
   <string name="settings_text_color">Textfarbe</string>
   <string name="settings_startafterlock">Starten nach Sperrung</string>
@@ -188,6 +191,7 @@
   <string name="settings_watchface_clock_desc">Wähle deinen bevorzugen Uhrenstil</string>
   <string name="settings_watch_analog_24_classic">Klassisch 24 Analog</string>
   <string name="settings_watch_analog_s7">S7 Stil analoge Uhr</string>
+  <string name="settings_watch_digital_s7">Digital-Uhr im S7 Stil (nicht anpassbar)</string>
   <string name="settings_watch_analog_pebble">Pebble Stil analoge Uhr</string>
   <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Bildschirme)</string>
   <string name="move_move">Verschiebe das Widget automatisch</string>

@@ -190,6 +190,7 @@
     <string name="settings_watch_analog_24_classic">Classic 24 Analog</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
     <string name="settings_watch_digital_s7">S7 style digital clock (not customizable)</string>
+    <string name="settings_watch_flat_analog">Flat analog style</string>
     <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
     <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
     <string name="move_move">Move the widget automatically</string>
