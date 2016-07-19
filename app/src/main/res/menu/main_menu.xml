@@ -8,6 +8,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/rate"
+        android:icon="@drawable/ic_rate"
+        android:title="@string/menu_rate"
+        app:showAsAction="never" />
+
+
+    <item
         android:id="@+id/community"
         android:icon="@drawable/ic_people"
         android:title="@string/settings_community"

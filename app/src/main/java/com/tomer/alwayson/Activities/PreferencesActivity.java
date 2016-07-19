@@ -227,7 +227,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
             @Override
             public void onNegativeRating(int starRating) {
-                startActivity(new Intent(getApplicationContext(),ReporterActivity.class));
+                startActivity(new Intent(getApplicationContext(), ReporterActivity.class));
                 Toast.makeText(PreferencesActivity.this, R.string.warning_12_please_report, Toast.LENGTH_LONG).show();
             }
         }).checkAndShow();
@@ -321,6 +321,9 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 return true;
             case R.id.translate:
                 SettingsFragment.openURL("https://crowdin.com/project/always-on-amoled", this);
+                return true;
+            case R.id.rate:
+                SettingsFragment.openPlayStoreUrl(getPackageName(), this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
