@@ -9,6 +9,7 @@ import com.heinrichreimersoftware.androidissuereporter.model.github.ExtraInfo;
 import com.heinrichreimersoftware.androidissuereporter.model.github.GithubTarget;
 import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.SecretConstants;
 
 
 public class ReporterActivity extends IssueReporterActivity {
@@ -23,7 +24,7 @@ public class ReporterActivity extends IssueReporterActivity {
     //You can register a bot account on GitHub and copy ist OAuth2 token here.
     @Override
     public String getGuestToken() {
-        return "722309cb4fad8c3a0ca4761e6f3efe489b26067a";
+        return SecretConstants.getPropertyValue(this,"github-key");
     }
 
     //[Optional] Include other relevant info in the bug report (like custom variables)
