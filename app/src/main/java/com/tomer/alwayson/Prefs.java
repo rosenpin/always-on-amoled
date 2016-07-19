@@ -63,7 +63,7 @@ public class Prefs {
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
         try {
             proximityToLock = Integer.parseInt(prefs.getString(KEYS.PROXIMITY_TO_LOCK.toString(), "0"));
-        }catch (ClassCastException e){
+        } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
         clockStyle = Integer.parseInt(prefs.getString(KEYS.TIME_STYLE.toString(), "1"));
@@ -130,6 +130,18 @@ public class Prefs {
                     entry.getValue().toString() + "\n");
         }
         return string.toString();
+    }
+
+    public String[][] toArray() {
+        String[][] list = new String[prefs.getAll().size()][2];
+        Map<String, ?> preferences = prefs.getAll();
+        int i = 0;
+        for (Map.Entry<String, ?> entry : preferences.entrySet()) {
+            list[i][0] = entry.getKey();
+            list[i][1] = entry.getValue().toString();
+            i++;
+        }
+        return list;
     }
 
     public SharedPreferences getSharedPrefs() {

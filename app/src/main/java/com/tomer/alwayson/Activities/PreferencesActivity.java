@@ -3,19 +3,15 @@ package com.tomer.alwayson.Activities;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
@@ -49,10 +45,6 @@ import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
     Prefs prefs;
@@ -280,7 +272,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.feedback:
-                PackageInfo pInfo = null;
+                /*PackageInfo pInfo = null;
                 try {
                     pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
                 } catch (PackageManager.NameNotFoundException ignored) {
@@ -296,6 +288,8 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(getApplicationContext(), getString(R.string.error_1_no_email_client), Toast.LENGTH_SHORT).show();
                 }
+                */
+                startActivity(new Intent(getApplicationContext(), ReporterActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -329,7 +323,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             }
         }
     }
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

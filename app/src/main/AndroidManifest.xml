@@ -30,6 +30,8 @@
             android:name=".Activities.Intro"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Activities.ReporterActivity"
+            android:theme="@style/ReporterTheme"/>
         <activity
             android:name=".Activities.PreferencesActivity"
             android:theme="@style/AppTheme.NoActionBar">

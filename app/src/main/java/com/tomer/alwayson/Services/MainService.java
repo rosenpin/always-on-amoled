@@ -88,6 +88,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private ImageView batteryIV;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
+    private boolean refreshing;
     private View mainView;
     private WindowManager.LayoutParams windowParams;
     private LinearLayout iconWrapper;
@@ -447,9 +448,12 @@ public class MainService extends Service implements SensorEventListener, Context
                 watchfaceWrapper.removeView(batteryWrapper);
                 break;
             case 1:
-                batteryTV.setTextColor(prefs.textColor);
+                if (prefs.clockStyle != S7_DIGITAL) {
+                    batteryTV.setTextColor(prefs.textColor);
+                    batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
+                }
+
                 batteryTV.setTypeface(font);
-                batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
                 batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
                 batteryIVlp.height = (int) (prefs.textSize);
@@ -512,12 +516,14 @@ public class MainService extends Service implements SensorEventListener, Context
             ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setText(hour);
             ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setText(minute);
         }
-
+        refreshing = true;
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         if (Globals.isShown)
                             refresh();
+                        else
+                            refreshing = false;
                     }
                 },
                 6000);
@@ -563,6 +569,8 @@ public class MainService extends Service implements SensorEventListener, Context
                     public void run() {
                         if (Globals.isShown)
                             refreshLong(false);
+                        else
+                            refreshing = false;
                     }
                 },
                 16000);
@@ -778,12 +786,14 @@ public class MainService extends Service implements SensorEventListener, Context
                                 if (prefs.proximityToLock == PROXIMITY_NORMAL_MODE) {
                                     stayAwakeWakeLock.release();
                                     Log.d(MAIN_SERVICE_LOG_TAG, "Set auto lock timeout - " + Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000)); //Screen off using timeout
+                                    stayAwakeWakeLock.release();
                                 } else if (prefs.proximityToLock == PROXIMITY_DEVICE_ADMIN_MODE)
                                     ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                             }
                         }
                     }).start();
                 } else {
+                    Log.d(MAIN_SERVICE_LOG_TAG, "Turning screen on");
                     if (!Globals.sensorIsScreenOff) {
                         new Handler().postDelayed(new Runnable() {
                             @Override
@@ -793,14 +803,18 @@ public class MainService extends Service implements SensorEventListener, Context
                         }, 200);
                         return;
                     }
-                    ScreenReceiver.turnScreenOn(this, false);
-                    Globals.isShown = true;
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            ScreenReceiver.turnScreenOn(getApplicationContext(), false);
+                            Globals.isShown = true;
+                            if (!refreshing) {
+                                refresh();
+                                refreshLong(true);
+                            }
                             stayAwakeWakeLock.acquire();
                         }
-                    }, 500);
+                    }, prefs.proximityToLock != PROXIMITY_NORMAL_MODE ? 1000 : 5000);
                 }
                 break;
             case Sensor.TYPE_LIGHT:
