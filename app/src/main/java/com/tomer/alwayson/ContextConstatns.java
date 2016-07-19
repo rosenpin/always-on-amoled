@@ -44,10 +44,12 @@ public interface ContextConstatns {
     int DISABLED = 0;
     int MOVE_NO_ANIMATION = 1;
     int MOVE_WITH_ANIMATION = 2;
+
     int DIGITAL_CLOCK = 1;
     int ANALOG_CLOCK = 2;
-    int ANALOG24_CLOCK = 3;
-    int S7_CLOCK = 4;
-    int PEBBLE_CLOCK = 5;
-    int S7_DIGITAL = 6;
+    int S7_DIGITAL = 3;
+    int ANALOG24_CLOCK = 4;
+    int S7_CLOCK = 5;
+    int PEBBLE_CLOCK = 6;
+    int FLAT_CLOCK = 7;
 }

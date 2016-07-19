@@ -63,10 +63,11 @@
         <item>@string/rules_disabled</item>
         <item>@string/settings_watch_digital</item>
         <item>@string/settings_watch_analog</item>
+        <item>@string/settings_watch_digital_s7</item>
         <item>@string/settings_watch_analog_24_classic</item>
         <item>@string/settings_watch_analog_s7</item>
         <item>@string/settings_watch_analog_pebble</item>
-        <item>@string/settings_watch_digital_s7</item>
+        <item>@string/settings_watch_flat_analog</item>
     </string-array>
     <string-array name="customize_clock_vals">
         <item>0</item>
@@ -76,6 +77,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
     </string-array>
 
     <string-array name="customize_date">
@@ -165,4 +167,5 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string name="settings_watch_flat_analog">Flat analog style</string>
 </resources>
