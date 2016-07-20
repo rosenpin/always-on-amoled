@@ -359,7 +359,7 @@ public class MainService extends Service implements SensorEventListener, Context
         batteryIV = (ImageView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_icon : R.id.s7_battery_percentage_icon);
         batteryTV = (TextView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_tv : R.id.s7_battery_percentage_tv);
         ViewGroup.LayoutParams lp;
-        if (prefs.clockStyle > ANALOG_CLOCK)
+        if (prefs.clockStyle >= ANALOG_CLOCK)
             analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
 
         switch (prefs.clockStyle) {
@@ -379,18 +379,21 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 textClock.setTypeface(font);
 
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
                 break;
             case ANALOG_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
+
+                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp.height = (int) (prefs.textSize * 10);
+                lp.width = (int) (prefs.textSize * 9.5);
+                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                analog24HClock.init(this, 4, false);
                 break;
             case ANALOG24_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
@@ -401,7 +404,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 break;
             case S7_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
@@ -412,7 +414,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 break;
             case PEBBLE_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
@@ -423,7 +424,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 break;
             case S7_DIGITAL:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTypeface(font);
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTypeface(font);
@@ -445,7 +445,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 break;
             case FLAT_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
                 lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();

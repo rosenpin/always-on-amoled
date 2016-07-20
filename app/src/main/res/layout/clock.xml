@@ -14,12 +14,6 @@
         android:textAppearance="@android:style/TextAppearance.Large"
         android:textColor="@android:color/white" />
 
-    <AnalogClock
-        android:id="@+id/analog_clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white" />
-
     <com.tomer.alwayson.Views.Analog24HClock
         android:id="@+id/analog_classic_24"
         android:layout_width="168dp"

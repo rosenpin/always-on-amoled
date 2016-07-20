@@ -120,8 +120,14 @@ public class Analog24HClock extends View {
                 setFace(R.drawable.flat_face);
                 hourHand = context.getResources().getDrawable(R.drawable.flat_hour_hand);
                 assert hourHand != null;
-                hourHand.setAlpha(225);
                 minuteHand = context.getResources().getDrawable(R.drawable.flat_minute_hand);
+                break;
+            case 4:
+                Analog24HClock.hourOnTop = false;
+                setFace(R.drawable.simple_face);
+                hourHand = context.getResources().getDrawable(R.drawable.simple_hour_hand);
+                assert hourHand != null;
+                minuteHand = context.getResources().getDrawable(R.drawable.simple_minute_hand);
                 break;
         }
         mCalendar = Calendar.getInstance();
