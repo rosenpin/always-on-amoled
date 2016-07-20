@@ -352,8 +352,14 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         if (requestCode == 1001) {
             Log.d("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
-                Toast.makeText(getApplicationContext(), R.string.warning_11_need_to_reset_app, Toast.LENGTH_LONG).show();
-                resetPaymentService();
+                Toast.makeText(getApplicationContext(), R.string.thanks, Toast.LENGTH_LONG).show();
+                Snackbar.make(findViewById(android.R.id.content), R.string.thanks, 10000).setAction(R.string.action_restart, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
+                    }
+                }).show();
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
             }
         }

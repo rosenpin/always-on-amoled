@@ -10,6 +10,7 @@
     <string name="disclaimer">DISCLAIMER</string>
     <string name="disclaimer_desc">Always On AMOLED developers will not be held responsible to any damage that may occur to your device.</string>
     <string name="agree">Agree</string>
+    <string name="action_restart">Restart now</string>
     <!--Support-->
     <string name="action_support_the_development">Support the development</string>
     <string name="support_how_much">How much would you like to donate?</string>
