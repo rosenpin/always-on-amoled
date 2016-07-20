@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -87,57 +88,30 @@ public class Analog24HClock extends View {
         mHandsOverlay = new HandsOverlay(hourHand, minuteHand);
     }
 
-    public void init(Context context, int style, boolean is24) {
-        Analog24HClock.is24 = is24;
-        final TypedArray attrs = context.obtainStyledAttributes(attributeSet, R.styleable.Analog24HClock, defStyle, 0);
-        Drawable face = attrs.getDrawable(R.styleable.Analog24HClock_face);
-        Drawable hourHand = attrs.getDrawable(R.styleable.Analog24HClock_hour_hand);
-        Drawable minuteHand = attrs.getDrawable(R.styleable.Analog24HClock_minute_hand);
-
-        switch (style) {
-            case 0:
-                Analog24HClock.hourOnTop = false;
-                setFace(R.drawable.clock_face);
-                hourHand = context.getResources().getDrawable(R.drawable.hour_hand);
-                minuteHand = context.getResources().getDrawable(R.drawable.minute_hand);
-                break;
-            case 1:
-                Analog24HClock.hourOnTop = false;
-                setFace(com.tomer.alwayson.R.drawable.s7_face);
-                hourHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.s7_hour_hand);
-                minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.s7_minute_hand);
-                break;
-            case 2:
-                Analog24HClock.hourOnTop = true;
-                setFace(com.tomer.alwayson.R.drawable.pebble_face);
-                hourHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_hour_hand);
-                assert hourHand != null;
-                hourHand.setAlpha(225);
-                minuteHand = context.getResources().getDrawable(com.tomer.alwayson.R.drawable.pebble_minute_hand);
-                break;
-            case 3:
-                Analog24HClock.hourOnTop = true;
-                setFace(R.drawable.flat_face);
-                hourHand = context.getResources().getDrawable(R.drawable.flat_hour_hand);
-                assert hourHand != null;
-                minuteHand = context.getResources().getDrawable(R.drawable.flat_minute_hand);
-                break;
-            case 4:
-                Analog24HClock.hourOnTop = false;
-                setFace(R.drawable.simple_face);
-                hourHand = context.getResources().getDrawable(R.drawable.simple_hour_hand);
-                assert hourHand != null;
-                minuteHand = context.getResources().getDrawable(R.drawable.simple_minute_hand);
-                break;
-        }
-        mCalendar = Calendar.getInstance();
-
-        mHandsOverlay = new HandsOverlay(hourHand, minuteHand);
-    }
-
     public void setFace(int drawableRes) {
         final Resources r = getResources();
         setFace(r.getDrawable(drawableRes));
+    }
+
+    public void init(Context context, @DrawableRes int watchFace, @DrawableRes int hourHand, @DrawableRes int minuteHand, int alpha, boolean is24,boolean hourOnTop) {
+        Analog24HClock.is24 = is24;
+        final TypedArray attrs = context.obtainStyledAttributes(attributeSet, R.styleable.Analog24HClock, defStyle, 0);
+        Drawable face = attrs.getDrawable(R.styleable.Analog24HClock_face);
+        Drawable Hhand = attrs.getDrawable(R.styleable.Analog24HClock_hour_hand);
+        Drawable Mhand = attrs.getDrawable(R.styleable.Analog24HClock_minute_hand);
+
+        Analog24HClock.hourOnTop = hourOnTop;
+        setFace(watchFace);
+        Hhand = context.getResources().getDrawable(hourHand);
+        assert Hhand != null;
+        if (alpha > 0)
+            Hhand.setAlpha(alpha);
+
+        Mhand = context.getResources().getDrawable(minuteHand);
+
+        mCalendar = Calendar.getInstance();
+
+        mHandsOverlay = new HandsOverlay(Hhand, Mhand);
     }
 
     public void setFace(Drawable face) {

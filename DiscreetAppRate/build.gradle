@@ -13,13 +13,13 @@ apply plugin: 'signing'
 version '2.0.5'
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 24
     buildToolsVersion '22.0.1'
 
     buildTypes {
         defaultConfig {
             minSdkVersion 8
-            targetSdkVersion 22
+            targetSdkVersion 24
             versionCode 1
             versionName "2.0.5"
         }
@@ -54,5 +54,5 @@ signing {
 
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:appcompat-v7:24.1.0'
 }
