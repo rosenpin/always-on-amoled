@@ -61,8 +61,8 @@ import com.tomer.alwayson.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
-import com.tomer.alwayson.Views.Analog24HClock;
 import com.tomer.alwayson.Views.FontAdapter;
+import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -97,7 +97,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private int originalCapacitiveButtonsState = 1500;
     private int height, width;
     private int originalTimeout;
-    Analog24HClock analog24HClock;
+    CustomAnalogClock analog24HClock;
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
@@ -360,7 +360,7 @@ public class MainService extends Service implements SensorEventListener, Context
         batteryTV = (TextView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_tv : R.id.s7_battery_percentage_tv);
         ViewGroup.LayoutParams lp;
         if (prefs.clockStyle >= ANALOG_CLOCK)
-            analog24HClock = (Analog24HClock) clockWrapper.findViewById(R.id.analog_classic_24);
+            analog24HClock = (CustomAnalogClock) clockWrapper.findViewById(R.id.custom_analog_clock);
 
         switch (prefs.clockStyle) {
             case DISABLED:
@@ -379,52 +379,52 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 textClock.setTypeface(font);
 
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.custom_analog_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
                 break;
             case ANALOG_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
-                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
-                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.simple_face, R.drawable.simple_hour_hand, R.drawable.simple_minute_hand, 225, false, false);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
+                analog24HClock.init(this, R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 225, false, false);
                 break;
             case ANALOG24_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
-                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
-                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
                 analog24HClock.init(this, R.drawable.clock_face, R.drawable.hour_hand, R.drawable.minute_hand, 0, true, false);
                 break;
             case S7_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
-                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
-                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
                 analog24HClock.init(this, R.drawable.s7_face, R.drawable.s7_hour_hand, R.drawable.s7_minute_hand, 0, false, false);
                 break;
             case PEBBLE_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
-                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
-                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
                 analog24HClock.init(this, R.drawable.pebble_face, R.drawable.pebble_hour_hand, R.drawable.pebble_minute_hand, 225, false, true);
                 break;
             case S7_DIGITAL:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.analog_classic_24));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.custom_analog_clock));
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTypeface(font);
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTypeface(font);
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTypeface(font);
@@ -447,10 +447,10 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
 
-                lp = clockWrapper.findViewById(R.id.analog_classic_24).getLayoutParams();
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
-                clockWrapper.findViewById(R.id.analog_classic_24).setLayoutParams(lp);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
                 analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_hour_hand, R.drawable.flat_minute_hand, 235, false, false);
                 break;
         }

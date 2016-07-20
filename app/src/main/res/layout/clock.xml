@@ -14,8 +14,8 @@
         android:textAppearance="@android:style/TextAppearance.Large"
         android:textColor="@android:color/white" />
 
-    <com.tomer.alwayson.Views.Analog24HClock
-        android:id="@+id/analog_classic_24"
+    <com.tomerrosenfeld.customanalogclockview.CustomAnalogClock
+        android:id="@+id/custom_analog_clock"
         android:layout_width="168dp"
         android:layout_height="168dp"
         android:layout_marginBottom="0dp"

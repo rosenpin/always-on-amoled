@@ -1,14 +1,11 @@
 package com.tomer.alwayson.Activities;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.widget.Toast;
 
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterActivity;
 import com.heinrichreimersoftware.androidissuereporter.model.github.ExtraInfo;
 import com.heinrichreimersoftware.androidissuereporter.model.github.GithubTarget;
 import com.tomer.alwayson.Prefs;
-import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
 
 
@@ -27,7 +24,7 @@ public class ReporterActivity extends IssueReporterActivity {
 
     @Override
     public String getGuestToken() {
-        return SecretConstants.getPropertyValue(this,"github-key");
+        return SecretConstants.getPropertyValue(this, "github-key");
     }
 
     @Override

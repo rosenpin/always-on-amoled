@@ -1,1 +1,1 @@
-include ':app' , ':lib', 'DiscreetAppRate'
+include ':app', 'DiscreetAppRate'

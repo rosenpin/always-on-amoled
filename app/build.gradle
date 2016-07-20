@@ -28,6 +28,9 @@ android {
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://dl.bintray.com/rosenpin/maven/'
+    }
 }
 
 dependencies {
@@ -39,7 +42,7 @@ dependencies {
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
     compile 'com.heinrichreimersoftware:android-issue-reporter:1.2.6'
-    compile project(':lib')
+    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
     compile project(':DiscreetAppRate')
     testCompile 'junit:junit:4.12'
 }
