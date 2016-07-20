@@ -6,11 +6,6 @@
             android:key="enabled"
             android:summary="@string/settings_enabled_desc"
             android:title="@string/settings_enabled" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="startafterlock"
-            android:summary="@string/settings_startafterlock_desc"
-            android:title="@string/settings_startafterlock" />
         <PreferenceScreen
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules">
@@ -80,40 +75,6 @@
             android:key="greenify"
             android:summary="@string/greenify_integration_desc"
             android:title="@string/greenify_integration" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/settings_behaviour">
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="notifications_alerts"
-            android:summary="@string/settings_notifications_alerts_desc"
-            android:title="@string/settings_notifications" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:dependency="notifications_alerts"
-            android:key="notifications_alerts_preview"
-            android:summary="@string/settings_notifications_alerts_preview_desc"
-            android:title="@string/settings_notifications_alerts_preview" />
-        <ListPreference
-            android:defaultValue="2"
-            android:dialogTitle="@string/settings_move_desc"
-            android:entries="@array/settings_move"
-            android:entryValues="@array/settings_move_values"
-            android:key="movement_style"
-            android:summary="%s"
-            android:title="@string/settings_move_auto" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="auto_brightness"
-            android:summary="@string/settings_auto_brightness_desc"
-            android:title="@string/settings_auto_brightness" />
-        <ListPreference
-            android:defaultValue="0"
-            android:entries="@array/settings_proximity"
-            android:entryValues="@array/settings_proximity_values"
-            android:key="proximity_to_lock_method"
-            android:summary="@string/settings_proximity_to_lock_desc"
-            android:title="@string/settings_proximity" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
@@ -188,6 +149,45 @@
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/settings_brightness" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_behaviour">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="notifications_alerts"
+            android:summary="@string/settings_notifications_alerts_desc"
+            android:title="@string/settings_notifications" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="notifications_alerts"
+            android:key="notifications_alerts_preview"
+            android:summary="@string/settings_notifications_alerts_preview_desc"
+            android:title="@string/settings_notifications_alerts_preview" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="startafterlock"
+            android:summary="@string/settings_startafterlock_desc"
+            android:title="@string/settings_startafterlock" />
+        <ListPreference
+            android:defaultValue="2"
+            android:dialogTitle="@string/settings_move_desc"
+            android:entries="@array/settings_move"
+            android:entryValues="@array/settings_move_values"
+            android:key="movement_style"
+            android:summary="%s"
+            android:title="@string/settings_move_auto" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_brightness"
+            android:summary="@string/settings_auto_brightness_desc"
+            android:title="@string/settings_auto_brightness" />
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/settings_proximity"
+            android:entryValues="@array/settings_proximity_values"
+            android:key="proximity_to_lock_method"
+            android:summary="@string/settings_proximity_to_lock_desc"
+            android:title="@string/settings_proximity" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
