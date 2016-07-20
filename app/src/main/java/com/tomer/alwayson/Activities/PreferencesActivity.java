@@ -293,6 +293,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         Uri packageUri = Uri.parse("package:" + context.getPackageName());
         Intent uninstallIntent =
                 new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
+        uninstallIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(uninstallIntent);
     }
 
