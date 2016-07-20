@@ -19,7 +19,7 @@
   <string name="support_1">11kr     Priset på en uppfriskande Cola</string>
   <string name="support_2">21kr     Priset för en god chokladbar</string>
   <string name="support_5">55kr     Priset på en kall iskaffe</string>
-  <string name="support_10">105kr     Priset på en utsökt pizza</string>
+  <string name="support_10">105kr     Priset på en gigantisk kaffe från Starbucks</string>
   <string name="support_20">215kr     Priset på en utsökt pizza</string>
   <string name="support_50">539kr     Priset på en middag för två</string>
   <!--Intro-->
@@ -192,6 +192,7 @@
   <string name="settings_watch_analog_24_classic">Klassisk 24h (analog)</string>
   <string name="settings_watch_analog_s7">Galaxy S7 (analog)</string>
   <string name="settings_watch_digital_s7">Galaxy S7 (digital, inte anpassningsbar)</string>
+  <string name="settings_watch_flat_analog">Platt analog stil</string>
   <string name="settings_watch_analog_pebble">Pebble (analog)</string>
   <string name="move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
   <string name="move_move">Flytta widgeten automatiskt</string>
@@ -202,4 +203,5 @@
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
   <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
   <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen!</string>
+  <string name="report_sent">Rapport skickad!</string>
 </resources>

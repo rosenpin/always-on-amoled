@@ -3,9 +3,9 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
-  <string name="title_donation">개발자를 돕기</string>
+  <string name="title_donation">개발자 지원하기</string>
   <!--Actions-->
-  <string name="unlock">열기</string>
+  <string name="unlock">화면 켜기</string>
   <string name="action_revert">되돌리기</string>
   <string name="menu_feedback">피드백</string>
   <string name="disclaimer">면책 조항</string>
@@ -13,13 +13,13 @@
   <string name="agree">알겠습니다</string>
   <!--Support-->
   <string name="action_support_the_development">개발자 지원하기</string>
-  <string name="support_how_much">얼마큼 기부해 주실 건가요?</string>
+  <string name="support_how_much">얼마만큼 기부해 주실 의향이 있으십니까?</string>
   <string name="gestures_action_speak">현재 시간, 알림과 배터리 상태를 크게 읽습니다.</string>
-  <string name="supporter_feature_only">이 기능은 도움을 주신 분들만 쓸 수 있습니다. 기부하고 싶은 만큼 기부한 뒤 이 기능을 쓸 수 있습니다. 얼마큼 기부해 주시겠습니까?</string>
-  <string name="support_1">시원한 콜라를 사마실 수 있는 1 달러</string>
-  <string name="support_2">맛난 초코바를 사먹을 수 있는 2 달러</string>
-  <string name="support_5">차가운 아이스 커피를 사마실 수 있는 5 달러</string>
-  <string name="support_10">고급 스타벅스 커피를 사마실 수 있는 10 달러</string>
+  <string name="supporter_feature_only">이 기능은 도움을 주신 분들만 쓸 수 있습니다. 기부하고 싶은 만큼 기부한 뒤 이 기능을 쓸 수 있습니다. 얼마만큼 기부해주실 의향이 있으십니까?</string>
+  <string name="support_1">1$: 시원한 콜라를 마실수있는 가격</string>
+  <string name="support_2">2$: 맛있는 초콜렛을 먹을수있는 가격</string>
+  <string name="support_5">5$: 차가운 아이스 커피를 사마실수있는 가격</string>
+  <string name="support_10">10$: 고급 스타벅스 커피를 사마실수있는 가격</string>
   <string name="support_20">맛있는 피자를 사먹을 수 있는 20 달러</string>
   <string name="support_50">두 사람이 저녁을 먹을 수 있는 50 달러</string>
   <!--Intro-->
@@ -192,6 +192,7 @@
   <string name="settings_watch_analog_24_classic">클래식 아날로그 24시</string>
   <string name="settings_watch_analog_s7">S7 스타일 아날로그 시계</string>
   <string name="settings_watch_digital_s7">S7 스타일 디지털 시계 (꾸밀 수 없음)</string>
+  <string name="settings_watch_flat_analog">플랫 아날로그 스타일</string>
   <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
   <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
   <string name="move_move">위젯을 자동으로 움직이기</string>
@@ -202,4 +203,5 @@
   <string name="settings_notifications_alerts_preview">알림 내용</string>
   <string name="error_IAP">에러가 났습니다! 인터넷에 이어져 있는지 확인한 뒤 앱을 다시 켜주세요</string>
   <string name="warning_11_no_root">이 기능을 쓰려면 루팅해야 합니다!</string>
+  <string name="report_sent">보고서를 보내세요!</string>
 </resources>

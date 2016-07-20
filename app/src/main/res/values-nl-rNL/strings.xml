@@ -192,6 +192,7 @@
   <string name="settings_watch_analog_24_classic">Klassieke 24 uurs analoog</string>
   <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
   <string name="settings_watch_digital_s7">S7 digitale klok stijl (niet aan te passen)</string>
+  <string name="settings_watch_flat_analog">Platte analoge stijl</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
   <string name="move_disable">Uitgeschakeld (niet aanbevolen voor AMOLED schermen)</string>
   <string name="move_move">Laat de widget automatisch bewegen</string>
@@ -202,4 +203,5 @@
   <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
   <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
   <string name="warning_11_no_root">Apparaat moet geroot zijn om deze functie te gebruiken!</string>
+  <string name="report_sent">Rapport verzonden!</string>
 </resources>

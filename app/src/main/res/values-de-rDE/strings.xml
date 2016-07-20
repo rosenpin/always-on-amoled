@@ -192,6 +192,7 @@
   <string name="settings_watch_analog_24_classic">Klassisch 24 Analog</string>
   <string name="settings_watch_analog_s7">S7 Stil analoge Uhr</string>
   <string name="settings_watch_digital_s7">Digital-Uhr im S7 Stil (nicht anpassbar)</string>
+  <string name="settings_watch_flat_analog">Anloger Flat-Stil</string>
   <string name="settings_watch_analog_pebble">Pebble Stil analoge Uhr</string>
   <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Bildschirme)</string>
   <string name="move_move">Verschiebe das Widget automatisch</string>
@@ -202,4 +203,5 @@
   <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
   <string name="error_IAP">Fehler! Bitte versichere dich, dass du mit dem Internet verbunden bist, und starte die App neu.</string>
   <string name="warning_11_no_root">Deim Gerät muss für dieses Feature gerootet sein!</string>
+  <string name="report_sent">Bericht gesendet!</string>
 </resources>

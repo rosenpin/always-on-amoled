@@ -3,23 +3,93 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">始终在AMOLED</string>
+  <string name="title_donation">支持开发者</string>
   <!--Actions-->
+  <string name="action_revert">充值</string>
+  <string name="menu_feedback">反馈</string>
+  <string name="disclaimer">免责声明</string>
+  <string name="disclaimer_desc">如使用 Always On AMOLED 后对你的设备造成损伤，开发者不承担任何责任。</string>
+  <string name="agree">同意</string>
   <!--Support-->
+  <string name="action_support_the_development">支持开发者</string>
+  <string name="support_how_much">你想捐助多少数额？</string>
+  <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
+  <string name="supporter_feature_only">此功能仅适用于捐助者，你可以自由的选择是否捐助，若想成为捐助者你也可以自由的选择捐助数额。</string>
+  <string name="support_1">$1: 请我喝一杯可乐</string>
+  <string name="support_2">$2: 请我喝一杯啤酒</string>
+  <string name="support_5">$5: 请我喝一杯冰爽的咖啡</string>
+  <string name="support_10">$10: 请我喝一杯星巴克咖啡</string>
+  <string name="support_20">$20: 请我吃一餐美味的披萨</string>
+  <string name="support_50">$50: 请我吃两顿午餐</string>
   <!--Intro-->
+  <string name="intro_allow_now">设置权限</string>
+  <string name="intro_permissions">读取手机状态和相机的权限</string>
+  <string name="intro_draw_over">在其他应用之上显示内容</string>
+  <string name="intro_checkbox_volume_keys">音量键解锁</string>
   <!--Feedback,Toasts & messages-->
+  <string name="thanks">谢谢您的支持! :)</string>
+  <string name="thanks_great">谢谢您的大力支持! :)</string>
+  <string name="thanks_huge">感谢你们巨大的支持!! :)</string>
+  <string name="thanks_crazy">谢谢你疯狂的支持!!! :)</string>
+  <string name="notification_message">Always On 正在运行</string>
+  <string name="reboot_to_take_affect">重新启动才能生效</string>
   <!-- Content description-->
+  <string name="notification_icon">通知图示</string>
   <!--Widget-->
+  <string name="widget_toggle">切换</string>
+  <string name="widget_off">关闭</string>
+  <string name="widget_on">启用</string>
   <!--Device admin-->
   <!--Plugin-->
   <!--Errors-->
   <!--Warnings-->
+  <string name="warning">警告</string>
   <!--Charging rules-->
   <!--Battery rules-->
+  <string name="rules_always">始终</string>
+  <string name="rules_battery_50">50%或更高</string>
+  <string name="rules_battery_30">30%或更高</string>
+  <string name="rules_battery_20">20%或更高</string>
+  <string name="rules_battery_10">10%或更高</string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">关闭</string>
+  <string name="rules_minutes_1">1分钟</string>
+  <string name="rules_minutes_2">2分钟</string>
+  <string name="rules_minutes_5">5分钟</string>
+  <string name="rules_minutes_10">10分钟</string>
+  <string name="rules_minutes_15">15分钟</string>
+  <string name="rules_minutes_30">30分钟</string>
+  <string name="rules_hour">1小时</string>
+  <string name="rules_hours_2">2小时</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">纵向 (垂直)</string>
+  <string name="rules_orientation_horizontal">横向 (水平)</string>
   <!--Settings headers-->
+  <string name="settings_behaviour">行为</string>
+  <string name="settings_about">关于</string>
+  <string name="settings_appearance">外观</string>
   <string name="settings_general">一般</string>
+  <string name="settings_wake_up">手势&amp;动作</string>
   <string name="settings_rules">自动规则</string>
   <!--Settings titles-->
+  <string name="settings_enabled">启用</string>
+  <string name="settings_disable_volume_keys">禁用音量键</string>
+  <string name="settings_double_tap_wake">双击操作</string>
+  <string name="settings_back_button_wake">后退按钮动作</string>
+  <string name="settings_volume_to_stop">音量键操作</string>
+  <string name="settings_brightness">亮度</string>
+  <string name="settings_notifications">通知</string>
+  <string name="settings_move_auto">自动移动部件</string>
+  <string name="settings_font_size">字体大小</string>
+  <string name="settings_watchface">自定义 WatchFace</string>
+  <string name="settings_proximity">距离传感器 (口袋模式)</string>
+  <string name="settings_show_am_pm">显示 AM/PM</string>
   <!--Settings descriptions-->
+  <string name="settings_watch_digital_s7">S7 样式数字时钟 （不可自定义）</string>
+  <string name="move_disable">禁用（不推荐用于AMOLED屏幕）</string>
+  <string name="move_move">自动移除部件</string>
+  <string name="greenify_integration">Greenify整合</string>
+  <string name="settings_notifications_alerts_preview">通知内容</string>
+  <string name="error_IAP">错误，请确保你的设备已连接到Internet，并重启应用程序</string>
+  <string name="report_sent">发送报告</string>
 </resources>

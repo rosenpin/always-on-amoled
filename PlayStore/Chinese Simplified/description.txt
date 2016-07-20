@@ -1,6 +1,6 @@
-Get an always on display for your phone or tablet.
+为你的手机或平板获取 Always on Display 功能
 Keep your screen on all the time.
-The first open source always on app!
+第一个开源的Always On程序！
 
 The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
 
@@ -16,7 +16,7 @@ This is made possible thanks to AMOLED displays. Most of the screen stays black 
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
 • Force orientation - set your preferred screen orientation
 • Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+• 免费，开源！
 
 Before using please enable 'draw over apps' permission for this app.
 
