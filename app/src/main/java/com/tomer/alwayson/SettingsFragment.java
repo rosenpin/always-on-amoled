@@ -31,6 +31,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
@@ -84,7 +85,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
         findPreference("watchface_clock").setOnPreferenceChangeListener(this);
-        findPreference("greenify").setOnPreferenceChangeListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -115,9 +115,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
         Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
-        if (!isPackageInstalled("com.oasisfeng.greenify")) {
-            ((TwoStatePreference) findPreference("greenify")).setChecked(false);
-        }
     }
 
     @Override
@@ -186,6 +183,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 notices.addNotice(new Notice("AppIntro", "https://github.com/PaoloRotolo/AppIntro", "Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr", new ApacheSoftwareLicense20()));
                 notices.addNotice(new Notice("android-issue-reporter", "https://github.com/HeinrichReimer/android-issue-reporter", "", new ApacheSoftwareLicense20()));
                 notices.addNotice(new Notice("Custom Analog Clock View", "https://github.com/rosenpin/custom-analog-clock-view", "Copyright (C) 2016 Tomer Rosenfeld", new GnuGeneralPublicLicense30()));
+                notices.addNotice(new Notice("IntegrationPreference", "https://github.com/tasomaniac/IntegrationPreference", "", new ApacheSoftwareLicense20()));
                 notices.addNotice(new Notice("LicensesDialog", "https://github.com/PSDev/LicensesDialog", "", new ApacheSoftwareLicense20()));
                 notices.addNotice(new Notice("material-dialogs", "https://github.com/afollestad/material-dialogs", "Copyright (c) 2014-2016 Aidan Michael Follestad", new MITLicense()));
                 new LicensesDialog.Builder(getActivity())
@@ -361,13 +359,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     ((CheckBoxPreference) preference).setChecked(true);
                 }
             }).show();
-        } else if (preference.getKey().equals("greenify") && (boolean) o) {
-            if (isPackageInstalled("com.oasisfeng.greenify")) {
-                return true;
-            } else {
-                openPlayStoreUrl("com.oasisfeng.greenify", getActivity());
-                return false;
-            }
         }
         return true;
     }
@@ -424,6 +415,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)) {
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
+        ((IntegrationPreference) findPreference("greenify")).resume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((IntegrationPreference) findPreference("greenify")).pause();
     }
 
     private void temporaryUnusedFunctionToSetAppToOpen() {

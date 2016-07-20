@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 112
-        versionName "0.88 E"
+        versionCode 113
+        versionName "0.88 FINAL"
     }
     buildTypes {
         release {
@@ -28,9 +28,6 @@ android {
 
 repositories {
     mavenCentral()
-    maven {
-        url 'https://dl.bintray.com/rosenpin/maven/'
-    }
 }
 
 dependencies {
@@ -43,6 +40,7 @@ dependencies {
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
     compile 'com.heinrichreimersoftware:android-issue-reporter:1.2.6'
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
+    compile 'com.tasomaniac:integrationpreference:0.2'
     compile project(':DiscreetAppRate')
     testCompile 'junit:junit:4.12'
 }

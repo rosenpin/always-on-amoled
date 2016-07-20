@@ -70,11 +70,18 @@
                     android:title="@string/settings_back_button_wake" />
             </PreferenceCategory>
         </PreferenceScreen>
-        <CheckBoxPreference
-            android:defaultValue="true"
+        <com.tasomaniac.android.widget.IntegrationPreference
             android:key="greenify"
+            android:title="@string/greenify_integration"
             android:summary="@string/greenify_integration_desc"
-            android:title="@string/greenify_integration" />
+            android:summaryOff="@string/greenify_integration_desc_found"
+            android:summaryOn="@string/greenify_integration_desc_not_found">
+
+            <intent
+                android:targetClass="com.oasisfeng.greenify.GreenifyActivity"
+                android:targetPackage="com.oasisfeng.greenify"/>
+
+        </com.tasomaniac.android.widget.IntegrationPreference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">

@@ -29,7 +29,6 @@ public class Prefs {
     public int batteryRules;
     public boolean startAfterLock;
     public int font;
-    public boolean greenify;
     public boolean notificationPreview;
     public boolean hasSoftKeys;
     Context context;
@@ -78,7 +77,6 @@ public class Prefs {
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
         font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
-        greenify = prefs.getBoolean("greenify", true);
         hasSoftKeys = prefs.getBoolean(KEYS.HAS_SOFT_KEYS.toString(), false);
         startAfterLock = prefs.getBoolean(KEYS.START_AFTER_LOCK.toString(), true);
         notificationPreview = prefs.getBoolean(KEYS.NOTIFICATION_PREVIEW.toString(), true);
