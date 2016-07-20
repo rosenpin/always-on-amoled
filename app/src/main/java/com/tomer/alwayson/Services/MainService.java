@@ -701,7 +701,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (!prefs.hasSoftKeys) {
             try {
                 System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-            } catch (IllegalArgumentException e) {
+            } catch (RuntimeException e) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "First method of settings the buttons state failed.");
                 try {
                     Runtime r = Runtime.getRuntime();
