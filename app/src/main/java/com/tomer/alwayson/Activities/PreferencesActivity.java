@@ -246,7 +246,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void handlePermissions() {
-        boolean phonePermission = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
                     || ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -255,28 +254,27 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                         123);
             }
         }
-        if (phonePermission) {
-            WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
-            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
 
-            try {
-                View view = new View(getApplicationContext());
-                ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
-                ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (!Settings.System.canWrite(getApplicationContext())) {
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
-                }
-            } catch (Exception e) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+        try {
+            View view = new View(getApplicationContext());
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
+            ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!Settings.System.canWrite(getApplicationContext())) {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
+            }
+        } catch (Exception e) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         }
     }

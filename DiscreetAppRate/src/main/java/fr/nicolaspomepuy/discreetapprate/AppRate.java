@@ -63,7 +63,7 @@ public class AppRate {
     private int view;
     private boolean starRating = false;
     private int maxStars = 5;
-    private int minStarsForPositive = 3;
+    private int minStarsForPositive = 4;
     private OnStarRateListener onStarRateListener;
     private float starRatingDimension;
     private float starRatingMarginDimension;
@@ -73,7 +73,7 @@ public class AppRate {
         this.activity = activity;
     }
 
-	public static AppRate with(Activity activity) {
+    public static AppRate with(Activity activity) {
         if (activity == null) {
             throw new IllegalStateException("Activity cannot be null");
         }
@@ -88,10 +88,10 @@ public class AppRate {
         return instance;
     }
 
-	@SuppressLint("NewApi")
-	public static AppRate with(Activity activity, String overridePackageName) {
-		AppRate instance = AppRate.with(activity);
-		instance.packageName = overridePackageName;
+    @SuppressLint("NewApi")
+    public static AppRate with(Activity activity, String overridePackageName) {
+        AppRate instance = AppRate.with(activity);
+        instance.packageName = overridePackageName;
         return instance;
     }
 
@@ -288,43 +288,43 @@ public class AppRate {
 
     /**
      * Set the view to display
-     *
+     * <p>
      * The view will be inflated and respects two ids. {@code dar_close} and {@code dar_rate_element}.
      * The text of the {@code dar_rate_element} will be set with {@link #text(String)} or {@link #text(int)}.
-     *
+     * <p>
      * An example XML layout file might look like
      * <pre>
      *     {@code <LinearLayout
-                style="?android:attr/buttonBarStyle"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/app_rate_never"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Never" />
-
-                <!-- The id has been set to dar_close to get the lib behavior -->
-                <Button
-                    android:id="@+id/dar_close"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Later" />
-
-                <!-- The id has been set to dar_rate_element to get the lib behavior. Text is managed by AppRate.setText() -->
-                <Button
-                    android:id="@+id/dar_rate_element"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-            </LinearLayout>
+     * style="?android:attr/buttonBarStyle"
+     * android:layout_width="match_parent"
+     * android:layout_height="48dp"
+     * android:orientation="horizontal">
+     *
+     * <Button
+     * android:id="@+id/app_rate_never"
+     * style="?android:attr/buttonBarButtonStyle"
+     * android:layout_width="0dp"
+     * android:layout_height="match_parent"
+     * android:layout_weight="1"
+     * android:text="Never" />
+     *
+     * <!-- The id has been set to dar_close to get the lib behavior -->
+     * <Button
+     * android:id="@+id/dar_close"
+     * style="?android:attr/buttonBarButtonStyle"
+     * android:layout_width="0dp"
+     * android:layout_height="match_parent"
+     * android:layout_weight="1"
+     * android:text="Later" />
+     *
+     * <!-- The id has been set to dar_rate_element to get the lib behavior. Text is managed by AppRate.setText() -->
+     * <Button
+     * android:id="@+id/dar_rate_element"
+     * style="?android:attr/buttonBarButtonStyle"
+     * android:layout_width="0dp"
+     * android:layout_height="match_parent"
+     * android:layout_weight="1" />
+     * </LinearLayout>
      *     }
      * </pre>
      *
@@ -349,8 +349,8 @@ public class AppRate {
     /**
      * Set whether to allow the user to rate by choosing a star rating
      *
-     * @param starRating whether to allow a star rating
-     * @param maxStars the maximum star rating
+     * @param starRating          whether to allow a star rating
+     * @param maxStars            the maximum star rating
      * @param minStarsForPositive the minimum number of stars the user must give for a positive review
      * @return the {@link AppRate} instance
      */
@@ -383,7 +383,7 @@ public class AppRate {
      * Check and show if showing the view is needed
      */
     @SuppressLint("NewApi")
-	public void checkAndShow() {
+    public void checkAndShow() {
 
         if (!Utils.isGooglePlayInstalled(activity)) {
             if (debug) LogD("Play Store is not installed. Won't do anything");
@@ -618,7 +618,7 @@ public class AppRate {
 
         if (rateElement != null) {
             rateElement.setText(text);
-            if ( !starRating ) {
+            if (!starRating) {
                 rateElement.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -638,13 +638,13 @@ public class AppRate {
             });
         }
 
-        if (starContainer != null ) {
-            if ( starRating ) {
+        if (starContainer != null) {
+            if (starRating) {
                 starContainer.setVisibility(View.VISIBLE);
 
                 Drawable starDrawable = getDrawableForStarRating(false);
 
-                for ( int i = 1; i <= maxStars; i++ ) {
+                for (int i = 1; i <= maxStars; i++) {
                     View starView = new View(activity);
                     starView.setTag(i);
                     ViewGroup.LayoutParams lp = new ViewGroup.MarginLayoutParams((int) starRatingDimension + (i == maxStars ? 0 : (int) starRatingMarginDimension), (int) starRatingDimension + (int) (starRatingMarginDimension * 1.5f));
@@ -660,17 +660,17 @@ public class AppRate {
                             Drawable filledStarDrawable = getDrawableForStarRating(true);
 
                             int clickedRating = (Integer) view.getTag();
-                            for ( int i = 0; i < clickedRating; i ++ ) {
+                            for (int i = 0; i < clickedRating; i++) {
                                 View starView = ((ViewGroup) view.getParent()).getChildAt(i);
                                 InsetDrawable starInsetFilledDrawable = getInsetDrawableForStarRating(filledStarDrawable, i);
 
                                 setBackgroundDrawable(starView, starInsetFilledDrawable);
                             }
 
-                            if ( onStarRateListener == null ) {
+                            if (onStarRateListener == null) {
                                 performRating(packageName);
                             } else {
-                                if ( clickedRating >= minStarsForPositive ) {
+                                if (clickedRating >= minStarsForPositive) {
                                     performRating(packageName);
                                     onStarRateListener.onPositiveRating(clickedRating);
                                 } else {
@@ -716,7 +716,7 @@ public class AppRate {
             if (fromTop) {
                 boolean isTranslucent = Utils.hasFlag(winParams.flags, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 int translucentLolliPop = activity.getWindow().getDecorView().getSystemUiVisibility();
-                boolean isTranslucentLolliPop = (translucentLolliPop== View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+                boolean isTranslucentLolliPop = (translucentLolliPop == View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
                 if (isTranslucent || isTranslucentLolliPop) {
                     if (debug) LogD("Activity is translucent");
@@ -849,7 +849,7 @@ public class AppRate {
         void onNegativeRating(int starRating);
     }
 
-    private void performRating (String packageName) {
+    private void performRating(String packageName) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
@@ -859,7 +859,7 @@ public class AppRate {
         if (onShowListener != null) onShowListener.onRateAppClicked();
     }
 
-    private Drawable getDrawableForStarRating ( boolean filled ) {
+    private Drawable getDrawableForStarRating(boolean filled) {
         Drawable starDrawable = activity.getResources().getDrawable(filled ? R.drawable.ic_star : R.drawable.ic_star_border);
         if (theme == AppRateTheme.LIGHT) {
             PorterDuff.Mode mMode = PorterDuff.Mode.SRC_ATOP;
@@ -871,11 +871,11 @@ public class AppRate {
         return starDrawable;
     }
 
-    private InsetDrawable getInsetDrawableForStarRating ( Drawable starDrawable, int rating ) {
+    private InsetDrawable getInsetDrawableForStarRating(Drawable starDrawable, int rating) {
         return new InsetDrawable(starDrawable, 0, (int) (starRatingMarginDimension / 2.0f), rating == maxStars ? 0 : (int) starRatingMarginDimension, (int) starRatingMarginDimension);
     }
 
-    private void setBackgroundDrawable ( View view, Drawable drawable ) {
+    private void setBackgroundDrawable(View view, Drawable drawable) {
         if (Build.VERSION.SDK_INT >= 16) {
             view.setBackground(drawable);
         } else {

@@ -3,7 +3,7 @@ package fr.nicolaspomepuy.discreetapprate;
 /**
  * Created by nicolas on 06/03/14.
  */
-public enum  RetryPolicy {
+public enum RetryPolicy {
     /**
      * Will retry each time initial count has been triggered
      * Ex: if initial is set to 3, it will be shown on the 3rd, 6th, 9th, ... times
