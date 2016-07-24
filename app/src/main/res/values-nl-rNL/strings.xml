@@ -8,6 +8,7 @@
   <string name="unlock">Ontgrendel</string>
   <string name="action_revert">Terugzetten</string>
   <string name="menu_feedback">Feedback</string>
+  <string name="menu_rate">Beoordeel de app</string>
   <string name="disclaimer">DISCLAIMER</string>
   <string name="disclaimer_desc">De ontwikkelaars van Always On AMOLED kunnen niet aansprakelijk gesteld worden voor mogelijke schade aan je apparaat.</string>
   <string name="agree">Instemmen</string>
@@ -204,4 +205,6 @@
   <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
   <string name="warning_11_no_root">Apparaat moet geroot zijn om deze functie te gebruiken!</string>
   <string name="report_sent">Rapport verzonden!</string>
+  <string name="warning_12_please_report">Laat mij alsjeblieft weten wat er in de app verbeterd of toegevoegd moet worden</string>
+  <string name="thanks_short">Dankjewel</string>
 </resources>

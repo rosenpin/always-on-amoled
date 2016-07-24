@@ -97,7 +97,8 @@ public class MainService extends Service implements SensorEventListener, Context
     private int originalCapacitiveButtonsState = 1500;
     private int height, width;
     private int originalTimeout;
-    CustomAnalogClock analog24HClock;
+    private CustomAnalogClock analog24HClock;
+    private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
@@ -246,10 +247,15 @@ public class MainService extends Service implements SensorEventListener, Context
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
         if (prefs.proximityToLock != DISABLED) {
-            Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-            if (proximitySensor != null) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
-                sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(900), 100000);
+            if (prefs.proximityToLock == PROXIMITY_NORMAL_MODE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "proximity to lock");
+                proximityToTurnOff.acquire();
+            } else {
+                Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+                if (proximitySensor != null) {
+                    Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
+                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(900), 100000);
+                }
             }
         }
         //If auto night mode option is on, set it up
@@ -660,6 +666,8 @@ public class MainService extends Service implements SensorEventListener, Context
         //Dismissing the wakelock holder
         Globals.isServiceRunning = false;
         stayAwakeWakeLock.release();
+        if (proximityToTurnOff != null && proximityToTurnOff.isHeld())
+            proximityToTurnOff.release();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         //Stopping tts if it's running
         toStopTTS = true;

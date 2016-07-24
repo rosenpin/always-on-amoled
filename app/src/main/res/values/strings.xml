@@ -1,6 +1,6 @@
 <resources>
     <!--App name & Activities title-->
-    <string name="app_name">Always On AMOLED</string>
+    <string name="app_name" translatable="false">Always On AMOLED</string>
     <string name="title_donation">Support The Development</string>
     <!--Actions-->
     <string name="unlock">Turn the screen on</string>
@@ -117,8 +117,8 @@
     <string name="settings_watchface">Customize Watchface</string>
     <string name="settings_proximity">Proximity sensor (Pocket mode)</string>
     <string name="settings_proximity_root">\nRoot Mode:\nBest option, works fast and allows fingerprint recognition\n</string>
-    <string name="settings_proximity_normal">Normal Mode (Recommended):\nTakes a long time to start, allows fingerprint recognition</string>
-    <string name="settings_proximity_device_admin">Device Admin Mode:\nWorks fast but disables fingerprint recognition</string>
+    <string name="settings_proximity_normal">Normal Mode (Recommended):\nOnly works for Android 5.0+, allows fingerprint recognition</string>
+    <string name="settings_proximity_device_admin">Device Admin Mode:\nWorks on any android version, but disables fingerprint recognition</string>
     <string name="settings_show_am_pm">Show AM/PM</string>
     <string name="settings_text_color">Text Color</string>
     <string name="settings_startafterlock">Start after lock</string>

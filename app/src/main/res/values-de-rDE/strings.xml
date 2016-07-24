@@ -8,6 +8,7 @@
   <string name="unlock">Bildschirm anschalten</string>
   <string name="action_revert">Rückgängig machen</string>
   <string name="menu_feedback">Feedback</string>
+  <string name="menu_rate">Bewerte die App</string>
   <string name="disclaimer">HAFTUNGSAUSSCHLUSS</string>
   <string name="disclaimer_desc">Die \"Always On AMOLED\" Entwickler sind nicht verantwortlich für jegliche Schäden, die möglicherweise an deinem Gerät entstehen.</string>
   <string name="agree">Zustimmen</string>
@@ -204,4 +205,6 @@
   <string name="error_IAP">Fehler! Bitte versichere dich, dass du mit dem Internet verbunden bist, und starte die App neu.</string>
   <string name="warning_11_no_root">Deim Gerät muss für dieses Feature gerootet sein!</string>
   <string name="report_sent">Bericht gesendet!</string>
+  <string name="warning_12_please_report">Lass mich wissen, was du hinzugefügt haben möchtest, oder melde einen Fehler</string>
+  <string name="thanks_short">Vielen Dank</string>
 </resources>

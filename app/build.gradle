@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 113
-        versionName "0.88 FINAL"
+        versionCode 114
+        versionName "0.88 FINAL B"
     }
     buildTypes {
         release {
@@ -31,9 +31,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.1.0'
-    compile 'com.android.support:cardview-v7:24.1.0'
-    compile 'com.android.support:design:24.1.0'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:cardview-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
     compile 'eu.chainfire:libsuperuser:1.0.0.201602271131'
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
