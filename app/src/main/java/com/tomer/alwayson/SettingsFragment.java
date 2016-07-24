@@ -77,7 +77,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         context = getActivity().getApplicationContext();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
-        findPreference("proximity_to_lock_method").setOnPreferenceChangeListener(this);
+        findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
@@ -316,14 +316,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (preference.getKey().equals("enabled")) {
             restartService();
         }
-        if (preference.getKey().equals("proximity_to_lock_method")) {
-            if (o.toString().equals("1")) {
-                if (Shell.SU.available()) {
-                    return true;
-                }
-                Toast.makeText(context, R.string.warning_11_no_root, Toast.LENGTH_LONG).show();
-                return false;
-            } else if (o.toString().equals("2")) {
+        if (preference.getKey().equals("proximity_to_lock")) {
+            if (Shell.SU.available() || Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                return true;
+            else {
                 DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
                 final ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
                 if ((mDPM != null && mDPM.isAdminActive(mAdminName))) {
@@ -348,10 +344,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         })
                         .show();
                 return false;
-            } else if (o.toString().equals("3")) {
-                return true;
             }
-            return true;
         } else if (preference.getKey().equals("startafterlock") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
                 @Override
@@ -406,7 +399,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         super.onActivityResult(requestCode, resultCode, data);
         Log.d(MAIN_SERVICE_LOG_TAG, "Activity result" + resultCode);
         if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
-            ((ListPreference) findPreference("proximity_to_lock_method")).setValue(resultCode == Activity.RESULT_OK ? "2" : "0");
+            ((SwitchPreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
     }
 
     @Override

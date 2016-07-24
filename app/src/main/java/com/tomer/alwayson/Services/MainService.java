@@ -166,7 +166,6 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onCreate() {
         super.onCreate();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
-        Globals.isServiceRunning = true;
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
@@ -243,11 +242,11 @@ public class MainService extends Service implements SensorEventListener, Context
         registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
-        if (prefs.proximityToLock != DISABLED || prefs.autoNightMode) //If any sensor is required
+        if (prefs.proximityToLock || prefs.autoNightMode) //If any sensor is required
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
-        if (prefs.proximityToLock != DISABLED) {
-            if (prefs.proximityToLock == PROXIMITY_NORMAL_MODE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (prefs.proximityToLock) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !Shell.SU.available()) {
                 proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "proximity to lock");
                 proximityToTurnOff.acquire();
             } else {
@@ -664,7 +663,6 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onDestroy() {
         //Dismissing the wakelock holder
-        Globals.isServiceRunning = false;
         stayAwakeWakeLock.release();
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())
             proximityToTurnOff.release();
@@ -796,24 +794,17 @@ public class MainService extends Service implements SensorEventListener, Context
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
                     Globals.isShown = false;
-                    Globals.sensorIsScreenOff = true;
+                    Globals.sensorIsScreenOff = false;
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             if (Shell.SU.available())
                                 Shell.SU.run("input keyevent 26"); // Screen off using root
-                            else {
-                                if (prefs.proximityToLock == PROXIMITY_NORMAL_MODE) {
-                                    stayAwakeWakeLock.release();
-                                    Log.d(MAIN_SERVICE_LOG_TAG, "Set auto lock timeout - " + Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 1000)); //Screen off using timeout
-                                    stayAwakeWakeLock.release();
-                                } else if (prefs.proximityToLock == PROXIMITY_DEVICE_ADMIN_MODE)
-                                    ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
-                            }
+                            else
+                                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                         }
                     }).start();
                 } else {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Turning screen on");
                     if (!Globals.sensorIsScreenOff) {
                         new Handler().postDelayed(new Runnable() {
                             @Override
@@ -823,19 +814,18 @@ public class MainService extends Service implements SensorEventListener, Context
                         }, 200);
                         return;
                     }
+                    ScreenReceiver.turnScreenOn(this, false);
+                    Globals.isShown = true;
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            ScreenReceiver.turnScreenOn(getApplicationContext(), false);
-                            Globals.isShown = true;
                             if (!refreshing) {
                                 refresh();
                                 refreshLong(true);
                             }
-                            if (Globals.isServiceRunning)
-                                stayAwakeWakeLock.acquire();
+                            stayAwakeWakeLock.acquire();
                         }
-                    }, prefs.proximityToLock != PROXIMITY_NORMAL_MODE ? 1000 : 5000);
+                    }, 500);
                 }
                 break;
             case Sensor.TYPE_LIGHT:

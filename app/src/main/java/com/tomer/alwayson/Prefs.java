@@ -10,7 +10,7 @@ import java.util.Map;
 public class Prefs {
     public boolean enabled;
     public boolean doubleTapToStop, swipeToStop, volumeToStop, backButtonToStop;
-    public int proximityToLock;
+    public boolean proximityToLock;
     public boolean showNotification;
     public int moveWidget;
     public boolean disableVolumeKeys;
@@ -61,7 +61,7 @@ public class Prefs {
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
         try {
-            proximityToLock = Integer.parseInt(prefs.getString(KEYS.PROXIMITY_TO_LOCK.toString(), "0"));
+            proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
         } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
@@ -158,7 +158,7 @@ public class Prefs {
         TEXT_SIZE("font_size"),
         PERMISSION_GRANTING("permissiongrantingscreen"),
         DISABLE_VOLUME_KEYS("disable_volume_keys"),
-        PROXIMITY_TO_LOCK("proximity_to_lock_method"),
+        PROXIMITY_TO_LOCK("proximity_to_lock"),
         TIME_STYLE("watchface_clock"),
         DATE_STYLE("watchface_date"),
         BATTERY_STYLE("watchface_battery"),

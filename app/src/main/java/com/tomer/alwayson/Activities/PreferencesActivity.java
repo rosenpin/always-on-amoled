@@ -48,6 +48,7 @@ import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
 
+import eu.chainfire.libsuperuser.Shell;
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 
 public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
@@ -284,8 +285,8 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
             DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
             dpm.removeActiveAdmin(devAdminReceiver);
-            if (prefs.proximityToLock == 2)
-                prefs.setString(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), "0");
+            if (prefs.proximityToLock && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && !Shell.SU.available())
+                prefs.setBool(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), false);
         } catch (Exception ignored) {
         }
         Uri packageUri = Uri.parse("package:" + context.getPackageName());
