@@ -15,21 +15,21 @@
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
-  <string name="gestures_action_speak">Spricht die aktuelle Zeit, Benachrichtigungen und den Akkustand mit der installierten Sprachengine</string>
+  <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
-  <string name="support_1">1$, der Preis einer erfrischenden Cola</string>
+  <string name="support_1">1$: der Preis einer erfrischenden Cola</string>
   <string name="support_2">2$: der Preis eines leckeren Schokoriegels</string>
   <string name="support_5">5$, der Preis für einen kühlen Eiskaffe</string>
   <string name="support_10">10$: der Preis für einen großen Starbucks-Kaffee</string>
   <string name="support_20">20$: der Preis einer leckeren Pizza</string>
-  <string name="support_50">50$: der Preis für ein Dinner zu zweit</string>
+  <string name="support_50">50$: der Preis für ein Abendessen zu zweit</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen und Kamera-Berechtigung</string>
   <string name="intro_permissions_desc">Diese App benötigt die Berechtigung \"Telefonstatus lesen\" um das Gerät einzuschalten, wenn du einen Anruf bekommst.\nDie App benötigt die Berechtigung für die Kamera um das Gerät anzuschalten wenn du die Kameraapp per Shortcut startest.</string>
   <string name="intro_draw_over">Über anderen Apps einblenden</string>
   <string name="intro_draw_over_desc">Die App braucht die Berechtigung, sich über andere Apps einblenden zu können</string>
-  <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Lichthelligkeit des Displays zu ändern</string>
+  <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Helligkeit des Displays zu ändern</string>
   <string name="intro_modify">Systemeinstellungen ändern</string>
   <string name="intro_wake_ups">Aufwach-Methoden</string>
   <string name="intro_wake_ups_desc">Wähle, wie du dein Gerät aufwecken willst vom \"always on\" Status. Keine Sorge, du kannst die Einstellung später in der App ändern.</string>

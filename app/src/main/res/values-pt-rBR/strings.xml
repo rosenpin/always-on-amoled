@@ -3,12 +3,24 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">Support The Development</string>
   <!--Actions-->
   <string name="unlock">Ligue a tela</string>
+  <string name="action_revert">Revert</string>
   <string name="menu_feedback">Feedback</string>
+  <string name="menu_rate">Rate the app</string>
+  <string name="disclaimer">DISCLAIMER</string>
+  <string name="disclaimer_desc">Always On AMOLED developers will not be held responsible to any damage that may occur to your device.</string>
   <string name="agree">Aceitar</string>
   <!--Support-->
+  <string name="action_support_the_development">Support the development</string>
   <string name="support_how_much">Quanto você gostaria de doar?</string>
+  <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
+  <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
+  <string name="support_1">1$: The price of a refreshing coke</string>
+  <string name="support_2">2$: The price of a tasty chocolate bar</string>
+  <string name="support_5">5$: The price of a cool ice-coffee</string>
+  <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
   <!-- Content description-->
