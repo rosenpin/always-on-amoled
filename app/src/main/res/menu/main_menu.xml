@@ -5,7 +5,7 @@
         android:id="@+id/feedback"
         android:icon="@drawable/ic_feedback_24dp"
         android:title="@string/menu_feedback"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/rate"

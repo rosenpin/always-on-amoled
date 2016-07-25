@@ -96,7 +96,6 @@ public class MainService extends Service implements SensorEventListener, Context
     private UnlockReceiver unlockReceiver;
     private int originalCapacitiveButtonsState = 1500;
     private int height, width;
-    private int originalTimeout;
     private CustomAnalogClock analog24HClock;
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
@@ -172,8 +171,6 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
-        originalTimeout = System.getInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 120000);
-        Log.d("Original timeout", String.valueOf(originalTimeout));
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -345,15 +342,6 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private boolean isCameraUsedByApp() {
-        Camera camera = null;
-        try {
-            camera = Camera.open();
-        } catch (RuntimeException e) {
-            return true;
-        } finally {
-            if (camera != null) camera.release();
-        }
-        if (camera != null) camera.release();
         return false;
     }
 
@@ -672,10 +660,6 @@ public class MainService extends Service implements SensorEventListener, Context
         TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
         tts.setLanguage(Locale.getDefault());
         tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
-
-        //Resetting the timeout
-        Log.d("Original timeout", String.valueOf(originalTimeout));
-        Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, originalTimeout);
 
         //Unregister receivers
         if (sensorManager != null)

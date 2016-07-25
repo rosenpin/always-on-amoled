@@ -7,8 +7,6 @@
     <string name="action_revert">Revert</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_rate">Rate the app</string>
-    <string name="disclaimer">DISCLAIMER</string>
-    <string name="disclaimer_desc">Always On AMOLED developers will not be held responsible to any damage that may occur to your device.</string>
     <string name="agree">Agree</string>
     <string name="action_restart">Restart now</string>
     <!--Support-->

@@ -41,24 +41,6 @@ public class Intro extends AppIntro2 {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.disclaimer)
-                .setMessage(R.string.disclaimer_desc)
-                .setPositiveButton(R.string.agree, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                })
-                .setCancelable(false)
-
-                .show();
         context = getApplicationContext();
         pref = new Prefs(getApplicationContext());
         pref.apply();
