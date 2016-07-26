@@ -4,7 +4,7 @@ La prima app "always on" open source!
 
 L'idea è quella di fornire agli utenti informazioni su ora, data, notifiche e altro ancora e il tutto senza dover toccare il telefono. Tutto questo soltanto guardandolo.
 
-Ciò è reso possibile grazie ai display AMOLED. La maggior parte dello schermo rimane nero ad eccezione di un paio di pixel.
+Ciò è reso possibile grazie ai display AMOLED. La maggior parte dello schermo rimane nero ad eccezione di alcuni pixel.
 
 ★Caratteristiche principali
 • Schermo sempre acceso
@@ -14,20 +14,20 @@ Ciò è reso possibile grazie ai display AMOLED. La maggior parte dello schermo 
 • Modalità notte automatica - ridurre la luminosità dello schermo automaticamente in ambiente buio
 • Modalità tasca - blocca il dispositivo quando lo metti in tasca per risparmiare batteria
 •  Per riattivare: doppio tap - strisciare verso l'alto - tasti del volume - pulsante Indietro
-• Forza orientamento - imposta l'orientamento dello schermo preferito
+• Forza orientamento - imposta l'orientamento preferito dello schermo
 • Personalizzazione - cambia il colore del testo, la dimensione del testo, la luminosità e molto altro
-• libero e open source!
+• LIBERO E OPEN SOURCE!
 
-Prima dell'utilizzo per favore abilita il permesso 'disegna su apps' per questa applicazione.
+Prima dell'utilizzo per favore abilita il permesso 'disegna sulle app' per questa applicazione.
 
 L'applicazione è in versione BETA, ha ancora dei bug e manca di funzionalità.
 
 Permessi
 <b>permesso Camera<b>
-L'applicazione ha bisogno del permesso fotocamera per riconoscere la fotocamera e lanciare l'evento  per disattivare il "always on" screen.
+L'applicazione ha bisogno del permesso fotocamera per riconoscerla e lanciare l'evento per disattivare il "always on" screen.
 </b>permesso telefono</b>
-l'applicazione richiede il permesso del telefono per riconoscere le chiamate in arrivo, disattivare "the always on screen" e mostrare la schermata di chiamata in arrivo
-</b>permesso di midifica impistazioni di sistema</b>
+L'applicazione richiede il permesso del telefono per riconoscere le chiamate in arrivo, disattiva "the always on screen" e mostra la schermata di chiamata in arrivo.
+</b>permesso di modifica impostazioni di sistema</b>
 L'applicazione necessita del permesso di modificare le impostazioni di sistema per modificare la luminosità dello schermo di blocco.
 
 

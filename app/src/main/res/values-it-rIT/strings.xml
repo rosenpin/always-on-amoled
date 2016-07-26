@@ -5,10 +5,24 @@
   <string name="app_name">Always-on Amoled</string>
   <string name="title_donation">Supporta Lo Sviluppatore</string>
   <!--Actions-->
+  <string name="unlock">Attiva lo schermo</string>
   <string name="action_revert">Ripristina</string>
   <string name="menu_feedback">Feedback</string>
+  <string name="menu_rate">Valuta l\'app</string>
+  <string name="disclaimer">DICHIARAZIONE DI NON RESPONSABILITÀ</string>
+  <string name="disclaimer_desc">Gli sviluppatori di Always On AMOLED non saranno ritenuti responsabili per eventuali danni che possono verificarsi al proprio dispositivo.</string>
+  <string name="agree">Sono d\'accordo</string>
   <!--Support-->
   <string name="action_support_the_development">Supporta lo sviluppo</string>
+  <string name="support_how_much">Quanto vorresti donare?</string>
+  <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
+  <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
+  <string name="support_1">1$: Il prezzo di una coca-cola rinfrescante</string>
+  <string name="support_2">2$: Il prezzo di una gustosa barretta di cioccolato</string>
+  <string name="support_5">5$: Il prezzo di un fresco ice-coffee</string>
+  <string name="support_10">10$: Il prezzo di una grande tazza al caffè Starbucks</string>
+  <string name="support_20">20$: Il prezzo di una deliziosa pizza</string>
+  <string name="support_50">50$: Il prezzo di una cena per due</string>
   <!--Intro-->
   <string name="intro_allow_now">Consenti ora</string>
   <string name="intro_permissions">Leggi lo stato del telefono e i permessi della fotocamera</string>
@@ -16,7 +30,7 @@
   <string name="intro_draw_over">Attiingere da altre apps</string>
   <string name="intro_draw_over_desc">L\'app richiede il permesso per attingere da altre apps</string>
   <string name="intro_modify_desc">L\'app ha bisogno dell\'autorizzazione per modificare la luminosità del dispositivo</string>
-  <string name="intro_modify">Modificare le impostazioni di sistema</string>
+  <string name="intro_modify">Modifica le impostazioni di sistema</string>
   <string name="intro_wake_ups">Metodi di attivazione</string>
   <string name="intro_wake_ups_desc">Scegli come vuoi abilitare l\'attivazione del telefono dallo stato di \"always on\". Non ti preoccupare, è possibile modificarla nell\'app succcessivamente.</string>
   <string name="intro_checkbox_volume_keys">Tasti volume per sbloccare</string>
@@ -28,10 +42,11 @@
   <string name="thanks">Grazie per il tuo supporto! :)</string>
   <string name="thanks_great">Grazie per il tuo grande supporto! :)</string>
   <string name="thanks_huge">Grazie per il tuo enorme supporto! :)</string>
-  <string name="thanks_crazy">Grazie per il tuo pazzo supporto!!! :)</string>
+  <string name="thanks_crazy">Grazie per il tuo ASSURDO supporto!!! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="reboot_to_take_affect">Riavvia per rendere effettive le modifiche</string>
   <!-- Content description-->
+  <string name="notification_icon">Icona di notifica</string>
   <!--Widget-->
   <string name="widget_toggle">interruttore</string>
   <string name="widget_off">Spento</string>
@@ -57,7 +72,9 @@
   <string name="warning_7_disable_fingerprint">Questo potrebbe disattivare la funzionalità del sensore di impronte digitali, sei sicuro di volerlo attivare?</string>
   <string name="warning_8_intro_allow_all">Per favore consenti tutte le autorizzazioni</string>
   <string name="warning_9_allow_notification">Per favore consenti l\'accesso notifica dell\'app</string>
+  <string name="warning_10_tts_not_installed">Si prega di installare prima un motore di sintesi vocale di testo</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Entrambi, durante la carica e durante la scarica</string>
   <string name="rules_while_charging">Mentre carica</string>
   <string name="rules_while_not_charging">Mentre non ricarica</string>
   <!--Battery rules-->
@@ -100,6 +117,9 @@
   <string name="settings_font_size">Dimensione del testo (font)</string>
   <string name="settings_watchface">Personalizza watchface</string>
   <string name="settings_proximity">Sensore di prossimità</string>
+  <string name="settings_proximity_root">\nModalità Root:\nMiglior opzione, lavora velocemente e permette il riconoscimento delle impronte digitali\n</string>
+  <string name="settings_proximity_normal">Modalità normale (scelta consigliata):\nRichiede molto tempo per iniziare, consente il riconoscimento delle impronte digitali</string>
+  <string name="settings_proximity_device_admin">Modalità Amministratore Dispositivo:\n Lavora velocemente ma disattiva il riconoscimento delle impronte digitali</string>
   <string name="settings_show_am_pm">Mostra AM/PM</string>
   <string name="settings_text_color">Colore del testo</string>
   <string name="settings_startafterlock">Parti dopo il blocco</string>
@@ -152,6 +172,7 @@
   <string name="settings_watchface_miscellaneous">Varie</string>
   <string name="settings_watchface_styles">Stili</string>
   <string name="settings_font">Carattere</string>
+  <string name="settings_choose_font">Scegli il tuo tipo di carattere</string>
   <string name="settings_watch_digital">Digitale</string>
   <string name="settings_watch_analog">Analogico</string>
   <string name="settings_rules_text">Testo</string>
@@ -161,4 +182,29 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures"><![CDATA[Gesti & inputs]]></string>
+  <string name="settings_gestures_desc">Doppio tap per svegliare, scorri in alto per svegliare ed altro</string>
+  <string name="settings_watchface_text_font"><![CDATA[Testo & Carattere]]></string>
+  <string name="settings_select_action">Seleziona azione</string>
+  <string name="warning_11_need_to_reset_app">Potrebbe essere necessario riavviare l\'applicazione per rendere effettivo</string>
+  <string name="settings_uninstall">Disinstallazione</string>
+  <string name="settings_uninstall_desc">Disinstalla l\'applicazione</string>
+  <string name="settings_watchface_clock_desc">Scegli il tuo stile preferito dell\'orologio</string>
+  <string name="settings_watch_analog_24_classic">Classico analogico 24</string>
+  <string name="settings_watch_analog_s7">Orologio analogico stile S7</string>
+  <string name="settings_watch_digital_s7">Orologio digitale stile S7 (non personalizzabile)</string>
+  <string name="settings_watch_flat_analog">Stile piatto analogico</string>
+  <string name="settings_watch_analog_pebble">Orologio analogico stile Pebble</string>
+  <string name="move_disable">Disabilitato (non raccomandato per schermi AMOLED)</string>
+  <string name="move_move">Muovi automaticamente il widget</string>
+  <string name="move_move_animation">Muovi automaticamente il widget con un\'animazione</string>
+  <string name="greenify_integration">Integrazione Greenify</string>
+  <string name="greenify_integration_desc">Abilita Greenify mentre il servizio sempre attivo è visibile per migliorare significativamente la durata della batteria. Assicurarsi di abilitare Greenify nelle impostazioni di accessibilità</string>
+  <string name="settings_notifications_alerts_preview_desc">Visualizza il contenuto della notifica quando ricevuto</string>
+  <string name="settings_notifications_alerts_preview">Contenuto notifica</string>
+  <string name="error_IAP">Errore! Si prega di assicurarti di essere connesso ad internet e riavvia l\'applicazione</string>
+  <string name="warning_11_no_root">Il dispositivo deve avere i permessi di root per utilizzare questa funzione!</string>
+  <string name="report_sent">Report inviato!</string>
+  <string name="warning_12_please_report">Per favore fatemi sapere cosa volete che aggiunga / sistemi</string>
+  <string name="thanks_short">Grazie</string>
 </resources>

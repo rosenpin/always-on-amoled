@@ -21,15 +21,62 @@
   <string name="support_2">2$: The price of a tasty chocolate bar</string>
   <string name="support_5">5$: The price of a cool ice-coffee</string>
   <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
+  <string name="support_20">20$: The price of a delicious pizza</string>
+  <string name="support_50">50$: The price of a dinner for two</string>
   <!--Intro-->
+  <string name="intro_allow_now">Allow now</string>
+  <string name="intro_permissions">Read phone state and Camera permission</string>
+  <string name="intro_permissions_desc">The app needs permission to read phone state to turn on the device when you receive a call.\nThe app needs permission to access the camera to turn on the device when you launch the camera (With shortcuts).</string>
+  <string name="intro_draw_over">Draw over other apps</string>
+  <string name="intro_draw_over_desc">The app needs permission to draw over other apps</string>
+  <string name="intro_modify_desc">The app needs permission to change the device brightness</string>
+  <string name="intro_modify">Modify system settings</string>
+  <string name="intro_wake_ups">Wake up methods</string>
+  <string name="intro_wake_ups_desc">Choose how you want to be able to wake up your phone from \"always on\" state. Don\'t worry, you can change it in the app later.</string>
+  <string name="intro_checkbox_volume_keys">Volume keys to unlock</string>
+  <string name="intro_checkbox_swipe_up">Swipe up from the center of the screen to unlock</string>
+  <string name="intro_checkbox_double_tap">Double tap on the center of the screen to unlock</string>
+  <string name="intro_notifications">Notifications alerts</string>
+  <string name="intro_notifications_desc">Do you want to receive notifications from other apps while the screen is in \"always on\" state? If you do, click the \"allow now\" button</string>
   <!--Feedback,Toasts & messages-->
+  <string name="thanks">Thank you for your support! :)</string>
+  <string name="thanks_great">Thank you for your great support! :)</string>
+  <string name="thanks_huge">Thank you for your huge support!! :)</string>
+  <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
+  <string name="notification_message">Always On Is Running</string>
+  <string name="reboot_to_take_affect">Reboot to take affect</string>
   <!-- Content description-->
+  <string name="notification_icon">Notification icon</string>
   <!--Widget-->
+  <string name="widget_toggle">toggle</string>
+  <string name="widget_off">Off</string>
+  <string name="widget_on">On</string>
   <!--Device admin-->
+  <string name="device_admin_desc">Enable this to allow extra features for unrooted devices</string>
+  <string name="device_admin_explanation">Please allow device admin permission to use more features on non-rooted devices.</string>
   <!--Plugin-->
+  <string name="plugin_dialog_title">Plugin is required</string>
+  <string name="plugin_dialog_desc">Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">An error has occurred. Please report to the developer </string>
+  <string name="error_1_no_email_client">There are no email clients installed.</string>
+  <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
   <!--Warnings-->
+  <string name="warning">WARNING</string>
+  <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
+  <string name="warning_2_required_phone_permission">This permission is required so the app can turn on the display when you get a phone call</string>
+  <string name="warning_3_allow_system_modification">Please allow settings modification permission for this app!</string>
+  <string name="warning_4_device_not_secured">Your device may not be secured now</string>
+  <string name="warning_5_device_admin_disable">This will disable some of the app features</string>
+  <string name="warning_6_device_admin_disabled">Some features might be disabled now</string>
+  <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
+  <string name="warning_8_intro_allow_all">Please allow all permissions</string>
+  <string name="warning_9_allow_notification">Please allow notification access for the app</string>
+  <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Both, while charging and while discharging</string>
+  <string name="rules_while_charging">While charging</string>
+  <string name="rules_while_not_charging">While not charging</string>
   <!--Battery rules-->
   <string name="rules_always">Sempre</string>
   <string name="rules_battery_50">50% ou mais</string>
@@ -47,23 +94,67 @@
   <string name="rules_hour">1 Hora</string>
   <string name="rules_hours_2">2 Horas</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">Portrait (Vertical)</string>
+  <string name="rules_orientation_horizontal">Landscape (Horizontal)</string>
   <!--Settings headers-->
+  <string name="settings_behaviour">Behaviour</string>
   <string name="settings_about">Sobre</string>
   <string name="settings_appearance">Aparência</string>
   <string name="settings_general">Geral</string>
+  <string name="settings_wake_up">Gestures &amp; actions</string>
+  <string name="settings_rules">Automatic Rules</string>
   <!--Settings titles-->
+  <string name="settings_enabled">Enable</string>
+  <string name="settings_disable_volume_keys">Disable volume keys</string>
+  <string name="settings_double_tap_wake">Double tap action</string>
+  <string name="settings_back_button_wake">Back button action</string>
+  <string name="settings_volume_to_stop">Volume keys action</string>
+  <string name="settings_swipe_wake">Swipe up action</string>
+  <string name="settings_brightness">Brightness</string>
+  <string name="settings_notifications">Notifications</string>
+  <string name="settings_persistent_notification">Show persistent notification</string>
+  <string name="settings_move_auto">Move the widget automatically</string>
+  <string name="settings_font_size">Text size</string>
+  <string name="settings_watchface">Customize Watchface</string>
+  <string name="settings_proximity">Proximity sensor (Pocket mode)</string>
+  <string name="settings_proximity_root">\nRoot Mode:\nBest option, works fast and allows fingerprint recognition\n</string>
+  <string name="settings_proximity_normal">Normal Mode (Recommended):\nTakes a long time to start, allows fingerprint recognition</string>
+  <string name="settings_proximity_device_admin">Device Admin Mode:\nWorks fast but disables fingerprint recognition</string>
+  <string name="settings_show_am_pm">Show AM/PM</string>
+  <string name="settings_text_color">Text Color</string>
+  <string name="settings_startafterlock">Start after lock</string>
+  <string name="settings_stop_delay">Stop delay</string>
+  <string name="settings_auto_brightness">Auto night mode</string>
+  <string name="settings_orientation">Screen orientation</string>
+  <string name="settings_stop_on_camera">Allow camera shortcuts</string>
+  <string name="settings_rules_cahrging">Charging rules</string>
+  <string name="settings_rules_battery">Battery rules</string>
+  <string name="settings_translate">Translate</string>
+  <string name="settings_github">GitHub</string>
+  <string name="settings_community">Community</string>
+  <string name="settings_licenses">Licenses</string>
+  <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched (Should keep enabled on Nexus/Samsung devices)</string>
+  <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically (Sensors may use more battery)</string>
+  <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
   <string name="settings_text_color_desc">Escolha a cor do texto</string>
   <string name="settings_licenses_desc">Licensas Open source</string>
   <string name="settings_community_desc">Comunidade no Google Plus</string>
   <string name="settings_github_desc">Link do GitHub Open source</string>
   <string name="settings_enabled_desc">Habilitar o serviço</string>
+  <string name="settings_notifications_alerts_desc">Show notifications from other apps when received</string>
+  <string name="settings_brightness_desc">Screen brightness while off</string>
+  <string name="settings_about_translate">Help translating the app</string>
+  <string name="settings_version_desc">build</string>
+  <string name="settings_feature_dialog_desc">Select which elements you want to appear when the device is locked</string>
   <string name="settings_features_dialog_battery">Mostrar bateria</string>
   <string name="settings_features_dialog_calendar">Mostrar data</string>
   <string name="settings_features_dialog_time">Mostrar Hora</string>
   <string name="settings_watchface_clock">Estilo do relógio</string>
   <string name="settings_watchface_date">Estilo da data</string>
   <string name="settings_watchface_battery">Estilo da bateria</string>
+  <string name="settings_watchface_miscellaneous">Miscellaneous</string>
   <string name="settings_watchface_styles">Estilos</string>
   <string name="settings_font">Fonte</string>
   <string name="settings_choose_font">Escolha sua fonte</string>
@@ -71,6 +162,12 @@
   <string name="settings_watch_analog">Analógico</string>
   <string name="settings_rules_text">Texto</string>
   <string name="settings_font_default">Padrão</string>
+  <string name="settings_font_default_bold">Default bold</string>
+  <string name="settings_font_default_italic">Default italic</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures"><![CDATA[Gestures & inputs]]></string>
   <string name="settings_watchface_text_font"><![CDATA[Texto e fonte]]></string>
   <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_uninstall_desc">Desinstalar o aplicativo</string>

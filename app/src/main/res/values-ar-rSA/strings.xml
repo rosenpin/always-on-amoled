@@ -3,23 +3,144 @@
 <resources>
   <!--App name & Activities title-->
   <string name="app_name">Always On AMOLED</string>
+  <string name="title_donation">ساعدنا على التطوير</string>
   <!--Actions-->
+  <string name="unlock">أفتح الشاشة</string>
   <string name="action_revert">العودة</string>
+  <string name="menu_feedback">قائمة_ابداء الرأي</string>
+  <string name="menu_rate">قيمنا</string>
+  <string name="disclaimer">التوصية</string>
+  <string name="disclaimer_desc">مطورو دائما على الشاشة غير مسؤولين عن أي عطب قد يحصل لهاتفك.</string>
+  <string name="agree">أوافق</string>
   <!--Support-->
   <string name="action_support_the_development">Support the development</string>
+  <string name="support_how_much">دعمنا كثيرا؟</string>
+  <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
+  <string name="supporter_feature_only">هذه الخاصية متاحة فقط لداعمين بأمكانك اختيار أن تصبح داعما،كم تريد أن تعطينا؟</string>
+  <string name="support_1">1 ريال: ثمن كوكاكولا منعشة</string>
+  <string name="support_2">2 ريال: ثمن شكولاطة لذيذة</string>
+  <string name="support_5">5ريال: ثمن قهوة مجمدة منعشة</string>
+  <string name="support_10">10ريال: ثمن كوب كبير من القهوة</string>
+  <string name="support_20">20ريال: ثمن بيتزا لذيذة</string>
+  <string name="support_50">50ريال: ثمن غذاء لأثنين</string>
   <!--Intro-->
+  <string name="intro_allow_now">اسمح الأن</string>
+  <string name="intro_permissions">قراءة حالة الهاتف و صلاحيات الكاميرا</string>
+  <string name="intro_permissions_desc">يحتاج التطبيق إلى إذن لقراءة حالة الهاتف لتشغيل الجهاز عند تلقي مكالمة. \nيحتاج التطبيق إلى إذن لاستخدام الكاميرا لتشغيل الجهاز عند بدء تشغيل الكاميرا (عند استعمال الاختصارات).</string>
+  <string name="intro_draw_over">التغطية على التطبيقات الأخرى</string>
+  <string name="intro_draw_over_desc">التطبيق يحتاج إلى إذن للتغطية على التطبيقات الأخرى</string>
+  <string name="intro_modify_desc">التطبيق يحتاج إلى إذن لتغيير سطوع الجهاز</string>
+  <string name="intro_modify">تعديل إعدادات النظام</string>
+  <string name="intro_wake_ups">ايقاظ الأساليب</string>
+  <string name="intro_wake_ups_desc">اختر طرق إيقاظ هاتفك من وضعية \"always on\". لا تقلق، يمكنك تغيير خياراتك في التطبيق في وقت لاحق.</string>
+  <string name="intro_checkbox_volume_keys">فتح القفل باستخدام مفاتيح الصوت</string>
+  <string name="intro_checkbox_swipe_up">مرر إلى الأعلى من وسط الشاشة لفتح القفل</string>
+  <string name="intro_checkbox_double_tap">النقر المزدوج على وسط الشاشة لفتح القفل</string>
+  <string name="intro_notifications">تنبيهات الإخطارات</string>
+  <string name="intro_notifications_desc">هل تريد تلقي الإخطارات من تطبيقات أخرى عندما تكون الشاشة في وضعية \"always on\"؟ إن كنت تريد ذلك، انقر فوق الزر \"السماح الآن\"</string>
   <!--Feedback,Toasts & messages-->
+  <string name="thanks">شكرا على دعمكم! :)</string>
+  <string name="thanks_great">شكرا على دعمكم الكبير! :)</string>
+  <string name="thanks_huge">شكرا على دعمكم الهائل!! :)</string>
+  <string name="thanks_crazy">أشكركم على دعمكم مجنون!!! :)</string>
+  <string name="notification_message">Always On في وضعية الإشتغال</string>
+  <string name="reboot_to_take_affect">أعد التشغيل لتفعيل التغييرات</string>
   <!-- Content description-->
+  <string name="notification_icon">رمز التنبيهات</string>
   <!--Widget-->
+  <string name="widget_toggle">تبديل</string>
+  <string name="widget_off">إيقاف</string>
+  <string name="widget_on">تشغيل</string>
   <!--Device admin-->
+  <string name="device_admin_desc">تفعيل هذا الإختيار للحصول ميزات إضافية للأجهزة التي ليس لها وصول للجذر (الروت)</string>
+  <string name="device_admin_explanation">الرجاء السماح بإذن مسؤول الجهاز لاستخدام المزيد من الميزات على الأجهزة التي لا تتوفر على الروت.</string>
   <!--Plugin-->
+  <string name="plugin_dialog_title">البرنامج المساعد مطلوب</string>
+  <string name="plugin_dialog_desc">يبدو أن جهازك يحتوي على أزرار الألية الداخلية ، إذا كنت تريد تعطيلها عند تشغيل الخدمة، الرجاء تثبيت البرنامج المساعد.</string>
   <!--Errors-->
+  <string name="error_0_unknown_error">لقد حدث خطأ. الرجاء إرسال تقرير إلى المطور </string>
+  <string name="error_1_no_email_client">لا يوجد عملاء للبريد الإلكتروني مخزنة.</string>
+  <string name="error_2_plugin_not_installed">البرنامج المساعد غير مثبتث</string>
   <!--Warnings-->
+  <string name="warning">تحذير</string>
+  <string name="warning_1_harm_performance">يمكن أن يؤثر هذا على أداء التطبيق</string>
+  <string name="warning_2_required_phone_permission">هذا الإذن مطلوب ليسمح للتطبيق بتشغيل الشاشة عند استقبال مكالمة هاتفية</string>
+  <string name="warning_3_allow_system_modification">الرجاء السماح بإذن تغيير الإعدادت من هذا التطبيق!</string>
+  <string name="warning_4_device_not_secured">قد لا يكون هاتفك آمنا الآن</string>
+  <string name="warning_5_device_admin_disable">سيؤدي ذلك إلى تعطيل بعض ميزات التطبيق</string>
+  <string name="warning_6_device_admin_disabled">قد يتم تعطيل بعض الميزات الآن</string>
+  <string name="warning_7_disable_fingerprint">هذا قد يعطل خاصية مستشعر البصمة، هل ترغب بتفعيل الخيار؟</string>
+  <string name="warning_8_intro_allow_all">الرجاء السماح لكل الصلاحيات</string>
+  <string name="warning_9_allow_notification">يرجى السماح للتطبيق بالوصول إلى التنبهيات</string>
+  <string name="warning_10_tts_not_installed">يرجى تثبيت مشغل تحويل النص إلى كلام أولا</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">على حد سواء، أثناء الشحن وأثناء الإستنزاف</string>
+  <string name="rules_while_charging">عند الشحن</string>
+  <string name="rules_while_not_charging">عند عدم الشحن</string>
   <!--Battery rules-->
+  <string name="rules_always">دائماً</string>
+  <string name="rules_battery_50">50% أو أكثر</string>
+  <string name="rules_battery_30">30% أو أكثر</string>
+  <string name="rules_battery_20">20% أو أكثر</string>
+  <string name="rules_battery_10">10% أو أكثر</string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">معطّل</string>
+  <string name="rules_minutes_1">دقيقة واحدة</string>
+  <string name="rules_minutes_2">دقيقتان</string>
+  <string name="rules_minutes_5">5 دقائق</string>
+  <string name="rules_minutes_10">10 دقائق</string>
+  <string name="rules_minutes_15">15 دقيقة</string>
+  <string name="rules_minutes_30">30 دقيقة</string>
+  <string name="rules_hour">ساعة واحدة</string>
+  <string name="rules_hours_2">ساعتان</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">عمودي (رأسي)</string>
+  <string name="rules_orientation_horizontal">المناظر الطبيعية (أفقي)</string>
   <!--Settings headers-->
+  <string name="settings_behaviour">السلوك</string>
+  <string name="settings_about">حول</string>
+  <string name="settings_appearance">المظهر</string>
+  <string name="settings_general">عام</string>
+  <string name="settings_wake_up">إيماءات واﻹجراءات</string>
+  <string name="settings_rules">القواعد التلقائية</string>
   <!--Settings titles-->
+  <string name="settings_enabled">تفعيل</string>
+  <string name="settings_disable_volume_keys">تعطيل مفاتيح الصوت</string>
+  <string name="settings_double_tap_wake">عمل النقر المزدوج</string>
+  <string name="settings_back_button_wake">الرجوع إلى زر الأحداث</string>
+  <string name="settings_volume_to_stop">عمل مفاتيح الصوت</string>
+  <string name="settings_swipe_wake">مرر لأعلى لتفعيل</string>
+  <string name="settings_brightness">الإضاءة</string>
+  <string name="settings_notifications">التنبيهات</string>
+  <string name="settings_persistent_notification">إظهار التنبيهات باستمرار</string>
+  <string name="settings_move_auto">نقل القطعة تلقائياً</string>
   <!--Settings descriptions-->
+  <string name="settings_features_dialog_time">إظهار الوقت</string>
+  <string name="settings_watchface_clock">نمط الساعة</string>
+  <string name="settings_watchface_date">نمط التاريخ</string>
+  <string name="settings_watchface_battery">نمط البطارية</string>
+  <string name="settings_watchface_miscellaneous">متنوع</string>
+  <string name="settings_watchface_styles">الأنماط</string>
+  <string name="settings_font">الخط</string>
+  <string name="settings_choose_font">اختيار الخط الخاص بك</string>
+  <string name="settings_watch_digital">رقمي</string>
+  <string name="settings_watch_analog">تناظري</string>
+  <string name="settings_rules_text">نص</string>
+  <string name="settings_font_default">الوضع الأصلي</string>
+  <string name="settings_font_default_bold">افتراضي غامق</string>
+  <string name="settings_font_default_italic">افتراضي مائل</string>
+  <string name="settings_font_serif">شريف</string>
+  <string name="settings_font_sans_serif">بدون شريف</string>
+  <string name="settings_font_monospace">مسافة موحدة</string>
+  <string name="settings_gestures"><![CDATA[إيماءات & المدخلات]]></string>
+  <string name="settings_gestures_desc">النقر المزدوج و التمرير للإيقاظ وأكثر</string>
+  <string name="settings_watchface_text_font"><![CDATA[النص والخط]]></string>
+  <string name="settings_select_action">حدد الإجراء</string>
+  <string name="warning_11_need_to_reset_app">قد تحتاج إلى إعادة تشغيل التطبيق لتفعيل التغيير</string>
+  <string name="settings_uninstall">مسح التطبيق</string>
+  <string name="settings_uninstall_desc">مسح التطبيق</string>
+  <string name="settings_watchface_clock_desc">إختر نمطك المفضل لشكل الساعة</string>
+  <string name="settings_watch_analog_24_classic">التناظرية الكلاسيكية 24</string>
+  <string name="settings_watch_analog_s7">نمط S7 التناظري</string>
+  <string name="settings_watch_digital_s7">نمط الساعة الرقمية S7 (غير قابل للتخصيص)</string>
 </resources>
