@@ -22,8 +22,8 @@
     <string name="support_50">50$: The price of a dinner for two</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
-    <string name="intro_permissions">Read phone state and Camera permission</string>
-    <string name="intro_permissions_desc">The app needs permission to read phone state to turn on the device when you receive a call.\nThe app needs permission to access the camera to turn on the device when you launch the camera (With shortcuts).</string>
+    <string name="intro_permissions">Read phone state</string>
+    <string name="intro_permissions_desc">The app needs permission to read phone state to turn on the device when you receive a call.</string>
     <string name="intro_draw_over">Draw over other apps</string>
     <string name="intro_draw_over_desc">The app needs permission to draw over other apps</string>
     <string name="intro_modify_desc">The app needs permission to change the device brightness</string>
@@ -187,7 +187,7 @@
     <string name="settings_uninstall">Uninstall</string>
     <string name="settings_uninstall_desc">Uninstall the app</string>
     <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
-    <string name="settings_watch_analog_24_classic">Classic 24 Analog</string>
+    <string name="settings_watch_analog_24_classic">Classic 24h Analog</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
     <string name="settings_watch_digital_s7">S7 style digital clock (not customizable)</string>
     <string name="settings_watch_flat_analog">Flat analog style</string>

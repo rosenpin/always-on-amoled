@@ -446,6 +446,16 @@ public class MainService extends Service implements SensorEventListener, Context
                 clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
                 analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_hour_hand, R.drawable.flat_minute_hand, 235, false, false);
                 break;
+            case FLAT_RED_CLOCK:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
+
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
+                lp.height = (int) (prefs.textSize * 10);
+                lp.width = (int) (prefs.textSize * 9.5);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
+                analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_red_hour_hand, R.drawable.flat_red_minute_hand, 235, false, false);
+                break;
         }
         switch (prefs.batteryStyle) {
             case 0:

@@ -68,6 +68,7 @@
         <item>@string/settings_watch_analog_s7</item>
         <item>@string/settings_watch_analog_pebble</item>
         <item>@string/settings_watch_flat_analog</item>
+        <item>@string/settings_watch_flat_red_analog</item>
     </string-array>
     <string-array name="customize_clock_vals">
         <item>0</item>
@@ -78,6 +79,7 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="customize_date">
@@ -120,6 +122,9 @@
         <item>Roboto</item>
         <item>Roboto thin</item>
         <item>Roboto light</item>
+        <item>BLKCHCRY</item>
+        <item>Philippine</item>
+        <item>Some Time Later</item>
     </string-array>
 
     <string-array name="gestures_actions">
@@ -167,4 +172,5 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string name="settings_watch_flat_red_analog">Flat analog (red dial)</string>
 </resources>

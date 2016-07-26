@@ -53,6 +53,11 @@ public class Prefs {
             prefs.edit().remove(KEYS.BACK_BUTTON_TO_STOP.toString()).apply();
             Toast.makeText(context, "ERROR, YOUR PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
         }
+        try {
+            proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
+        } catch (ClassCastException e) {
+            prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
+        }
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
@@ -60,11 +65,6 @@ public class Prefs {
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
-        try {
-            proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
-        } catch (ClassCastException e) {
-            prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
-        }
         clockStyle = Integer.parseInt(prefs.getString(KEYS.TIME_STYLE.toString(), "1"));
         dateStyle = Integer.parseInt(prefs.getString(KEYS.DATE_STYLE.toString(), "1"));
         batteryStyle = Integer.parseInt(prefs.getString(KEYS.BATTERY_STYLE.toString(), "0"));

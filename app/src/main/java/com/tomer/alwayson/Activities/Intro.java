@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -17,7 +16,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -216,8 +214,7 @@ public class Intro extends AppIntro2 {
         @Override
         public void onResume() {
             super.onResume();
-            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                 permissions[permissions.length - 1] = false;
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
                 go.setText(getString(R.string.intro_allow_now));
@@ -226,7 +223,7 @@ public class Intro extends AppIntro2 {
                     @Override
                     public void onClick(View v) {
                         ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA},
+                                new String[]{Manifest.permission.READ_PHONE_STATE},
                                 123);
                     }
                 });
@@ -246,14 +243,13 @@ public class Intro extends AppIntro2 {
             ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_permissions);
             ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_permissions_desc);
             go = (Button) v.findViewById(R.id.go);
-            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED
-                    || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                 permissions[permissions.length - 1] = false;
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA},
+                                new String[]{Manifest.permission.READ_PHONE_STATE},
                                 123);
                     }
                 });
