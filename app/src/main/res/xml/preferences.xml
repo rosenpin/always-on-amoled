@@ -70,18 +70,6 @@
                     android:title="@string/settings_back_button_wake" />
             </PreferenceCategory>
         </PreferenceScreen>
-        <com.tasomaniac.android.widget.IntegrationPreference
-            android:key="greenify"
-            android:title="@string/greenify_integration"
-            android:summary="@string/greenify_integration_desc"
-            android:summaryOff="@string/greenify_integration_desc_found"
-            android:summaryOn="@string/greenify_integration_desc_not_found">
-
-            <intent
-                android:targetClass="com.oasisfeng.greenify.GreenifyActivity"
-                android:targetPackage="com.oasisfeng.greenify"/>
-
-        </com.tasomaniac.android.widget.IntegrationPreference>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_appearance">
@@ -196,13 +184,18 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="stop_on_camera"
-            android:enabled="false"
-            android:checked="false"
-            android:summary="@string/settings_stop_on_camera_desc"
-            android:title="@string/settings_stop_on_camera" />
+        <com.tasomaniac.android.widget.IntegrationPreference
+            android:key="greenify"
+            android:summary="@string/greenify_integration_desc"
+            android:summaryOff="@string/greenify_integration_desc_found"
+            android:summaryOn="@string/greenify_integration_desc_not_found"
+            android:title="@string/greenify_integration">
+
+            <intent
+                android:targetClass="com.oasisfeng.greenify.GreenifyActivity"
+                android:targetPackage="com.oasisfeng.greenify" />
+
+        </com.tasomaniac.android.widget.IntegrationPreference>
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="disable_volume_keys"
@@ -214,10 +207,17 @@
             android:key="persistent_notification"
             android:summary="@string/settings_notifications_desc"
             android:title="@string/settings_persistent_notification" />
+        <CheckBoxPreference
+            android:checked="false"
+            android:defaultValue="false"
+            android:enabled="false"
+            android:key="stop_on_camera"
+            android:summary="@string/settings_stop_on_camera_desc"
+            android:title="@string/settings_stop_on_camera" />
         <Preference
             android:key="uninstall"
             android:summary="@string/settings_uninstall_desc"
-            android:title="@string/settings_uninstall"></Preference>
+            android:title="@string/settings_uninstall" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_about">

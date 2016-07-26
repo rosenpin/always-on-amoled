@@ -14,7 +14,6 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -204,10 +203,6 @@ public class MainService extends Service implements SensorEventListener, Context
                         speakCurrentStatus();
                     }
                     return false;
-                }
-                if (event.getKeyCode() == KeyEvent.KEYCODE_HOME) {
-                    stopSelf();
-                    return true;
                 }
                 return super.dispatchKeyEvent(event);
             }

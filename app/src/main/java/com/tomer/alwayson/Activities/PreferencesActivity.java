@@ -163,6 +163,22 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 ).show();
     }
 
+    public static void uninstall(Context context, Prefs prefs) {
+        try {
+            ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
+            DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+            dpm.removeActiveAdmin(devAdminReceiver);
+            if (prefs.proximityToLock && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && !Shell.SU.available())
+                prefs.setBool(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), false);
+        } catch (Exception ignored) {
+        }
+        Uri packageUri = Uri.parse("package:" + context.getPackageName());
+        Intent uninstallIntent =
+                new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
+        uninstallIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(uninstallIntent);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -277,22 +293,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 startActivity(intent);
             }
         }
-    }
-
-    public static void uninstall(Context context, Prefs prefs) {
-        try {
-            ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
-            DevicePolicyManager dpm = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-            dpm.removeActiveAdmin(devAdminReceiver);
-            if (prefs.proximityToLock && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && !Shell.SU.available())
-                prefs.setBool(Prefs.KEYS.PROXIMITY_TO_LOCK.toString(), false);
-        } catch (Exception ignored) {
-        }
-        Uri packageUri = Uri.parse("package:" + context.getPackageName());
-        Intent uninstallIntent =
-                new Intent(Intent.ACTION_UNINSTALL_PACKAGE, packageUri);
-        uninstallIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(uninstallIntent);
     }
 
     @Override
