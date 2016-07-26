@@ -53,4 +53,5 @@ public interface ContextConstatns {
     int PEBBLE_CLOCK = 6;
     int FLAT_CLOCK = 7;
     int FLAT_RED_CLOCK = 8;
+    int FLAT_STANDARD_TICKS = 9;
 }

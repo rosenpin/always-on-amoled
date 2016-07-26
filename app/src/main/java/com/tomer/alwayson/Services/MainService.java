@@ -449,7 +449,17 @@ public class MainService extends Service implements SensorEventListener, Context
                 lp.height = (int) (prefs.textSize * 10);
                 lp.width = (int) (prefs.textSize * 9.5);
                 clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_red_hour_hand, R.drawable.flat_red_minute_hand, 235, false, false);
+                analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_red_hour_hand, R.drawable.flat_red_minute_hand, 0, false, false);
+                break;
+            case FLAT_STANDARD_TICKS:
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
+                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
+
+                lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
+                lp.height = (int) (prefs.textSize * 10);
+                lp.width = (int) (prefs.textSize * 9.5);
+                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
+                analog24HClock.init(this, R.drawable.standard_ticks_face, R.drawable.hour_hand, R.drawable.minute_hand, 0, false, false);
                 break;
         }
         switch (prefs.batteryStyle) {
@@ -758,6 +768,8 @@ public class MainService extends Service implements SensorEventListener, Context
         return null;
     }
 
+    boolean speaking;
+
     @Override
     public void onInit(int status) {
         if (toStopTTS) {
@@ -768,10 +780,21 @@ public class MainService extends Service implements SensorEventListener, Context
             return;
         }
         if (status == TextToSpeech.SUCCESS) {
-            tts.speak("The time is " + (String) DateFormat.format("hh:mm aaa", Calendar.getInstance().getTime()), TextToSpeech.QUEUE_FLUSH, null);
-            if (Globals.notificationsDrawables.size() > 0)
-                tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
-            tts.speak("Battery is at " + (int) getBatteryLevel() + " percent", TextToSpeech.QUEUE_ADD, null);
+            if (!speaking) {
+                tts.speak("The time is " + DateFormat.format("hh:mm aaa", Calendar.getInstance().getTime()), TextToSpeech.QUEUE_FLUSH, null);
+                if (Globals.notificationsDrawables.size() > 0)
+                    tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
+                tts.speak("Battery is at " + (int) getBatteryLevel() + " percent", TextToSpeech.QUEUE_ADD, null);
+                speaking = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        speaking = false;
+                    }
+                }, 4000);
+            }
+            else
+                Log.d(MAIN_SERVICE_LOG_TAG,"Still speaking..");
         }
     }
 
