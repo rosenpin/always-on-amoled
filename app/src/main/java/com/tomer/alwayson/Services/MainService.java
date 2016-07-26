@@ -239,7 +239,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !Shell.SU.available()) {
-                proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "proximity to lock");
+                proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, getPackageName() + " wakelock_holder");
                 proximityToTurnOff.acquire();
             } else {
                 Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
@@ -520,16 +520,10 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         if (prefs.clockStyle == S7_DIGITAL) {
-            String hour;
             SimpleDateFormat sdf;
-            if (DateFormat.is24HourFormat(this)) {
-                sdf = new SimpleDateFormat("HH", Locale.getDefault());
-            } else
-                sdf = new SimpleDateFormat("h", Locale.getDefault());
-
-            hour = sdf.format(new Date());
-
-            sdf = new SimpleDateFormat("mm", Locale.getDefault());
+            sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("HH", Locale.getDefault()) : new SimpleDateFormat("h", Locale.getDefault());
+            String hour = sdf.format(new Date());
+            sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("mm", Locale.getDefault()) : new SimpleDateFormat(prefs.showAmPm ? "mm aa" : "mm", Locale.getDefault());
             String minute = sdf.format(new Date());
 
             ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setText(hour);
@@ -781,7 +775,12 @@ public class MainService extends Service implements SensorEventListener, Context
         }
         if (status == TextToSpeech.SUCCESS) {
             if (!speaking) {
-                tts.speak("The time is " + DateFormat.format("hh:mm aaa", Calendar.getInstance().getTime()), TextToSpeech.QUEUE_FLUSH, null);
+                SimpleDateFormat sdf;
+                sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("HH mm", Locale.getDefault()) : new SimpleDateFormat("h mm aa", Locale.getDefault());
+                String time = sdf.format(new Date());
+                time = time.charAt(0) == '0' ? time.substring(1, time.length()) : time;
+
+                tts.speak("The time is " + time, TextToSpeech.QUEUE_FLUSH, null);
                 if (Globals.notificationsDrawables.size() > 0)
                     tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
                 tts.speak("Battery is at " + (int) getBatteryLevel() + " percent", TextToSpeech.QUEUE_ADD, null);
@@ -792,9 +791,8 @@ public class MainService extends Service implements SensorEventListener, Context
                         speaking = false;
                     }
                 }, 4000);
-            }
-            else
-                Log.d(MAIN_SERVICE_LOG_TAG,"Still speaking..");
+            } else
+                Log.d(MAIN_SERVICE_LOG_TAG, "Still speaking..");
         }
     }
 
