@@ -138,7 +138,7 @@
             android:summary="%s"
             android:title="@string/settings_orientation" />
         <com.tomer.alwayson.Views.SeekBarPreference
-            android:defaultValue="20"
+            android:defaultValue="15"
             android:dialogTitle="@string/settings_brightness_desc"
             android:key="brightness"
             android:max="200"

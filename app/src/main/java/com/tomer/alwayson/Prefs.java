@@ -61,7 +61,7 @@ public class Prefs {
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
-        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 20);
+        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 15);
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);

@@ -127,6 +127,7 @@
         <item>BLKCHCRY</item>
         <item>Philippine</item>
         <item>Some Time Later</item>
+        <item>LCD</item>
     </string-array>
 
     <string-array name="gestures_actions">

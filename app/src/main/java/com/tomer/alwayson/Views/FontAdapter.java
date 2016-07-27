@@ -75,6 +75,8 @@ public class FontAdapter extends BaseAdapter {
                 return Typeface.createFromAsset(context.getAssets(), "fonts/philippine.otf");
             case 23:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/some_time_later.otf");
+            case 24:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/lcd.otf");
         }
         return Typeface.DEFAULT;
     }
