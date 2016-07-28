@@ -648,6 +648,8 @@ public class MainService extends Service implements SensorEventListener, Context
             ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
             ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
             ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
+            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_app_name)).setText(notification.getAppName());
+
             Globals.newNotification = null;
             //Run animations
             AnimationSet animation = new AnimationSet(false);

@@ -2,6 +2,8 @@ package com.tomer.alwayson.Services;
 
 import android.app.Notification;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -42,7 +44,13 @@ public class NotificationListener extends NotificationListenerService implements
             if (content.equals("null") || content.isEmpty())
                 content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT);
             Drawable icon = getIcon(added);
-            Globals.newNotification = new NotificationHolder(this, title, content, icon);
+            ApplicationInfo notificationAppInfo = null;
+            try {
+                notificationAppInfo = getPackageManager().getApplicationInfo(added.getPackageName(), 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+            Globals.newNotification = new NotificationHolder(this, title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null);
         }
     }
 
@@ -66,15 +74,17 @@ public class NotificationListener extends NotificationListenerService implements
     }
 
     public static class NotificationHolder {
+        private String appName;
         private Drawable icon;
         private String title, message;
         private Context context;
 
-        public NotificationHolder(Context context, String title, String message, Drawable icon) {
+        public NotificationHolder(Context context, String title, String message, Drawable icon, CharSequence appName) {
             this.icon = icon;
             this.title = title;
             this.message = message;
             this.context = context;
+            this.appName = (String) appName;
             if (this.message.equals("null"))
                 this.message = "";
             if (this.title.equals("null"))
@@ -82,7 +92,7 @@ public class NotificationListener extends NotificationListenerService implements
         }
 
         public Drawable getIcon() {
-            icon.mutate().setColorFilter(ContextCompat.getColor(context, android.R.color.secondary_text_light), PorterDuff.Mode.MULTIPLY);
+            icon.mutate().setColorFilter(ContextCompat.getColor(context, android.R.color.primary_text_dark), PorterDuff.Mode.MULTIPLY);
             return icon;
         }
 
@@ -92,6 +102,10 @@ public class NotificationListener extends NotificationListenerService implements
 
         public String getMessage() {
             return message;
+        }
+
+        public String getAppName() {
+            return appName;
         }
     }
 }
