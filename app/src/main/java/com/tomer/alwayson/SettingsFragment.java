@@ -56,13 +56,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private Context context;
     private Intent starterService;
 
-    public static void openURL(String url, Activity context) {
+    public static void openURL(String url, Context context) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         browserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(browserIntent);
     }
 
-    public static void openPlayStoreUrl(String appName, Activity context) {
+    public static void openPlayStoreUrl(String appName, Context context) {
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appName)));
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         .setPositiveButton("Download", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                openPlayStoreUrl("tomer.com.alwaysonamoledplugin", getActivity());
+                                openPlayStoreUrl("tomer.com.alwaysonamoledplugin", context);
                                 dialogInterface.dismiss();
                             }
                         })

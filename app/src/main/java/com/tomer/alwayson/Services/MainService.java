@@ -271,6 +271,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 @Override
                 public void run() {
                     stopSelf();
+                    stayAwakeWakeLock.release();
                     Globals.killedByDelay = true;
                     Log.d(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
                 }
