@@ -77,6 +77,12 @@ public class FontAdapter extends BaseAdapter {
                 return Typeface.createFromAsset(context.getAssets(), "fonts/some_time_later.otf");
             case 24:
                 return Typeface.createFromAsset(context.getAssets(), "fonts/lcd.otf");
+            case 25:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/black_chancery.ttf");
+            case 26:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/ninja.ttf");
+            case 27:
+                return Typeface.createFromAsset(context.getAssets(), "fonts/still_time.ttf");
         }
         return Typeface.DEFAULT;
     }
