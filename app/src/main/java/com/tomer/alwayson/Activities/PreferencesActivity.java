@@ -418,8 +418,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         try {
             unbindService(mServiceConn);
         } catch (Exception ignored) {
-        } finally {
-            bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
         }
+        bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
     }
 }

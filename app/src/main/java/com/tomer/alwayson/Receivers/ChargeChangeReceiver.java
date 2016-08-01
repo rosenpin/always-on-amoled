@@ -37,10 +37,10 @@ public class ChargeChangeReceiver extends BroadcastReceiver implements ContextCo
             Log.d("Min Battery to start", String.valueOf(prefs.batteryRules));
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Battery changed");
             if (getBatteryLevel(intent) < prefs.batteryRules) {
-                if (Globals.isShown)
+                if (Globals.isServiceRunning)
                     context.stopService(new Intent(context, MainService.class));
             } else {
-                if (!isDisplayOn(context) && !Globals.isShown) {
+                if (!isDisplayOn(context) && !Globals.isServiceRunning) {
                     context.startService(new Intent(context, MainService.class));
                 }
             }

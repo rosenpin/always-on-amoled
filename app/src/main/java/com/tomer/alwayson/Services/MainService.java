@@ -163,6 +163,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
+        Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
@@ -417,10 +418,12 @@ public class MainService extends Service implements SensorEventListener, Context
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTypeface(font);
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTypeface(font);
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTypeface(font);
+                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTypeface(font);
 
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 9.2));
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
+                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1.4));
                 batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
                 batteryIVlp.height = (int) (prefs.textSize);
@@ -524,11 +527,18 @@ public class MainService extends Service implements SensorEventListener, Context
             SimpleDateFormat sdf;
             sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("HH", Locale.getDefault()) : new SimpleDateFormat("h", Locale.getDefault());
             String hour = sdf.format(new Date());
-            sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("mm", Locale.getDefault()) : new SimpleDateFormat(prefs.showAmPm ? "mm aa" : "mm", Locale.getDefault());
+            sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("mm", Locale.getDefault()) : new SimpleDateFormat("mm", Locale.getDefault());
             String minute = sdf.format(new Date());
 
             ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setText(hour);
             ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setText(minute);
+            if (prefs.showAmPm) {
+                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setText((new SimpleDateFormat("aa", Locale.getDefault()).format(new Date())));
+            } else {
+                if (!((TextView) mainView.findViewById(R.id.s7_am_pm)).getText().toString().isEmpty()) {
+                    ((TextView) mainView.findViewById(R.id.s7_am_pm)).setText("");
+                }
+            }
         }
         refreshing = true;
         new Handler().postDelayed(
@@ -689,7 +699,7 @@ public class MainService extends Service implements SensorEventListener, Context
             Toast.makeText(getApplicationContext(), getString(R.string.error_0_unknown_error), Toast.LENGTH_SHORT).show();
         }
         Globals.isShown = false;
-
+        Globals.isServiceRunning = false;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
