@@ -3,8 +3,12 @@ package com.tomer.alwayson.Receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.display.DisplayManager;
 import android.os.BatteryManager;
+import android.os.Build;
+import android.os.PowerManager;
 import android.util.Log;
+import android.view.Display;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
@@ -29,15 +33,36 @@ public class ChargeChangeReceiver extends BroadcastReceiver implements ContextCo
                     context.stopService(new Intent(context, MainService.class));
             }
         } else if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
+            Log.d("Battery changed", String.valueOf(getBatteryLevel(intent)));
+            Log.d("Min Battery to start", String.valueOf(prefs.batteryRules));
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Battery changed");
-            if (prefs.batteryRules < getBatteryLevel(intent)) {
+            if (getBatteryLevel(intent) < prefs.batteryRules) {
                 if (Globals.isShown)
                     context.stopService(new Intent(context, MainService.class));
+            } else {
+                if (!isDisplayOn(context) && !Globals.isShown) {
+                    context.startService(new Intent(context, MainService.class));
+                }
             }
         }
     }
 
-    public float getBatteryLevel(Intent batteryIntent) {
+    private boolean isDisplayOn(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            DisplayManager dm = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
+            for (Display display : dm.getDisplays()) {
+                if (display.getState() != Display.STATE_OFF) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            return powerManager.isScreenOn();
+        }
+    }
+
+    private float getBatteryLevel(Intent batteryIntent) {
         assert batteryIntent != null;
         int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
         int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);

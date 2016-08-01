@@ -14,6 +14,8 @@
     <!--Battery rules-->
     <string-array name="rules_battery">
         <item>@string/rules_always</item>
+        <item>@string/rules_battery_90</item>
+        <item>@string/rules_battery_70</item>
         <item>@string/rules_battery_50</item>
         <item>@string/rules_battery_30</item>
         <item>@string/rules_battery_20</item>
@@ -21,6 +23,8 @@
     </string-array>
     <string-array name="rules_battery_vals">
         <item>0</item>
+        <item>90</item>
+        <item>70</item>
         <item>50</item>
         <item>30</item>
         <item>20</item>
@@ -175,5 +179,4 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    <string name="settings_watch_ticks">12H classic with hour ticks</string>
 </resources>

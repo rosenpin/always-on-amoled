@@ -16,7 +16,7 @@
                     android:entries="@array/delays"
                     android:entryValues="@array/delays_vals"
                     android:key="stop_delay"
-                    android:summary="@string/settings_stop_delay_desc"
+                    android:summary="%s"
                     android:title="@string/settings_stop_delay" />
                 <ListPreference
                     android:defaultValue="always"

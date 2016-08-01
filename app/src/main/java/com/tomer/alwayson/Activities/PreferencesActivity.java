@@ -202,11 +202,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
             widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
 
-            billingServiceIntent =
-                    new Intent("com.android.vending.billing.InAppBillingService.BIND");
-            billingServiceIntent.setPackage("com.android.vending");
-            bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
-
             donateButtonSetup();
 
             findViewById(R.id.preview).setOnClickListener(new View.OnClickListener() {
@@ -358,6 +353,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                         startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
                     }
                 }).show();
+                resetPaymentService();
                 Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
             }
         }
@@ -415,5 +411,15 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 }
             }
         };
+
+        billingServiceIntent =
+                new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        billingServiceIntent.setPackage("com.android.vending");
+        try {
+            unbindService(mServiceConn);
+        } catch (Exception ignored) {
+        } finally {
+            bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+        }
     }
 }

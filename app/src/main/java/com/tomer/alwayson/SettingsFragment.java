@@ -7,6 +7,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -18,6 +19,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
@@ -48,7 +50,7 @@ import de.psdev.licensesdialog.model.Notice;
 import de.psdev.licensesdialog.model.Notices;
 import eu.chainfire.libsuperuser.Shell;
 
-public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener, ContextConstatns {
+public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener, SharedPreferences.OnSharedPreferenceChangeListener, ContextConstatns {
 
     boolean shouldEnableNotificationsAlerts;
     private View rootView;
@@ -80,11 +82,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
+        findPreference("stop_delay").setOnPreferenceChangeListener(this);
+        findPreference("watchface_clock").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
-        findPreference("watchface_clock").setOnPreferenceChangeListener(this);
+        PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -357,6 +361,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        updateSpecialPreferences();
+    }
+
+    @Override
     public boolean onPreferenceClick(Preference preference) {
         if (preference.getKey().equals("textcolor")) {
             Globals.colorDialog.show();
@@ -405,10 +414,18 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public void onResume() {
         super.onResume();
+        updateSpecialPreferences();
+    }
+
+    private void updateSpecialPreferences() {
         if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)) {
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
         ((IntegrationPreference) findPreference("greenify")).resume();
+        if (((ListPreference) findPreference("stop_delay")).getValue().equals("0"))
+            findPreference("stop_delay").setSummary(R.string.settings_stop_delay_desc);
+        else
+            findPreference("stop_delay").setSummary("%s");
     }
 
     @Override
