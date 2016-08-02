@@ -134,7 +134,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (hasSoftKeys()) {
             findPreference("back_button").setEnabled(false);
         } else {
-            if (!isPackageInstalled("tomer.com.alwaysonamoledplugin") && android.os.Build.MANUFACTURER.toLowerCase().contains("samsung")) { //Prompt to install the plugin
+            if (!isPackageInstalled("tomer.com.alwaysonamoledplugin")) { //Prompt to install the plugin
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.plugin_dialog_title))
                         .setMessage(getString(R.string.plugin_dialog_desc))
@@ -361,12 +361,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 }
             }).show();
         }
-        if (preference.getKey().equals("doze_mode")) {
+        if (preference.getKey().equals("doze_mode") && (boolean) o) {
             if (Shell.SU.available()) {
                 if (!DozeManager.isDumpPermissionGranted(context))
-                    DozeManager.executeCommand("pm grant com.tomer.alwayson android.permission.DUMP");
+                    DozeManager.grantPermission(context, "android.permission.DUMP");
                 if (!DozeManager.isDevicePowerPermissionGranted(context))
-                    DozeManager.executeCommand("pm grant com.tomer.alwayson android.permission.DEVICE_POWER");
+                    DozeManager.grantPermission(context, "android.permission.DEVICE_POWER");
                 return true;
             }
             Snackbar.make(rootView, R.string.warning_11_no_root, Snackbar.LENGTH_LONG).show();

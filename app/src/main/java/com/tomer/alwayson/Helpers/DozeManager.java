@@ -18,9 +18,10 @@ public class DozeManager {
 
     public DozeManager(Context context) {
         if (!isDumpPermissionGranted(context))
-            executeCommand("pm grant com.tomer.alwayson android.permission.DUMP");
+            grantPermission(context, "android.permission.DUMP");
         if (!isDevicePowerPermissionGranted(context))
-            executeCommand("pm grant com.tomer.alwayson android.permission.DEVICE_POWER");
+            grantPermission(context, "android.permission.DEVICE_POWER");
+        executeCommand("dumpsys deviceidle whitelist +" + context.getPackageName());
     }
 
     public void enterDoze() {
@@ -83,5 +84,9 @@ public class DozeManager {
 
     public static boolean isDumpPermissionGranted(Context context) {
         return context.checkCallingOrSelfPermission(Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static void grantPermission(Context context, String permission) {
+        executeCommand("pm grant " + context.getPackageName() + " " + permission);
     }
 }
