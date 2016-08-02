@@ -92,7 +92,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private boolean refreshing;
-    private View mainView;
+    private LinearLayout mainView;
     private WindowManager.LayoutParams windowParams;
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
@@ -216,10 +216,10 @@ public class MainService extends Service implements SensorEventListener, Context
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
-        mainView = layoutInflater.inflate(prefs.orientation.equals("vertical") ? R.layout.clock_widget : R.layout.clock_widget_horizontal, frameLayout);
-        setUpElements((LinearLayout) mainView.findViewById(R.id.watchface_wrapper), (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper));
+        mainView = (LinearLayout) (layoutInflater.inflate(prefs.orientation.equals("vertical") ? R.layout.clock_widget : R.layout.clock_widget_horizontal, frameLayout).findViewById(R.id.watchface_wrapper));
+        setUpElements(mainView, (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper));
 
-        LinearLayout.LayoutParams mainLayoutParams = new LinearLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         mainLayoutParams.gravity = prefs.moveWidget == DISABLED ? Gravity.CENTER : Gravity.CENTER_HORIZONTAL;
 
         mainView.setLayoutParams(mainLayoutParams);
@@ -480,6 +480,14 @@ public class MainService extends Service implements SensorEventListener, Context
                 calendarTV.setTypeface(font);
                 break;
         }
+        TextView memoTV = (TextView) mainView.findViewById(R.id.memo_tv);
+        if (!prefs.memoText.isEmpty()) {
+            memoTV.setText(prefs.memoText);
+            memoTV.setTypeface(font);
+            memoTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.memoTextSize));
+        }
+        else
+            mainView.removeView(memoTV);
         Log.d("Date", String.valueOf(prefs.dateStyle));
     }
 

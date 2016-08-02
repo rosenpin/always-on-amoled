@@ -121,6 +121,22 @@
                     android:summary="@string/settings_text_color_desc"
                     android:title="@string/settings_text_color" />
             </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_always_on_memo">
+                <com.tomer.alwayson.Views.EditTextDialog
+                    android:dialogTitle="@string/settings_memo_text_desc"
+                    android:key="memo_text"
+                    android:summary="%s"
+                    android:hint="@string/settings_memo_hint"
+                    android:title="@string/settings_memo_text" />
+                <com.tomer.alwayson.Views.SeekBarPreference
+                    android:defaultValue="40"
+                    android:dependency="memo_text"
+                    android:dialogTitle="@string/settings_font_size_desc"
+                    android:key="memo_font_size"
+                    android:max="120"
+                    android:summary="@string/settings_memo_font_size_desc"
+                    android:title="@string/settings_font_size" />
+            </PreferenceCategory>
             <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
                 <CheckBoxPreference
                     android:key="showampm"

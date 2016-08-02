@@ -29,10 +29,12 @@ public class Prefs {
     public int batteryRules;
     public boolean startAfterLock;
     public int font;
+    public int memoTextSize;
     public boolean notificationPreview;
     public boolean hasSoftKeys;
     Context context;
     private SharedPreferences prefs;
+    public String memoText;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -58,6 +60,8 @@ public class Prefs {
         } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
+        memoText = prefs.getString(KEYS.MEMO_TEXT.toString(), "");
+        memoTextSize = prefs.getInt("memo_font_size",40);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
@@ -174,7 +178,8 @@ public class Prefs {
         NOTIFICATION_ALERTS("notifications_alerts"),
         FONT("font"),
         START_AFTER_LOCK("startafterlock"),
-        NOTIFICATION_PREVIEW("notifications_alerts_preview");
+        NOTIFICATION_PREVIEW("notifications_alerts_preview"),
+        MEMO_TEXT("memo_text");
 
         private final String id;
 

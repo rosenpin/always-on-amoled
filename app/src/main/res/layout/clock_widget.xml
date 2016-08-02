@@ -9,6 +9,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
+
     <include layout="@layout/clock" />
 
     <include layout="@layout/date" />
@@ -16,6 +17,8 @@
     <include layout="@layout/battery" />
 
     <include layout="@layout/notifications" />
+
+    <include layout="@layout/memo"/>
 
     <include layout="@layout/message_box" />
 </LinearLayout>
