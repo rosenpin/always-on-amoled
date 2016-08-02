@@ -6,8 +6,8 @@ The idea is to provide users with information about, time, date, notifications a
 
 This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
 
-★Funcionalidades em destaque
-•Sempre no Ecrã
+★Notable features
+• Always On Screen
 • Notifications - view notifications without touching your device
 • Automatic rules - preserve battery using predefined rules
 • Auto movement - avoid AMOLED burn-in
@@ -16,20 +16,20 @@ This is made possible thanks to AMOLED displays. Most of the screen stays black 
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
 • Force orientation - set your preferred screen orientation
 • Customization - change the text color, text size, brightness and more
-• LIVRE E DE CÓDIGO ABERTO!
+• FREE AND OPEN SOURCE!
 
 Before using please enable 'draw over apps' permission for this app.
 
-A aplicação está na fase BETA, esta ainda tem erros e carece de funcionalidades.
+The app is in BETA, it still has bugs and lacks features.
 
-Permissões
-<b>Permissão de câmara</b>
+Permissions
+<b>Camera permission</b>
 The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Permissão de telefone</b>
+<b>Phone permission</b>
 The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
 <b>Modify system settings permission</b>
 The app needs permission to modify system settings to change the brightness of the lock screen.
 
 
-Comunidade do Google Plus
+Google Plus Community
 https://plus.google.com/communities/104206728795122451273

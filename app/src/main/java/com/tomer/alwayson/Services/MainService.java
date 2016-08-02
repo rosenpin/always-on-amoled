@@ -1,5 +1,6 @@
 package com.tomer.alwayson.Services;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
@@ -30,6 +31,7 @@ import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -426,6 +428,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTypeface(font);
                 ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTypeface(font);
 
+                if (prefs.textSize > 90)
+                    prefs.textSize = 90;
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 9.2));
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
@@ -560,6 +564,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         if (!first)
@@ -577,21 +582,17 @@ public class MainService extends Service implements SensorEventListener, Context
                         mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
                     break;
             }
+
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR | DateUtils.FORMAT_SHOW_WEEKDAY;
+        String monthAndDayText = DateUtils.formatDateTime(this, date.getTime(), flags);
+
         if (prefs.dateStyle != DISABLED) {
-            Calendar calendar = Calendar.getInstance();
-            Date date = calendar.getTime();
-            String dayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault()).format(date.getTime()).toUpperCase();
-            String month = new SimpleDateFormat("MMMM").format(date.getTime()).toUpperCase();
-            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
-            calendarTV.setText(dayOfWeek + "," + " " + month + " " + currentDate);
+            calendarTV.setText(monthAndDayText);
         }
         if (prefs.clockStyle == S7_DIGITAL) {
-            Calendar calendar = Calendar.getInstance();
-            Date date = calendar.getTime();
-            String dayOfWeek = new SimpleDateFormat("EEE", Locale.getDefault()).format(date.getTime()) + ".";
-            String month = new SimpleDateFormat("MMM", Locale.getDefault()).format(date.getTime()).toUpperCase();
-            String currentDate = new SimpleDateFormat("dd", Locale.getDefault()).format(new Date());
-            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(dayOfWeek + "\n" + currentDate + " " + month);
+            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(monthAndDayText.replace(",", " "));
         }
 
         new Handler().postDelayed(

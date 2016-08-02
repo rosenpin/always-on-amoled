@@ -1,35 +1,35 @@
-Avoir always on displat sur l'écran de votre téléphone ou tablette.
-Gardez votre écran tout le temps allumer.
-The first open source always on app!
+Télécharger Always On pour votre téléphone ou tablette.
+Gardez votre écran tout le temps allumé.
+La première application Always ON Open Source !
 
 L'idée est de fournir aux utilisateurs des informations sur le temps, la date, les notifications et plus et tout cela sans avoir à toucher au téléphone. Juste en regardant.
 
 Ceci est rendu possible grâce à écrans AMOLED. La plupart de l'écran reste noir, sauf pour quelques pixels.
 
 ★ Caractéristiques notables
-• Toujours à l'écran
-• Notifications - notifications de vue sans toucher votre appareil
+• Écran toujours allumé
+• Notifications - Voir les notifications sans toucher votre appareil
 • règles automatiques - préserver la batterie en utilisant des règles prédéfinies
-• Mouvement automatique - éviter AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+• Mouvement automatique - éviter AMOLED Gosting
+• Mode nuit automatique - Baisser la luminosité automatiquement en lieu sombre
+• Mode de poche - Verrouiller l'appareil lorsqu'il est dans votre poche pour économiser de la batterie
+• Double taper pour réveiller + Glisser pour réveiller + Boutons volume pour réveiller + Bouton retour pour réveiller
+• Forcer l'orientation - Définir votre orientation préférée
+• Personnalisation - Changer la couleur et la taille du texte, la luminosité et plus
+• GRATUIT ET OPEN SOURCE !
 
-Before using please enable 'draw over apps' permission for this app.
+Avant d'utiliser, activez la permission de surpasser les applications s'il vous plaît.
 
-The app is in BETA, it still has bugs and lacks features.
+Cette application est en version bêta, il reste des bugs et des manques de fonctionnalités.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Autorisations
+<b>Autorisation de l'appareil photo</b>
+Cette application nécessite l'autorisation d'utiliser l'appareil photo pour reconnaître le lancement de l'appareil photo et éteindre l'écran "Always On".
+<b>Autorisation téléphonique</b>
+Cette application nécessite l'autorisation de reconnaître les appels entrants, éteindre l'écran Always ON pour afficher l'écran d'appel entrant.
+<b>Autorisation de modification des paramètres système</b>
+Cette application nécessite l'autorisation de modifier les paramètres système pour modifier la luminosité de l'écran de verrouillage.
 
 
-Google Plus Community
+Communauté Google Plus
 https://plus.google.com/communities/104206728795122451273
