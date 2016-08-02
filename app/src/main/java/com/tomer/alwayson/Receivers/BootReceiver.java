@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Services.StarterService;
 
 public class BootReceiver extends BroadcastReceiver implements ContextConstatns {

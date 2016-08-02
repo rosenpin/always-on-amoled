@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
 

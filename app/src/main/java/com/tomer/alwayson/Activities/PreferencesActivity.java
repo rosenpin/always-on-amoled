@@ -39,7 +39,7 @@ import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.SecretConstants;

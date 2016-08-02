@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 
 public class DAReceiver extends DeviceAdminReceiver {

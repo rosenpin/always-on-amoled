@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterActivity;
 import com.heinrichreimersoftware.androidissuereporter.model.github.ExtraInfo;
 import com.heinrichreimersoftware.androidissuereporter.model.github.GithubTarget;
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.SecretConstants;
 
 

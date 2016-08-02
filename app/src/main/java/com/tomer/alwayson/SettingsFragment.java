@@ -35,6 +35,8 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.Activities.PreferencesActivity;
+import com.tomer.alwayson.Helpers.DozeManager;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.FontAdapter;
@@ -82,6 +84,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
+        findPreference("doze_mode").setOnPreferenceChangeListener(this);
         findPreference("stop_delay").setOnPreferenceChangeListener(this);
         findPreference("watchface_clock").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
@@ -349,13 +352,25 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         .show();
                 return false;
             }
-        } else if (preference.getKey().equals("startafterlock") && !(boolean) o) {
+        }
+        if (preference.getKey().equals("startafterlock") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     ((CheckBoxPreference) preference).setChecked(true);
                 }
             }).show();
+        }
+        if (preference.getKey().equals("doze_mode")) {
+            if (Shell.SU.available()) {
+                if (!DozeManager.isDumpPermissionGranted(context))
+                    DozeManager.executeCommand("pm grant com.tomer.alwayson android.permission.DUMP");
+                if (!DozeManager.isDevicePowerPermissionGranted(context))
+                    DozeManager.executeCommand("pm grant com.tomer.alwayson android.permission.DEVICE_POWER");
+                return true;
+            }
+            Snackbar.make(rootView, R.string.warning_11_no_root, Snackbar.LENGTH_LONG).show();
+            return false;
         }
         return true;
     }

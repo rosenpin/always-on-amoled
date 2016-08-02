@@ -1,4 +1,4 @@
-package com.tomer.alwayson;
+package com.tomer.alwayson.Helpers;
 
 import android.content.Context;
 import android.content.SharedPreferences;

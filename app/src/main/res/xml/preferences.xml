@@ -184,6 +184,12 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="doze_mode"
+            android:summary="@string/settings_doze_desc"
+            android:title="@string/settings_doze" />
+
         <com.tasomaniac.android.widget.IntegrationPreference
             android:key="greenify"
             android:summary="@string/greenify_integration_desc"

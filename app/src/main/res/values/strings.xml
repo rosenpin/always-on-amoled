@@ -206,8 +206,10 @@
     <string name="settings_notifications_alerts_preview_desc">Show notification content when received</string>
     <string name="settings_notifications_alerts_preview">Notification content</string>
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
-    <string name="warning_11_no_root">Device must be rooted to use this feature!</string>
+    <string name="warning_11_no_root">Device must be rooted to use this feature</string>
     <string name="report_sent">Report sent!</string>
     <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
     <string name="thanks_short">Thank you</string>
+    <string name="settings_doze">Doze mode</string>
+    <string name="settings_doze_desc">Enable doze while the always on screen is active to save battery (root only)</string>
 </resources>

@@ -12,7 +12,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 

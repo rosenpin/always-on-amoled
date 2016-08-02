@@ -56,7 +56,8 @@ import android.widget.Toast;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.DozeManager;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
@@ -77,7 +78,8 @@ import eu.chainfire.libsuperuser.Shell;
 
 public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
 
-    TextToSpeech tts;
+    private TextToSpeech tts;
+    private DozeManager dozeManager;
     boolean demo;
     boolean toStopTTS;
     private Prefs prefs;
@@ -336,6 +338,10 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 },
                 500);
+
+        //Initializing Doze
+        dozeManager = new DozeManager(this);
+        dozeManager.enterDoze();
     }
 
     private boolean isCameraUsedByApp() {
@@ -672,6 +678,8 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        //Dismiss doze
+        dozeManager.exitDoze();
         //Dismissing the wakelock holder
         stayAwakeWakeLock.release();
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())

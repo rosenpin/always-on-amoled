@@ -11,7 +11,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.tomer.alwayson.ContextConstatns;
-import com.tomer.alwayson.Prefs;
+import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
 
