@@ -421,6 +421,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
                 ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1.4));
+                mainView.findViewById(R.id.s7_am_pm).setPadding(0, (int) (prefs.textSize / 2), 0, 0);
+
                 batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
                 batteryIVlp.height = (int) (prefs.textSize);
@@ -567,14 +569,14 @@ public class MainService extends Service implements SensorEventListener, Context
 
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
-        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR | DateUtils.FORMAT_SHOW_WEEKDAY;
+        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR | DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_ABBREV_WEEKDAY;
         String monthAndDayText = DateUtils.formatDateTime(this, date.getTime(), flags);
 
         if (prefs.dateStyle != DISABLED) {
             calendarTV.setText(monthAndDayText);
         }
         if (prefs.clockStyle == S7_DIGITAL) {
-            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(monthAndDayText.replace(",", " "));
+            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(monthAndDayText);
         }
 
         new Handler().postDelayed(
