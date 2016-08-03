@@ -31,7 +31,7 @@ public class NotificationListener extends NotificationListenerService implements
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        Log.d(NOTIFICATION_LISTENER_TAG, "New notification from" + added.getPackageName());
+        Log.d(NOTIFICATION_LISTENER_TAG, "New notification from " + added.getPackageName());
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
             Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
             Globals.notificationChanged = true;

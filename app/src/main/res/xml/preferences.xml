@@ -199,6 +199,18 @@
             android:title="@string/settings_proximity" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/settings_shortcuts">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="camera_shortcut"
+            android:summary="@string/settings_stop_on_camera_desc"
+            android:title="@string/settings_stop_on_camera"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="google_now_shortcut"
+            android:summary="@string/settings_google_now_shortcut_desc"
+            android:title="@string/settings_google_now_shortcut"/>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
         <SwitchPreference
             android:defaultValue="false"
@@ -229,13 +241,6 @@
             android:key="persistent_notification"
             android:summary="@string/settings_notifications_desc"
             android:title="@string/settings_persistent_notification" />
-        <CheckBoxPreference
-            android:checked="false"
-            android:defaultValue="false"
-            android:enabled="false"
-            android:key="stop_on_camera"
-            android:summary="@string/settings_stop_on_camera_desc"
-            android:title="@string/settings_stop_on_camera" />
         <Preference
             android:key="uninstall"
             android:summary="@string/settings_uninstall_desc"

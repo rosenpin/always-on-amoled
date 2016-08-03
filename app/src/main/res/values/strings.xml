@@ -8,6 +8,7 @@
     <string name="menu_feedback">Feedback</string>
     <string name="menu_rate">Rate the app</string>
     <string name="agree">Agree</string>
+    <string name="report_sent">Report sent!</string>
     <string name="action_restart">Restart now</string>
     <!--Support-->
     <string name="action_support_the_development">Support the development</string>
@@ -42,6 +43,7 @@
     <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
     <string name="notification_message">Always On Is Running</string>
     <string name="reboot_to_take_affect">Reboot to take affect</string>
+    <string name="thanks_short">Thank you</string>
     <!-- Content description-->
     <string name="notification_icon">Notification icon</string>
     <!--Widget-->
@@ -69,7 +71,9 @@
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
     <string name="warning_8_intro_allow_all">Please allow all permissions</string>
     <string name="warning_9_allow_notification">Please allow notification access for the app</string>
-    <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
+    <string name="warning_10_tts_not_installed">Please install a textto speech engine first</string>
+    <string name="warning_11_no_root">Device must be rooted to use this feature</string>
+    <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
     <!--Charging rules-->
     <string name="rules_both_charging">Both, while charging and while discharging</string>
     <string name="rules_while_charging">While charging</string>
@@ -100,6 +104,7 @@
     <string name="settings_about">About</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_general">General</string>
+    <string name="settings_shortcuts">Shortcuts</string>
     <string name="settings_wake_up">Gestures &amp; actions</string>
     <string name="settings_rules">Automatic Rules</string>
     <!--Settings titles-->
@@ -110,6 +115,9 @@
     <string name="settings_volume_to_stop">Volume keys action</string>
     <string name="settings_swipe_wake">Swipe up action</string>
     <string name="settings_brightness">Brightness</string>
+    <string name="settings_doze">Doze mode</string>
+    <string name="settings_google_now_shortcut">Allow Google Now</string>
+    <string name="settings_memo_text">Memo text</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_persistent_notification">Show persistent notification</string>
     <string name="settings_move_auto">Move the widget automatically</string>
@@ -125,6 +133,7 @@
     <string name="settings_stop_delay">Stop delay</string>
     <string name="settings_auto_brightness">Auto night mode</string>
     <string name="settings_orientation">Screen orientation</string>
+    <string name="settings_always_on_memo">Always On Memo</string>
     <string name="settings_stop_on_camera">Allow camera shortcuts</string>
     <string name="settings_rules_cahrging">Charging rules</string>
     <string name="settings_rules_battery">Battery rules</string>
@@ -206,15 +215,9 @@
     <string name="settings_notifications_alerts_preview_desc">Show notification content when received</string>
     <string name="settings_notifications_alerts_preview">Notification content</string>
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
-    <string name="warning_11_no_root">Device must be rooted to use this feature</string>
-    <string name="report_sent">Report sent!</string>
-    <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
-    <string name="thanks_short">Thank you</string>
-    <string name="settings_doze">Doze mode</string>
     <string name="settings_doze_desc">Enable doze while the always on screen is active to save battery (root only)</string>
-    <string name="settings_always_on_memo">Always On Memo</string>
-    <string name="settings_memo_text">Memo text</string>
     <string name="settings_memo_text_desc">Write your memo here</string>
     <string name="settings_memo_font_size_desc">Set the memo font size</string>
     <string name="settings_memo_hint">Type your memo here. It will show up in your always on screen.</string>
+    <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
 </resources>

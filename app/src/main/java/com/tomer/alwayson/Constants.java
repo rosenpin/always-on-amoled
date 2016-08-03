@@ -2,16 +2,12 @@ package com.tomer.alwayson;
 
 import android.content.Intent;
 
-/**
- * Created by tomer AKA rosenpin on 6/18/16.
- */
 public class Constants {
     public static final String[] unlockFilters = {
             //DEVICE UNLOCKED
             Intent.ACTION_USER_PRESENT,
             //ASSIST IE: GOOGLE NOW
             Intent.ACTION_ASSIST,
-            Intent.ACTION_ALL_APPS,
             //ALARMS
             "com.android.deskclock.ALARM_ALERT",
             "com.android.alarmclock.ALARM_ALERT",

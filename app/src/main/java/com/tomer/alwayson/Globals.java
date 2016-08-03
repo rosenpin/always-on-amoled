@@ -24,4 +24,5 @@ public class Globals {
     public static NotificationListener.NotificationHolder newNotification;
     public static boolean nightMode;
     public static boolean isServiceRunning;
+    public static boolean waitingForApp = false;
 }

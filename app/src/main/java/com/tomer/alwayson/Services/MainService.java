@@ -57,6 +57,7 @@ import android.widget.Toast;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.Helpers.CurrentAppResolver;
 import com.tomer.alwayson.Helpers.DozeManager;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
@@ -101,6 +102,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private CustomAnalogClock analog24HClock;
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
+    private CurrentAppResolver currentAppResolver;
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context ctxt, Intent intent) {
@@ -166,6 +168,10 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
+        if (Globals.waitingForApp) {
+            Log.e(MAIN_SERVICE_LOG_TAG, "Waiting for app, killing service");
+            stopSelf();
+        }
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
@@ -341,8 +347,25 @@ public class MainService extends Service implements SensorEventListener, Context
                 500);
 
         //Initializing Doze
-        dozeManager = new DozeManager(this);
-        dozeManager.enterDoze();
+        if (prefs.getBoolByKey("doze_mode", false)) {
+            dozeManager = new DozeManager(this);
+            dozeManager.enterDoze();
+        }
+
+        currentAppResolver = new CurrentAppResolver(this, new int[]{prefs.stopOnCamera ? CurrentAppResolver.CAMERA : 0, prefs.stopOnGoogleNow ? CurrentAppResolver.GOOGLE_NOW : 0});
+        currentAppResolver.executeForCurrentApp(new Runnable() {
+            @Override
+            public void run() {
+                Globals.waitingForApp = true;
+                stopSelf();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Globals.waitingForApp = false;
+                    }
+                }, 500);
+            }
+        });
     }
 
     private boolean isCameraUsedByApp() {
@@ -663,8 +686,11 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        //Dismiss the app listener
+        currentAppResolver.destroy();
         //Dismiss doze
-        dozeManager.exitDoze();
+        if (dozeManager != null)
+            dozeManager.exitDoze();
         //Dismissing the wakelock holder
         stayAwakeWakeLock.release();
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())

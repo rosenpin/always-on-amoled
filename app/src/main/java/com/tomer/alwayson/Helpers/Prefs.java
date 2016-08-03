@@ -25,6 +25,7 @@ public class Prefs {
     public String rules;
     public String orientation;
     public boolean stopOnCamera;
+    public boolean stopOnGoogleNow;
     public boolean autoNightMode;
     public int batteryRules;
     public boolean startAfterLock;
@@ -61,7 +62,7 @@ public class Prefs {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
         memoText = prefs.getString(KEYS.MEMO_TEXT.toString(), "");
-        memoTextSize = prefs.getInt("memo_font_size",40);
+        memoTextSize = prefs.getInt("memo_font_size", 40);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
@@ -77,7 +78,8 @@ public class Prefs {
         rules = prefs.getString(KEYS.RULES.toString(), "always");
         stopDelay = Integer.parseInt(prefs.getString(KEYS.STOP_DELAY.toString(), "0"));
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
-        stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), true);
+        stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), false);
+        stopOnGoogleNow = prefs.getBoolean(KEYS.STOP_ON_GOOGLE_NOW.toString(), false);
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
         font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
@@ -173,7 +175,8 @@ public class Prefs {
         STOP_DELAY("stop_delay"),
         HAS_SOFT_KEYS("has_soft_keys"),
         ORIENTATION("screen_orientation"),
-        STOP_ON_CAMERA("stop_on_camera"),
+        STOP_ON_CAMERA("camera_shortcut"),
+        STOP_ON_GOOGLE_NOW("google_now_shortcut"),
         BATTERY_RULES("battery_rules"),
         NOTIFICATION_ALERTS("notifications_alerts"),
         FONT("font"),

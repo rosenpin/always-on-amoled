@@ -1,6 +1,7 @@
 package com.tomer.alwayson;
 
 import android.app.Activity;
+import android.app.AppOpsManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -85,6 +86,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
         findPreference("doze_mode").setOnPreferenceChangeListener(this);
+        findPreference("google_now_shortcut").setOnPreferenceChangeListener(this);
+        findPreference("camera_shortcut").setOnPreferenceChangeListener(this);
         findPreference("stop_delay").setOnPreferenceChangeListener(this);
         findPreference("watchface_clock").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
@@ -372,7 +375,34 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Snackbar.make(rootView, R.string.warning_11_no_root, Snackbar.LENGTH_LONG).show();
             return false;
         }
+        if (preference.getKey().equals("camera_shortcut") || preference.getKey().equals("google_now_shortcut")) {
+            try {
+                if (!hasUsageAccess()) {
+                    Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                    PackageManager packageManager = getActivity().getPackageManager();
+                    if (intent.resolveActivity(packageManager) != null) {
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(context, "Please grant usage access permission manually for the app, your device can't do it automatically.", Toast.LENGTH_LONG).show();
+                    }
+                    return false;
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
         return true;
+    }
+
+    private boolean hasUsageAccess() throws PackageManager.NameNotFoundException {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            PackageManager packageManager = context.getPackageManager();
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(context.getPackageName(), 0);
+            AppOpsManager appOpsManager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+            int mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, applicationInfo.uid, applicationInfo.packageName);
+            return mode == AppOpsManager.MODE_ALLOWED;
+        } else
+            return true;
     }
 
     @Override

@@ -9,7 +9,6 @@
     android:gravity="center"
     android:orientation="vertical">
 
-
     <include layout="@layout/clock" />
 
     <include layout="@layout/date" />
