@@ -420,8 +420,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 9.2));
                 ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
-                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1.4));
-                mainView.findViewById(R.id.s7_am_pm).setPadding(0, (int) (prefs.textSize / 2), 0, 0);
+                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1.2));
+                mainView.findViewById(R.id.s7_am_pm).setPadding((int) getResources().getDimension(R.dimen.small_spacing), (int) (prefs.textSize / 1.7), 0, 0);
 
                 batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
                 ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
