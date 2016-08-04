@@ -57,6 +57,7 @@
     <string name="plugin_dialog_title">Plugin is required</string>
     <string name="plugin_dialog_desc">Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.</string>
     <!--Errors-->
+    <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
     <string name="error_0_unknown_error">An error has occurred. Please report to the developer </string>
     <string name="error_1_no_email_client">There are no email clients installed.</string>
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
@@ -138,10 +139,13 @@
     <string name="settings_stop_on_camera">Allow camera shortcuts</string>
     <string name="settings_rules_cahrging">Charging rules</string>
     <string name="settings_rules_battery">Battery rules</string>
+    <string name="settings_font">Font</string>
     <string name="settings_translate">Translate</string>
     <string name="settings_github">GitHub</string>
     <string name="settings_community">Community</string>
+    <string name="greenify_integration">Greenify integration</string>
     <string name="settings_licenses">Licenses</string>
+    <string name="settings_uninstall">Uninstall</string>
     <string name="settings_app_version">Version</string>
     <!--Settings descriptions-->
     <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched (Should keep enabled on Nexus/Samsung devices)</string>
@@ -180,7 +184,6 @@
     <string name="settings_watchface_battery">Battery style</string>
     <string name="settings_watchface_miscellaneous">Miscellaneous</string>
     <string name="settings_watchface_styles">Styles</string>
-    <string name="settings_font">Font</string>
     <string name="settings_choose_font">Choose your font</string>
     <string name="settings_watch_digital">Digital</string>
     <string name="settings_watch_analog">Analog</string>
@@ -196,7 +199,6 @@
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
     <string name="settings_select_action">Select action</string>
     <string name="warning_11_need_to_reset_app">You might need to restart the app to take effect</string>
-    <string name="settings_uninstall">Uninstall</string>
     <string name="settings_uninstall_desc">Uninstall the app</string>
     <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
     <string name="settings_watch_analog_24_classic">Classic 24h Analog</string>
@@ -209,13 +211,11 @@
     <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
     <string name="move_move">Move the widget automatically</string>
     <string name="move_move_animation">Move the widget automatically with an animation</string>
-    <string name="greenify_integration">Greenify integration</string>
     <string name="greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
     <string name="greenify_integration_desc_found">Make sure to enable Greenify in the accessibility settings and choose the apps you want it to hibernate while the device is locked. Click here to configure Greenify</string>
     <string name="greenify_integration_desc_not_found">Install Greenify to improve battery life</string>
     <string name="settings_notifications_alerts_preview_desc">Show notification content when received</string>
     <string name="settings_notifications_alerts_preview">Notification content</string>
-    <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
     <string name="settings_doze_desc">Enable doze while the always on screen is active to save battery (root only)</string>
     <string name="settings_memo_text_desc">Write your memo here</string>
     <string name="settings_memo_font_size_desc">Set the memo font size</string>
