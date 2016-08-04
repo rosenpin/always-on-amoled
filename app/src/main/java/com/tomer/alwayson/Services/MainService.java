@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -23,10 +22,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
-import android.speech.tts.TextToSpeech;
-import android.support.annotation.Nullable;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
@@ -58,45 +54,44 @@ import com.tomer.alwayson.Helpers.CurrentAppResolver;
 import com.tomer.alwayson.Helpers.DozeManager;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Helpers.SamsungHelper;
+import com.tomer.alwayson.Helpers.TTS;
 import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.BatteryReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
+import com.tomer.alwayson.Views.DigitalS7;
 import com.tomer.alwayson.Views.FontAdapter;
+import com.tomer.alwayson.Views.IconsWrapper;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
 import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
-    private BatteryReceiver batteryReceiver;
-    private SamsungHelper samsungHelper;
-    private TextToSpeech tts;
-    private DozeManager dozeManager;
+public class MainService extends Service implements SensorEventListener, ContextConstatns {
     private boolean demo;
-    private boolean toStopTTS;
-    private Prefs prefs;
+    private boolean refreshing;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
+    private int height, width;
+    private BatteryReceiver batteryReceiver;
+    private SamsungHelper samsungHelper;
+    private DozeManager dozeManager;
+    private TTS tts;
+    private DigitalS7 digitalS7;
+    private Prefs prefs;
     private TextView calendarTV;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
-    private boolean refreshing;
     private LinearLayout mainView;
     private WindowManager.LayoutParams windowParams;
-    private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
-    private int height, width;
     private CustomAnalogClock analog24HClock;
+    private IconsWrapper iconsWrapper;
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
@@ -152,7 +147,7 @@ public class MainService extends Service implements SensorEventListener, Context
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
                     if (prefs.getStringByKey(VOLUME_KEYS, "off").equals("speak")) {
-                        speakCurrentStatus();
+                        tts.sayCurrentStatus();
                         return true;
                     } else if (prefs.volumeToStop) {
                         stopSelf();
@@ -163,7 +158,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     if (prefs.backButtonToStop)
                         stopSelf();
                     if (prefs.getStringByKey(BACK_BUTTON, "off").equals("speak")) {
-                        speakCurrentStatus();
+                        tts.sayCurrentStatus();
                     }
                     return false;
                 }
@@ -175,13 +170,13 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = (LinearLayout) (layoutInflater.inflate(prefs.orientation.equals("vertical") ? R.layout.clock_widget : R.layout.clock_widget_horizontal, frameLayout).findViewById(R.id.watchface_wrapper));
-        setUpElements(mainView, (LinearLayout) mainView.findViewById(R.id.clock_wrapper), (LinearLayout) mainView.findViewById(R.id.date_wrapper), (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper));
+        setUpElements();
 
         FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         mainLayoutParams.gravity = prefs.moveWidget == DISABLED ? Gravity.CENTER : Gravity.CENTER_HORIZONTAL;
 
         mainView.setLayoutParams(mainLayoutParams);
-        iconWrapper = (LinearLayout) mainView.findViewById(R.id.icons_wrapper);
+        iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
 
         unlockReceiver = new UnlockReceiver();
         IntentFilter intentFilter = new IntentFilter();
@@ -298,6 +293,8 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         });
 
+        tts = new TTS(this);
+
         //Samsung stuff
         samsungHelper = new SamsungHelper(this, prefs);
         //Initialize current capacitive buttons light
@@ -313,12 +310,15 @@ public class MainService extends Service implements SensorEventListener, Context
         });
     }
 
-    private void setUpElements(LinearLayout watchfaceWrapper, LinearLayout clockWrapper, LinearLayout dateWrapper, LinearLayout batteryWrapper) {
+    private void setUpElements() {
         Log.d("Font to apply ", String.valueOf(prefs.font));
         Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
+        LinearLayout dateWrapper = (LinearLayout) mainView.findViewById(R.id.date_wrapper);
+        LinearLayout batteryWrapper = (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper);
+        LinearLayout clockWrapper = (LinearLayout) mainView.findViewById(R.id.clock_wrapper);
         calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
-        ImageView batteryIV = (ImageView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_icon : R.id.s7_battery_percentage_icon);
-        TextView batteryTV = (TextView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_tv : R.id.s7_battery_percentage_tv);
+        ImageView batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
+        TextView batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
         ViewGroup.LayoutParams lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
         float clockSize = prefs.textSize < 80 ? prefs.textSize : 80;
         lp.height = (int) (clockSize * 10);
@@ -329,7 +329,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         switch (prefs.clockStyle) {
             case DISABLED:
-                watchfaceWrapper.removeView(clockWrapper);
+                mainView.removeView(clockWrapper);
                 break;
             case DIGITAL_CLOCK:
                 TextClock textClock = (TextClock) clockWrapper.findViewById(R.id.digital_clock);
@@ -374,29 +374,14 @@ public class MainService extends Service implements SensorEventListener, Context
             case S7_DIGITAL:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.custom_analog_clock));
-                ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTypeface(font);
-                ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTypeface(font);
-                ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTypeface(font);
-                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTypeface(font);
-
                 if (prefs.textSize > 90)
                     prefs.textSize = 90;
-                ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 9.2));
-                ((TextView) mainView.findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
-                ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 3.5));
-                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1.2));
-                mainView.findViewById(R.id.s7_am_pm).setPadding((int) getResources().getDimension(R.dimen.small_spacing), (int) (prefs.textSize / 1.7), 0, 0);
-
-                batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
-                ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
-                batteryIVlp.height = (int) (prefs.textSize);
-                batteryIV.setLayoutParams(batteryIVlp);
-
+                digitalS7 = (DigitalS7) mainView.findViewById(R.id.s7_digital);
+                digitalS7.init(font, prefs.textSize);
                 prefs.dateStyle = DISABLED;
                 prefs.batteryStyle = 1;
-
-                watchfaceWrapper.removeView(dateWrapper);
-                watchfaceWrapper.removeView(batteryWrapper);
+                mainView.removeView(dateWrapper);
+                mainView.removeView(batteryWrapper);
                 break;
             case FLAT_CLOCK:
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
@@ -419,26 +404,26 @@ public class MainService extends Service implements SensorEventListener, Context
         }
         switch (prefs.batteryStyle) {
             case 0:
-                watchfaceWrapper.removeView(batteryWrapper);
+                mainView.removeView(batteryWrapper);
                 break;
             case 1:
                 if (prefs.clockStyle != S7_DIGITAL) {
                     batteryTV.setTextColor(prefs.textColor);
                     batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-                }
 
-                batteryTV.setTypeface(font);
-                batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
-                ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
-                batteryIVlp.height = (int) (prefs.textSize);
-                batteryIV.setLayoutParams(batteryIVlp);
-                batteryReceiver = new BatteryReceiver(batteryTV, batteryIV);
+                    batteryTV.setTypeface(font);
+                    batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
+                    ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
+                    batteryIVlp.height = (int) (prefs.textSize);
+                    batteryIV.setLayoutParams(batteryIVlp);
+                }
+                batteryReceiver = new BatteryReceiver(prefs.clockStyle == S7_DIGITAL ? digitalS7.getBatteryTV() : batteryTV, prefs.clockStyle == S7_DIGITAL ? digitalS7.getBatteryIV() : batteryIV);
                 registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
         switch (prefs.dateStyle) {
             case DISABLED:
-                watchfaceWrapper.removeView(dateWrapper);
+                mainView.removeView(dateWrapper);
                 break;
             case 1:
                 calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
@@ -459,64 +444,28 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refresh() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-        if (Globals.notificationChanged && prefs.notificationsAlerts) {
-            iconWrapper.removeAllViews();
-            for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
-                Drawable drawable = entry.getValue();
-                drawable.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-                ImageView icon = new ImageView(getApplicationContext());
-                icon.setImageDrawable(drawable);
-                icon.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
-                FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
-                icon.setPadding(12, 0, 12, 0);
-                icon.setLayoutParams(iconLayoutParams);
-                iconWrapper.addView(icon);
-            }
-            Globals.notificationChanged = false;
-        }
-
-        if (Globals.newNotification != null && prefs.notificationPreview) {
+        iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor);
+        if (Globals.newNotification != null && prefs.notificationPreview)
             showMessage(Globals.newNotification);
-        }
-
-        if (analog24HClock != null) {
+        if (analog24HClock != null)
             analog24HClock.setTime(Calendar.getInstance());
-        }
+        if (prefs.clockStyle == S7_DIGITAL)
+            digitalS7.update(prefs.showAmPm);
 
-        if (prefs.clockStyle == S7_DIGITAL) {
-            SimpleDateFormat sdf;
-            sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("HH", Locale.getDefault()) : new SimpleDateFormat("h", Locale.getDefault());
-            String hour = sdf.format(new Date());
-            sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("mm", Locale.getDefault()) : new SimpleDateFormat("mm", Locale.getDefault());
-            String minute = sdf.format(new Date());
-
-            ((TextView) mainView.findViewById(R.id.s7_hour_tv)).setText(hour);
-            ((TextView) mainView.findViewById(R.id.s7_minute_tv)).setText(minute);
-            if (prefs.showAmPm) {
-                ((TextView) mainView.findViewById(R.id.s7_am_pm)).setText((new SimpleDateFormat("aa", Locale.getDefault()).format(new Date())));
-            } else {
-                if (!((TextView) mainView.findViewById(R.id.s7_am_pm)).getText().toString().isEmpty()) {
-                    ((TextView) mainView.findViewById(R.id.s7_am_pm)).setText("");
-                }
-            }
-        }
         refreshing = true;
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        if (Globals.isShown)
-                            refresh();
-                        else
-                            refreshing = false;
+                        if (Globals.isShown) refresh();
+                        else refreshing = false;
                     }
                 },
                 6000);
-
     }
 
     private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (!first)
+        if (!first) {
             switch (prefs.moveWidget) {
                 case MOVE_NO_ANIMATION:
                     if (prefs.orientation.equals("vertical"))
@@ -531,26 +480,18 @@ public class MainService extends Service implements SensorEventListener, Context
                         mainView.animate().translationX((float) (width - Utils.randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
                     break;
             }
-
-        Calendar calendar = Calendar.getInstance();
-        Date date = calendar.getTime();
-        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR | DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_ABBREV_WEEKDAY;
-        String monthAndDayText = DateUtils.formatDateTime(this, date.getTime(), flags);
-
-        if (prefs.dateStyle != DISABLED) {
+        }
+        String monthAndDayText = DateUtils.formatDateTime(this, Calendar.getInstance().getTime().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR | DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_ABBREV_WEEKDAY);
+        if (prefs.dateStyle != DISABLED)
             calendarTV.setText(monthAndDayText);
-        }
-        if (prefs.clockStyle == S7_DIGITAL) {
-            ((TextView) mainView.findViewById(R.id.s7_date_tv)).setText(monthAndDayText);
-        }
+        if (prefs.clockStyle == S7_DIGITAL)
+            digitalS7.updateDate(monthAndDayText);
 
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        if (Globals.isShown)
-                            refreshLong(false);
-                        else
-                            refreshing = false;
+                        if (Globals.isShown) refreshLong(false);
+                        else refreshing = false;
                     }
                 },
                 16000);
@@ -591,12 +532,6 @@ public class MainService extends Service implements SensorEventListener, Context
         }
     }
 
-    private void speakCurrentStatus() {
-        tts = new TextToSpeech(getApplicationContext(), MainService.this);
-        tts.setLanguage(Locale.getDefault());
-        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
-    }
-
     private void showMessage(final NotificationListener.NotificationHolder notification) {
         if (!notification.getTitle().equals("null")) {
             //Clear previous animation
@@ -628,6 +563,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        super.onDestroy();
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Stop home button watcher
@@ -640,12 +576,9 @@ public class MainService extends Service implements SensorEventListener, Context
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())
             proximityToTurnOff.release();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
-        //Stopping tts if it's running
-        toStopTTS = true;
-        TextToSpeech tts = new TextToSpeech(getApplicationContext(), MainService.this);
-        tts.setLanguage(Locale.getDefault());
-        tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
-
+        //Stopping tts
+        tts.destroy();
+        tts = null;
         //Unregister receivers
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
@@ -653,7 +586,6 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.batteryStyle != 0)
             unregisterReceiver(batteryReceiver);
 
-        super.onDestroy();
         samsungHelper.setButtonsLight(ON);
         setLights(OFF, false, false);
         try {
@@ -671,44 +603,9 @@ public class MainService extends Service implements SensorEventListener, Context
         }, 15000);
     }
 
-    @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return null;
-    }
-
-    boolean speaking;
-
-    @Override
-    public void onInit(int status) {
-        if (toStopTTS) {
-            try {
-                tts.speak(" ", TextToSpeech.QUEUE_FLUSH, null);
-            } catch (NullPointerException ignored) {
-            }
-            return;
-        }
-        if (status == TextToSpeech.SUCCESS) {
-            if (!speaking) {
-                SimpleDateFormat sdf;
-                sdf = DateFormat.is24HourFormat(this) ? new SimpleDateFormat("HH mm", Locale.getDefault()) : new SimpleDateFormat("h mm aa", Locale.getDefault());
-                String time = sdf.format(new Date());
-                time = time.charAt(0) == '0' ? time.substring(1, time.length()) : time;
-
-                tts.speak("The time is " + time, TextToSpeech.QUEUE_FLUSH, null);
-                if (Globals.notificationsDrawables.size() > 0)
-                    tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
-                tts.speak("Battery is at " + batteryReceiver.currentBattery + " percent", TextToSpeech.QUEUE_ADD, null);
-                speaking = true;
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        speaking = false;
-                    }
-                }, 4000);
-            } else
-                Log.d(MAIN_SERVICE_LOG_TAG, "Still speaking..");
-        }
     }
 
     @Override
@@ -811,7 +708,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             return true;
                         }
                         if (prefs.getStringByKey(SWIPE_UP, "off").equals("speak")) {
-                            speakCurrentStatus();
+                            tts.sayCurrentStatus();
                             return true;
                         }
                     }
@@ -828,7 +725,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     return true;
                 }
                 if (prefs.getStringByKey(DOUBLE_TAP, "unlock").equals("speak")) {
-                    speakCurrentStatus();
+                    tts.sayCurrentStatus();
                     return true;
                 }
                 return false;

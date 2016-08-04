@@ -51,7 +51,7 @@
 
         <TextView
             android:id="@+id/s7_date_tv"
-            android:maxWidth="72sp"
+            android:maxWidth="@dimen/s7_digital_date_max_width"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

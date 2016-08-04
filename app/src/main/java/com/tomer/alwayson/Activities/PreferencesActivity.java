@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,9 +37,9 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
+import com.tomer.alwayson.BuildConfig;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
-import com.tomer.alwayson.Helpers.CurrentAppResolver;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.DAReceiver;
@@ -50,7 +49,7 @@ import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import eu.chainfire.libsuperuser.Shell;
 import fr.nicolaspomepuy.discreetapprate.AppRate;
@@ -409,7 +408,10 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     Globals.ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                     Globals.mService = mService;
                     Log.d("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
-
+                    if (BuildConfig.DEBUG)
+                        Globals.ownedItems = new ArrayList<String>() {{
+                            add("ITEM");
+                        }};
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
