@@ -81,8 +81,6 @@ public class CurrentAppResolver {
             final String activePackage = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getActivePackages() : getActivePackagesCompat();
             if (activePackage != null) {
                 for (final String appPackageName : appsPNs) {
-                    Log.d("Current app", activePackage);
-                    Log.d("First launch", String.valueOf(firstLaunch));
                     if (activePackage.equals(appPackageName)) {
                         if (!firstLaunch)
                             action.run();

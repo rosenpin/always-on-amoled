@@ -71,7 +71,7 @@
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
     <string name="warning_8_intro_allow_all">Please allow all permissions</string>
     <string name="warning_9_allow_notification">Please allow notification access for the app</string>
-    <string name="warning_10_tts_not_installed">Please install a textto speech engine first</string>
+    <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
     <string name="warning_11_no_root">Device must be rooted to use this feature</string>
     <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
     <!--Charging rules-->

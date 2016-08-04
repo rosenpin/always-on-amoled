@@ -2,13 +2,11 @@ package com.tomer.alwayson.Services;
 
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
@@ -19,7 +17,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
-import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -60,35 +57,36 @@ import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Helpers.CurrentAppResolver;
 import com.tomer.alwayson.Helpers.DozeManager;
 import com.tomer.alwayson.Helpers.Prefs;
+import com.tomer.alwayson.Helpers.SamsungHelper;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.Receivers.BatteryReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
 import com.tomer.alwayson.Views.FontAdapter;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
 
 public class MainService extends Service implements SensorEventListener, ContextConstatns, TextToSpeech.OnInitListener {
-
+    private BatteryReceiver batteryReceiver;
+    private SamsungHelper samsungHelper;
     private TextToSpeech tts;
     private DozeManager dozeManager;
-    boolean demo;
-    boolean toStopTTS;
+    private boolean demo;
+    private boolean toStopTTS;
     private Prefs prefs;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
-    private TextView calendarTV, batteryTV;
-    private ImageView batteryIV;
+    private TextView calendarTV;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private boolean refreshing;
@@ -97,48 +95,11 @@ public class MainService extends Service implements SensorEventListener, Context
     private LinearLayout iconWrapper;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
-    private int originalCapacitiveButtonsState = 1500;
     private int height, width;
     private CustomAnalogClock analog24HClock;
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
-    private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context ctxt, Intent intent) {
-            int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
-            int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-            boolean charging = plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB;
-            Log.d(MAIN_SERVICE_LOG_TAG, "Battery level " + level);
-            Log.d(MAIN_SERVICE_LOG_TAG, "Battery charging " + charging);
-            batteryTV.setText(String.valueOf(level) + "%");
-            int res;
-            if (charging)
-                res = R.drawable.ic_battery_charging;
-            else {
-                if (level > 90)
-                    res = R.drawable.ic_battery_full;
-                else if (level > 70)
-                    res = R.drawable.ic_battery_90;
-                else if (level > 50)
-                    res = R.drawable.ic_battery_60;
-                else if (level > 30)
-                    res = R.drawable.ic_battery_30;
-                else if (level > 20)
-                    res = R.drawable.ic_battery_20;
-                else if (level > 0)
-                    res = R.drawable.ic_battery_alert;
-                else
-                    res = R.drawable.ic_battery_unknown;
-            }
-            batteryIV.setImageResource(res);
-        }
-    };
-
-    @SuppressWarnings("WeakerAccess")
-    private double randInt(double min, double max) {
-        return new Random().nextInt((int) ((max - min) + 1)) + min;
-    }
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -180,14 +141,6 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (prefs.stopOnCamera)
-                    if (isCameraUsedByApp()) //Check if user just opened the camera, if so, dismiss
-                        stopSelf();
-            }
-        }, 700);//Delay: Because it takes some time to start the camera on some devices
 
         // Setup UI
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -302,28 +255,6 @@ public class MainService extends Service implements SensorEventListener, Context
         refresh();
         refreshLong(true);
 
-        //All Samsung's stuff
-        if (!prefs.hasSoftKeys) {
-            try {
-                originalCapacitiveButtonsState = System.getInt(getContentResolver(), "button_key_light");
-            } catch (Settings.SettingNotFoundException e) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "First method of getting the buttons status failed.");
-                try {
-                    originalCapacitiveButtonsState = (int) System.getLong(getContentResolver(), "button_key_light");
-                } catch (Exception ignored) {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Second method of getting the buttons status failed.");
-                    try {
-                        originalCapacitiveButtonsState = Settings.Secure.getInt(getContentResolver(), "button_key_light");
-                    } catch (Exception ignored3) {
-                        Log.d(MAIN_SERVICE_LOG_TAG, "Third method of getting the buttons status failed.");
-                    }
-                }
-            }
-        }
-
-        //Turn capacitive buttons lights off
-        setButtonsLight(OFF);
-
         //Turn lights on
         setLights(ON, false, true);
 
@@ -333,7 +264,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     public void run() {
                         //Greenify integration
                         if (!demo)
-                            if (isPackageInstalled("com.oasisfeng.greenify", getApplicationContext())) {
+                            if (Utils.isPackageInstalled(getApplicationContext(), "com.oasisfeng.greenify")) {
                                 Intent i = new Intent();
                                 i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
                                 i.putExtra("noop-toast", true);
@@ -341,7 +272,7 @@ public class MainService extends Service implements SensorEventListener, Context
                                 startActivity(i);
                             }
                         //Turn on the display
-                        stayAwakeWakeLock.acquire();
+                        if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     }
                 },
                 500);
@@ -366,18 +297,28 @@ public class MainService extends Service implements SensorEventListener, Context
                 }, 500);
             }
         });
-    }
 
-    private boolean isCameraUsedByApp() {
-        return false;
+        //Samsung stuff
+        samsungHelper = new SamsungHelper(this, prefs);
+        //Initialize current capacitive buttons light
+        samsungHelper.getButtonsLight();
+        //Turn capacitive buttons lights off
+        samsungHelper.setButtonsLight(OFF);
+        //Stop service on home button press
+        samsungHelper.setOnHomeButtonClickListener(new Runnable() {
+            @Override
+            public void run() {
+                stopSelf();
+            }
+        });
     }
 
     private void setUpElements(LinearLayout watchfaceWrapper, LinearLayout clockWrapper, LinearLayout dateWrapper, LinearLayout batteryWrapper) {
         Log.d("Font to apply ", String.valueOf(prefs.font));
         Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
         calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
-        batteryIV = (ImageView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_icon : R.id.s7_battery_percentage_icon);
-        batteryTV = (TextView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_tv : R.id.s7_battery_percentage_tv);
+        ImageView batteryIV = (ImageView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_icon : R.id.s7_battery_percentage_icon);
+        TextView batteryTV = (TextView) batteryWrapper.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_percentage_tv : R.id.s7_battery_percentage_tv);
         ViewGroup.LayoutParams lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
         float clockSize = prefs.textSize < 80 ? prefs.textSize : 80;
         lp.height = (int) (clockSize * 10);
@@ -491,7 +432,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
                 batteryIVlp.height = (int) (prefs.textSize);
                 batteryIV.setLayoutParams(batteryIVlp);
-                registerReceiver(mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+                batteryReceiver = new BatteryReceiver(batteryTV, batteryIV);
+                registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
         switch (prefs.dateStyle) {
@@ -578,15 +520,15 @@ public class MainService extends Service implements SensorEventListener, Context
             switch (prefs.moveWidget) {
                 case MOVE_NO_ANIMATION:
                     if (prefs.orientation.equals("vertical"))
-                        mainView.setY((float) (height - randInt(height / 2.1, height)));
+                        mainView.setY((float) (height - Utils.randInt(height / 2.1, height)));
                     else
-                        mainView.setX((float) (width - randInt(width / 1.3, width * 1.3)));
+                        mainView.setX((float) (width - Utils.randInt(width / 1.3, width * 1.3)));
                     break;
                 case MOVE_WITH_ANIMATION:
                     if (prefs.orientation.equals("vertical"))
-                        mainView.animate().translationY((float) (height - randInt(height / 2.1, height))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                        mainView.animate().translationY((float) (height - Utils.randInt(height / 2.1, height * 0.9))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
                     else
-                        mainView.animate().translationX((float) (width - randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
+                        mainView.animate().translationX((float) (width - Utils.randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
                     break;
             }
 
@@ -688,6 +630,8 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onDestroy() {
         //Dismiss the app listener
         currentAppResolver.destroy();
+        //Stop home button watcher
+        samsungHelper.stopHomeWatcher();
         //Dismiss doze
         if (dozeManager != null)
             dozeManager.exitDoze();
@@ -707,10 +651,10 @@ public class MainService extends Service implements SensorEventListener, Context
             sensorManager.unregisterListener(this);
         unregisterReceiver(unlockReceiver);
         if (prefs.batteryStyle != 0)
-            unregisterReceiver(mBatInfoReceiver);
+            unregisterReceiver(batteryReceiver);
 
         super.onDestroy();
-        setButtonsLight(ON);
+        samsungHelper.setButtonsLight(ON);
         setLights(OFF, false, false);
         try {
             windowManager.removeView(frameLayout);
@@ -725,67 +669,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 Globals.killedByDelay = false;
             }
         }, 15000);
-    }
-
-    private void setButtonsLight(boolean state) {
-        state = !state;
-        if (!prefs.hasSoftKeys) {
-            try {
-                System.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-            } catch (RuntimeException e) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "First method of settings the buttons state failed.");
-                try {
-                    Runtime r = Runtime.getRuntime();
-                    r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
-                } catch (IOException e1) {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Second method of settings the buttons state failed.");
-                    try {
-                        System.putLong(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                    } catch (Exception ignored) {
-                        Log.d(MAIN_SERVICE_LOG_TAG, "Third method of settings the buttons state failed.");
-                        try {
-                            Settings.Secure.putInt(getContentResolver(), "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                        } catch (Exception ignored3) {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Fourth method of settings the buttons state failed.");
-                        }
-                    }
-                }
-            }
-            if (isPackageInstalled("tomer.com.alwaysonamoledplugin", getApplicationContext())) {
-                try {
-                    Intent i = new Intent();
-                    i.setComponent(new ComponentName("tomer.com.alwaysonamoledplugin", "tomer.com.alwaysonamoledplugin.CapacitiveButtons"));
-                    i.putExtra("state", state);
-                    i.putExtra("originalCapacitiveButtonsState", originalCapacitiveButtonsState);
-                    ComponentName c = startService(i);
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin to control the buttons lights");
-                } catch (Exception e) {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
-                    Toast.makeText(getApplicationContext(), getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-    }
-
-    private boolean isPackageInstalled(String packagename, Context context) {
-        PackageManager pm = context.getPackageManager();
-        try {
-            pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
-
-    public float getBatteryLevel() {
-        Intent batteryIntent = getApplicationContext().registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        assert batteryIntent != null;
-        int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
-        if (level == -1 || scale == -1) {
-            return 50.0f;
-        }
-        return ((float) level / (float) scale) * 100.0f;
     }
 
     @Nullable
@@ -815,7 +698,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 tts.speak("The time is " + time, TextToSpeech.QUEUE_FLUSH, null);
                 if (Globals.notificationsDrawables.size() > 0)
                     tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
-                tts.speak("Battery is at " + (int) getBatteryLevel() + " percent", TextToSpeech.QUEUE_ADD, null);
+                tts.speak("Battery is at " + batteryReceiver.currentBattery + " percent", TextToSpeech.QUEUE_ADD, null);
                 speaking = true;
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -835,6 +718,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
+                    Log.d("Proximity distance", String.valueOf(event.values[0]));
                     Globals.isShown = false;
                     Globals.sensorIsScreenOff = false;
                     new Thread(new Runnable() {
