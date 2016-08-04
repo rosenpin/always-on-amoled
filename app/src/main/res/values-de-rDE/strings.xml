@@ -9,6 +9,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Bewerte die App</string>
   <string name="agree">Zustimmen</string>
+  <string name="report_sent">Bericht gesendet!</string>
   <string name="action_restart">Jetzt neustarten</string>
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
@@ -24,6 +25,7 @@
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen</string>
+  <string name="intro_permissions_desc">Die Anwendung benötigt die Berechtigung den Telefonstatus lesen zu dürfen, um das Gerät einzuschalten, wenn Du einen Anruf erhältst.</string>
   <string name="intro_draw_over">Über anderen Apps einblenden</string>
   <string name="intro_draw_over_desc">Die App braucht die Berechtigung, sich über andere Apps einblenden zu können</string>
   <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Helligkeit des Displays zu ändern</string>
@@ -42,6 +44,7 @@
   <string name="thanks_crazy">Danke für deinen VERÜCKTEN Support!! :)</string>
   <string name="notification_message">Always On ist aktiv</string>
   <string name="reboot_to_take_affect">Starte neu um die Änderungen wirksam zu machen</string>
+  <string name="thanks_short">Vielen Dank</string>
   <!-- Content description-->
   <string name="notification_icon">Benachrichtigungs-Icon</string>
   <!--Widget-->
@@ -70,12 +73,16 @@
   <string name="warning_8_intro_allow_all">Bitte erteile alle benötigten Berechtigungen</string>
   <string name="warning_9_allow_notification">Bitte erteile der App Zugang zu den Benachrichtigungen</string>
   <string name="warning_10_tts_not_installed">Installiere bitte zuerst eine Text-zu-Sprache App</string>
+  <string name="warning_11_no_root">Dein Gerät muss für dieses Feature gerootet sein!</string>
+  <string name="warning_12_please_report">Lass mich wissen, was du hinzugefügt haben möchtest, oder melde einen Fehler</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Beide, während des Ladens und Entladens</string>
   <string name="rules_while_charging">Während des Ladenvorgangs</string>
   <string name="rules_while_not_charging">Während des Entladens</string>
   <!--Battery rules-->
   <string name="rules_always">Immer</string>
+  <string name="rules_battery_90">90% oder höher</string>
+  <string name="rules_battery_70">70% oder höher</string>
   <string name="rules_battery_50">50 % oder höher</string>
   <string name="rules_battery_30">30 % oder höher</string>
   <string name="rules_battery_20">20 % oder höher</string>
@@ -108,6 +115,7 @@
   <string name="settings_volume_to_stop">Lautstärketasten um zu stoppen</string>
   <string name="settings_swipe_wake">Nach oben wischen um abzulehnen</string>
   <string name="settings_brightness">Helligkeit</string>
+  <string name="settings_doze">Doze-Modus</string>
   <string name="settings_notifications">Benachrichtigungen</string>
   <string name="settings_persistent_notification">Durchgängige Benachrichtigung anzeigen</string>
   <string name="settings_move_auto">Das Widget automatisch verschieben</string>
@@ -115,6 +123,8 @@
   <string name="settings_watchface">Darstellung anpassen</string>
   <string name="settings_proximity">Näherungssensor</string>
   <string name="settings_proximity_root">\nRoot-Modus:\n Beste Wahl, arbeitet schnell und ermöglicht die Erkennung des Fingerabdrucks\n</string>
+  <string name="settings_proximity_normal">Normaler Modus (Empfohlen):\nFunktioniert nur auf Android 5.0+, ermöglicht die Erkennung von Fingerabdrücken</string>
+  <string name="settings_proximity_device_admin">Geräteadministrator-Modus:\nFunktioniert auf jeder Android-Version, deaktiviert jedoch die Fingerabdruckerkennung</string>
   <string name="settings_show_am_pm">Zeige AM/PM</string>
   <string name="settings_text_color">Textfarbe</string>
   <string name="settings_startafterlock">Starten nach Sperrung</string>
@@ -185,20 +195,22 @@
   <string name="settings_uninstall">Deinstallieren</string>
   <string name="settings_uninstall_desc">App deinstallieren</string>
   <string name="settings_watchface_clock_desc">Wähle deinen bevorzugten Uhrenstil</string>
+  <string name="settings_watch_analog_24_classic">Klassische 24h Analog-Uhr</string>
   <string name="settings_watch_analog_s7">Analoge Uhr im Galaxy S7 Stil</string>
+  <string name="settings_watch_ticks">Klassische 12h Uhr mit Stundenzeigern</string>
   <string name="settings_watch_digital_s7">Digital-Uhr im S7 Stil (nicht anpassbar)</string>
   <string name="settings_watch_flat_analog">Anloger Flat-Stil</string>
   <string name="settings_watch_analog_pebble">Pebble Stil analoge Uhr</string>
+  <string name="settings_watch_flat_red_analog">Flaches Analog (rotes Ziffernblatt)</string>
   <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Bildschirme)</string>
   <string name="move_move">Verschiebe das Widget automatisch</string>
   <string name="move_move_animation">Verschiebe das Widget automatisch mit einer Animation</string>
   <string name="greenify_integration">Greenify Einbindung</string>
   <string name="greenify_integration_desc">Aktiviere Greenify während der always on Service sichtbar ist um deutlich Batterie zu sparen. Sei dir sicher dass du vorher Greenify in den Eingabehilfe-Einstellungen aktiviert hast</string>
+  <string name="greenify_integration_desc_found">Gehe sicher, dass du Greenify in den Eingabehilfe-Einstellungen aktiviert und die Anwendungen, welche du in den Ruhezustand versetzen willst während das Gerät gesperrt ist, gewählt hast. Tippe hier um Greenify zu konfigurieren</string>
+  <string name="greenify_integration_desc_not_found">Installiere Greenify, um die Akkuausdauer zu erhöhen</string>
   <string name="settings_notifications_alerts_preview_desc">Zeige Benachrichtigungsinhalt wenn empfangen</string>
   <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
   <string name="error_IAP">Fehler! Bitte vergewissere dich, dass Du mit dem Internet verbunden bist, und starte die App neu</string>
-  <string name="warning_11_no_root">Dein Gerät muss für dieses Feature gerootet sein!</string>
-  <string name="report_sent">Bericht gesendet!</string>
-  <string name="warning_12_please_report">Lass mich wissen, was du hinzugefügt haben möchtest, oder melde einen Fehler</string>
-  <string name="thanks_short">Vielen Dank</string>
+  <string name="settings_doze_desc">Aktiviere Doze während der Always-On Bildschirm aktiv ist, um Akku zu sparen (nur mit Root)</string>
 </resources>

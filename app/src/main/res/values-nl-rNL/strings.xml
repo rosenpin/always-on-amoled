@@ -9,6 +9,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Beoordeel de app</string>
   <string name="agree">Instemmen</string>
+  <string name="report_sent">Rapport verzonden!</string>
   <string name="action_restart">Nu herstarten</string>
   <!--Support-->
   <string name="action_support_the_development">Ondersteun de ontwikkelaar</string>
@@ -43,6 +44,7 @@
   <string name="thanks_crazy">Bedankt voor je ONGELOOFLIJKE support!!! :) </string>
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
   <string name="reboot_to_take_affect">Start opnieuw op om dit in werking te laten treden </string>
+  <string name="thanks_short">Dankjewel</string>
   <!-- Content description-->
   <string name="notification_icon">Notificatie icoon</string>
   <!--Widget-->
@@ -71,12 +73,16 @@
   <string name="warning_8_intro_allow_all">Sta alsjeblieft alle toestemming toe</string>
   <string name="warning_9_allow_notification">Sta alsjeblieft de notificatie toestemming toe voor de app</string>
   <string name="warning_10_tts_not_installed">Installeer eerst een text naar spraak machine</string>
+  <string name="warning_11_no_root">Apparaat moet geroot zijn om deze functie te gebruiken!</string>
+  <string name="warning_12_please_report">Laat mij alsjeblieft weten wat er in de app verbeterd of toegevoegd moet worden</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Zowel tijdens het opladen als wanneer het apparaat niet aan het opladen is</string>
   <string name="rules_while_charging">Tijdens het opladen</string>
   <string name="rules_while_not_charging">Tijdens het niet opladen</string>
   <!--Battery rules-->
   <string name="rules_always">Altijd</string>
+  <string name="rules_battery_90">90% of hoger</string>
+  <string name="rules_battery_70">70% of hoger</string>
   <string name="rules_battery_50">50% of hoger</string>
   <string name="rules_battery_30">30% of hoger</string>
   <string name="rules_battery_20">20% of hoger</string>
@@ -99,6 +105,7 @@
   <string name="settings_about">Over</string>
   <string name="settings_appearance">Weergave</string>
   <string name="settings_general">Algemeen</string>
+  <string name="settings_shortcuts">Snelkoppelingen</string>
   <string name="settings_wake_up">Scherm aan</string>
   <string name="settings_rules">Automatische regels</string>
   <!--Settings titles-->
@@ -109,6 +116,9 @@
   <string name="settings_volume_to_stop">Volume knop om aan te doen</string>
   <string name="settings_swipe_wake">Actie voor omhoog swipen</string>
   <string name="settings_brightness">Helderheid</string>
+  <string name="settings_doze">Doze modus</string>
+  <string name="settings_google_now_shortcut">Sta Google Now toe</string>
+  <string name="settings_memo_text">Tekst memo</string>
   <string name="settings_notifications">Notificaties</string>
   <string name="settings_persistent_notification">Laat aanhoudende melding zien</string>
   <string name="settings_move_auto">Laat de widget automatisch bewegen</string>
@@ -124,6 +134,7 @@
   <string name="settings_stop_delay">Vertraging voor stoppen</string>
   <string name="settings_auto_brightness">Auto Nachtmodus</string>
   <string name="settings_orientation">Schermoriëntatie</string>
+  <string name="settings_always_on_memo">Always On Memo</string>
   <string name="settings_stop_on_camera">Toestaan van camera snelkoppelingen</string>
   <string name="settings_rules_cahrging">Regels opladen</string>
   <string name="settings_rules_battery">Regels voor batterij</string>
@@ -190,6 +201,7 @@
   <string name="settings_watchface_clock_desc">Kies je favoriete klokstijl</string>
   <string name="settings_watch_analog_24_classic">Klassieke 24-uurs Analoog</string>
   <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
+  <string name="settings_watch_ticks">Klassieke 12-uurs klok met indicaties voor elk uur</string>
   <string name="settings_watch_digital_s7">S7 digitale klok stijl (niet aan te passen)</string>
   <string name="settings_watch_flat_analog">Platte analoge stijl</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
@@ -204,8 +216,9 @@
   <string name="settings_notifications_alerts_preview_desc">Laat de inhoud van notificaties zien wanneer deze binnenkomen</string>
   <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
   <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
-  <string name="warning_11_no_root">Apparaat moet geroot zijn om deze functie te gebruiken!</string>
-  <string name="report_sent">Rapport verzonden!</string>
-  <string name="warning_12_please_report">Laat mij alsjeblieft weten wat er in de app verbeterd of toegevoegd moet worden</string>
-  <string name="thanks_short">Dankjewel</string>
+  <string name="settings_doze_desc">Zorg dat doze modus actief wordt staat wanneer het always on scherm aan staat om batterij te besparen (alleen voor root)</string>
+  <string name="settings_memo_text_desc">Schrijf je memo hier</string>
+  <string name="settings_memo_font_size_desc">Stel de grootte van het lettertype van je memo in</string>
+  <string name="settings_memo_hint">Typ je memo tekst hier. Deze zal in je always on scherm laten zien worden.</string>
+  <string name="settings_google_now_shortcut_desc">Laat het always on scherm stoppen wanneer Google Now gelanceerd wordt als er OK Google gezegd wordt (Kan eventueel niet werken met de Google Now Launcher)</string>
 </resources>

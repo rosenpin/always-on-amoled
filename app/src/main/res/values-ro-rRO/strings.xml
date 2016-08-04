@@ -9,6 +9,7 @@
   <string name="menu_feedback">Spune-ne părerea ta</string>
   <string name="menu_rate">Exprimă-ţi părerea</string>
   <string name="agree">Sunt de acord</string>
+  <string name="report_sent">Raport trimis!</string>
   <!--Support-->
   <string name="action_support_the_development">Contribuie la dezvoltarea aplicaţiei</string>
   <string name="support_how_much">Cât de mult ați dori să donați?</string>
@@ -40,6 +41,7 @@
   <string name="thanks_crazy">Îți mulțumesc pentru sprijinul nemaipomenit! :)</string>
   <string name="notification_message">Serviciul „Always on” funcționează.</string>
   <string name="reboot_to_take_affect">Repornește telefonul ca acțiunile să ia efect.</string>
+  <string name="thanks_short">Multumesc</string>
   <!-- Content description-->
   <string name="notification_icon">Icon de notificare</string>
   <!--Widget-->
@@ -68,6 +70,8 @@
   <string name="warning_8_intro_allow_all">Te rog să oferi toate permisiunile!</string>
   <string name="warning_9_allow_notification">Te rog să oferi permisiunile necesare ca aplicația să citească notificările aplicațiilor.</string>
   <string name="warning_10_tts_not_installed">Vă rugăm să instalaţi mai întâi un motor de text în vorbire</string>
+  <string name="warning_11_no_root">Dispozitivul necesita root pentru a folosi aceasta optiune!</string>
+  <string name="warning_12_please_report">Spune-mi ce ai vrea sa adaug/repar</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Ambele, atunci cand se incarca/descarca</string>
   <string name="rules_while_charging">În timpul încărcării</string>
@@ -196,8 +200,4 @@
   <string name="settings_notifications_alerts_preview_desc">Arata continutul notificarii atunci cand este primit</string>
   <string name="settings_notifications_alerts_preview">Continutul notificarii</string>
   <string name="error_IAP">Eroare! Fii sigur ca esti conectat la internet si reporneste aplicatia</string>
-  <string name="warning_11_no_root">Dispozitivul necesita root pentru a folosi aceasta optiune!</string>
-  <string name="report_sent">Raport trimis!</string>
-  <string name="warning_12_please_report">Spune-mi ce ai vrea sa adaug/repar</string>
-  <string name="thanks_short">Multumesc</string>
 </resources>

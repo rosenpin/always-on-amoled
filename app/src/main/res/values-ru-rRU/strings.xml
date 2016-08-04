@@ -67,6 +67,7 @@
   <string name="warning_8_intro_allow_all">Пожалуйста, позвольте все разрешения</string>
   <string name="warning_9_allow_notification">Включите  уведомления для приложения</string>
   <string name="warning_10_tts_not_installed">Пожалуйста, сначала установить модуль преобразования текста в речь</string>
+  <string name="warning_11_no_root">Устройство должно быть с  ROOT чтобы  использовать эту функцию!</string>
   <!--Charging rules-->
   <string name="rules_both_charging">И во время зарядки от сети, и от батареи</string>
   <string name="rules_while_charging">Только во время зарядки</string>
@@ -191,5 +192,4 @@
   <string name="settings_notifications_alerts_preview_desc">Показывать  содержимое уведомления при получение </string>
   <string name="settings_notifications_alerts_preview">Содержание  уведомления </string>
   <string name="error_IAP">Ошибка! Пожалуйста, убедитесь, что вы подключены к Интернету  и перезапустите приложение   </string>
-  <string name="warning_11_no_root">Устройство должно быть с  ROOT чтобы  использовать эту функцию!</string>
 </resources>

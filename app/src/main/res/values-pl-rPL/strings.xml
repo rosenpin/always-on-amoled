@@ -9,6 +9,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Oceń tą aplikacje</string>
   <string name="agree">Akceptuje</string>
+  <string name="report_sent">Uwaga wysłana!</string>
   <!--Support-->
   <string name="action_support_the_development">Wspomórz twórców</string>
   <string name="support_how_much">Jak dużo chcesz przekazać?</string>
@@ -40,6 +41,7 @@
   <string name="thanks_crazy">Dziękujemy za SZALONE wsparcie!!! :)</string>
   <string name="notification_message">Zawsze Włączony Jest Włączone</string>
   <string name="reboot_to_take_affect">Zrestartuj aby zmiany zostały wprowadzone</string>
+  <string name="thanks_short">Dziękujemy</string>
   <!-- Content description-->
   <string name="notification_icon">Ikona powiadomień</string>
   <!--Widget-->
@@ -68,6 +70,8 @@
   <string name="warning_8_intro_allow_all">Prosimy dać dostęp do wszystkich uprawnień</string>
   <string name="warning_9_allow_notification">Prosimy umożliwić aplikacji dostęp do powiadomień</string>
   <string name="warning_10_tts_not_installed">Prosimy zainstalować najpierw silnik \"text to speech\"</string>
+  <string name="warning_11_no_root">Urządzenie musi być zrootowane do używania tej funkcji!</string>
+  <string name="warning_12_please_report">Proszę dać mi znać, co chcesz mnie abym dodał/naprawił</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Zarówno, podczas ładowania i rozładowania</string>
   <string name="rules_while_charging">Podczas ładowania</string>
@@ -195,8 +199,4 @@
   <string name="settings_notifications_alerts_preview_desc">Pokaż zawartość powiadomień po otrzymaniu</string>
   <string name="settings_notifications_alerts_preview">Treść powiadomień</string>
   <string name="error_IAP">Błąd! Upewnij się, że jesteś podłączony do Internetu i uruchom ponownie aplikację</string>
-  <string name="warning_11_no_root">Urządzenie musi być zrootowane do używania tej funkcji!</string>
-  <string name="report_sent">Uwaga wysłana!</string>
-  <string name="warning_12_please_report">Proszę dać mi znać, co chcesz mnie abym dodał/naprawił</string>
-  <string name="thanks_short">Dziękujemy</string>
 </resources>

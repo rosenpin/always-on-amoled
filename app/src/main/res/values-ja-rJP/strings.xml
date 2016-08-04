@@ -67,6 +67,7 @@
   <string name="warning_8_intro_allow_all">すべての権限を許可してください。</string>
   <string name="warning_9_allow_notification">アプリに通知へのアクセスを許可してください</string>
   <string name="warning_10_tts_not_installed">まずテキスト読み上げエンジンをインストールしてください</string>
+  <string name="warning_11_no_root">この機能を使うにはroot化する必要があります</string>
   <!--Charging rules-->
   <string name="rules_both_charging">両方 (充電時と非充電時)</string>
   <string name="rules_while_charging">充電時</string>
@@ -193,5 +194,4 @@
   <string name="settings_notifications_alerts_preview_desc">通知を受信すると通知内容を表示</string>
   <string name="settings_notifications_alerts_preview">通知内容</string>
   <string name="error_IAP">エラー! インターネット接続を確認し、アプリを再起動してください。</string>
-  <string name="warning_11_no_root">この機能を使うにはroot化する必要があります</string>
 </resources>

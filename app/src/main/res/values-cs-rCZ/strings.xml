@@ -67,6 +67,7 @@
   <string name="warning_8_intro_allow_all">Prosím povolte všechna oprávnění</string>
   <string name="warning_9_allow_notification">Dovolte, přístup k oznámením pro tuto aplikaci</string>
   <string name="warning_10_tts_not_installed">Prosím, nainstalujte nejprve modul převodu textu na řeč</string>
+  <string name="warning_11_no_root">Pro použití této funkce musí být vaše zařízení rootlé!</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Obojí, nabíjení a vybíjení</string>
   <string name="rules_while_charging">Při nabíjení</string>
@@ -191,5 +192,4 @@
   <string name="settings_notifications_alerts_preview_desc">Zobrazit obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
   <string name="error_IAP">Došlo k chybě! Prosím ujistěte se, že jste připojeni k Internetu a restartujte aplikaci</string>
-  <string name="warning_11_no_root">Pro použití této funkce musí být vaše zařízení rootlé!</string>
 </resources>

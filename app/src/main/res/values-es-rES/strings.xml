@@ -66,6 +66,7 @@
   <string name="warning_8_intro_allow_all">Por favor activa todos los permisos necesarios para el funcionamiento de la aplicación</string>
   <string name="warning_9_allow_notification">Por favor permite acceso a las notificaciones</string>
   <string name="warning_10_tts_not_installed">Por favor instale primero un conversor de texto a voz</string>
+  <string name="warning_11_no_root">El dispositivo debe tener acceso root para utilizar esta funcion!</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Ambos, mientras el terminal se esta cargando como cuando se esta descargando</string>
   <string name="rules_while_charging">Cuando está cargando</string>
@@ -191,5 +192,4 @@
   <string name="settings_notifications_alerts_preview_desc">Muestra el contenido de las notificaciones recibidas</string>
   <string name="settings_notifications_alerts_preview">Contenido de las notificaciones</string>
   <string name="error_IAP">Error! Por favor asegurate de que estas conectado a internet y reinicia la app</string>
-  <string name="warning_11_no_root">El dispositivo debe tener acceso root para utilizar esta funcion!</string>
 </resources>

@@ -9,6 +9,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Betygsätt appen</string>
   <string name="agree">Godkänn</string>
+  <string name="report_sent">Rapport skickad!</string>
   <string name="action_restart">Starta om nu</string>
   <!--Support-->
   <string name="action_support_the_development">Stödj utvecklaren</string>
@@ -43,6 +44,7 @@
   <string name="thanks_crazy">Tack för ditt GALNA stöd!!! :)</string>
   <string name="notification_message">Always On är igång</string>
   <string name="reboot_to_take_affect">Starta om för att träda i kraft</string>
+  <string name="thanks_short">Tack så mycket</string>
   <!-- Content description-->
   <string name="notification_icon">Aviseringsikon</string>
   <!--Widget-->
@@ -71,6 +73,8 @@
   <string name="warning_8_intro_allow_all">Tillåt alla behörigheter</string>
   <string name="warning_9_allow_notification">Tillåt åtkomst för aviseringar i appen</string>
   <string name="warning_10_tts_not_installed">Installera en text till tal-motor först</string>
+  <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen!</string>
+  <string name="warning_12_please_report">Låt mig veta vad du vill att jag fixar eller vad jag ska lägga till </string>
   <!--Charging rules-->
   <string name="rules_both_charging">Båda, när enheten laddas och laddas ur</string>
   <string name="rules_while_charging">Medan enheten laddas</string>
@@ -204,8 +208,4 @@
   <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
   <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
-  <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen!</string>
-  <string name="report_sent">Rapport skickad!</string>
-  <string name="warning_12_please_report">Låt mig veta vad du vill att jag fixar eller vad jag ska lägga till </string>
-  <string name="thanks_short">Tack så mycket</string>
 </resources>

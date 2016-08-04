@@ -9,6 +9,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Valuta l\'app</string>
   <string name="agree">Sono d\'accordo</string>
+  <string name="report_sent">Report inviato!</string>
   <string name="action_restart">Riavvia ora</string>
   <!--Support-->
   <string name="action_support_the_development">Supporta lo sviluppo</string>
@@ -43,6 +44,7 @@
   <string name="thanks_crazy">Grazie per il tuo ASSURDO supporto!!! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="reboot_to_take_affect">Riavvia per rendere effettive le modifiche</string>
+  <string name="thanks_short">Grazie</string>
   <!-- Content description-->
   <string name="notification_icon">Icona di notifica</string>
   <!--Widget-->
@@ -71,12 +73,16 @@
   <string name="warning_8_intro_allow_all">Per favore consenti tutte le autorizzazioni</string>
   <string name="warning_9_allow_notification">Per favore consenti l\'accesso notifica dell\'app</string>
   <string name="warning_10_tts_not_installed">Si prega di installare prima un motore di sintesi vocale di testo</string>
+  <string name="warning_11_no_root">Il dispositivo deve avere i permessi di root per utilizzare questa funzione!</string>
+  <string name="warning_12_please_report">Per favore fatemi sapere cosa volete che aggiunga / sistemi</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Entrambi, durante la carica e durante la scarica</string>
   <string name="rules_while_charging">Mentre carica</string>
   <string name="rules_while_not_charging">Mentre non ricarica</string>
   <!--Battery rules-->
   <string name="rules_always">Sempre</string>
+  <string name="rules_battery_90">90% o superiore</string>
+  <string name="rules_battery_70">70% o superiore</string>
   <string name="rules_battery_50">50% o superiore</string>
   <string name="rules_battery_30">30% o superiore</string>
   <string name="rules_battery_20">20% o superiore</string>
@@ -99,6 +105,7 @@
   <string name="settings_about">Riguardo</string>
   <string name="settings_appearance">Aspetto</string>
   <string name="settings_general">Generale</string>
+  <string name="settings_shortcuts">Scorciatoie</string>
   <string name="settings_wake_up">Risveglia</string>
   <string name="settings_rules">Regole automatiche</string>
   <!--Settings titles-->
@@ -109,6 +116,8 @@
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
   <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
   <string name="settings_brightness">Luminosità</string>
+  <string name="settings_google_now_shortcut">Consenti Google Now</string>
+  <string name="settings_memo_text">Testo Memo</string>
   <string name="settings_notifications">Notifiche</string>
   <string name="settings_persistent_notification">Mostra notifica persistente</string>
   <string name="settings_move_auto">Muovi automaticamente il widget</string>
@@ -124,6 +133,7 @@
   <string name="settings_stop_delay">Ritardo di arresto</string>
   <string name="settings_auto_brightness">Modalità notte automatica</string>
   <string name="settings_orientation">Orientamento schermo</string>
+  <string name="settings_always_on_memo">Always On Memo</string>
   <string name="settings_stop_on_camera">Permetti collegamento fotocamera</string>
   <string name="settings_rules_cahrging">Regole di carica</string>
   <string name="settings_rules_battery">Regole della batteria</string>
@@ -204,8 +214,8 @@
   <string name="settings_notifications_alerts_preview_desc">Visualizza il contenuto della notifica quando ricevuto</string>
   <string name="settings_notifications_alerts_preview">Contenuto notifica</string>
   <string name="error_IAP">Errore! Si prega di assicurarti di essere connesso ad internet e riavvia l\'applicazione</string>
-  <string name="warning_11_no_root">Il dispositivo deve avere i permessi di root per utilizzare questa funzione!</string>
-  <string name="report_sent">Report inviato!</string>
-  <string name="warning_12_please_report">Per favore fatemi sapere cosa volete che aggiunga / sistemi</string>
-  <string name="thanks_short">Grazie</string>
+  <string name="settings_memo_text_desc">Scrivi qui il tuo memo</string>
+  <string name="settings_memo_font_size_desc">Imposta la dimensione carattere del memo</string>
+  <string name="settings_memo_hint">Digita qui il tuo memo. Esso apparirà nel tuo schermo always on.</string>
+  <string name="settings_google_now_shortcut_desc">Interrompi l\'always on screen quando Google Now viene attivato dicendo OK Google (Potrebbe non funzionare con il Google Now Launcher)</string>
 </resources>

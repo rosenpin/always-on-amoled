@@ -9,6 +9,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Avalie esse aplicativo</string>
   <string name="agree">Aceitar</string>
+  <string name="report_sent">Aviso enviado!</string>
   <string name="action_restart">Reinicie</string>
   <!--Support-->
   <string name="action_support_the_development">Suporte ao desenvolvimento</string>
@@ -43,6 +44,7 @@
   <string name="thanks_crazy">Obrigado pelo seu apoio louco!!! :)</string>
   <string name="notification_message">Always On esta funcionado</string>
   <string name="reboot_to_take_affect">Reinicie para ter efeito</string>
+  <string name="thanks_short">Obrigado</string>
   <!-- Content description-->
   <string name="notification_icon">Ícone de notificação</string>
   <!--Widget-->
@@ -71,6 +73,8 @@
   <string name="warning_8_intro_allow_all">Por favor, permita a todas as permissões</string>
   <string name="warning_9_allow_notification">Por favor, permita o acesso de notificação para o app</string>
   <string name="warning_10_tts_not_installed">Primeiro instale um mecanismo de texto para fala</string>
+  <string name="warning_11_no_root">O dispositivo precisa ter root para esse recurso!</string>
+  <string name="warning_12_please_report">Por favor, deixe eu saber o que você queira adicionar/corrigir</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Ambos, durante o carregamento e descarregamento</string>
   <string name="rules_while_charging">Enquanto está carregando</string>
@@ -204,8 +208,4 @@
   <string name="settings_notifications_alerts_preview_desc">Mostrar o conteúdo das notificações quando recebidas</string>
   <string name="settings_notifications_alerts_preview">Conteúdo das notificações</string>
   <string name="error_IAP">Erro! Verifique se você está conectado na internet e reinicie o aplicativo</string>
-  <string name="warning_11_no_root">O dispositivo precisa ter root para esse recurso!</string>
-  <string name="report_sent">Aviso enviado!</string>
-  <string name="warning_12_please_report">Por favor, deixe eu saber o que você queira adicionar/corrigir</string>
-  <string name="thanks_short">Obrigado</string>
 </resources>

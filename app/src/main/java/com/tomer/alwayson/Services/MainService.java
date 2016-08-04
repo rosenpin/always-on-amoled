@@ -499,9 +499,9 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
         try {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, state ? Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL : originalAutoBrightnessStatus);
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
+            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, state ? 0 : originalAutoBrightnessStatus);
+            Log.d("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : originalBrightness));
         } catch (Exception e) {
             Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
         }
@@ -615,7 +615,6 @@ public class MainService extends Service implements SensorEventListener, Context
                 if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
-                    Log.d("Proximity distance", String.valueOf(event.values[0]));
                     Globals.isShown = false;
                     Globals.sensorIsScreenOff = false;
                     new Thread(new Runnable() {
@@ -652,6 +651,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
+                Log.d("Lights changed", String.valueOf(event.values[0]));
                 setLights(ON, event.values[0] < 2, false);
                 break;
         }

@@ -9,6 +9,7 @@
   <string name="menu_feedback">משוב</string>
   <string name="menu_rate">דרגו את האפליקציה</string>
   <string name="agree">מסכים(מה)</string>
+  <string name="report_sent">דוח נשלח!</string>
   <string name="action_restart">אתחל כעת</string>
   <!--Support-->
   <string name="action_support_the_development">תמיכה בפיתוח</string>
@@ -43,6 +44,7 @@
   <string name="thanks_crazy">תודה עבור תמיכתך המטורפת!!!! :)</string>
   <string name="notification_message">Always On Amoled רץ ברקע</string>
   <string name="reboot_to_take_affect">יש לכבות ולהדליק את המכשיר כדי להחיל פעולה זו</string>
+  <string name="thanks_short">תודה רבה</string>
   <!-- Content description-->
   <string name="notification_icon">אייקון התראה</string>
   <!--Widget-->
@@ -71,6 +73,8 @@
   <string name="warning_8_intro_allow_all">בבקשה לאפשר את כל ההרשאות</string>
   <string name="warning_9_allow_notification">יש לאפשר גישה להתראות עבור האפליקציה</string>
   <string name="warning_10_tts_not_installed">יש להתקין מנוע טקסט לדיבור</string>
+  <string name="warning_11_no_root">אפשרות זו דורשת \"רוט\"</string>
+  <string name="warning_12_please_report">אנא ידעו אותי במה תרצו שאוסיף/אשנה</string>
   <!--Charging rules-->
   <string name="rules_both_charging">גם וגם, כאשר בטעינה וכאשר לא בטעינה.</string>
   <string name="rules_while_charging">במהלך טעינה</string>
@@ -111,6 +115,7 @@
   <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
   <string name="settings_swipe_wake">החלקה מעלה כדי לפתוח</string>
   <string name="settings_brightness">בהירות</string>
+  <string name="settings_doze">חסכון בסוללה</string>
   <string name="settings_notifications">התראות</string>
   <string name="settings_persistent_notification">הצג התראה מקובעת</string>
   <string name="settings_move_auto">הזזת התצוגה באופן אוטומטי</string>
@@ -204,10 +209,5 @@
   <string name="settings_notifications_alerts_preview_desc">הצג את תוכן ההתראות כאשר הן מתקבלות</string>
   <string name="settings_notifications_alerts_preview">תוכן התראות</string>
   <string name="error_IAP">שגיאה! אנא וודאו כי המכשיר מחובר לאינטרנט</string>
-  <string name="warning_11_no_root">אפשרות זו דורשת \"רוט\"</string>
-  <string name="report_sent">דוח נשלח!</string>
-  <string name="warning_12_please_report">אנא ידעו אותי במה תרצו שאוסיף/אשנה</string>
-  <string name="thanks_short">תודה רבה</string>
-  <string name="settings_doze">חסכון בסוללה</string>
   <string name="settings_doze_desc">אפשרו חסכון בסוללה כדי לחסוך סוללה כאשר המסך דולק (דורש רוט)</string>
 </resources>
