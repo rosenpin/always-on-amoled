@@ -24,6 +24,7 @@ import android.provider.Settings;
 import android.provider.Settings.System;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -377,7 +378,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 if (prefs.textSize > 90)
                     prefs.textSize = 90;
                 digitalS7 = (DigitalS7) mainView.findViewById(R.id.s7_digital);
-                digitalS7.init(font, prefs.textSize);
+                digitalS7.init(font, prefs.textSize, prefs.textColor);
                 prefs.dateStyle = DISABLED;
                 prefs.batteryStyle = 1;
                 mainView.removeView(dateWrapper);

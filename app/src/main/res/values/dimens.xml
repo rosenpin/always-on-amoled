@@ -7,5 +7,5 @@
     <dimen name="notification_card_elevation">12dp</dimen>
     <dimen name="medium_spacing">8dp</dimen>
     <dimen name="small_spacing">4dp</dimen>
-    <dimen name="s7_digital_date_max_width">66sp</dimen>
+    <dimen name="s7_digital_date_max_width">48sp</dimen>
 </resources>

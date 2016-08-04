@@ -31,7 +31,7 @@ public class DigitalS7 extends RelativeLayout {
         batteryIV = (ImageView) findViewById(R.id.s7_battery_percentage_icon);
     }
 
-    public void init(Typeface font, float textSize) {
+    public void init(Typeface font, float textSize, int textColor) {
         ((TextView) findViewById(R.id.s7_hour_tv)).setTypeface(font);
         ((TextView) findViewById(R.id.s7_date_tv)).setTypeface(font);
         ((TextView) findViewById(R.id.s7_minute_tv)).setTypeface(font);
@@ -43,6 +43,10 @@ public class DigitalS7 extends RelativeLayout {
         ((TextView) findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 3.5));
         ((TextView) findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 1.2));
         findViewById(R.id.s7_am_pm).setPadding((int) getResources().getDimension(R.dimen.small_spacing), (int) (textSize / 1.7), 0, 0);
+        ((TextView) findViewById(R.id.s7_date_tv)).setMaxWidth((int) (textSize * 2));
+
+        if (textColor != -1)
+            ((TextView) findViewById(R.id.s7_minute_tv)).setTextColor(textColor);
 
         batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 1));
         ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
