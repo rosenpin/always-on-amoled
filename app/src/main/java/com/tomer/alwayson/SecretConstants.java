@@ -17,7 +17,6 @@ public class SecretConstants {
             properties.load(input);
             propertyValue = properties.getProperty(propertyName);
         } catch (IOException e) {
-            // file not found
             propertyValue = "";
         }
         return propertyValue;

@@ -111,10 +111,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 Log.d("Purchased items", String.valueOf(Globals.ownedItems));
                                 return true;
                             } else {
-                                PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                                PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                             }
                         } else {
-                            PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                            PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                         }
                         return false;
                     }
@@ -293,11 +293,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     if (Globals.ownedItems.size() > 0) {
                         return true;
                     } else {
-                        PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                        PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                         return false;
                     }
                 } else {
-                    PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                    PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                 }
             } else {
                 return true;
@@ -432,9 +432,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                         prefs.setString("font", String.valueOf(which));
                                         dialog.dismiss();
                                     } else
-                                        PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                                        PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+
                                 } else {
-                                    PreferencesActivity.promptToSupport(getActivity(), Globals.mService, rootView, true);
+                                    PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                                 }
                             } else {
                                 prefs.setString("font", String.valueOf(which));

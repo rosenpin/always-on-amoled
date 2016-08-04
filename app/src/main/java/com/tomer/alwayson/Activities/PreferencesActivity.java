@@ -8,6 +8,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -46,7 +47,6 @@ import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.StarterService;
-import com.tomer.alwayson.Services.WidgetUpdater;
 import com.tomer.alwayson.SettingsFragment;
 
 import java.util.ArrayList;
@@ -57,8 +57,6 @@ import fr.nicolaspomepuy.discreetapprate.AppRate;
 public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
     Prefs prefs;
     Intent billingServiceIntent;
-    private Intent starterServiceIntent;
-    private Intent widgetUpdaterService;
     private IInAppBillingService mService;
     private ServiceConnection mServiceConn;
     private boolean demo;
@@ -166,6 +164,29 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 ).show();
     }
 
+    public static void quicklyPromptToSupport(final Activity context, final IInAppBillingService mService, final View rootView){
+        String googleIAPCode = SecretConstants.getPropertyValue(context, "googleIAPCode");
+        Bundle buyIntentBundle;
+        PendingIntent pendingIntent = null;
+        String IAPID = SecretConstants.getPropertyValue(context, "IAPID");
+        try {
+            buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
+                    IAPID, "inapp", googleIAPCode);
+            pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+            if (pendingIntent == null)
+                Snackbar.make(rootView, context.getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
+        } catch (RemoteException e) {
+            Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+        try {
+            context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+        } catch (IntentSender.SendIntentException e) {
+            e.printStackTrace();
+            Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
+        }
+    }
+
     public static void uninstall(Context context, Prefs prefs) {
         try {
             ComponentName devAdminReceiver = new ComponentName(context, DAReceiver.class);
@@ -202,8 +223,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
             handlePermissions();
 
-            starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
-            widgetUpdaterService = new Intent(getApplicationContext(), WidgetUpdater.class);
+            Intent starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);
 
             donateButtonSetup();
 

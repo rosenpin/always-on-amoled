@@ -43,7 +43,6 @@ public class CallReceiver extends PhonecallReceiver {
     @Override
     protected void onMissedCall(Context ctx, String number, Date start) {
     }
-
 }
 
 

@@ -60,6 +60,7 @@
     <string name="error_0_unknown_error">An error has occurred. Please report to the developer </string>
     <string name="error_1_no_email_client">There are no email clients installed.</string>
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
+    <string name="error_3_unknown_error_restart">An error has occurred. Please restart the app.</string>
     <!--Warnings-->
     <string name="warning">WARNING</string>
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
