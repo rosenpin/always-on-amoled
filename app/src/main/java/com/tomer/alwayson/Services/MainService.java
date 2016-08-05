@@ -24,7 +24,6 @@ import android.provider.Settings;
 import android.provider.Settings.System;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
-import android.text.util.Linkify;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
@@ -260,7 +259,8 @@ public class MainService extends Service implements SensorEventListener, Context
                     public void run() {
                         //Greenify integration
                         if (!demo)
-                            if (Utils.isPackageInstalled(getApplicationContext(), "com.oasisfeng.greenify")) {
+                            if (Utils.isPackageInstalled(getApplicationContext(), "com.oasisfeng.greenify") && prefs.getBoolByKey("greenify_enabled", false)) {
+                                Log.d(MAIN_SERVICE_LOG_TAG,"Starting Greenify");
                                 Intent i = new Intent();
                                 i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
                                 i.putExtra("noop-toast", true);

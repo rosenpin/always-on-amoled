@@ -124,9 +124,9 @@
             <PreferenceCategory android:title="@string/settings_always_on_memo">
                 <com.tomer.alwayson.Views.EditTextDialog
                     android:dialogTitle="@string/settings_memo_text_desc"
+                    android:hint="@string/settings_memo_hint"
                     android:key="memo_text"
                     android:summary="%s"
-                    android:hint="@string/settings_memo_hint"
                     android:title="@string/settings_memo_text" />
                 <com.tomer.alwayson.Views.SeekBarPreference
                     android:defaultValue="40"
@@ -204,12 +204,12 @@
             android:defaultValue="false"
             android:key="camera_shortcut"
             android:summary="@string/settings_stop_on_camera_desc"
-            android:title="@string/settings_stop_on_camera"/>
+            android:title="@string/settings_stop_on_camera" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="google_now_shortcut"
             android:summary="@string/settings_google_now_shortcut_desc"
-            android:title="@string/settings_google_now_shortcut"/>
+            android:title="@string/settings_google_now_shortcut" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
         <SwitchPreference
@@ -217,6 +217,13 @@
             android:key="doze_mode"
             android:summary="@string/settings_doze_desc"
             android:title="@string/settings_doze" />
+
+        <SwitchPreference
+            android:key="greenify_enabled"
+            android:title="Enable Greenify"
+            android:dependency="greenify">
+
+        </SwitchPreference>
 
         <com.tasomaniac.android.widget.IntegrationPreference
             android:key="greenify"
