@@ -259,7 +259,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     public void run() {
                         //Greenify integration
                         if (!demo)
-                            if (Utils.isPackageInstalled(getApplicationContext(), "com.oasisfeng.greenify") && prefs.getBoolByKey("greenify_enabled", false)) {
+                            if (Utils.isPackageInstalled(getApplicationContext(), "com.oasisfeng.greenify") && prefs.getBoolByKey("greenify_enabled", true)) {
                                 Log.d(MAIN_SERVICE_LOG_TAG,"Starting Greenify");
                                 Intent i = new Intent();
                                 i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));

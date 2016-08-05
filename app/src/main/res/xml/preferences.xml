@@ -219,9 +219,10 @@
             android:title="@string/settings_doze" />
 
         <SwitchPreference
+            android:defaultValue="true"
+            android:dependency="greenify"
             android:key="greenify_enabled"
-            android:title="Enable Greenify"
-            android:dependency="greenify">
+            android:title="Enable Greenify">
 
         </SwitchPreference>
 
