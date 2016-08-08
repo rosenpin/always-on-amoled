@@ -70,10 +70,11 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
 
     public void destroy() {
         toStopTTS = true;
-        sayCurrentStatus();
         context.unregisterReceiver(batteryReceiver);
-        tts.stop();
-        tts.shutdown();
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
         tts = null;
     }
 }

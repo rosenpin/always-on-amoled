@@ -39,8 +39,13 @@ public interface ContextConstatns {
     String VOLUME_KEYS = "volume_keys";
     String BACK_BUTTON = "back_button";
 
+    String ACTION_OFF_GESTURE = "off";
+    String ACTION_SPEAK = "speak";
+    String ACTION_UNLOCK = "unlock";
+
     int PROXIMITY_NORMAL_MODE = 3;
     int PROXIMITY_DEVICE_ADMIN_MODE = 2;
+
     int DISABLED = 0;
     int MOVE_NO_ANIMATION = 1;
     int MOVE_WITH_ANIMATION = 2;

@@ -12,30 +12,36 @@ public class Prefs {
     public boolean doubleTapToStop, swipeToStop, volumeToStop, backButtonToStop;
     public boolean proximityToLock;
     public boolean showNotification;
-    public int moveWidget;
+    public boolean stopOnCamera;
+    public boolean dozeMode;
+    public boolean stopOnGoogleNow;
+    public boolean autoNightMode;
     public boolean disableVolumeKeys;
     public boolean notificationsAlerts;
-    public int clockStyle, dateStyle, batteryStyle;
     public boolean permissionGranting;
     public boolean showAmPm;
-    public float textSize;
+    public boolean startAfterLock;
+    public boolean notificationPreview;
+    public boolean hasSoftKeys;
+
+    public int clockStyle, dateStyle, batteryStyle;
     public int textColor;
     public int brightness;
     public int stopDelay;
-    public String rules;
-    public String orientation;
-    public boolean stopOnCamera;
-    public boolean stopOnGoogleNow;
-    public boolean autoNightMode;
+    public int moveWidget;
     public int batteryRules;
-    public boolean startAfterLock;
     public int font;
     public int memoTextSize;
-    public boolean notificationPreview;
-    public boolean hasSoftKeys;
-    Context context;
-    private SharedPreferences prefs;
+
+    public float textSize;
+
+    public String rules;
+    public String orientation;
     public String memoText;
+
+    private Context context;
+    private SharedPreferences prefs;
+
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -61,6 +67,7 @@ public class Prefs {
         } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
+        dozeMode = prefs.getBoolean(KEYS.DOZE_MODE.toString(), false);
         memoText = prefs.getString(KEYS.MEMO_TEXT.toString(), "");
         memoTextSize = prefs.getInt("memo_font_size", 40);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
@@ -130,8 +137,7 @@ public class Prefs {
         StringBuilder string = new StringBuilder();
         string.append("Prefs");
         for (Map.Entry<String, ?> entry : keys.entrySet()) {
-            string.append(entry.getKey() + ": " +
-                    entry.getValue().toString() + "\n");
+            string.append(entry.getKey()).append(": ").append(entry.getValue().toString()).append("\n");
         }
         return string.toString();
     }
@@ -182,7 +188,8 @@ public class Prefs {
         FONT("font"),
         START_AFTER_LOCK("startafterlock"),
         NOTIFICATION_PREVIEW("notifications_alerts_preview"),
-        MEMO_TEXT("memo_text");
+        MEMO_TEXT("memo_text"),
+        DOZE_MODE("doze_mode");
 
         private final String id;
 

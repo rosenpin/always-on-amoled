@@ -17,7 +17,12 @@
 
     <include layout="@layout/notifications" />
 
-    <include layout="@layout/memo"/>
+    <include layout="@layout/memo" />
 
-    <include layout="@layout/message_box" />
+    <com.tomer.alwayson.Views.MessageBox
+        android:id="@+id/notifications_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.tomer.alwayson.Views.MessageBox>
 </LinearLayout>

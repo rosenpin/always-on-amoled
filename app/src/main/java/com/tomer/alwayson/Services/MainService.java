@@ -2,13 +2,11 @@ package com.tomer.alwayson.Services;
 
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
@@ -22,11 +20,9 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -35,27 +31,24 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Helpers.CurrentAppResolver;
 import com.tomer.alwayson.Helpers.DozeManager;
+import com.tomer.alwayson.Helpers.GreenifyStarter;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Helpers.SamsungHelper;
 import com.tomer.alwayson.Helpers.TTS;
-import com.tomer.alwayson.Helpers.Utils;
+import com.tomer.alwayson.Helpers.ViewUtils;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.BatteryReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
@@ -63,9 +56,9 @@ import com.tomer.alwayson.Receivers.UnlockReceiver;
 import com.tomer.alwayson.Views.DigitalS7;
 import com.tomer.alwayson.Views.FontAdapter;
 import com.tomer.alwayson.Views.IconsWrapper;
+import com.tomer.alwayson.Views.MessageBox;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
-import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
@@ -76,10 +69,10 @@ public class MainService extends Service implements SensorEventListener, Context
     private boolean refreshing;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
-    private int height, width;
     private BatteryReceiver batteryReceiver;
     private SamsungHelper samsungHelper;
     private DozeManager dozeManager;
+    private MessageBox notificationsMessageBox;
     private TTS tts;
     private DigitalS7 digitalS7;
     private Prefs prefs;
@@ -105,18 +98,18 @@ public class MainService extends Service implements SensorEventListener, Context
                 windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             } else
                 windowParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-            if (prefs.orientation.equals("horizontal"))//Setting screen orientation if horizontal
+            if (prefs.orientation.equals("horizontal"))
+                //Setting screen orientation if horizontal
                 windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-            try {
-                windowManager.addView(frameLayout, windowParams);
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
+                if (!Settings.canDrawOverlays(this)) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    return super.onStartCommand(origIntent, flags, startId);
                 }
-            }
+
+            windowManager.addView(frameLayout, windowParams);
         }
         return super.onStartCommand(origIntent, flags, startId);
     }
@@ -169,11 +162,11 @@ public class MainService extends Service implements SensorEventListener, Context
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
-        mainView = (LinearLayout) (layoutInflater.inflate(prefs.orientation.equals("vertical") ? R.layout.clock_widget : R.layout.clock_widget_horizontal, frameLayout).findViewById(R.id.watchface_wrapper));
+        mainView = (LinearLayout) (layoutInflater.inflate(R.layout.clock_widget, frameLayout).findViewById(R.id.watchface_wrapper));
         setUpElements();
 
         FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-        mainLayoutParams.gravity = prefs.moveWidget == DISABLED ? Gravity.CENTER : Gravity.CENTER_HORIZONTAL;
+        mainLayoutParams.gravity = Gravity.CENTER;
 
         mainView.setLayoutParams(mainLayoutParams);
         iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
@@ -181,14 +174,14 @@ public class MainService extends Service implements SensorEventListener, Context
         unlockReceiver = new UnlockReceiver();
         IntentFilter intentFilter = new IntentFilter();
 
+        notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
+        notificationsMessageBox.init(prefs.orientation.equals("horizontal"));
+
         //Adding the intent from the pre-defined array filters
         for (String filter : Constants.unlockFilters) {
             intentFilter.addAction(filter);
         }
-        try {
-            unregisterReceiver(unlockReceiver);
-        } catch (Exception ignored) {
-        }
+        unregisterUnlockReceiver();
         registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
@@ -236,13 +229,6 @@ public class MainService extends Service implements SensorEventListener, Context
             }, delayInMilliseconds);
         }
 
-        //Finding height and width of screen to later move the display
-        Display display = windowManager.getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        height = prefs.orientation.equals("vertical") ? size.y : size.x;
-        width = prefs.orientation.equals("vertical") ? size.x : size.y;
-
         // UI refreshing
         Globals.notificationChanged = true; //Show notifications at first launch
         if (prefs.notificationsAlerts)
@@ -258,15 +244,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 new Runnable() {
                     public void run() {
                         //Greenify integration
-                        if (!demo)
-                            if (Utils.isPackageInstalled(getApplicationContext(), "com.oasisfeng.greenify") && prefs.getBoolByKey("greenify_enabled", true)) {
-                                Log.d(MAIN_SERVICE_LOG_TAG,"Starting Greenify");
-                                Intent i = new Intent();
-                                i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
-                                i.putExtra("noop-toast", true);
-                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(i);
-                            }
+                        new GreenifyStarter(getApplicationContext()).start(prefs.getBoolByKey("greenify_enabled", true) && !demo);
                         //Turn on the display
                         if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     }
@@ -274,11 +252,12 @@ public class MainService extends Service implements SensorEventListener, Context
                 500);
 
         //Initializing Doze
-        if (prefs.getBoolByKey("doze_mode", false)) {
+        if (prefs.dozeMode) {
             dozeManager = new DozeManager(this);
             dozeManager.enterDoze();
         }
 
+        //Start the current app resolver and stop the service accordingly
         currentAppResolver = new CurrentAppResolver(this, new int[]{prefs.stopOnCamera ? CurrentAppResolver.CAMERA : 0, prefs.stopOnGoogleNow ? CurrentAppResolver.GOOGLE_NOW : 0});
         currentAppResolver.executeForCurrentApp(new Runnable() {
             @Override
@@ -294,6 +273,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         });
 
+        //Initialize the TTS engine
         tts = new TTS(this);
 
         //Samsung stuff
@@ -446,8 +426,15 @@ public class MainService extends Service implements SensorEventListener, Context
     private void refresh() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
         iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor);
-        if (Globals.newNotification != null && prefs.notificationPreview)
-            showMessage(Globals.newNotification);
+        if (Globals.newNotification != null && prefs.notificationPreview) {
+            notificationsMessageBox.showNotification(Globals.newNotification);
+            notificationsMessageBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    stopSelf();
+                }
+            });
+        }
         if (analog24HClock != null)
             analog24HClock.setTime(Calendar.getInstance());
         if (prefs.clockStyle == S7_DIGITAL)
@@ -466,27 +453,19 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (!first) {
-            switch (prefs.moveWidget) {
-                case MOVE_NO_ANIMATION:
-                    if (prefs.orientation.equals("vertical"))
-                        mainView.setY((float) (height - Utils.randInt(height / 2.1, height)));
-                    else
-                        mainView.setX((float) (width - Utils.randInt(width / 1.3, width * 1.3)));
-                    break;
-                case MOVE_WITH_ANIMATION:
-                    if (prefs.orientation.equals("vertical"))
-                        mainView.animate().translationY((float) (height - Utils.randInt(height / 2.1, height * 0.9))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
-                    else
-                        mainView.animate().translationX((float) (width - Utils.randInt(width / 1.3, width * 1.3))).setDuration(2000).setInterpolator(new FastOutSlowInInterpolator());
-                    break;
-            }
-        }
-        String monthAndDayText = DateUtils.formatDateTime(this, Calendar.getInstance().getTime().getTime(), DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_YEAR | DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_ABBREV_WEEKDAY);
+        if (!first)
+            if (prefs.moveWidget != DISABLED)
+                ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation);
+        String monthAndDayText = DateUtils.formatDateTime(this, Calendar.getInstance().getTime().getTime(),
+                DateUtils.FORMAT_SHOW_DATE
+                        | DateUtils.FORMAT_NO_YEAR
+                        | DateUtils.FORMAT_SHOW_WEEKDAY
+                        | DateUtils.FORMAT_ABBREV_MONTH
+                        | DateUtils.FORMAT_ABBREV_WEEKDAY);
         if (prefs.dateStyle != DISABLED)
             calendarTV.setText(monthAndDayText);
         if (prefs.clockStyle == S7_DIGITAL)
-            digitalS7.updateDate(monthAndDayText);
+            digitalS7.setDate(monthAndDayText);
 
         new Handler().postDelayed(
                 new Runnable() {
@@ -499,66 +478,37 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
-        try {
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, state ? 0 : originalAutoBrightnessStatus);
-            Log.d("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : originalBrightness));
-        } catch (Exception e) {
-            Toast.makeText(MainService.this, getString(R.string.warning_3_allow_system_modification), Toast.LENGTH_SHORT).show();
-        }
-
-        if (state && mainView != null) {
-            AlphaAnimation old = (AlphaAnimation) mainView.getAnimation();
-            if (old != null && first) {
-                mainView.clearAnimation();
-                // Finish old animation
-                try {
-                    Field f = old.getClass().getField("mToAlpha");
-                    f.setAccessible(true);
-                    mainView.setAlpha(f.getFloat(old));
-                } catch (NoSuchFieldException | IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (first && state) {
+            Log.d(MAIN_SERVICE_LOG_TAG, "Display turned on");
+            mainView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+        } else if (state) {
             boolean opaque = mainView.getAlpha() == 1f;
             if (nightMode && opaque) {
                 AlphaAnimation alpha = new AlphaAnimation(1f, NIGHT_MODE_ALPHA);
-                alpha.setDuration(400);
+                alpha.setDuration(android.R.integer.config_longAnimTime);
                 mainView.startAnimation(alpha);
             } else if (!nightMode && !opaque) {
                 AlphaAnimation alpha = new AlphaAnimation(NIGHT_MODE_ALPHA, 1f);
-                alpha.setDuration(400);
+                alpha.setDuration(android.R.integer.config_longAnimTime);
                 mainView.startAnimation(alpha);
             }
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            if (!System.canWrite(this)) {
+                Log.d(MAIN_SERVICE_LOG_TAG, "Can't modify system settings");
+                return;
+            }
+        System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
+        System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, state ? 0 : originalAutoBrightnessStatus);
+        Log.d("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : originalBrightness));
     }
 
-    private void showMessage(final NotificationListener.NotificationHolder notification) {
-        if (!notification.getTitle().equals("null")) {
-            //Clear previous animation
-            if (mainView.findViewById(R.id.message_box).getAnimation() != null)
-                mainView.findViewById(R.id.message_box).clearAnimation();
-            //Fade in animation
-            Animation fadeIn = new AlphaAnimation(0, 1);
-            fadeIn.setInterpolator(new DecelerateInterpolator());
-            fadeIn.setDuration(1000);
-            //Fade out animation
-            Animation fadeOut = new AlphaAnimation(1, 0);
-            fadeOut.setInterpolator(new AccelerateInterpolator());
-            fadeOut.setStartOffset(40000);
-            fadeOut.setDuration(1000);
-            //Set the notification text and icon
-            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_title)).setText(notification.getTitle());
-            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_message)).setText(notification.getMessage());
-            ((ImageView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
-            ((TextView) mainView.findViewById(R.id.message_box).findViewById(R.id.message_app_name)).setText(notification.getAppName());
-
-            Globals.newNotification = null;
-            //Run animations
-            AnimationSet animation = new AnimationSet(false);
-            animation.addAnimation(fadeIn);
-            animation.addAnimation(fadeOut);
-            mainView.findViewById(R.id.message_box).setAnimation(animation);
+    private void unregisterUnlockReceiver() {
+        try {
+            unregisterReceiver(unlockReceiver);
+        } catch (IllegalArgumentException ignored) {
+            Log.d(MAIN_SERVICE_LOG_TAG, "Unlock receiver was not registered");
         }
     }
 
@@ -576,24 +526,22 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.release();
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())
             proximityToTurnOff.release();
-        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         //Stopping tts
         tts.destroy();
         tts = null;
         //Unregister receivers
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
-        unregisterReceiver(unlockReceiver);
+        unregisterUnlockReceiver();
         if (prefs.batteryStyle != 0)
             unregisterReceiver(batteryReceiver);
 
         samsungHelper.setButtonsLight(ON);
         setLights(OFF, false, false);
-        try {
+
+        if (frameLayout.getWindowToken() != null)
             windowManager.removeView(frameLayout);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), getString(R.string.error_0_unknown_error), Toast.LENGTH_SHORT).show();
-        }
+
         Globals.isShown = false;
         Globals.isServiceRunning = false;
         new Handler().postDelayed(new Runnable() {
@@ -602,11 +550,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 Globals.killedByDelay = false;
             }
         }, 15000);
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
     }
 
     @Override
@@ -708,7 +652,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             stopSelf();
                             return true;
                         }
-                        if (prefs.getStringByKey(SWIPE_UP, "off").equals("speak")) {
+                        if (prefs.getStringByKey(SWIPE_UP, ACTION_OFF_GESTURE).equals(ACTION_SPEAK)) {
                             tts.sayCurrentStatus();
                             return true;
                         }
@@ -720,12 +664,12 @@ public class MainService extends Service implements SensorEventListener, Context
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "Double tap" + prefs.getStringByKey(DOUBLE_TAP, ""));
+                Log.d(MAIN_SERVICE_LOG_TAG, "Double tap" + prefs.getStringByKey(DOUBLE_TAP, ACTION_SPEAK));
                 if (prefs.doubleTapToStop) {
                     stopSelf();
                     return true;
                 }
-                if (prefs.getStringByKey(DOUBLE_TAP, "unlock").equals("speak")) {
+                if (prefs.getStringByKey(DOUBLE_TAP, ACTION_UNLOCK).equals(ACTION_SPEAK)) {
                     tts.sayCurrentStatus();
                     return true;
                 }
@@ -738,5 +682,10 @@ public class MainService extends Service implements SensorEventListener, Context
                 return e.getX() > width / 4 && e.getX() < width * 3 / 4 && e.getY() > height / 2.5 && e.getY() < height * 4 / 5;
             }
         }
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }

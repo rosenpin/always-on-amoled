@@ -29,7 +29,7 @@
             android:id="@+id/message_top_wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:gravity="left|center_vertical"
             android:orientation="horizontal">
 
             <ImageView
@@ -47,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:text=""
                 android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -59,7 +58,8 @@
             android:layout_below="@+id/message_top_wrapper"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="left|center_vertical">
 
             <TextView
                 android:id="@+id/message_box_title"

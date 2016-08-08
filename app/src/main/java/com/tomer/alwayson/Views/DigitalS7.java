@@ -2,6 +2,7 @@ package com.tomer.alwayson.Views;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -71,7 +72,7 @@ public class DigitalS7 extends RelativeLayout {
         }
     }
 
-    public void updateDate(String date) {
+    public void setDate(String date) {
         ((TextView) findViewById(R.id.s7_date_tv)).setText(date);
     }
 
