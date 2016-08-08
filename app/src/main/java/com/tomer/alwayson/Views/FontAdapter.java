@@ -7,22 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
-
-import com.tomer.alwayson.Helpers.Prefs;
+import android.widget.CheckedTextView;
 
 
 public class FontAdapter extends BaseAdapter {
 
-    String[] items;
-    Context context;
-    Prefs prefs;
+    private String[] items;
+    private Context context;
 
     public FontAdapter(Context context, int items) {
         this.context = context;
         this.items = context.getResources().getStringArray(items);
-        prefs = new Prefs(context);
-        prefs.apply();
     }
 
     public static Typeface getFontByNumber(Context context, int number) {
@@ -107,14 +102,13 @@ public class FontAdapter extends BaseAdapter {
         View view = convertView;
         Typeface font = getFontByNumber(context, position);
         if (view == null) {
-            final LayoutInflater inflater = (LayoutInflater)
-                    context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            final LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(android.R.layout.select_dialog_singlechoice, parent, false);
         }
-
-        ((TextView) view.findViewById(android.R.id.text1)).setText(items[position]);
-        ((TextView) view.findViewById(android.R.id.text1)).setTypeface(font);
-        ((TextView) view.findViewById(android.R.id.text1)).setTextColor(Color.WHITE);
+        CheckedTextView item = (CheckedTextView) view.findViewById(android.R.id.text1);
+        item.setText(items[position]);
+        item.setTypeface(font);
+        item.setTextColor(Color.WHITE);
         return view;
     }
 }

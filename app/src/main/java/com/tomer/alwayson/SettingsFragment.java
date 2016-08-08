@@ -30,6 +30,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.Toast;
 
