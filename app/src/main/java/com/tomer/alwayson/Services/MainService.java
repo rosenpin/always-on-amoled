@@ -20,7 +20,6 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -48,11 +47,13 @@ import com.tomer.alwayson.Helpers.GreenifyStarter;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Helpers.SamsungHelper;
 import com.tomer.alwayson.Helpers.TTS;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.Helpers.ViewUtils;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.BatteryReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
+import com.tomer.alwayson.Views.DateView;
 import com.tomer.alwayson.Views.DigitalS7;
 import com.tomer.alwayson.Views.FontAdapter;
 import com.tomer.alwayson.Views.IconsWrapper;
@@ -75,8 +76,8 @@ public class MainService extends Service implements SensorEventListener, Context
     private MessageBox notificationsMessageBox;
     private TTS tts;
     private DigitalS7 digitalS7;
+    private DateView dateView;
     private Prefs prefs;
-    private TextView calendarTV;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
     private LinearLayout mainView;
@@ -139,18 +140,21 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
-                    if (prefs.getStringByKey(VOLUME_KEYS, "off").equals("speak")) {
-                        tts.sayCurrentStatus();
-                        return true;
-                    } else if (prefs.volumeToStop) {
-                        stopSelf();
-                        return true;
-                    } else return prefs.disableVolumeKeys;
+                    switch (prefs.volumeButtonsAction) {
+                        case ACTION_SPEAK:
+                            tts.sayCurrentStatus();
+                            return true;
+                        case ACTION_UNLOCK:
+                            stopSelf();
+                            return true;
+                        default:
+                            return prefs.disableVolumeKeys;
+                    }
                 }
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-                    if (prefs.backButtonToStop)
+                    if (prefs.backButtonAction.equals(ACTION_UNLOCK))
                         stopSelf();
-                    if (prefs.getStringByKey(BACK_BUTTON, "off").equals("speak")) {
+                    else if (prefs.backButtonAction.equals(ACTION_SPEAK)) {
                         tts.sayCurrentStatus();
                     }
                     return false;
@@ -158,11 +162,12 @@ public class MainService extends Service implements SensorEventListener, Context
                 return super.dispatchKeyEvent(event);
             }
         };
-        if (!prefs.getStringByKey(DOUBLE_TAP, "off").equals("off") || !prefs.getStringByKey(SWIPE_UP, "off").equals("off"))
+        if (!prefs.doubleTapAction.equals(ACTION_OFF_GESTURE) || !prefs.swipeAction.equals(ACTION_OFF_GESTURE))
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = (LinearLayout) (layoutInflater.inflate(R.layout.clock_widget, frameLayout).findViewById(R.id.watchface_wrapper));
+        dateView = (DateView) mainView.findViewById(R.id.date);
         setUpElements();
 
         FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -175,7 +180,7 @@ public class MainService extends Service implements SensorEventListener, Context
         IntentFilter intentFilter = new IntentFilter();
 
         notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
-        notificationsMessageBox.init(prefs.orientation.equals("horizontal"));
+        notificationsMessageBox.init(prefs.orientation.equals(HORIZONTAL));
 
         //Adding the intent from the pre-defined array filters
         for (String filter : Constants.unlockFilters) {
@@ -244,7 +249,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 new Runnable() {
                     public void run() {
                         //Greenify integration
-                        new GreenifyStarter(getApplicationContext()).start(prefs.getBoolByKey("greenify_enabled", true) && !demo);
+                        new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
                         //Turn on the display
                         if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     }
@@ -297,7 +302,6 @@ public class MainService extends Service implements SensorEventListener, Context
         LinearLayout dateWrapper = (LinearLayout) mainView.findViewById(R.id.date_wrapper);
         LinearLayout batteryWrapper = (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper);
         LinearLayout clockWrapper = (LinearLayout) mainView.findViewById(R.id.clock_wrapper);
-        calendarTV = (TextView) dateWrapper.findViewById(R.id.date_tv);
         ImageView batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
         TextView batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
         ViewGroup.LayoutParams lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
@@ -402,16 +406,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
-        switch (prefs.dateStyle) {
-            case DISABLED:
-                mainView.removeView(dateWrapper);
-                break;
-            case 1:
-                calendarTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.textSize / 5));
-                calendarTV.setTextColor(prefs.textColor);
-                calendarTV.setTypeface(font);
-                break;
-        }
+        dateView.setDateStyle(prefs.dateStyle, prefs.textSize, prefs.textColor, font);
         TextView memoTV = (TextView) mainView.findViewById(R.id.memo_tv);
         if (!prefs.memoText.isEmpty()) {
             memoTV.setText(prefs.memoText);
@@ -453,17 +448,10 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (!first)
-            if (prefs.moveWidget != DISABLED)
-                ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation);
-        String monthAndDayText = DateUtils.formatDateTime(this, Calendar.getInstance().getTime().getTime(),
-                DateUtils.FORMAT_SHOW_DATE
-                        | DateUtils.FORMAT_NO_YEAR
-                        | DateUtils.FORMAT_SHOW_WEEKDAY
-                        | DateUtils.FORMAT_ABBREV_MONTH
-                        | DateUtils.FORMAT_ABBREV_WEEKDAY);
-        if (prefs.dateStyle != DISABLED)
-            calendarTV.setText(monthAndDayText);
+        if (!first && prefs.moveWidget != DISABLED)
+            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation);
+        String monthAndDayText = Utils.getDateText(this);
+        dateView.update(monthAndDayText);
         if (prefs.clockStyle == S7_DIGITAL)
             digitalS7.setDate(monthAndDayText);
 
@@ -648,11 +636,11 @@ public class MainService extends Service implements SensorEventListener, Context
                         Log.d(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
                     } else {
                         Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
-                        if (prefs.swipeToStop) {
+                        if (prefs.swipeAction.equals(ACTION_UNLOCK)) {
                             stopSelf();
                             return true;
                         }
-                        if (prefs.getStringByKey(SWIPE_UP, ACTION_OFF_GESTURE).equals(ACTION_SPEAK)) {
+                        if (prefs.swipeAction.equals(ACTION_SPEAK)) {
                             tts.sayCurrentStatus();
                             return true;
                         }
@@ -664,12 +652,11 @@ public class MainService extends Service implements SensorEventListener, Context
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "Double tap" + prefs.getStringByKey(DOUBLE_TAP, ACTION_SPEAK));
-                if (prefs.doubleTapToStop) {
+                if (prefs.doubleTapAction.equals(ACTION_UNLOCK)) {
                     stopSelf();
                     return true;
                 }
-                if (prefs.getStringByKey(DOUBLE_TAP, ACTION_UNLOCK).equals(ACTION_SPEAK)) {
+                if (prefs.doubleTapAction.equals(ACTION_SPEAK)) {
                     tts.sayCurrentStatus();
                     return true;
                 }

@@ -56,12 +56,12 @@ public class CurrentAppResolver {
     }
 
     String getActivePackagesCompat() {
-        final List<ActivityManager.RunningTaskInfo> taskInfo = activityManager.getRunningTasks(1);
-        final ComponentName componentName = taskInfo.get(0).topActivity;
+        List<ActivityManager.RunningTaskInfo> taskInfo = activityManager.getRunningTasks(1);
+        ComponentName componentName = taskInfo.get(0).topActivity;
         return componentName.getPackageName();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     String getActivePackages() {
         UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
         long time = System.currentTimeMillis();

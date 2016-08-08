@@ -15,9 +15,6 @@ import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
 
-/**
- * Created by tomer AKA rosenpin on 6/13/16.
- */
 public class WidgetUpdater extends Service implements ContextConstatns {
 
     @Nullable

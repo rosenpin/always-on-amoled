@@ -8,13 +8,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.tomer.alwayson.ContextConstatns;
+
 import java.util.List;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class DozeManager {
-
-    private static final String TAG = DozeManager.class.getSimpleName();
+public class DozeManager implements ContextConstatns{
 
     public DozeManager(Context context) {
         if (!isDumpPermissionGranted(context))
@@ -26,14 +26,14 @@ public class DozeManager {
 
     public void enterDoze() {
         if (!getDeviceIdleState().equals("IDLE")) {
-            Log.i(TAG, "Entering Doze");
+            Log.i(DOZE_MANAGER, "Entering Doze");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 executeCommand("dumpsys deviceidle force-idle deep");
             } else {
                 executeCommand("dumpsys deviceidle force-idle");
             }
         } else {
-            Log.i(TAG, "enterDoze() received but skipping because device is already Dozing");
+            Log.i(DOZE_MANAGER, "enterDoze() received but skipping because device is already Dozing");
         }
     }
 
@@ -51,7 +51,7 @@ public class DozeManager {
             public void run() {
                 List<String> output = Shell.SH.run(command);
                 if (output == null)
-                    Log.i(TAG, "Error occurred while executing command (" + command + ")");
+                    Log.i(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
             }
         });
     }

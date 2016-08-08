@@ -64,7 +64,7 @@
     </string-array>
 
     <string-array name="customize_clock">
-        <item>@string/customize_hidden</item>
+        <item>@string/settings_customize_hidden</item>
         <item>@string/settings_watch_digital</item>
         <item>@string/settings_watch_analog</item>
         <item>@string/settings_watch_digital_s7</item>
@@ -89,16 +89,18 @@
     </string-array>
 
     <string-array name="customize_date">
-        <item>@string/customize_hidden</item>
+        <item>@string/settings_customize_hidden</item>
         <item>@string/settings_rules_text</item>
+        <item>@string/settings_date_full_calendar</item>
     </string-array>
     <string-array name="customize_date_vals">
         <item>0</item>
         <item>1</item>
+        <item>2</item>
     </string-array>
 
     <string-array name="customize_battery">
-        <item>@string/customize_hidden</item>
+        <item>@string/settings_customize_hidden</item>
         <item>@string/settings_enabled</item>
     </string-array>
     <string-array name="customize_battery_vals">
@@ -182,5 +184,4 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    <string name="customize_hidden">Hidden</string>
 </resources>

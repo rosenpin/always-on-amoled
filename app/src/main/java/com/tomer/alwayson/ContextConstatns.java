@@ -3,6 +3,8 @@ package com.tomer.alwayson;
 import android.service.notification.NotificationListenerService;
 
 import com.tomer.alwayson.Activities.PreferencesActivity;
+import com.tomer.alwayson.Helpers.DozeManager;
+import com.tomer.alwayson.Helpers.GreenifyStarter;
 import com.tomer.alwayson.Receivers.BootReceiver;
 import com.tomer.alwayson.Receivers.ChargeChangeReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
@@ -18,18 +20,17 @@ public interface ContextConstatns {
     float NIGHT_MODE_ALPHA = 0.3f;
 
     //TAGS
+    String WAKE_LOCK_TAG = "StayAwakeWakeLock";
     String MAIN_SERVICE_LOG_TAG = MainService.class.getSimpleName();
     String MAIN_ACTIVITY_LOG_TAG = PreferencesActivity.class.getSimpleName();
-    String WAKE_LOCK_TAG = "StayAwakeWakeLock";
-
+    String GREENIFY_STARTER = GreenifyStarter.class.getSimpleName();
     String NOTIFICATION_LISTENER_TAG = NotificationListenerService.class.getSimpleName();
-
     String UNLOCK_RECEIVER_TAG = UnlockReceiver.class.getSimpleName();
     String WIDGET_UPDATER_TAG = WidgetUpdater.class.getSimpleName();
-
     String CHARGER_RECEIVER_LOG_TAG = ChargeChangeReceiver.class.getSimpleName();
     String SCREEN_RECEIVER_LOG_TAG = ScreenReceiver.class.getSimpleName();
     String BOOT_RECEIVER = BootReceiver.class.getSimpleName();
+    String DOZE_MANAGER = DozeManager.class.getSimpleName();
 
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
     int DEVICE_ADMIN_REQUEST_CODE = 4;
@@ -43,8 +44,14 @@ public interface ContextConstatns {
     String ACTION_SPEAK = "speak";
     String ACTION_UNLOCK = "unlock";
 
+    String HORIZONTAL = "horizontal";
+    String VERTICAL = "vertical";
+
     int PROXIMITY_NORMAL_MODE = 3;
     int PROXIMITY_DEVICE_ADMIN_MODE = 2;
+
+    int DATE_TEXT = 1;
+    int DATE_VIEW = 2;
 
     int DISABLED = 0;
     int MOVE_NO_ANIMATION = 1;

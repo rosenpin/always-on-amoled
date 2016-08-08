@@ -188,6 +188,8 @@
     <string name="settings_watch_digital">Digital</string>
     <string name="settings_watch_analog">Analog</string>
     <string name="settings_rules_text">Text</string>
+    <string name="settings_customize_hidden">Hidden</string>
+    <string name="settings_date_full_calendar">Full calendar</string>
     <string name="settings_font_default">Default</string>
     <string name="settings_font_default_bold">Default bold</string>
     <string name="settings_font_default_italic">Default italic</string>
