@@ -52,6 +52,7 @@
   <string name="plugin_dialog_title">Je vyžadován plugin</string>
   <string name="plugin_dialog_desc">Vypadá to, že zařízení má hardwarová tlačítka, aby jste je mohli vypnout, když je služba spuštěna, prosím, nainstalujte plugin.</string>
   <!--Errors-->
+  <string name="error_IAP">Došlo k chybě! Prosím ujistěte se, že jste připojeni k Internetu a restartujte aplikaci</string>
   <string name="error_0_unknown_error">Došlo k chybě. Prosím nahlaste ji vývojáři </string>
   <string name="error_1_no_email_client">Nemáte nainstalovaný žádné emailové klienty.</string>
   <string name="error_2_plugin_not_installed">NENÍ NAINSTALOVÁN PLUGIN</string>
@@ -121,10 +122,13 @@
   <string name="settings_stop_on_camera">Zapnout zkratky fotoaparátu</string>
   <string name="settings_rules_cahrging">Pravidla pro nabíjení</string>
   <string name="settings_rules_battery">Pravidla pro baterii</string>
+  <string name="settings_font">Písmo</string>
   <string name="settings_translate">Přeložit</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Komunita</string>
+  <string name="greenify_integration">Greenify integrace</string>
   <string name="settings_licenses">Licence</string>
+  <string name="settings_uninstall">Odinstalovat</string>
   <string name="settings_app_version">Verze</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Zastavit funkci Vždy spuštěno když je zaplé fotoaparát (Mělo by zůstat povoleno na Nexus/Samsung zařízeních)</string>
@@ -163,7 +167,6 @@
   <string name="settings_watchface_battery">Styl baterie</string>
   <string name="settings_watchface_miscellaneous">Pokročilé nastavení</string>
   <string name="settings_watchface_styles">Styly</string>
-  <string name="settings_font">Písmo</string>
   <string name="settings_choose_font">Zvolte písmo</string>
   <string name="settings_watch_digital">Digitální</string>
   <string name="settings_watch_analog">Analogové</string>
@@ -179,7 +182,6 @@
   <string name="settings_watchface_text_font"><![CDATA[Styl písma]]></string>
   <string name="settings_select_action">Vyberte akci</string>
   <string name="warning_11_need_to_reset_app">Možná budete muset restartovat aplikace aby se změny projevily</string>
-  <string name="settings_uninstall">Odinstalovat</string>
   <string name="settings_uninstall_desc">Odinstalujte aplikaci</string>
   <string name="settings_watchface_clock_desc">Vyberte si svůj oblíbený styl hodin</string>
   <string name="settings_watch_analog_s7">Styl analogových hodin S7</string>
@@ -187,9 +189,7 @@
   <string name="move_disable">Vypnuto (není doporučeno pro AMOLED obrazovky)</string>
   <string name="move_move">Automaticky přesunout widget</string>
   <string name="move_move_animation">Přesunout widget automaticky s animací</string>
-  <string name="greenify_integration">Greenify integrace</string>
   <string name="greenify_integration_desc">Povolte Greenify k výraznému zlepšení životnosti baterie. Ujistěte se, aby Greenify bylo povoleno v nastavení usnadnění přístupu</string>
   <string name="settings_notifications_alerts_preview_desc">Zobrazit obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
-  <string name="error_IAP">Došlo k chybě! Prosím ujistěte se, že jste připojeni k Internetu a restartujte aplikaci</string>
 </resources>

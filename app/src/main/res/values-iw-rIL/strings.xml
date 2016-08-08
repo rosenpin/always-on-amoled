@@ -58,6 +58,7 @@
   <string name="plugin_dialog_title">תוסף נחוץ</string>
   <string name="plugin_dialog_desc">נראה שלמכשיר שלך יש כפתורי חומרה, כדי לקבל את אורם במהלך פעולת השירות, יש להתקין את התוסף.</string>
   <!--Errors-->
+  <string name="error_IAP">שגיאה! אנא וודאו כי המכשיר מחובר לאינטרנט</string>
   <string name="error_0_unknown_error">התרחשה שגיאה</string>
   <string name="error_1_no_email_client">אין יישומי אימייל מותקנים.</string>
   <string name="error_2_plugin_not_installed">התוסף אינו מותקן</string>
@@ -131,10 +132,13 @@
   <string name="settings_stop_on_camera">קיצורי דרך להפעלת המצלמה</string>
   <string name="settings_rules_cahrging">כללים מבוססי טעינה</string>
   <string name="settings_rules_battery">כללים מבוססי סוללה</string>
+  <string name="settings_font">פונט</string>
   <string name="settings_translate">תרגום</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">קהילה</string>
+  <string name="greenify_integration">אינטגרציה של Greenify</string>
   <string name="settings_licenses">רשיונות</string>
+  <string name="settings_uninstall">הסר התקנה</string>
   <string name="settings_app_version">גירסה</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">הדלקת המסך כאשר המצלמה נפתחת (יש להשאיר מאופשר במכשירי נקסוס או סמסונג)</string>
@@ -173,7 +177,6 @@
   <string name="settings_watchface_battery">סגנון סוללה</string>
   <string name="settings_watchface_miscellaneous">שונות</string>
   <string name="settings_watchface_styles">סיגנונות</string>
-  <string name="settings_font">פונט</string>
   <string name="settings_choose_font">בחר את הפונט המועדף עליך</string>
   <string name="settings_watch_digital">דיגיטלי</string>
   <string name="settings_watch_analog">אנלוגי</string>
@@ -189,25 +192,21 @@
   <string name="settings_watchface_text_font"><![CDATA[גופן וטקסט]]></string>
   <string name="settings_select_action">בחר פעולה</string>
   <string name="warning_11_need_to_reset_app">ייתכן שתצטרך לאתחל את האפליקציה כדי להחיל את השינויים</string>
-  <string name="settings_uninstall">הסר התקנה</string>
   <string name="settings_uninstall_desc">הסירו את האפליקציה</string>
   <string name="settings_watchface_clock_desc">בחר את סגנון השעון האהוב שלך</string>
   <string name="settings_watch_analog_24_classic">אנלוגי קלאסי 24 שעות</string>
   <string name="settings_watch_analog_s7">שעון אנלוגי בסגנון S7</string>
   <string name="settings_watch_ticks">אנלוגי קלאסי עם מספרים</string>
-  <string name="settings_watch_digital_s7">שעון דיגיטלי בסגנון S7 (לא ינתן להתאמה אישית)</string>
   <string name="settings_watch_flat_analog">סגנון אנלוגי נקי</string>
   <string name="settings_watch_analog_pebble">שעון אנלוגי בסגנון פבל</string>
   <string name="settings_watch_flat_red_analog">סגנון אנלוגי נקי (מחוגים אדומים)</string>
   <string name="move_disable">כבוי (לא מומלץ עבור מסכי אמולד)</string>
   <string name="move_move">הזזת התצוגה באופן אוטומטי</string>
   <string name="move_move_animation">הזזת התצוגה באופן אוטומטי עם אנימציה</string>
-  <string name="greenify_integration">אינטגרציה של Greenify</string>
   <string name="greenify_integration_desc">הפעל את Greenify כאשר התצוגה מופעלת כדי לחסוך סוללה. יש לאפשר את Greenify באפשרויות הנגישות</string>
   <string name="greenify_integration_desc_found">יש לוודא כי Greenify מאושר בהגדרות נגישות. לחץ כאן כדי להגדיר את Greenify</string>
   <string name="greenify_integration_desc_not_found">התקינו Greenify לשיפור חיי הסוללה</string>
   <string name="settings_notifications_alerts_preview_desc">הצג את תוכן ההתראות כאשר הן מתקבלות</string>
   <string name="settings_notifications_alerts_preview">תוכן התראות</string>
-  <string name="error_IAP">שגיאה! אנא וודאו כי המכשיר מחובר לאינטרנט</string>
   <string name="settings_doze_desc">אפשרו חסכון בסוללה כדי לחסוך סוללה כאשר המסך דולק (דורש רוט)</string>
 </resources>

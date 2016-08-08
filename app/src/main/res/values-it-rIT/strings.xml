@@ -58,6 +58,7 @@
   <string name="plugin_dialog_title">È necessario un plugin</string>
   <string name="plugin_dialog_desc">Sembra che il dispositivo dispone di pulsanti hardware, per spegnerli quando il servizio è in esecuzione, si prega di installare il plugin.</string>
   <!--Errors-->
+  <string name="error_IAP">Errore! Si prega di assicurarti di essere connesso ad internet e riavvia l\'applicazione</string>
   <string name="error_0_unknown_error">Si è verificato un errore</string>
   <string name="error_1_no_email_client">Non ci sono client di posta elettronica installati.</string>
   <string name="error_2_plugin_not_installed">IL PLUGIN NON E\' INSTALLATO</string>
@@ -137,10 +138,13 @@
   <string name="settings_stop_on_camera">Permetti collegamento fotocamera</string>
   <string name="settings_rules_cahrging">Regole di carica</string>
   <string name="settings_rules_battery">Regole della batteria</string>
+  <string name="settings_font">Carattere</string>
   <string name="settings_translate">Tradurre</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
+  <string name="greenify_integration">Integrazione Greenify</string>
   <string name="settings_licenses">Licenze</string>
+  <string name="settings_uninstall">Disinstalla</string>
   <string name="settings_app_version">Versione</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Ferma \"Always on display\" quando la fotocamera è avviata (dovrebbe rimanere attivo su dispositivi Nexus o Samsung)</string>
@@ -179,7 +183,6 @@
   <string name="settings_watchface_battery">Stile della batteria</string>
   <string name="settings_watchface_miscellaneous">Varie</string>
   <string name="settings_watchface_styles">Stili</string>
-  <string name="settings_font">Carattere</string>
   <string name="settings_choose_font">Scegli il tipo di carattere</string>
   <string name="settings_watch_digital">Digitale</string>
   <string name="settings_watch_analog">Analogico</string>
@@ -195,25 +198,21 @@
   <string name="settings_watchface_text_font"><![CDATA[Testo & Carattere]]></string>
   <string name="settings_select_action">Seleziona azione</string>
   <string name="warning_11_need_to_reset_app">Potrebbe essere necessario riavviare l\'applicazione per rendere effettivo</string>
-  <string name="settings_uninstall">Disinstalla</string>
   <string name="settings_uninstall_desc">Disinstalla l\'applicazione</string>
   <string name="settings_watchface_clock_desc">Scegli il tuo stile preferito dell\'orologio</string>
   <string name="settings_watch_analog_24_classic">Analogico classico 24h</string>
   <string name="settings_watch_analog_s7">Orologio analogico stile S7</string>
-  <string name="settings_watch_digital_s7">Orologio digitale stile S7 (non personalizzabile)</string>
   <string name="settings_watch_flat_analog">Stile piatto analogico</string>
   <string name="settings_watch_analog_pebble">Orologio analogico stile Pebble</string>
   <string name="settings_watch_flat_red_analog">Analogico piatto (lancette rosse)</string>
   <string name="move_disable">Disabilitato (non raccomandato per schermi AMOLED)</string>
   <string name="move_move">Muovi automaticamente il widget</string>
   <string name="move_move_animation">Muovi automaticamente il widget con un\'animazione</string>
-  <string name="greenify_integration">Integrazione Greenify</string>
   <string name="greenify_integration_desc">Abilita Greenify mentre il servizio sempre attivo è visibile per migliorare significativamente la durata della batteria. Assicurarsi di abilitare Greenify nelle impostazioni di accessibilità</string>
   <string name="greenify_integration_desc_found">Assicurati di abilitare Greenify nelle impostazioni di accessibilità e scegliere le applicazioni che desideri ibernazione mentre il dispositivo è bloccato. Fai clic qui per configurare Greenify</string>
   <string name="greenify_integration_desc_not_found">Installa Greenify per migliorare la durata della batteria</string>
   <string name="settings_notifications_alerts_preview_desc">Visualizza il contenuto della notifica quando ricevuto</string>
   <string name="settings_notifications_alerts_preview">Contenuto notifica</string>
-  <string name="error_IAP">Errore! Si prega di assicurarti di essere connesso ad internet e riavvia l\'applicazione</string>
   <string name="settings_memo_text_desc">Scrivi qui il tuo memo</string>
   <string name="settings_memo_font_size_desc">Imposta la dimensione carattere del memo</string>
   <string name="settings_memo_hint">Digita qui il tuo memo. Esso apparirà nel tuo schermo always on.</string>

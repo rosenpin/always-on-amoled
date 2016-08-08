@@ -39,6 +39,7 @@
   <!--Device admin-->
   <!--Plugin-->
   <!--Errors-->
+  <string name="error_IAP">错误，请确保你的设备已连接到Internet，并重启应用程序</string>
   <!--Warnings-->
   <string name="warning">警告</string>
   <!--Charging rules-->
@@ -81,11 +82,9 @@
   <string name="settings_watchface">自定义 WatchFace</string>
   <string name="settings_proximity">距离传感器 (口袋模式)</string>
   <string name="settings_show_am_pm">显示 AM/PM</string>
+  <string name="greenify_integration">Greenify整合</string>
   <!--Settings descriptions-->
-  <string name="settings_watch_digital_s7">S7 样式数字时钟 （不可自定义）</string>
   <string name="move_disable">禁用（不推荐用于AMOLED屏幕）</string>
   <string name="move_move">自动移除部件</string>
-  <string name="greenify_integration">Greenify整合</string>
   <string name="settings_notifications_alerts_preview">通知内容</string>
-  <string name="error_IAP">错误，请确保你的设备已连接到Internet，并重启应用程序</string>
 </resources>

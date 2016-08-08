@@ -55,6 +55,7 @@
   <string name="plugin_dialog_title">Pentru această acțiune este nevoie de un plugin.</string>
   <string name="plugin_dialog_desc">Se pare că dispozitivul are butoane fizice. Pentru a le face să se oprească în timp ce serviciul este pornit, te rugăm să instalezi plugin-ul.</string>
   <!--Errors-->
+  <string name="error_IAP">Eroare! Fii sigur ca esti conectat la internet si reporneste aplicatia</string>
   <string name="error_0_unknown_error">A intervenit o eroare.</string>
   <string name="error_1_no_email_client">Nu există nicio aplicație de tip email instalată.</string>
   <string name="error_2_plugin_not_installed">Plugin-ul nu este instalat!</string>
@@ -126,10 +127,13 @@
   <string name="settings_stop_on_camera">Permite utilizarea shortcut-ului pentru camera</string>
   <string name="settings_rules_cahrging">Opțiuni încărcare</string>
   <string name="settings_rules_battery">Opțiuni baterie</string>
+  <string name="settings_font">Font</string>
   <string name="settings_translate">Oferă ajutor pentru traducerea aplicației</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">Comunitate</string>
+  <string name="greenify_integration">Integrare Greenify</string>
   <string name="settings_licenses">Licențe</string>
+  <string name="settings_uninstall">Altele</string>
   <string name="settings_app_version">Versiune</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Oprește serviciul „Always on\" atunci când camera este lansată (Ar trebui activată pentru dispozitivele Nexus/Samsung)</string>
@@ -169,7 +173,6 @@
   <string name="settings_watchface_battery">Afișare procentaj baterie</string>
   <string name="settings_watchface_miscellaneous">Diverse</string>
   <string name="settings_watchface_styles">Personalizare</string>
-  <string name="settings_font">Font</string>
   <string name="settings_choose_font">- alege fontul</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
@@ -185,19 +188,15 @@
   <string name="settings_watchface_text_font"><![CDATA[Text și font]]></string>
   <string name="settings_select_action">Selectează o acțiune</string>
   <string name="warning_11_need_to_reset_app">Ar trebui să restartezi telefonul ca setările să ia efect.</string>
-  <string name="settings_uninstall">Altele</string>
   <string name="settings_uninstall_desc">Dezinstalează aplicația</string>
   <string name="settings_watchface_clock_desc">Alege stilul preferat al ceasului</string>
   <string name="settings_watch_analog_s7">Stil analog S7</string>
-  <string name="settings_watch_digital_s7">Stil digital S7 (fara modificari)</string>
   <string name="settings_watch_flat_analog">Sril analog drept</string>
   <string name="settings_watch_analog_pebble">Stil analog Pebble</string>
   <string name="move_disable">Dezactivat (Nerecomandat pentru ecranele AMOLED)</string>
   <string name="move_move">Misca widegetul automat</string>
   <string name="move_move_animation">Misca widgetul automat cu o animatie</string>
-  <string name="greenify_integration">Integrare Greenify</string>
   <string name="greenify_integration_desc">Porneste Greenify cat timp serviciul always on este activ pentru a spori durata de viata a bateriei. Fi sigur ca este activat Greenify in setarile de accesibilitate</string>
   <string name="settings_notifications_alerts_preview_desc">Arata continutul notificarii atunci cand este primit</string>
   <string name="settings_notifications_alerts_preview">Continutul notificarii</string>
-  <string name="error_IAP">Eroare! Fii sigur ca esti conectat la internet si reporneste aplicatia</string>
 </resources>

@@ -58,9 +58,11 @@
   <string name="plugin_dialog_title">Plug-In wird benötigt</string>
   <string name="plugin_dialog_desc">Es scheint als ob dein Gerät Hardwarebuttons besitzt. Um diese abzuschalten wenn der Dienst ausgeführt wird, musst du das Plug-In installieren.</string>
   <!--Errors-->
+  <string name="error_IAP">Fehler! Bitte vergewissere dich, dass Du mit dem Internet verbunden bist, und starte die App neu</string>
   <string name="error_0_unknown_error">Ein Fehler ist aufgetreten</string>
   <string name="error_1_no_email_client">Derzeit sind keine E-Mail Clients installiert.</string>
   <string name="error_2_plugin_not_installed">PLUGIN IST NICHT INSTALLIERT</string>
+  <string name="error_3_unknown_error_restart">Ein Fehler ist aufgetreten. Versuche, die App neuzustarten.</string>
   <!--Warnings-->
   <string name="warning">ACHTUNG</string>
   <string name="warning_1_harm_performance">Dies kann die Leistung der App beeinträchtigen</string>
@@ -105,6 +107,7 @@
   <string name="settings_about">Über</string>
   <string name="settings_appearance">Darstellung</string>
   <string name="settings_general">Allgemein</string>
+  <string name="settings_shortcuts">Verknüpfungen</string>
   <string name="settings_wake_up">Aufwachen</string>
   <string name="settings_rules">Automatische Regeln</string>
   <!--Settings titles-->
@@ -116,6 +119,8 @@
   <string name="settings_swipe_wake">Nach oben wischen um abzulehnen</string>
   <string name="settings_brightness">Helligkeit</string>
   <string name="settings_doze">Doze-Modus</string>
+  <string name="settings_google_now_shortcut">Verknüpfe Google Now</string>
+  <string name="settings_memo_text">Memo-Text</string>
   <string name="settings_notifications">Benachrichtigungen</string>
   <string name="settings_persistent_notification">Durchgängige Benachrichtigung anzeigen</string>
   <string name="settings_move_auto">Das Widget automatisch verschieben</string>
@@ -134,10 +139,13 @@
   <string name="settings_stop_on_camera">Kamerashortcuts erlauben</string>
   <string name="settings_rules_cahrging">Laderegeln</string>
   <string name="settings_rules_battery">Akkuregeln</string>
+  <string name="settings_font">Schriftart</string>
   <string name="settings_translate">Übersetzen</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
+  <string name="greenify_integration">Greenify Einbindung</string>
   <string name="settings_licenses">Lizenzen</string>
+  <string name="settings_uninstall">Deinstallieren</string>
   <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Den Always On Screen stoppen wenn die Kamera gestartet wird (sollte immer aktiviert sein auf Nexus/Samsung-Geräten)</string>
@@ -176,7 +184,6 @@
   <string name="settings_watchface_battery">Akkuanzeige</string>
   <string name="settings_watchface_miscellaneous">Verschiedenes</string>
   <string name="settings_watchface_styles">Stil</string>
-  <string name="settings_font">Schriftart</string>
   <string name="settings_choose_font">Wähle deine Schriftart</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
@@ -192,25 +199,21 @@
   <string name="settings_watchface_text_font"><![CDATA[Text & Schrift]]></string>
   <string name="settings_select_action">Aktion auswählen</string>
   <string name="warning_11_need_to_reset_app">Möglicherweise musst du die App neu starten um einen Effekt zu erzielen</string>
-  <string name="settings_uninstall">Deinstallieren</string>
   <string name="settings_uninstall_desc">App deinstallieren</string>
   <string name="settings_watchface_clock_desc">Wähle deinen bevorzugten Uhrenstil</string>
   <string name="settings_watch_analog_24_classic">Klassische 24h Analog-Uhr</string>
   <string name="settings_watch_analog_s7">Analoge Uhr im Galaxy S7 Stil</string>
   <string name="settings_watch_ticks">Klassische 12h Uhr mit Stundenzeigern</string>
-  <string name="settings_watch_digital_s7">Digital-Uhr im S7 Stil (nicht anpassbar)</string>
   <string name="settings_watch_flat_analog">Anloger Flat-Stil</string>
   <string name="settings_watch_analog_pebble">Pebble Stil analoge Uhr</string>
   <string name="settings_watch_flat_red_analog">Flaches Analog (rotes Ziffernblatt)</string>
   <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Bildschirme)</string>
   <string name="move_move">Verschiebe das Widget automatisch</string>
   <string name="move_move_animation">Verschiebe das Widget automatisch mit einer Animation</string>
-  <string name="greenify_integration">Greenify Einbindung</string>
   <string name="greenify_integration_desc">Aktiviere Greenify während der always on Service sichtbar ist um deutlich Batterie zu sparen. Sei dir sicher dass du vorher Greenify in den Eingabehilfe-Einstellungen aktiviert hast</string>
   <string name="greenify_integration_desc_found">Gehe sicher, dass du Greenify in den Eingabehilfe-Einstellungen aktiviert und die Anwendungen, welche du in den Ruhezustand versetzen willst während das Gerät gesperrt ist, gewählt hast. Tippe hier um Greenify zu konfigurieren</string>
   <string name="greenify_integration_desc_not_found">Installiere Greenify, um die Akkuausdauer zu erhöhen</string>
   <string name="settings_notifications_alerts_preview_desc">Zeige Benachrichtigungsinhalt wenn empfangen</string>
   <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
-  <string name="error_IAP">Fehler! Bitte vergewissere dich, dass Du mit dem Internet verbunden bist, und starte die App neu</string>
   <string name="settings_doze_desc">Aktiviere Doze während der Always-On Bildschirm aktiv ist, um Akku zu sparen (nur mit Root)</string>
 </resources>

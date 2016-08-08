@@ -109,6 +109,8 @@
   <string name="settings_notifications">التنبيهات</string>
   <string name="settings_persistent_notification">إظهار التنبيهات باستمرار</string>
   <string name="settings_move_auto">نقل القطعة تلقائياً</string>
+  <string name="settings_font">الخط</string>
+  <string name="settings_uninstall">مسح التطبيق</string>
   <!--Settings descriptions-->
   <string name="settings_features_dialog_time">إظهار الوقت</string>
   <string name="settings_watchface_clock">نمط الساعة</string>
@@ -116,7 +118,6 @@
   <string name="settings_watchface_battery">نمط البطارية</string>
   <string name="settings_watchface_miscellaneous">متنوع</string>
   <string name="settings_watchface_styles">الأنماط</string>
-  <string name="settings_font">الخط</string>
   <string name="settings_choose_font">اختيار الخط الخاص بك</string>
   <string name="settings_watch_digital">رقمي</string>
   <string name="settings_watch_analog">تناظري</string>
@@ -132,9 +133,7 @@
   <string name="settings_watchface_text_font"><![CDATA[النص والخط]]></string>
   <string name="settings_select_action">حدد الإجراء</string>
   <string name="warning_11_need_to_reset_app">قد تحتاج إلى إعادة تشغيل التطبيق لتفعيل التغيير</string>
-  <string name="settings_uninstall">مسح التطبيق</string>
   <string name="settings_uninstall_desc">مسح التطبيق</string>
   <string name="settings_watchface_clock_desc">إختر نمطك المفضل لشكل الساعة</string>
   <string name="settings_watch_analog_s7">نمط S7 التناظري</string>
-  <string name="settings_watch_digital_s7">نمط الساعة الرقمية S7 (غير قابل للتخصيص)</string>
 </resources>

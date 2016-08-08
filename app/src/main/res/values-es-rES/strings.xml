@@ -51,6 +51,7 @@
   <string name="plugin_dialog_title">Se requiere instalar un plugin</string>
   <string name="plugin_dialog_desc">Si su dispositivo tiene botones físicos, para que se apaguen cuando pa app se está ejecutando, instale el plugin.</string>
   <!--Errors-->
+  <string name="error_IAP">Error! Por favor asegurate de que estas conectado a internet y reinicia la app</string>
   <string name="error_0_unknown_error">Ocurrió un error</string>
   <string name="error_1_no_email_client">No hay clientes de correo electrónico instalados.</string>
   <string name="error_2_plugin_not_installed">Plugin no instalado</string>
@@ -120,10 +121,13 @@
   <string name="settings_stop_on_camera">Permitir acceso directo a la cámara</string>
   <string name="settings_rules_cahrging">Normas de carga</string>
   <string name="settings_rules_battery">Reglas de bateria</string>
+  <string name="settings_font">Font</string>
   <string name="settings_translate">Traducir</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Comunidad</string>
+  <string name="greenify_integration">Integracion con Greenify</string>
   <string name="settings_licenses">Licencias</string>
+  <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_app_version">Versión</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Detener Always On cuando inicia la camara (mantener activado en dispositivos Samsung/Nexus)</string>
@@ -162,7 +166,6 @@
   <string name="settings_watchface_battery">Battery style</string>
   <string name="settings_watchface_miscellaneous">Miscellaneous</string>
   <string name="settings_watchface_styles">Styles</string>
-  <string name="settings_font">Font</string>
   <string name="settings_choose_font">Elegir la fuente</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
@@ -178,18 +181,14 @@
   <string name="settings_watchface_text_font"><![CDATA[Fuente del texto y]]></string>
   <string name="settings_select_action">Seleccionar Acción</string>
   <string name="warning_11_need_to_reset_app">Puede que necesite reiniciar la aplicación para tomar efecto</string>
-  <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_uninstall_desc">Desinstalar la aplicación</string>
   <string name="settings_watchface_clock_desc">Elije tu tipo de reloj preferido</string>
   <string name="settings_watch_analog_s7">Estilo del reloj analogico del Galaxy S7</string>
-  <string name="settings_watch_digital_s7">Estilo del reloj digital del Galaxy S7 No Personalizable</string>
   <string name="settings_watch_analog_pebble">Estilo del reloj analogico Pebble</string>
   <string name="move_disable">Desactivado (no recomendado para pantallas AMOLED)</string>
   <string name="move_move">Mover el widget automaticamente</string>
   <string name="move_move_animation">Mover el widget automaticamente con una animacion</string>
-  <string name="greenify_integration">Integracion con Greenify</string>
   <string name="greenify_integration_desc">Activa Greenify cuando Always On se activa. Esto sirve para alargar la duracion de la bateria. Asegurate de tener activado Greenify en las opciones de accesibilidad</string>
   <string name="settings_notifications_alerts_preview_desc">Muestra el contenido de las notificaciones recibidas</string>
   <string name="settings_notifications_alerts_preview">Contenido de las notificaciones</string>
-  <string name="error_IAP">Error! Por favor asegurate de que estas conectado a internet y reinicia la app</string>
 </resources>

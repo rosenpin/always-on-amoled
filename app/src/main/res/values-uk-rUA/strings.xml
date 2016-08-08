@@ -116,10 +116,12 @@
   <string name="settings_stop_on_camera">Дозволити ярлики камери</string>
   <string name="settings_rules_cahrging">Щодо заряджання</string>
   <string name="settings_rules_battery">Правила для акумулятора</string>
+  <string name="settings_font">Шрифт</string>
   <string name="settings_translate">Переклад</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Спільноти</string>
   <string name="settings_licenses">Ліцензія</string>
+  <string name="settings_uninstall">Видалити</string>
   <string name="settings_app_version">Версія</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Вимикати сервіс, коли запущено додаток Камера (необхідно тримати запущеним на пристроях Nexus / Samsung)</string>
@@ -158,7 +160,6 @@
   <string name="settings_watchface_battery">Стиль значка акумулятора</string>
   <string name="settings_watchface_miscellaneous">Різне</string>
   <string name="settings_watchface_styles">Стилі</string>
-  <string name="settings_font">Шрифт</string>
   <string name="settings_choose_font">Виберіть шрифт</string>
   <string name="settings_watch_digital">Цифровий</string>
   <string name="settings_watch_analog">Аналоговий</string>
@@ -174,6 +175,5 @@
   <string name="settings_watchface_text_font"><![CDATA[Текст & шрифт]]></string>
   <string name="settings_select_action">Оберіть дію</string>
   <string name="warning_11_need_to_reset_app">Можливо, потрібно перезавантажити додаток, щоб зміни набули чинності</string>
-  <string name="settings_uninstall">Видалити</string>
   <string name="settings_uninstall_desc">Видалити додаток</string>
 </resources>

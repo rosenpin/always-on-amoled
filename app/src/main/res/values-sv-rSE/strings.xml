@@ -58,6 +58,7 @@
   <string name="plugin_dialog_title">Plugin krävs</string>
   <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att stänga av dessa när appen är igång, var god installera plugin (Plugin for Always On AMOLED)</string>
   <!--Errors-->
+  <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
   <string name="error_0_unknown_error">Ett fel har uppstått. Vänligen rapportera till utvecklaren </string>
   <string name="error_1_no_email_client">There are no email clients installed</string>
   <string name="error_2_plugin_not_installed">PLUGIN HAR INTE INSTALLERATS</string>
@@ -131,10 +132,13 @@
   <string name="settings_stop_on_camera">Tillåt kameragenvägar</string>
   <string name="settings_rules_cahrging">Regler för laddning</string>
   <string name="settings_rules_battery">Regler för batteri</string>
+  <string name="settings_font">Typsnitt</string>
   <string name="settings_translate">Översätt</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">Community</string>
+  <string name="greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenser</string>
+  <string name="settings_uninstall">Avinstallera</string>
   <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Stäng av always on skärmen när kameran startas (detta bör vara aktiverat på Nexus- och Samsungenheter)</string>
@@ -173,7 +177,6 @@
   <string name="settings_watchface_battery">Batteristil</string>
   <string name="settings_watchface_miscellaneous">Blandat</string>
   <string name="settings_watchface_styles">Stilar</string>
-  <string name="settings_font">Typsnitt</string>
   <string name="settings_choose_font">Välj din font</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
@@ -189,23 +192,19 @@
   <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
   <string name="settings_select_action">Välj åtgärd</string>
   <string name="warning_11_need_to_reset_app">Du kan behöva återställa appen för att träda i kraft</string>
-  <string name="settings_uninstall">Avinstallera</string>
   <string name="settings_uninstall_desc">Avinstallera appen</string>
   <string name="settings_watchface_clock_desc">Välj din favorit klockstil</string>
   <string name="settings_watch_analog_24_classic">Klassisk 24h (analog)</string>
   <string name="settings_watch_analog_s7">Galaxy S7 (analog)</string>
-  <string name="settings_watch_digital_s7">Galaxy S7 (digital, inte anpassningsbar)</string>
   <string name="settings_watch_flat_analog">Platt analog stil</string>
   <string name="settings_watch_analog_pebble">Pebble (analog)</string>
   <string name="settings_watch_flat_red_analog">Platt analog (röd urtavla)</string>
   <string name="move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
   <string name="move_move">Flytta widgeten automatiskt</string>
   <string name="move_move_animation">Flytta widgeten automatiskt med en animering</string>
-  <string name="greenify_integration">Greenify integration</string>
   <string name="greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
   <string name="greenify_integration_desc_found">Se till att göra det möjligt för Greenify i tillgänglighetsinställningarna och välja de program du vill ska gå i viloläge när enheten är låst. Klicka här för att konfigurera Greenify</string>
   <string name="greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
   <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
-  <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
 </resources>

@@ -114,6 +114,7 @@
   <string name="settings_stop_on_camera">Cho phép máy ảnh phím tắt</string>
   <string name="settings_rules_cahrging">Tính quy tắc</string>
   <string name="settings_rules_battery">Quy định pin</string>
+  <string name="settings_font">Phông chữ</string>
   <string name="settings_translate">Dịch</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Cộng đồng</string>
@@ -156,7 +157,6 @@
   <string name="settings_watchface_battery">Kiểu pin</string>
   <string name="settings_watchface_miscellaneous">Linh tinh</string>
   <string name="settings_watchface_styles">Phong cách</string>
-  <string name="settings_font">Phông chữ</string>
   <string name="settings_watch_digital">Đồng hồ số</string>
   <string name="settings_watch_analog">Đồng hồ kim</string>
   <string name="settings_rules_text">Văn bản</string>

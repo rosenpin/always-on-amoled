@@ -58,9 +58,11 @@
   <string name="plugin_dialog_title">Plugin is nodig</string>
   <string name="plugin_dialog_desc">Het lijkt er op dat je apparaat hardware knoppen heeft, wanneer je wilt dat deze uit gaan wanneer de service aan staat, installeer dan alsjeblieft de plugin.</string>
   <!--Errors-->
+  <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
   <string name="error_0_unknown_error">Een probleem heeft zich voorgedaan. Rapporteer dit alsjeblieft aan de ontwikkelaar </string>
   <string name="error_1_no_email_client">Er zijn geen email cliënten geïnstalleerd.</string>
   <string name="error_2_plugin_not_installed">PLUGIN IS NIET GEÏNSTALLEERD</string>
+  <string name="error_3_unknown_error_restart">Er is een fout opgetreden. Start de app opnieuw.</string>
   <!--Warnings-->
   <string name="warning">WAARSCHUWING</string>
   <string name="warning_1_harm_performance">Dit kan de snelheid van de applicatie beïnvloeden</string>
@@ -138,10 +140,13 @@
   <string name="settings_stop_on_camera">Toestaan van camera snelkoppelingen</string>
   <string name="settings_rules_cahrging">Regels opladen</string>
   <string name="settings_rules_battery">Regels voor batterij</string>
+  <string name="settings_font">Lettertype</string>
   <string name="settings_translate">Vertaal</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
+  <string name="greenify_integration">Greenify integratie</string>
   <string name="settings_licenses">Licenties</string>
+  <string name="settings_uninstall">Deinstalleer</string>
   <string name="settings_app_version">Versie</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Stop het always on scherm wanneer de camera wordt gelanceerd (Moet aan blijven staan op Nexus/Samsung apparaten)</string>
@@ -180,7 +185,6 @@
   <string name="settings_watchface_battery">Stijl van de batterij</string>
   <string name="settings_watchface_miscellaneous">Verschillende</string>
   <string name="settings_watchface_styles">Stijlen</string>
-  <string name="settings_font">Lettertype</string>
   <string name="settings_choose_font">Kies je lettertype</string>
   <string name="settings_watch_digital">Digitaal</string>
   <string name="settings_watch_analog">Analoog</string>
@@ -196,26 +200,22 @@
   <string name="settings_watchface_text_font"><![CDATA[Tekst en lettertype]]></string>
   <string name="settings_select_action">Selecteer actie</string>
   <string name="warning_11_need_to_reset_app">Je moet mogelijk de app opnieuw opstarten voordat de veranderingen effect hebben</string>
-  <string name="settings_uninstall">Deinstalleer</string>
   <string name="settings_uninstall_desc">Deinstalleer de app</string>
   <string name="settings_watchface_clock_desc">Kies je favoriete klokstijl</string>
   <string name="settings_watch_analog_24_classic">Klassieke 24-uurs Analoog</string>
   <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
   <string name="settings_watch_ticks">Klassieke 12-uurs klok met indicaties voor elk uur</string>
-  <string name="settings_watch_digital_s7">S7 digitale klok stijl (niet aan te passen)</string>
   <string name="settings_watch_flat_analog">Platte analoge stijl</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
   <string name="settings_watch_flat_red_analog">Platte Analoog (Rode wijzerplaat)</string>
   <string name="move_disable">Uitgeschakeld (niet aanbevolen voor AMOLED schermen)</string>
   <string name="move_move">Laat de widget automatisch bewegen</string>
   <string name="move_move_animation">Laat de widget automatisch met een animatie verplaatsen</string>
-  <string name="greenify_integration">Greenify integratie</string>
   <string name="greenify_integration_desc">Gebruik Greenify wanneer de always on service aan staat om de batterij aanzienlijk te besparen. Zorg er voor dat Greenify aan staat bij de toegankelijkheids instellingen</string>
   <string name="greenify_integration_desc_found">Zorg er voor dat Greenify aan staan in toegankelijkheidsinstelling en kies de apps die je in slaap wilt houden wanneer de telefoon vergrendeld is. Klik hier om Greenify te configureren</string>
   <string name="greenify_integration_desc_not_found">Installeer Greenify om batterijduur te verbeteren</string>
   <string name="settings_notifications_alerts_preview_desc">Laat de inhoud van notificaties zien wanneer deze binnenkomen</string>
   <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
-  <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
   <string name="settings_doze_desc">Zorg dat doze modus actief wordt staat wanneer het always on scherm aan staat om batterij te besparen (alleen voor root)</string>
   <string name="settings_memo_text_desc">Schrijf je memo hier</string>
   <string name="settings_memo_font_size_desc">Stel de grootte van het lettertype van je memo in</string>

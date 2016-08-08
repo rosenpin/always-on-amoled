@@ -137,6 +137,11 @@
         <item>Black Chancery</item>
         <item>Ninja Font</item>
         <item>Still Time</item>
+        <item>Bristol</item>
+        <item>Economica</item>
+        <item>Porkys</item>
+        <item>Quick Hand</item>
+        <item>Tr2n</item>
     </string-array>
 
     <string-array name="gestures_actions">

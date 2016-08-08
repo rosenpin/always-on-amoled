@@ -55,6 +55,7 @@
   <string name="plugin_dialog_title">Wtyczka jest wymagana</string>
   <string name="plugin_dialog_desc">Wygląda na to, że urządzenie posiada przyciski sprzętowe, aby je wyłączyć, kiedy usługa jest uruchomiona, należy zainstalować wtyczke.</string>
   <!--Errors-->
+  <string name="error_IAP">Błąd! Upewnij się, że jesteś podłączony do Internetu i uruchom ponownie aplikację</string>
   <string name="error_0_unknown_error">Wystąpił błąd. Prosimy o zgłaszanie tego do autora </string>
   <string name="error_1_no_email_client">Nie ma zainstalowanych klientów email.</string>
   <string name="error_2_plugin_not_installed">WTYCZKA NIE JEST ZAINSTALOWANA</string>
@@ -126,10 +127,13 @@
   <string name="settings_stop_on_camera">Używaj skrótów aparatu</string>
   <string name="settings_rules_cahrging">Zasady dotyczące ładowania</string>
   <string name="settings_rules_battery">Zasady baterii</string>
+  <string name="settings_font">Czcionka</string>
   <string name="settings_translate">Przetłumacz</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Społeczność</string>
+  <string name="greenify_integration">Ingerencja Greenify</string>
   <string name="settings_licenses">Licencje</string>
+  <string name="settings_uninstall">Odinstaluj</string>
   <string name="settings_app_version">Wersja</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Zatrzymaj gdy aparat włączony (Powinno być włączone na urządzeniach Samsung/Nexus)</string>
@@ -168,7 +172,6 @@
   <string name="settings_watchface_battery">Styl wskaźnika baterii</string>
   <string name="settings_watchface_miscellaneous">Różne</string>
   <string name="settings_watchface_styles">Style</string>
-  <string name="settings_font">Czcionka</string>
   <string name="settings_choose_font">Wybierz czcionkę</string>
   <string name="settings_watch_digital">Cyfrowy</string>
   <string name="settings_watch_analog">Analogowy</string>
@@ -184,19 +187,15 @@
   <string name="settings_watchface_text_font"><![CDATA[Tekst i Czcionka]]></string>
   <string name="settings_select_action">Wybierz akcję</string>
   <string name="warning_11_need_to_reset_app">Może być konieczne ponowne uruchomienie aplikacji</string>
-  <string name="settings_uninstall">Odinstaluj</string>
   <string name="settings_uninstall_desc">Odinstaluj aplikację</string>
   <string name="settings_watchface_clock_desc">Wybierz ulubiony styl zegara</string>
   <string name="settings_watch_analog_s7">Styl z S7 analogwego zegara</string>
-  <string name="settings_watch_digital_s7">S7 styl zegar cyfrowy (nie można go dostosowywać)</string>
   <string name="settings_watch_flat_analog">Płaski i analogowy</string>
   <string name="settings_watch_analog_pebble">Żwirowy styl analogowego zegara</string>
   <string name="move_disable">Wyłączone (nie zalecane dla ekranów AMOLED)</string>
   <string name="move_move">Automatycznie przemieszczaj widżet</string>
   <string name="move_move_animation">Automatycznie przemieszczaj widżet z animacją</string>
-  <string name="greenify_integration">Ingerencja Greenify</string>
   <string name="greenify_integration_desc">Włącz Greenify, podczas gdy usługa zawsze jest widoczne, aby znacznie zwiększyć żywotność baterii. Upewnij się aby włączyć Greenify w ustawienia ułatwień dostępu</string>
   <string name="settings_notifications_alerts_preview_desc">Pokaż zawartość powiadomień po otrzymaniu</string>
   <string name="settings_notifications_alerts_preview">Treść powiadomień</string>
-  <string name="error_IAP">Błąd! Upewnij się, że jesteś podłączony do Internetu i uruchom ponownie aplikację</string>
 </resources>

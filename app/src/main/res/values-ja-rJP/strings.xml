@@ -52,6 +52,7 @@
   <string name="plugin_dialog_title">プラグインが必要です</string>
   <string name="plugin_dialog_desc">お使いの端末はハードウェアボタンがあるようです。サービスを起動中ボタンをオフにするためには、プラグインをインストールしてください。</string>
   <!--Errors-->
+  <string name="error_IAP">エラー! インターネット接続を確認し、アプリを再起動してください。</string>
   <string name="error_0_unknown_error">エラーが発生しました</string>
   <string name="error_1_no_email_client">メールクライアントがインストールされていません。</string>
   <string name="error_2_plugin_not_installed">プラグインがインストールされていません</string>
@@ -122,10 +123,13 @@
   <string name="settings_stop_on_camera">カメラショートカットを許可</string>
   <string name="settings_rules_cahrging">充電に関するルール</string>
   <string name="settings_rules_battery">バッテリー残量に関するルール</string>
+  <string name="settings_font">フォント</string>
   <string name="settings_translate">翻訳</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">コミュニティ</string>
+  <string name="greenify_integration">Greenifyに統合</string>
   <string name="settings_licenses">ライセンス</string>
+  <string name="settings_uninstall">アンインストール</string>
   <string name="settings_app_version">バージョン</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">カメラを起動したときはAlways Onを停止 (Nexus/Samsung デバイスでは有効にしてください)</string>
@@ -164,7 +168,6 @@
   <string name="settings_watchface_battery">バッテリーのスタイル</string>
   <string name="settings_watchface_miscellaneous">その他</string>
   <string name="settings_watchface_styles">スタイル</string>
-  <string name="settings_font">フォント</string>
   <string name="settings_choose_font">フォントを選択</string>
   <string name="settings_watch_digital">デジタル</string>
   <string name="settings_watch_analog">アナログ</string>
@@ -180,18 +183,14 @@
   <string name="settings_watchface_text_font"><![CDATA[テキストとフォント]]></string>
   <string name="settings_select_action">アクションを選択</string>
   <string name="warning_11_need_to_reset_app">有効にするにはアプリをリセットする必要があるかもしれません。</string>
-  <string name="settings_uninstall">アンインストール</string>
   <string name="settings_uninstall_desc">アプリをアンインストール</string>
   <string name="settings_watchface_clock_desc">お好きな時計のスタイルを選択</string>
   <string name="settings_watch_analog_s7">S7スタイル アナログ時計</string>
-  <string name="settings_watch_digital_s7">S7スタイル デジタル時計 (カスタマイズ不可)</string>
   <string name="settings_watch_analog_pebble">Pebbleスタイル アナログ時計</string>
   <string name="move_disable">無効 (AMOLED ディスプレイでは非推奨)</string>
   <string name="move_move">ウィジェットを自動で移動</string>
   <string name="move_move_animation">アニメーションつきでウィジェットを自動で移動</string>
-  <string name="greenify_integration">Greenifyに統合</string>
   <string name="greenify_integration_desc">Akways Onサービスの表示中に大幅にバッテリーを節約するにはGreenifyを有効にします。ユーザー補助の設定でGreenifyを有効にしてください。</string>
   <string name="settings_notifications_alerts_preview_desc">通知を受信すると通知内容を表示</string>
   <string name="settings_notifications_alerts_preview">通知内容</string>
-  <string name="error_IAP">エラー! インターネット接続を確認し、アプリを再起動してください。</string>
 </resources>

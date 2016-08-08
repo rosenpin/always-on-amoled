@@ -52,6 +52,7 @@
   <string name="plugin_dialog_title">Необходима установка плагина</string>
   <string name="plugin_dialog_desc">На вашем устройстве есть подсветка аппаратных кнопок. Для ее отключения во время работы сервиса необходима установка дополнительного плагина.</string>
   <!--Errors-->
+  <string name="error_IAP">Ошибка! Пожалуйста, убедитесь, что вы подключены к Интернету  и перезапустите приложение   </string>
   <string name="error_0_unknown_error">Произошла ошибка</string>
   <string name="error_1_no_email_client">Нет установленных почтовых приложений.</string>
   <string name="error_2_plugin_not_installed">ПЛАГИН НЕ УСТАНОВЛЕН</string>
@@ -121,10 +122,13 @@
   <string name="settings_stop_on_camera">Разрешить значок   камеры</string>
   <string name="settings_rules_cahrging">Правила зарядки </string>
   <string name="settings_rules_battery">Правила баттареи </string>
+  <string name="settings_font">Шрифт</string>
   <string name="settings_translate">Перевод</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Сообщество </string>
+  <string name="greenify_integration">Интеграция Greenify</string>
   <string name="settings_licenses">Лицензия</string>
+  <string name="settings_uninstall">Удалить</string>
   <string name="settings_app_version">Версия</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Выключать сервис когда запущено приложение Камера (необходимо дердать запущенным на устройствах Nexus/Samsung)</string>
@@ -163,7 +167,6 @@
   <string name="settings_watchface_battery">Стиль индикатора батареи</string>
   <string name="settings_watchface_miscellaneous">Прочее</string>
   <string name="settings_watchface_styles">Стили</string>
-  <string name="settings_font">Шрифт</string>
   <string name="settings_choose_font">Выбрать шрифт</string>
   <string name="settings_watch_digital">Цифровой</string>
   <string name="settings_watch_analog">Аналоговый</string>
@@ -178,7 +181,6 @@
   <string name="settings_watchface_text_font"><![CDATA[Текст и шрифт]]></string>
   <string name="settings_select_action">Выберите действие</string>
   <string name="warning_11_need_to_reset_app">Потребоваться перезапустить приложение, чтобы изменения  вступили в силу</string>
-  <string name="settings_uninstall">Удалить</string>
   <string name="settings_uninstall_desc">Удалить  приложение</string>
   <string name="settings_watchface_clock_desc">Выбрать ваш любимый стиль часов
 </string>
@@ -187,9 +189,7 @@
   <string name="move_disable">Отключить (не рекомендуется для AMOLED экранов)</string>
   <string name="move_move">Автоматически перемещать виджет</string>
   <string name="move_move_animation">Автомотическое  перемещение виджета с анимацией</string>
-  <string name="greenify_integration">Интеграция Greenify</string>
   <string name="greenify_integration_desc">Включить  Greenify это функция  улучшит жизнь батареи. Убедитесь в включение  Greenify в параметрах </string>
   <string name="settings_notifications_alerts_preview_desc">Показывать  содержимое уведомления при получение </string>
   <string name="settings_notifications_alerts_preview">Содержание  уведомления </string>
-  <string name="error_IAP">Ошибка! Пожалуйста, убедитесь, что вы подключены к Интернету  и перезапустите приложение   </string>
 </resources>

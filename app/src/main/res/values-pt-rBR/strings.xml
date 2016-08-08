@@ -58,6 +58,7 @@
   <string name="plugin_dialog_title">Plugin é necessário</string>
   <string name="plugin_dialog_desc">Parece que seu dispositivo tem botões de hardware, para  desligar-los quando o serviço estiver em execução, instale o plugin.</string>
   <!--Errors-->
+  <string name="error_IAP">Erro! Verifique se você está conectado na internet e reinicie o aplicativo</string>
   <string name="error_0_unknown_error">Ocorreu um erro. Por favor avise o desenvolvedor </string>
   <string name="error_1_no_email_client">Não há aplicativo de email instalado.</string>
   <string name="error_2_plugin_not_installed">PLUGIN NÃO ESTÁ INSTALADO</string>
@@ -131,10 +132,13 @@
   <string name="settings_stop_on_camera">Permitir atalhos de câmera</string>
   <string name="settings_rules_cahrging">Regras de carregamento</string>
   <string name="settings_rules_battery">Regras de bateria</string>
+  <string name="settings_font">Fonte</string>
   <string name="settings_translate">Traduza</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Comunidade</string>
+  <string name="greenify_integration">Integração com Greenify</string>
   <string name="settings_licenses">Licenças</string>
+  <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_app_version">Versão</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Pare sempre no ecrã quando a câmera é lançada (deve manter habilitado em dispositivos Nexus/Samsung)</string>
@@ -173,7 +177,6 @@
   <string name="settings_watchface_battery">Estilo da bateria</string>
   <string name="settings_watchface_miscellaneous">Miscellaneous</string>
   <string name="settings_watchface_styles">Estilos</string>
-  <string name="settings_font">Fonte</string>
   <string name="settings_choose_font">Escolha sua fonte</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analógico</string>
@@ -189,23 +192,19 @@
   <string name="settings_watchface_text_font"><![CDATA[Texto e fonte]]></string>
   <string name="settings_select_action">Selecione a ação</string>
   <string name="warning_11_need_to_reset_app">Talvez precise reiniciar o aplicativo para ativar a função</string>
-  <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_uninstall_desc">Desinstalar o aplicativo</string>
   <string name="settings_watchface_clock_desc">Escolha o seu estilo de relógio favorito</string>
   <string name="settings_watch_analog_24_classic">Relógio 24h clássico</string>
   <string name="settings_watch_analog_s7">Relógio estilo S7 analógico</string>
-  <string name="settings_watch_digital_s7">Relógio estilo S7 digital (não customizável)</string>
   <string name="settings_watch_flat_analog">Relógio analógico estilo flat</string>
   <string name="settings_watch_analog_pebble">Relógio estilo Pebble analógico</string>
   <string name="settings_watch_flat_red_analog">Analógico flat (ponteiros vermelhos)</string>
   <string name="move_disable">Desabilitar (Não recomendado para telas AMOLED)</string>
   <string name="move_move">Mover o widget automaticamente</string>
   <string name="move_move_animation">Mover o widget automaticamente com uma animação</string>
-  <string name="greenify_integration">Integração com Greenify</string>
   <string name="greenify_integration_desc">Ative o Greenify quando o always on estiver ativo para economizar bateria. Verifique se o Greenify está ativo nas configurações de acessibilidade</string>
   <string name="greenify_integration_desc_found">Tenha certeza que o Greenify esta ativo nas configurações de acessibilidade e escolha os aplicativos que você queira hiberna quando o always on estiver ativo. Clique aqui para configurar o Greenify</string>
   <string name="greenify_integration_desc_not_found">Instale o Greenify para ajudar a economizar bateria</string>
   <string name="settings_notifications_alerts_preview_desc">Mostrar o conteúdo das notificações quando recebidas</string>
   <string name="settings_notifications_alerts_preview">Conteúdo das notificações</string>
-  <string name="error_IAP">Erro! Verifique se você está conectado na internet e reinicie o aplicativo</string>
 </resources>

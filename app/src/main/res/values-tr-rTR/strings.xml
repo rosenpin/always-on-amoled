@@ -97,6 +97,7 @@
   <string name="settings_stop_on_camera">Kamera kısayollarına izin ver</string>
   <string name="settings_rules_cahrging">Şarj olurken</string>
   <string name="settings_rules_battery">Pilde iken</string>
+  <string name="settings_font">Yazı Tipi</string>
   <string name="settings_translate">Tercüme Et</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Topluluk</string>
@@ -130,7 +131,6 @@
   <string name="settings_watchface_battery">Pil stili</string>
   <string name="settings_watchface_miscellaneous">Çeşitli</string>
   <string name="settings_watchface_styles">Biçimler</string>
-  <string name="settings_font">Yazı Tipi</string>
   <string name="settings_choose_font">Yazi tipini seç </string>
   <string name="settings_watch_digital">Dijital</string>
   <string name="settings_watch_analog">Analog</string>

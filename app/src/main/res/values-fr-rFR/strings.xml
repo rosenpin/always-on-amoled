@@ -58,6 +58,7 @@
   <string name="plugin_dialog_title">Le plugin est requis</string>
   <string name="plugin_dialog_desc">On dirait que votre appareil a des boutons capacitifs, pour les faire fonctionner quand le service est activé, merci d\'installer le plugin.</string>
   <!--Errors-->
+  <string name="error_IAP">Erreur ! Soyez sûr d\'être connecté à Internet et redémarrez l\'application</string>
   <string name="error_0_unknown_error">Une erreur s\'est produite. Merci de la signaler au développeur </string>
   <string name="error_1_no_email_client">Il n\'y a aucun client e-mail d\'installé.</string>
   <string name="error_2_plugin_not_installed">LE PLUGIN N\'EST PAS INSTALLÉ</string>
@@ -138,10 +139,13 @@
   <string name="settings_stop_on_camera">Autoriser les raccourcis de l\'appareil photo</string>
   <string name="settings_rules_cahrging">Paramètres de chargement</string>
   <string name="settings_rules_battery">Paramètres de batterie</string>
+  <string name="settings_font">Police</string>
   <string name="settings_translate">Traduire</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Communauté</string>
+  <string name="greenify_integration">Intégration de Greenify</string>
   <string name="settings_licenses">Licences</string>
+  <string name="settings_uninstall">Désinstaller</string>
   <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Arrêter l\'écran \"Always ON\" quand l\'appareil photo est lancé (devrait rester activé sur les téléphones Nexus/Samsung)</string>
@@ -180,7 +184,6 @@
   <string name="settings_watchface_battery">Style de la batterie</string>
   <string name="settings_watchface_miscellaneous">Divers</string>
   <string name="settings_watchface_styles">Styles</string>
-  <string name="settings_font">Police</string>
   <string name="settings_choose_font">Choisissez votre police</string>
   <string name="settings_watch_digital">Numérique</string>
   <string name="settings_watch_analog">Analogique</string>
@@ -196,26 +199,22 @@
   <string name="settings_watchface_text_font"><![CDATA[Texte & Police]]></string>
   <string name="settings_select_action">Sélectionnez une action</string>
   <string name="warning_11_need_to_reset_app">Vous devrez peut-être redémarrer l\'application pour appliquer les changements</string>
-  <string name="settings_uninstall">Désinstaller</string>
   <string name="settings_uninstall_desc">Désinstaller l\'application</string>
   <string name="settings_watchface_clock_desc">Choisissez votre style d\'horloge favorite</string>
   <string name="settings_watch_analog_24_classic">Horloge clasique 24H</string>
   <string name="settings_watch_analog_s7">Horloge analogique du S7</string>
   <string name="settings_watch_ticks">12h classique avec graduation des heures</string>
-  <string name="settings_watch_digital_s7">Horloge numérique du S7 (non personnalisable)</string>
   <string name="settings_watch_flat_analog">Style analogique plat</string>
   <string name="settings_watch_analog_pebble">Horloge analogique de style Pebble</string>
   <string name="settings_watch_flat_red_analog">Horloge plate (ligne rouge)</string>
   <string name="move_disable">Désactivé (non recommandé pour les écrans AMOLED)</string>
   <string name="move_move">Déplacer le widget automatiquement</string>
   <string name="move_move_animation">Déplacer le widget automatiquement avec une animation</string>
-  <string name="greenify_integration">Intégration de Greenify</string>
   <string name="greenify_integration_desc">Activer Greenify tout en gardant le service Always ON visible pour améliorer l\'autonomie de la batterie. Soyez sûr d\'avoir activé Greenify dans les paramètres d\'accessibilité</string>
   <string name="greenify_integration_desc_found">Assurez-vous d\'activer Greenify dans les paramètres d\'accessibilité et de choisir les applications que vous voulez qu\'il hiberne pendant que l\'appareil est verrouillé. Cliquez ici pour configurer Greenify</string>
   <string name="greenify_integration_desc_not_found">Installez Greenify pour améliorer la vie de la batterie</string>
   <string name="settings_notifications_alerts_preview_desc">Afficher le contenu de la notification lorsqu\'elle est reçue</string>
   <string name="settings_notifications_alerts_preview">Contenu de la notification</string>
-  <string name="error_IAP">Erreur ! Soyez sûr d\'être connecté à Internet et redémarrez l\'application</string>
   <string name="settings_doze_desc">Activer Doze lorsque l\'application est active pour économiser la batterie (root uniquement)</string>
   <string name="settings_memo_text_desc">Écris ton memo ici</string>
   <string name="settings_memo_font_size_desc">Paramétrer la police du memo</string>

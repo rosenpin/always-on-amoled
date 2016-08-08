@@ -60,9 +60,11 @@
   <string name="plugin_dialog_title">플러그인이 필요합니다</string>
   <string name="plugin_dialog_desc">이 디바이스에는 하드웨어 버튼이 있는 것 같습니다. 서비스 실행중 하드웨어 버튼을 비활성화 하려면 플러그인을 설치하십시오.</string>
   <!--Errors-->
+  <string name="error_IAP">에러가 발생했습니다! 인터넷 네트워크가 연결되있는지 확인해주시고 앱을 종료 후 다시 실행해주세요.</string>
   <string name="error_0_unknown_error">오류가 발생하였습니다. 개발자에게 문의해주세요. </string>
   <string name="error_1_no_email_client">이메일 앱이 설치되지 않았습니다.</string>
   <string name="error_2_plugin_not_installed">플러그인이 설치되어있지 않습니다.</string>
+  <string name="error_3_unknown_error_restart">오류가 생겼습니다. 앱을 다시 열어주세요.</string>
   <!--Warnings-->
   <string name="warning">경고</string>
   <string name="warning_1_harm_performance">이것은 앱의 기능을 손상시킬 수 있습니다.</string>
@@ -141,10 +143,13 @@
   <string name="settings_stop_on_camera">카메라 바로가기</string>
   <string name="settings_rules_cahrging">충전 중 규칙</string>
   <string name="settings_rules_battery">배터리 규칙</string>
+  <string name="settings_font">글꼴</string>
   <string name="settings_translate">번역</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">커뮤니티</string>
+  <string name="greenify_integration">Greenify 통합</string>
   <string name="settings_licenses">라이센스</string>
+  <string name="settings_uninstall">지우기</string>
   <string name="settings_app_version">버전</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">카메라가 작동 중 얼웨이즈 온 스크린을 중지 (넥서스/삼성 디바이스에서는 이 기능이 켜져 있어야 합니다)</string>
@@ -183,7 +188,6 @@
   <string name="settings_watchface_battery">배터리 스타일</string>
   <string name="settings_watchface_miscellaneous">그 밖의 것</string>
   <string name="settings_watchface_styles">스타일</string>
-  <string name="settings_font">글꼴</string>
   <string name="settings_choose_font">글꼴을 고르세요</string>
   <string name="settings_watch_digital">디지털</string>
   <string name="settings_watch_analog">아날로그</string>
@@ -199,19 +203,16 @@
   <string name="settings_watchface_text_font"><![CDATA[텍스트 및 글꼴]]></string>
   <string name="settings_select_action">작업 고르기</string>
   <string name="warning_11_need_to_reset_app">앱을 다시 설정해야 할 수도 있습니다</string>
-  <string name="settings_uninstall">지우기</string>
   <string name="settings_uninstall_desc">앱 지우기</string>
   <string name="settings_watchface_clock_desc">마음에 드는 시계 스타일 고르기</string>
   <string name="settings_watch_analog_24_classic">24시간 형식의 아날로그</string>
   <string name="settings_watch_analog_s7">S7 스타일 아날로그 시계</string>
-  <string name="settings_watch_digital_s7">S7 스타일 디지털 시계 (꾸밀 수 없음)</string>
   <string name="settings_watch_flat_analog">플랫 아날로그 스타일</string>
   <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
   <string name="settings_watch_flat_red_analog">플랫 아날로그(빨간색)</string>
   <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
   <string name="move_move">위젯을 자동으로 움직이기</string>
   <string name="move_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
-  <string name="greenify_integration">Greenify 통합</string>
   <string name="greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
   <string name="greenify_integration_desc_found">접근성 설정에서 Greenify를 사용설정하여,
 기기가 잠겨있을 때 최대절전모드를 할수 있습니다.
@@ -219,6 +220,9 @@ Greenify를 구성하려면 이곳을 클릭하세요</string>
   <string name="greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
-  <string name="error_IAP">에러가 발생했습니다! 인터넷 네트워크가 연결되있는지 확인해주시고 앱을 종료 후 다시 실행해주세요.</string>
   <string name="settings_doze_desc">always on 스크린이 뜨고있을 때 도즈모드를 활성화하여 배터리를 절약합니다(루팅 필요)</string>
+  <string name="settings_memo_text_desc">여기에 메모를 하세요</string>
+  <string name="settings_memo_font_size_desc">메모 글자 크기 설정</string>
+  <string name="settings_memo_hint">여기에 메모를 남기세요. Always On 화면에 뜰 겁니다.</string>
+  <string name="settings_google_now_shortcut_desc">OK Google로 구글 나우를 열리게 해놨다면 Always On을 끄세요. (구글 나우 런처와 호환이 안 될 수 있습니다.)</string>
 </resources>
