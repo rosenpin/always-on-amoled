@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -28,14 +27,11 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.tomer.alwayson.Constants;
@@ -50,15 +46,14 @@ import com.tomer.alwayson.Helpers.TTS;
 import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.Helpers.ViewUtils;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Receivers.BatteryReceiver;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 import com.tomer.alwayson.Receivers.UnlockReceiver;
+import com.tomer.alwayson.Views.BatteryView;
+import com.tomer.alwayson.Views.Clock;
 import com.tomer.alwayson.Views.DateView;
-import com.tomer.alwayson.Views.DigitalS7;
 import com.tomer.alwayson.Views.FontAdapter;
 import com.tomer.alwayson.Views.IconsWrapper;
 import com.tomer.alwayson.Views.MessageBox;
-import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -70,13 +65,13 @@ public class MainService extends Service implements SensorEventListener, Context
     private boolean refreshing;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
-    private BatteryReceiver batteryReceiver;
     private SamsungHelper samsungHelper;
     private DozeManager dozeManager;
     private MessageBox notificationsMessageBox;
     private TTS tts;
-    private DigitalS7 digitalS7;
     private DateView dateView;
+    private BatteryView batteryView;
+    private Clock clock;
     private Prefs prefs;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
@@ -84,7 +79,6 @@ public class MainService extends Service implements SensorEventListener, Context
     private WindowManager.LayoutParams windowParams;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
-    private CustomAnalogClock analog24HClock;
     private IconsWrapper iconsWrapper;
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
@@ -167,19 +161,20 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = (LinearLayout) (layoutInflater.inflate(R.layout.clock_widget, frameLayout).findViewById(R.id.watchface_wrapper));
-        dateView = (DateView) mainView.findViewById(R.id.date);
+
+        iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
+        notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
+
         setUpElements();
 
         FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         mainLayoutParams.gravity = Gravity.CENTER;
 
         mainView.setLayoutParams(mainLayoutParams);
-        iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
 
         unlockReceiver = new UnlockReceiver();
         IntentFilter intentFilter = new IntentFilter();
 
-        notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
         notificationsMessageBox.init(prefs.orientation.equals(HORIZONTAL));
 
         //Adding the intent from the pre-defined array filters
@@ -297,115 +292,23 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void setUpElements() {
-        Log.d("Font to apply ", String.valueOf(prefs.font));
         Typeface font = FontAdapter.getFontByNumber(this, prefs.font);
-        LinearLayout dateWrapper = (LinearLayout) mainView.findViewById(R.id.date_wrapper);
+
+        clock = (Clock) mainView.findViewById(R.id.clock);
+        clock.setStyle(this, prefs.clockStyle, prefs.textSize, prefs.textColor, prefs.showAmPm, font);
+
         LinearLayout batteryWrapper = (LinearLayout) mainView.findViewById(prefs.clockStyle != S7_DIGITAL ? R.id.battery_wrapper : R.id.s7_battery_wrapper);
-        LinearLayout clockWrapper = (LinearLayout) mainView.findViewById(R.id.clock_wrapper);
-        ImageView batteryIV = (ImageView) batteryWrapper.findViewById(R.id.battery_percentage_icon);
-        TextView batteryTV = (TextView) batteryWrapper.findViewById(R.id.battery_percentage_tv);
-        ViewGroup.LayoutParams lp = clockWrapper.findViewById(R.id.custom_analog_clock).getLayoutParams();
-        float clockSize = prefs.textSize < 80 ? prefs.textSize : 80;
-        lp.height = (int) (clockSize * 10);
-        lp.width = (int) (clockSize * 9.5);
+        batteryView = (BatteryView) mainView.findViewById(R.id.battery);
+        batteryView.init(this, clock.getDigitalS7(), prefs.batteryStyle, prefs.clockStyle == S7_DIGITAL, prefs.textColor, prefs.textSize, font);
 
-        if (prefs.clockStyle >= ANALOG_CLOCK)
-            analog24HClock = (CustomAnalogClock) clockWrapper.findViewById(R.id.custom_analog_clock);
-
-        switch (prefs.clockStyle) {
-            case DISABLED:
-                mainView.removeView(clockWrapper);
-                break;
-            case DIGITAL_CLOCK:
-                TextClock textClock = (TextClock) clockWrapper.findViewById(R.id.digital_clock);
-                textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, prefs.textSize);
-                textClock.setTextColor(prefs.textColor);
-                if (!prefs.showAmPm)
-                    textClock.setFormat12Hour("h:mm");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().getLocales().get(0));
-                } else {
-                    textClock.setTextLocale(getApplicationContext().getResources().getConfiguration().locale);
-                }
-                textClock.setTypeface(font);
-
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.custom_analog_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                break;
-            case ANALOG_CLOCK:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.default_face, R.drawable.default_hour_hand, R.drawable.default_minute_hand, 225, false, false);
-                break;
-            case ANALOG24_CLOCK:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.clock_face, R.drawable.hour_hand, R.drawable.minute_hand, 0, true, false);
-                break;
-            case S7_CLOCK:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.s7_face, R.drawable.s7_hour_hand, R.drawable.s7_minute_hand, 0, false, false);
-                break;
-            case PEBBLE_CLOCK:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.pebble_face, R.drawable.pebble_hour_hand, R.drawable.pebble_minute_hand, 225, false, true);
-                break;
-            case S7_DIGITAL:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.custom_analog_clock));
-                if (prefs.textSize > 90)
-                    prefs.textSize = 90;
-                digitalS7 = (DigitalS7) mainView.findViewById(R.id.s7_digital);
-                digitalS7.init(font, prefs.textSize, prefs.textColor);
-                prefs.dateStyle = DISABLED;
-                prefs.batteryStyle = 1;
-                mainView.removeView(dateWrapper);
-                mainView.removeView(batteryWrapper);
-                break;
-            case FLAT_CLOCK:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_hour_hand, R.drawable.flat_minute_hand, 235, false, false);
-                break;
-            case FLAT_RED_CLOCK:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.flat_face, R.drawable.flat_red_hour_hand, R.drawable.flat_red_minute_hand, 0, false, false);
-                break;
-            case FLAT_STANDARD_TICKS:
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.digital_clock));
-                clockWrapper.removeView(clockWrapper.findViewById(R.id.s7_digital));
-                clockWrapper.findViewById(R.id.custom_analog_clock).setLayoutParams(lp);
-                analog24HClock.init(this, R.drawable.standard_ticks_face, R.drawable.hour_hand, R.drawable.minute_hand, 0, false, false);
-                break;
+        if (prefs.clockStyle == S7_DIGITAL) {
+            prefs.dateStyle = DISABLED;
+            prefs.batteryStyle = 1;
+            mainView.removeView(dateView);
+            mainView.removeView(batteryWrapper);
         }
-        switch (prefs.batteryStyle) {
-            case 0:
-                mainView.removeView(batteryWrapper);
-                break;
-            case 1:
-                if (prefs.clockStyle != S7_DIGITAL) {
-                    batteryTV.setTextColor(prefs.textColor);
-                    batteryIV.setColorFilter(prefs.textColor, PorterDuff.Mode.SRC_ATOP);
 
-                    batteryTV.setTypeface(font);
-                    batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (prefs.textSize * 0.2 * 1));
-                    ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
-                    batteryIVlp.height = (int) (prefs.textSize);
-                    batteryIV.setLayoutParams(batteryIVlp);
-                }
-                batteryReceiver = new BatteryReceiver(prefs.clockStyle == S7_DIGITAL ? digitalS7.getBatteryTV() : batteryTV, prefs.clockStyle == S7_DIGITAL ? digitalS7.getBatteryIV() : batteryIV);
-                registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-                break;
-        }
+        dateView = (DateView) mainView.findViewById(R.id.date);
         dateView.setDateStyle(prefs.dateStyle, prefs.textSize, prefs.textColor, font);
         TextView memoTV = (TextView) mainView.findViewById(R.id.memo_tv);
         if (!prefs.memoText.isEmpty()) {
@@ -415,7 +318,6 @@ public class MainService extends Service implements SensorEventListener, Context
             memoTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (prefs.memoTextSize));
         } else
             mainView.removeView(memoTV);
-        Log.d("Date", String.valueOf(prefs.dateStyle));
     }
 
     private void refresh() {
@@ -430,10 +332,10 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
             });
         }
-        if (analog24HClock != null)
-            analog24HClock.setTime(Calendar.getInstance());
+        if (clock.getAnalogClock() != null)
+            clock.getAnalogClock().setTime(Calendar.getInstance());
         if (prefs.clockStyle == S7_DIGITAL)
-            digitalS7.update(prefs.showAmPm);
+            clock.getDigitalS7().update(prefs.showAmPm);
 
         refreshing = true;
         new Handler().postDelayed(
@@ -453,7 +355,7 @@ public class MainService extends Service implements SensorEventListener, Context
         String monthAndDayText = Utils.getDateText(this);
         dateView.update(monthAndDayText);
         if (prefs.clockStyle == S7_DIGITAL)
-            digitalS7.setDate(monthAndDayText);
+            clock.getDigitalS7().setDate(monthAndDayText);
 
         new Handler().postDelayed(
                 new Runnable() {
@@ -521,8 +423,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
         unregisterUnlockReceiver();
-        if (prefs.batteryStyle != 0)
-            unregisterReceiver(batteryReceiver);
+        batteryView.destroy();
 
         samsungHelper.setButtonsLight(ON);
         setLights(OFF, false, false);

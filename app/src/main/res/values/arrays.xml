@@ -101,7 +101,7 @@
 
     <string-array name="customize_battery">
         <item>@string/settings_customize_hidden</item>
-        <item>@string/settings_enabled</item>
+        <item>@string/settings_shown</item>
     </string-array>
     <string-array name="customize_battery_vals">
         <item>0</item>

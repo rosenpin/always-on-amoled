@@ -9,14 +9,20 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <include layout="@layout/clock" />
+    <com.tomer.alwayson.Views.Clock
+        android:id="@+id/clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <com.tomer.alwayson.Views.DateView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <include layout="@layout/battery" />
+    <com.tomer.alwayson.Views.BatteryView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <include layout="@layout/notifications" />
 

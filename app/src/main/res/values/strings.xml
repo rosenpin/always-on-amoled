@@ -189,6 +189,7 @@
     <string name="settings_watch_analog">Analog</string>
     <string name="settings_rules_text">Text</string>
     <string name="settings_customize_hidden">Hidden</string>
+    <string name="settings_shown">Shown</string>
     <string name="settings_date_full_calendar">Full calendar</string>
     <string name="settings_font_default">Default</string>
     <string name="settings_font_default_bold">Default bold</string>
@@ -206,7 +207,7 @@
     <string name="settings_watch_analog_24_classic">Classic 24h Analog</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
     <string name="settings_watch_ticks">12H classic with hour ticks</string>
-    <string name="settings_watch_digital_s7">S7 style digital clock (not customizable)</string>
+    <string name="settings_watch_digital_s7">S7 style digital clock</string>
     <string name="settings_watch_flat_analog">Flat analog style</string>
     <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
     <string name="settings_watch_flat_red_analog">Flat analog (red dial)</string>
