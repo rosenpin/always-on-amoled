@@ -3,6 +3,7 @@ package com.tomer.alwayson.Helpers;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Map;

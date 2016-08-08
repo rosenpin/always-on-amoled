@@ -44,9 +44,19 @@ public class DateView extends LinearLayout implements ContextConstatns {
                 break;
             case DATE_VIEW:
                 dateWrapper.removeView(calendarTV);
+                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                    @Override
+                    public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
+
+                    }
+                });
                 break;
         }
         Log.d("Calendar style is ", String.valueOf(dateStyle));
+    }
+
+    public boolean isFull(){
+        return dateStyle == DATE_VIEW;
     }
 
     public void update(String monthAndDayText) {

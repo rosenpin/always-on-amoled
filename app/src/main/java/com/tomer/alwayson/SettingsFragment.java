@@ -30,7 +30,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -430,11 +429,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                             if (which > 5) {
                                 if (Globals.ownedItems != null) {
                                     if (Globals.ownedItems.size() > 0) {
-                                        prefs.setString("font", String.valueOf(which));
+                                        prefs.setString(Prefs.KEYS.FONT.toString(), String.valueOf(which));
                                         dialog.dismiss();
                                     } else
                                         PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-
                                 } else {
                                     PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                                 }
