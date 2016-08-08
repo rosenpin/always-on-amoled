@@ -1,7 +1,6 @@
 <resources>
     <!--App name & Activities title-->
     <string name="app_name" translatable="false">Always On AMOLED</string>
-    <string name="title_donation">Support The Development</string>
     <!--Actions-->
     <string name="unlock">Turn the screen on</string>
     <string name="action_revert">Revert</string>
@@ -11,7 +10,7 @@
     <string name="report_sent">Report sent!</string>
     <string name="action_restart">Restart now</string>
     <!--Support-->
-    <string name="action_support_the_development">Support the development</string>
+    <string name="action_support_the_development">Support The Development</string>
     <string name="support_how_much">How much would you like to donate?</string>
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
     <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
@@ -20,7 +19,7 @@
     <string name="support_5">5$: The price of a cool ice-coffee</string>
     <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
     <string name="support_20">20$: The price of a delicious pizza</string>
-    <string name="support_50">50$: The price of a dinner for two</string>
+    <string name="support_50">25$: The price of a dinner for two</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state</string>

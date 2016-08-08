@@ -51,3 +51,6 @@ app/src/main/assets/secretconstants.properties
 #Crowdin
 crowdin.yaml
 crowdin-cli.jar
+/app/src/main/java/com/tomer/alwayson/Activities/ClockPicker.java
+/app/src/main/res/layout/activity_main2.xml
+/app/src/main/java/com/tomer/alwayson/Views/FacesGridAdapter.java
