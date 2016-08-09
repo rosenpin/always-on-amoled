@@ -54,7 +54,7 @@ public class Utils {
         }
         public static void slideOutWithAction(View view, int finalY,Runnable action) {
             int animLength = 500;
-            view.animate().translationY(finalY).setDuration(animLength).setInterpolator(new FastOutSlowInInterpolator());
+            view.animate().translationY(finalY).alpha(0).setDuration(animLength).setInterpolator(new FastOutSlowInInterpolator());
             new Handler().postDelayed(action, animLength / 2);
         }
     }
