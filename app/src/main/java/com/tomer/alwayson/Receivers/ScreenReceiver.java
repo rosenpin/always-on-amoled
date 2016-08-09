@@ -149,6 +149,8 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
     private boolean shouldStart() {
         prefs.apply();
+        if (Globals.waitingForApp)
+            return false;
         if (prefs.rules.equals("charging")) {
             return isConnected() && getBatteryLevel() > prefs.batteryRules;
         } else if (prefs.rules.equals("discharging")) {

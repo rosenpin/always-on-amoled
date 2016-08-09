@@ -112,10 +112,6 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
-        if (Globals.waitingForApp) {
-            Log.e(MAIN_SERVICE_LOG_TAG, "Waiting for app, killing service");
-            stopSelf();
-        }
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
@@ -269,7 +265,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     public void run() {
                         Globals.waitingForApp = false;
                     }
-                }, 500);
+                }, 300);
             }
         });
 

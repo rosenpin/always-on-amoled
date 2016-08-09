@@ -111,7 +111,7 @@ public class CurrentAppResolver {
                     if (active)
                         executeForCurrentApp(action);
                 }
-            }, 200);
+            }, 300);
         }
     }
 
