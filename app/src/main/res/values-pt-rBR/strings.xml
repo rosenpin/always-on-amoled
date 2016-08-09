@@ -21,7 +21,7 @@
   <string name="support_5">5$: O preço para tomar um maravilhoso café gelado</string>
   <string name="support_10">10$: O preço para tomar um belíssimo café no Starbucks</string>
   <string name="support_20">20$: O preço para comer uma deliciosa pizza</string>
-  <string name="support_50">50$: O preço para ter um lindo jantar a dois</string>
+  <string name="support_25">50$: O preço para ter um lindo jantar a dois</string>
   <!--Intro-->
   <string name="intro_allow_now">Permita agora</string>
   <string name="intro_permissions">Ler estado do telefone</string>

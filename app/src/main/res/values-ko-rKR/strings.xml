@@ -22,7 +22,7 @@
   <string name="support_5">5달러: 시원한 아이스 커피를 사마실 수 있는 가격</string>
   <string name="support_10">10달러: 고급스러운 스타벅스 커피를 사마실 수 있는 가격</string>
   <string name="support_20">20달러: 맛있는 피자를 사먹을 수 있는 가격</string>
-  <string name="support_50">50달러: 두명이 저녁을 먹을 수 있는 가격</string>
+  <string name="support_25">50달러: 두명이 저녁을 먹을 수 있는 가격</string>
   <!--Intro-->
   <string name="intro_allow_now">지금 권한 주기</string>
   <string name="intro_permissions">기기 상태 읽기</string>

@@ -37,6 +37,8 @@ public class StarterService extends Service {
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
+        startService(new Intent(getApplicationContext(), QuickSettingsToggle.class));
+
         if (!isServiceRunning(WidgetUpdater.class)) {
             startService(new Intent(getApplicationContext(), WidgetUpdater.class));
         }

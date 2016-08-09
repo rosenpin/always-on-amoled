@@ -18,7 +18,7 @@
   <string name="support_5">$5: 请我喝一杯冰爽的咖啡</string>
   <string name="support_10">$10: 请我喝一杯星巴克咖啡</string>
   <string name="support_20">$20: 请我吃一餐美味的披萨</string>
-  <string name="support_50">$50: 请我吃两顿午餐</string>
+  <string name="support_25">$50: 请我吃两顿午餐</string>
   <!--Intro-->
   <string name="intro_allow_now">设置权限</string>
   <string name="intro_draw_over">在其他应用之上显示内容</string>

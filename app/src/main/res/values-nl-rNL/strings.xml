@@ -21,7 +21,7 @@
   <string name="support_5">5$ De prijs van een koude ijskoffie</string>
   <string name="support_10">10$ De prijs van een lekkere pizza</string>
   <string name="support_20">20$ De prijs van een heerlijke pizza</string>
-  <string name="support_50">50$ De prijs van een diner voor twee</string>
+  <string name="support_25">50$ De prijs van een diner voor twee</string>
   <!--Intro-->
   <string name="intro_allow_now">Nu toestaan</string>
   <string name="intro_permissions">Lees telefoonstatus</string>

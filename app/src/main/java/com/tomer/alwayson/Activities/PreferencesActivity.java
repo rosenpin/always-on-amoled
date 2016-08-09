@@ -46,6 +46,7 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.Services.MainService;
+import com.tomer.alwayson.Services.QuickSettingsToggle;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.SettingsFragment;
 

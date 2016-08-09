@@ -20,7 +20,7 @@
   <string name="support_5">5$: Prețul unui cești de cafea cu gheaţă</string>
   <string name="support_10">10$: Preţul unui pahar mare de la Starbucks</string>
   <string name="support_20">20$: Pretul unei delicioase pizza</string>
-  <string name="support_50">50$: Pretul unei mese pentru doi</string>
+  <string name="support_25">50$: Pretul unei mese pentru doi</string>
   <!--Intro-->
   <string name="intro_allow_now">Oferă permisiunile</string>
   <string name="intro_draw_over">Funcționare peste alte aplicații</string>

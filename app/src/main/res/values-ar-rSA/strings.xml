@@ -19,7 +19,7 @@
   <string name="support_5">5ريال: ثمن قهوة مجمدة منعشة</string>
   <string name="support_10">10ريال: ثمن كوب كبير من القهوة</string>
   <string name="support_20">20ريال: ثمن بيتزا لذيذة</string>
-  <string name="support_50">50ريال: ثمن غذاء لأثنين</string>
+  <string name="support_25">50ريال: ثمن غذاء لأثنين</string>
   <!--Intro-->
   <string name="intro_allow_now">اسمح الأن</string>
   <string name="intro_draw_over">التغطية على التطبيقات الأخرى</string>

@@ -19,7 +19,7 @@
     <string name="support_5">5$: The price of a cool ice-coffee</string>
     <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
     <string name="support_20">20$: The price of a delicious pizza</string>
-    <string name="support_50">25$: The price of a dinner for two</string>
+    <string name="support_25">25$: The price of a dinner for two</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state</string>
@@ -43,6 +43,10 @@
     <string name="notification_message">Always On Is Running</string>
     <string name="reboot_to_take_affect">Reboot to take affect</string>
     <string name="thanks_short">Thank you</string>
+    <!--Quick settings-->
+    <string name="quick_settings_title">Always on</string>
+    <string name="quick_settings_service_active">enabled</string>
+    <string name="quick_settings_service_inactive">disabled</string>
     <!-- Content description-->
     <string name="notification_icon">Notification icon</string>
     <!--Widget-->
@@ -147,7 +151,7 @@
     <string name="settings_uninstall">Uninstall</string>
     <string name="settings_app_version">Version</string>
     <!--Settings descriptions-->
-    <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched (Should keep enabled on Nexus/Samsung devices)</string>
+    <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched</string>
     <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically (Sensors may use more battery)</string>
     <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
     <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>

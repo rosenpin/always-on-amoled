@@ -69,6 +69,18 @@
                     android:summary="%s"
                     android:title="@string/settings_back_button_wake" />
             </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_shortcuts">
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="camera_shortcut"
+                    android:summary="@string/settings_stop_on_camera_desc"
+                    android:title="@string/settings_stop_on_camera" />
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="google_now_shortcut"
+                    android:summary="@string/settings_google_now_shortcut_desc"
+                    android:title="@string/settings_google_now_shortcut" />
+            </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceCategory>
 
@@ -197,19 +209,6 @@
             android:key="proximity_to_lock"
             android:summary="@string/settings_proximity_to_lock_desc"
             android:title="@string/settings_proximity" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/settings_shortcuts">
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="camera_shortcut"
-            android:summary="@string/settings_stop_on_camera_desc"
-            android:title="@string/settings_stop_on_camera" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="google_now_shortcut"
-            android:summary="@string/settings_google_now_shortcut_desc"
-            android:title="@string/settings_google_now_shortcut" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
         <SwitchPreference

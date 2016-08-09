@@ -18,7 +18,7 @@
   <string name="support_5">5$ на айс кофе </string>
   <string name="support_10">10$ на чертово Старбакс кофе </string>
   <string name="support_20">20$ на пиццу </string>
-  <string name="support_50">50$ на ужин для двоих </string>
+  <string name="support_25">50$ на ужин для двоих </string>
   <!--Intro-->
   <string name="intro_allow_now">Разрешить сейчас</string>
   <string name="intro_draw_over">Отображать поверх других приложений</string>

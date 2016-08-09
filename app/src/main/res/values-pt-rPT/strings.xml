@@ -21,7 +21,7 @@
   <string name="support_5">5$: O preço de um café gelado</string>
   <string name="support_10">10$: O preço de um café no Starbucks</string>
   <string name="support_20">20$: O preço de uma pizza deliciosa</string>
-  <string name="support_50">50$: O preço de um jantar para dois</string>
+  <string name="support_25">50$: O preço de um jantar para dois</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ler o estado do telefone</string>

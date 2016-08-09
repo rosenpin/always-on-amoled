@@ -21,7 +21,7 @@
   <string name="support_5">55kr     Priset på en kall iskaffe</string>
   <string name="support_10">105kr     Priset på en gigantisk kaffe från Starbucks</string>
   <string name="support_20">215kr     Priset på en utsökt pizza</string>
-  <string name="support_50">539kr     Priset på en middag för två</string>
+  <string name="support_25">539kr     Priset på en middag för två</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus</string>
