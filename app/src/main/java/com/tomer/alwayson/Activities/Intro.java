@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro2;
 import com.tomer.alwayson.Helpers.Prefs;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
 
 
@@ -43,7 +44,7 @@ public class Intro extends AppIntro2 {
         pref = new Prefs(getApplicationContext());
         pref.apply();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Utils.isAndroidNewerThanM()) {
             permissions = new boolean[3];
             skipButtonEnabled = false;
             addSlide(new First());
@@ -107,7 +108,7 @@ public class Intro extends AppIntro2 {
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (Utils.isAndroidNewerThanM()) {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
@@ -138,7 +139,7 @@ public class Intro extends AppIntro2 {
                 v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (Utils.isAndroidNewerThanM()) {
                             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
@@ -333,7 +334,7 @@ public class Intro extends AppIntro2 {
 
             // check to see if the enabledNotificationListeners String contains our package name
             if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 && prompt) {
+                if (Utils.isAndroidNewerThanL() && prompt) {
                     Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);

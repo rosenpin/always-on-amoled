@@ -38,6 +38,7 @@ import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Helpers.DozeManager;
 import com.tomer.alwayson.Helpers.Prefs;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.Views.FontAdapter;
@@ -233,7 +234,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         // check to see if the enabledNotificationListeners String contains our package name
         if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
             ((SwitchPreference) findPreference("notifications_alerts")).setChecked(false);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 && prompt) {
+            if (Utils.isAndroidNewerThanL() && prompt) {
                 Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

@@ -42,6 +42,7 @@ import com.tomer.alwayson.BuildConfig;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Helpers.Prefs;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.SecretConstants;
@@ -282,7 +283,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void handlePermissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Utils.isAndroidNewerThanM()) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.READ_PHONE_STATE},
@@ -298,7 +299,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             ((WindowManager) getSystemService(WINDOW_SERVICE)).addView(view, lp);
             ((WindowManager) getSystemService(WINDOW_SERVICE)).removeView(view);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Utils.isAndroidNewerThanM()) {
                 if (!Settings.System.canWrite(getApplicationContext())) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getPackageName()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -306,7 +307,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 }
             }
         } catch (Exception e) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Utils.isAndroidNewerThanM()) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

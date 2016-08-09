@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextClock;
 
 import com.tomer.alwayson.ContextConstatns;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Views.DigitalS7;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
@@ -44,7 +45,7 @@ public class Clock extends LinearLayout implements ContextConstatns {
                 textClock.setTextColor(textColor);
                 if (!showAmPm)
                     textClock.setFormat12Hour("h:mm");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                if (Utils.isAndroidNewerThanN()) {
                     textClock.setTextLocale(context.getResources().getConfiguration().getLocales().get(0));
                 } else {
                     textClock.setTextLocale(context.getResources().getConfiguration().locale);

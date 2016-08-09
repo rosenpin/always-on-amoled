@@ -27,7 +27,7 @@ public class DozeManager implements ContextConstatns{
     public void enterDoze() {
         if (!getDeviceIdleState().equals("IDLE")) {
             Log.i(DOZE_MANAGER, "Entering Doze");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            if (Utils.isAndroidNewerThanN()) {
                 executeCommand("dumpsys deviceidle force-idle deep");
             } else {
                 executeCommand("dumpsys deviceidle force-idle");
@@ -38,7 +38,7 @@ public class DozeManager implements ContextConstatns{
     }
 
     public void exitDoze() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Utils.isAndroidNewerThanN()) {
             executeCommand("dumpsys deviceidle unforce");
         } else {
             executeCommand("dumpsys deviceidle step");

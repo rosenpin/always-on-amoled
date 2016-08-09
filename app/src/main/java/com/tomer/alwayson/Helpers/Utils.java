@@ -2,6 +2,7 @@ package com.tomer.alwayson.Helpers;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.format.DateUtils;
 
 import java.util.Calendar;
@@ -29,5 +30,15 @@ public class Utils {
                         | DateUtils.FORMAT_SHOW_WEEKDAY
                         | DateUtils.FORMAT_ABBREV_MONTH
                         | DateUtils.FORMAT_ABBREV_WEEKDAY);
+    }
+
+    public static boolean isAndroidNewerThanL(){
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
+    }
+    public static boolean isAndroidNewerThanM(){
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
+    public static boolean isAndroidNewerThanN(){
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
 }

@@ -384,7 +384,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        if (Utils.isAndroidNewerThanM())
             if (!System.canWrite(this)) {
                 Log.d(MAIN_SERVICE_LOG_TAG, "Can't modify system settings");
                 return;

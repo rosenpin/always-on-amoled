@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.tomer.alwayson.Helpers.Prefs;
+import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.ScreenReceiver;
 
@@ -37,7 +38,8 @@ public class StarterService extends Service {
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
-        startService(new Intent(getApplicationContext(), QuickSettingsToggle.class));
+        if (Utils.isAndroidNewerThanN())
+            startService(new Intent(getApplicationContext(), QuickSettingsToggle.class));
 
         if (!isServiceRunning(WidgetUpdater.class)) {
             startService(new Intent(getApplicationContext(), WidgetUpdater.class));

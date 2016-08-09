@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.Helpers.Utils;
 
 public class NotificationListener extends NotificationListenerService implements ContextConstatns {
 
@@ -66,7 +67,7 @@ public class NotificationListener extends NotificationListenerService implements
     }
 
     private Drawable getIcon(StatusBarNotification notification) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Utils.isAndroidNewerThanM()) {
             return notification.getNotification().getSmallIcon().loadDrawable(this);
         } else {
             return getResources().getDrawable(notification.getNotification().icon);
