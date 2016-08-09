@@ -1,5 +1,6 @@
 package com.tomer.alwayson;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AppOpsManager;
 import android.app.admin.DevicePolicyManager;
@@ -25,6 +26,7 @@ import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -101,23 +103,33 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o) {
-                    Log.d("Object value ", (String) o);
-                    if (o.equals("speak")) {
-                        if (Globals.ownedItems != null) {
-                            if (Globals.ownedItems.size() > 0) {
+                    switch (Integer.parseInt((String) o)) {
+                        case DISABLED:
+                            return true;
+                        case ACTION_UNLOCK:
+                            return true;
+                        case ACTION_SPEAK:
+                            if (isSupporter()) {
                                 if (!isPackageInstalled("com.google.android.tts")) {
                                     openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
                                     Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
                                 }
-                                Log.d("Purchased items", String.valueOf(Globals.ownedItems));
                                 return true;
                             } else {
                                 PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                                return false;
                             }
-                        } else {
-                            PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-                        }
-                        return false;
+                        case ACTION_FLASHLIGHT:
+                            if (isSupporter()) {
+                                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, 124);
+                                    return false;
+                                }
+                                return true;
+                            } else {
+                                PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                                return false;
+                            }
                     }
                     return true;
                 }
@@ -128,6 +140,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
     }
 
+    private boolean isSupporter() {
+        if (Globals.ownedItems != null) {
+            Log.d("Purchased items", String.valueOf(Globals.ownedItems));
+            return Globals.ownedItems.size() > 0;
+        }
+        return false;
+    }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -136,7 +156,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         list.setDivider(null);
         prefs = new Prefs(context);
         if (hasSoftKeys()) {
-            findPreference("back_button").setEnabled(false);
+            findPreference(BACK_BUTTON).setEnabled(false);
         } else {
             if (!isPackageInstalled("tomer.com.alwaysonamoledplugin")) { //Prompt to install the plugin
                 new AlertDialog.Builder(getActivity())

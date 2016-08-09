@@ -46,16 +46,19 @@ public class Utils {
     public static boolean isAndroidNewerThanN() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
-    public static class Animations{
+
+    public static class Animations {
+        private static final int animLength = 500;
+        private static final int actionDelay = animLength / 2;
+
         public static void fadeOutWithAction(View view, Runnable action) {
-            int animLength = 500;
             view.animate().alpha(0).setDuration(animLength).setInterpolator(new FastOutSlowInInterpolator());
-            new Handler().postDelayed(action, animLength / 2);
+            new Handler().postDelayed(action, actionDelay);
         }
-        public static void slideOutWithAction(View view, int finalY,Runnable action) {
-            int animLength = 500;
+
+        public static void slideOutWithAction(View view, int finalY, Runnable action) {
             view.animate().translationY(finalY).alpha(0).setDuration(animLength).setInterpolator(new FastOutSlowInInterpolator());
-            new Handler().postDelayed(action, animLength / 2);
+            new Handler().postDelayed(action, actionDelay);
         }
     }
 }

@@ -47,7 +47,6 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.Receivers.DAReceiver;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.Services.MainService;
-import com.tomer.alwayson.Services.QuickSettingsToggle;
 import com.tomer.alwayson.Services.StarterService;
 import com.tomer.alwayson.SettingsFragment;
 
@@ -166,7 +165,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 ).show();
     }
 
-    public static void quicklyPromptToSupport(final Activity context, final IInAppBillingService mService, final View rootView){
+    public static void quicklyPromptToSupport(final Activity context, final IInAppBillingService mService, final View rootView) {
         String googleIAPCode = SecretConstants.getPropertyValue(context, "googleIAPCode");
         Bundle buyIntentBundle;
         PendingIntent pendingIntent = null;

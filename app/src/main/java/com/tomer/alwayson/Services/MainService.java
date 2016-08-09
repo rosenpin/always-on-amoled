@@ -40,6 +40,7 @@ import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Helpers.CurrentAppResolver;
 import com.tomer.alwayson.Helpers.DisplaySize;
 import com.tomer.alwayson.Helpers.DozeManager;
+import com.tomer.alwayson.Helpers.Flashlight;
 import com.tomer.alwayson.Helpers.GreenifyStarter;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Helpers.SamsungHelper;
@@ -135,31 +136,15 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
-                    switch (prefs.volumeButtonsAction) {
-                        case ACTION_SPEAK:
-                            tts.sayCurrentStatus();
-                            return true;
-                        case ACTION_UNLOCK:
-                            stoppedByShortcut = true;
-                            stopSelf();
-                            return true;
-                        default:
-                            return prefs.disableVolumeKeys;
-                    }
+                    return gestureAction(prefs.volumeButtonsAction) || prefs.disableVolumeKeys;
                 }
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-                    if (prefs.backButtonAction.equals(ACTION_UNLOCK)) {
-                        stoppedByShortcut = true;
-                        stopSelf();
-                    } else if (prefs.backButtonAction.equals(ACTION_SPEAK)) {
-                        tts.sayCurrentStatus();
-                    }
-                    return false;
+                    gestureAction(prefs.backButtonAction);
                 }
                 return super.dispatchKeyEvent(event);
             }
         };
-        if (!prefs.doubleTapAction.equals(ACTION_OFF_GESTURE) || !prefs.swipeAction.equals(ACTION_OFF_GESTURE))
+        if (prefs.doubleTapAction != ACTION_OFF_GESTURE || prefs.swipeAction != ACTION_OFF_GESTURE)
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
@@ -418,6 +403,8 @@ public class MainService extends Service implements SensorEventListener, Context
         //Dismiss doze
         if (dozeManager != null)
             dozeManager.exitDoze();
+        if (flashlight != null)
+            flashlight.destroy();
         //Dismissing the wakelock holder
         stayAwakeWakeLock.release();
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())
@@ -562,15 +549,7 @@ public class MainService extends Service implements SensorEventListener, Context
                         Log.d(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
                     } else {
                         Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
-                        if (prefs.swipeAction.equals(ACTION_UNLOCK)) {
-                            stoppedByShortcut = true;
-                            stopSelf();
-                            return true;
-                        }
-                        if (prefs.swipeAction.equals(ACTION_SPEAK)) {
-                            tts.sayCurrentStatus();
-                            return true;
-                        }
+                        return gestureAction(prefs.swipeAction);
                     }
 
                 }
@@ -579,16 +558,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                if (prefs.doubleTapAction.equals(ACTION_UNLOCK)) {
-                    stoppedByShortcut = true;
-                    stopSelf();
-                    return true;
-                }
-                if (prefs.doubleTapAction.equals(ACTION_SPEAK)) {
-                    tts.sayCurrentStatus();
-                    return true;
-                }
-                return false;
+                return gestureAction(prefs.doubleTapAction);
             }
 
             private boolean isInCenter(MotionEvent e) {
@@ -597,6 +567,26 @@ public class MainService extends Service implements SensorEventListener, Context
                 return e.getX() > width / 4 && e.getX() < width * 3 / 4 && e.getY() > height / 2.5 && e.getY() < height * 4 / 5;
             }
         }
+    }
+
+    private Flashlight flashlight;
+
+    private boolean gestureAction(int gesture) {
+        if (gesture == ACTION_UNLOCK) {
+            stoppedByShortcut = true;
+            stopSelf();
+            return true;
+        } else if (gesture == ACTION_SPEAK) {
+            tts.sayCurrentStatus();
+            return true;
+        } else if (gesture == ACTION_FLASHLIGHT) {
+            if (flashlight == null) {
+                flashlight = new Flashlight();
+            }
+            if (!flashlight.isLoading())
+                flashlight.toggle(this);
+        }
+        return false;
     }
 
     @Override

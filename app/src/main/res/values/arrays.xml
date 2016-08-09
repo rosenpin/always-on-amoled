@@ -149,12 +149,14 @@
         <item>@string/unlock</item>
         <!--  <item>Open an app</item>-->
         <item>@string/gestures_action_speak</item>
+        <item>@string/gestures_action_flashlight</item>
     </string-array>
     <string-array name="gestures_actions_vals">
-        <item>off</item>
-        <item>unlock</item>
+        <item>0</item>
+        <item>1</item>
         <!-- <item>open_app</item>-->
-        <item>speak</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="support_items">
@@ -199,4 +201,5 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string name="gestures_action_flashlight">Toggle flashlight</string>
 </resources>

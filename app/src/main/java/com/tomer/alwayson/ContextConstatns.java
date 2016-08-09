@@ -35,14 +35,15 @@ public interface ContextConstatns {
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
     int DEVICE_ADMIN_REQUEST_CODE = 4;
 
-    String DOUBLE_TAP = "double_tap";
-    String SWIPE_UP = "swipe_up";
-    String VOLUME_KEYS = "volume_keys";
-    String BACK_BUTTON = "back_button";
+    String DOUBLE_TAP = "double_tap_action";
+    String SWIPE_UP = "swipe_up_action";
+    String VOLUME_KEYS = "volume_keys_action";
+    String BACK_BUTTON = "back_button_action";
 
-    String ACTION_OFF_GESTURE = "off";
-    String ACTION_SPEAK = "speak";
-    String ACTION_UNLOCK = "unlock";
+    int ACTION_OFF_GESTURE = 0;
+    int ACTION_UNLOCK = 1;
+    int ACTION_SPEAK = 2;
+    int ACTION_FLASHLIGHT = 3;
 
     String HORIZONTAL = "horizontal";
     String VERTICAL = "vertical";

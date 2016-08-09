@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class Prefs {
     public boolean enabled;
-    public String doubleTapAction, swipeAction, volumeButtonsAction, backButtonAction;
     public boolean proximityToLock;
     public boolean showNotification;
     public boolean stopOnCamera;
@@ -34,6 +33,7 @@ public class Prefs {
     public int font;
     public int memoTextSize;
     public int exitAnimation;
+    public int doubleTapAction, swipeAction, volumeButtonsAction, backButtonAction;
 
     public float textSize;
 
@@ -53,11 +53,11 @@ public class Prefs {
     public void apply() {
         enabled = prefs.getBoolean(KEYS.ENABLED.toString(), true);
         try {
-            doubleTapAction = prefs.getString(KEYS.DOUBLE_TAP_TO_STOP.toString(), "unlock");
-            swipeAction = prefs.getString(KEYS.SWIPE_TO_STOP.toString(), "off");
-            volumeButtonsAction = prefs.getString(KEYS.VOLUME_TO_STOP.toString(), "off");
-            backButtonAction = prefs.getString(KEYS.BACK_BUTTON_TO_STOP.toString(), "off");
-        } catch (ClassCastException e) {
+            doubleTapAction = Integer.parseInt(prefs.getString(KEYS.DOUBLE_TAP_TO_STOP.toString(), "1"));
+            swipeAction = Integer.parseInt(prefs.getString(KEYS.SWIPE_TO_STOP.toString(), "0"));
+            volumeButtonsAction = Integer.parseInt(prefs.getString(KEYS.VOLUME_TO_STOP.toString(), "0"));
+            backButtonAction = Integer.parseInt(prefs.getString(KEYS.BACK_BUTTON_TO_STOP.toString(), "0"));
+        } catch (RuntimeException e) {
             prefs.edit().remove(KEYS.DOUBLE_TAP_TO_STOP.toString()).apply();
             prefs.edit().remove(KEYS.SWIPE_TO_STOP.toString()).apply();
             prefs.edit().remove(KEYS.VOLUME_TO_STOP.toString()).apply();
@@ -164,10 +164,10 @@ public class Prefs {
 
     public enum KEYS {
         ENABLED("enabled"),
-        DOUBLE_TAP_TO_STOP("double_tap"),
-        SWIPE_TO_STOP("swipe_up"),
-        VOLUME_TO_STOP("volume_keys"),
-        BACK_BUTTON_TO_STOP("back_button"),
+        DOUBLE_TAP_TO_STOP("double_tap_action"),
+        SWIPE_TO_STOP("swipe_up_action"),
+        VOLUME_TO_STOP("volume_keys_action"),
+        BACK_BUTTON_TO_STOP("back_button_action"),
         SHOW_NOTIFICATION("persistent_notification"),
         MOVE_WIDGET("movement_style"),
         BRIGHTNESS("brightness"),

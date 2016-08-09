@@ -41,31 +41,31 @@
             android:title="@string/settings_gestures">
             <PreferenceCategory android:title="@string/settings_wake_up">
                 <ListPreference
-                    android:defaultValue="unlock"
+                    android:defaultValue="1"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:key="double_tap"
+                    android:key="double_tap_action"
                     android:summary="%s"
                     android:title="@string/settings_double_tap_wake" />
                 <ListPreference
-                    android:defaultValue="off"
+                    android:defaultValue="0"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:key="swipe_up"
+                    android:key="swipe_up_action"
                     android:summary="%s"
                     android:title="@string/settings_swipe_wake" />
                 <ListPreference
-                    android:defaultValue="off"
+                    android:defaultValue="0"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:key="volume_keys"
+                    android:key="volume_keys_action"
                     android:summary="%s"
                     android:title="@string/settings_volume_to_stop" />
                 <ListPreference
-                    android:defaultValue="off"
+                    android:defaultValue="0"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
-                    android:key="back_button"
+                    android:key="back_button_action"
                     android:summary="%s"
                     android:title="@string/settings_back_button_wake" />
             </PreferenceCategory>
