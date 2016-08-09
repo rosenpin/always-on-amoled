@@ -55,12 +55,13 @@ public class DateView extends LinearLayout implements ContextConstatns {
         Log.d("Calendar style is ", String.valueOf(dateStyle));
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return dateStyle == DATE_VIEW;
     }
 
     public void update(String monthAndDayText) {
         if (dateStyle == 1)
-            calendarTV.setText(monthAndDayText);
+            if (calendarTV != null)
+                calendarTV.setText(monthAndDayText);
     }
 }
