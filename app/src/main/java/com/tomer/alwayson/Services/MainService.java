@@ -581,10 +581,10 @@ public class MainService extends Service implements SensorEventListener, Context
             return true;
         } else if (gesture == ACTION_FLASHLIGHT) {
             if (flashlight == null) {
-                flashlight = new Flashlight();
+                flashlight = new Flashlight(this);
             }
             if (!flashlight.isLoading())
-                flashlight.toggle(this);
+                flashlight.toggle();
         }
         return false;
     }

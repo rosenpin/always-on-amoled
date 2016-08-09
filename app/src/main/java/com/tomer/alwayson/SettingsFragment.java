@@ -122,7 +122,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         case ACTION_FLASHLIGHT:
                             if (isSupporter()) {
                                 if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, 124);
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST_CODE);
                                     return false;
                                 }
                                 return true;

@@ -232,7 +232,6 @@ public class Intro extends AppIntro2 {
                 permissions[permissions.length - 1] = true;
                 go.setVisibility(View.INVISIBLE);
             }
-
         }
 
 
@@ -348,7 +347,5 @@ public class Intro extends AppIntro2 {
             }
             return true;
         }
-
-
     }
 }

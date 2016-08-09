@@ -14,20 +14,24 @@ public class Flashlight {
     private boolean enabled;
     private Camera cam;
     private boolean isLoading;
+    private Context context;
 
-    public Flashlight() {
-        cam = Camera.open();
-        Camera.Parameters p = cam.getParameters();
-        p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-        cam.setParameters(p);
-        SurfaceTexture mPreviewTexture = new SurfaceTexture(0);
-        try {
-            cam.setPreviewTexture(mPreviewTexture);
-        } catch (IOException ignored) {
+    public Flashlight(Context context) {
+        this.context = context;
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            cam = Camera.open();
+            Camera.Parameters p = cam.getParameters();
+            p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+            cam.setParameters(p);
+            SurfaceTexture mPreviewTexture = new SurfaceTexture(0);
+            try {
+                cam.setPreviewTexture(mPreviewTexture);
+            } catch (IOException ignored) {
+            }
         }
     }
 
-    public void toggle(Context context) {
+    public void toggle() {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             isLoading = true;
             if (!enabled) {
@@ -50,6 +54,7 @@ public class Flashlight {
     }
 
     public void destroy() {
-        cam.release();
+        if (cam != null)
+            cam.release();
     }
 }
