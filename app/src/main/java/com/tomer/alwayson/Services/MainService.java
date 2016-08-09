@@ -342,7 +342,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         if (!first && prefs.moveWidget != DISABLED)
-            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull());
+            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull());
         String monthAndDayText = Utils.getDateText(this);
         dateView.update(monthAndDayText);
         if (prefs.clockStyle == S7_DIGITAL)

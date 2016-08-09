@@ -2,7 +2,6 @@ package com.tomer.alwayson.Views;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -13,14 +12,12 @@ import android.widget.TextClock;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.Views.DigitalS7;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
 public class Clock extends LinearLayout implements ContextConstatns {
 
     private DigitalS7 digitalS7;
     private CustomAnalogClock analogClock;
-
 
     public Clock(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -108,11 +105,15 @@ public class Clock extends LinearLayout implements ContextConstatns {
         }
     }
 
-    public DigitalS7 getDigitalS7(){
+    public DigitalS7 getDigitalS7() {
         return this.digitalS7;
     }
 
     public CustomAnalogClock getAnalogClock() {
         return analogClock;
+    }
+
+    public boolean isFull() {
+        return digitalS7 != null;
     }
 }
