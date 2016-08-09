@@ -172,6 +172,14 @@
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/settings_brightness" />
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/settings_exit_animation_desc"
+            android:entries="@array/animations"
+            android:entryValues="@array/animations_vals"
+            android:key="exit_animation"
+            android:summary="%s"
+            android:title="@string/settings_exit_animation" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">

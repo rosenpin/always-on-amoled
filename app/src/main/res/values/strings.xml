@@ -19,7 +19,7 @@
     <string name="support_5">5$: The price of a cool ice-coffee</string>
     <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
     <string name="support_20">20$: The price of a delicious pizza</string>
-    <string name="support_25">25$: The price of a dinner for two</string>
+    <string name="support_25">25$: The price of a dinner</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state</string>
@@ -227,4 +227,6 @@
     <string name="settings_memo_font_size_desc">Set the memo font size</string>
     <string name="settings_memo_hint">Type your memo here. It will show up in your always on screen.</string>
     <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
+    <string name="settings_exit_animation">Animation</string>
+    <string name="settings_exit_animation_desc">Choose the exit animation</string>
 </resources>

@@ -18,6 +18,7 @@ public class UnlockReceiver extends BroadcastReceiver implements ContextConstatn
         }
         Intent intent1 = new Intent(context, MainService.class);
         Log.i(UNLOCK_RECEIVER_TAG, "Received");
+        MainService.stoppedByShortcut = true;
         context.stopService(intent1);
         Globals.isShown = false;
     }

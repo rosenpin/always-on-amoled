@@ -57,6 +57,9 @@ public interface ContextConstatns {
     int MOVE_NO_ANIMATION = 1;
     int MOVE_WITH_ANIMATION = 2;
 
+    int FADE_OUT = 1;
+    int SLIDE_OUT = 2;
+
     int DIGITAL_CLOCK = 1;
     int ANALOG_CLOCK = 2;
     int S7_DIGITAL = 3;

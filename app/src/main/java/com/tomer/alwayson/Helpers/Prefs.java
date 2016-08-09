@@ -3,7 +3,6 @@ package com.tomer.alwayson.Helpers;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Map;
@@ -34,6 +33,7 @@ public class Prefs {
     public int batteryRules;
     public int font;
     public int memoTextSize;
+    public int exitAnimation;
 
     public float textSize;
 
@@ -96,6 +96,7 @@ public class Prefs {
         hasSoftKeys = prefs.getBoolean(KEYS.HAS_SOFT_KEYS.toString(), false);
         startAfterLock = prefs.getBoolean(KEYS.START_AFTER_LOCK.toString(), true);
         notificationPreview = prefs.getBoolean(KEYS.NOTIFICATION_PREVIEW.toString(), true);
+        exitAnimation = Integer.parseInt(prefs.getString(KEYS.EXIT_ANIMATION.toString(), "0"));
     }
 
     public void setString(String key, String value) {
@@ -193,7 +194,8 @@ public class Prefs {
         NOTIFICATION_PREVIEW("notifications_alerts_preview"),
         MEMO_TEXT("memo_text"),
         DOZE_MODE("doze_mode"),
-        GREENIFY("greenify_enabled");
+        GREENIFY("greenify_enabled"),
+        EXIT_ANIMATION("exit_animation");
 
         private final String id;
 

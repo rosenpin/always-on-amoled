@@ -3,7 +3,10 @@ package com.tomer.alwayson.Helpers;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Handler;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
+import android.view.View;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -32,13 +35,27 @@ public class Utils {
                         | DateUtils.FORMAT_ABBREV_WEEKDAY);
     }
 
-    public static boolean isAndroidNewerThanL(){
+    public static boolean isAndroidNewerThanL() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
     }
-    public static boolean isAndroidNewerThanM(){
+
+    public static boolean isAndroidNewerThanM() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
-    public static boolean isAndroidNewerThanN(){
+
+    public static boolean isAndroidNewerThanN() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
+    public static class Animations{
+        public static void fadeOutWithAction(View view, Runnable action) {
+            int animLength = 500;
+            view.animate().alpha(0).setDuration(animLength).setInterpolator(new FastOutSlowInInterpolator());
+            new Handler().postDelayed(action, animLength / 2);
+        }
+        public static void slideOutWithAction(View view, int finalY,Runnable action) {
+            int animLength = 500;
+            view.animate().translationY(finalY).setDuration(animLength).setInterpolator(new FastOutSlowInInterpolator());
+            new Handler().postDelayed(action, animLength / 2);
+        }
     }
 }

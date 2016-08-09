@@ -38,6 +38,7 @@ import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Helpers.CurrentAppResolver;
+import com.tomer.alwayson.Helpers.DisplaySize;
 import com.tomer.alwayson.Helpers.DozeManager;
 import com.tomer.alwayson.Helpers.GreenifyStarter;
 import com.tomer.alwayson.Helpers.Prefs;
@@ -83,6 +84,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
+    public static boolean stoppedByShortcut;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -121,6 +123,9 @@ public class MainService extends Service implements SensorEventListener, Context
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
 
+        //Initialize stopped by shortcut
+        stoppedByShortcut = false;
+
         // Setup UI
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         setTheme(R.style.AppTheme);
@@ -135,6 +140,7 @@ public class MainService extends Service implements SensorEventListener, Context
                             tts.sayCurrentStatus();
                             return true;
                         case ACTION_UNLOCK:
+                            stoppedByShortcut = true;
                             stopSelf();
                             return true;
                         default:
@@ -142,9 +148,10 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 }
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-                    if (prefs.backButtonAction.equals(ACTION_UNLOCK))
+                    if (prefs.backButtonAction.equals(ACTION_UNLOCK)) {
+                        stoppedByShortcut = true;
                         stopSelf();
-                    else if (prefs.backButtonAction.equals(ACTION_SPEAK)) {
+                    } else if (prefs.backButtonAction.equals(ACTION_SPEAK)) {
                         tts.sayCurrentStatus();
                     }
                     return false;
@@ -217,6 +224,7 @@ public class MainService extends Service implements SensorEventListener, Context
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    stoppedByShortcut = true;
                     stopSelf();
                     stayAwakeWakeLock.release();
                     Globals.killedByDelay = true;
@@ -282,6 +290,7 @@ public class MainService extends Service implements SensorEventListener, Context
         samsungHelper.setOnHomeButtonClickListener(new Runnable() {
             @Override
             public void run() {
+                stoppedByShortcut = true;
                 stopSelf();
             }
         });
@@ -324,6 +333,7 @@ public class MainService extends Service implements SensorEventListener, Context
             notificationsMessageBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    stoppedByShortcut = true;
                     stopSelf();
                 }
             });
@@ -422,10 +432,29 @@ public class MainService extends Service implements SensorEventListener, Context
         batteryView.destroy();
 
         samsungHelper.setButtonsLight(ON);
-        setLights(OFF, false, false);
 
-        if (frameLayout.getWindowToken() != null)
-            windowManager.removeView(frameLayout);
+        if (frameLayout.getWindowToken() != null) {
+            if (prefs.exitAnimation == FADE_OUT && stoppedByShortcut) {
+                Utils.Animations.fadeOutWithAction(frameLayout, new Runnable() {
+                    @Override
+                    public void run() {
+                        setLights(OFF, false, false);
+                        windowManager.removeView(frameLayout);
+                    }
+                });
+            } else if (prefs.exitAnimation == SLIDE_OUT && stoppedByShortcut) {
+                Utils.Animations.slideOutWithAction(frameLayout, -new DisplaySize(this).getHeight(prefs.orientation.equals(VERTICAL)), new Runnable() {
+                    @Override
+                    public void run() {
+                        setLights(OFF, false, false);
+                        windowManager.removeView(frameLayout);
+                    }
+                });
+            } else {
+                setLights(OFF, false, false);
+                windowManager.removeView(frameLayout);
+            }
+        }
 
         Globals.isShown = false;
         Globals.isServiceRunning = false;
@@ -534,6 +563,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     } else {
                         Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
                         if (prefs.swipeAction.equals(ACTION_UNLOCK)) {
+                            stoppedByShortcut = true;
                             stopSelf();
                             return true;
                         }
@@ -550,6 +580,7 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public boolean onDoubleTap(MotionEvent e) {
                 if (prefs.doubleTapAction.equals(ACTION_UNLOCK)) {
+                    stoppedByShortcut = true;
                     stopSelf();
                     return true;
                 }
