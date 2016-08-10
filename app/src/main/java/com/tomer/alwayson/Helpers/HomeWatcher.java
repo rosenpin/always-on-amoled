@@ -31,9 +31,8 @@ public class HomeWatcher {
     }
 
     public void stopWatch() {
-        if (mReceiver != null) {
+        if (mReceiver != null)
             mContext.unregisterReceiver(mReceiver);
-        }
     }
 
     class InnerReceiver extends BroadcastReceiver {
@@ -56,6 +55,7 @@ public class HomeWatcher {
             }
         }
     }
+
     public interface OnHomePressedListener {
         void onHomePressed();
     }

@@ -53,6 +53,8 @@ public class NotificationListener extends NotificationListenerService implements
             Globals.newNotification = new NotificationHolder(this, title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent);
             Globals.notifications.put(getUniqueKey(added), Globals.newNotification);
         }
+        if (Globals.onNotificationAction != null)
+            Globals.onNotificationAction.run();
     }
 
     @Override
@@ -60,6 +62,8 @@ public class NotificationListener extends NotificationListenerService implements
         Log.d(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
         Globals.notifications.remove(getUniqueKey(removed));
         Globals.notificationChanged = true;
+        if (Globals.onNotificationAction != null)
+            Globals.onNotificationAction.run();
     }
 
     private String getUniqueKey(StatusBarNotification notification) {

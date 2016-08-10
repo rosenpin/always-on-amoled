@@ -1,8 +1,11 @@
 package com.tomer.alwayson.Views;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.tomer.alwayson.Activities.DummyActivity;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.Services.NotificationListener;
 
@@ -29,7 +33,7 @@ public class IconsWrapper extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public void update(boolean state, int textColor, final Runnable action) {
+    public void update(final Context context, boolean state, int textColor, final Runnable action) {
         if (Globals.notificationChanged && state) {
             removeAllViews();
             for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
@@ -48,6 +52,25 @@ public class IconsWrapper extends LinearLayout {
                             iconLayoutParams.width += 10;
                             iconLayoutParams.height += 10;
                             icon.setLayoutParams(iconLayoutParams);
+                            if (iconLayoutParams.width > 500) {
+                                if (entry.getValue().getIntent() != null) {
+                                    Intent dummyIntent = new Intent(context, DummyActivity.class);
+                                    context.startActivity(dummyIntent);
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            try {
+                                                entry.getValue().getIntent().send();
+                                                action.run();
+                                            } catch (PendingIntent.CanceledException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }, 300);
+                                } else {
+                                    removeView(icon);
+                                }
+                            }
                         } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
                             iconLayoutParams.width = 96;
                             iconLayoutParams.height = 96;
@@ -58,12 +81,6 @@ public class IconsWrapper extends LinearLayout {
                         return true;
                     }
                 });
-               /* try {
-                    entry.getValue().getIntent().send();
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
-                action.run();*/
                 addView(icon);
             }
             Globals.notificationChanged = false;

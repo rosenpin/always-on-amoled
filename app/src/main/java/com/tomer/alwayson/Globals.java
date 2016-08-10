@@ -25,4 +25,5 @@ public class Globals {
     public static boolean nightMode;
     public static boolean isServiceRunning;
     public static boolean waitingForApp = false;
+    public static Runnable onNotificationAction;
 }

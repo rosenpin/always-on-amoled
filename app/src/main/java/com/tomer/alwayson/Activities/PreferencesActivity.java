@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.Settings;
@@ -399,6 +400,28 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             stopService(new Intent(getApplicationContext(), MainService.class));
             demo = false;
         }
+    }
+
+    boolean isActive;
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(MAIN_ACTIVITY_LOG_TAG, "Stopped");
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (!isActive)
+                    finish();
+            }
+        }, 30000);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isActive = true;
     }
 
     private boolean isServiceRunning(Class<?> serviceClass) {

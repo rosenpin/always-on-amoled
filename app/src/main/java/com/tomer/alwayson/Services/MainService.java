@@ -35,6 +35,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.tomer.alwayson.Activities.DummyActivity;
+import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
@@ -228,6 +230,39 @@ public class MainService extends Service implements SensorEventListener, Context
         //Turn lights on
         setLights(ON, false, true);
 
+        //Notification setup
+        Globals.onNotificationAction = new Runnable() {
+            @Override
+            public void run() {
+                Log.d("notificaiotns", "New notification!!!");
+                iconsWrapper.update(getApplicationContext(),prefs.notificationsAlerts, prefs.textColor, new Runnable() {
+                    @Override
+                    public void run() {
+                        stopSelf();
+                    }
+                });
+                if (Globals.newNotification != null && prefs.notificationPreview) {
+                    notificationsMessageBox.showNotification(Globals.newNotification);
+                    notificationsMessageBox.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            stoppedByShortcut = true;
+                            if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
+                                try {
+                                    startActivity(new Intent(getApplicationContext(), DummyActivity.class));
+                                    notificationsMessageBox.getCurrentNotification().getIntent().send();
+                                } catch (PendingIntent.CanceledException e) {
+                                    e.printStackTrace();
+                                }
+                                stopSelf();
+                            }
+                        }
+                    });
+                }
+            }
+        };
+        Globals.onNotificationAction.run();
+
         //Turn screen on
         new Handler().postDelayed(
                 new Runnable() {
@@ -236,6 +271,7 @@ public class MainService extends Service implements SensorEventListener, Context
                         new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
                         //Turn on the display
                         if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
+                        startActivity(new Intent(getApplicationContext(),DummyActivity.class));
                     }
                 },
                 500);
@@ -312,29 +348,6 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refresh() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-        iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor, new Runnable() {
-            @Override
-            public void run() {
-                stopSelf();
-            }
-        });
-        if (Globals.newNotification != null && prefs.notificationPreview) {
-            notificationsMessageBox.showNotification(Globals.newNotification);
-            notificationsMessageBox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    stoppedByShortcut = true;
-                    if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
-                        try {
-                            notificationsMessageBox.getCurrentNotification().getIntent().send();
-                        } catch (PendingIntent.CanceledException e) {
-                            e.printStackTrace();
-                        }
-                        stopSelf();
-                    }
-                }
-            });
-        }
         if (clock.getAnalogClock() != null)
             clock.getAnalogClock().setTime(Calendar.getInstance());
         if (prefs.clockStyle == S7_DIGITAL)
@@ -354,7 +367,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private void refreshLong(boolean first) {
         Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         if (!first && prefs.moveWidget != DISABLED)
-            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull());
+            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
         String monthAndDayText = Utils.getDateText(this);
         dateView.update(monthAndDayText);
         if (prefs.clockStyle == S7_DIGITAL)
@@ -408,6 +421,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Globals.onNotificationAction = null;
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Stop home button watcher
@@ -457,6 +471,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     }
                 });
             } else {
+                setLights(OFF, false, false);
                 windowManager.removeView(frameLayout);
             }
         }
