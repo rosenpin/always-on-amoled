@@ -394,6 +394,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
+        super.onDestroy();
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Stop home button watcher
@@ -453,9 +454,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 Globals.killedByDelay = false;
             }
         }, 15000);
-        super.onDestroy();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
-        super.onDestroy();
     }
 
     @Override
