@@ -48,7 +48,7 @@ public class Utils {
     }
 
     public static class Animations {
-        private static final int animLength = 500;
+        private static final int animLength = 300;
         private static final int actionDelay = animLength / 2;
 
         public static void fadeOutWithAction(View view, Runnable action) {

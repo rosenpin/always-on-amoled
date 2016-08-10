@@ -37,7 +37,7 @@ public class Clock extends LinearLayout implements ContextConstatns {
                 removeView(clockWrapper);
                 break;
             case DIGITAL_CLOCK:
-                TextClock textClock = (TextClock) clockWrapper.findViewById(R.id.digital_clock);
+                KillableTextClock textClock = (KillableTextClock) clockWrapper.findViewById(R.id.digital_clock);
                 textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
                 textClock.setTextColor(textColor);
                 if (!showAmPm)

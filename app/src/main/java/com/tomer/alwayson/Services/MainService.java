@@ -149,7 +149,6 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = (LinearLayout) (layoutInflater.inflate(R.layout.clock_widget, frameLayout).findViewById(R.id.watchface_wrapper));
-
         iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
         notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
 
@@ -395,7 +394,6 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Stop home button watcher
@@ -420,25 +418,29 @@ public class MainService extends Service implements SensorEventListener, Context
 
         samsungHelper.setButtonsLight(ON);
 
+        frameLayout.setOnTouchListener(null);
         if (frameLayout.getWindowToken() != null) {
             if (prefs.exitAnimation == FADE_OUT && stoppedByShortcut) {
                 Utils.Animations.fadeOutWithAction(frameLayout, new Runnable() {
                     @Override
                     public void run() {
-                        setLights(OFF, false, false);
-                        windowManager.removeView(frameLayout);
+                        if (frameLayout.getWindowToken() != null) {
+                            windowManager.removeView(frameLayout);
+                            setLights(OFF, false, false);
+                        }
                     }
                 });
             } else if (prefs.exitAnimation == SLIDE_OUT && stoppedByShortcut) {
                 Utils.Animations.slideOutWithAction(frameLayout, -new DisplaySize(this).getHeight(prefs.orientation.equals(VERTICAL)), new Runnable() {
                     @Override
                     public void run() {
-                        setLights(OFF, false, false);
-                        windowManager.removeView(frameLayout);
+                        if (frameLayout.getWindowToken() != null) {
+                            windowManager.removeView(frameLayout);
+                            setLights(OFF, false, false);
+                        }
                     }
                 });
             } else {
-                setLights(OFF, false, false);
                 windowManager.removeView(frameLayout);
             }
         }
@@ -451,7 +453,9 @@ public class MainService extends Service implements SensorEventListener, Context
                 Globals.killedByDelay = false;
             }
         }, 15000);
+        super.onDestroy();
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
+        super.onDestroy();
     }
 
     @Override
