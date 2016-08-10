@@ -86,10 +86,11 @@ public class CurrentAppResolver {
                             action.run();
                     }
                     if (firstLaunch) {
-                        //destroy();
                         if (activePackage.equals(appPackageName)) {
                             Log.e(CurrentAppResolver.class.getSimpleName(), "App was already open when service started.");
-                            context.startActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER));
+                            Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
                         }
                         handler.postDelayed(new Runnable() {
                             @Override
