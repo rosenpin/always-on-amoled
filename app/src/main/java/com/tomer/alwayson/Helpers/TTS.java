@@ -53,8 +53,8 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
                 time = time.charAt(0) == '0' ? time.substring(1, time.length()) : time;
 
                 tts.speak("The time is " + time, TextToSpeech.QUEUE_FLUSH, null);
-                if (Globals.notificationsDrawables.size() > 0)
-                    tts.speak("You have " + Globals.notificationsDrawables.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
+                if (Globals.notifications.size() > 0)
+                    tts.speak("You have " + Globals.notifications.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
                 tts.speak("Battery is at " + batteryReceiver.currentBattery + " percent", TextToSpeech.QUEUE_ADD, null);
                 speaking = true;
                 new Handler().postDelayed(new Runnable() {

@@ -1,12 +1,12 @@
 package com.tomer.alwayson.Services;
 
 import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.support.v4.content.ContextCompat;
@@ -34,7 +34,6 @@ public class NotificationListener extends NotificationListenerService implements
     public void onNotificationPosted(StatusBarNotification added) {
         Log.d(NOTIFICATION_LISTENER_TAG, "New notification from " + added.getPackageName());
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
-            Globals.notificationsDrawables.put(getUniqueKey(added), getIcon(added));
             Globals.notificationChanged = true;
             String title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE);
             if (title.equals("null"))
@@ -51,14 +50,15 @@ public class NotificationListener extends NotificationListenerService implements
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-            Globals.newNotification = new NotificationHolder(this, title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null);
+            Globals.newNotification = new NotificationHolder(this, title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent);
+            Globals.notifications.put(getUniqueKey(added), Globals.newNotification);
         }
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
         Log.d(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
-        Globals.notificationsDrawables.remove(getUniqueKey(removed));
+        Globals.notifications.remove(getUniqueKey(removed));
         Globals.notificationChanged = true;
     }
 
@@ -79,8 +79,9 @@ public class NotificationListener extends NotificationListenerService implements
         private Drawable icon;
         private String title, message;
         private Context context;
+        private PendingIntent intent;
 
-        public NotificationHolder(Context context, String title, String message, Drawable icon, CharSequence appName) {
+        public NotificationHolder(Context context, String title, String message, Drawable icon, CharSequence appName, PendingIntent intent) {
             this.icon = icon;
             this.title = title;
             this.message = message;
@@ -90,6 +91,7 @@ public class NotificationListener extends NotificationListenerService implements
                 this.message = "";
             if (this.title.equals("null"))
                 this.title = "";
+            this.intent = intent;
         }
 
         public Drawable getIcon() {
@@ -107,6 +109,10 @@ public class NotificationListener extends NotificationListenerService implements
 
         public String getAppName() {
             return appName;
+        }
+
+        public PendingIntent getIntent() {
+            return intent;
         }
     }
 }

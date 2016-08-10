@@ -9,12 +9,7 @@ public class KillableTextClock extends TextClock {
         super(context, attrs);
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        try {
-            super.onDetachedFromWindow();
-        } catch (IllegalArgumentException e) {
-            invalidate();
-        }
+    public void destroy(){
+        super.onDetachedFromWindow();
     }
 }

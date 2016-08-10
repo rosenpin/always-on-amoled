@@ -1,5 +1,6 @@
 package com.tomer.alwayson.Services;
 
+import android.app.PendingIntent;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
@@ -311,14 +312,26 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refresh() {
         Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-        iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor);
+        iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor, new Runnable() {
+            @Override
+            public void run() {
+                stopSelf();
+            }
+        });
         if (Globals.newNotification != null && prefs.notificationPreview) {
             notificationsMessageBox.showNotification(Globals.newNotification);
             notificationsMessageBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     stoppedByShortcut = true;
-                    stopSelf();
+                    if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
+                        try {
+                            notificationsMessageBox.getCurrentNotification().getIntent().send();
+                        } catch (PendingIntent.CanceledException e) {
+                            e.printStackTrace();
+                        }
+                        stopSelf();
+                    }
                 }
             });
         }
@@ -420,6 +433,8 @@ public class MainService extends Service implements SensorEventListener, Context
         samsungHelper.setButtonsLight(ON);
 
         frameLayout.setOnTouchListener(null);
+        if (clock.getTextClock() != null)
+            clock.getTextClock().destroy(); //Kill the clock manually because the stock TextClock is kinda broken
         if (frameLayout.getWindowToken() != null) {
             if (prefs.exitAnimation == FADE_OUT && stoppedByShortcut) {
                 Utils.Animations.fadeOutWithAction(frameLayout, new Runnable() {

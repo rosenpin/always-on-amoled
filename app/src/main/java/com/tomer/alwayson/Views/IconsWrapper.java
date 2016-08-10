@@ -4,12 +4,15 @@ import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
-import android.widget.FrameLayout;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.Services.NotificationListener;
 
 import java.util.Map;
 
@@ -26,18 +29,41 @@ public class IconsWrapper extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public void update(boolean state, int textColor) {
+    public void update(boolean state, int textColor, final Runnable action) {
         if (Globals.notificationChanged && state) {
             removeAllViews();
-            for (Map.Entry<String, Drawable> entry : Globals.notificationsDrawables.entrySet()) {
-                Drawable drawable = entry.getValue();
+            for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
+                Drawable drawable = entry.getValue().getIcon();
                 drawable.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
-                ImageView icon = new ImageView(getContext());
+                final ImageView icon = new ImageView(getContext());
                 icon.setImageDrawable(drawable);
                 icon.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
-                FrameLayout.LayoutParams iconLayoutParams = new FrameLayout.LayoutParams(96, 96, Gravity.CENTER);
+                final LinearLayout.LayoutParams iconLayoutParams = new LinearLayout.LayoutParams(96, 96, Gravity.CENTER);
                 icon.setPadding(12, 0, 12, 0);
                 icon.setLayoutParams(iconLayoutParams);
+                icon.setOnTouchListener(new OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent event) {
+                        if (event.getAction() == android.view.MotionEvent.ACTION_DOWN || event.getAction() == android.view.MotionEvent.ACTION_MOVE) {
+                            iconLayoutParams.width += 10;
+                            iconLayoutParams.height += 10;
+                            icon.setLayoutParams(iconLayoutParams);
+                        } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                            iconLayoutParams.width = 96;
+                            iconLayoutParams.height = 96;
+                            icon.setLayoutParams(iconLayoutParams);
+                        } else {
+                            Log.d("Event ", String.valueOf(event.getAction()));
+                        }
+                        return true;
+                    }
+                });
+               /* try {
+                    entry.getValue().getIntent().send();
+                } catch (PendingIntent.CanceledException e) {
+                    e.printStackTrace();
+                }
+                action.run();*/
                 addView(icon);
             }
             Globals.notificationChanged = false;

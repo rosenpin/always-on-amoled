@@ -7,7 +7,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextClock;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Helpers.Utils;
@@ -18,6 +17,7 @@ public class Clock extends LinearLayout implements ContextConstatns {
 
     private DigitalS7 digitalS7;
     private CustomAnalogClock analogClock;
+    private KillableTextClock textClock;
 
     public Clock(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -37,7 +37,7 @@ public class Clock extends LinearLayout implements ContextConstatns {
                 removeView(clockWrapper);
                 break;
             case DIGITAL_CLOCK:
-                KillableTextClock textClock = (KillableTextClock) clockWrapper.findViewById(R.id.digital_clock);
+                textClock = (KillableTextClock) clockWrapper.findViewById(R.id.digital_clock);
                 textClock.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
                 textClock.setTextColor(textColor);
                 if (!showAmPm)
@@ -111,6 +111,10 @@ public class Clock extends LinearLayout implements ContextConstatns {
 
     public CustomAnalogClock getAnalogClock() {
         return analogClock;
+    }
+
+    public KillableTextClock getTextClock() {
+        return textClock;
     }
 
     public boolean isFull() {

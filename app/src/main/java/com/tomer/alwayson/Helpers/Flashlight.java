@@ -54,7 +54,10 @@ public class Flashlight {
     }
 
     public void destroy() {
-        if (cam != null)
+        if (cam != null) {
+            if (enabled)
+                cam.stopPreview();
             cam.release();
+        }
     }
 }

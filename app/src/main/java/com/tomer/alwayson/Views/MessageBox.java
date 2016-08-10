@@ -21,6 +21,7 @@ public class MessageBox extends LinearLayout {
 
     private Context context;
     private CardView messageBox;
+    private NotificationListener.NotificationHolder notification;
 
     public MessageBox(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -35,6 +36,7 @@ public class MessageBox extends LinearLayout {
 
     public void showNotification(NotificationListener.NotificationHolder notification) {
         if (!notification.getTitle().equals("null")) {
+            this.notification = notification;
             //Clear previous animation
             if (messageBox.getAnimation() != null)
                 messageBox.clearAnimation();
@@ -60,6 +62,10 @@ public class MessageBox extends LinearLayout {
             animation.addAnimation(fadeOut);
             messageBox.setAnimation(animation);
         }
+    }
+
+    public NotificationListener.NotificationHolder getCurrentNotification() {
+        return notification;
     }
 
     public void setOnClickListener(OnClickListener onClickListener) {
