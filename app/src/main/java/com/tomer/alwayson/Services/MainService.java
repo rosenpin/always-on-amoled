@@ -36,7 +36,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tomer.alwayson.Activities.DummyActivity;
-import com.tomer.alwayson.Activities.PreferencesActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
@@ -235,7 +234,7 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public void run() {
                 Log.d("notificaiotns", "New notification!!!");
-                iconsWrapper.update(getApplicationContext(),prefs.notificationsAlerts, prefs.textColor, new Runnable() {
+                iconsWrapper.update(getApplicationContext(), prefs.notificationsAlerts, prefs.textColor, new Runnable() {
                     @Override
                     public void run() {
                         stopSelf();
@@ -254,6 +253,7 @@ public class MainService extends Service implements SensorEventListener, Context
                                 } catch (PendingIntent.CanceledException e) {
                                     e.printStackTrace();
                                 }
+                                stoppedByShortcut = true;
                                 stopSelf();
                             }
                         }
@@ -271,7 +271,6 @@ public class MainService extends Service implements SensorEventListener, Context
                         new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
                         //Turn on the display
                         if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
-                        startActivity(new Intent(getApplicationContext(),DummyActivity.class));
                     }
                 },
                 500);

@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 
 import com.tomer.alwayson.Activities.DummyActivity;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.Services.MainService;
 import com.tomer.alwayson.Services.NotificationListener;
 
 import java.util.Map;
@@ -60,6 +61,7 @@ public class IconsWrapper extends LinearLayout {
                                         @Override
                                         public void run() {
                                             try {
+                                                MainService.stoppedByShortcut = true;
                                                 entry.getValue().getIntent().send();
                                                 action.run();
                                             } catch (PendingIntent.CanceledException e) {
