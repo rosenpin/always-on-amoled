@@ -20,6 +20,7 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
+import android.service.quicksettings.TileService;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -28,6 +29,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.AnimationUtils;
@@ -47,6 +49,7 @@ import com.tomer.alwayson.Helpers.GreenifyStarter;
 import com.tomer.alwayson.Helpers.Prefs;
 import com.tomer.alwayson.Helpers.SamsungHelper;
 import com.tomer.alwayson.Helpers.TTS;
+import com.tomer.alwayson.Helpers.UncoughtExcepction;
 import com.tomer.alwayson.Helpers.Utils;
 import com.tomer.alwayson.Helpers.ViewUtils;
 import com.tomer.alwayson.R;
@@ -92,7 +95,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
         if (windowParams == null) {
-            windowParams = new WindowManager.LayoutParams(-1, -1, 2003, 65794, -2);
+            windowParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, 65794, -2);
             if (origIntent != null) {
                 demo = origIntent.getBooleanExtra("demo", false);
                 windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
@@ -117,6 +120,8 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
+        Thread.setDefaultUncaughtExceptionHandler(new UncoughtExcepction());
+
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
@@ -612,9 +617,8 @@ public class MainService extends Service implements SensorEventListener, Context
             tts.sayCurrentStatus();
             return true;
         } else if (gesture == ACTION_FLASHLIGHT) {
-            if (flashlight == null) {
+            if (flashlight == null)
                 flashlight = new Flashlight(this);
-            }
             if (!flashlight.isLoading())
                 flashlight.toggle();
         }

@@ -1,7 +1,6 @@
 package com.tomer.alwayson.Services;
 
 import android.annotation.TargetApi;
-import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
@@ -13,7 +12,7 @@ import com.tomer.alwayson.R;
 @TargetApi(Build.VERSION_CODES.N)
 public class QuickSettingsToggle extends TileService {
 
-    Prefs prefs;
+    private Prefs prefs;
 
     @Override
     public void onTileAdded() {
