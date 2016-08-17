@@ -13,6 +13,7 @@ import android.view.Display;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.helpers.Prefs;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.MainService;
 
 public class ChargeChangeReceiver extends BroadcastReceiver implements ContextConstatns {
@@ -24,13 +25,13 @@ public class ChargeChangeReceiver extends BroadcastReceiver implements ContextCo
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Connected");
             if (prefs.rules.equals("discharging")) {
                 if (Globals.isShown)
-                    context.stopService(new Intent(context, MainService.class));
+                    Utils.stopMainService(context);
             }
         } else if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Disconnected");
             if (prefs.rules.equals("charging")) {
                 if (Globals.isShown)
-                    context.stopService(new Intent(context, MainService.class));
+                    Utils.stopMainService(context);
             }
         } else if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
             Log.d("Battery changed", String.valueOf(getBatteryLevel(intent)));
@@ -38,10 +39,10 @@ public class ChargeChangeReceiver extends BroadcastReceiver implements ContextCo
             Log.d(CHARGER_RECEIVER_LOG_TAG, "Battery changed");
             if (getBatteryLevel(intent) < prefs.batteryRules) {
                 if (Globals.isServiceRunning)
-                    context.stopService(new Intent(context, MainService.class));
+                    Utils.stopMainService(context);
             } else {
                 if (!isDisplayOn(context) && !Globals.isServiceRunning) {
-                    context.startService(new Intent(context, MainService.class));
+                    Utils.stopMainService(context);
                 }
             }
         }

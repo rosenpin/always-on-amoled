@@ -15,6 +15,7 @@ import android.util.Log;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.helpers.Prefs;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.MainService;
 
 import static android.content.Context.POWER_SERVICE;
@@ -29,7 +30,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
     public static void turnScreenOn(Context c, boolean stopService) {
         try {
             if (stopService) {
-                c.stopService(new Intent(c, MainService.class));
+                Utils.stopMainService(c);
                 Globals.isShown = false;
             }
             @SuppressWarnings("deprecation")

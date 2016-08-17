@@ -36,10 +36,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tomer.alwayson.activities.DummyActivity;
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.R;
+import com.tomer.alwayson.activities.DummyActivity;
 import com.tomer.alwayson.helpers.CurrentAppResolver;
 import com.tomer.alwayson.helpers.DisplaySize;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -51,7 +52,6 @@ import com.tomer.alwayson.helpers.TTS;
 import com.tomer.alwayson.helpers.UncoughtExcepction;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.helpers.ViewUtils;
-import com.tomer.alwayson.R;
 import com.tomer.alwayson.receivers.ScreenReceiver;
 import com.tomer.alwayson.receivers.UnlockReceiver;
 import com.tomer.alwayson.views.BatteryView;
@@ -67,6 +67,9 @@ import java.util.concurrent.TimeUnit;
 import eu.chainfire.libsuperuser.Shell;
 
 public class MainService extends Service implements SensorEventListener, ContextConstatns {
+
+    public static boolean stoppedByShortcut;
+    public static boolean initialized;
     private boolean demo;
     private boolean refreshing;
     private int originalBrightness = 100;
@@ -89,7 +92,6 @@ public class MainService extends Service implements SensorEventListener, Context
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
-    public static boolean stoppedByShortcut;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -120,7 +122,6 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onCreate() {
         super.onCreate();
         Thread.setDefaultUncaughtExceptionHandler(new UncoughtExcepction(this));
-
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
@@ -215,7 +216,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 @Override
                 public void run() {
                     stoppedByShortcut = true;
-                    stopSelf();
+                    stopThis();
                     stayAwakeWakeLock.release();
                     Globals.killedByDelay = true;
                     Log.d(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
@@ -241,7 +242,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 iconsWrapper.update(getApplicationContext(), prefs.notificationsAlerts, prefs.textColor, new Runnable() {
                     @Override
                     public void run() {
-                        stopSelf();
+                        stopThis();
                     }
                 });
                 if (Globals.newNotification != null && prefs.notificationPreview) {
@@ -258,7 +259,7 @@ public class MainService extends Service implements SensorEventListener, Context
                                     e.printStackTrace();
                                 }
                                 stoppedByShortcut = true;
-                                stopSelf();
+                                stopThis();
                             }
                         }
                     });
@@ -271,10 +272,12 @@ public class MainService extends Service implements SensorEventListener, Context
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        //Greenify integration
-                        new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
-                        //Turn on the display
-                        if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
+                        if (Globals.isServiceRunning) {
+                            //Greenify integration
+                            new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
+                            //Turn on the display
+                            if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
+                        }
                     }
                 },
                 500);
@@ -291,7 +294,7 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public void run() {
                 Globals.waitingForApp = true;
-                stopSelf();
+                stopThis();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -310,14 +313,8 @@ public class MainService extends Service implements SensorEventListener, Context
         samsungHelper.getButtonsLight();
         //Turn capacitive buttons lights off
         samsungHelper.setButtonsLight(OFF);
-        //Stop service on home button press
-        samsungHelper.setOnHomeButtonClickListener(new Runnable() {
-            @Override
-            public void run() {
-                stoppedByShortcut = true;
-                stopSelf();
-            }
-        });
+
+        MainService.initialized = true;
     }
 
     private void setUpElements() {
@@ -424,11 +421,10 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onDestroy() {
         super.onDestroy();
+        MainService.initialized = false;
         Globals.onNotificationAction = null;
         //Dismiss the app listener
         currentAppResolver.destroy();
-        //Stop home button watcher
-        samsungHelper.stopHomeWatcher();
         //Dismiss doze
         if (dozeManager != null)
             dozeManager.exitDoze();
@@ -610,7 +606,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private boolean gestureAction(int gesture) {
         if (gesture == ACTION_UNLOCK) {
             stoppedByShortcut = true;
-            stopSelf();
+            stopThis();
             return true;
         } else if (gesture == ACTION_SPEAK) {
             tts.sayCurrentStatus();
@@ -622,6 +618,11 @@ public class MainService extends Service implements SensorEventListener, Context
                 flashlight.toggle();
         }
         return false;
+    }
+
+    public void stopThis() {
+        if (MainService.initialized)
+            stopSelf();
     }
 
     @Override

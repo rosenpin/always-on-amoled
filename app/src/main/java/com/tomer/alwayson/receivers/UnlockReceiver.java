@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.MainService;
 
 public class UnlockReceiver extends BroadcastReceiver implements ContextConstatns {
@@ -16,10 +17,9 @@ public class UnlockReceiver extends BroadcastReceiver implements ContextConstatn
         if (intent.getAction().equals(Intent.ACTION_USER_PRESENT) && Globals.noLock) {
             return;
         }
-        Intent intent1 = new Intent(context, MainService.class);
         Log.i(UNLOCK_RECEIVER_TAG, "Received");
         MainService.stoppedByShortcut = true;
-        context.stopService(intent1);
+        Utils.stopMainService(context);
         Globals.isShown = false;
     }
 }

@@ -1,12 +1,16 @@
 package com.tomer.alwayson.helpers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
+
+import com.tomer.alwayson.services.MainService;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -20,6 +24,15 @@ public class Utils {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    public static boolean stopMainService(Context context) {
+        Log.d("Trying to stop, Main service is initialized", String.valueOf(MainService.initialized));
+        if (MainService.initialized) {
+            context.stopService(new Intent(context, MainService.class));
+            return true;
+        }
+        return false;
     }
 
     public static double randInt(double min, double max) {
