@@ -37,14 +37,14 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.tasomaniac.android.widget.IntegrationPreference;
-import com.tomer.alwayson.Activities.PreferencesActivity;
-import com.tomer.alwayson.Helpers.DozeManager;
-import com.tomer.alwayson.Helpers.Prefs;
-import com.tomer.alwayson.Helpers.Utils;
-import com.tomer.alwayson.Receivers.DAReceiver;
-import com.tomer.alwayson.Services.StarterService;
-import com.tomer.alwayson.Views.FontAdapter;
-import com.tomer.alwayson.Views.SeekBarPreference;
+import com.tomer.alwayson.activities.PreferencesActivity;
+import com.tomer.alwayson.helpers.DozeManager;
+import com.tomer.alwayson.helpers.Prefs;
+import com.tomer.alwayson.helpers.Utils;
+import com.tomer.alwayson.receivers.DAReceiver;
+import com.tomer.alwayson.services.StarterService;
+import com.tomer.alwayson.views.FontAdapter;
+import com.tomer.alwayson.views.SeekBarPreference;
 
 import java.util.List;
 

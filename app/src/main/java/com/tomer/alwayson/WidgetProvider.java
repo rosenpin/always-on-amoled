@@ -8,8 +8,8 @@ import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 
-import com.tomer.alwayson.Helpers.Prefs;
-import com.tomer.alwayson.Services.ToggleService;
+import com.tomer.alwayson.helpers.Prefs;
+import com.tomer.alwayson.services.ToggleService;
 
 /**
  * Created by tomer AKA rosenpin on 6/13/16.

@@ -9,17 +9,17 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.tomer.alwayson.Views.Clock
+    <com.tomer.alwayson.views.Clock
         android:id="@+id/clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <com.tomer.alwayson.Views.DateView
+    <com.tomer.alwayson.views.DateView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <com.tomer.alwayson.Views.BatteryView
+    <com.tomer.alwayson.views.BatteryView
         android:id="@+id/battery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -28,10 +28,10 @@
 
     <include layout="@layout/memo" />
 
-    <com.tomer.alwayson.Views.MessageBox
+    <com.tomer.alwayson.views.MessageBox
         android:id="@+id/notifications_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </com.tomer.alwayson.Views.MessageBox>
+    </com.tomer.alwayson.views.MessageBox>
 </LinearLayout>

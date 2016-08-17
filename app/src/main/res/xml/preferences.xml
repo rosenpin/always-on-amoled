@@ -121,7 +121,7 @@
                     android:key="font"
                     android:summary="@string/settings_choose_font"
                     android:title="@string/settings_font" />
-                <com.tomer.alwayson.Views.SeekBarPreference
+                <com.tomer.alwayson.views.SeekBarPreference
                     android:defaultValue="80"
                     android:dialogTitle="@string/settings_font_size_desc"
                     android:key="font_size"
@@ -134,13 +134,13 @@
                     android:title="@string/settings_text_color" />
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/settings_always_on_memo">
-                <com.tomer.alwayson.Views.EditTextDialog
+                <com.tomer.alwayson.views.EditTextDialog
                     android:dialogTitle="@string/settings_memo_text_desc"
                     android:hint="@string/settings_memo_hint"
                     android:key="memo_text"
                     android:summary="%s"
                     android:title="@string/settings_memo_text" />
-                <com.tomer.alwayson.Views.SeekBarPreference
+                <com.tomer.alwayson.views.SeekBarPreference
                     android:defaultValue="40"
                     android:dependency="memo_text"
                     android:dialogTitle="@string/settings_font_size_desc"
@@ -165,7 +165,7 @@
             android:key="screen_orientation"
             android:summary="%s"
             android:title="@string/settings_orientation" />
-        <com.tomer.alwayson.Views.SeekBarPreference
+        <com.tomer.alwayson.views.SeekBarPreference
             android:defaultValue="15"
             android:dialogTitle="@string/settings_brightness_desc"
             android:key="brightness"

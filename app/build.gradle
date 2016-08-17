@@ -41,6 +41,7 @@ dependencies {
     compile 'com.heinrichreimersoftware:android-issue-reporter:1.2.6'
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
     compile 'com.tasomaniac:integrationpreference:0.2'
+    compile group:'com.twofortyfouram', name:'android-plugin-api-for-locale', version:'[1.0.2,2.0['
     compile project(':DiscreetAppRate')
     testCompile 'junit:junit:4.12'
 }

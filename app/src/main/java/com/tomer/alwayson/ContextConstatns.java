@@ -2,15 +2,15 @@ package com.tomer.alwayson;
 
 import android.service.notification.NotificationListenerService;
 
-import com.tomer.alwayson.Activities.PreferencesActivity;
-import com.tomer.alwayson.Helpers.DozeManager;
-import com.tomer.alwayson.Helpers.GreenifyStarter;
-import com.tomer.alwayson.Receivers.BootReceiver;
-import com.tomer.alwayson.Receivers.ChargeChangeReceiver;
-import com.tomer.alwayson.Receivers.ScreenReceiver;
-import com.tomer.alwayson.Receivers.UnlockReceiver;
-import com.tomer.alwayson.Services.MainService;
-import com.tomer.alwayson.Services.WidgetUpdater;
+import com.tomer.alwayson.activities.PreferencesActivity;
+import com.tomer.alwayson.helpers.DozeManager;
+import com.tomer.alwayson.helpers.GreenifyStarter;
+import com.tomer.alwayson.receivers.BootReceiver;
+import com.tomer.alwayson.receivers.ChargeChangeReceiver;
+import com.tomer.alwayson.receivers.ScreenReceiver;
+import com.tomer.alwayson.receivers.UnlockReceiver;
+import com.tomer.alwayson.services.MainService;
+import com.tomer.alwayson.services.WidgetUpdater;
 
 public interface ContextConstatns {
     //NAMES

@@ -39,16 +39,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.Intro"
+            android:name=".activities.Intro"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".Activities.ReporterActivity"
-            android:parentActivityName=".Activities.PreferencesActivity"
+            android:name=".activities.ReporterActivity"
+            android:parentActivityName=".activities.PreferencesActivity"
             android:theme="@style/ReporterTheme" />
-        <activity android:name=".Activities.DummyActivity"/>
+        <activity android:name=".activities.DummyActivity"/>
         <activity
-            android:name=".Activities.PreferencesActivity"
+            android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,7 +60,7 @@
         </activity>
 
         <service
-            android:name=".Services.StarterService"
+            android:name=".services.StarterService"
             android:enabled="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -68,18 +68,18 @@
             </intent-filter>
         </service>
         <service
-            android:name=".Services.NotificationListener"
+            android:name=".services.NotificationListener"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
-        <service android:name=".Services.MainService" />
-        <service android:name=".Services.ToggleService" />
-        <service android:name=".Services.WidgetUpdater" />
+        <service android:name=".services.MainService" />
+        <service android:name=".services.ToggleService" />
+        <service android:name=".services.WidgetUpdater" />
         <service
-            android:name=".Services.QuickSettingsToggle"
+            android:name=".services.QuickSettingsToggle"
             android:icon="@drawable/ic_quick_settings"
             android:label="@string/quick_settings_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -103,7 +103,7 @@
                 android:resource="@xml/widget_provider_info" />
         </receiver>
         <receiver
-            android:name=".Receivers.DAReceiver"
+            android:name=".receivers.DAReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
@@ -113,27 +113,52 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".Receivers.ScreenReceiver" />
-        <receiver android:name=".Receivers.UnlockReceiver" />
-        <receiver android:name=".Receivers.CallReceiver">
+        <receiver android:name=".receivers.ScreenReceiver" />
+        <receiver android:name=".receivers.UnlockReceiver" />
+        <receiver android:name=".receivers.CallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".Receivers.BootReceiver">
+        <receiver android:name=".receivers.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".Receivers.ChargeChangeReceiver">
+        <receiver android:name=".receivers.ChargeChangeReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
                 <action android:name="android.intent.action.BATTERY_CHANGED" />
             </intent-filter>
         </receiver>
+        <receiver
+            android:name=".tasker.FireReceiver"
+            android:exported="true"
+            android:process=":background"
+            tools:ignore="ExportedReceiver" >
 
+            <!-- this Intent filter allows the plug-in to discovered by Locale -->
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".tasker.EditActivity"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="ExportedActivity" >
+
+            <!-- this Intent filter allows the plug-in to be discovered by Locale -->
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

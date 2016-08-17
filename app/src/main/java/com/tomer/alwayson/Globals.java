@@ -1,10 +1,8 @@
 package com.tomer.alwayson;
 
-import android.graphics.drawable.Drawable;
-
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.android.vending.billing.IInAppBillingService;
-import com.tomer.alwayson.Services.NotificationListener;
+import com.tomer.alwayson.services.NotificationListener;
 
 import java.util.ArrayList;
 import java.util.Map;

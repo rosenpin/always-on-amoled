@@ -1,4 +1,4 @@
-<com.tomer.alwayson.Views.IconsWrapper xmlns:android="http://schemas.android.com/apk/res/android"
+<com.tomer.alwayson.views.IconsWrapper xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/icons_wrapper"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
