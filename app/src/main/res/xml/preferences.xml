@@ -173,7 +173,7 @@
             android:summary="@string/settings_brightness_desc"
             android:title="@string/settings_brightness" />
         <ListPreference
-            android:defaultValue="1"
+            android:defaultValue="0"
             android:dialogTitle="@string/settings_exit_animation_desc"
             android:entries="@array/animations"
             android:entryValues="@array/animations_vals"

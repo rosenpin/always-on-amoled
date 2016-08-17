@@ -119,7 +119,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
-        Thread.setDefaultUncaughtExceptionHandler(new UncoughtExcepction());
+        Thread.setDefaultUncaughtExceptionHandler(new UncoughtExcepction(this));
 
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
