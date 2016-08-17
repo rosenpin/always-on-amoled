@@ -58,6 +58,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--Tasker-->
+        <activity
+            android:name=".tasker.EditActivity"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".services.StarterService"
@@ -133,32 +146,17 @@
                 <action android:name="android.intent.action.BATTERY_CHANGED" />
             </intent-filter>
         </receiver>
+        <!--Tasker-->
         <receiver
             android:name=".tasker.FireReceiver"
             android:exported="true"
             android:process=":background"
             tools:ignore="ExportedReceiver" >
-
-            <!-- this Intent filter allows the plug-in to discovered by Locale -->
             <intent-filter>
                 <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".tasker.EditActivity"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="ExportedActivity" >
-
-            <!-- this Intent filter allows the plug-in to be discovered by Locale -->
-            <intent-filter>
-                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
