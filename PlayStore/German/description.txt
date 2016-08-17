@@ -2,7 +2,7 @@ Hole dir jetzt ein "Always-On Display" für dein Smartphone oder Tablet.
 Lass deinen Bildschirm dauerhaft an.
 Die erste Open-Source "Always On" App!
 
-Die Idee dahinter ist, dem Benutzer Informationen wie Zeit, Datum, Benachrichtigungen und vielem mehr geben, ohne das Gerät berühren zu müssen. Mit einem einzigen Blick.
+Die Idee dahinter ist, dem Benutzer Informationen wie Zeit, Datum, Benachrichtigungen und vielem mehr zu geben, ohne das Gerät berühren zu müssen. Mit einem einzigen Blick.
 
 Das wird möglich gemacht durch die AMOLED-Display Technologie. Der größte Teil des Displays bleibt schwarz, bis auf ein paar Pixel.
 
@@ -11,7 +11,7 @@ Das wird möglich gemacht durch die AMOLED-Display Technologie. Der größte Tei
 • Benachrichtigungen - sieh Benachrichtigungen ohne dein Gerät zu berühren
 • Automatische Regeln - spare Batterie durch vordefinierte Regeln
 • Auto-Bewegung - AMOLED Burn-in vermeiden
-• Auto-Nachtmodus - Bildschirm in dunkler Umgebung automatisch Dimmen
+• Auto-Nachtmodus - Bildschirm in dunkler Umgebung automatisch dimmen
 • Taschenmodus - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
 • Doppelt tippen, Hochwischen, Lautstärketasten oder die Zurück-Taste zum Aufwecken deines Gerätes festlegen
 • Wähle deine bevorzugte Bildschirmorientierung
