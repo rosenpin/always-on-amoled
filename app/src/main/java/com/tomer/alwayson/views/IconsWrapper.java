@@ -19,6 +19,8 @@ import com.tomer.alwayson.services.NotificationListener;
 import java.util.Map;
 
 public class IconsWrapper extends LinearLayout {
+    private MessageBox messageBox;
+
     public IconsWrapper(Context context) {
         super(context);
     }
@@ -71,7 +73,13 @@ public class IconsWrapper extends LinearLayout {
                             } else {
                                 Log.d("Event ", String.valueOf(event.getAction()));
                             }
-                            return true;
+                            return false;
+                        }
+                    });
+                    icon.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            messageBox.showNotification(entry.getValue());
                         }
                     });
                     addView(icon);
@@ -79,5 +87,9 @@ public class IconsWrapper extends LinearLayout {
             }
             Globals.notificationChanged = false;
         }
+    }
+
+    public void setMessageBox(MessageBox messageBox) {
+        this.messageBox = messageBox;
     }
 }

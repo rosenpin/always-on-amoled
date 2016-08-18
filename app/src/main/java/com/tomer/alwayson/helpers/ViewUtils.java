@@ -15,7 +15,7 @@ public class ViewUtils implements ContextConstatns {
         boolean vertical = orientation.equals("vertical");
         int height = displaySize.getHeight(vertical);
         int width = displaySize.getWidth(vertical);
-        double multiplier = isBig ? 1.15 : 1.3;
+        double multiplier = isBig ? 1.15 : 1.2;
         float position = vertical ? (float) (height - Utils.randInt(height / multiplier, height * multiplier)) : (float) (width - Utils.randInt(width / multiplier, width * multiplier));
         if (animate) {
             if (vertical)

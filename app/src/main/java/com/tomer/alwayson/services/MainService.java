@@ -35,13 +35,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.activities.ReporterActivity;
 import com.tomer.alwayson.helpers.CurrentAppResolver;
 import com.tomer.alwayson.helpers.DisplaySize;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -160,7 +158,7 @@ public class MainService extends Service implements SensorEventListener, Context
         mainView = (LinearLayout) (layoutInflater.inflate(R.layout.clock_widget, frameLayout).findViewById(R.id.watchface_wrapper));
         iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
         notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
-
+        iconsWrapper.setMessageBox(notificationsMessageBox);
         setUpElements();
 
         FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
