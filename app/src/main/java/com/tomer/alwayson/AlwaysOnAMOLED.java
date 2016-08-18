@@ -12,8 +12,6 @@ import com.tomer.alwayson.activities.ReporterActivity;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.StarterService;
 
-import java.util.Arrays;
-
 public class AlwaysOnAMOLED extends Application {
     static {
         try {
@@ -35,9 +33,7 @@ public class AlwaysOnAMOLED extends Application {
             }
         });
     }
-
-    public static int reportNotificationID = 53;
-
+    public  static  int reportNotificationID = 53;
     public void handleUncaughtException(Throwable e) {
         int reportNotificationID = 53;
         Context context = getApplicationContext();
@@ -45,33 +41,8 @@ public class AlwaysOnAMOLED extends Application {
         e.printStackTrace();
         Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, ReporterActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        StackTraceElement[] arr = e.getStackTrace();
-        String report = e.toString()+"\n\n";
-        report += "--------- Stack trace ---------\n\n";
-        for (int i=0; i<arr.length; i++)
-        {
-            report += "    "+arr[i].toString()+"\n";
-        }
-        report += "-------------------------------\n\n";
-
-// If the exception was thrown in a background thread inside
-// AsyncTask, then the actual exception can be found with getCause
-        report += "--------- Cause ---------\n\n";
-        Throwable cause = e.getCause();
-        if(cause != null) {
-            report += cause.toString() + "\n\n";
-            arr = cause.getStackTrace();
-            for (int i=0; i<arr.length; i++)
-            {
-                report += "    "+arr[i].toString()+"\n";
-            }
-        }
-        report += "-------------------------------\n\n";
-
-
-        intent.putExtra("log", report);
+        intent.setFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("log", e.getMessage() + "\n" + e);
         PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
         Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
         System.exit(0);

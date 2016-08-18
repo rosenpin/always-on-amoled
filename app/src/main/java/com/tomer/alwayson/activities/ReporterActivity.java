@@ -28,7 +28,7 @@ public class ReporterActivity extends IssueReporterActivity {
         else {
             ((TextView) findViewById(R.id.air_inputTitle)).setText(messageExtra.substring(0, messageExtra.indexOf("\n")));
             ((TextView) findViewById(R.id.air_inputDescription)).setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-            ((TextView) findViewById(R.id.air_inputDescription)).setLines(30);
+            ((TextView) findViewById(R.id.air_inputDescription)).setLines(8);
             ((TextView) findViewById(R.id.air_inputDescription)).setHorizontallyScrolling(false);
             ((TextView) findViewById(R.id.air_inputDescription)).setText(messageExtra);
             ((RadioButton) findViewById(R.id.air_optionAnonymous)).setChecked(true);
