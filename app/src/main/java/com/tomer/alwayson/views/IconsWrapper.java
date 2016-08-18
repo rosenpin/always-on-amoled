@@ -2,10 +2,8 @@ package com.tomer.alwayson.views;
 
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -14,7 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.tomer.alwayson.activities.DummyActivity;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.services.MainService;
 import com.tomer.alwayson.services.NotificationListener;
@@ -55,20 +52,13 @@ public class IconsWrapper extends LinearLayout {
                             icon.setLayoutParams(iconLayoutParams);
                             if (iconLayoutParams.width > 500) {
                                 if (entry.getValue().getIntent() != null) {
-                                    Intent dummyIntent = new Intent(context, DummyActivity.class);
-                                    context.startActivity(dummyIntent);
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                MainService.stoppedByShortcut = true;
-                                                entry.getValue().getIntent().send();
-                                                action.run();
-                                            } catch (PendingIntent.CanceledException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }, 300);
+                                    try {
+                                        MainService.stoppedByShortcut = true;
+                                        entry.getValue().getIntent().send();
+                                        action.run();
+                                    } catch (PendingIntent.CanceledException e) {
+                                        e.printStackTrace();
+                                    }
                                 } else {
                                     removeView(icon);
                                 }
