@@ -44,11 +44,8 @@ public class DateView extends LinearLayout implements ContextConstatns {
                 break;
             case DATE_VIEW:
                 dateWrapper.removeView(calendarTV);
-                calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
+                calendarView.setOnDateChangeListener((calendarView1, i, i1, i2) -> {
 
-                    }
                 });
                 break;
         }

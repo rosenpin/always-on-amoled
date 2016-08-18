@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.tomer.alwayson.ContextConstatns;
-import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
 public class Clock extends LinearLayout implements ContextConstatns {

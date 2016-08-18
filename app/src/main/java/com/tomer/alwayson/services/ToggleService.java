@@ -11,13 +11,10 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 
-import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
+import com.tomer.alwayson.helpers.Prefs;
 
-/**
- * Created by tomer AKA rosenpin on 6/13/16.
- */
 public class ToggleService extends Service {
     private Intent starterServiceIntent;
 

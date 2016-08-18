@@ -25,6 +25,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
 
     private String mDialogMessage, mSuffix;
     private int mDefault, mMax, mValue = 0, mMin = 0;
+
     public SeekBarPreference(Context context, AttributeSet attrs) {
 
         super(context, attrs);
@@ -93,6 +94,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         else
             mValue = (Integer) defaultValue;
     }
+
     @Override
     public void onProgressChanged(SeekBar seek, int value, boolean fromTouch) {
         String t = String.valueOf(value + mMin);
@@ -147,6 +149,6 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
             callChangeListener(mSeekBar.getProgress() + mMin);
         }
 
-        ((AlertDialog) getDialog()).dismiss();
+        getDialog().dismiss();
     }
 }

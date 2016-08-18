@@ -122,13 +122,10 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                                         startDelay = 0;
                                     }
                                     if (startDelay > 0) {
-                                        new Handler().postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                if (myKM.inKeyguardRestrictedInputMode()) {
-                                                    context.startService(new Intent(context, MainService.class));
-                                                    Globals.isShown = true;
-                                                }
+                                        new Handler().postDelayed(() -> {
+                                            if (myKM.inKeyguardRestrictedInputMode()) {
+                                                context.startService(new Intent(context, MainService.class));
+                                                Globals.isShown = true;
                                             }
                                         }, startDelay);
                                     } else {
@@ -145,6 +142,8 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                 }
             }
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+            if (Globals.waitingForApp)
+                Globals.waitingForApp = false;
             Log.i(TAG, "Screen turned on\nShown:" + Globals.isShown);
         }
     }
@@ -158,11 +157,15 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
     private boolean shouldStart() {
         prefs.apply();
-        if (Globals.waitingForApp)
+        if (Globals.waitingForApp) {
+            Log.d("Shouldn't start because", "Waiting for app");
             return false;
+        }
         if (prefs.rules.equals("charging")) {
+            Log.d("Shouldn't start because", "Charging rules didn't meet requirements");
             return isConnected() && getBatteryLevel() > prefs.batteryRules;
         } else if (prefs.rules.equals("discharging")) {
+            Log.d("Shouldn't start because", "Charging rules didn't meet requirements");
             return !isConnected() && getBatteryLevel() > prefs.batteryRules;
         }
         return getBatteryLevel() > prefs.batteryRules;

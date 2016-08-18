@@ -21,12 +21,9 @@ public final class EditActivity extends AppCompatActivity {
         setContentView(R.layout.tasker_config);
         Intent resultIntent = new Intent();
         resultIntent.putExtra("com.twofortyfouram.locale.intent.extra.BLURB", "Start the always on service");
-        ((RadioGroup) findViewById(R.id.tasker_radio_group)).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                Log.d("Selected", (String) ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText());
-                finish();
-            }
+        ((RadioGroup) findViewById(R.id.tasker_radio_group)).setOnCheckedChangeListener((radioGroup, i) -> {
+            Log.d("Selected", (String) ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText());
+            finish();
         });
     }
 

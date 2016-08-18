@@ -12,10 +12,14 @@ import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 
+import com.tomer.alwayson.Globals;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class CurrentAppResolver {
 
@@ -78,41 +82,38 @@ public class CurrentAppResolver {
 
     public void executeForCurrentApp(final Runnable action) {
         if (!appsPNs.isEmpty()) {
-            final String activePackage = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getActivePackages() : getActivePackagesCompat();
-            if (activePackage != null) {
-                for (final String appPackageName : appsPNs) {
-                    if (activePackage.equals(appPackageName)) {
-                        if (!firstLaunch)
-                            action.run();
-                    }
-                    if (firstLaunch) {
-                        if (activePackage.equals(appPackageName)) {
-                            Log.e(CurrentAppResolver.class.getSimpleName(), "App was already open when service started.");
-                            Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(intent);
-                        }
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (activePackage.equals(appPackageName)) {
-                                    Log.e(CurrentAppResolver.class.getSimpleName(), "App couldn't be closed, stopping the listener");
-                                    appsPNs.remove(appPackageName);
-                                }
-                                firstLaunch = false;
+            ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
+            executor.scheduleWithFixedDelay((Runnable) () -> {
+                if (active) {
+                    final String activePackage = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getActivePackages() : getActivePackagesCompat();
+                    if (activePackage != null) {
+                        for (final String appPackageName : appsPNs) {
+                            if (activePackage.equals(appPackageName)) {
+                                if (!firstLaunch)
+                                    action.run();
                             }
-                        }, 1000);
-
+                            if (firstLaunch) {
+                                if (activePackage.equals(appPackageName)) {
+                                    Log.e(CurrentAppResolver.class.getSimpleName(), "App was already open when service started.");
+                                    Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    context.startActivity(intent);
+                                }
+                                handler.postDelayed(() -> {
+                                    if (activePackage.equals(appPackageName)) {
+                                        Log.e(CurrentAppResolver.class.getSimpleName(), "App couldn't be closed, stopping the listener");
+                                        appsPNs.remove(appPackageName);
+                                    }
+                                    firstLaunch = false;
+                                }, 1000);
+                            }
+                        }
                     }
+                } else {
+                    Globals.waitingForApp = false;
+                    executor.shutdown();
                 }
-            }
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (active)
-                        executeForCurrentApp(action);
-                }
-            }, 300);
+            }, 0L, 300, TimeUnit.MILLISECONDS);
         }
     }
 

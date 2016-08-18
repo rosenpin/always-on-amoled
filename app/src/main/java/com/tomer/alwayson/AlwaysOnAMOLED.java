@@ -13,6 +13,8 @@ import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.StarterService;
 
 public class AlwaysOnAMOLED extends Application {
+    public static int reportNotificationID = 53;
+
     static {
         try {
             AppCompatDelegate.setDefaultNightMode(
@@ -26,14 +28,9 @@ public class AlwaysOnAMOLED extends Application {
     public void onCreate() {
         super.onCreate();
         // Setup handler for uncaught exceptions.
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(Thread thread, Throwable e) {
-                handleUncaughtException(e);
-            }
-        });
+        Thread.setDefaultUncaughtExceptionHandler((thread, e) -> handleUncaughtException(e));
     }
-    public  static  int reportNotificationID = 53;
+
     public void handleUncaughtException(Throwable e) {
         int reportNotificationID = 53;
         Context context = getApplicationContext();
@@ -41,7 +38,7 @@ public class AlwaysOnAMOLED extends Application {
         e.printStackTrace();
         Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, ReporterActivity.class);
-        intent.setFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("log", e.getMessage() + "\n" + e);
         PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
         Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);

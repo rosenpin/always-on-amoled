@@ -11,9 +11,6 @@ import android.widget.RemoteViews;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.services.ToggleService;
 
-/**
- * Created by tomer AKA rosenpin on 6/13/16.
- */
 public class WidgetProvider extends AppWidgetProvider {
 
     @Override

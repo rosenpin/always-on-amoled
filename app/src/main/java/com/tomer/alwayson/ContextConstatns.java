@@ -18,7 +18,6 @@ public interface ContextConstatns {
     boolean OFF = false;
 
     float NIGHT_MODE_ALPHA = 0.3f;
-
     //TAGS
     String WAKE_LOCK_TAG = "StayAwakeWakeLock";
     String MAIN_SERVICE_LOG_TAG = MainService.class.getSimpleName();
@@ -33,7 +32,7 @@ public interface ContextConstatns {
     String DOZE_MANAGER = DozeManager.class.getSimpleName();
 
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
-    int CAMERA_PERMISSION_REQUEST_CODE =5;
+    int CAMERA_PERMISSION_REQUEST_CODE = 5;
     int DEVICE_ADMIN_REQUEST_CODE = 4;
 
     String DOUBLE_TAP = "double_tap_action";

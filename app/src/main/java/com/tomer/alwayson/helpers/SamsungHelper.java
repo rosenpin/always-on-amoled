@@ -90,12 +90,7 @@ public class SamsungHelper implements ContextConstatns {
 
     public void setOnHomeButtonClickListener(final Runnable action) {
         homeWatcher = new HomeWatcher(context);
-        homeWatcher.setOnHomePressedListener(new HomeWatcher.OnHomePressedListener() {
-            @Override
-            public void onHomePressed() {
-                action.run();
-            }
-        });
+        homeWatcher.setOnHomePressedListener(() -> action.run());
         homeWatcher.startWatch();
     }
 

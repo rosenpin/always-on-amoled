@@ -20,10 +20,10 @@ import java.util.Calendar;
 import java.util.Random;
 
 public class Utils {
-    public static boolean isPackageInstalled(Context context, String packagename) {
+    public static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {
-            pm.getPackageInfo(packagename, PackageManager.GET_ACTIVITIES);
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
             return false;

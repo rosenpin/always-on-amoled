@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -33,7 +32,7 @@ public class IconsWrapper extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public void update(final Context context, boolean state, int textColor, final Runnable action) {
+    public void update(boolean state, int textColor, final Runnable action) {
         if (Globals.notificationChanged && state) {
             removeAllViews();
             for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
@@ -46,42 +45,34 @@ public class IconsWrapper extends LinearLayout {
                     final LinearLayout.LayoutParams iconLayoutParams = new LinearLayout.LayoutParams(96, 96, Gravity.CENTER);
                     icon.setPadding(12, 0, 12, 0);
                     icon.setLayoutParams(iconLayoutParams);
-                    icon.setOnTouchListener(new OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View view, MotionEvent event) {
-                            if (event.getAction() == android.view.MotionEvent.ACTION_DOWN || event.getAction() == android.view.MotionEvent.ACTION_MOVE) {
-                                iconLayoutParams.width += 10;
-                                iconLayoutParams.height += 10;
-                                icon.setLayoutParams(iconLayoutParams);
-                                if (iconLayoutParams.width > 500) {
-                                    if (entry.getValue().getIntent() != null) {
-                                        try {
-                                            MainService.stoppedByShortcut = true;
-                                            entry.getValue().getIntent().send();
-                                            action.run();
-                                        } catch (PendingIntent.CanceledException e) {
-                                            e.printStackTrace();
-                                        }
-                                    } else {
-                                        removeView(icon);
+                    icon.setOnTouchListener((view, event) -> {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                            iconLayoutParams.width += 10;
+                            iconLayoutParams.height += 10;
+                            icon.setLayoutParams(iconLayoutParams);
+                            if (iconLayoutParams.width > 500) {
+                                if (entry.getValue().getIntent() != null) {
+                                    try {
+                                        MainService.stoppedByShortcut = true;
+                                        entry.getValue().getIntent().send();
+                                        action.run();
+                                    } catch (PendingIntent.CanceledException e) {
+                                        e.printStackTrace();
                                     }
+                                } else {
+                                    removeView(icon);
                                 }
-                            } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                                iconLayoutParams.width = 96;
-                                iconLayoutParams.height = 96;
-                                icon.setLayoutParams(iconLayoutParams);
-                            } else {
-                                Log.d("Event ", String.valueOf(event.getAction()));
                             }
-                            return false;
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            iconLayoutParams.width = 96;
+                            iconLayoutParams.height = 96;
+                            icon.setLayoutParams(iconLayoutParams);
+                        } else {
+                            Log.d("Event ", String.valueOf(event.getAction()));
                         }
+                        return false;
                     });
-                    icon.setOnClickListener(new OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            messageBox.showNotification(entry.getValue());
-                        }
-                    });
+                    icon.setOnClickListener(view -> messageBox.showNotification(entry.getValue()));
                     addView(icon);
                 }
             }

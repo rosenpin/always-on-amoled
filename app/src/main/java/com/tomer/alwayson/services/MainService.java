@@ -60,6 +60,7 @@ import com.tomer.alwayson.views.IconsWrapper;
 import com.tomer.alwayson.views.MessageBox;
 
 import java.util.Calendar;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
@@ -212,15 +213,12 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.stopDelay > DISABLED) {
             final int delayInMilliseconds = prefs.stopDelay * 1000 * 60;
             Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    stoppedByShortcut = true;
-                    stopThis();
-                    stayAwakeWakeLock.release();
-                    Globals.killedByDelay = true;
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
-                }
+            new Handler().postDelayed(() -> {
+                stoppedByShortcut = true;
+                stopThis();
+                stayAwakeWakeLock.release();
+                Globals.killedByDelay = true;
+                Log.d(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
             }, delayInMilliseconds);
         }
 
@@ -235,47 +233,34 @@ public class MainService extends Service implements SensorEventListener, Context
         setLights(ON, false, true);
 
         //Notification setup
-        Globals.onNotificationAction = new Runnable() {
-            @Override
-            public void run() {
-                iconsWrapper.update(getApplicationContext(), prefs.notificationsAlerts, prefs.textColor, new Runnable() {
-                    @Override
-                    public void run() {
+        Globals.onNotificationAction = () -> {
+            iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor, this::stopThis);
+            if (Globals.newNotification != null && prefs.notificationPreview) {
+                notificationsMessageBox.showNotification(Globals.newNotification);
+                notificationsMessageBox.setOnClickListener(view -> {
+                    stoppedByShortcut = true;
+                    if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
+                        try {
+                            notificationsMessageBox.getCurrentNotification().getIntent().send();
+                        } catch (PendingIntent.CanceledException e) {
+                            e.printStackTrace();
+                        }
+                        stoppedByShortcut = true;
                         stopThis();
                     }
                 });
-                if (Globals.newNotification != null && prefs.notificationPreview) {
-                    notificationsMessageBox.showNotification(Globals.newNotification);
-                    notificationsMessageBox.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            stoppedByShortcut = true;
-                            if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
-                                try {
-                                    notificationsMessageBox.getCurrentNotification().getIntent().send();
-                                } catch (PendingIntent.CanceledException e) {
-                                    e.printStackTrace();
-                                }
-                                stoppedByShortcut = true;
-                                stopThis();
-                            }
-                        }
-                    });
-                }
             }
         };
         Globals.onNotificationAction.run();
 
         //Turn screen on
         new Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        if (Globals.isServiceRunning) {
-                            //Greenify integration
-                            new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
-                            //Turn on the display
-                            if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
-                        }
+                () -> {
+                    if (Globals.isServiceRunning) {
+                        //Greenify integration
+                        new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
+                        //Turn on the display
+                        if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     }
                 },
                 500);
@@ -288,18 +273,10 @@ public class MainService extends Service implements SensorEventListener, Context
 
         //Start the current app resolver and stop the service accordingly
         currentAppResolver = new CurrentAppResolver(this, new int[]{prefs.stopOnCamera ? CurrentAppResolver.CAMERA : 0, prefs.stopOnGoogleNow ? CurrentAppResolver.GOOGLE_NOW : 0});
-        currentAppResolver.executeForCurrentApp(new Runnable() {
-            @Override
-            public void run() {
-                Globals.waitingForApp = true;
-                stopThis();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Globals.waitingForApp = false;
-                    }
-                }, 300);
-            }
+        currentAppResolver.executeForCurrentApp(() -> {
+            Globals.waitingForApp = true;
+            stopThis();
+            new Handler().postDelayed(() -> Globals.waitingForApp = false, 300);
         });
 
         //Initialize the TTS engine
@@ -344,40 +321,39 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void refresh() {
-        Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-        if (clock.getAnalogClock() != null)
-            clock.getAnalogClock().setTime(Calendar.getInstance());
-        if (prefs.clockStyle == S7_DIGITAL)
-            clock.getDigitalS7().update(prefs.showAmPm);
-
-        refreshing = true;
-        new Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        if (Globals.isShown) refresh();
-                        else refreshing = false;
-                    }
-                },
-                12000);
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
+        executor.scheduleWithFixedDelay((Runnable) () -> {
+            Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
+            if (Globals.isShown) {
+                refreshing = true;
+                if (clock.getAnalogClock() != null)
+                    clock.getAnalogClock().setTime(Calendar.getInstance());
+                if (prefs.clockStyle == S7_DIGITAL)
+                    clock.getDigitalS7().update(prefs.showAmPm);
+            } else {
+                executor.shutdown();
+                refreshing = false;
+            }
+        }, 0L, 12, TimeUnit.SECONDS);
     }
 
     private void refreshLong(boolean first) {
-        Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (!first && prefs.moveWidget != DISABLED)
-            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
-        String monthAndDayText = Utils.getDateText(this);
-        dateView.update(monthAndDayText);
-        if (prefs.clockStyle == S7_DIGITAL)
-            clock.getDigitalS7().setDate(monthAndDayText);
-
-        new Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        if (Globals.isShown) refreshLong(false);
-                        else refreshing = false;
-                    }
-                },
-                24000);
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
+        executor.scheduleWithFixedDelay((Runnable) () -> {
+            Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
+            if (Globals.isShown) {
+                refreshing = true;
+                if (!first && prefs.moveWidget != DISABLED)
+                    ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
+                String monthAndDayText = Utils.getDateText(this);
+                dateView.update(monthAndDayText);
+                if (prefs.clockStyle == S7_DIGITAL)
+                    clock.getDigitalS7().setDate(monthAndDayText);
+            } else {
+                executor.shutdown();
+                refreshing = false;
+            }
+        }, 0L, 24, TimeUnit.SECONDS);
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
@@ -448,23 +424,17 @@ public class MainService extends Service implements SensorEventListener, Context
             clock.getTextClock().destroy(); //Kill the clock manually because the stock TextClock is kinda broken
         if (frameLayout.getWindowToken() != null) {
             if (prefs.exitAnimation == FADE_OUT && stoppedByShortcut) {
-                Utils.Animations.fadeOutWithAction(frameLayout, new Runnable() {
-                    @Override
-                    public void run() {
-                        if (frameLayout.getWindowToken() != null) {
-                            windowManager.removeView(frameLayout);
-                            setLights(OFF, false, false);
-                        }
+                Utils.Animations.fadeOutWithAction(frameLayout, () -> {
+                    if (frameLayout.getWindowToken() != null) {
+                        windowManager.removeView(frameLayout);
+                        setLights(OFF, false, false);
                     }
                 });
             } else if (prefs.exitAnimation == SLIDE_OUT && stoppedByShortcut) {
-                Utils.Animations.slideOutWithAction(frameLayout, -new DisplaySize(this).getHeight(prefs.orientation.equals(VERTICAL)), new Runnable() {
-                    @Override
-                    public void run() {
-                        if (frameLayout.getWindowToken() != null) {
-                            windowManager.removeView(frameLayout);
-                            setLights(OFF, false, false);
-                        }
+                Utils.Animations.slideOutWithAction(frameLayout, -new DisplaySize(this).getHeight(prefs.orientation.equals(VERTICAL)), () -> {
+                    if (frameLayout.getWindowToken() != null) {
+                        windowManager.removeView(frameLayout);
+                        setLights(OFF, false, false);
                     }
                 });
             } else {
@@ -475,12 +445,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         Globals.isShown = false;
         Globals.isServiceRunning = false;
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Globals.killedByDelay = false;
-            }
-        }, 15000);
+        new Handler().postDelayed(() -> Globals.killedByDelay = false, 15000);
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
     }
 
@@ -493,37 +458,26 @@ public class MainService extends Service implements SensorEventListener, Context
                     stayAwakeWakeLock.release();
                     Globals.isShown = false;
                     Globals.sensorIsScreenOff = false;
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (Shell.SU.available())
-                                Shell.SU.run("input keyevent 26"); // Screen off using root
-                            else
-                                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
-                        }
+                    new Thread(() -> {
+                        if (Shell.SU.available())
+                            Shell.SU.run("input keyevent 26"); // Screen off using root
+                        else
+                            ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                     }).start();
                 } else {
                     if (!Globals.sensorIsScreenOff) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                onSensorChanged(event);
-                            }
-                        }, 200);
+                        new Handler().postDelayed(() -> onSensorChanged(event), 200);
                         return;
                     }
                     if (!isScreenOn)
                         ScreenReceiver.turnScreenOn(this, false);
                     Globals.isShown = true;
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (!refreshing) {
-                                refresh();
-                                refreshLong(true);
-                            }
-                            stayAwakeWakeLock.acquire();
+                    new Handler().postDelayed(() -> {
+                        if (!refreshing) {
+                            refresh();
+                            refreshLong(true);
                         }
+                        stayAwakeWakeLock.acquire();
                     }, 500);
                 }
                 break;

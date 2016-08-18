@@ -57,12 +57,7 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
                     tts.speak("You have " + Globals.notifications.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
                 tts.speak("Battery is at " + batteryReceiver.currentBattery + " percent", TextToSpeech.QUEUE_ADD, null);
                 speaking = true;
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        speaking = false;
-                    }
-                }, 4000);
+                new Handler().postDelayed(() -> speaking = false, 4000);
             } else
                 Log.d(MAIN_SERVICE_LOG_TAG, "Still speaking..");
         }

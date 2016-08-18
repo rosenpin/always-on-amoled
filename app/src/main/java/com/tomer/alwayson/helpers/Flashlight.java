@@ -40,12 +40,7 @@ public class Flashlight {
                 cam.stopPreview();
             }
             enabled = !enabled;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    isLoading = false;
-                }
-            }, 500);
+            new Handler().postDelayed(() -> isLoading = false, 500);
         }
     }
 

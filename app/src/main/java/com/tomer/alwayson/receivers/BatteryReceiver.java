@@ -65,9 +65,13 @@ public class BatteryReceiver extends BroadcastReceiver implements ContextConstat
 
     public int getBatteryLevel(Context context) {
         Intent batteryIntent = context.registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        return (level / scale) * 100;
+
+        if (batteryIntent != null) {
+            int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            return (level / scale) * 100;
+        }
+        return -1;
     }
 }
 

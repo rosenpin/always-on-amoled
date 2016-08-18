@@ -9,7 +9,7 @@ public class KillableTextClock extends TextClock {
         super(context, attrs);
     }
 
-    public void destroy(){
+    public void destroy() {
         super.onDetachedFromWindow();
     }
 }

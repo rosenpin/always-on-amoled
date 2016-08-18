@@ -45,13 +45,10 @@ public class DozeManager implements ContextConstatns{
     }
 
     public static void executeCommand(final String command) {
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                List<String> output = Shell.SH.run(command);
-                if (output == null)
-                    Log.i(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
-            }
+        AsyncTask.execute(() -> {
+            List<String> output = Shell.SH.run(command);
+            if (output == null)
+                Log.i(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
         });
     }
 
