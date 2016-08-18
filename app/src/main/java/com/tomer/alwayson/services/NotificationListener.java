@@ -99,7 +99,8 @@ public class NotificationListener extends NotificationListenerService implements
         }
 
         public Drawable getIcon() {
-            icon.mutate().setColorFilter(ContextCompat.getColor(context, android.R.color.primary_text_dark), PorterDuff.Mode.MULTIPLY);
+            if (icon != null)
+                icon.mutate().setColorFilter(ContextCompat.getColor(context, android.R.color.primary_text_dark), PorterDuff.Mode.MULTIPLY);
             return icon;
         }
 
