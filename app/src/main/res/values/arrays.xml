@@ -179,6 +179,18 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="settings_proximity">
+        <item>@string/rules_disabled</item>
+        <item>@string/settings_proximity_normal</item>
+        <item>@string/settings_proximity_root</item>
+        <item>@string/settings_proximity_device_admin</item>
+    </string-array>
+    <string-array name="settings_proximity_values">
+        <item>0</item>
+        <item>3</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string-array name="animations">
         <item>No animation</item>
         <item>Fade out</item>
