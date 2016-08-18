@@ -565,24 +565,26 @@ public class MainService extends Service implements SensorEventListener, Context
                 if (!isInCenter(e1)) {
                     return false;
                 }
-                float diffY = e2.getY() - e1.getY();
-                float diffX = e2.getX() - e1.getX();
-                if (Math.abs(diffX) > Math.abs(diffY)) {
-                    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
-                        if (diffX > 0) {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe right");
-                        } else {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe left");
+                if (e2 != null) {
+                    float diffY = e2.getY() - e1.getY();
+                    float diffX = e2.getX() - e1.getX();
+                    if (Math.abs(diffX) > Math.abs(diffY)) {
+                        if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                            if (diffX > 0) {
+                                Log.d(MAIN_SERVICE_LOG_TAG, "Swipe right");
+                            } else {
+                                Log.d(MAIN_SERVICE_LOG_TAG, "Swipe left");
+                            }
                         }
-                    }
-                } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
-                    if (diffY > 0) {
-                        Log.d(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
-                    } else {
-                        Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
-                        return gestureAction(prefs.swipeAction);
-                    }
+                    } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                        if (diffY > 0) {
+                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
+                        } else {
+                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
+                            return gestureAction(prefs.swipeAction);
+                        }
 
+                    }
                 }
                 return false;
             }
@@ -593,9 +595,12 @@ public class MainService extends Service implements SensorEventListener, Context
             }
 
             private boolean isInCenter(MotionEvent e) {
-                int width = getResources().getDisplayMetrics().widthPixels;
-                int height = getResources().getDisplayMetrics().heightPixels;
-                return e.getX() > width / 4 && e.getX() < width * 3 / 4 && e.getY() > height / 2.5 && e.getY() < height * 4 / 5;
+                if (e != null) {
+                    int width = getResources().getDisplayMetrics().widthPixels;
+                    int height = getResources().getDisplayMetrics().heightPixels;
+                    return e.getX() > width / 4 && e.getX() < width * 3 / 4 && e.getY() > height / 2.5 && e.getY() < height * 4 / 5;
+                }
+                return false;
             }
         }
     }
