@@ -42,6 +42,14 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         }
     }
 
+    public static void updateScreenState(Context context) {
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        if (Utils.isAndroidNewerThanL())
+            MainService.isScreenOn = pm.isInteractive();
+        else
+            MainService.isScreenOn = pm.isScreenOn();
+    }
+
     public static boolean doesDeviceHaveSecuritySetup(Context context) {
         return isPatternSet(context) || isPassOrPinSet(context);
     }
@@ -67,8 +75,8 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
     public void onReceive(final Context context, Intent intent) {
         prefs = new Prefs(context);
         prefs.apply();
-
         this.context = context;
+        updateScreenState(context);
 
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             Globals.sensorIsScreenOff = true;

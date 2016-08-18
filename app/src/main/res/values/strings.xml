@@ -229,4 +229,7 @@
     <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
     <string name="settings_exit_animation">Animation</string>
     <string name="settings_exit_animation_desc">Choose the exit animation</string>
+    <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
+    <string name="error">Error</string>
+    <string name="error_0_unknown_error_report_prompt">Click here to report the error</string>
 </resources>

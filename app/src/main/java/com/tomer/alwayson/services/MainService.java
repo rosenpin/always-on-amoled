@@ -35,12 +35,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.activities.DummyActivity;
+import com.tomer.alwayson.activities.ReporterActivity;
 import com.tomer.alwayson.helpers.CurrentAppResolver;
 import com.tomer.alwayson.helpers.DisplaySize;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -49,7 +50,6 @@ import com.tomer.alwayson.helpers.GreenifyStarter;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.SamsungHelper;
 import com.tomer.alwayson.helpers.TTS;
-import com.tomer.alwayson.helpers.UncoughtExcepction;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.helpers.ViewUtils;
 import com.tomer.alwayson.receivers.ScreenReceiver;
@@ -70,6 +70,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     public static boolean stoppedByShortcut;
     public static boolean initialized;
+    public static boolean isScreenOn;
     private boolean demo;
     private boolean refreshing;
     private int originalBrightness = 100;
@@ -121,7 +122,6 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
-        Thread.setDefaultUncaughtExceptionHandler(new UncoughtExcepction(this));
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
@@ -130,6 +130,8 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.setReferenceCounted(false);
         originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
         originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
+        //Check if screen is already on
+        ScreenReceiver.updateScreenState(this);
 
         //Initialize stopped by shortcut
         stoppedByShortcut = false;
@@ -238,7 +240,6 @@ public class MainService extends Service implements SensorEventListener, Context
         Globals.onNotificationAction = new Runnable() {
             @Override
             public void run() {
-                Log.d("notificaiotns", "New notification!!!");
                 iconsWrapper.update(getApplicationContext(), prefs.notificationsAlerts, prefs.textColor, new Runnable() {
                     @Override
                     public void run() {
@@ -253,7 +254,6 @@ public class MainService extends Service implements SensorEventListener, Context
                             stoppedByShortcut = true;
                             if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
                                 try {
-                                    startActivity(new Intent(getApplicationContext(), DummyActivity.class));
                                     notificationsMessageBox.getCurrentNotification().getIntent().send();
                                 } catch (PendingIntent.CanceledException e) {
                                     e.printStackTrace();
@@ -313,7 +313,6 @@ public class MainService extends Service implements SensorEventListener, Context
         samsungHelper.getButtonsLight();
         //Turn capacitive buttons lights off
         samsungHelper.setButtonsLight(OFF);
-
         MainService.initialized = true;
     }
 
@@ -386,7 +385,8 @@ public class MainService extends Service implements SensorEventListener, Context
     private void setLights(boolean state, boolean nightMode, boolean first) {
         if (first && state) {
             Log.d(MAIN_SERVICE_LOG_TAG, "Display turned on");
-            mainView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+            if (!isScreenOn)
+                mainView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
         } else if (state) {
             boolean opaque = mainView.getAlpha() == 1f;
             if (nightMode && opaque) {
@@ -514,7 +514,8 @@ public class MainService extends Service implements SensorEventListener, Context
                         }, 200);
                         return;
                     }
-                    ScreenReceiver.turnScreenOn(this, false);
+                    if (!isScreenOn)
+                        ScreenReceiver.turnScreenOn(this, false);
                     Globals.isShown = true;
                     new Handler().postDelayed(new Runnable() {
                         @Override

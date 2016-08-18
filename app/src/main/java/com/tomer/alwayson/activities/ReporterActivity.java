@@ -1,20 +1,38 @@
 package com.tomer.alwayson.activities;
 
+import android.app.NotificationManager;
 import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.heinrichreimersoftware.androidissuereporter.IssueReporterActivity;
 import com.heinrichreimersoftware.androidissuereporter.model.github.ExtraInfo;
 import com.heinrichreimersoftware.androidissuereporter.model.github.GithubTarget;
-import com.tomer.alwayson.helpers.Prefs;
+import com.tomer.alwayson.AlwaysOnAMOLED;
+import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
+import com.tomer.alwayson.helpers.Prefs;
 
 
 public class ReporterActivity extends IssueReporterActivity {
 
+    private String messageExtra;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setGuestEmailRequired(true);
+        messageExtra = getIntent().getStringExtra("log");
+        if (messageExtra == null || messageExtra.isEmpty())
+            setGuestEmailRequired(true);
+        else {
+            ((TextView) findViewById(R.id.air_inputTitle)).setText(messageExtra.substring(0, messageExtra.indexOf("\n")));
+            ((TextView) findViewById(R.id.air_inputDescription)).setText(messageExtra.substring(messageExtra.indexOf("\n"), messageExtra.length()));
+            ((RadioButton) findViewById(R.id.air_optionAnonymous)).setChecked(true);
+            NotificationManager nMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nMgr.cancel(AlwaysOnAMOLED.reportNotificationID);
+        }
+
     }
 
     @Override
@@ -34,5 +52,7 @@ public class ReporterActivity extends IssueReporterActivity {
         for (String[] preference : preferences) {
             extraInfo.put(preference[0], preference[1]);
         }
+        if (messageExtra != null)
+            extraInfo.put("Error log", messageExtra);
     }
 }
