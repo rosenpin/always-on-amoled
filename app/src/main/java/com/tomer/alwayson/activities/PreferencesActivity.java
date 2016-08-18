@@ -42,14 +42,14 @@ import com.android.vending.billing.IInAppBillingService;
 import com.tomer.alwayson.BuildConfig;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.R;
+import com.tomer.alwayson.SecretConstants;
+import com.tomer.alwayson.SettingsFragment;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
-import com.tomer.alwayson.R;
 import com.tomer.alwayson.receivers.DAReceiver;
-import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.services.MainService;
 import com.tomer.alwayson.services.StarterService;
-import com.tomer.alwayson.SettingsFragment;
 
 import java.util.ArrayList;
 
@@ -155,7 +155,10 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                             }
                                             break;
                                     }
-                                    context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+                                    if (pendingIntent != null)
+                                        context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+                                    else
+                                        Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
                                 } catch (Exception e) {
                                     Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
                                 }
@@ -182,7 +185,10 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             e.printStackTrace();
         }
         try {
-            context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+            if (pendingIntent != null)
+                context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+            else
+                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
         } catch (IntentSender.SendIntentException e) {
             e.printStackTrace();
             Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();

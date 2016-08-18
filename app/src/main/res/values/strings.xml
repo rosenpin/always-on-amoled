@@ -61,7 +61,7 @@
     <string name="plugin_dialog_desc">Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.</string>
     <!--Errors-->
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
-    <string name="error_0_unknown_error">An error has occurred. Please report to the developer </string>
+    <string name="error_0_unknown_error">An error has occurred. Please restart the app</string>
     <string name="error_1_no_email_client">There are no email clients installed.</string>
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
     <string name="error_3_unknown_error_restart">An error has occurred. Please restart the app.</string>
@@ -232,4 +232,5 @@
     <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
     <string name="error">Error</string>
     <string name="error_0_unknown_error_report_prompt">Click here to report the error</string>
+    <string name="error_5_google_play_installed">Error, is the Google Play Store installed?</string>
 </resources>
