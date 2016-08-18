@@ -7,11 +7,7 @@
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">感謝你的支持! :)</string>
-  <string name="thanks_great">感謝你的支持! :)</string>
-  <string name="thanks_huge">感謝你的巨大支持! :)</string>
-  <string name="thanks_crazy">感謝你的瘋狂支持! :)</string>
   <string name="notification_message">Always On正在運行</string>
-  <string name="reboot_to_take_affect">重啟以生效</string>
   <!-- Content description-->
   <!--Widget-->
   <!--Device admin-->
@@ -19,8 +15,6 @@
   <!--Errors-->
   <!--Warnings-->
   <string name="warning_1_harm_performance">這可能影響應用程式的表現</string>
-  <string name="warning_2_required_phone_permission">這個權限需要允許以在來電時為你開機</string>
-  <string name="warning_3_allow_system_modification">請允許改變系統設定!</string>
   <!--Charging rules-->
   <!--Battery rules-->
   <!--Timeout delay rule-->
@@ -37,14 +31,10 @@
   <!--Settings descriptions-->
   <string name="settings_watchface_desc">自定義錶面物件</string>
   <string name="settings_licenses_desc">開放源碼許可証</string>
-  <string name="settings_back_button_to_stop_desc">按返回按鈕關閉</string>
   <string name="settings_community_desc">Google+社群</string>
   <string name="settings_github_desc">開放源碼Github連結</string>
   <string name="settings_move_desc">啟用以防止AMOLED過熱</string>
   <string name="settings_font_size_desc">選擇時鐘字體大小</string>
-  <string name="settings_volume_to_stop_desc">按音量鍵關閉</string>
-  <string name="settings_touch_to_stop_desc">雙擊屏幕關閉</string>
-  <string name="settings_swipe_to_stop_desc">向上滑動關閉</string>
   <string name="settings_enabled_desc">啟用服務</string>
   <string name="settings_notifications_alerts_desc">當收到通知時，在其他應用程式顯示</string>
   <string name="settings_brightness_desc">關閉時的亮度</string>

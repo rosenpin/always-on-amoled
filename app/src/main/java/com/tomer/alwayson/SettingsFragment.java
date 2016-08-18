@@ -100,39 +100,36 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
         String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
-            findPreference(preference).setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
-                    switch (Integer.parseInt((String) o)) {
-                        case DISABLED:
+            findPreference(preference).setOnPreferenceChangeListener((preference1, o) -> {
+                switch (Integer.parseInt((String) o)) {
+                    case DISABLED:
+                        return true;
+                    case ACTION_UNLOCK:
+                        return true;
+                    case ACTION_SPEAK:
+                        if (isSupporter()) {
+                            if (!isPackageInstalled("com.google.android.tts")) {
+                                openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
+                                Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
+                            }
                             return true;
-                        case ACTION_UNLOCK:
-                            return true;
-                        case ACTION_SPEAK:
-                            if (isSupporter()) {
-                                if (!isPackageInstalled("com.google.android.tts")) {
-                                    openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
-                                    Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
-                                }
-                                return true;
-                            } else {
-                                PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                        } else {
+                            PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                            return false;
+                        }
+                    case ACTION_FLASHLIGHT:
+                        if (isSupporter()) {
+                            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST_CODE);
                                 return false;
                             }
-                        case ACTION_FLASHLIGHT:
-                            if (isSupporter()) {
-                                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_REQUEST_CODE);
-                                    return false;
-                                }
-                                return true;
-                            } else {
-                                PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-                                return false;
-                            }
-                    }
-                    return true;
+                            return true;
+                        } else {
+                            PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                            return false;
+                        }
                 }
+                return true;
             });
         }
         checkNotificationsPermission(context, false);
@@ -162,12 +159,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 new AlertDialog.Builder(getActivity())
                         .setTitle(getString(R.string.plugin_dialog_title))
                         .setMessage(getString(R.string.plugin_dialog_desc))
-                        .setPositiveButton("Download", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                openPlayStoreUrl("tomer.com.alwaysonamoledplugin", context);
-                                dialogInterface.dismiss();
-                            }
+                        .setPositiveButton("Download", (dialogInterface, i) -> {
+                            openPlayStoreUrl("tomer.com.alwaysonamoledplugin", context);
+                            dialogInterface.dismiss();
                         })
                         .setCancelable(false)
                         .show();
@@ -197,52 +191,40 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private void translate() {
-        findPreference("translate").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                openURL("https://crowdin.com/project/always-on-amoled", getActivity());
-                return false;
-            }
+        findPreference("translate").setOnPreferenceClickListener(preference -> {
+            openURL("https://crowdin.com/project/always-on-amoled", getActivity());
+            return false;
         });
     }
 
     private void openSourceLicenses() {
-        findPreference("open_source_licenses").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                Notices notices = new Notices();
-                notices.addNotice(new Notice("AppIntro", "https://github.com/PaoloRotolo/AppIntro", "Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr", new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("android-issue-reporter", "https://github.com/HeinrichReimer/android-issue-reporter", "", new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("Custom Analog Clock View", "https://github.com/rosenpin/custom-analog-clock-view", "Copyright (C) 2016 Tomer Rosenfeld", new GnuGeneralPublicLicense30()));
-                notices.addNotice(new Notice("IntegrationPreference", "https://github.com/tasomaniac/IntegrationPreference", "", new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("LicensesDialog", "https://github.com/PSDev/LicensesDialog", "", new ApacheSoftwareLicense20()));
-                notices.addNotice(new Notice("material-dialogs", "https://github.com/afollestad/material-dialogs", "Copyright (c) 2014-2016 Aidan Michael Follestad", new MITLicense()));
-                new LicensesDialog.Builder(getActivity())
-                        .setNotices(notices)
-                        .build()
-                        .show();
-                return true;
-            }
+        findPreference("open_source_licenses").setOnPreferenceClickListener(preference -> {
+            Notices notices = new Notices();
+            notices.addNotice(new Notice("AppIntro", "https://github.com/PaoloRotolo/AppIntro", "Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr", new ApacheSoftwareLicense20()));
+            notices.addNotice(new Notice("android-issue-reporter", "https://github.com/HeinrichReimer/android-issue-reporter", "", new ApacheSoftwareLicense20()));
+            notices.addNotice(new Notice("Custom Analog Clock View", "https://github.com/rosenpin/custom-analog-clock-view", "Copyright (C) 2016 Tomer Rosenfeld", new GnuGeneralPublicLicense30()));
+            notices.addNotice(new Notice("IntegrationPreference", "https://github.com/tasomaniac/IntegrationPreference", "", new ApacheSoftwareLicense20()));
+            notices.addNotice(new Notice("LicensesDialog", "https://github.com/PSDev/LicensesDialog", "", new ApacheSoftwareLicense20()));
+            notices.addNotice(new Notice("material-dialogs", "https://github.com/afollestad/material-dialogs", "Copyright (c) 2014-2016 Aidan Michael Follestad", new MITLicense()));
+            new LicensesDialog.Builder(getActivity())
+                    .setNotices(notices)
+                    .build()
+                    .show();
+            return true;
         });
     }
 
     private void googlePlusCommunitySetup() {
-        findPreference("community").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                openURL("https://plus.google.com/communities/104206728795122451273", getActivity());
-                return false;
-            }
+        findPreference("community").setOnPreferenceClickListener(preference -> {
+            openURL("https://plus.google.com/communities/104206728795122451273", getActivity());
+            return false;
         });
     }
 
     private void githubLink() {
-        findPreference("github").setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                openURL("https://github.com/rosenpin/AlwaysOnDisplayAmoled", getActivity());
-                return false;
-            }
+        findPreference("github").setOnPreferenceClickListener(preference -> {
+            openURL("https://github.com/rosenpin/AlwaysOnDisplayAmoled", getActivity());
+            return false;
         });
     }
 
@@ -329,9 +311,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
 
         if (preference.getKey().equals("notifications_alerts")) {
-            if ((boolean) o) {
+            if ((boolean) o)
                 return checkNotificationsPermission(context, true);
-            }
             return true;
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
@@ -358,20 +339,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 }
                 new AlertDialog.Builder(getActivity()).setTitle(getString(android.R.string.dialog_alert_title) + "!")
                         .setMessage(getString(R.string.warning_7_disable_fingerprint))
-                        .setPositiveButton(getString(android.R.string.yes), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-                                intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
-                                intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
-                                startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
-                            }
+                        .setPositiveButton(getString(android.R.string.yes), (dialogInterface, i) -> {
+                            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+                            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
+                            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
+                            startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
                         })
-                        .setNegativeButton(getString(android.R.string.no), new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
+                        .setNegativeButton(getString(android.R.string.no), (dialogInterface, i) -> {
+                            dialogInterface.dismiss();
                         })
                         .show();
                 return false;
@@ -444,23 +419,20 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     .title(R.string.settings_choose_font)
                     .backgroundColor(Color.BLACK)
                     .titleColor(Color.WHITE)
-                    .adapter(fontAdapter, new MaterialDialog.ListCallback() {
-                        @Override
-                        public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                            if (which > 5) {
-                                if (Globals.ownedItems != null) {
-                                    if (Globals.ownedItems.size() > 0) {
-                                        prefs.setString(Prefs.KEYS.FONT.toString(), String.valueOf(which));
-                                        dialog.dismiss();
-                                    } else
-                                        PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-                                } else {
+                    .adapter(fontAdapter, (dialog, itemView, which, text) -> {
+                        if (which > 5) {
+                            if (Globals.ownedItems != null) {
+                                if (Globals.ownedItems.size() > 0) {
+                                    prefs.setString(Prefs.KEYS.FONT.toString(), String.valueOf(which));
+                                    dialog.dismiss();
+                                } else
                                     PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-                                }
                             } else {
-                                prefs.setString("font", String.valueOf(which));
-                                dialog.dismiss();
+                                PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
                             }
+                        } else {
+                            prefs.setString("font", String.valueOf(which));
+                            dialog.dismiss();
                         }
                     })
                     .show();
