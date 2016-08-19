@@ -31,6 +31,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -453,7 +454,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         super.onActivityResult(requestCode, resultCode, data);
         Log.d(MAIN_SERVICE_LOG_TAG, "Activity result" + resultCode);
         if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
-            ((SwitchPreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
+            ((CheckBoxPreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
     }
 
     @Override

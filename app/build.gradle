@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 162
-        versionName "0.9.2.9"
+        versionCode 163
+        versionName "0.9.3 beta 1"
         jackOptions.enabled = true;
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
