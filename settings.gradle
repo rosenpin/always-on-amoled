@@ -1,1 +1,1 @@
-include ':app', 'DiscreetAppRate'
+include ':app', 'DiscreetAppRate', 'IssueReporter'

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="?cardBackgroundColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/air_baseline">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/air_title_login"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="?android:textColorSecondary"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/air_optionUseAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/air_radio_button_padding_start"
+                android:paddingRight="0dp"
+                android:paddingStart="@dimen/air_radio_button_padding_start"
+                android:paddingEnd="0dp"
+                android:text="@string/air_label_use_account"
+                android:layout_marginTop="@dimen/air_baseline"
+                android:checked="true"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/air_layoutLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ael_expanded="true"
+                app:ael_interpolator="fastOutSlowIn"
+                app:ael_orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/air_baseline_half">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/air_inputUsername"
+                            android:singleLine="true"
+                            android:inputType="textNoSuggestions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/air_label_username"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/air_baseline_half">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/air_inputPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/air_label_password"
+                            android:inputType="textPassword"
+                            android:imeOptions="actionSend"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <RadioButton
+                android:id="@+id/air_optionAnonymous"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/air_radio_button_padding_start"
+                android:paddingRight="0dp"
+                android:paddingStart="@dimen/air_radio_button_padding_start"
+                android:paddingEnd="0dp"
+                android:text="@string/air_label_use_guest"
+                android:layout_marginTop="@dimen/air_baseline"/>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/air_layoutGuest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ael_expanded="false"
+                app:ael_interpolator="fastOutSlowIn"
+                app:ael_orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/air_inputEmailParent"
+                        android:layout_marginTop="@dimen/air_baseline_half">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/air_inputEmail"
+                            android:singleLine="true"
+                            android:inputType="textEmailAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/air_label_email_optional"/>
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        </RadioGroup>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

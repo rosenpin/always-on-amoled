@@ -14,7 +14,6 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.helpers.Prefs;
 
-
 public class ReporterActivity extends IssueReporterActivity {
 
     private String messageExtra;
@@ -23,9 +22,9 @@ public class ReporterActivity extends IssueReporterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         messageExtra = getIntent().getStringExtra("log");
-        if (messageExtra == null || messageExtra.isEmpty())
+        if (messageExtra == null || messageExtra.isEmpty()) {
             setGuestEmailRequired(true);
-        else {
+        } else {
             ((TextView) findViewById(R.id.air_inputTitle)).setText("Force close report");
             ((TextView) findViewById(R.id.air_inputDescription)).setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
             ((TextView) findViewById(R.id.air_inputDescription)).setLines(8);

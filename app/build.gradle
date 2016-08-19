@@ -8,15 +8,14 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 157
-        versionName "0.9.2.7"
+        versionCode 161
+        versionName "0.9.2.8"
         jackOptions.enabled = true;
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -41,12 +40,10 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
-    compile 'com.heinrichreimersoftware:android-issue-reporter:1.2.6'
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
     compile 'com.tasomaniac:integrationpreference:0.2'
     compile project(':DiscreetAppRate')
+    compile project(':IssueReporter')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    compile 'com.android.support.test:runner:0.5'
 }
 

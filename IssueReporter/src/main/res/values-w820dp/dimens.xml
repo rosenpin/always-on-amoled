@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="air_baseline">24dp</dimen>
+    <dimen name="air_baseline_half">12dp</dimen>
+    <dimen name="air_baseline_card">@dimen/air_baseline_half</dimen>
+    <dimen name="air_baseline_content">80dp</dimen>
+</resources>

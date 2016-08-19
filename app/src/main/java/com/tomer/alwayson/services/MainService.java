@@ -35,11 +35,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tomer.alwayson.Constants;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.activities.ReporterActivity;
 import com.tomer.alwayson.helpers.CurrentAppResolver;
 import com.tomer.alwayson.helpers.DisplaySize;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -121,6 +123,7 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onCreate() {
         super.onCreate();
+        Thread.setDefaultUncaughtExceptionHandler((thread, e) -> handleUncaughtException(e));
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
@@ -447,6 +450,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Globals.isServiceRunning = false;
         new Handler().postDelayed(() -> Globals.killedByDelay = false, 15000);
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
+        Thread.setDefaultUncaughtExceptionHandler(null);
     }
 
     @Override
@@ -586,5 +590,20 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    public void handleUncaughtException(Throwable e) {
+        int reportNotificationID = 53;
+        Context context = getApplicationContext();
+        Log.d("Exception now!", "exeption");
+        e.printStackTrace();
+        Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(context, ReporterActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("log", e.getMessage() + "\n" + e);
+        PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
+        java.lang.System.exit(0);
+        startService(new Intent(getApplicationContext(), StarterService.class));
     }
 }

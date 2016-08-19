@@ -16,6 +16,7 @@
     <uses-permission
         android:name="android.permission.DEVICE_POWER"
         tools:ignore="ProtectedPermissions" />
+
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -27,6 +28,9 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -50,7 +54,6 @@
             android:name=".activities.ReporterActivity"
             android:parentActivityName=".activities.PreferencesActivity"
             android:theme="@style/ReporterTheme" />
-        <activity android:name=".activities.DummyActivity" />
         <activity
             android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme.NoActionBar">

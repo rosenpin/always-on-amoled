@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="?actionBarTheme">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/air_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/air_baseline_card"
+                android:clipToPadding="false">
+
+                <include
+                    layout="@layout/air_card_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <include
+                    layout="@layout/air_card_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/air_card_margin_top"/>
+
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fab_size_normal"
+                    android:layout_margin="@dimen/air_baseline"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/air_buttonSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/air_baseline"
+            android:src="@drawable/air_ic_send_light"
+            app:backgroundTint="?colorAccent"/>
+
+    </FrameLayout>
+
+</LinearLayout>

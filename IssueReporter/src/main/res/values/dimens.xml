@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="air_baseline">16dp</dimen>
+    <dimen name="air_baseline_half">8dp</dimen>
+    <dimen name="air_baseline_card">@dimen/air_baseline_half</dimen>
+    <dimen name="air_baseline_content">72dp</dimen>
+
+    <dimen name="air_icon_padding">6dp</dimen>
+
+    <dimen name="air_card_margin_top">@dimen/air_baseline_half</dimen>
+
+    <dimen name="air_radio_button_padding_start">@dimen/air_baseline</dimen>
+</resources>

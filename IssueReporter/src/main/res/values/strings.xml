@@ -1,0 +1,36 @@
+<resources>
+    <string name="air_title_report_issue">Report issue</string>
+
+    <string name="air_title_issue">Issue</string>
+    <string name="air_title_login">Login</string>
+
+    <string name="air_label_issue_title">Title</string>
+    <string name="air_label_issue_description">Description</string>
+    <string name="air_label_device_info">Device info</string>
+
+    <string name="air_label_use_account">Send using GitHub account</string>
+    <string name="air_label_use_email">Send using E-mail</string>
+    <string name="air_label_use_guest">Send anonymously</string>
+    <string name="air_label_username">Username</string>
+    <string name="air_label_password">Password</string>
+    <string name="air_label_email">E-mail</string>
+    <string name="air_label_email_optional">E-mail (optional)</string>
+
+    <string name="air_error_no_title">Please enter an issue title</string>
+    <string name="air_error_no_description">Please enter an issue description</string>
+    <string name="air_error_no_username">Please enter your valid GitHub username</string>
+    <string name="air_error_no_password">Please enter your valid GitHub password</string>
+    <string name="air_error_no_email">Please enter a e-mail address</string>
+
+    <string name="air_dialog_title_loading">Uploading report to GitHub…</string>
+    <string name="air_dialog_title_failed">Unable to send report</string>
+    <string name="air_dialog_description_failed_wrong_credentials">Wrong username or password</string>
+    <string name="air_dialog_description_failed_invalid_token">Invalid access token. Please contact the app developer.</string>
+    <string name="air_dialog_description_failed_issues_not_available">Issues are not enabled for the selected repository. Please contact the app developer.</string>
+    <string name="air_dialog_description_failed_unknown">An unexpected error occurred. Please contact the app developer.</string>
+    <string name="air_dialog_action_failed">OK</string>
+    <plurals name="air_error_short_description">
+        <item quantity="one">The description must have at least %d character.</item>
+        <item quantity="other">The description must have at least %d characters.</item>
+    </plurals>
+</resources>
