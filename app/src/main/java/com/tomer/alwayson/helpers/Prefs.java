@@ -10,6 +10,8 @@ import java.util.Map;
 public class Prefs {
     public boolean enabled;
     public boolean proximityToLock;
+    public boolean neverShowPluginDialog;
+    public boolean showedPluginDialog;
     public boolean showNotification;
     public boolean stopOnCamera;
     public boolean dozeMode;
@@ -97,6 +99,8 @@ public class Prefs {
         startAfterLock = prefs.getBoolean(KEYS.START_AFTER_LOCK.toString(), true);
         notificationPreview = prefs.getBoolean(KEYS.NOTIFICATION_PREVIEW.toString(), true);
         exitAnimation = Integer.parseInt(prefs.getString(KEYS.EXIT_ANIMATION.toString(), "0"));
+        neverShowPluginDialog = prefs.getBoolean(KEYS.NEVER_SHOW_DIALOG.toString(), false);
+        showedPluginDialog = prefs.getBoolean(KEYS.SHOWED_DIALOG.toString(), false);
     }
 
     public void setString(String key, String value) {
@@ -195,7 +199,9 @@ public class Prefs {
         MEMO_TEXT("memo_text"),
         DOZE_MODE("doze_mode"),
         GREENIFY("greenify_enabled"),
-        EXIT_ANIMATION("exit_animation");
+        EXIT_ANIMATION("exit_animation"),
+        SHOWED_DIALOG("showed_dialog"),
+        NEVER_SHOW_DIALOG("never_show_dialog");
 
         private final String id;
 

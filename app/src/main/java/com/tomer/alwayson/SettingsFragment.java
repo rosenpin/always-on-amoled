@@ -7,7 +7,6 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
@@ -149,22 +148,30 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rootView = getView();
+        assert rootView != null;
         ListView list = (ListView) rootView.findViewById(android.R.id.list);
         list.setDivider(null);
         prefs = new Prefs(context);
+        prefs.apply();
         if (hasSoftKeys()) {
             findPreference(BACK_BUTTON).setEnabled(false);
         } else {
-            if (!isPackageInstalled("tomer.com.alwaysonamoledplugin")) { //Prompt to install the plugin
-                new AlertDialog.Builder(getActivity())
-                        .setTitle(getString(R.string.plugin_dialog_title))
-                        .setMessage(getString(R.string.plugin_dialog_desc))
-                        .setPositiveButton("Download", (dialogInterface, i) -> {
-                            openPlayStoreUrl("tomer.com.alwaysonamoledplugin", context);
-                            dialogInterface.dismiss();
-                        })
-                        .setCancelable(false)
-                        .show();
+            if (!prefs.neverShowPluginDialog) {
+                if (!isPackageInstalled("tomer.com.alwaysonamoledplugin")) { //Prompt to install the plugin
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                    alertDialogBuilder
+                            .setTitle(getString(R.string.plugin_dialog_title))
+                            .setMessage(getString(R.string.plugin_dialog_desc))
+                            .setPositiveButton("Download", (dialogInterface, i) -> {
+                                openPlayStoreUrl("tomer.com.alwaysonamoledplugin", context);
+                                dialogInterface.dismiss();
+                            })
+                            .setCancelable(false);
+                    if (prefs.showedPluginDialog)
+                        alertDialogBuilder.setNeutralButton(getString(R.string.never_show_again), (dialogInterface, i) -> prefs.setBool(Prefs.KEYS.NEVER_SHOW_DIALOG.toString(), true));
+                    alertDialogBuilder.show();
+                    prefs.setBool(Prefs.KEYS.SHOWED_DIALOG.toString(), true);
+                }
             }
         }
         version(context);
