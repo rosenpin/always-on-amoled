@@ -62,8 +62,8 @@ import com.tomer.alwayson.views.IconsWrapper;
 import com.tomer.alwayson.views.MessageBox;
 
 import java.util.Calendar;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
@@ -73,6 +73,8 @@ public class MainService extends Service implements SensorEventListener, Context
     public static boolean stoppedByShortcut;
     public static boolean initialized;
     public static boolean isScreenOn;
+    boolean firstRefresh = true;
+    private Timer refreshTimer;
     private boolean demo;
     private boolean refreshing = true;
     private int originalBrightness = 100;
@@ -96,7 +98,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
     private Flashlight flashlight;
-    private ScheduledFuture<?> t;
+    private Handler UIhandler;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -232,6 +234,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Globals.notificationChanged = true; //Show notifications at first launch
         if (prefs.notificationsAlerts)
             startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
+        UIhandler = new Handler();
         refresh();
 
         //Turn lights on
@@ -239,7 +242,8 @@ public class MainService extends Service implements SensorEventListener, Context
 
         //Notification setup
         Globals.onNotificationAction = () -> {
-            iconsWrapper.update(prefs.notificationsAlerts, prefs.textColor, this::stopThis);
+            if (prefs.notificationsAlerts)
+                iconsWrapper.update(prefs.textColor, this::stopThis);
             if (Globals.newNotification != null && prefs.notificationPreview) {
                 notificationsMessageBox.showNotification(Globals.newNotification);
                 notificationsMessageBox.setOnClickListener(view -> {
@@ -326,30 +330,38 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void refresh() {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
-        t = executor.scheduleWithFixedDelay((Runnable) () -> {
-            Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-            if (Globals.isServiceRunning) {
-                if (clock.getAnalogClock() != null)
-                    clock.getAnalogClock().setTime(Calendar.getInstance());
-                if (prefs.clockStyle == S7_DIGITAL)
-                    clock.getDigitalS7().update(prefs.showAmPm);
+        final boolean[] longRefresh = {true};
+        refreshTimer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
+                UIhandler.post(() -> {
+                    if (clock.getAnalogClock() != null)
+                        clock.getAnalogClock().setTime(Calendar.getInstance());
+                    if (prefs.clockStyle == S7_DIGITAL)
+                        clock.getDigitalS7().update(prefs.showAmPm);
+                });
+                if (longRefresh[0])
+                    longRefresh();
+                longRefresh[0] = !longRefresh[0];
             }
-        }, 0L, 12, TimeUnit.SECONDS);
-        longRefresh(true);
+        };
+        refreshTimer.schedule(timerTask, 0L, 12000);
     }
 
-    private void longRefresh(boolean firstRefresh) {
-        if (refreshing) {
-            Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-            if (!firstRefresh && prefs.moveWidget != DISABLED)
-                ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
-            String monthAndDayText = Utils.getDateText(this);
+    private void longRefresh() {
+        if (!firstRefresh && prefs.moveWidget != DISABLED)
+            ViewUtils.move(getApplicationContext(), mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
+        String monthAndDayText = Utils.getDateText(getApplicationContext());
+        Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
+        UIhandler.post(() -> {
             dateView.update(monthAndDayText);
             if (prefs.clockStyle == S7_DIGITAL)
                 clock.getDigitalS7().setDate(monthAndDayText);
-            new Handler().postDelayed(() -> longRefresh(false), 24000);
-        }
+        });
+        if (firstRefresh)
+            firstRefresh = false;
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
@@ -439,8 +451,7 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }
 
-        t.cancel(false);
-        refreshing = false;
+        refreshTimer.cancel();
 
         Globals.isShown = false;
         Globals.isServiceRunning = false;

@@ -32,52 +32,51 @@ public class IconsWrapper extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    public void update(boolean state, int textColor, final Runnable action) {
-        if (Globals.notificationChanged && state) {
-            removeAllViews();
-            for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
-                Drawable drawable = entry.getValue().getIcon();
-                if (drawable != null) {
-                    drawable.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
-                    final ImageView icon = new ImageView(getContext());
-                    icon.setImageDrawable(drawable);
-                    icon.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
-                    final LinearLayout.LayoutParams iconLayoutParams = new LinearLayout.LayoutParams(96, 96, Gravity.CENTER);
-                    icon.setPadding(12, 0, 12, 0);
-                    icon.setLayoutParams(iconLayoutParams);
-                    icon.setOnTouchListener((view, event) -> {
-                        if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
-                            iconLayoutParams.width += 10;
-                            iconLayoutParams.height += 10;
-                            icon.setLayoutParams(iconLayoutParams);
-                            if (iconLayoutParams.width > 500) {
-                                if (entry.getValue().getIntent() != null) {
-                                    try {
-                                        MainService.stoppedByShortcut = true;
-                                        entry.getValue().getIntent().send();
-                                        action.run();
-                                    } catch (PendingIntent.CanceledException e) {
-                                        e.printStackTrace();
-                                    }
-                                } else {
-                                    removeView(icon);
+    public void update(int textColor, final Runnable action) {
+        removeAllViews();
+        for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
+            Log.d(IconsWrapper.class.getSimpleName() + " Checking", entry.getValue().getAppName());
+            Drawable drawable = entry.getValue().getIcon();
+            if (drawable != null) {
+                drawable.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
+                final ImageView icon = new ImageView(getContext());
+                icon.setImageDrawable(drawable);
+                icon.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
+                final LinearLayout.LayoutParams iconLayoutParams = new LinearLayout.LayoutParams(96, 96, Gravity.CENTER);
+                icon.setPadding(12, 0, 12, 0);
+                icon.setLayoutParams(iconLayoutParams);
+                icon.setOnTouchListener((view, event) -> {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
+                        iconLayoutParams.width += 10;
+                        iconLayoutParams.height += 10;
+                        icon.setLayoutParams(iconLayoutParams);
+                        if (iconLayoutParams.width > 500) {
+                            if (entry.getValue().getIntent() != null) {
+                                try {
+                                    MainService.stoppedByShortcut = true;
+                                    entry.getValue().getIntent().send();
+                                    action.run();
+                                } catch (PendingIntent.CanceledException e) {
+                                    e.printStackTrace();
                                 }
+                            } else {
+                                removeView(icon);
                             }
-                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                            iconLayoutParams.width = 96;
-                            iconLayoutParams.height = 96;
-                            icon.setLayoutParams(iconLayoutParams);
-                        } else {
-                            Log.d("Event ", String.valueOf(event.getAction()));
                         }
-                        return false;
-                    });
-                    icon.setOnClickListener(view -> messageBox.showNotification(entry.getValue()));
-                    addView(icon);
-                }
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                        iconLayoutParams.width = 96;
+                        iconLayoutParams.height = 96;
+                        icon.setLayoutParams(iconLayoutParams);
+                    } else {
+                        Log.d("Event ", String.valueOf(event.getAction()));
+                    }
+                    return false;
+                });
+                icon.setOnClickListener(view -> messageBox.showNotification(entry.getValue()));
+                addView(icon);
             }
-            Globals.notificationChanged = false;
         }
+        Globals.notificationChanged = false;
     }
 
     public void setMessageBox(MessageBox messageBox) {
