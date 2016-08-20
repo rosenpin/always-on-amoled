@@ -340,15 +340,16 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void longRefresh(boolean firstRefresh) {
-        Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        if (!firstRefresh && prefs.moveWidget != DISABLED)
-            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
-        String monthAndDayText = Utils.getDateText(this);
-        dateView.update(monthAndDayText);
-        if (prefs.clockStyle == S7_DIGITAL)
-            clock.getDigitalS7().setDate(monthAndDayText);
-        if (refreshing)
+        if (refreshing) {
+            Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
+            if (!firstRefresh && prefs.moveWidget != DISABLED)
+                ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
+            String monthAndDayText = Utils.getDateText(this);
+            dateView.update(monthAndDayText);
+            if (prefs.clockStyle == S7_DIGITAL)
+                clock.getDigitalS7().setDate(monthAndDayText);
             new Handler().postDelayed(() -> longRefresh(false), 24000);
+        }
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
