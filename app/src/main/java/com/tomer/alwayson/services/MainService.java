@@ -62,6 +62,7 @@ import com.tomer.alwayson.views.IconsWrapper;
 import com.tomer.alwayson.views.MessageBox;
 
 import java.util.Calendar;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -73,7 +74,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public static boolean initialized;
     public static boolean isScreenOn;
     private boolean demo;
-    private boolean refreshing;
+    private boolean refreshing = true;
     private int originalBrightness = 100;
     private int originalAutoBrightnessStatus;
     private SamsungHelper samsungHelper;
@@ -95,6 +96,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
     private Flashlight flashlight;
+    private ScheduledFuture<?> t;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -325,17 +327,13 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void refresh() {
         ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
-        executor.scheduleWithFixedDelay((Runnable) () -> {
+        t = executor.scheduleWithFixedDelay((Runnable) () -> {
             Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
-            if (Globals.isShown) {
-                refreshing = true;
+            if (Globals.isServiceRunning) {
                 if (clock.getAnalogClock() != null)
                     clock.getAnalogClock().setTime(Calendar.getInstance());
                 if (prefs.clockStyle == S7_DIGITAL)
                     clock.getDigitalS7().update(prefs.showAmPm);
-            } else {
-                executor.shutdown();
-                refreshing = false;
             }
         }, 0L, 12, TimeUnit.SECONDS);
         longRefresh(true);
@@ -439,6 +437,9 @@ public class MainService extends Service implements SensorEventListener, Context
                 windowManager.removeView(frameLayout);
             }
         }
+
+        t.cancel(false);
+        refreshing = false;
 
         Globals.isShown = false;
         Globals.isServiceRunning = false;
