@@ -521,6 +521,8 @@ public class MainService extends Service implements SensorEventListener, Context
     public void stopThis() {
         if (MainService.initialized)
             stopSelf();
+        else
+            Log.d(MainService.class.getSimpleName(), "Shouldn't kill the service: service wasn't initialized correctly");
     }
 
     @Override
