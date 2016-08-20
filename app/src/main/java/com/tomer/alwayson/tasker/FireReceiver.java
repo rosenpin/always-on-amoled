@@ -17,6 +17,7 @@ public final class FireReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, final Intent intent) {
+        Log.d(FireReceiver.class.getSimpleName(), "received");
         BundleScrubber.scrub(intent);
         Bundle bundle = intent.getBundleExtra(EditActivity.EXTRA_BUNDLE);
         BundleScrubber.scrub(bundle);
@@ -26,7 +27,7 @@ public final class FireReceiver extends BroadcastReceiver {
             context.startService(new Intent(context, MainService.class));
         else if (mode.equals("Stop always on")) {
             if (MainService.initialized)
-                context.stopService(new Intent(context, MainService.class));
+                context.stopService((new Intent(context, MainService.class)));
             else
                 Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_4_tasker_service_not_initialized), errorNotificationID, null);
         }

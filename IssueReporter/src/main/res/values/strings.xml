@@ -4,8 +4,8 @@
     <string name="air_title_issue">Issue</string>
     <string name="air_title_login">Login</string>
 
-    <string name="air_label_issue_title">Title</string>
-    <string name="air_label_issue_description">Description</string>
+    <string name="air_label_issue_title">Title (in English)</string>
+    <string name="air_label_issue_description">Description (in English)</string>
     <string name="air_label_device_info">Device info</string>
 
     <string name="air_label_use_account">Send using GitHub account</string>

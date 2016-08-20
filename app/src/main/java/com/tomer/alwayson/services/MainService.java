@@ -94,6 +94,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private PowerManager.WakeLock proximityToTurnOff;
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
+    private Flashlight flashlight;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -230,7 +231,6 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.notificationsAlerts)
             startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
         refresh();
-        refreshLong(true);
 
         //Turn lights on
         setLights(ON, false, true);
@@ -338,25 +338,19 @@ public class MainService extends Service implements SensorEventListener, Context
                 refreshing = false;
             }
         }, 0L, 12, TimeUnit.SECONDS);
+        longRefresh(true);
     }
 
-    private void refreshLong(boolean first) {
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
-        executor.scheduleWithFixedDelay((Runnable) () -> {
-            Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-            if (Globals.isShown) {
-                refreshing = true;
-                if (!first && prefs.moveWidget != DISABLED)
-                    ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
-                String monthAndDayText = Utils.getDateText(this);
-                dateView.update(monthAndDayText);
-                if (prefs.clockStyle == S7_DIGITAL)
-                    clock.getDigitalS7().setDate(monthAndDayText);
-            } else {
-                executor.shutdown();
-                refreshing = false;
-            }
-        }, 0L, 24, TimeUnit.SECONDS);
+    private void longRefresh(boolean firstRefresh) {
+        Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
+        if (!firstRefresh && prefs.moveWidget != DISABLED)
+            ViewUtils.move(this, mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
+        String monthAndDayText = Utils.getDateText(this);
+        dateView.update(monthAndDayText);
+        if (prefs.clockStyle == S7_DIGITAL)
+            clock.getDigitalS7().setDate(monthAndDayText);
+        if (refreshing)
+            new Handler().postDelayed(() -> longRefresh(false), 24000);
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
@@ -477,10 +471,8 @@ public class MainService extends Service implements SensorEventListener, Context
                         ScreenReceiver.turnScreenOn(this, false);
                     Globals.isShown = true;
                     new Handler().postDelayed(() -> {
-                        if (!refreshing) {
+                        if (!refreshing)
                             refresh();
-                            refreshLong(true);
-                        }
                         stayAwakeWakeLock.acquire();
                     }, 500);
                 }
@@ -494,6 +486,48 @@ public class MainService extends Service implements SensorEventListener, Context
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    private boolean gestureAction(int gesture) {
+        if (gesture == ACTION_UNLOCK) {
+            stoppedByShortcut = true;
+            stopThis();
+            return true;
+        } else if (gesture == ACTION_SPEAK) {
+            tts.sayCurrentStatus();
+            return true;
+        } else if (gesture == ACTION_FLASHLIGHT) {
+            if (flashlight == null)
+                flashlight = new Flashlight(this);
+            if (!flashlight.isLoading())
+                flashlight.toggle();
+        }
+        return false;
+    }
+
+    public void stopThis() {
+        if (MainService.initialized)
+            stopSelf();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    public void handleUncaughtException(Throwable e) {
+        int reportNotificationID = 53;
+        Context context = getApplicationContext();
+        Log.d("Exception now!", "exeption");
+        e.printStackTrace();
+        Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(context, ReporterActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("log", e.getMessage() + "\n" + e);
+        PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
+        java.lang.System.exit(0);
+        startService(new Intent(getApplicationContext(), StarterService.class));
     }
 
     private class OnDismissListener implements View.OnTouchListener {
@@ -561,49 +595,5 @@ public class MainService extends Service implements SensorEventListener, Context
                 return false;
             }
         }
-    }
-
-    private Flashlight flashlight;
-
-    private boolean gestureAction(int gesture) {
-        if (gesture == ACTION_UNLOCK) {
-            stoppedByShortcut = true;
-            stopThis();
-            return true;
-        } else if (gesture == ACTION_SPEAK) {
-            tts.sayCurrentStatus();
-            return true;
-        } else if (gesture == ACTION_FLASHLIGHT) {
-            if (flashlight == null)
-                flashlight = new Flashlight(this);
-            if (!flashlight.isLoading())
-                flashlight.toggle();
-        }
-        return false;
-    }
-
-    public void stopThis() {
-        if (MainService.initialized)
-            stopSelf();
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    public void handleUncaughtException(Throwable e) {
-        int reportNotificationID = 53;
-        Context context = getApplicationContext();
-        Log.d("Exception now!", "exeption");
-        e.printStackTrace();
-        Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(context, ReporterActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("log", e.getMessage() + "\n" + e);
-        PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
-        Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
-        java.lang.System.exit(0);
-        startService(new Intent(getApplicationContext(), StarterService.class));
     }
 }
