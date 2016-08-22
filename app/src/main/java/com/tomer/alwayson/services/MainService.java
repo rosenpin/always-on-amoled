@@ -62,6 +62,7 @@ import com.tomer.alwayson.views.FontAdapter;
 import com.tomer.alwayson.views.IconsWrapper;
 import com.tomer.alwayson.views.MessageBox;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -131,6 +132,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Thread.setDefaultUncaughtExceptionHandler((thread, e) -> handleUncaughtException(e));
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
+        clock.getAnalogClock();
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
@@ -537,7 +539,8 @@ public class MainService extends Service implements SensorEventListener, Context
         Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, ReporterActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("log", e.getMessage() + "\n" + e);
+        e.printStackTrace();
+        intent.putExtra("log", "Message: " + e.getMessage() + "\n\n" + "Error:" + e + "\n\n" + "Stack trace:" + Arrays.toString(e.getStackTrace()) + "\n\n" + "Cause:" + e.getCause() + "\n\n" + java.lang.System.err);
         PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
         Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
         java.lang.System.exit(0);
