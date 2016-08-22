@@ -1,11 +1,6 @@
 # Always On AMOLED 
-
-<a href="https://play.google.com/store/apps/details?id=com.tomerrosenfeld.tweaksforgo">
-    <img alt="Get it on Google Play"
-        height="60"
-        src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
-</a>
-
+[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="60">](https://f-droid.org/app/com.tomer.alwayson)
+<a href="https://play.google.com/store/apps/details?id=com.tomer.alwayson"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="60"></a>
 
 ##Contributing
 You can view a list of known issues and feature requests using [the issue tracker](
