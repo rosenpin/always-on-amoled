@@ -11,7 +11,7 @@
     <!--Support-->
     <string name="action_support_the_development">Поддержать разработчика</string>
     <string name="support_how_much">Сколько денег вы желаете пожертвовать разработчику?</string>
-    <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
+    <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
     <string name="supporter_feature_only">Эта функция станет доступна после внесения пожертвования, сколько бы вы хотели пожертвовать?</string>
     <string name="support_1">1$</string>
     <string name="support_2">2$</string>
