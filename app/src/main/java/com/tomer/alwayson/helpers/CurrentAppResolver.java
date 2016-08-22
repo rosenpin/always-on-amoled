@@ -53,6 +53,7 @@ public class CurrentAppResolver {
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         List<ResolveInfo> listCam = context.getPackageManager().queryIntentActivities(intent, 0);
         ArrayList<String> PNs = new ArrayList<>();
+        if (listCam == null || listCam.isEmpty()) return null;
         for (ResolveInfo res : listCam) {
             PNs.add(res.activityInfo.packageName);
         }

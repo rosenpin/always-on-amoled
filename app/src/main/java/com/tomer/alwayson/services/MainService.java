@@ -42,6 +42,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.activities.ReporterActivity;
+import com.tomer.alwayson.helpers.BrightnessManager;
 import com.tomer.alwayson.helpers.CurrentAppResolver;
 import com.tomer.alwayson.helpers.DisplaySize;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -77,8 +78,6 @@ public class MainService extends Service implements SensorEventListener, Context
     private Timer refreshTimer;
     private boolean demo;
     private boolean refreshing = true;
-    private int originalBrightness = 100;
-    private int originalAutoBrightnessStatus;
     private SamsungHelper samsungHelper;
     private DozeManager dozeManager;
     private MessageBox notificationsMessageBox;
@@ -99,6 +98,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private CurrentAppResolver currentAppResolver;
     private Flashlight flashlight;
     private Handler UIhandler;
+    private BrightnessManager brightnessManager;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -135,8 +135,7 @@ public class MainService extends Service implements SensorEventListener, Context
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
         stayAwakeWakeLock.setReferenceCounted(false);
-        originalAutoBrightnessStatus = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-        originalBrightness = System.getInt(getContentResolver(), System.SCREEN_BRIGHTNESS, 100);
+        brightnessManager = new BrightnessManager(this);
         //Check if screen is already on
         ScreenReceiver.updateScreenState(this);
 
@@ -233,7 +232,8 @@ public class MainService extends Service implements SensorEventListener, Context
         // UI refreshing
         Globals.notificationChanged = true; //Show notifications at first launch
         if (prefs.notificationsAlerts)
-            startService(new Intent(getApplicationContext(), NotificationListener.class)); //Starting notification listener service
+            //Starting the notification listener service
+            startService(new Intent(getApplicationContext(), NotificationListener.class));
         UIhandler = new Handler();
         refresh();
 
@@ -387,9 +387,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 Log.d(MAIN_SERVICE_LOG_TAG, "Can't modify system settings");
                 return;
             }
-        System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS, state ? (nightMode ? 0 : prefs.brightness) : originalBrightness);
-        System.putInt(getContentResolver(), System.SCREEN_BRIGHTNESS_MODE, state ? 0 : originalAutoBrightnessStatus);
-        Log.d("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : originalBrightness));
+        brightnessManager.setBrightness(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness(), state ? 0 : brightnessManager.getOriginalBrightnessMode());
+        Log.d("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness()));
     }
 
     private void unregisterUnlockReceiver() {
