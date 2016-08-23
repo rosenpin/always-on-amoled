@@ -132,7 +132,6 @@ public class MainService extends Service implements SensorEventListener, Context
         Thread.setDefaultUncaughtExceptionHandler((thread, e) -> handleUncaughtException(e));
         Globals.isServiceRunning = true;
         Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
-        clock.getAnalogClock();
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
@@ -245,9 +244,9 @@ public class MainService extends Service implements SensorEventListener, Context
         //Notification setup
         Globals.onNotificationAction = () -> {
             if (prefs.notificationsAlerts)
-                iconsWrapper.update(prefs.textColor, this::stopThis);
+                UIhandler.post(() -> iconsWrapper.update(prefs.textColor, this::stopThis));
             if (Globals.newNotification != null && prefs.notificationPreview) {
-                notificationsMessageBox.showNotification(Globals.newNotification);
+                UIhandler.post(() -> notificationsMessageBox.showNotification(Globals.newNotification));
                 notificationsMessageBox.setOnClickListener(view -> {
                     stoppedByShortcut = true;
                     if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
@@ -545,6 +544,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
         java.lang.System.exit(0);
         startService(new Intent(getApplicationContext(), StarterService.class));
+        setLights(OFF, false, false);
     }
 
     private class OnDismissListener implements View.OnTouchListener {

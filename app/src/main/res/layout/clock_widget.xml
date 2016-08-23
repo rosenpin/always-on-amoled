@@ -26,6 +26,10 @@
 
     <include layout="@layout/notifications" />
 
+    <com.tomer.alwayson.views.MusicPlayer
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <include layout="@layout/memo" />
 
     <com.tomer.alwayson.views.MessageBox
@@ -34,4 +38,5 @@
         android:layout_height="wrap_content">
 
     </com.tomer.alwayson.views.MessageBox>
+
 </LinearLayout>

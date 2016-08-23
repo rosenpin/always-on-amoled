@@ -35,33 +35,34 @@ public class MessageBox extends LinearLayout {
     }
 
     public void showNotification(NotificationListener.NotificationHolder notification) {
-        if (!notification.getTitle().equals("null")) {
-            this.notification = notification;
-            //Clear previous animation
-            if (messageBox.getAnimation() != null)
-                messageBox.clearAnimation();
-            //Fade in animation
-            Animation fadeIn = new AlphaAnimation(0, 1);
-            fadeIn.setInterpolator(new DecelerateInterpolator());
-            fadeIn.setDuration(1000);
-            //Fade out animation
-            Animation fadeOut = new AlphaAnimation(1, 0);
-            fadeOut.setInterpolator(new AccelerateInterpolator());
-            fadeOut.setStartOffset(40000);
-            fadeOut.setDuration(1000);
-            //Set the notification text and icon
-            ((TextView) messageBox.findViewById(R.id.message_box_title)).setText(notification.getTitle());
-            ((TextView) messageBox.findViewById(R.id.message_box_message)).setText(notification.getMessage());
-            ((ImageView) messageBox.findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
-            ((TextView) messageBox.findViewById(R.id.message_app_name)).setText(notification.getAppName());
+        if (notification != null)
+            if (!notification.getTitle().equals("null")) {
+                this.notification = notification;
+                //Clear previous animation
+                if (messageBox.getAnimation() != null)
+                    messageBox.clearAnimation();
+                //Fade in animation
+                Animation fadeIn = new AlphaAnimation(0, 1);
+                fadeIn.setInterpolator(new DecelerateInterpolator());
+                fadeIn.setDuration(1000);
+                //Fade out animation
+                Animation fadeOut = new AlphaAnimation(1, 0);
+                fadeOut.setInterpolator(new AccelerateInterpolator());
+                fadeOut.setStartOffset(40000);
+                fadeOut.setDuration(1000);
+                //Set the notification text and icon
+                ((TextView) messageBox.findViewById(R.id.message_box_title)).setText(notification.getTitle());
+                ((TextView) messageBox.findViewById(R.id.message_box_message)).setText(notification.getMessage());
+                ((ImageView) messageBox.findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
+                ((TextView) messageBox.findViewById(R.id.message_app_name)).setText(notification.getAppName());
 
-            Globals.newNotification = null;
-            //Run animations
-            AnimationSet animation = new AnimationSet(false);
-            animation.addAnimation(fadeIn);
-            animation.addAnimation(fadeOut);
-            messageBox.setAnimation(animation);
-        }
+                Globals.newNotification = null;
+                //Run animations
+                AnimationSet animation = new AnimationSet(false);
+                animation.addAnimation(fadeIn);
+                animation.addAnimation(fadeOut);
+                messageBox.setAnimation(animation);
+            }
     }
 
     public NotificationListener.NotificationHolder getCurrentNotification() {

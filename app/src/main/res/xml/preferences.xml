@@ -246,7 +246,7 @@
 
         </com.tasomaniac.android.widget.IntegrationPreference>
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="disable_volume_keys"
             android:summary="@string/settings_disable_volume_keys_desc"
             android:title="@string/settings_disable_volume_keys" />
