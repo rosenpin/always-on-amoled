@@ -45,28 +45,28 @@
             android:summary="@string/settings_gestures_desc"
             android:title="@string/settings_gestures">
             <PreferenceCategory android:title="@string/settings_wake_up">
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="1"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
                     android:key="double_tap_action"
                     android:summary="%s"
                     android:title="@string/settings_double_tap_wake" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
                     android:key="swipe_up_action"
                     android:summary="%s"
                     android:title="@string/settings_swipe_wake" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
                     android:key="volume_keys_action"
                     android:summary="%s"
                     android:title="@string/settings_volume_to_stop" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:entries="@array/gestures_actions"
                     android:entryValues="@array/gestures_actions_vals"
@@ -94,7 +94,7 @@
             android:summary="@string/settings_watchface_desc"
             android:title="@string/settings_watchface">
             <PreferenceCategory android:title="@string/settings_watchface_styles">
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="1"
                     android:dialogTitle="@string/settings_watchface_clock_desc"
                     android:entries="@array/customize_clock"
@@ -102,7 +102,7 @@
                     android:key="watchface_clock"
                     android:summary="%s"
                     android:title="@string/settings_watchface_clock" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="1"
                     android:dialogTitle="@string/settings_watchface_date"
                     android:entries="@array/customize_date"
@@ -110,7 +110,7 @@
                     android:key="watchface_date"
                     android:summary="%s"
                     android:title="@string/settings_watchface_date" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:dialogTitle="@string/settings_watchface_battery"
                     android:entries="@array/customize_battery"
@@ -162,7 +162,7 @@
             </PreferenceCategory>
         </PreferenceScreen>
 
-        <ListPreference
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
             android:defaultValue="vertical"
             android:dialogTitle="@string/settings_orientation"
             android:entries="@array/orientations"
@@ -177,7 +177,7 @@
             android:max="200"
             android:summary="@string/settings_brightness_desc"
             android:title="@string/settings_brightness" />
-        <ListPreference
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
             android:defaultValue="0"
             android:dialogTitle="@string/settings_exit_animation_desc"
             android:entries="@array/animations"
@@ -204,7 +204,7 @@
             android:key="startafterlock"
             android:summary="@string/settings_startafterlock_desc"
             android:title="@string/settings_startafterlock" />
-        <ListPreference
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
             android:defaultValue="2"
             android:dialogTitle="@string/settings_move_desc"
             android:entries="@array/settings_move"

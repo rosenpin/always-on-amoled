@@ -17,7 +17,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
@@ -34,6 +33,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.prefs.MaterialListPreference;
 import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.activities.PreferencesActivity;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -132,7 +132,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
-        Utils.logDebug(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
+        Utils.logDebug(String.valueOf(((MaterialListPreference) findPreference("rules")).getValue()), " Selected");
     }
 
     private boolean isSupporter() {
@@ -403,8 +403,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             }
         }
         if (preference.getKey().equals("battery_saver"))
-            if ((boolean) o)
+            if ((boolean) o) {
+                ((TwoStatePreference) findPreference("doze_mode")).setChecked(true);
                 setUpBatterySaverPermission();
+            }
         return true;
     }
 
@@ -478,7 +480,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
         ((IntegrationPreference) findPreference("greenify")).resume();
-        if (((ListPreference) findPreference("stop_delay")).getValue().equals("0"))
+        if (((MaterialListPreference) findPreference("stop_delay")).getValue().equals("0"))
             findPreference("stop_delay").setSummary(R.string.settings_stop_delay_desc);
         else
             findPreference("stop_delay").setSummary("%s");
