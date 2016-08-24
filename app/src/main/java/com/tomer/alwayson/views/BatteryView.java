@@ -23,6 +23,7 @@ public class BatteryView extends LinearLayout {
 
     public BatteryView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addView(inflater.inflate(R.layout.battery, null));
     }

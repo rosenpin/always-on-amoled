@@ -16,6 +16,6 @@ public class BootReceiver extends BroadcastReceiver implements ContextConstatns 
         prefs.apply();
         if (prefs.enabled)
             context.startService(new Intent(context, StarterService.class));
-        Log.i(BOOT_RECEIVER, "started");
+        Utils.logInfo(BOOT_RECEIVER, "started");
     }
 }

@@ -21,18 +21,18 @@ public class NotificationListener extends NotificationListenerService implements
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(NOTIFICATION_LISTENER_TAG, "started");
+        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "started");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(NOTIFICATION_LISTENER_TAG, "destroyed");
+        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "destroyed");
     }
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        Log.d(NOTIFICATION_LISTENER_TAG, "New notification from " + added.getPackageName());
+        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "New notification from " + added.getPackageName());
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
             Globals.notificationChanged = true;
             String title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE);
@@ -59,7 +59,7 @@ public class NotificationListener extends NotificationListenerService implements
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
-        Log.d(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
+        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
         Globals.notifications.remove(getUniqueKey(removed));
         Globals.notificationChanged = true;
         if (Globals.onNotificationAction != null)

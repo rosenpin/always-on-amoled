@@ -49,7 +49,7 @@ public class DateView extends LinearLayout implements ContextConstatns {
                 });
                 break;
         }
-        Log.d("Calendar style is ", String.valueOf(dateStyle));
+        Utils.logDebug("Calendar style is ", String.valueOf(dateStyle));
     }
 
     public boolean isFull() {

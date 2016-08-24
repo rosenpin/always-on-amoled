@@ -25,7 +25,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
             ((TextView) findViewById(R.id.song_name)).setText(artist + " - " + track);
-            Log.d("Music", artist + ":" + album + ":" + track);
+            Utils.logDebug("Music", artist + ":" + album + ":" + track);
         }
     };
 
@@ -71,7 +71,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Log.d(MusicPlayer.class.getSimpleName(), "Clicked " + view.getId());
+        Utils.logDebug(MusicPlayer.class.getSimpleName(), "Clicked " + view.getId());
         switch (view.getId()) {
             case R.id.skip_prev:
                 skipPrevious();
@@ -85,9 +85,10 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        context.unregisterReceiver(mReceiver);
+    public void destroy() {
+        try {
+            context.unregisterReceiver(mReceiver);
+        } catch (IllegalArgumentException ignored) {
+        }
     }
 }

@@ -79,6 +79,6 @@ public class QuickSettingsToggle extends TileService {
     }
 
     private void Log(String text) {
-        Log.d(QuickSettingsToggle.class.getSimpleName(), text);
+        Utils.logDebug(QuickSettingsToggle.class.getSimpleName(), text);
     }
 }

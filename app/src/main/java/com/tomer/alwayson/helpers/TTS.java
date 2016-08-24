@@ -59,7 +59,7 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
                 speaking = true;
                 new Handler().postDelayed(() -> speaking = false, 4000);
             } else
-                Log.d(MAIN_SERVICE_LOG_TAG, "Still speaking..");
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Still speaking..");
         }
     }
 

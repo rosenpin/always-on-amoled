@@ -45,8 +45,8 @@ public class CurrentAppResolver {
             if (app == CAMERA)
                 appsPNs.addAll(getCameraPackageName());
         }
-        Log.d("Apps to stop for", appsPNs.toString());
-        Log.i(CurrentAppResolver.class.getSimpleName(), "Started");
+        Utils.logDebug("Apps to stop for", appsPNs.toString());
+        Utils.logInfo(CurrentAppResolver.class.getSimpleName(), "Started");
     }
 
     private ArrayList<String> getCameraPackageName() {
@@ -95,14 +95,14 @@ public class CurrentAppResolver {
                             }
                             if (firstLaunch) {
                                 if (activePackage.equals(appPackageName)) {
-                                    Log.e(CurrentAppResolver.class.getSimpleName(), "App was already open when service started.");
+                                    Utils.logError(CurrentAppResolver.class.getSimpleName(), "App was already open when service started.");
                                     Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }
                                 handler.postDelayed(() -> {
                                     if (activePackage.equals(appPackageName)) {
-                                        Log.e(CurrentAppResolver.class.getSimpleName(), "App couldn't be closed, stopping the listener");
+                                        Utils.logError(CurrentAppResolver.class.getSimpleName(), "App couldn't be closed, stopping the listener");
                                         appsPNs.remove(appPackageName);
                                     }
                                     firstLaunch = false;

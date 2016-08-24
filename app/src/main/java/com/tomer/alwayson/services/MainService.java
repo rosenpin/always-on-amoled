@@ -61,6 +61,7 @@ import com.tomer.alwayson.views.DateView;
 import com.tomer.alwayson.views.FontAdapter;
 import com.tomer.alwayson.views.IconsWrapper;
 import com.tomer.alwayson.views.MessageBox;
+import com.tomer.alwayson.views.MusicPlayer;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -131,7 +132,7 @@ public class MainService extends Service implements SensorEventListener, Context
         super.onCreate();
         Thread.setDefaultUncaughtExceptionHandler((thread, e) -> handleUncaughtException(e));
         Globals.isServiceRunning = true;
-        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has started");
+        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
@@ -198,7 +199,7 @@ public class MainService extends Service implements SensorEventListener, Context
             } else {
                 Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
                 if (proximitySensor != null) {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
+                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
                     sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(900), 100000);
                 }
             }
@@ -212,7 +213,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
             }
             if (lightSensor != null) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
             }
         }
@@ -220,13 +221,13 @@ public class MainService extends Service implements SensorEventListener, Context
         //Delay to stop
         if (prefs.stopDelay > DISABLED) {
             final int delayInMilliseconds = prefs.stopDelay * 1000 * 60;
-            Log.d(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
+            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
             new Handler().postDelayed(() -> {
                 stoppedByShortcut = true;
                 stopThis();
                 stayAwakeWakeLock.release();
                 Globals.killedByDelay = true;
-                Log.d(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
             }, delayInMilliseconds);
         }
 
@@ -336,7 +337,7 @@ public class MainService extends Service implements SensorEventListener, Context
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Log.d(MAIN_SERVICE_LOG_TAG, "Refresh");
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Refresh");
                 UIhandler.post(() -> {
                     if (clock.getAnalogClock() != null)
                         clock.getAnalogClock().setTime(Calendar.getInstance());
@@ -355,7 +356,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (!firstRefresh && prefs.moveWidget != DISABLED)
             ViewUtils.move(getApplicationContext(), mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
         String monthAndDayText = Utils.getDateText(getApplicationContext());
-        Log.d(MAIN_SERVICE_LOG_TAG, "Long Refresh");
+        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         UIhandler.post(() -> {
             dateView.update(monthAndDayText);
             if (prefs.clockStyle == S7_DIGITAL)
@@ -367,7 +368,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
         if (first && state) {
-            Log.d(MAIN_SERVICE_LOG_TAG, "Display turned on");
+            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Display turned on");
             if (!isScreenOn)
                 mainView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
         } else if (state) {
@@ -385,18 +386,18 @@ public class MainService extends Service implements SensorEventListener, Context
 
         if (Utils.isAndroidNewerThanM())
             if (!System.canWrite(this)) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "Can't modify system settings");
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Can't modify system settings");
                 return;
             }
         brightnessManager.setBrightness(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness(), state ? 0 : brightnessManager.getOriginalBrightnessMode());
-        Log.d("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness()));
+        Utils.logDebug("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness()));
     }
 
     private void unregisterUnlockReceiver() {
         try {
             unregisterReceiver(unlockReceiver);
         } catch (IllegalArgumentException ignored) {
-            Log.d(MAIN_SERVICE_LOG_TAG, "Unlock receiver was not registered");
+            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Unlock receiver was not registered");
         }
     }
 
@@ -407,6 +408,8 @@ public class MainService extends Service implements SensorEventListener, Context
         Globals.onNotificationAction = null;
         //Dismiss the app listener
         currentAppResolver.destroy();
+        //Dismiss music player
+        ((MusicPlayer)mainView.findViewById(R.id.music_player)).destroy();
         //Dismiss doze
         if (dozeManager != null)
             dozeManager.exitDoze();
@@ -456,7 +459,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Globals.isShown = false;
         Globals.isServiceRunning = false;
         new Handler().postDelayed(() -> Globals.killedByDelay = false, 15000);
-        Log.d(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
+        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         Thread.setDefaultUncaughtExceptionHandler(null);
     }
 
@@ -491,7 +494,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
-                Log.d("Lights changed", String.valueOf(event.values[0]));
+                Utils.logDebug("Lights changed", String.valueOf(event.values[0]));
                 setLights(ON, event.values[0] < 2, false);
                 break;
         }
@@ -522,7 +525,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (MainService.initialized)
             stopSelf();
         else
-            Log.d(MainService.class.getSimpleName(), "Shouldn't kill the service: service wasn't initialized correctly");
+            Utils.logDebug(MainService.class.getSimpleName(), "Shouldn't kill the service: service wasn't initialized correctly");
     }
 
     @Override
@@ -533,7 +536,6 @@ public class MainService extends Service implements SensorEventListener, Context
     public void handleUncaughtException(Throwable e) {
         int reportNotificationID = 53;
         Context context = getApplicationContext();
-        Log.d("Exception now!", "exeption");
         e.printStackTrace();
         Toast.makeText(context, R.string.error_0_unknown_error + ": " + e.getMessage(), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, ReporterActivity.class);
@@ -580,16 +582,16 @@ public class MainService extends Service implements SensorEventListener, Context
                     if (Math.abs(diffX) > Math.abs(diffY)) {
                         if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                             if (diffX > 0) {
-                                Log.d(MAIN_SERVICE_LOG_TAG, "Swipe right");
+                                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe right");
                             } else {
-                                Log.d(MAIN_SERVICE_LOG_TAG, "Swipe left");
+                                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe left");
                             }
                         }
                     } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffY > 0) {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
+                            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
                         } else {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Swipe top");
+                            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe top");
                             return gestureAction(prefs.swipeAction);
                         }
 
