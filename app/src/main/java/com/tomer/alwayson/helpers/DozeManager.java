@@ -25,14 +25,14 @@ public class DozeManager implements ContextConstatns{
 
     public void enterDoze() {
         if (!getDeviceIdleState().equals("IDLE")) {
-            Log.i(DOZE_MANAGER, "Entering Doze");
+            Utils.logInfo(DOZE_MANAGER, "Entering Doze");
             if (Utils.isAndroidNewerThanN()) {
                 executeCommand("dumpsys deviceidle force-idle deep");
             } else {
                 executeCommand("dumpsys deviceidle force-idle");
             }
         } else {
-            Log.i(DOZE_MANAGER, "enterDoze() received but skipping because device is already Dozing");
+            Utils.logInfo(DOZE_MANAGER, "enterDoze() received but skipping because device is already Dozing");
         }
     }
 
@@ -48,7 +48,7 @@ public class DozeManager implements ContextConstatns{
         AsyncTask.execute(() -> {
             List<String> output = Shell.SH.run(command);
             if (output == null)
-                Log.i(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
+                Utils.logInfo(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
         });
     }
 

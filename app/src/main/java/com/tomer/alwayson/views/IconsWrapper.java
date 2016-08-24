@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.MainService;
 import com.tomer.alwayson.services.NotificationListener;
 
@@ -35,7 +36,7 @@ public class IconsWrapper extends LinearLayout {
     public void update(int textColor, final Runnable action) {
         removeAllViews();
         for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
-            Log.d(IconsWrapper.class.getSimpleName() + " Checking", entry.getValue().getAppName());
+            Utils.logDebug(IconsWrapper.class.getSimpleName() + " Checking", entry.getValue().getAppName());
             Drawable drawable = entry.getValue().getIcon();
             if (drawable != null) {
                 drawable.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
@@ -68,7 +69,7 @@ public class IconsWrapper extends LinearLayout {
                         iconLayoutParams.height = 96;
                         icon.setLayoutParams(iconLayoutParams);
                     } else {
-                        Log.d("Event ", String.valueOf(event.getAction()));
+                        Utils.logDebug("Event ", String.valueOf(event.getAction()));
                     }
                     return false;
                 });

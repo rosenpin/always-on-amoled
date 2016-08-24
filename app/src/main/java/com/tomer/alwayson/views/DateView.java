@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 
 public class DateView extends LinearLayout implements ContextConstatns {
     private TextView calendarTV;
@@ -49,7 +50,7 @@ public class DateView extends LinearLayout implements ContextConstatns {
                 });
                 break;
         }
-        Log.d("Calendar style is ", String.valueOf(dateStyle));
+        Utils.logDebug("Calendar style is ", String.valueOf(dateStyle));
     }
 
     public boolean isFull() {

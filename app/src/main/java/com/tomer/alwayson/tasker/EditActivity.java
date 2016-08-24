@@ -8,6 +8,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.tasker.bundle.PluginBundleManager;
 
 
@@ -22,7 +23,7 @@ public final class EditActivity extends AppCompatActivity {
         Intent resultIntent = new Intent();
         resultIntent.putExtra("com.twofortyfouram.locale.intent.extra.BLURB", "Start the always on service");
         ((RadioGroup) findViewById(R.id.tasker_radio_group)).setOnCheckedChangeListener((radioGroup, i) -> {
-            Log.d("Selected", (String) ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText());
+            Utils.logDebug("Selected", (String) ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).getText());
             finish();
         });
     }
@@ -30,7 +31,7 @@ public final class EditActivity extends AppCompatActivity {
     @Override
     public void finish() {
         String value = (String) ((RadioButton) findViewById(((RadioGroup) findViewById(R.id.tasker_radio_group)).getCheckedRadioButtonId())).getText();
-        Log.d("Selected", value);
+        Utils.logDebug("Selected", value);
         Intent resultIntent = new Intent();
         Bundle resultBundle = PluginBundleManager.generateBundle(value);
         resultIntent.putExtra(EXTRA_BUNDLE, resultBundle);

@@ -134,12 +134,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
         checkNotificationsPermission(context, false);
         starterService = new Intent(getActivity().getApplicationContext(), StarterService.class);
-        Log.d(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
+        Utils.logDebug(String.valueOf(((ListPreference) findPreference("rules")).getValue()), " Selected");
     }
 
     private boolean isSupporter() {
         if (Globals.ownedItems != null) {
-            Log.d("Purchased items", String.valueOf(Globals.ownedItems));
+            Utils.logDebug("Purchased items", String.valueOf(Globals.ownedItems));
             return Globals.ownedItems.size() > 0;
         }
         return false;
@@ -316,7 +316,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         }
 
         prefs.apply();
-        Log.d("Preference change", preference.getKey() + " Value:" + o.toString());
+        Utils.logDebug("Preference change", preference.getKey() + " Value:" + o.toString());
 
         if (preference.getKey().equals("notifications_alerts")) {
             if ((boolean) o)
@@ -419,7 +419,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (preference.getKey().equals("textcolor")) {
             Globals.colorDialog.show();
         } else if (preference.getKey().equals("uninstall")) {
-            Log.d(MAIN_ACTIVITY_LOG_TAG, "uninstall clicked");
+            Utils.logDebug(MAIN_ACTIVITY_LOG_TAG, "uninstall clicked");
             PreferencesActivity.uninstall(context, prefs);
         } else if (preference.getKey().equals("font")) {
             final FontAdapter fontAdapter = new FontAdapter(context, R.array.fonts);
@@ -452,7 +452,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(MAIN_SERVICE_LOG_TAG, "Activity result" + resultCode);
+        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Activity result" + resultCode);
         if (requestCode == DEVICE_ADMIN_REQUEST_CODE)
             ((CheckBoxPreference) findPreference("proximity_to_lock")).setChecked(resultCode == Activity.RESULT_OK);
     }
@@ -508,7 +508,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                         startActivityForResult(intent, 5);
                                         if (view != null) {
                                             prefs.setString(KEY + "_app", apps[1][which]);
-                                            Log.d("Selected shortcut ", apps[1][which]);
+                                            Utils.logDebug("Selected shortcut ", apps[1][which]);
                                         }
                                         return true;
                                     }

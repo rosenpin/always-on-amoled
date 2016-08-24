@@ -22,21 +22,21 @@ public class ChargeChangeReceiver extends BroadcastReceiver implements ContextCo
         Prefs prefs = new Prefs(context);
         prefs.apply();
         if (intent.getAction().equals(Intent.ACTION_POWER_CONNECTED)) {
-            Log.d(CHARGER_RECEIVER_LOG_TAG, "Connected");
+            Utils.logDebug(CHARGER_RECEIVER_LOG_TAG, "Connected");
             if (prefs.rules.equals("discharging")) {
                 if (Globals.isShown)
                     Utils.stopMainService(context);
             }
         } else if (intent.getAction().equals(Intent.ACTION_POWER_DISCONNECTED)) {
-            Log.d(CHARGER_RECEIVER_LOG_TAG, "Disconnected");
+            Utils.logDebug(CHARGER_RECEIVER_LOG_TAG, "Disconnected");
             if (prefs.rules.equals("charging")) {
                 if (Globals.isShown)
                     Utils.stopMainService(context);
             }
         } else if (intent.getAction().equals(Intent.ACTION_BATTERY_CHANGED)) {
-            Log.d("Battery changed", String.valueOf(getBatteryLevel(intent)));
-            Log.d("Min Battery to start", String.valueOf(prefs.batteryRules));
-            Log.d(CHARGER_RECEIVER_LOG_TAG, "Battery changed");
+            Utils.logDebug("Battery changed", String.valueOf(getBatteryLevel(intent)));
+            Utils.logDebug("Min Battery to start", String.valueOf(prefs.batteryRules));
+            Utils.logDebug(CHARGER_RECEIVER_LOG_TAG, "Battery changed");
             if (getBatteryLevel(intent) < prefs.batteryRules) {
                 if (Globals.isServiceRunning)
                     Utils.stopMainService(context);

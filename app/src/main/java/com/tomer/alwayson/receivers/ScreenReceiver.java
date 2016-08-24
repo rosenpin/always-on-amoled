@@ -80,7 +80,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             Globals.sensorIsScreenOff = true;
-            Log.i(TAG, "Screen turned off\nShown:" + Globals.isShown);
+            Utils.logInfo(TAG, "Screen turned off\nShown:" + Globals.isShown);
             if (Globals.isShown) {
                 // Screen turned off with service running, wake up device
                 turnScreenOn(context, true);
@@ -88,19 +88,19 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                 //Checking if was killed by delay or naturally, if so, don't restart the service
                 if (Globals.killedByDelay) {
                     Globals.killedByDelay = false;
-                    Log.d(SCREEN_RECEIVER_LOG_TAG, "Killed by delay and won't restart");
+                    Utils.logDebug(SCREEN_RECEIVER_LOG_TAG, "Killed by delay and won't restart");
                     return;
                 }
                 // Start service when screen is off
                 if (!Globals.inCall && prefs.enabled) {
                     boolean toStart = shouldStart();
-                    Log.d("SHOULD START ", String.valueOf(toStart));
+                    Utils.logDebug("SHOULD START ", String.valueOf(toStart));
                     if (toStart) {
                         if (prefs.startAfterLock) {
                             final KeyguardManager myKM = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
                             if (myKM.inKeyguardRestrictedInputMode()) {
                                 //Screen is locked, start the service
-                                Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is locked");
+                                Utils.logDebug(SCREEN_RECEIVER_LOG_TAG, "Device is locked");
                                 context.startService(new Intent(context, MainService.class));
                                 Globals.isShown = true;
                             } else {
@@ -110,14 +110,14 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                                     Globals.noLock = true;
                                     context.startService(new Intent(context, MainService.class));
                                     Globals.isShown = true;
-                                    Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is unlocked");
+                                    Utils.logDebug(SCREEN_RECEIVER_LOG_TAG, "Device is unlocked");
                                 } else {
-                                    Log.d(SCREEN_RECEIVER_LOG_TAG, "Device is locked but has a timeout");
+                                    Utils.logDebug(SCREEN_RECEIVER_LOG_TAG, "Device is locked but has a timeout");
                                     try {
                                         startDelay = Settings.Secure.getInt(context.getContentResolver(), "lock_screen_lock_after_timeout", 5000);
                                         if (startDelay == -1)
                                             startDelay = (int) Settings.Secure.getLong(context.getContentResolver(), "lock_screen_lock_after_timeout", 5000);
-                                        Log.d(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
+                                        Utils.logDebug(SCREEN_RECEIVER_LOG_TAG, "Lock time out " + String.valueOf(startDelay));
                                     } catch (Exception settingNotFound) {
                                         startDelay = 0;
                                     }
@@ -144,7 +144,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
             if (Globals.waitingForApp)
                 Globals.waitingForApp = false;
-            Log.i(TAG, "Screen turned on\nShown:" + Globals.isShown);
+            Utils.logInfo(TAG, "Screen turned on\nShown:" + Globals.isShown);
         }
     }
 
@@ -158,14 +158,14 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
     private boolean shouldStart() {
         prefs.apply();
         if (Globals.waitingForApp) {
-            Log.d("Shouldn't start because", "Waiting for app");
+            Utils.logDebug("Shouldn't start because", "Waiting for app");
             return false;
         }
         if (prefs.rules.equals("charging")) {
-            Log.d("Shouldn't start because", "Charging rules didn't meet requirements");
+            Utils.logDebug("Shouldn't start because", "Charging rules didn't meet requirements");
             return isConnected() && getBatteryLevel() > prefs.batteryRules;
         } else if (prefs.rules.equals("discharging")) {
-            Log.d("Shouldn't start because", "Charging rules didn't meet requirements");
+            Utils.logDebug("Shouldn't start because", "Charging rules didn't meet requirements");
             return !isConnected() && getBatteryLevel() > prefs.batteryRules;
         }
         return getBatteryLevel() > prefs.batteryRules;

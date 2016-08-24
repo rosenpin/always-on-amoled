@@ -362,7 +362,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
 
     @Override
     public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
-        Log.d(ContextConstatns.MAIN_SERVICE_LOG_TAG, String.valueOf(selectedColor));
+        Utils.logDebug(ContextConstatns.MAIN_SERVICE_LOG_TAG, String.valueOf(selectedColor));
         prefs.setInt(Prefs.KEYS.TEXT_COLOR.toString(), selectedColor);
     }
 
@@ -370,7 +370,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1001) {
-            Log.d("Purchase state", String.valueOf(resultCode));
+            Utils.logDebug("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
                 Toast.makeText(getApplicationContext(), R.string.thanks, Toast.LENGTH_LONG).show();
                 Snackbar.make(findViewById(android.R.id.content), R.string.thanks, 10000).setAction(R.string.action_restart, view -> {
@@ -378,7 +378,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
                 }).show();
                 resetPaymentService();
-                Log.d("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
+                Utils.logDebug("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
             }
         }
     }
@@ -406,7 +406,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(MAIN_ACTIVITY_LOG_TAG, "Stopped");
+        Utils.logDebug(MAIN_ACTIVITY_LOG_TAG, "Stopped");
         new Handler().postDelayed(() -> {
             if (!isActive)
                 finish();
@@ -426,11 +426,11 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
-                Log.d(TAG, "Is already running");
+                Utils.logDebug(TAG, "Is already running");
                 return true;
             }
         }
-        Log.d(serviceTag, "Is not running");
+        Utils.logDebug(serviceTag, "Is not running");
         return false;
     }
 
@@ -447,7 +447,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 try {
                     Globals.ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                     Globals.mService = mService;
-                    Log.d("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
+                    Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
                     if (BuildConfig.DEBUG)
                         Globals.ownedItems = new ArrayList<String>() {{
                             add("ITEM");

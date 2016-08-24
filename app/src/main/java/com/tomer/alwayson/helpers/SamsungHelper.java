@@ -30,15 +30,15 @@ public class SamsungHelper implements ContextConstatns {
             try {
                 originalCapacitiveButtonsState = Settings.System.getInt(contentResolver, "button_key_light");
             } catch (Settings.SettingNotFoundException e) {
-                Log.d(MAIN_SERVICE_LOG_TAG, "First method of getting the buttons status failed.");
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "First method of getting the buttons status failed.");
                 try {
                     originalCapacitiveButtonsState = (int) Settings.System.getLong(contentResolver, "button_key_light");
                 } catch (Exception ignored) {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Second method of getting the buttons status failed.");
+                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Second method of getting the buttons status failed.");
                     try {
                         originalCapacitiveButtonsState = Settings.Secure.getInt(contentResolver, "button_key_light");
                     } catch (Exception ignored3) {
-                        Log.d(MAIN_SERVICE_LOG_TAG, "Third method of getting the buttons status failed.");
+                        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Third method of getting the buttons status failed.");
                     }
                 }
             }
@@ -56,27 +56,27 @@ public class SamsungHelper implements ContextConstatns {
                     i.putExtra("state", state);
                     i.putExtra("originalCapacitiveButtonsState", originalCapacitiveButtonsState);
                     ComponentName c = context.startService(i);
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Started plugin to control the buttons lights");
+                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Started plugin to control the buttons lights");
                 } catch (Exception e1) {
-                    Log.d(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
+                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
                     Toast.makeText(context, context.getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
                     try {
                         Settings.System.putInt(contentResolver, "button_key_light", state ? 0 : originalCapacitiveButtonsState);
                     } catch (RuntimeException e2) {
-                        Log.d(MAIN_SERVICE_LOG_TAG, "First method of settings the buttons state failed.");
+                        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "First method of settings the buttons state failed.");
                         try {
                             Runtime r = Runtime.getRuntime();
                             r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
                         } catch (IOException e3) {
-                            Log.d(MAIN_SERVICE_LOG_TAG, "Second method of settings the buttons state failed.");
+                            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Second method of settings the buttons state failed.");
                             try {
                                 Settings.System.putLong(contentResolver, "button_key_light", state ? 0 : originalCapacitiveButtonsState);
                             } catch (Exception e4) {
-                                Log.d(MAIN_SERVICE_LOG_TAG, "Third method of settings the buttons state failed.");
+                                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Third method of settings the buttons state failed.");
                                 try {
                                     Settings.Secure.putInt(contentResolver, "button_key_light", state ? 0 : originalCapacitiveButtonsState);
                                 } catch (Exception e5) {
-                                    Log.d(MAIN_SERVICE_LOG_TAG, "Fourth method of settings the buttons state failed.");
+                                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Fourth method of settings the buttons state failed.");
                                 }
                             }
                         }

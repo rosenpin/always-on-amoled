@@ -17,7 +17,7 @@ public class UnlockReceiver extends BroadcastReceiver implements ContextConstatn
         if (intent.getAction().equals(Intent.ACTION_USER_PRESENT) && Globals.noLock) {
             return;
         }
-        Log.i(UNLOCK_RECEIVER_TAG, "Received");
+        Utils.logInfo(UNLOCK_RECEIVER_TAG, "Received");
         MainService.stoppedByShortcut = true;
         Utils.stopMainService(context);
         Globals.isShown = false;

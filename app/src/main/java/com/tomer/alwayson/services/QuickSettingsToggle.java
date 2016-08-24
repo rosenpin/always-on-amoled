@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 
 @TargetApi(Build.VERSION_CODES.N)
 public class QuickSettingsToggle extends TileService {
@@ -79,6 +80,6 @@ public class QuickSettingsToggle extends TileService {
     }
 
     private void Log(String text) {
-        Log.d(QuickSettingsToggle.class.getSimpleName(), text);
+        Utils.logDebug(QuickSettingsToggle.class.getSimpleName(), text);
     }
 }

@@ -35,7 +35,7 @@ public class Utils {
         builder.setContentTitle(title);
         builder.setContentText(text);
         builder.setSmallIcon(R.drawable.ic_error_outline);
-        if (onClickIntent!=null)
+        if (onClickIntent != null)
             builder.setContentIntent(onClickIntent);
         builder.setPriority(Notification.PRIORITY_MAX);
         builder.setVibrate(new long[0]);
@@ -45,7 +45,7 @@ public class Utils {
     }
 
     public static boolean stopMainService(Context context) {
-        Log.d("Trying to stop, Main service is initialized", String.valueOf(MainService.initialized));
+        Utils.logDebug("Trying to stop, Main service is initialized", String.valueOf(MainService.initialized));
         if (MainService.initialized) {
             context.stopService(new Intent(context, MainService.class));
             return true;
@@ -64,6 +64,21 @@ public class Utils {
                         | DateUtils.FORMAT_SHOW_WEEKDAY
                         | DateUtils.FORMAT_ABBREV_MONTH
                         | DateUtils.FORMAT_ABBREV_WEEKDAY);
+    }
+
+    public static void logDebug(String var1, String var2) {
+        if (var1 != null && var2 != null)
+            Log.d(var1, var2);
+    }
+
+    public static void logError(String var1, String var2) {
+        if (var1 != null && var2 != null)
+            Log.e(var1, var2);
+    }
+
+    public static void logInfo(String var1, String var2) {
+        if (var1 != null && var2 != null)
+            Log.i(var1, var2);
     }
 
     public static boolean isAndroidNewerThanL() {

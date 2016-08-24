@@ -14,6 +14,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
+import com.tomer.alwayson.helpers.Utils;
 
 public class WidgetUpdater extends Service implements ContextConstatns {
 
@@ -26,7 +27,7 @@ public class WidgetUpdater extends Service implements ContextConstatns {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i(WIDGET_UPDATER_TAG, "Started");
+        Utils.logInfo(WIDGET_UPDATER_TAG, "Started");
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
@@ -49,6 +50,6 @@ public class WidgetUpdater extends Service implements ContextConstatns {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.i(WIDGET_UPDATER_TAG, "Destroyed");
+        Utils.logInfo(WIDGET_UPDATER_TAG, "Destroyed");
     }
 }
