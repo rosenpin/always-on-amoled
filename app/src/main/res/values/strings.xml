@@ -11,6 +11,7 @@
     <string name="action_support_the_development">Support The Development</string>
     <string name="support_how_much">How much would you like to donate?</string>
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
+    <string name="gestures_action_flashlight">Toggle flashlight</string>
     <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
     <string name="support_1">1$: The price of a refreshing coke</string>
     <string name="support_2">2$: The price of a tasty chocolate bar</string>
@@ -78,6 +79,10 @@
     <string name="rules_battery_30">30% or higher</string>
     <string name="rules_battery_20">20% or higher</string>
     <string name="rules_battery_10">10% or higher</string>
+    <!--Animations-->
+    <string name="animation_disabled">No animation</string>
+    <string name="animation_fade_out">Fade out</string>
+    <string name="animation_slide_out">Slide out</string>
     <!--Timeout delay rule-->
     <string name="rules_disabled">Disabled</string>
     <string name="rules_minutes_1">1 Minute</string>

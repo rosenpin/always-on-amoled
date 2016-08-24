@@ -180,14 +180,13 @@
     </string-array>
 
     <string-array name="animations">
-        <item>No animation</item>
-        <item>Fade out</item>
-        <item>Slide out</item>
+        <item>@string/animation_disabled</item>
+        <item>@string/animation_fade_out</item>
+        <item>@string/animation_slide_out</item>
     </string-array>
     <string-array name="animations_vals">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
-    <string name="gestures_action_flashlight">Toggle flashlight</string>
 </resources>
