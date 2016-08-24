@@ -41,6 +41,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.activities.ReporterActivity;
+import com.tomer.alwayson.helpers.BatterySaver;
 import com.tomer.alwayson.helpers.BrightnessManager;
 import com.tomer.alwayson.helpers.CurrentAppResolver;
 import com.tomer.alwayson.helpers.DisplaySize;
@@ -76,6 +77,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public static boolean initialized;
     public static boolean isScreenOn;
     boolean firstRefresh = true;
+    int refreshDelay = 12000;
     private Timer refreshTimer;
     private boolean demo;
     private boolean refreshing = true;
@@ -100,6 +102,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private Flashlight flashlight;
     private Handler UIhandler;
     private BrightnessManager brightnessManager;
+    private BatterySaver batterySaver;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -134,6 +137,20 @@ public class MainService extends Service implements SensorEventListener, Context
         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Main service has started");
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
+
+        //Battery Saver
+        if (prefs.batterySaver) {
+            batterySaver = new BatterySaver(this);
+            batterySaver.setSystemBatterySaver(true);
+            prefs.brightness = prefs.brightness / 2;
+            refreshDelay = refreshDelay * 2;
+            prefs.moveWidget = MOVE_NO_ANIMATION;
+            prefs.autoNightMode = false;
+            prefs.proximityToLock = false;
+            prefs.stopOnCamera = false;
+            prefs.stopOnGoogleNow = false;
+        }
+
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
         stayAwakeWakeLock.setReferenceCounted(false);
         brightnessManager = new BrightnessManager(this);
@@ -348,7 +365,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 longRefresh[0] = !longRefresh[0];
             }
         };
-        refreshTimer.schedule(timerTask, 0L, 12000);
+        refreshTimer.schedule(timerTask, 0L, refreshDelay);
     }
 
     private void longRefresh() {
@@ -403,6 +420,8 @@ public class MainService extends Service implements SensorEventListener, Context
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (batterySaver != null)
+            batterySaver.setSystemBatterySaver(false);
         MainService.initialized = false;
         Globals.onNotificationAction = null;
         //Dismiss the app listener

@@ -31,6 +31,8 @@ public interface ContextConstatns {
     String BOOT_RECEIVER = BootReceiver.class.getSimpleName();
     String DOZE_MANAGER = DozeManager.class.getSimpleName();
 
+    String LOW_POWER = "low_power";
+
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
     int CAMERA_PERMISSION_REQUEST_CODE = 5;
     int DEVICE_ADMIN_REQUEST_CODE = 4;

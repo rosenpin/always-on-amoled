@@ -25,6 +25,7 @@ public class Prefs {
     public boolean notificationPreview;
     public boolean hasSoftKeys;
     public boolean greenifyEnabled;
+    public boolean batterySaver;
 
     public int clockStyle, dateStyle, batteryStyle;
     public int textColor;
@@ -45,6 +46,7 @@ public class Prefs {
 
     private Context context;
     private SharedPreferences prefs;
+    ;
 
 
     public Prefs(Context context) {
@@ -71,36 +73,37 @@ public class Prefs {
         } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
-        greenifyEnabled = prefs.getBoolean(KEYS.GREENIFY.toString(), false);
-        dozeMode = prefs.getBoolean(KEYS.DOZE_MODE.toString(), false);
-        memoText = prefs.getString(KEYS.MEMO_TEXT.toString(), "");
-        memoTextSize = prefs.getInt("memo_font_size", 40);
-        showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
-        moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
-        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 15);
-        textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
+        showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
+        stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), false);
+        showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
         permissionGranting = prefs.getBoolean(KEYS.PERMISSION_GRANTING.toString(), false);
         disableVolumeKeys = prefs.getBoolean(KEYS.DISABLE_VOLUME_KEYS.toString(), true);
+        batterySaver = prefs.getBoolean(KEYS.BATTERY_SAVER.toString(), false);
+        hasSoftKeys = prefs.getBoolean(KEYS.HAS_SOFT_KEYS.toString(), false);
+        greenifyEnabled = prefs.getBoolean(KEYS.GREENIFY.toString(), false);
+        dozeMode = prefs.getBoolean(KEYS.DOZE_MODE.toString(), false);
+        startAfterLock = prefs.getBoolean(KEYS.START_AFTER_LOCK.toString(), true);
+        notificationPreview = prefs.getBoolean(KEYS.NOTIFICATION_PREVIEW.toString(), true);
+        stopOnGoogleNow = prefs.getBoolean(KEYS.STOP_ON_GOOGLE_NOW.toString(), false);
+        neverShowPluginDialog = prefs.getBoolean(KEYS.NEVER_SHOW_DIALOG.toString(), false);
+        showedPluginDialog = prefs.getBoolean(KEYS.SHOWED_DIALOG.toString(), false);
+        autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
+        textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
+        memoTextSize = prefs.getInt("memo_font_size", 40);
+        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 15);
+        textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
+        moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
+        stopDelay = Integer.parseInt(prefs.getString(KEYS.STOP_DELAY.toString(), "0"));
+        batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
+        font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
+        exitAnimation = Integer.parseInt(prefs.getString(KEYS.EXIT_ANIMATION.toString(), "0"));
         clockStyle = Integer.parseInt(prefs.getString(KEYS.TIME_STYLE.toString(), "1"));
         dateStyle = Integer.parseInt(prefs.getString(KEYS.DATE_STYLE.toString(), "1"));
         batteryStyle = Integer.parseInt(prefs.getString(KEYS.BATTERY_STYLE.toString(), "0"));
-        showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
-        textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
         rules = prefs.getString(KEYS.RULES.toString(), "always");
-        stopDelay = Integer.parseInt(prefs.getString(KEYS.STOP_DELAY.toString(), "0"));
+        memoText = prefs.getString(KEYS.MEMO_TEXT.toString(), "");
         orientation = prefs.getString(KEYS.ORIENTATION.toString(), "vertical");
-        stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), false);
-        stopOnGoogleNow = prefs.getBoolean(KEYS.STOP_ON_GOOGLE_NOW.toString(), false);
-        batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
-        autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
-        font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));
-        hasSoftKeys = prefs.getBoolean(KEYS.HAS_SOFT_KEYS.toString(), false);
-        startAfterLock = prefs.getBoolean(KEYS.START_AFTER_LOCK.toString(), true);
-        notificationPreview = prefs.getBoolean(KEYS.NOTIFICATION_PREVIEW.toString(), true);
-        exitAnimation = Integer.parseInt(prefs.getString(KEYS.EXIT_ANIMATION.toString(), "0"));
-        neverShowPluginDialog = prefs.getBoolean(KEYS.NEVER_SHOW_DIALOG.toString(), false);
-        showedPluginDialog = prefs.getBoolean(KEYS.SHOWED_DIALOG.toString(), false);
     }
 
     public void setString(String key, String value) {
@@ -201,7 +204,8 @@ public class Prefs {
         GREENIFY("greenify_enabled"),
         EXIT_ANIMATION("exit_animation"),
         SHOWED_DIALOG("showed_dialog"),
-        NEVER_SHOW_DIALOG("never_show_dialog");
+        NEVER_SHOW_DIALOG("never_show_dialog"),
+        BATTERY_SAVER("battery_saver");
 
         private final String id;
 

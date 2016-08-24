@@ -44,6 +44,7 @@ import com.tomer.alwayson.services.StarterService;
 import com.tomer.alwayson.views.FontAdapter;
 import com.tomer.alwayson.views.SeekBarPreference;
 
+import java.io.IOException;
 import java.util.List;
 
 import de.psdev.licensesdialog.LicensesDialog;
@@ -92,6 +93,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("stop_delay").setOnPreferenceChangeListener(this);
         findPreference("watchface_clock").setOnPreferenceChangeListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
+        findPreference("battery_saver").setOnPreferenceChangeListener(this);
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
@@ -176,6 +178,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         googlePlusCommunitySetup();
         openSourceLicenses();
         githubLink();
+    }
+
+    private void setUpBatterySaverPermission() {
+        try {
+            Process process = Runtime.getRuntime().exec(new String[]{"su", "-c", "pm grant " + getActivity().getPackageName() + " android.permission.WRITE_SECURE_SETTINGS"});
+            process.waitFor();
+        } catch (IOException | InterruptedException ignored) {
+            ignored.printStackTrace();
+        }
     }
 
     private void restartService() {
@@ -391,6 +402,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 e.printStackTrace();
             }
         }
+        if (preference.getKey().equals("battery_saver"))
+            if ((boolean) o)
+                setUpBatterySaverPermission();
         return true;
     }
 

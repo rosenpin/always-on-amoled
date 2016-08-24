@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Handler;
-import android.util.Log;
 
 import com.tomer.alwayson.Globals;
 
@@ -38,15 +37,17 @@ public class CurrentAppResolver {
         this.active = true;
         this.handler = new Handler();
         this.activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        appsPNs = new ArrayList<>();
-        for (int app : apps) {
-            if (app == GOOGLE_NOW)
-                appsPNs.add("com.google.android.googlequicksearchbox");
-            if (app == CAMERA)
-                appsPNs.addAll(getCameraPackageName());
+        if (apps.length > 0) {
+            appsPNs = new ArrayList<>();
+            for (int app : apps) {
+                if (app == GOOGLE_NOW)
+                    appsPNs.add("com.google.android.googlequicksearchbox");
+                if (app == CAMERA)
+                    appsPNs.addAll(getCameraPackageName());
+            }
+            Utils.logDebug("Apps to stop for", appsPNs.toString());
+            Utils.logInfo(CurrentAppResolver.class.getSimpleName(), "Started");
         }
-        Utils.logDebug("Apps to stop for", appsPNs.toString());
-        Utils.logInfo(CurrentAppResolver.class.getSimpleName(), "Started");
     }
 
     private ArrayList<String> getCameraPackageName() {

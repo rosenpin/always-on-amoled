@@ -6,11 +6,16 @@
             android:key="enabled"
             android:summary="@string/settings_enabled_desc"
             android:title="@string/settings_enabled" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="battery_saver"
+            android:summary="@string/battery_saver_desc"
+            android:title="@string/battery_saver" />
         <PreferenceScreen
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules">
             <PreferenceCategory android:title="@string/settings_rules">
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:dialogTitle="@string/settings_stop_delay_desc_short_message"
                     android:entries="@array/delays"
@@ -18,7 +23,7 @@
                     android:key="stop_delay"
                     android:summary="%s"
                     android:title="@string/settings_stop_delay" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="always"
                     android:dialogTitle="@string/settings_rules_desc"
                     android:entries="@array/rules_charging"
@@ -26,7 +31,7 @@
                     android:key="rules"
                     android:summary="%s"
                     android:title="@string/settings_rules_cahrging" />
-                <ListPreference
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:dialogTitle="@string/settings_rules_desc"
                     android:entries="@array/rules_battery"

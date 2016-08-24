@@ -1,5 +1,6 @@
 package com.tomer.alwayson.helpers;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -8,18 +9,20 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 
+import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.services.MainService;
 
 import java.util.Calendar;
 import java.util.Random;
 
-public class Utils {
+public class Utils implements ContextConstatns{
     public static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {
@@ -64,6 +67,17 @@ public class Utils {
                         | DateUtils.FORMAT_SHOW_WEEKDAY
                         | DateUtils.FORMAT_ABBREV_MONTH
                         | DateUtils.FORMAT_ABBREV_WEEKDAY);
+    }
+
+    public static boolean hasModifySecurePermission(Context activity) {
+        try {
+            int originalBatteryMode = Settings.Secure.getInt(activity.getContentResolver(), LOW_POWER, 0);
+            Settings.Secure.putInt(activity.getContentResolver(), LOW_POWER, 1);
+            Settings.Secure.putInt(activity.getContentResolver(), LOW_POWER, originalBatteryMode);
+            return true;
+        } catch (Exception ignored) {
+            return false;
+        }
     }
 
     public static void logDebug(String var1, String var2) {
