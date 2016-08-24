@@ -6,8 +6,6 @@
     <string name="action_revert">Revert</string>
     <string name="menu_feedback">Feedback</string>
     <string name="menu_rate">Rate the app</string>
-    <string name="agree">Agree</string>
-    <string name="report_sent">Report sent!</string>
     <string name="action_restart">Restart now</string>
     <!--Support-->
     <string name="action_support_the_development">Support The Development</string>
@@ -37,11 +35,7 @@
     <string name="intro_notifications_desc">Do you want to receive notifications from other apps while the screen is in \"always on\" state? If you do, click the \"allow now\" button</string>
     <!--Feedback,Toasts & messages-->
     <string name="thanks">Thank you for your support! :)</string>
-    <string name="thanks_great">Thank you for your great support! :)</string>
-    <string name="thanks_huge">Thank you for your huge support!! :)</string>
-    <string name="thanks_crazy">Thank you for your CRAZY support!!! :)</string>
     <string name="notification_message">Always On Is Running</string>
-    <string name="reboot_to_take_affect">Reboot to take affect</string>
     <string name="thanks_short">Thank you</string>
     <!--Quick settings-->
     <string name="quick_settings_title">Always on</string>
@@ -54,29 +48,22 @@
     <string name="widget_off">Off</string>
     <string name="widget_on">On</string>
     <!--Device admin-->
-    <string name="device_admin_desc">Enable this to allow extra features for unrooted devices</string>
-    <string name="device_admin_explanation">Please allow device admin permission to use more features on non-rooted devices.</string>
     <!--Plugin-->
     <string name="plugin_dialog_title">Plugin is required</string>
     <string name="plugin_dialog_desc">Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.</string>
     <!--Errors-->
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
     <string name="error_0_unknown_error">An error has occurred. Please report to the developer </string>
-    <string name="error_1_no_email_client">There are no email clients installed.</string>
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
     <string name="error_3_unknown_error_restart">An error has occurred. Please restart the app.</string>
     <!--Warnings-->
-    <string name="warning">WARNING</string>
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
-    <string name="warning_2_required_phone_permission">This permission is required so the app can turn on the display when you get a phone call</string>
-    <string name="warning_3_allow_system_modification">Please allow settings modification permission for this app!</string>
     <string name="warning_4_device_not_secured">Your device may not be secured now</string>
     <string name="warning_5_device_admin_disable">This will disable some of the app features</string>
     <string name="warning_6_device_admin_disabled">Some features might be disabled now</string>
     <string name="warning_7_disable_fingerprint">This might disable the fingerprint sensor functionality, are you sure you want to enable this?</string>
     <string name="warning_8_intro_allow_all">Please allow all permissions</string>
     <string name="warning_9_allow_notification">Please allow notification access for the app</string>
-    <string name="warning_10_tts_not_installed">Please install a text to speech engine first</string>
     <string name="warning_11_no_root">Device must be rooted to use this feature</string>
     <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
     <!--Charging rules-->
@@ -129,9 +116,6 @@
     <string name="settings_font_size">Text size</string>
     <string name="settings_watchface">Customize Watchface</string>
     <string name="settings_proximity">Proximity sensor (Pocket mode)</string>
-    <string name="settings_proximity_root">\nRoot Mode:\nBest option, works fast and allows fingerprint recognition\n</string>
-    <string name="settings_proximity_normal">Normal Mode (Recommended):\nOnly works for Android 5.0+, allows fingerprint recognition</string>
-    <string name="settings_proximity_device_admin">Device Admin Mode:\nWorks on any android version, but disables fingerprint recognition</string>
     <string name="settings_show_am_pm">Show AM/PM</string>
     <string name="settings_text_color">Text Color</string>
     <string name="settings_startafterlock">Start after lock</string>
@@ -153,7 +137,6 @@
     <!--Settings descriptions-->
     <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched</string>
     <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically (Sensors may use more battery)</string>
-    <string name="settings_stop_delay_desc_short">Set to 0 to turn this off</string>
     <string name="settings_stop_delay_desc_short_message">Stop the always on service after:</string>
     <string name="settings_stop_delay_desc">Stop the always on screen after some time without interaction to save battery</string>
     <string name="settings_startafterlock_desc">Only start the service after the screen is locked. Keep this enabled to keep your device secured and fingerprint sensor functional</string>
@@ -163,14 +146,10 @@
     <string name="settings_watchface_desc">Customize the always on screen</string>
     <string name="settings_proximity_to_lock_desc">Lock the device when you place your device in your pocket to save battery (Sensors may use more battery)</string>
     <string name="settings_licenses_desc">Open source licenses</string>
-    <string name="settings_back_button_to_stop_desc">Click/touch the back button to dismiss</string>
     <string name="settings_community_desc">Google Plus community</string>
     <string name="settings_github_desc">Open source GitHub link</string>
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
-    <string name="settings_volume_to_stop_desc">Press volume keys to dismiss</string>
-    <string name="settings_touch_to_stop_desc">Double tap the screen to dismiss</string>
-    <string name="settings_swipe_to_stop_desc">Swipe up to dismiss the screen</string>
     <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
     <string name="settings_enabled_desc">Enable the service</string>
     <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
@@ -178,10 +157,6 @@
     <string name="settings_brightness_desc">Screen brightness while off</string>
     <string name="settings_about_translate">Help translating the app</string>
     <string name="settings_version_desc">build</string>
-    <string name="settings_feature_dialog_desc">Select which elements you want to appear when the device is locked</string>
-    <string name="settings_features_dialog_battery">Show Battery</string>
-    <string name="settings_features_dialog_calendar">Show Date</string>
-    <string name="settings_features_dialog_time">Show Time</string>
     <string name="settings_watchface_clock">Clock style</string>
     <string name="settings_watchface_date">Date style</string>
     <string name="settings_watchface_battery">Battery style</string>
@@ -203,8 +178,6 @@
     <string name="settings_gestures"><![CDATA[Gestures & shortcuts]]></string>
     <string name="settings_gestures_desc">Double tap to wake, swipe up to wake and more</string>
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
-    <string name="settings_select_action">Select action</string>
-    <string name="warning_11_need_to_reset_app">You might need to restart the app to take effect</string>
     <string name="settings_uninstall_desc">Uninstall the app</string>
     <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
     <string name="settings_watch_analog_24_classic">Classic 24h Analog</string>
@@ -232,6 +205,5 @@
     <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
     <string name="error">Error</string>
     <string name="error_0_unknown_error_report_prompt">Click here to report the error</string>
-    <string name="error_5_google_play_installed">Error, is the Google Play Store installed?</string>
     <string name="never_show_again">Never show again</string>
 </resources>

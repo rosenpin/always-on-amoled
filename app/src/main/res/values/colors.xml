@@ -4,27 +4,10 @@
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorAccent">#009688</color>
     <color name="card_background">#FFFFFF</color>
-    <color name="teal">#009688</color>
-    <color name="green">#43a047</color>
     <color name="shell_white_color">#f5f5f5</color>
-    <color name="defaultTextColor">#808080</color>
-
-    <color name="reporterColorPrimary">#90a4ae</color>
-    <color name="reporterColorPrimaryDark">#546e7a</color>
-    <color name="reporterColorAccent">#009688</color>
-
-    <color name="intro_background_1">#2196f3</color>
-    <color name="intro_background_1_dark">#1565c0</color>
-
-    <color name="intro_background_2">#795548</color>
-    <color name="intro_background_2_dark">#4e342e</color>
 
     <color name="intro_background_3">#009688</color>
-    <color name="intro_background_3_dark">#00695c</color>
 
     <color name="intro_background_4">#607d8b</color>
-    <color name="intro_background_4_dark">#37474f</color>
 
-    <color name="intro_background_5">#9c27b0</color>
-    <color name="intro_background_5_dark">#6a1b9a</color>
 </resources>
