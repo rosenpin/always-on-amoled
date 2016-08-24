@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,19 +13,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 
 public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     private Context context;
     private Intent mediaButtonsIntent;
+    private View layout;
+    private AudioManager manager;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            if (!manager.isMusicActive())
+                removeView(layout);
+            else if (!layout.isAttachedToWindow())
+                addView(layout);
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
-            ((TextView) findViewById(R.id.song_name)).setText(artist + " - " + track);
-            Utils.logDebug("Music", artist + ":" + album + ":" + track);
+            Utils.logInfo("Music", artist + ":" + album + ":" + track);
         }
     };
 
@@ -34,7 +40,8 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         this.context = context;
         mediaButtonsIntent = new Intent(Intent.ACTION_MEDIA_BUTTON);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        addView(inflater.inflate(R.layout.music_widget, null));
+        layout = inflater.inflate(R.layout.music_widget, null);
+        addView(layout);
         findViewById(R.id.skip_prev).setOnClickListener(this);
         findViewById(R.id.play).setOnClickListener(this);
         findViewById(R.id.skip_next).setOnClickListener(this);
@@ -46,6 +53,9 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         iF.addAction("com.android.music.queuechanged");
 
         context.registerReceiver(mReceiver, iF);
+        manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (!manager.isMusicActive())
+            removeView(layout);
     }
 
     public void play() {

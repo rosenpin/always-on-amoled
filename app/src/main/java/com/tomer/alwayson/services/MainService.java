@@ -20,7 +20,6 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -207,11 +206,10 @@ public class MainService extends Service implements SensorEventListener, Context
         //If auto night mode option is on, set it up
         if (prefs.autoNightMode) {
             Sensor lightSensor;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                 lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT, false);
-            } else {
+            else
                 lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-            }
             if (lightSensor != null) {
                 Utils.logDebug(MAIN_SERVICE_LOG_TAG, "STARTING LIGHT SENSOR");
                 sensorManager.registerListener(this, lightSensor, (int) TimeUnit.SECONDS.toMicros(15), 500000);
@@ -409,7 +407,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Dismiss music player
-        ((MusicPlayer)mainView.findViewById(R.id.music_player)).destroy();
+        ((MusicPlayer) mainView.findViewById(R.id.music_player)).destroy();
         //Dismiss doze
         if (dozeManager != null)
             dozeManager.exitDoze();

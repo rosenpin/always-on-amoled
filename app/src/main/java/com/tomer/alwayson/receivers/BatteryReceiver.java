@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 
 public class BatteryReceiver extends BroadcastReceiver implements ContextConstatns {
     TextView batteryTV;

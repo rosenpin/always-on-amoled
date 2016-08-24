@@ -2,44 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
+    android:weightSum="15">
 
-    <TextView
-        android:id="@+id/song_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:minWidth="340dp"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
+    <ImageView
+        android:id="@+id/skip_prev"
+        android:layout_width="@dimen/media_icon_size"
+        android:layout_height="@dimen/media_icon_size"
+        android:layout_weight="3"
+        android:paddingRight="@dimen/medium_spacing"
+        android:src="@drawable/ic_skip_previous" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="9">
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="@dimen/media_icon_size"
+        android:layout_height="@dimen/media_icon_size"
+        android:layout_weight="9"
+        android:paddingLeft="@dimen/medium_spacing"
+        android:paddingRight="@dimen/medium_spacing"
+        android:src="@drawable/ic_play_pause" />
 
-        <ImageView
-            android:id="@+id/skip_prev"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight="3"
-            android:src="@drawable/ic_skip_previous" />
-
-        <ImageView
-            android:id="@+id/play"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight="3"
-            android:src="@drawable/ic_play" />
-
-        <ImageView
-            android:id="@+id/skip_next"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_weight="3"
-            android:src="@drawable/ic_skip_next" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/skip_next"
+        android:layout_width="@dimen/media_icon_size"
+        android:layout_height="@dimen/media_icon_size"
+        android:layout_weight="3"
+        android:paddingLeft="@dimen/medium_spacing"
+        android:src="@drawable/ic_skip_next" />
 </LinearLayout>

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.tomer.alwayson.Globals;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.MainService;
 import com.tomer.alwayson.services.NotificationListener;
 

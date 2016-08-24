@@ -68,17 +68,17 @@ public class Utils {
 
     public static void logDebug(String var1, String var2) {
         if (var1 != null && var2 != null)
-            Utils.logDebug(var1, var2);
+            Log.d(var1, var2);
     }
 
     public static void logError(String var1, String var2) {
         if (var1 != null && var2 != null)
-            Utils.logError(var1, var2);
+            Log.e(var1, var2);
     }
 
     public static void logInfo(String var1, String var2) {
         if (var1 != null && var2 != null)
-            Utils.logInfo(var1, var2);
+            Log.i(var1, var2);
     }
 
     public static boolean isAndroidNewerThanL() {

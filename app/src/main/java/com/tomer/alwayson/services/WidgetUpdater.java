@@ -14,6 +14,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
+import com.tomer.alwayson.helpers.Utils;
 
 public class WidgetUpdater extends Service implements ContextConstatns {
 
