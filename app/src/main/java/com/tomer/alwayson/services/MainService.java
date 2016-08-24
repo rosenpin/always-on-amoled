@@ -188,11 +188,12 @@ public class MainService extends Service implements SensorEventListener, Context
         registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
-        if (prefs.proximityToLock || prefs.autoNightMode) //If any sensor is required
+        if (prefs.proximityToLock || prefs.autoNightMode)
+            //If any sensor is required
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && !Shell.SU.available()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, getPackageName() + " wakelock_holder");
                 proximityToTurnOff.acquire();
             } else {
@@ -272,7 +273,7 @@ public class MainService extends Service implements SensorEventListener, Context
                         if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     }
                 },
-                500);
+                700);
 
         //Initializing Doze
         if (prefs.dozeMode) {
@@ -471,10 +472,12 @@ public class MainService extends Service implements SensorEventListener, Context
                     Globals.isShown = false;
                     Globals.sensorIsScreenOff = false;
                     new Thread(() -> {
-                        if (Shell.SU.available())
-                            Shell.SU.run("input keyevent 26"); // Screen off using root
-                        else
-                            ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+                        if (isScreenOn)
+                            try {
+                                Shell.SU.run("input keyevent 26"); // Screen off using root
+                            } catch (SecurityException e) {
+                                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+                            }
                     }).start();
                 } else {
                     if (!Globals.sensorIsScreenOff) {

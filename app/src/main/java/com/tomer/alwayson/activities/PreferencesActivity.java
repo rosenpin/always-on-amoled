@@ -95,7 +95,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 IAPID2, "inapp", googleIAPCode);
                                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                                         if (pendingIntent == null)
-                                            Snackbar.make(rootView, context.getString(R.string.thanks_great), Snackbar.LENGTH_LONG).show();
+                                            Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                                     } catch (RemoteException e) {
                                         Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                         e.printStackTrace();
@@ -108,7 +108,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 IAPID3, "inapp", googleIAPCode);
                                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                                         if (pendingIntent == null)
-                                            Snackbar.make(rootView, context.getString(R.string.thanks_huge), Snackbar.LENGTH_LONG).show();
+                                            Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                                     } catch (RemoteException e) {
                                         Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                         e.printStackTrace();
@@ -121,7 +121,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 IAPID4, "inapp", googleIAPCode);
                                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                                         if (pendingIntent == null)
-                                            Snackbar.make(rootView, context.getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
+                                            Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                                     } catch (RemoteException e) {
                                         Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                         e.printStackTrace();
@@ -134,7 +134,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 IAPID5, "inapp", googleIAPCode);
                                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                                         if (pendingIntent == null)
-                                            Snackbar.make(rootView, context.getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
+                                            Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                                     } catch (RemoteException e) {
                                         Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                         e.printStackTrace();
@@ -147,7 +147,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                                                 IAPID6, "inapp", googleIAPCode);
                                         pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                                         if (pendingIntent == null)
-                                            Snackbar.make(rootView, context.getString(R.string.thanks_crazy), Snackbar.LENGTH_LONG).show();
+                                            Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                                     } catch (RemoteException e) {
                                         Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                         e.printStackTrace();

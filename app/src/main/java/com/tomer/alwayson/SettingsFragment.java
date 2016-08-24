@@ -28,10 +28,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -108,10 +106,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         return true;
                     case ACTION_SPEAK:
                         if (isSupporter()) {
-                            if (!isPackageInstalled("com.google.android.tts")) {
+                            if (!isPackageInstalled("com.google.android.tts"))
                                 openURL("https://play.google.com/store/apps/details?id=com.google.android.tts", getActivity());
-                                Toast.makeText(context, R.string.warning_10_tts_not_installed, Toast.LENGTH_SHORT).show();
-                            }
                             return true;
                         } else {
                             PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
@@ -350,7 +346,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         .setPositiveButton(getString(android.R.string.yes), (dialogInterface, i) -> {
                             Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
                             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
-                            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.device_admin_explanation));
+                            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.settings_proximity));
                             startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
                         })
                         .setNegativeButton(getString(android.R.string.no), (dialogInterface, i) -> {
