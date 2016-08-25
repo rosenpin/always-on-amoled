@@ -9,8 +9,6 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,9 +24,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (!manager.isMusicActive())
-                removeView(layout);
-            else if (!layout.isAttachedToWindow())
+            if (!layout.isAttachedToWindow())
                 addView(layout);
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");
