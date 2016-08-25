@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 
@@ -13,7 +12,7 @@ import java.util.List;
 
 import eu.chainfire.libsuperuser.Shell;
 
-public class DozeManager implements ContextConstatns{
+public class DozeManager implements ContextConstatns {
 
     public DozeManager(Context context) {
         if (!isDumpPermissionGranted(context))
@@ -21,6 +20,26 @@ public class DozeManager implements ContextConstatns{
         if (!isDevicePowerPermissionGranted(context))
             grantPermission(context, "android.permission.DEVICE_POWER");
         executeCommand("dumpsys deviceidle whitelist +" + context.getPackageName());
+    }
+
+    public static void executeCommand(final String command) {
+        AsyncTask.execute(() -> {
+            List<String> output = Shell.SH.run(command);
+            if (output == null)
+                Utils.logInfo(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
+        });
+    }
+
+    public static boolean isDevicePowerPermissionGranted(Context context) {
+        return context.checkCallingOrSelfPermission("android.permission.DEVICE_POWER") == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static boolean isDumpPermissionGranted(Context context) {
+        return context.checkCallingOrSelfPermission(Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static void grantPermission(Context context, String permission) {
+        executeCommand("pm grant " + context.getPackageName() + " " + permission);
     }
 
     public void enterDoze() {
@@ -44,14 +63,6 @@ public class DozeManager implements ContextConstatns{
         }
     }
 
-    public static void executeCommand(final String command) {
-        AsyncTask.execute(() -> {
-            List<String> output = Shell.SH.run(command);
-            if (output == null)
-                Utils.logInfo(DOZE_MANAGER, "Error occurred while executing command (" + command + ")");
-        });
-    }
-
     private String getDeviceIdleState() {
         String state = "";
         List<String> output = Shell.SH.run("dumpsys deviceidle");
@@ -72,17 +83,5 @@ public class DozeManager implements ContextConstatns{
             state = "IDLE_MAINTENANCE";
         }
         return state;
-    }
-
-    public static boolean isDevicePowerPermissionGranted(Context context) {
-        return context.checkCallingOrSelfPermission("android.permission.DEVICE_POWER") == PackageManager.PERMISSION_GRANTED;
-    }
-
-    public static boolean isDumpPermissionGranted(Context context) {
-        return context.checkCallingOrSelfPermission(Manifest.permission.DUMP) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    public static void grantPermission(Context context, String permission) {
-        executeCommand("pm grant " + context.getPackageName() + " " + permission);
     }
 }

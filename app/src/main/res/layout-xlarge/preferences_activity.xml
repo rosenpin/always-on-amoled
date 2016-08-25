@@ -14,12 +14,12 @@
         android:orientation="vertical">
 
         <Button
-            android:elevation="8dp"
             android:id="@+id/donate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="64dp"
             android:background="@color/colorAccent"
+            android:elevation="8dp"
             android:maxWidth="50dp"
             android:text="@string/action_support_the_development"
             android:textColor="@android:color/white" />

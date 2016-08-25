@@ -7,14 +7,12 @@ import android.hardware.display.DisplayManager;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.os.PowerManager;
-import android.util.Log;
 import android.view.Display;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
-import com.tomer.alwayson.services.MainService;
 
 public class ChargeChangeReceiver extends BroadcastReceiver implements ContextConstatns {
     @Override

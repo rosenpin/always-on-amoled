@@ -27,9 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro2;
+import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
-import com.tomer.alwayson.R;
 
 
 public class Intro extends AppIntro2 {

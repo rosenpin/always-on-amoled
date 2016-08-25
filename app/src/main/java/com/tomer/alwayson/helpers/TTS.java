@@ -6,7 +6,6 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.format.DateFormat;
-import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;

@@ -7,13 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.tomer.alwayson.ContextConstatns;
-import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
+import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 
 public class WidgetUpdater extends Service implements ContextConstatns {

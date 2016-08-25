@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
 
 public class HomeWatcher {
 
@@ -35,6 +34,10 @@ public class HomeWatcher {
             mContext.unregisterReceiver(mReceiver);
     }
 
+    public interface OnHomePressedListener {
+        void onHomePressed();
+    }
+
     class InnerReceiver extends BroadcastReceiver {
         final String SYSTEM_DIALOG_REASON_KEY = "reason";
         final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
@@ -54,9 +57,5 @@ public class HomeWatcher {
                 }
             }
         }
-    }
-
-    public interface OnHomePressedListener {
-        void onHomePressed();
     }
 }

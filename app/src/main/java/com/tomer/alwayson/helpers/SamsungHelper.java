@@ -5,7 +5,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.tomer.alwayson.ContextConstatns;
@@ -18,6 +17,7 @@ public class SamsungHelper implements ContextConstatns {
     private int originalCapacitiveButtonsState;
     private ContentResolver contentResolver;
     private Context context;
+    private HomeWatcher homeWatcher;
 
     public SamsungHelper(Context context, Prefs prefs) {
         this.prefs = prefs;
@@ -85,8 +85,6 @@ public class SamsungHelper implements ContextConstatns {
             }
         }
     }
-
-    private HomeWatcher homeWatcher;
 
     public void setOnHomeButtonClickListener(final Runnable action) {
         homeWatcher = new HomeWatcher(context);

@@ -14,6 +14,7 @@ import android.widget.RemoteViews;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.WidgetProvider;
 import com.tomer.alwayson.helpers.Prefs;
+import com.tomer.alwayson.helpers.Utils;
 
 public class ToggleService extends Service {
     private Intent starterServiceIntent;
@@ -27,7 +28,7 @@ public class ToggleService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        System.out.println("Started toggle service");
+        Utils.logInfo(ToggleService.class.getSimpleName(), "Started toggle service");
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
         starterServiceIntent = new Intent(getApplicationContext(), StarterService.class);

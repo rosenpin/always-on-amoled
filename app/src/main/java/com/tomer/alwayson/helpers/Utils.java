@@ -1,6 +1,5 @@
 package com.tomer.alwayson.helpers;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -22,7 +21,7 @@ import com.tomer.alwayson.services.MainService;
 import java.util.Calendar;
 import java.util.Random;
 
-public class Utils implements ContextConstatns{
+public class Utils implements ContextConstatns {
     public static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {

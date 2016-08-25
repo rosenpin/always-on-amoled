@@ -4,10 +4,9 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import android.util.Log;
 
-import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 
 @TargetApi(Build.VERSION_CODES.N)

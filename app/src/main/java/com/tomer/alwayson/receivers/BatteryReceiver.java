@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,9 +13,9 @@ import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Utils;
 
 public class BatteryReceiver extends BroadcastReceiver implements ContextConstatns {
+    public int currentBattery;
     TextView batteryTV;
     ImageView batteryIV;
-    public int currentBattery;
     boolean updateText;
 
     public BatteryReceiver(TextView textView, ImageView imageView) {

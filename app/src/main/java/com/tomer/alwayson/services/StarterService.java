@@ -10,11 +10,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
+import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
-import com.tomer.alwayson.R;
 import com.tomer.alwayson.receivers.ScreenReceiver;
 
 public class StarterService extends Service {
@@ -31,7 +30,7 @@ public class StarterService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        System.out.println("Starter Service started");
+        Utils.logInfo(StarterService.class.getSimpleName(), "Starter Service started");
 
         notificationsAlertIntent = new Intent(getApplicationContext(), NotificationListener.class);
 
@@ -63,7 +62,7 @@ public class StarterService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        System.out.println("Starter Service destroyed");
+        Utils.logInfo(StarterService.class.getSimpleName(), "Starter Service destroyed");
         hideNotification();
         unregisterReceiver();
         stopNotificationService();

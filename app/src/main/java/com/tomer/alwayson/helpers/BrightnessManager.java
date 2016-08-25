@@ -15,7 +15,7 @@ public class BrightnessManager {
     }
 
     public void setBrightness(int brightness, int brightnessMode) {
-        Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS,brightness);
+        Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightness);
         Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE, brightnessMode);
     }
 

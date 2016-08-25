@@ -3,7 +3,6 @@ package com.tomer.alwayson.helpers;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import com.tomer.alwayson.ContextConstatns;
 
@@ -23,7 +22,7 @@ public class GreenifyStarter implements ContextConstatns {
             i.putExtra("noop-toast", true);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
-            Utils.logDebug(GREENIFY_STARTER,"Started");
+            Utils.logDebug(GREENIFY_STARTER, "Started");
         }
     }
 }

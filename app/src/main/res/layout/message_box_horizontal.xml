@@ -55,14 +55,13 @@
         </LinearLayout>
 
 
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/message_top_wrapper"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/small_spacing"
-            android:layout_below="@+id/message_top_wrapper"
             android:orientation="vertical">
 
             <TextView

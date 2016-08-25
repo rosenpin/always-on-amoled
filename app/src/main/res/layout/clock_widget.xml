@@ -29,7 +29,7 @@
     <com.tomer.alwayson.views.MusicPlayer
         android:id="@+id/music_player"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <include layout="@layout/memo" />
 
