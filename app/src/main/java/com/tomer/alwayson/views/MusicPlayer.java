@@ -24,7 +24,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (layout.getWindowToken() == null)
+            if (layout.getParent() == null)
                 addView(layout);
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");
@@ -42,7 +42,8 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         mediaButtonsIntent = new Intent(Intent.ACTION_MEDIA_BUTTON);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layout = inflater.inflate(R.layout.music_widget, null);
-        addView(layout);
+        if (layout.getParent() == null)
+            addView(layout);
         findViewById(R.id.skip_prev).setOnClickListener(this);
         findViewById(R.id.play).setOnClickListener(this);
         findViewById(R.id.skip_next).setOnClickListener(this);
