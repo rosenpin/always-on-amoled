@@ -1,35 +1,35 @@
-Zdobądź zawsze włączony ekran na swój telefon lub tablet.
+Zdobądź Always On Display na swój telefon lub tablet.
 Miej zawsze włączony ekran.
-Pierwsza wolna aplikacja zawsze włączony!
+Pierwsza open source'owa aplikacja Always On!
 
-Pomysł o pokazaniu użytkownikowi czasu, daty, powiadomien i wiele więcej bez dotykania telefonu. Tylko patrząc.
+Pomysłem jest dostarczenie użytkownikom informacji o czasie, dacie, powiadomieniach i wielu więcej bez dotykania telefonu. Tylko patrząc.
 
-Jest to możliwe dzięki wyświetlaczą AMOLED. Większość ekranów pozostaje czarna poza kilkoma pikselami.
+Jest to możliwe dzięki wyświetlaczom AMOLED. Większość ekranów pozostaje czarna poza kilkoma pikselami.
 
 ★Ważne funkcje
-• Zawsze Włączony Ekran
+•    Always On Display
 • Powiadomienia - oglądaj powiadomienia bez dotykania swojego urządzenia
-• Automatyczne reguły - zachowania baterii przy użyciu wstępnie zdefiniowanych reguł
-• Automatyczne przemieszczanie - zapobiega uszkodzeniu ekranu
-• Automatyczny tryb nocny - przyciemnianie ekranu w ciemnych pomieszczeniach
-• Tryb wyłączenia ekranu w kieszeni w celu oszczędności bateri
-• Stuknij dwukrotnie aby obudzić + Przeciągnij w górę aby obudzić + Użyj przycisków głośności aby obudzić + Wciśnij przycisk Wstecz, aby obudzić
-• Oriętacja ekranu - ustaw oriętacje ekranu
-• Personalizacja - zmień kolor, wielkość, jasność tekstu
-• Darmowe i z wolną licencją!
+•    Automatyczne reguły - zachowanie baterii przy użyciu wstępnie zdefiniowanych reguł
+•    Automatyczne przemieszczanie - zapobiega wypaleniu się ekranu AMOLED
+•    Automatyczny tryb nocny - automatyczne przyciemnianie ekranu w ciemnym otoczeniu
+•    Tryb kieszonkowy - blokowanie urządzenia, gdy masz je w kieszeni, aby zaoszczędzić baterię
+•    Stuknij dwukrotnie, aby obudzić + Przeciągnij w górę, aby obudzić + Użyj przycisków głośności, aby obudzić + Wciśnij przycisk Wstecz, aby obudzić
+•    Wymuszenie orientacji - ustaw swoją preferowaną orientację ekranu
+•    Dostosowywanie - zmień kolor, wielkość, jasność tekstu oraz więcej
+•    DARMOWA I OPEN SOURCE'OWA!
 
-Pred użyciem prosimy zaznaczyć "pokaż nad aplikacjami".
+Pred użyciem proszę zaznaczyć pozwolenie "pokaż nad aplikacjami" dla tej aplikacji.
 
-Ta aplikacja jest w fazie BETA i posiada liczne błędy.
+Aplikacja jest w fazie BETA, wciąż posiada błędy oraz brakujące możliwości.
 
-Uprawnienia
-<b>Uprawnienia aparatu</b>
-Aplikacja potrebuje uprawnień aparatu aby wyłączać się po włączeniu aparatu.
-<b>Uprawnienia telefonu</b>
-Aplikacja wymaga uprawnień telefonu, aby rozpoznawać połączenia przychodzące.
-<b>Modyfikowacja systemowych uprawnień</b>
-Aplikacja wymaga uprawnień do modyfikowania ustawień systemu do zmiany jasności ekranu blokady.
+Zezwolenia
+<b>Zezwolenie aparatu</b>
+Aplikacja wymaga zezwolenia dostępu do aparatu, aby rozpoznać uruchomienie aparatu i odwołać Always On Display.
+<b>Zezwolenie telefonu</b>
+Aplikacja wymaga uprawnień telefonu, aby rozpoznać połączenie przychodzące, odwołać Always On Display i pokazać ekran przychodzącego połączenia.
+<b>Modyfikacja zezwolenia ustawień systemowych</b>
+Aplikacja wymaga zezwolenia do modyfikowania ustawień systemowych, aby zmieniać jasność ekranu blokady.
 
 
-Społeczności Google Plus
+Społeczność Google Plus
 https://plus.google.com/communities/104206728795122451273

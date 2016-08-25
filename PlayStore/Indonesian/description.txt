@@ -1,0 +1,35 @@
+Dapatkan fitur Always On Display untuk ponsel atau tablet Anda.
+Membuat layar anda menyala selamanya.
+Aplikasi always on pertama berbasis open source!
+
+Idenya adalah, menampilkan informasi berupa jam, tanggal, notifikasi dan lain sebagainya tanpa harus menyentuh layar ponsel. Cukup hanya dengan melihatnya saja.
+
+Berkat layar AMOLED hal ini bisa menjadi kenyataan. Sebagian besar layar tetap hitam kecuali beberapa pixel.
+
+★Fitur unggulan
+• Always On Screen
+• Notifikasi - Menampilkan notifikasi tanpa harus menyentuh perangkat
+• Automatic rules - preserve battery using predefined rules
+• Auto movement - avoid AMOLED burn-in
+• Mode malam otomatis - otomatis meredupkan layar di tempat gelap
+• Mode saku - Mengunci perangkat ketika anda menaruhnya kedalam saku guna menghemat baterai
+• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
+• Force orientation - set your preferred screen orientation
+• Kustomisasi - mengubah warna teks, ukuran teks, kecerahan dan lain sebagainya
+GRATIS DAN OPEN SOURCE!
+
+Aktifkan izin 'draw over apps' sebelum menggunakan aplikasi ini.
+
+Ini adalah aplikasi BETA yang masih memiliki bug dan fitur terbatas.
+
+Hak akses
+<b>Akses kamera</b>
+App membutuhkan akses kamera untuk mengetahui kamera sedang digunakan dan mengabaikan "always on" screen.
+<b>Akses telepon</b>
+App membutuhkan hak akses telepon untuk mengenali panggilan masuk, mengabaikan always on screen dan menampilkan panggilan masuk.
+<b>Akses modifikasi pengaturan sistem</b>
+App membutuhkan akses untuk memodifikasi pengaturan sistem untuk mengubah kecerahan pada lock screen.
+
+
+Komunitas Google Plus
+https://plus.google.com/communities/104206728795122451273

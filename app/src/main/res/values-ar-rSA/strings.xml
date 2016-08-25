@@ -7,19 +7,23 @@
   <string name="action_revert">العودة</string>
   <string name="menu_feedback">قائمة_ابداء الرأي</string>
   <string name="menu_rate">قيمنا</string>
+  <string name="action_restart">إعادة التشغيل الآن</string>
   <!--Support-->
-  <string name="action_support_the_development">Support the development</string>
+  <string name="action_support_the_development">ساعدنا على التطوير</string>
   <string name="support_how_much">دعمنا كثيرا؟</string>
   <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
-  <string name="supporter_feature_only">هذه الخاصية متاحة فقط لداعمين بأمكانك اختيار أن تصبح داعما،كم تريد أن تعطينا؟</string>
-  <string name="support_1">1 ريال: ثمن كوكاكولا منعشة</string>
-  <string name="support_2">2 ريال: ثمن شكولاطة لذيذة</string>
-  <string name="support_5">5ريال: ثمن قهوة مجمدة منعشة</string>
-  <string name="support_10">10ريال: ثمن كوب كبير من القهوة</string>
-  <string name="support_20">20ريال: ثمن بيتزا لذيذة</string>
-  <string name="support_25">50ريال: ثمن غذاء لأثنين</string>
+  <string name="supporter_feature_only">هذه الخاصية متاحة فقط للداعمين بأمكانك أن تصبح داعما،كم تريد أن تعطينا؟</string>
+  <string name="support_1">1$: سعر كوكاكولا منعشة</string>
+  <string name="support_2">2 دولار: ثمن شوكولاته لذيذة</string>
+  <string name="support_5">5دولار: ثمن قهوة مجمدة منعشة</string>
+  <string name="support_10">10دولار: ثمن كوب كبير من القهوة</string>
+  <string name="support_20">20دولار: ثمن بيتزا لذيذة</string>
+  <string name="support_25">25 دولار: ثمن وجبة العشاء</string>
   <!--Intro-->
   <string name="intro_allow_now">اسمح الأن</string>
+  <string name="intro_permissions">قراءة حالة الهاتف</string>
+  <string name="intro_permissions_desc">التطبيق يحتاج إلى إذن لقراءة حالة الهاتف
+لتشغيل الجهاز عند تلقي مكالمة.</string>
   <string name="intro_draw_over">التغطية على التطبيقات الأخرى</string>
   <string name="intro_draw_over_desc">التطبيق يحتاج إلى إذن للتغطية على التطبيقات الأخرى</string>
   <string name="intro_modify_desc">التطبيق يحتاج إلى إذن لتغيير سطوع الجهاز</string>
@@ -34,6 +38,11 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">شكرا على دعمكم! :)</string>
   <string name="notification_message">Always On في وضعية الإشتغال</string>
+  <string name="thanks_short">شكراً</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Always on</string>
+  <string name="quick_settings_service_active">مفعل</string>
+  <string name="quick_settings_service_inactive">غير مفعل</string>
   <!-- Content description-->
   <string name="notification_icon">رمز التنبيهات</string>
   <!--Widget-->
@@ -45,8 +54,10 @@
   <string name="plugin_dialog_title">البرنامج المساعد مطلوب</string>
   <string name="plugin_dialog_desc">يبدو أن جهازك يحتوي على أزرار الألية الداخلية ، إذا كنت تريد تعطيلها عند تشغيل الخدمة، الرجاء تثبيت البرنامج المساعد.</string>
   <!--Errors-->
+  <string name="error_IAP">خطأ! يرجى التأكد من الإتصال بالإنترنت وإعادة تشغيل التطبيق</string>
   <string name="error_0_unknown_error">لقد حدث خطأ. الرجاء إرسال تقرير إلى المطور </string>
   <string name="error_2_plugin_not_installed">البرنامج المساعد غير مثبتث</string>
+  <string name="error_3_unknown_error_restart">حدث خطأ! الرجاء إعادة تشغيل التطبيق.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">يمكن أن يؤثر هذا على أداء التطبيق</string>
   <string name="warning_4_device_not_secured">قد لا يكون هاتفك آمنا الآن</string>
@@ -55,12 +66,16 @@
   <string name="warning_7_disable_fingerprint">هذا قد يعطل خاصية مستشعر البصمة، هل ترغب بتفعيل الخيار؟</string>
   <string name="warning_8_intro_allow_all">الرجاء السماح لكل الصلاحيات</string>
   <string name="warning_9_allow_notification">يرجى السماح للتطبيق بالوصول إلى التنبهيات</string>
+  <string name="warning_11_no_root">يجب أن يكون بالجهاز روت لاستخدام هذه الميزة</string>
+  <string name="warning_12_please_report">رجاء، أطلعوني على ما تودون مني إضافته/إصلاحه</string>
   <!--Charging rules-->
   <string name="rules_both_charging">على حد سواء، أثناء الشحن وأثناء الإستنزاف</string>
   <string name="rules_while_charging">عند الشحن</string>
   <string name="rules_while_not_charging">عند عدم الشحن</string>
   <!--Battery rules-->
   <string name="rules_always">دائماً</string>
+  <string name="rules_battery_90">90% فما فوق</string>
+  <string name="rules_battery_70">٧٠% أو أكثر</string>
   <string name="rules_battery_50">50% أو أكثر</string>
   <string name="rules_battery_30">30% أو أكثر</string>
   <string name="rules_battery_20">20% أو أكثر</string>
@@ -83,6 +98,7 @@
   <string name="settings_about">حول</string>
   <string name="settings_appearance">المظهر</string>
   <string name="settings_general">عام</string>
+  <string name="settings_shortcuts">الاختصارات</string>
   <string name="settings_wake_up">إيماءات واﻹجراءات</string>
   <string name="settings_rules">القواعد التلقائية</string>
   <!--Settings titles-->
@@ -93,12 +109,56 @@
   <string name="settings_volume_to_stop">عمل مفاتيح الصوت</string>
   <string name="settings_swipe_wake">مرر لأعلى لتفعيل</string>
   <string name="settings_brightness">الإضاءة</string>
+  <string name="settings_doze">وضع الإغفاء</string>
+  <string name="settings_google_now_shortcut">إسمح لخدمة \"Google Now\"</string>
+  <string name="settings_memo_text">ملاحظة مكتوبة</string>
   <string name="settings_notifications">التنبيهات</string>
   <string name="settings_persistent_notification">إظهار التنبيهات باستمرار</string>
   <string name="settings_move_auto">نقل القطعة تلقائياً</string>
+  <string name="settings_font_size">حجم النص</string>
+  <string name="settings_watchface">تخصيص وجه الساعة</string>
+  <string name="settings_proximity">مستشعر القرب (وضع الجيب)</string>
+  <string name="settings_show_am_pm">إظهار ص/ م</string>
+  <string name="settings_text_color">لون النص</string>
+  <string name="settings_startafterlock">بدء بعد القفل</string>
+  <string name="settings_stop_delay">إيقاف التأخير</string>
+  <string name="settings_auto_brightness">تفعيل الوضع الليلي تلقائيا</string>
+  <string name="settings_orientation">اتجاه الشاشة</string>
+  <string name="settings_always_on_memo">مذكرة Always On</string>
+  <string name="settings_stop_on_camera">السماح باختصارات الكاميرا</string>
+  <string name="settings_rules_cahrging">قواعد الشحن</string>
+  <string name="settings_rules_battery">قواعد البطارية</string>
   <string name="settings_font">الخط</string>
+  <string name="settings_translate">الترجمة</string>
+  <string name="settings_github">GitHub</string>
+  <string name="settings_community">مجتمع</string>
+  <string name="greenify_integration">خدمة Greenify</string>
+  <string name="settings_licenses">الرخص</string>
   <string name="settings_uninstall">مسح التطبيق</string>
+  <string name="settings_app_version">الإصدار</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">إيقاف خدمة Always On Display عند تشغيل الكامير</string>
+  <string name="settings_auto_brightness_desc">تعتيم الشاشة تلقائيا عند التواجد في بيئة مظلمة (قد تستهلك أجهزة الإستشعار طاقة أكثر)</string>
+  <string name="settings_stop_delay_desc_short_message">إيقاف خدمة always on بعد:</string>
+  <string name="settings_stop_delay_desc">إيقاف شاشة \"always on\" بعد مرور بعض الوقت دون تفاعل لحفظ البطارية</string>
+  <string name="settings_startafterlock_desc">تشغيل الخدمة فقط بعد قفل الشاشة. حافظ على تمكين هذا الخيار لإبقاء جهازك آمنا و إبقاء مستشعر البصمة وظيفيا</string>
+  <string name="settings_rules_desc">متى ينبغي أن تعمل شاشة \"always on\"؟</string>
+  <string name="settings_text_color_desc">تعيين لون النص</string>
+  <string name="settings_show_am_pm_desc">إظهار ص / م مع عقارب الساعة (فقط لشكل الوقت 12h)</string>
+  <string name="settings_watchface_desc">تخصيص شاشة \"always on\"</string>
+  <string name="settings_proximity_to_lock_desc">قفل الجهاز عند وضع الجهاز في جيبك لحفظ البطارية (قد تستهلك المزيد من البطارية)</string>
+  <string name="settings_licenses_desc">تراخيص مفتوحة المصدر</string>
+  <string name="settings_community_desc">مجتمع قوقل بلس</string>
+  <string name="settings_github_desc">رابط GitHub مفتوح المصدر</string>
+  <string name="settings_move_desc">مكن هذا لتفادي حرق شاشات الـ AMOLED</string>
+  <string name="settings_font_size_desc">ضبط حجم خط الساعة</string>
+  <string name="settings_notifications_desc">مكن هذا لإبقاء التطبيق يعمل في الخلفية</string>
+  <string name="settings_enabled_desc">تمكين الخدمة</string>
+  <string name="settings_disable_volume_keys_desc">مكن هذا لمنع تغيير حجم الصوت عن طريق الخطأ</string>
+  <string name="settings_notifications_alerts_desc">إظهار التنبيهات من تطبيقات أخرى عند وصولها</string>
+  <string name="settings_brightness_desc">سطوع الشاشة أثناء إيقاف تشغيل الشاشة</string>
+  <string name="settings_about_translate">المساعدة في ترجمة التطبيق</string>
+  <string name="settings_version_desc">بناء</string>
   <string name="settings_watchface_clock">نمط الساعة</string>
   <string name="settings_watchface_date">نمط التاريخ</string>
   <string name="settings_watchface_battery">نمط البطارية</string>
@@ -108,16 +168,43 @@
   <string name="settings_watch_digital">رقمي</string>
   <string name="settings_watch_analog">تناظري</string>
   <string name="settings_rules_text">نص</string>
+  <string name="settings_customize_hidden">مخفي</string>
+  <string name="settings_shown">ظاهر</string>
+  <string name="settings_date_full_calendar">تقويم كامل</string>
   <string name="settings_font_default">الوضع الأصلي</string>
   <string name="settings_font_default_bold">افتراضي غامق</string>
   <string name="settings_font_default_italic">افتراضي مائل</string>
   <string name="settings_font_serif">شريف</string>
   <string name="settings_font_sans_serif">بدون شريف</string>
   <string name="settings_font_monospace">مسافة موحدة</string>
-  <string name="settings_gestures"><![CDATA[إيماءات & المدخلات]]></string>
+  <string name="settings_gestures"><![CDATA[الإيماءات والاختصارات]]></string>
   <string name="settings_gestures_desc">النقر المزدوج و التمرير للإيقاظ وأكثر</string>
   <string name="settings_watchface_text_font"><![CDATA[النص والخط]]></string>
   <string name="settings_uninstall_desc">مسح التطبيق</string>
   <string name="settings_watchface_clock_desc">إختر نمطك المفضل لشكل الساعة</string>
+  <string name="settings_watch_analog_24_classic">تناظرية كلاسيكية 24h</string>
   <string name="settings_watch_analog_s7">نمط S7 التناظري</string>
+  <string name="settings_watch_ticks">نمط ال 24 ساعة الكلاسيكي مع علامات الساعة</string>
+  <string name="settings_watch_digital_s7">نمط s7 الساعة الرقمية</string>
+  <string name="settings_watch_flat_analog">نمط الساعة التناظرية المسطحة</string>
+  <string name="settings_watch_analog_pebble">نمط الفقاعات التناظرية</string>
+  <string name="settings_watch_flat_red_analog">ساعة تناظرية مسطحة (عقارب حمراء)</string>
+  <string name="move_disable">تعطيل (غير مستحسن لشاشات AMOLED)</string>
+  <string name="move_move">نقل العناصر تلقائيا</string>
+  <string name="move_move_animation">نقل العناصر تلقائيا مع حركة</string>
+  <string name="greenify_integration_desc">مكن Greenify عندما تكون خدمة \"always on\" مرئية لتحسين عمر البطارية إلى حد كبير. تأكد من تمكين Greenify في إعدادات الوصول</string>
+  <string name="greenify_integration_desc_found">تأكد من السماح لبرنامج Greenify في إعدادات إمكانية الوصول ثم اختر التطبيقات التي تريدها أن تضعها في وضع الإغفاء عندما تكون شاشة القفل مفعلة. إضغط هنا لتعدل Greenify</string>
+  <string name="greenify_integration_desc_not_found">ثبت برنامج Greenify لتحسن من عمر البطارية</string>
+  <string name="settings_notifications_alerts_preview_desc">إظهار محتوى التنبيه عند وصوله</string>
+  <string name="settings_notifications_alerts_preview">محتوى التنبيه</string>
+  <string name="settings_doze_desc">شغل وضع الإغفاء عندما تكون خاصية (Always On Display) مفعلة لكي تحفظ البطارية (لمستخدمي الروت فقط)</string>
+  <string name="settings_memo_text_desc">أكتب مذكرتك هنا</string>
+  <string name="settings_memo_font_size_desc">تعيين حجم الخط للمذكرة</string>
+  <string name="settings_memo_hint">أكتب ملاحظتك هنا. سوف تظهر في شاشة Always On.</string>
+  <string name="settings_google_now_shortcut_desc">إلغ تفعيل \"Always On Display\" عند تشغيل خاصية (google now) بقول \"Ok Google\" (قد لا تعمل مع لانشر جوجل الآن)</string>
+  <string name="settings_exit_animation">الحركة</string>
+  <string name="settings_exit_animation_desc">اختر حركة الخروج</string>
+  <string name="error_4_tasker_service_not_initialized">الخدمة غير مهيأة بشكل صحيح</string>
+  <string name="error">خطأ</string>
+  <string name="error_0_unknown_error_report_prompt">اضغط هنا للابلاغ عن الخطأ</string>
 </resources>

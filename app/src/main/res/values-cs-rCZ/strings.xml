@@ -6,19 +6,23 @@
   <string name="unlock">Zapni obrazovku</string>
   <string name="action_revert">Vrátit</string>
   <string name="menu_feedback">Zpětná vazba</string>
+  <string name="menu_rate">Appearance</string>
+  <string name="action_restart">Restartovat teď</string>
   <!--Support-->
-  <string name="action_support_the_development">Podpořte vývojáře</string>
+  <string name="action_support_the_development">Podpoř vývoj</string>
   <string name="support_how_much">Kolik byste chtěli darovat?</string>
-  <string name="gestures_action_speak">Řekni nahlas, aktuální čas, oznámení a stav baterie</string>
-  <string name="supporter_feature_only">Tato funkce je dostupná pouze pro předplatitele, můžete zvolit kolik chcete darovat na to aby jste se stali předplatitelem, kolik si přejete darovat?</string>
-  <string name="support_1">1$ je cena Coca-Coly</string>
-  <string name="support_2">2$ Cena jedné tabulky čokolády</string>
-  <string name="support_5">5$ Cena ledového čaje</string>
-  <string name="support_10">10$ Cena velké kávy ve Starbucks</string>
-  <string name="support_20">20$ Cena vynikající pizzy</string>
-  <string name="support_25">50$ Cena večeře pro dva</string>
+  <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
+  <string name="supporter_feature_only">Tato funkce je dostupná pouze pro předplatitele, můžete zvolit kolik chcete darovat a stát se předplatitelem, kolik si přejete darovat?</string>
+  <string name="support_1">1$: Cena osvěžující Coca-Coly</string>
+  <string name="support_2">2$: Cena jedné tabulky čokolády</string>
+  <string name="support_5">5$: Cena ledové kávy</string>
+  <string name="support_10">10$: Cena velké kávy ve Starbucks</string>
+  <string name="support_20">20$: Cena vynikající pizzy</string>
+  <string name="support_25">25$: Cena jedné večeře</string>
   <!--Intro-->
   <string name="intro_allow_now">Povolit nyní</string>
+  <string name="intro_permissions">Číst stav a identitu telefonu</string>
+  <string name="intro_permissions_desc">Aplikace potřebuje oprávnění ke čtení stavu telefonu, aby mohl probudit Vaše zařízení při příchozím hovoru.</string>
   <string name="intro_draw_over">Překrývat ostatní aplikace</string>
   <string name="intro_draw_over_desc">Aplikace potřebuje oprávnění zůstat spuštěna nad jinými aplikacemi</string>
   <string name="intro_modify_desc">Aplikace potřebuje oprávnění ke změně jasu obrazovky</string>
@@ -33,6 +37,11 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Děkujeme vám za vaši podporu! :)</string>
   <string name="notification_message">Vždy zapnuto je zaplé</string>
+  <string name="thanks_short">Děkujeme</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Vždy zapnuto</string>
+  <string name="quick_settings_service_active">povoleno</string>
+  <string name="quick_settings_service_inactive">vypnuto</string>
   <!-- Content description-->
   <string name="notification_icon">Ikona oznámení</string>
   <!--Widget-->
@@ -47,21 +56,25 @@
   <string name="error_IAP">Došlo k chybě! Prosím ujistěte se, že jste připojeni k Internetu a restartujte aplikaci</string>
   <string name="error_0_unknown_error">Došlo k chybě. Prosím nahlaste ji vývojáři </string>
   <string name="error_2_plugin_not_installed">NENÍ NAINSTALOVÁN PLUGIN</string>
+  <string name="error_3_unknown_error_restart">Objevila se chyba. Prosím, restartuj aplikaci.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Toto může poškodit výkon aplikace</string>
-  <string name="warning_4_device_not_secured">Vaše zařízení možná nebude zabezpečeno</string>
+  <string name="warning_4_device_not_secured">Vaše zařízení teď nemusí být zabezpečeno</string>
   <string name="warning_5_device_admin_disable">Tato akce zakáže některé funkce aplikace</string>
   <string name="warning_6_device_admin_disabled">Některé funkce mohou být nyní vypnuty</string>
   <string name="warning_7_disable_fingerprint">To může zakázat funkci snímače otisků prstů, jste si jisti, že chcete povolit?</string>
   <string name="warning_8_intro_allow_all">Prosím povolte všechna oprávnění</string>
-  <string name="warning_9_allow_notification">Dovolte, přístup k oznámením pro tuto aplikaci</string>
-  <string name="warning_11_no_root">Pro použití této funkce musí být vaše zařízení rootlé!</string>
+  <string name="warning_9_allow_notification">Dovolte přístup k oznámením pro tuto aplikaci</string>
+  <string name="warning_11_no_root">Pro použití této funkce musí být vaše zařízení rootnuté</string>
+  <string name="warning_12_please_report">Dej prosím vědět, co ti v aplikaci chybí a co bychom měli opravit</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Obojí, nabíjení a vybíjení</string>
   <string name="rules_while_charging">Při nabíjení</string>
   <string name="rules_while_not_charging">Při ne nabíjení</string>
   <!--Battery rules-->
   <string name="rules_always">Vždy</string>
+  <string name="rules_battery_90">90% nebo vyšší</string>
+  <string name="rules_battery_70">70% nebo vyšší</string>
   <string name="rules_battery_50">50 % nebo vyšší</string>
   <string name="rules_battery_30">30 % nebo vyšší</string>
   <string name="rules_battery_20">20 % nebo vyšší</string>
@@ -84,6 +97,7 @@
   <string name="settings_about">O aplikaci…</string>
   <string name="settings_appearance">Vzhled</string>
   <string name="settings_general">Obecná nastavení</string>
+  <string name="settings_shortcuts">Zkratky</string>
   <string name="settings_wake_up">Gesta a akce</string>
   <string name="settings_rules">Automatická pravidla</string>
   <!--Settings titles-->
@@ -94,6 +108,9 @@
   <string name="settings_volume_to_stop">Akce tlačítek hlasitosti</string>
   <string name="settings_swipe_wake">Akce potahnutím nahoru</string>
   <string name="settings_brightness">Jas</string>
+  <string name="settings_doze">Úsporný režim</string>
+  <string name="settings_google_now_shortcut">Povolit Google Now</string>
+  <string name="settings_memo_text">Text poznámky</string>
   <string name="settings_notifications">Notifikace</string>
   <string name="settings_persistent_notification">Zobrazit trvalé notifikace</string>
   <string name="settings_move_auto">Automaticky přesunout widget</string>
@@ -149,23 +166,33 @@
   <string name="settings_watch_digital">Digitální</string>
   <string name="settings_watch_analog">Analogové</string>
   <string name="settings_rules_text">Text</string>
+  <string name="settings_customize_hidden">Skryté</string>
+  <string name="settings_date_full_calendar">Celý kalendář</string>
   <string name="settings_font_default">Výchozí</string>
   <string name="settings_font_default_bold">Výchozí tučné</string>
   <string name="settings_font_default_italic">Výchozí kurzíva</string>
   <string name="settings_font_serif">Patkové</string>
   <string name="settings_font_sans_serif">Bezpatková</string>
   <string name="settings_font_monospace">Neproporcionální</string>
-  <string name="settings_gestures"><![CDATA[Gesta & vstupy]]></string>
   <string name="settings_gestures_desc">Dvojím poklepání probudit, potáhnout nahoru pro probuzení a více</string>
   <string name="settings_watchface_text_font"><![CDATA[Styl písma]]></string>
   <string name="settings_uninstall_desc">Odinstalujte aplikaci</string>
   <string name="settings_watchface_clock_desc">Vyberte si svůj oblíbený styl hodin</string>
+  <string name="settings_watch_analog_24_classic">Klasické analogové 24h</string>
   <string name="settings_watch_analog_s7">Styl analogových hodin S7</string>
+  <string name="settings_watch_ticks">Klasické s hodinovými ručičkami 12H</string>
+  <string name="settings_watch_digital_s7">Digitální hodiny ve stylu S7</string>
+  <string name="settings_watch_flat_analog">Plochý analogový styl</string>
   <string name="settings_watch_analog_pebble">Křišťálový styl analogových hodin</string>
+  <string name="settings_watch_flat_red_analog">Ploché analogové s červeným ciferníkem</string>
   <string name="move_disable">Vypnuto (není doporučeno pro AMOLED obrazovky)</string>
   <string name="move_move">Automaticky přesunout widget</string>
   <string name="move_move_animation">Přesunout widget automaticky s animací</string>
   <string name="greenify_integration_desc">Povolte Greenify k výraznému zlepšení životnosti baterie. Ujistěte se, aby Greenify bylo povoleno v nastavení usnadnění přístupu</string>
+  <string name="greenify_integration_desc_not_found">Nainstaluj Greenify, abys prodloužil výdrž baterie</string>
   <string name="settings_notifications_alerts_preview_desc">Zobrazit obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
+  <string name="settings_doze_desc">Povol Doze když je Vždy Zapnuto aktivní, abys ušetřil baterii (pouze pro root)</string>
+  <string name="settings_memo_text_desc">Napiš sem svojí poznámku</string>
+  <string name="settings_memo_font_size_desc">Nastav velikost poznámky</string>
 </resources>

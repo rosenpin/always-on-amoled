@@ -9,7 +9,7 @@
   <string name="menu_rate">Avalie esse aplicativo</string>
   <string name="action_restart">Reinicie</string>
   <!--Support-->
-  <string name="action_support_the_development">Suporte ao desenvolvimento</string>
+  <string name="action_support_the_development">Apoiar o desenvolvimento</string>
   <string name="support_how_much">Quanto você gostaria de doar?</string>
   <string name="gestures_action_speak">Fale o horário atual, notificações e nível de bateria</string>
   <string name="supporter_feature_only">Essa opção esta disponível apenas para quem deu suporte, você pode escolher um valor para doar para se tornar um! Quanto que você gostaria de doar?</string>
@@ -18,7 +18,7 @@
   <string name="support_5">5$: O preço para tomar um maravilhoso café gelado</string>
   <string name="support_10">10$: O preço para tomar um belíssimo café no Starbucks</string>
   <string name="support_20">20$: O preço para comer uma deliciosa pizza</string>
-  <string name="support_25">50$: O preço para ter um lindo jantar a dois</string>
+  <string name="support_25">25$: o preço de um jantar</string>
   <!--Intro-->
   <string name="intro_allow_now">Permita agora</string>
   <string name="intro_permissions">Ler estado do telefone</string>
@@ -38,6 +38,10 @@
   <string name="thanks">Obrigado pelo apoio! :)</string>
   <string name="notification_message">Always On esta funcionado</string>
   <string name="thanks_short">Obrigado</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Always on</string>
+  <string name="quick_settings_service_active">habilitado</string>
+  <string name="quick_settings_service_inactive">desabilitado</string>
   <!-- Content description-->
   <string name="notification_icon">Ícone de notificação</string>
   <!--Widget-->
@@ -52,6 +56,7 @@
   <string name="error_IAP">Erro! Verifique se você está conectado na internet e reinicie o aplicativo</string>
   <string name="error_0_unknown_error">Ocorreu um erro. Por favor avise o desenvolvedor </string>
   <string name="error_2_plugin_not_installed">PLUGIN NÃO ESTÁ INSTALADO</string>
+  <string name="error_3_unknown_error_restart">Ocorreu um erro. Por favor, reinicie o aplicativo.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Isso pode prejudicar o desempenho do aplicativo</string>
   <string name="warning_4_device_not_secured">Your device may not be secured now</string>
@@ -68,6 +73,8 @@
   <string name="rules_while_not_charging">Quando não estiver carregando</string>
   <!--Battery rules-->
   <string name="rules_always">Sempre</string>
+  <string name="rules_battery_90">90% ou mais</string>
+  <string name="rules_battery_70">70% ou mais</string>
   <string name="rules_battery_50">50% ou mais</string>
   <string name="rules_battery_30">30% ou mais</string>
   <string name="rules_battery_20">20% ou mais</string>
@@ -90,6 +97,7 @@
   <string name="settings_about">Sobre</string>
   <string name="settings_appearance">Aparência</string>
   <string name="settings_general">Geral</string>
+  <string name="settings_shortcuts">Atalhos</string>
   <string name="settings_wake_up">Gestos &amp; ações</string>
   <string name="settings_rules">Regras automáticas</string>
   <!--Settings titles-->
@@ -100,6 +108,9 @@
   <string name="settings_volume_to_stop">Botões de volume</string>
   <string name="settings_swipe_wake">Deslizar para cima</string>
   <string name="settings_brightness">Brilho</string>
+  <string name="settings_doze">Modo Doze</string>
+  <string name="settings_google_now_shortcut">Permitir Google Now</string>
+  <string name="settings_memo_text">Texto memo</string>
   <string name="settings_notifications">Notificações</string>
   <string name="settings_persistent_notification">Mostrar notificação persistente</string>
   <string name="settings_move_auto">Mover o widget automaticamente</string>
@@ -112,6 +123,7 @@
   <string name="settings_stop_delay">Sem atraso</string>
   <string name="settings_auto_brightness">Modo noite automático</string>
   <string name="settings_orientation">Orientação da Tela</string>
+  <string name="settings_always_on_memo">Texto Always On</string>
   <string name="settings_stop_on_camera">Permitir atalhos de câmera</string>
   <string name="settings_rules_cahrging">Regras de carregamento</string>
   <string name="settings_rules_battery">Regras de bateria</string>
@@ -155,19 +167,23 @@
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analógico</string>
   <string name="settings_rules_text">Texto</string>
+  <string name="settings_customize_hidden">Oculto</string>
+  <string name="settings_shown">Visível</string>
+  <string name="settings_date_full_calendar">Calendário completo</string>
   <string name="settings_font_default">Padrão</string>
   <string name="settings_font_default_bold">Default bold</string>
   <string name="settings_font_default_italic">Default italic</string>
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
-  <string name="settings_gestures"><![CDATA[Gestures & inputs]]></string>
   <string name="settings_gestures_desc">Configure as funções dos botões</string>
   <string name="settings_watchface_text_font"><![CDATA[Texto e fonte]]></string>
   <string name="settings_uninstall_desc">Desinstalar o aplicativo</string>
   <string name="settings_watchface_clock_desc">Escolha o seu estilo de relógio favorito</string>
   <string name="settings_watch_analog_24_classic">Relógio 24h clássico</string>
   <string name="settings_watch_analog_s7">Relógio estilo S7 analógico</string>
+  <string name="settings_watch_ticks">clássico 12h com ponteiro das horas</string>
+  <string name="settings_watch_digital_s7">Relógio digital do estilo S7</string>
   <string name="settings_watch_flat_analog">Relógio analógico estilo flat</string>
   <string name="settings_watch_analog_pebble">Relógio estilo Pebble analógico</string>
   <string name="settings_watch_flat_red_analog">Analógico flat (ponteiros vermelhos)</string>
@@ -179,4 +195,8 @@
   <string name="greenify_integration_desc_not_found">Instale o Greenify para ajudar a economizar bateria</string>
   <string name="settings_notifications_alerts_preview_desc">Mostrar o conteúdo das notificações quando recebidas</string>
   <string name="settings_notifications_alerts_preview">Conteúdo das notificações</string>
+  <string name="settings_doze_desc">Ativar o modo Doze enquanto o \"Always On\" está ativo para poupar bateria (apenas com root)</string>
+  <string name="settings_memo_text_desc">Escreva aqui o seu texto</string>
+  <string name="settings_memo_font_size_desc">Definir o tamanho de fonte do texto</string>
+  <string name="settings_memo_hint">Digite seu texto aqui. Ele vai aparecer em sua tela \"Always On\".</string>
 </resources>

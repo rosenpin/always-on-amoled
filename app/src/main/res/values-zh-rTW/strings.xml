@@ -3,11 +3,13 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
+  <string name="unlock">Turn the screen on</string>
   <!--Support-->
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">感謝你的支持! :)</string>
   <string name="notification_message">Always On正在運行</string>
+  <!--Quick settings-->
   <!-- Content description-->
   <!--Widget-->
   <!--Device admin-->

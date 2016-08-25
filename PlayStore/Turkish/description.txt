@@ -1,35 +1,35 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Telefon veya tabletinize "her zaman açık" yükleyin.
+Ekranınız sürekli açık kalsın.
+Açık kaynak kodlu ilk her zaman açık uygulaması!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+Bu fikir kullanıcıların saat, tarih ve bildirimleri ve daha fazlasını telefonlarına dokunmadan haberdar olmaları için geliştirildi. Sadece bakarak.
 
-Bu AMOLED ekranlar sayesinde mümkün. Most of the screen stays black except for a few pixels.
+Bu, AMOLED ekranlar sayesinde mümkün. Birkaç piksel dışında ekran siyah kalır.
 
-Özellikleri
-Her an açık ekran
-Bildirimler - cihazınıza dokunmadan bildirimleri görün
-Otomatik kurallar - önceden tanımlanmış kuralları kullanarak pilinizi koruyun
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★Özellikleri
+• Her an açık ekran
+• Bildirimler - cihazınıza dokunmadan bildirimleri görün
+• Otomatik kurallar - önceden tanımlanmış kuralları kullanarak pilinizi koruyun
+• Otomatik hareket - AMOLED ekran yanığını önleme
+• Otomatik gece modu - Karanlık ortamda parlaklığı otomatik olarak kısma
+• Cep modu - Cihazı cebinize koyduğunuzda güç tasarrufu içi otomatik kilitleme
+• Çift tıkla uyandırma + Yukarı kaydırarak uyandırma + Ses tuşlarını kullanarak uyandırma + Geri tuşuyla uyandırma
+• Ekran yönlendirme - Ekranın hangi yönde kalacağını belirleme
+• Kişiselleştirme - Yazı rengini, büyüklüğünü, ekran parlaklığını ve daha fazlasını özelleştirme
+• BEDAVA VE AÇIK KAYNAK!
 
-Before using please enable 'draw over apps' permission for this app.
+Lütfen kullanmadan önce "üstte görünebilen uygulamalar" iznini verin.
 
-The app is in BETA, it still has bugs and lacks features.
+Bu uygulama henüz BETA aşamasında, hala hatalar ve eksik özellikler var.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+İzinler
+<b>Kamera izni</b>
+Hızlı kamera açılışı için uygulamayı kapatmak için bu izne ihtiyaç duyar.
+<b>Telefon izni</b>
+Gelen aramalarda "her zaman açık" ekranını kapatıp gelen arama ekranına yönlerdirmek için ihtiyaç duyar.
+<b>Sistem özelliklerini değiştirme izni</b>
+Kilit ekranı parlaklığını değiştirmek için sistem özelliklerini değiştirme iznine ihtiyaç duyar.
 
 
-Google Plus Community
+Google+ Topluluğu
 https://plus.google.com/communities/104206728795122451273

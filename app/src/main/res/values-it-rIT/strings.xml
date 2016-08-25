@@ -9,7 +9,7 @@
   <string name="menu_rate">Valuta l\'app</string>
   <string name="action_restart">Riavvia ora</string>
   <!--Support-->
-  <string name="action_support_the_development">Supporta lo sviluppo</string>
+  <string name="action_support_the_development">Sostieni lo Sviluppatore</string>
   <string name="support_how_much">Quanto vorresti donare?</string>
   <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
   <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
@@ -18,12 +18,12 @@
   <string name="support_5">5$: Il prezzo di un fresco ice-coffee</string>
   <string name="support_10">10$: Il prezzo di una grande tazza al caffè Starbucks</string>
   <string name="support_20">20$: Il prezzo di una deliziosa pizza</string>
-  <string name="support_25">50$: Il prezzo di una cena per due</string>
+  <string name="support_25">25$: Il prezzo di una cena</string>
   <!--Intro-->
   <string name="intro_allow_now">Consenti ora</string>
   <string name="intro_permissions">Leggi stato telefono</string>
   <string name="intro_permissions_desc">L\'app richiede l\'autorizzazione per capire lo stato del telefono ed accenderlo quando ricevi una chiamata.</string>
-  <string name="intro_draw_over">Attiingere da altre apps</string>
+  <string name="intro_draw_over">Attingere da altre apps</string>
   <string name="intro_draw_over_desc">L\'app richiede il permesso per attingere da altre apps</string>
   <string name="intro_modify_desc">L\'app ha bisogno dell\'autorizzazione per modificare la luminosità del dispositivo</string>
   <string name="intro_modify">Modifica le impostazioni di sistema</string>
@@ -38,6 +38,10 @@
   <string name="thanks">Grazie per il tuo supporto! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="thanks_short">Grazie</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Always on</string>
+  <string name="quick_settings_service_active">abilita</string>
+  <string name="quick_settings_service_inactive">disabilitato</string>
   <!-- Content description-->
   <string name="notification_icon">Icona di notifica</string>
   <!--Widget-->
@@ -52,6 +56,7 @@
   <string name="error_IAP">Errore! Si prega di assicurarti di essere connesso ad internet e riavvia l\'applicazione</string>
   <string name="error_0_unknown_error">Si è verificato un errore</string>
   <string name="error_2_plugin_not_installed">IL PLUGIN NON E\' INSTALLATO</string>
+  <string name="error_3_unknown_error_restart">Si è verificato un errore. Si prega di riavviare l\'app.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Questo può danneggiare le prestazioni dell\'applicazione</string>
   <string name="warning_4_device_not_secured">Il tuo dispositivo può non essere fissato ora</string>
@@ -103,6 +108,7 @@
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
   <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
   <string name="settings_brightness">Luminosità</string>
+  <string name="settings_doze">Modalità Doze</string>
   <string name="settings_google_now_shortcut">Consenti Google Now</string>
   <string name="settings_memo_text">Testo Memo</string>
   <string name="settings_notifications">Notifiche</string>
@@ -161,32 +167,44 @@
   <string name="settings_watch_digital">Digitale</string>
   <string name="settings_watch_analog">Analogico</string>
   <string name="settings_rules_text">Testo</string>
+  <string name="settings_customize_hidden">Nascondi</string>
+  <string name="settings_shown">Mostra</string>
+  <string name="settings_date_full_calendar">Calendario completo</string>
   <string name="settings_font_default">Predefinito</string>
   <string name="settings_font_default_bold">Predefinito grassetto</string>
   <string name="settings_font_default_italic">Predefinito corsivo</string>
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
-  <string name="settings_gestures"><![CDATA[Gesti & inputs]]></string>
+  <string name="settings_gestures"><![CDATA[Gesti e scorciatoie]]></string>
   <string name="settings_gestures_desc">Doppio tap per svegliare, scorri in alto per svegliare ed altro</string>
   <string name="settings_watchface_text_font"><![CDATA[Testo & Carattere]]></string>
   <string name="settings_uninstall_desc">Disinstalla l\'applicazione</string>
   <string name="settings_watchface_clock_desc">Scegli il tuo stile preferito dell\'orologio</string>
   <string name="settings_watch_analog_24_classic">Analogico classico 24h</string>
   <string name="settings_watch_analog_s7">Orologio analogico stile S7</string>
+  <string name="settings_watch_ticks">Classico 12H con tacche dell\'ora</string>
+  <string name="settings_watch_digital_s7">Orologio digitale stile S7</string>
   <string name="settings_watch_flat_analog">Stile piatto analogico</string>
   <string name="settings_watch_analog_pebble">Orologio analogico stile Pebble</string>
   <string name="settings_watch_flat_red_analog">Analogico piatto (lancette rosse)</string>
   <string name="move_disable">Disabilitato (non raccomandato per schermi AMOLED)</string>
   <string name="move_move">Muovi automaticamente il widget</string>
   <string name="move_move_animation">Muovi automaticamente il widget con un\'animazione</string>
-  <string name="greenify_integration_desc">Abilita Greenify mentre il servizio sempre attivo è visibile per migliorare significativamente la durata della batteria. Assicurarsi di abilitare Greenify nelle impostazioni di accessibilità</string>
+  <string name="greenify_integration_desc">Abilita Greenify mentre il servizio always on è visibile per migliorare significativamente la durata della batteria. Assicurarsi di abilitare Greenify nelle impostazioni di accessibilità</string>
   <string name="greenify_integration_desc_found">Assicurati di abilitare Greenify nelle impostazioni di accessibilità e scegliere le applicazioni che desideri ibernazione mentre il dispositivo è bloccato. Fai clic qui per configurare Greenify</string>
   <string name="greenify_integration_desc_not_found">Installa Greenify per migliorare la durata della batteria</string>
   <string name="settings_notifications_alerts_preview_desc">Visualizza il contenuto della notifica quando ricevuto</string>
   <string name="settings_notifications_alerts_preview">Contenuto notifica</string>
+  <string name="settings_doze_desc">Abilita Doze mentre l\'always on screen è attivo per risparmiare batteria (solo root)</string>
   <string name="settings_memo_text_desc">Scrivi qui il tuo memo</string>
   <string name="settings_memo_font_size_desc">Imposta la dimensione carattere del memo</string>
   <string name="settings_memo_hint">Digita qui il tuo memo. Esso apparirà nel tuo schermo always on.</string>
   <string name="settings_google_now_shortcut_desc">Interrompi l\'always on screen quando Google Now viene attivato dicendo OK Google (Potrebbe non funzionare con il Google Now Launcher)</string>
+  <string name="settings_exit_animation">Animazione</string>
+  <string name="settings_exit_animation_desc">Scegli l\'animazione di uscita</string>
+  <string name="error_4_tasker_service_not_initialized">Il servizio non è stato inizializzato correttamente</string>
+  <string name="error">Errore</string>
+  <string name="error_0_unknown_error_report_prompt">Clicca qui per segnalare l\'errore</string>
+  <string name="never_show_again">Non mostrare più</string>
 </resources>

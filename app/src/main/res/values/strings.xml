@@ -185,9 +185,9 @@
     <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
     <string name="settings_uninstall_desc">Uninstall the app</string>
     <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
-    <string name="settings_watch_analog_24_classic">Classic 24h Analog</string>
+    <string name="settings_watch_analog_24_classic">Classic 24h Analog Clock</string>
     <string name="settings_watch_analog_s7">S7 style analog clock</string>
-    <string name="settings_watch_ticks">12H classic with hour ticks</string>
+    <string name="settings_watch_ticks">Classic 12h Analog Clock</string>
     <string name="settings_watch_digital_s7">S7 style digital clock</string>
     <string name="settings_watch_flat_analog">Flat analog style</string>
     <string name="settings_watch_analog_pebble">Pebble style analog clock</string>

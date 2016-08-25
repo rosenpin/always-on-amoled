@@ -3,46 +3,84 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
+  <string name="unlock">点亮屏幕</string>
   <string name="action_revert">充值</string>
   <string name="menu_feedback">反馈</string>
+  <string name="menu_rate">为这款应用评分。</string>
+  <string name="action_restart">立即重启</string>
   <!--Support-->
   <string name="action_support_the_development">支持开发者</string>
-  <string name="support_how_much">你想捐助多少数额？</string>
+  <string name="support_how_much">您想捐助多少数额？</string>
   <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
   <string name="supporter_feature_only">此功能仅适用于捐助者，你可以自由的选择是否捐助，若想成为捐助者你也可以自由的选择捐助数额。</string>
   <string name="support_1">$1: 请我喝一杯可乐</string>
-  <string name="support_2">$2: 请我喝一杯啤酒</string>
+  <string name="support_2">$2: 请我吃一块美味的巧克力</string>
   <string name="support_5">$5: 请我喝一杯冰爽的咖啡</string>
   <string name="support_10">$10: 请我喝一杯星巴克咖啡</string>
   <string name="support_20">$20: 请我吃一餐美味的披萨</string>
-  <string name="support_25">$50: 请我吃两顿午餐</string>
+  <string name="support_25">25$: 一顿晚饭钱</string>
   <!--Intro-->
   <string name="intro_allow_now">设置权限</string>
+  <string name="intro_permissions">访问电话状态</string>
+  <string name="intro_permissions_desc">此应用需要读取手机状态的信息以便在您有来电时点亮屏幕</string>
   <string name="intro_draw_over">在其他应用之上显示内容</string>
+  <string name="intro_draw_over_desc">此应用需要悬浮窗权限，请在手机应用权限设置项中授予</string>
+  <string name="intro_modify_desc">此应用需要调节屏幕亮度权限</string>
+  <string name="intro_modify">调整系统设置</string>
+  <string name="intro_wake_ups">唤醒规则</string>
+  <string name="intro_wake_ups_desc">选择您希望在always on状态下唤醒手机的方式。无需纠结，过后您也可以在应用中对其进行修改。</string>
   <string name="intro_checkbox_volume_keys">音量键解锁</string>
+  <string name="intro_checkbox_swipe_up">从屏幕正中向上滑动唤醒。</string>
+  <string name="intro_checkbox_double_tap">双击屏幕正中以唤醒设备</string>
+  <string name="intro_notifications">通知提醒</string>
+  <string name="intro_notifications_desc">如果您希望接收其他应用的提醒并在锁屏常亮时显示，请开启“同意”按钮。</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">谢谢您的支持! :)</string>
   <string name="notification_message">Always On 正在运行</string>
+  <string name="thanks_short">谢谢您！</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Always On</string>
+  <string name="quick_settings_service_active">启用</string>
+  <string name="quick_settings_service_inactive">停用</string>
   <!-- Content description-->
-  <string name="notification_icon">通知图示</string>
+  <string name="notification_icon">通知图标</string>
   <!--Widget-->
   <string name="widget_toggle">切换</string>
   <string name="widget_off">关闭</string>
-  <string name="widget_on">启用</string>
+  <string name="widget_on">打开</string>
   <!--Device admin-->
   <!--Plugin-->
+  <string name="plugin_dialog_title">需要安装插件</string>
+  <string name="plugin_dialog_desc">您的设备似乎设置有硬件保护，请安装插件以确保服务正常运行。</string>
   <!--Errors-->
-  <string name="error_IAP">错误，请确保你的设备已连接到Internet，并重启应用程序</string>
+  <string name="error_IAP">出现错误！请确保你的设备已连接到Internet，并重启应用程序</string>
+  <string name="error_0_unknown_error">发生错误，请向开发者反馈</string>
+  <string name="error_2_plugin_not_installed">插件未能安装</string>
+  <string name="error_3_unknown_error_restart">发生错误，请重启应用</string>
   <!--Warnings-->
+  <string name="warning_1_harm_performance">这可能影响应用性能</string>
+  <string name="warning_4_device_not_secured">您的设备现在可能处于不安全状态</string>
+  <string name="warning_5_device_admin_disable">这将关闭应用的某些功能</string>
+  <string name="warning_6_device_admin_disabled">某些功能现在可能已经关闭</string>
+  <string name="warning_7_disable_fingerprint">这将关闭指纹识别功能，您确定启用吗？</string>
+  <string name="warning_8_intro_allow_all">请批准全部授权</string>
+  <string name="warning_9_allow_notification">请为本应用授权读取通知权限</string>
+  <string name="warning_11_no_root">若要使用本功能请先获取root权限</string>
+  <string name="warning_12_please_report">请向我反馈您希望添加或修复的内容</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">在充电和未在充电时都打开</string>
+  <string name="rules_while_charging">仅在充电时</string>
+  <string name="rules_while_not_charging">仅在未在充电时</string>
   <!--Battery rules-->
   <string name="rules_always">始终</string>
-  <string name="rules_battery_50">50%或更高</string>
-  <string name="rules_battery_30">30%或更高</string>
-  <string name="rules_battery_20">20%或更高</string>
-  <string name="rules_battery_10">10%或更高</string>
+  <string name="rules_battery_90">90%以上</string>
+  <string name="rules_battery_70">70%以上</string>
+  <string name="rules_battery_50">50%以上</string>
+  <string name="rules_battery_30">30%以上</string>
+  <string name="rules_battery_20">20%以上</string>
+  <string name="rules_battery_10">10%以上</string>
   <!--Timeout delay rule-->
-  <string name="rules_disabled">关闭</string>
+  <string name="rules_disabled">停用</string>
   <string name="rules_minutes_1">1分钟</string>
   <string name="rules_minutes_2">2分钟</string>
   <string name="rules_minutes_5">5分钟</string>
@@ -57,8 +95,9 @@
   <!--Settings headers-->
   <string name="settings_behaviour">行为</string>
   <string name="settings_about">关于</string>
-  <string name="settings_appearance">外观</string>
-  <string name="settings_general">一般</string>
+  <string name="settings_appearance">布局</string>
+  <string name="settings_general">通用</string>
+  <string name="settings_shortcuts">快捷方式</string>
   <string name="settings_wake_up">手势&amp;动作</string>
   <string name="settings_rules">自动规则</string>
   <!--Settings titles-->
@@ -67,16 +106,105 @@
   <string name="settings_double_tap_wake">双击操作</string>
   <string name="settings_back_button_wake">后退按钮动作</string>
   <string name="settings_volume_to_stop">音量键操作</string>
+  <string name="settings_swipe_wake">向上滑动功能</string>
   <string name="settings_brightness">亮度</string>
+  <string name="settings_doze">Doze模式</string>
+  <string name="settings_google_now_shortcut">允许使用谷歌即时</string>
+  <string name="settings_memo_text">备注文本</string>
   <string name="settings_notifications">通知</string>
+  <string name="settings_persistent_notification">持续显示通知</string>
   <string name="settings_move_auto">自动移动部件</string>
   <string name="settings_font_size">字体大小</string>
-  <string name="settings_watchface">自定义 WatchFace</string>
+  <string name="settings_watchface">自定义表盘</string>
   <string name="settings_proximity">距离传感器 (口袋模式)</string>
   <string name="settings_show_am_pm">显示 AM/PM</string>
+  <string name="settings_text_color">文本颜色</string>
+  <string name="settings_startafterlock">锁屏之后启动</string>
+  <string name="settings_stop_delay">多长时间后熄灭屏幕？</string>
+  <string name="settings_auto_brightness">自动启用夜间模式</string>
+  <string name="settings_orientation">屏幕方向</string>
+  <string name="settings_always_on_memo">Always On 备忘录</string>
+  <string name="settings_stop_on_camera">显示相机快捷键</string>
+  <string name="settings_rules_cahrging">充电规则</string>
+  <string name="settings_rules_battery">电量规则</string>
+  <string name="settings_font">字体</string>
+  <string name="settings_translate">提供翻译</string>
+  <string name="settings_github">在GitHub上查看源代码</string>
+  <string name="settings_community">访问社区</string>
   <string name="greenify_integration">Greenify整合</string>
+  <string name="settings_licenses">许可信息</string>
+  <string name="settings_uninstall">卸载</string>
+  <string name="settings_app_version">版本</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">在启动相机后暂时关闭Always On屏幕</string>
+  <string name="settings_auto_brightness_desc">在黑暗的环境下降低屏幕亮度(注意：该功能需要保持传感器一直待机而可能消耗更多电量)</string>
+  <string name="settings_stop_delay_desc_short_message">在一定时长无操作后，停止Always On服务:</string>
+  <string name="settings_stop_delay_desc">在一定时长无操作后关闭Always On服务，以节省电量</string>
+  <string name="settings_startafterlock_desc">仅在锁屏后启动服务。打开此开关可以保证您的设备安全而且不会影响指纹解锁功能</string>
+  <string name="settings_rules_desc">何时启用Always On服务？</string>
+  <string name="settings_text_color_desc">设置文本颜色</string>
+  <string name="settings_show_am_pm_desc">显示上午或下午符号(此选项仅在12时制下有效)</string>
+  <string name="settings_watchface_desc">自定义Always On屏幕</string>
+  <string name="settings_proximity_to_lock_desc">当您将设备放入口袋时锁定设备(注意：该功能需要保持传感器一直待机而可能消耗更多电量)</string>
+  <string name="settings_licenses_desc">开放源代码许可</string>
+  <string name="settings_community_desc">Google+社区</string>
+  <string name="settings_github_desc">在GitHub上的开源信息</string>
+  <string name="settings_move_desc">启用这项功能可以避免常亮而引起的烧屏</string>
+  <string name="settings_font_size_desc">设置时钟字体大小</string>
+  <string name="settings_notifications_desc">启用此选项以使程序在后台运行</string>
+  <string name="settings_enabled_desc">启动服务</string>
+  <string name="settings_disable_volume_keys_desc">启用此选项可防止音量突然变化</string>
+  <string name="settings_notifications_alerts_desc">显示其他应用程序收到的通知</string>
+  <string name="settings_brightness_desc">Always On屏幕的亮度</string>
+  <string name="settings_about_translate">帮助我们翻译这款应用程序</string>
+  <string name="settings_version_desc">编译次数</string>
+  <string name="settings_watchface_clock">时钟样式</string>
+  <string name="settings_watchface_date">日期样式</string>
+  <string name="settings_watchface_battery">电池图标样式</string>
+  <string name="settings_watchface_miscellaneous">其他</string>
+  <string name="settings_watchface_styles">样式</string>
+  <string name="settings_choose_font">选择您的字体</string>
+  <string name="settings_watch_digital">数字风格</string>
+  <string name="settings_watch_analog">模拟时钟</string>
+  <string name="settings_rules_text">文本</string>
+  <string name="settings_customize_hidden">隐藏</string>
+  <string name="settings_shown">显示</string>
+  <string name="settings_date_full_calendar">完整日历</string>
+  <string name="settings_font_default">默认</string>
+  <string name="settings_font_default_bold">默认粗体</string>
+  <string name="settings_font_default_italic">默认斜体</string>
+  <string name="settings_font_serif">衬线字体</string>
+  <string name="settings_font_sans_serif">新宋体</string>
+  <string name="settings_font_monospace">等宽字体</string>
+  <string name="settings_gestures"><![CDATA[手势与快捷方式]]></string>
+  <string name="settings_gestures_desc">双击唤醒、上滑唤醒和更多设置</string>
+  <string name="settings_watchface_text_font"><![CDATA[文本和字体]]></string>
+  <string name="settings_uninstall_desc">卸载此应用程序</string>
+  <string name="settings_watchface_clock_desc">选择您最喜欢的时钟样式</string>
+  <string name="settings_watch_analog_24_classic">经典24小时制模拟时钟</string>
+  <string name="settings_watch_analog_s7">S7风格模拟时钟</string>
+  <string name="settings_watch_ticks">有刻度的12小时制时钟</string>
+  <string name="settings_watch_digital_s7">S7风格的数字时钟</string>
+  <string name="settings_watch_flat_analog">平面模拟风格</string>
+  <string name="settings_watch_analog_pebble">Pebble风格的模拟时钟</string>
+  <string name="settings_watch_flat_red_analog">平面模拟(红色表盘)</string>
   <string name="move_disable">禁用（不推荐用于AMOLED屏幕）</string>
   <string name="move_move">自动移除部件</string>
+  <string name="move_move_animation">使小部件跟随动画移动</string>
+  <string name="greenify_integration_desc">在使用Always On时，启用绿色守护可显著延长待机时间。请确保已在辅助功能里启用绿色守护。</string>
+  <string name="greenify_integration_desc_found">请确保您在辅助功能中启用了绿色守护然后再选择您希望设备在锁定后休眠的应用。单击此处以配置绿色守护。</string>
+  <string name="greenify_integration_desc_not_found">安装绿色守护来延长待机时间</string>
+  <string name="settings_notifications_alerts_preview_desc">收到通知后显示内容</string>
   <string name="settings_notifications_alerts_preview">通知内容</string>
+  <string name="settings_doze_desc">在使用Always On时启用Doze模式来节约电量(需要提供Root权限)</string>
+  <string name="settings_memo_text_desc">在这里写下您的备注信息</string>
+  <string name="settings_memo_font_size_desc">设置备注字体</string>
+  <string name="settings_memo_hint">在这里写下您的备注信息。备注信息将会显示在您的Always On屏幕上。</string>
+  <string name="settings_google_now_shortcut_desc">在通过“OK Google“启动Google即时后，暂停Always On服务。(可能对Google Now桌面无效)</string>
+  <string name="settings_exit_animation">动画</string>
+  <string name="settings_exit_animation_desc">选择退出动画</string>
+  <string name="error_4_tasker_service_not_initialized">该服务未正确初始化</string>
+  <string name="error">错误</string>
+  <string name="error_0_unknown_error_report_prompt">点击此处反馈错误</string>
+  <string name="never_show_again">不再显示</string>
 </resources>

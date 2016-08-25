@@ -8,7 +8,6 @@
   <string name="menu_feedback">Spune-ne părerea ta</string>
   <string name="menu_rate">Exprimă-ţi părerea</string>
   <!--Support-->
-  <string name="action_support_the_development">Contribuie la dezvoltarea aplicaţiei</string>
   <string name="support_how_much">Cât de mult ați dori să donați?</string>
   <string name="gestures_action_speak">Spune cu voce tare ora, notificările şi nivelul bateriei</string>
   <string name="supporter_feature_only">Această opțiune este valabilă doar pentru donatori. Poți alege cât de mult ca să devi un donator. Cât de mult doriţi să donaţi?</string>
@@ -17,7 +16,6 @@
   <string name="support_5">5$: Prețul unui cești de cafea cu gheaţă</string>
   <string name="support_10">10$: Preţul unui pahar mare de la Starbucks</string>
   <string name="support_20">20$: Pretul unei delicioase pizza</string>
-  <string name="support_25">50$: Pretul unei mese pentru doi</string>
   <!--Intro-->
   <string name="intro_allow_now">Oferă permisiunile</string>
   <string name="intro_draw_over">Funcționare peste alte aplicații</string>
@@ -35,6 +33,7 @@
   <string name="thanks">Îți mulțumesc pentru sprijin! :)</string>
   <string name="notification_message">Serviciul „Always on” funcționează.</string>
   <string name="thanks_short">Multumesc</string>
+  <!--Quick settings-->
   <!-- Content description-->
   <string name="notification_icon">Icon de notificare</string>
   <!--Widget-->
@@ -159,7 +158,6 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospaţiu</string>
-  <string name="settings_gestures"><![CDATA[Gesturi și intrări]]></string>
   <string name="settings_gestures_desc">Apasă de două ori ca să ieși, glisează în sus și altele</string>
   <string name="settings_watchface_text_font"><![CDATA[Text și font]]></string>
   <string name="settings_uninstall_desc">Dezinstalează aplicația</string>

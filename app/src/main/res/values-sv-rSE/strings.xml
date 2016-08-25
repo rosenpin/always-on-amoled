@@ -18,7 +18,7 @@
   <string name="support_5">55kr     Priset på en kall iskaffe</string>
   <string name="support_10">105kr     Priset på en gigantisk kaffe från Starbucks</string>
   <string name="support_20">215kr     Priset på en utsökt pizza</string>
-  <string name="support_25">539kr     Priset på en middag för två</string>
+  <string name="support_25">25$: priset på en middag</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus</string>
@@ -38,6 +38,10 @@
   <string name="thanks">Tack för ditt stöd! :)</string>
   <string name="notification_message">Always On är igång</string>
   <string name="thanks_short">Tack så mycket</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Alltid på</string>
+  <string name="quick_settings_service_active">Aktiverat</string>
+  <string name="quick_settings_service_inactive">Avaktiverat</string>
   <!-- Content description-->
   <string name="notification_icon">Aviseringsikon</string>
   <!--Widget-->
@@ -52,6 +56,7 @@
   <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
   <string name="error_0_unknown_error">Ett fel har uppstått. Vänligen rapportera till utvecklaren </string>
   <string name="error_2_plugin_not_installed">PLUGIN HAR INTE INSTALLERATS</string>
+  <string name="error_3_unknown_error_restart">Ett fel har uppstått. Vänligen starta om appen</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Detta kan skada appens prestanda</string>
   <string name="warning_4_device_not_secured">Din enhet är eventuellt osäker för tillfället</string>
@@ -68,6 +73,8 @@
   <string name="rules_while_not_charging">Medan enheten inte laddas</string>
   <!--Battery rules-->
   <string name="rules_always">Alltid</string>
+  <string name="rules_battery_90">90% eller mer</string>
+  <string name="rules_battery_70">70% eller mer</string>
   <string name="rules_battery_50">50% eller mer</string>
   <string name="rules_battery_30">30% procent eller mer</string>
   <string name="rules_battery_20">20% eller mer</string>
@@ -90,6 +97,7 @@
   <string name="settings_about">Om</string>
   <string name="settings_appearance">Utseende</string>
   <string name="settings_general">Allmänt</string>
+  <string name="settings_shortcuts">Genvägar</string>
   <string name="settings_wake_up">Gester och funktioner</string>
   <string name="settings_rules">Automatiska regler</string>
   <!--Settings titles-->
@@ -100,6 +108,9 @@
   <string name="settings_volume_to_stop">Volymknapparna för att:</string>
   <string name="settings_swipe_wake">Dra uppåt för att:</string>
   <string name="settings_brightness">Ljusstyrka</string>
+  <string name="settings_doze">Doze-läge</string>
+  <string name="settings_google_now_shortcut">Tillåta Google Nu</string>
+  <string name="settings_memo_text">Memo text</string>
   <string name="settings_notifications">Aviseringar</string>
   <string name="settings_persistent_notification">Visa alltid notifikation</string>
   <string name="settings_move_auto">Flytta widget automatiskt</string>
@@ -112,6 +123,7 @@
   <string name="settings_stop_delay">Stäng av fördröjning</string>
   <string name="settings_auto_brightness">Automatiskt nattläge </string>
   <string name="settings_orientation">Skärmorientering</string>
+  <string name="settings_always_on_memo">Always On memo</string>
   <string name="settings_stop_on_camera">Tillåt kameragenvägar</string>
   <string name="settings_rules_cahrging">Regler för laddning</string>
   <string name="settings_rules_battery">Regler för batteri</string>
@@ -155,19 +167,23 @@
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
   <string name="settings_rules_text">Text</string>
+  <string name="settings_customize_hidden">Dolt</string>
+  <string name="settings_shown">Visas</string>
+  <string name="settings_date_full_calendar">Fullständig kalender</string>
   <string name="settings_font_default">Standard</string>
   <string name="settings_font_default_bold">Standard markerad</string>
   <string name="settings_font_default_italic">Standard kursiv</string>
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Fast bredd</string>
-  <string name="settings_gestures"><![CDATA[Gester & funktioner]]></string>
   <string name="settings_gestures_desc">Dubbeltryck för att väcka, dra upp för att väcka och mer</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
   <string name="settings_uninstall_desc">Avinstallera appen</string>
   <string name="settings_watchface_clock_desc">Välj din favorit klockstil</string>
   <string name="settings_watch_analog_24_classic">Klassisk 24h (analog)</string>
   <string name="settings_watch_analog_s7">Galaxy S7 (analog)</string>
+  <string name="settings_watch_ticks">Klassisk 12h (analog) </string>
+  <string name="settings_watch_digital_s7">Galaxy S7 (digital)</string>
   <string name="settings_watch_flat_analog">Platt analog stil</string>
   <string name="settings_watch_analog_pebble">Pebble (analog)</string>
   <string name="settings_watch_flat_red_analog">Platt analog (röd urtavla)</string>
@@ -179,4 +195,9 @@
   <string name="greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
   <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
+  <string name="settings_doze_desc">Aktivera doze medan always on skärmen är aktiv för att spara batteri (endast root)</string>
+  <string name="settings_memo_text_desc">Skriv din anteckning här</string>
+  <string name="settings_memo_font_size_desc">Ange teckenstorlek för anteckningar</string>
+  <string name="settings_memo_hint">Skriv din anteckning här. Det visas på din always on display.</string>
+  <string name="settings_google_now_shortcut_desc">Stäng av always on skärmen när Google Nu aktiveras genom att säga OK Google (kanske inte fungerar med Google Nu launcher)</string>
 </resources>

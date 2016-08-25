@@ -9,7 +9,7 @@
   <string name="menu_rate">Noter l\'application</string>
   <string name="action_restart">Redémarrer maintenant</string>
   <!--Support-->
-  <string name="action_support_the_development">Soutenir le développement</string>
+  <string name="action_support_the_development">Supporter le développement</string>
   <string name="support_how_much">Combien voudriez-vous donner ?</string>
   <string name="gestures_action_speak">Annoncer l\'heure, les notifications et le pourcentage de batterie à haute voix</string>
   <string name="supporter_feature_only">Cette fonctionnalité n\'est disponible uniquement pour les donateurs, combien voudriez-vous donner pour devenir un donateur ?</string>
@@ -18,7 +18,7 @@
   <string name="support_5">5$ : Le prix d\'un café glacé</string>
   <string name="support_10">10$ : Le prix d\'un café Starbucks qui assure</string>
   <string name="support_20">20$ : Le prix d\'une pizza délicieuse</string>
-  <string name="support_25">50$ : le prix d’un dîner pour deux</string>
+  <string name="support_25">25$: Le prix d\'un dîner</string>
   <!--Intro-->
   <string name="intro_allow_now">Autoriser maintenant</string>
   <string name="intro_permissions">Lire l\'état du téléphone</string>
@@ -38,6 +38,10 @@
   <string name="thanks">Merci pour votre soutient ! :)</string>
   <string name="notification_message">Always On est activé</string>
   <string name="thanks_short">Merci à vous</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Always on</string>
+  <string name="quick_settings_service_active">activer</string>
+  <string name="quick_settings_service_inactive">désactiver</string>
   <!-- Content description-->
   <string name="notification_icon">Icône de notification</string>
   <!--Widget-->
@@ -52,6 +56,7 @@
   <string name="error_IAP">Erreur ! Soyez sûr d\'être connecté à Internet et redémarrez l\'application</string>
   <string name="error_0_unknown_error">Une erreur s\'est produite. Merci de la signaler au développeur </string>
   <string name="error_2_plugin_not_installed">LE PLUGIN N\'EST PAS INSTALLÉ</string>
+  <string name="error_3_unknown_error_restart">Une erreur est survenue. Merci de redémarrer l\'appli.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Cela peut nuire aux performances de l\'application </string>
   <string name="warning_4_device_not_secured">Votre appareil peut ne pas être sécurisé maintenant</string>
@@ -162,13 +167,15 @@
   <string name="settings_watch_digital">Numérique</string>
   <string name="settings_watch_analog">Analogique</string>
   <string name="settings_rules_text">Texte</string>
+  <string name="settings_customize_hidden">Cacher</string>
+  <string name="settings_shown">Montrer</string>
+  <string name="settings_date_full_calendar">Calendrier complet</string>
   <string name="settings_font_default">Défaut</string>
   <string name="settings_font_default_bold">Gras défaut</string>
   <string name="settings_font_default_italic">Défaut italique</string>
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
-  <string name="settings_gestures"><![CDATA[Gestes & entrées]]></string>
   <string name="settings_gestures_desc">Double tap pour réveiller, glisser pour réveiller et plus</string>
   <string name="settings_watchface_text_font"><![CDATA[Texte & Police]]></string>
   <string name="settings_uninstall_desc">Désinstaller l\'application</string>
@@ -176,6 +183,7 @@
   <string name="settings_watch_analog_24_classic">Horloge clasique 24H</string>
   <string name="settings_watch_analog_s7">Horloge analogique du S7</string>
   <string name="settings_watch_ticks">12h classique avec graduation des heures</string>
+  <string name="settings_watch_digital_s7">Horloge digitale style S7</string>
   <string name="settings_watch_flat_analog">Style analogique plat</string>
   <string name="settings_watch_analog_pebble">Horloge analogique de style Pebble</string>
   <string name="settings_watch_flat_red_analog">Horloge plate (ligne rouge)</string>

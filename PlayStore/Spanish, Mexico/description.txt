@@ -1,35 +1,35 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Obtén una pantalla siempre encendida para tu teléfono o tableta.
+Mantén tu pantalla encendida todo el tiempo.
+¡La primera aplicación Always On de código abierto!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+La idea es dar a los usuarios información acerca de la hora, fecha, notificaciones y más, sin tener que tocar el teléfono. Solo mirándola.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Esto es posible gracias a la tecnología de las pantallas AMOLED. La mayor parte de la pantalla se mantiene apagada, excepto algunos píxeles.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★Características especiales
+• Pantalla siempre encendida
+• Notificaciones - mira tus notificaciones sin tocar tu dispositivo
+• Reglas automáticas - ahorra batería utilizando reglas predefinidas
+• Movimiento automático - evita quemadura de la pantalla AMOLED
+• Modo nocturno automático - oscurece la pantalla automáticamente en ambientes oscuros
+• Modo bolsillo - bloquea el dispositivo cuando lo dejas en tu bolsillo, para ahorrar batería
+• Dos toques para desbloquear + deslizar arriba para desbloquear + teclas de volumen para desbloquear + botón de volver para desbloquear
+• Forzar orientación - elige la orientación de pantalla que prefieras
+• Personalización - cambia el color del texto, su tamaño, brillo y más
+• ¡GRATIS Y DE CÓDIGO ABIERTO!
 
-Before using please enable 'draw over apps' permission for this app.
+Antes de usar esta aplicación, habilita el permiso para "superponer esta aplicacion sobre otras".
 
-The app is in BETA, it still has bugs and lacks features.
+Esta aplicación es BETA, y por lo tanto todavía tiene bugs y le faltan características.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Permisos
+<b>Permisos de Cámara</b>
+La aplicación necesita permiso de cámara para reconocer su apertura y desactivar Always On.
+<b>Permiso de acceso al teléfono</b>
+La aplicación necesita permisos de acceso al teléfono para reconocer llamadas entrantes, ocultar Always On y mostrar la llamada.
+<b>Modificar configuración de permisos del sistema</b>
+La aplicación necesita permiso para modificar la configuración del sistema, para poder cambiar el brillo de la pantalla de bloqueo.
 
 
-Google Plus Community
+Comunidad Google Plus
 https://plus.google.com/communities/104206728795122451273

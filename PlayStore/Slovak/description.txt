@@ -1,0 +1,35 @@
+Získajte funkciu Always On Display pre váš telefón alebo tablet.
+Nechajte svoju obrazovku neustále zapnutú.
+Prvá voľne šíriteľná aplikácia s funkciou Always On!
+
+Myšlienkou je poskytnúť užívateľom informácie o čase, dátume, notifikáciách a iných veciach bez toho, aby sa dotkli telefónu. Len prostým pohľadom naň.
+
+Je to možné vďaka AMOLED displejom. Väčšina obrazovky zostane čierna okrem pár pixelov.
+
+★Dôležité funkcie
+Always On obrazovka
+Upozornenia - pozrite notifikácie bez dotknutia sa vášho zariadenia
+Automatické pravidlá - uprednostní batériu použitím preddefinovaných nastavení
+Automatický pohyb - zabráni prepalu AMOLED obrazovky
+Automatický nočný mód - automaticky stmaví obrazovku v tmavom prostredí
+Vreckový mód - zamkne zariadenie keď ho necháte vo vrecku, aby ste ušetrili batériu
+Dvojité ťuknutie pre zobudenie + Posun hore pre zobudenie + Tlačidlá hlasitosti pre zobudenie + Tlačidlo späť pre zobudenie
+Vynútenie orientácie - nastavte si preferovanú rotáciu obrazovky
+Prispôsobenie - zmeňte farbu textu, veľkosť textu, jas a iné
+ZADARMO A VOĽNE ŠÍRITEĽNÉ!
+
+Pred použitím prosím povoľte možnosť 'vykresliť cez ďalšie aplikácie'.
+
+Táto aplikácia je v BETA verzii, takže stále môže obsahovať chyby a chýbajú jej niektoré funkcie.
+
+Povolenia
+<b>Povolenie kamery</b>
+Aplikácia potrebuje povolenie kamery pre zistenie, či bola zapnutá kamera aby mohla vypnúť "Always On".
+<b>Telefonické hovory</b>
+Aplikácia potrebuje povolenie hovorov pre rozpoznanie prichádzajúcich hovorov, zrušenie funkcie Always On a ukázanie obrazovky hovoru.
+<b>Upraviť globálne nastavenia systému</b>
+Aplikácia potrebuje povolenie pre úpravu systémových nastavení pre zmenu jasu zamknutej obrazovky.
+
+
+Komunita Google+
+https://plus.google.com/communities/104206728795122451273

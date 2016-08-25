@@ -1,15 +1,15 @@
-Krijg een always on scherm voor je telefoon of tablet.
+Krijg het always on display voor jouw telefoon of tablet.
 Hou je scherm altijd aan.
-De eerste open source always on app!
+De eerste open source always on display app!
 
-Het idee is om gebruikers informatie over de tijd, datum, notificaties en meer te verstrekken zonder je telefoon aan te hoeven raken. Gewoon door er naar te kijken.
+Het idee is om gebruikers informatie over de tijd, datum, hun meldingen en meer te verstrekken zonder je telefoon aan te hoeven raken. Gewoon door er naar te kijken.
 
 Dit is mogelijk gemaakt door AMOLED schermen. Het grootste gedeelte van het scherm blijft zwart afgezien van een paar pixels.
 
 ★ Benoemenswaardige functies
 • Always On scherm
 • Notificaties - bekijk je notificaties zonder je apparaat aan te hoeven raken
-• Automatische regels - behoud je batterij meer door regels in te stellen
+• Automatische regels - Bespaar batterijvoeding door regels in te stellen
 • Automatische beweging - om AMOLED scherm inbranden tegen te gaan
 • Automatische nachtmodus - verlaag de helderheid automatisch wanneer de omgeving donkerder wordt
 • Broekzakmodus - vergrendel het apparaat wanneer je deze in je broekzak hebt om batterij te besparen

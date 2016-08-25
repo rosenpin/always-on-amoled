@@ -7,21 +7,43 @@
   <string name="action_revert">Eski Haline Döndür</string>
   <string name="menu_feedback">Geribildirim</string>
   <string name="menu_rate">Uygulamayı derecelendir</string>
+  <string name="action_restart">Şimdi yeniden başlat</string>
   <!--Support-->
-  <string name="action_support_the_development">Geliştiriciyi destekle/yardım et</string>
+  <string name="action_support_the_development">Geliştiriciyi Destekle</string>
   <string name="support_how_much">Ne kadar bağış yapmak istersiniz?</string>
+  <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
+  <string name="supporter_feature_only">Bu özellik sadece destekçiler içindir, destekçi olmak için ne kadar bağışlayacağını seçebilirsin, ne kadar bağışlamak istersin?</string>
+  <string name="support_1">1$: Ferahlatıcı bir kola fiyatı</string>
+  <string name="support_2">2$: Lezzetli bir çikolata fiyatı</string>
+  <string name="support_5">5$: Serin bir soğuk kahve fiyatı</string>
+  <string name="support_10">10$: Koca kıçlı bir Starbucks kahve fiyatı</string>
+  <string name="support_20">20$: Lezzetli bir pizza fiyatı</string>
+  <string name="support_25">25$: İki kişilik bir akşam yemeği fiyatı</string>
   <!--Intro-->
   <string name="intro_allow_now">Şimdi izin ver</string>
+  <string name="intro_permissions">Telefon durumunu oku</string>
+  <string name="intro_permissions_desc">Bir arama geldiğinde uygulamayı kapatmak için bu izne ihtiyaç duyar.</string>
+  <string name="intro_draw_over">Diğer uygulamaların üstünde görünme</string>
+  <string name="intro_draw_over_desc">Üstte görünebilen uygulama olarak izin vermeniz gerekiyor</string>
+  <string name="intro_modify_desc">Ekran parlaklığını değiştirmek için bu izne ihtiyaç duyuyor</string>
   <string name="intro_modify">Sistem ayarlarını değiştir</string>
   <string name="intro_wake_ups">Uyandırma yöntemleri</string>
+  <string name="intro_wake_ups_desc">\"Her zaman açık\" ekranı nasıl uyandıracağını seç. Endişelenme, daha sonra uygulama içinden de değiştirebilirsin.</string>
   <string name="intro_checkbox_volume_keys">Ses tuşları ile kilit açma</string>
   <string name="intro_checkbox_swipe_up">Kilidini açmak için ekranın ortasından yukarı kaydır</string>
   <string name="intro_checkbox_double_tap">Kilidini açmak için ekranın ortasına çift dokun</string>
   <string name="intro_notifications">Bildirim uyarıları</string>
+  <string name="intro_notifications_desc">\"Her zaman açık\" durumda iken diğer uygulamalardan bildirim almak istiyor musun? Eğer istiyorsan, \"izin ver\" butonuna tıkla</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Desteğin için teşekkür ederim! :)</string>
   <string name="notification_message">Daima çalış.</string>
+  <string name="thanks_short">Teşekkür ederim</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Her zaman açık</string>
+  <string name="quick_settings_service_active">etkin</string>
+  <string name="quick_settings_service_inactive">devredışı</string>
   <!-- Content description-->
+  <string name="notification_icon">Bildirim simgesi</string>
   <!--Widget-->
   <string name="widget_toggle">geçiş</string>
   <string name="widget_off">Kapalı</string>
@@ -29,20 +51,30 @@
   <!--Device admin-->
   <!--Plugin-->
   <string name="plugin_dialog_title">Eklenti yüklenmelidir</string>
+  <string name="plugin_dialog_desc">Cihazında donanımsal tuşlar var gibi görünüyor, uygulama açıkken onları devre dışı bırakmak için lütfen eklentiyi yükle.</string>
   <!--Errors-->
+  <string name="error_IAP">Hata! Lütfen internete bağlı olduğundan emin ol ve uygulamayı yeniden başlat</string>
   <string name="error_0_unknown_error">Bir hata oluştu. Lütfen geliştiriciler için rapor gönderin </string>
   <string name="error_2_plugin_not_installed">EKLENTİ YÜKLÜ DEĞİL</string>
+  <string name="error_3_unknown_error_restart">Bir hata oluştu. Lütfen uygulamayı yeniden başlat.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Bu uygulama cihazınızın performansını etkileyebilir.</string>
   <string name="warning_4_device_not_secured">Aygıtınız şimdi güvenli değil</string>
+  <string name="warning_5_device_admin_disable">Bu bazı özellikleri devre dışı bırakacak</string>
+  <string name="warning_6_device_admin_disabled">Bazı özellikler şimdi devre dışı olabilir</string>
   <string name="warning_7_disable_fingerprint">Bu parmak izi sensörü işlevselliğini devre dışı bırakabilir, bunu etkinleştirmek istediğinizden emin misiniz?</string>
   <string name="warning_8_intro_allow_all">Lütfen tüm izinleri kabul edin</string>
   <string name="warning_9_allow_notification">Lütfen bildirim erişimine izin verin</string>
+  <string name="warning_11_no_root">Bu özellik için cihaz root edilmiş olmalı</string>
+  <string name="warning_12_please_report">Lütfen nelerin eklenip/düzeltilebileceğini bana ilet</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Her ikisi de, şarj olurken ve deşarj olurken</string>
   <string name="rules_while_charging">Şarj olurken</string>
   <string name="rules_while_not_charging">Deşarj olurken</string>
   <!--Battery rules-->
   <string name="rules_always">Her zaman</string>
+  <string name="rules_battery_90">%90 veya daha fazlası</string>
+  <string name="rules_battery_70">%70 veya daha fazlası</string>
   <string name="rules_battery_50">% 50 veya daha yüksek</string>
   <string name="rules_battery_30">% 30 veya daha yüksek</string>
   <string name="rules_battery_20">% 20 veya daha yüksek</string>
@@ -65,23 +97,33 @@
   <string name="settings_about">Hakkımızda</string>
   <string name="settings_appearance">Görünüm</string>
   <string name="settings_general">Genel</string>
+  <string name="settings_shortcuts">Kısayollar</string>
   <string name="settings_wake_up">Uyandır</string>
   <string name="settings_rules">Otomatik kurallar</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aktif et</string>
   <string name="settings_disable_volume_keys">Ses tuşlarını devre dışı bırak</string>
+  <string name="settings_double_tap_wake">Çift tıklama eylemi</string>
   <string name="settings_back_button_wake">Geri düğmesi </string>
   <string name="settings_volume_to_stop">Ses tuşunu kapalı tut</string>
   <string name="settings_swipe_wake">Kaydırma </string>
+  <string name="settings_brightness">Parlaklık</string>
+  <string name="settings_doze">Doze modu</string>
+  <string name="settings_google_now_shortcut">Google Now izni</string>
+  <string name="settings_memo_text">Ekran notu</string>
+  <string name="settings_notifications">Bildirimler</string>
+  <string name="settings_persistent_notification">Kalıcı bildirimleri göster</string>
+  <string name="settings_move_auto">Otomatik olarak hareket ettir</string>
   <string name="settings_font_size">Yazı boyutu</string>
   <string name="settings_watchface">Saat görüntüsünü özelleştir</string>
-  <string name="settings_proximity">Yakınlık sensörü</string>
+  <string name="settings_proximity">Yakınlık sensörü (Cep modu)</string>
   <string name="settings_show_am_pm">AM/PM göster</string>
   <string name="settings_text_color">Yazı rengi</string>
   <string name="settings_startafterlock">Ekran kilitlenince çalış</string>
   <string name="settings_stop_delay">Gecikme yok</string>
   <string name="settings_auto_brightness">Otomatik gece modu</string>
-  <string name="settings_orientation">Ekran Yönlendirme</string>
+  <string name="settings_orientation">Ekran yönlendirme</string>
+  <string name="settings_always_on_memo">Daima Açık Notu</string>
   <string name="settings_stop_on_camera">Kamera kısayollarına izin ver</string>
   <string name="settings_rules_cahrging">Şarj olurken</string>
   <string name="settings_rules_battery">Pilde iken</string>
@@ -89,18 +131,30 @@
   <string name="settings_translate">Tercüme Et</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Topluluk</string>
+  <string name="greenify_integration">Greenify entegrasyonu</string>
   <string name="settings_licenses">Lisanslar</string>
+  <string name="settings_uninstall">Uygulamayı kaldır</string>
   <string name="settings_app_version">Versiyon</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">Kamera açıldığında \"daima açık\" ekranını kapat (Nexus ve Samsung cihazlarda açık kalması önerilir)</string>
+  <string name="settings_auto_brightness_desc">Karanlık ortamda ekran parlaklığını otomatik olarak kısar (Sensörler batarya kullanımını artırabilir)</string>
+  <string name="settings_stop_delay_desc_short_message">Daima açık ekranını durdur:</string>
+  <string name="settings_stop_delay_desc">Pil tasarrufu için herhangi bir eylem yapılmadığında bir süre sonra her zaman açık ekranı kapat</string>
+  <string name="settings_startafterlock_desc">\"Daima açık\" ekranı sadece ekran kilitlendikten sonra başlat. Cihazı parmak izi veya başka bir güvenlik fonksiyonu ile kullanıyorsanız bunu etkinleştirin</string>
+  <string name="settings_rules_desc">Daima açık ekran ne zaman başlamalı?</string>
   <string name="settings_text_color_desc">Metin rengini ayarla</string>
+  <string name="settings_show_am_pm_desc">AM/PM olarak göster (sadece 12H saatlerde geçerli)</string>
   <string name="settings_watchface_desc">\"Saat yüzündeki parçaları özelleştir
 \"</string>
+  <string name="settings_proximity_to_lock_desc">Cihazı cebinize koyduğunuzda pil tasarrufu için cihazı kilitle (Sensörler batarya kullanımını artırabilir)</string>
   <string name="settings_licenses_desc">Lisans/kaynak kodlarını aç</string>
   <string name="settings_community_desc">Google+ topluluğu</string>
   <string name="settings_github_desc">Açık kaynak kodları Github adresi</string>
   <string name="settings_move_desc">Amoled aydınlatma önlenmesini etkinleştir </string>
   <string name="settings_font_size_desc">Saat yazı boyutunu ayarla</string>
+  <string name="settings_notifications_desc">Uygulamanın arkaplanda çalışması için bunu etkinleştir</string>
   <string name="settings_enabled_desc">Servisi etkinleştir </string>
+  <string name="settings_disable_volume_keys_desc">Yanlışlıkla ses artırma-kısma olmaması için bunu aktifleştir</string>
   <string name="settings_notifications_alerts_desc">Diğer uygulamalarda alınan bildirimleri göster</string>
   <string name="settings_brightness_desc">Ekran parlaklığı kapalıyken</string>
   <string name="settings_about_translate">Uygulamanın kendi dilinize çevirilmesine yardım et</string>
@@ -114,10 +168,37 @@
   <string name="settings_watch_digital">Dijital</string>
   <string name="settings_watch_analog">Analog</string>
   <string name="settings_rules_text">Metin</string>
+  <string name="settings_customize_hidden">Gizli</string>
+  <string name="settings_shown">Gösterilen</string>
+  <string name="settings_date_full_calendar">Tüm takvim</string>
   <string name="settings_font_default">Varsayılan</string>
   <string name="settings_font_default_bold">Varsayılan kalın</string>
   <string name="settings_font_default_italic">Varsayılan italik</string>
-  <string name="settings_gestures"><![CDATA[Kısa yol hareketleri]]></string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures_desc">Uyandırmak için çift dokun, yukarı kaydır ve daha fazlası</string>
+  <string name="settings_watchface_text_font"><![CDATA[Metin & Yazı tipi]]></string>
+  <string name="settings_uninstall_desc">Uygulamayı kaldır</string>
+  <string name="settings_watchface_clock_desc">Favori saat stilini seç</string>
+  <string name="settings_watch_analog_24_classic">Klasik 24h Analog</string>
+  <string name="settings_watch_analog_s7">S7 stili analog saat</string>
+  <string name="settings_watch_ticks">12H klasik / saat tıklarıyla</string>
+  <string name="settings_watch_digital_s7">S7 stili dijital saat</string>
+  <string name="settings_watch_flat_analog">Düz analog stil</string>
+  <string name="settings_watch_analog_pebble">Pebble stili analog saat</string>
+  <string name="settings_watch_flat_red_analog">Düz analog (kırmızı kadran)</string>
+  <string name="move_disable">Devredışı (AMOLED ekranlar için önerilmez)</string>
+  <string name="move_move">Otomatik olarak hareket ettir</string>
+  <string name="move_move_animation">Otomatik olarak hareket ettir (Animasyonlu)</string>
+  <string name="greenify_integration_desc">Greenify kullanmak \"Daima açık\" hizmeti aktifken önemli ölçüde güç tasarrufu sağlar. Erişilebilirlik ayarlarından Greenify\'ı aktif ettiğinizden emin olun</string>
+  <string name="greenify_integration_desc_found">Erişilebilirlik ayarlarından Greenify\'ı açtığınızdan emin olun. Ardından cihaz kilitlenince uyutmak istediğiniz programları seçin. Greenify\'ı ayarlamak için buraya tıklayın</string>
+  <string name="greenify_integration_desc_not_found">Batarya süresini arttırmak için Greenify yükle</string>
   <string name="settings_notifications_alerts_preview_desc">Bildirim alındığında içeriği göster </string>
   <string name="settings_notifications_alerts_preview">Bildirim içeriği </string>
+  <string name="settings_doze_desc">\"Daima açık\" servisi aktifken batarya tasarrufu için Doze Modu\'nu etkinleştirin (Root gerektirir)</string>
+  <string name="settings_memo_text_desc">Notunu buraya yaz</string>
+  <string name="settings_memo_font_size_desc">Notun yazı tipi boyutunu ayarla</string>
+  <string name="settings_memo_hint">Notunu buraya yaz. Daima açık ekranında görünecek.</string>
+  <string name="settings_google_now_shortcut_desc">OK Google diyerek Google Now başlatıldığında \"daima açık\" ekranı kapat (Google Now Launcher ile çalışmayabilir)</string>
 </resources>

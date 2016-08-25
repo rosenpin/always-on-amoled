@@ -7,7 +7,6 @@
   <string name="action_revert">Скасувати</string>
   <string name="menu_feedback">Зворотній зв\'язок</string>
   <!--Support-->
-  <string name="action_support_the_development">Підтримати розробку</string>
   <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
   <string name="gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
   <string name="supporter_feature_only">Ця функція доступна тільки для прихильників, ви можете вибрати, скільки ви хочете пожертвувати, щоб стати прихильником, скільки б ви хотіли пожертвувати?</string>
@@ -31,6 +30,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Дякуємо Вам за підтримку! :)</string>
   <string name="notification_message">Always On працює</string>
+  <!--Quick settings-->
   <!-- Content description-->
   <!--Widget-->
   <string name="widget_toggle">Переключити</string>
@@ -148,7 +148,6 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Моноширинний</string>
-  <string name="settings_gestures"><![CDATA[Жести пробудження]]></string>
   <string name="settings_gestures_desc">Подвійне натискання, свайп і багато іншого</string>
   <string name="settings_watchface_text_font"><![CDATA[Текст & шрифт]]></string>
   <string name="settings_uninstall_desc">Видалити додаток</string>

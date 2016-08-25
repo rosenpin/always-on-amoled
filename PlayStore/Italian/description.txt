@@ -1,4 +1,4 @@
-Ottieni un display sempre acceso per le informazioni del tuo cellulare o tablet.
+Ottieni un "always on display" per il tuo cellulare o tablet.
 Mantieni il tuo schermo acceso tutto il tempo.
 La prima app "always on" open source!
 
@@ -9,16 +9,16 @@ Ciò è reso possibile grazie ai display AMOLED. La maggior parte dello schermo 
 ★Caratteristiche principali
 • Schermo sempre acceso
 • Notifiche - visualizza le notifiche senza toccare il tuo dispositivo
-• regole automatiche - preserva la batteria utilizzando regole predefinite
-• Movimento automatico - evita il burn-in dell'AMOLED
-• Modalità notte automatica - ridurre la luminosità dello schermo automaticamente in ambiente buio
+• Regole automatiche - preservare la batteria utilizzando regole predefinite
+• Movimento automatico - evita che il display AMOLED possa danneggiarsi
+• Modalità notte automatica - riduce la luminosità dello schermo automaticamente in un ambiente buio
 • Modalità tasca - blocca il dispositivo quando lo metti in tasca per risparmiare batteria
-•  Per riattivare: doppio tap - strisciare verso l'alto - tasti del volume - pulsante Indietro
-• Forza orientamento - imposta l'orientamento preferito dello schermo
-• Personalizzazione - cambia il colore del testo, la dimensione del testo, la luminosità e molto altro
-• LIBERO E OPEN SOURCE!
+•  Doppio tap per riaccendere + Scorri verso l'alto per accendere + Tasti volume per accendere + Tasto indietro per accendere
+• Forza orientazione - imposta l'orientazione che preferitisci dello schermo
+• Personalizzazione - cambia il colore, la dimensione, la luminosità e molto altro del testo
+• GRATIS E OPEN SOURCE!
 
-Prima dell'utilizzo per favore abilita il permesso 'disegna sulle app' per questa applicazione.
+Prima dell'utilizzo per favore abilita il permesso 'mostra sulle app' per questa applicazione.
 
 L'applicazione è in versione BETA, ha ancora dei bug e manca di funzionalità.
 

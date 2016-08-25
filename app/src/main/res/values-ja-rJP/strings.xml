@@ -7,7 +7,6 @@
   <string name="action_revert">戻す</string>
   <string name="menu_feedback">フィードバック</string>
   <!--Support-->
-  <string name="action_support_the_development">開発を支援する</string>
   <string name="support_how_much">いくら寄付していただけますか？</string>
   <string name="gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
   <string name="supporter_feature_only">この機能は支援していただくことでご利用になれます。支援者になるために寄付する額をお選びいただけますが、いくらご支援していただけますか？</string>
@@ -16,7 +15,6 @@
   <string name="support_5">$5 すてきなアイスコーヒー1杯分</string>
   <string name="support_10">$10 おいしいピッツァ1枚分</string>
   <string name="support_20">$20 おいしいピッツァ1枚分</string>
-  <string name="support_25">$50 ディナー代2人分</string>
   <!--Intro-->
   <string name="intro_allow_now">今すぐ許可</string>
   <string name="intro_draw_over">他のアプリに重ねて表示</string>
@@ -33,6 +31,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">ご支援していただきありがとうございます！</string>
   <string name="notification_message">Always On 起動中</string>
+  <!--Quick settings-->
   <!-- Content description-->
   <string name="notification_icon">通知アイコン</string>
   <!--Widget-->
@@ -155,7 +154,6 @@
   <string name="settings_font_serif">セリフ</string>
   <string name="settings_font_sans_serif">サンセリフ</string>
   <string name="settings_font_monospace">等幅</string>
-  <string name="settings_gestures"><![CDATA[ジェスチャーと入力]]></string>
   <string name="settings_gestures_desc">ダブルタップで起動、スワイプアップで起動、など</string>
   <string name="settings_watchface_text_font"><![CDATA[テキストとフォント]]></string>
   <string name="settings_uninstall_desc">アプリをアンインストール</string>

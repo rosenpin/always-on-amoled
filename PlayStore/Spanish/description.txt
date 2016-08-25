@@ -1,5 +1,5 @@
 Obtén una pantalla siempre encendida para tu teléfono o tableta.
-Keep your screen on all the time.
+Mantén tu pantalla encendida todo el tiempo.
 ¡La primera aplicación Always On de código abierto!
 
 La idea es dar a los usuarios información acerca de la hora, fecha, notificaciones y más, sin tener que tocar el teléfono. Solo mirándola.
@@ -10,7 +10,7 @@ Esto es posible gracias a la tecnología de las pantallas AMOLED. La pantalla se
 • Pantalla siempre encendida
 • Notificaciones - mira tus notificaciones sin tocar tu dispositivo
 • Reglas automáticas - ahorra batería utilizando reglas predefinidas
-• Movimiento automático - evita quemadura de pixeles de la pantalla AMOLED
+• Movimiento automático - evita quemadura de la pantalla AMOLED
 • Modo nocturno automático - oscurece la pantalla automáticamente en ambientes oscuros
 • Modo bolsillo - bloquea el dispositivo cuando lo dejas en tu bolsillo, para ahorrar batería
 • Dos golpes para despertar + deslizar arriba para despertar + teclas de volumen para despertar + botón de volver para despertar

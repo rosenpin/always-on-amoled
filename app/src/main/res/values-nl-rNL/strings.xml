@@ -3,9 +3,9 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
-  <string name="unlock">Ontgrendel</string>
-  <string name="action_revert">Terugzetten</string>
-  <string name="menu_feedback">Feedback</string>
+  <string name="unlock">Zet het scherm aan</string>
+  <string name="action_revert">Ongedaan maken</string>
+  <string name="menu_feedback">Een probleem melden</string>
   <string name="menu_rate">Beoordeel de app</string>
   <string name="action_restart">Nu herstarten</string>
   <!--Support-->
@@ -13,12 +13,12 @@
   <string name="support_how_much">Hoeveel zou je willen doneren?</string>
   <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
   <string name="supporter_feature_only">Deze functie is alleen beschikbaar voor donateurs, je kunt kiezen hoeveel je wilt doneren om een supporter te worden, hoeveel zou je willen doneren?</string>
-  <string name="support_1">1$ De prijs van een verfrissende cola</string>
+  <string name="support_1">€1 De prijs van een verfrissende cola</string>
   <string name="support_2">2$ De prijs van een lekkere chocoladereep</string>
   <string name="support_5">5$ De prijs van een koude ijskoffie</string>
   <string name="support_10">10$ De prijs van een lekkere pizza</string>
   <string name="support_20">20$ De prijs van een heerlijke pizza</string>
-  <string name="support_25">50$ De prijs van een diner voor twee</string>
+  <string name="support_25">25$: de prijs van een diner voor twee</string>
   <!--Intro-->
   <string name="intro_allow_now">Nu toestaan</string>
   <string name="intro_permissions">Lees telefoonstatus</string>
@@ -38,6 +38,10 @@
   <string name="thanks">Bedankt voor je support! :)</string>
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
   <string name="thanks_short">Dankjewel</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Altijd aan</string>
+  <string name="quick_settings_service_active">ingeschakeld</string>
+  <string name="quick_settings_service_inactive">uitgeschakeld</string>
   <!-- Content description-->
   <string name="notification_icon">Notificatie icoon</string>
   <!--Widget-->
@@ -163,13 +167,16 @@
   <string name="settings_watch_digital">Digitaal</string>
   <string name="settings_watch_analog">Analoog</string>
   <string name="settings_rules_text">Tekst</string>
+  <string name="settings_customize_hidden">Verborgen</string>
+  <string name="settings_shown">Getoond</string>
+  <string name="settings_date_full_calendar">Volledige kalender</string>
   <string name="settings_font_default">Standaard</string>
   <string name="settings_font_default_bold">Standaard lettertype</string>
   <string name="settings_font_default_italic">Standaard cursief</string>
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
-  <string name="settings_gestures"><![CDATA[Gebaren & inputs]]></string>
+  <string name="settings_gestures"><![CDATA[Gebaren & snelkoppelingen]]></string>
   <string name="settings_gestures_desc">Dubbel klikken om wakker te maken, omhoog swipen om wakker te maken, en meer</string>
   <string name="settings_watchface_text_font"><![CDATA[Tekst en lettertype]]></string>
   <string name="settings_uninstall_desc">Deinstalleer de app</string>
@@ -177,6 +184,7 @@
   <string name="settings_watch_analog_24_classic">Klassieke 24-uurs Analoog</string>
   <string name="settings_watch_analog_s7">S7 analoge klokstijk</string>
   <string name="settings_watch_ticks">Klassieke 12-uurs klok met indicaties voor elk uur</string>
+  <string name="settings_watch_digital_s7">S7 digitale klokstijl</string>
   <string name="settings_watch_flat_analog">Platte analoge stijl</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
   <string name="settings_watch_flat_red_analog">Platte Analoog (Rode wijzerplaat)</string>
@@ -193,4 +201,10 @@
   <string name="settings_memo_font_size_desc">Stel de grootte van het lettertype van je memo in</string>
   <string name="settings_memo_hint">Typ je memo tekst hier. Deze zal in je always on scherm laten zien worden.</string>
   <string name="settings_google_now_shortcut_desc">Laat het always on scherm stoppen wanneer Google Now gelanceerd wordt als er OK Google gezegd wordt (Kan eventueel niet werken met de Google Now Launcher)</string>
+  <string name="settings_exit_animation">Animatie</string>
+  <string name="settings_exit_animation_desc">Kies de uitgangs animatie</string>
+  <string name="error_4_tasker_service_not_initialized">De dienst is niet correct geïnitialiseerd</string>
+  <string name="error">Error</string>
+  <string name="error_0_unknown_error_report_prompt">Klik hier om de error te rapporteren</string>
+  <string name="never_show_again">Nooit meer weergeven</string>
 </resources>

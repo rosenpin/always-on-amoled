@@ -24,7 +24,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (!layout.isAttachedToWindow())
+            if (layout.getWindowToken() == null)
                 addView(layout);
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");

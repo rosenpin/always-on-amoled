@@ -2,7 +2,7 @@ Hole dir jetzt ein "Always-On Display" für dein Smartphone oder Tablet.
 Lass deinen Bildschirm dauerhaft an.
 Die erste Open-Source "Always On" App!
 
-Die Idee dahinter ist, dem Benutzer Informationen wie Zeit, Datum, Benachrichtigungen und vielem mehr zu geben, ohne das Gerät berühren zu müssen. Mit einem einzigen Blick.
+Die Idee dahinter ist, dem Benutzer Informationen wie Zeit, Datum, Benachrichtigungen und vielem mehr geben, ohne das Gerät berühren zu müssen. Auf einen einzigen Blick.
 
 Das wird möglich gemacht durch die AMOLED-Display Technologie. Der größte Teil des Displays bleibt schwarz, bis auf ein paar Pixel.
 
@@ -11,9 +11,9 @@ Das wird möglich gemacht durch die AMOLED-Display Technologie. Der größte Tei
 • Benachrichtigungen - sieh Benachrichtigungen ohne dein Gerät zu berühren
 • Automatische Regeln - spare Batterie durch vordefinierte Regeln
 • Auto-Bewegung - AMOLED Burn-in vermeiden
-• Auto-Nachtmodus - Bildschirm in dunkler Umgebung automatisch dimmen
+• Auto-Nachtmodus - Bildschirm in dunkler Umgebung automatisch Dimmen
 • Taschenmodus - sperr dein Gerät wenn du es in deine Tasche steckst, um Batterie zu sparen
-• Doppelt tippen, Hochwischen, Lautstärketasten oder die Zurück-Taste zum Aufwecken deines Gerätes festlegen
+• Doppelt tippen, Hochwischen, Lautstärketasten oder die "Zurück"-Taste zum Aufwecken deines Gerätes festlegen
 • Wähle deine bevorzugte Bildschirmorientierung
 • Anpassung - ändere die Textfarbe, Textgröße, Helligkeit und mehr
 • KOSTENLOS UND OPEN SOURCE!
@@ -24,11 +24,11 @@ Diese App ist im BETA-Stadium, es existieren noch Bugs und es fehlen Features.
 
 Berechtigungen
 <b>Kamera-Berechtigung</b>
-Diese App benötigt die Kameraberechtigung um erkennen zu können wenn die Kamera gestartet wird und den "always on" Bildschirm auszublenden.
+Diese App benötigt die Kameraberechtigung, um erkennen zu können, wenn die Kamera gestartet wird und den Always On Bildschirm auszublenden.
 <b>Telefon-Berechtigung</b>
-Diese App benötigt die "Telefon-Berechtigung" um einkommende Anrufe zu erkennen, den Always On Bildschirm auszublenden und stattdessen direkt den Anruf-Bildschirm zu zeigen.
-"Verändere System Einstellungen" Berechtigung
-Die App benötigt die Berechtigung Systemeinstellungen zu verändern, um die Helligkeit des Sperrbildschirms einzustellen.
+Diese App benötigt die "Telefon-Berechtigung", um einkommende Anrufe zu erkennen, den Always On Bildschirm auszublenden und stattdessen direkt den Anruf-Bildschirm zu zeigen.
+<b>"Verändere System Einstellungen" Berechtigung</b>
+Die App benötigt die Berechtigung Systemeinstellungen zu verändern, um die Helligkeit des Sperrbildschirms anzupassen.
 
 
 Google Plus Community

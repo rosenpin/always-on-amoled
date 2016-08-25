@@ -6,7 +6,6 @@
   <string name="action_revert">Palauta</string>
   <string name="menu_feedback">Palaute</string>
   <!--Support-->
-  <string name="action_support_the_development">Auta kehittäjiä</string>
   <!--Intro-->
   <string name="intro_allow_now">Salli nyt</string>
   <string name="intro_draw_over">Muuta muita sovelluksia</string>
@@ -15,6 +14,7 @@
   <string name="intro_modify">Muuta järjestelmän asetuksia</string>
   <string name="intro_wake_ups">Herätys vaihtoehtoja</string>
   <!--Feedback,Toasts & messages-->
+  <!--Quick settings-->
   <!-- Content description-->
   <!--Widget-->
   <!--Device admin-->

@@ -18,7 +18,7 @@
   <string name="support_5">5 דולר - המחיר של אייס קפה</string>
   <string name="support_10">10 דולר - המחיר של ארוחה במקדונלדס</string>
   <string name="support_20">20 דולר - המחיר של פיצה עם תוספות</string>
-  <string name="support_25">50 דולר - המחיר של ארוחה במסעדה</string>
+  <string name="support_25">25$: המחיר של ארוחת ערב</string>
   <!--Intro-->
   <string name="intro_allow_now">אפשר עכשיו</string>
   <string name="intro_permissions">קריאת מצב הטלפון</string>
@@ -38,6 +38,10 @@
   <string name="thanks">תודה עבור תמיכתך! :)</string>
   <string name="notification_message">Always On Amoled רץ ברקע</string>
   <string name="thanks_short">תודה רבה</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">דולק תמיד</string>
+  <string name="quick_settings_service_active">מופעל</string>
+  <string name="quick_settings_service_inactive">כבוי</string>
   <!-- Content description-->
   <string name="notification_icon">אייקון התראה</string>
   <!--Widget-->
@@ -52,6 +56,7 @@
   <string name="error_IAP">שגיאה! אנא וודאו כי המכשיר מחובר לאינטרנט</string>
   <string name="error_0_unknown_error">התרחשה שגיאה</string>
   <string name="error_2_plugin_not_installed">התוסף אינו מותקן</string>
+  <string name="error_3_unknown_error_restart">אירעה שגיאה. נא הפעל מחדש את היישום.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">זה יכול לפגוע בביצועים של היישום</string>
   <string name="warning_4_device_not_secured">מכשירך עשוי להיות לא מאובטח כעת</string>
@@ -92,6 +97,7 @@
   <string name="settings_about">אודות</string>
   <string name="settings_appearance">מראה</string>
   <string name="settings_general">כללי</string>
+  <string name="settings_shortcuts">קיצורי דרך</string>
   <string name="settings_wake_up">התעוררות</string>
   <string name="settings_rules">כללים אוטומטיים</string>
   <!--Settings titles-->
@@ -103,6 +109,8 @@
   <string name="settings_swipe_wake">החלקה מעלה כדי לפתוח</string>
   <string name="settings_brightness">בהירות</string>
   <string name="settings_doze">חסכון בסוללה</string>
+  <string name="settings_google_now_shortcut">אפשר Ok Google</string>
+  <string name="settings_memo_text">תזכיר</string>
   <string name="settings_notifications">התראות</string>
   <string name="settings_persistent_notification">הצג התראה מקובעת</string>
   <string name="settings_move_auto">הזזת התצוגה באופן אוטומטי</string>
@@ -115,6 +123,7 @@
   <string name="settings_stop_delay">דיליי עצירה</string>
   <string name="settings_auto_brightness">מצב לילה אוטומטי</string>
   <string name="settings_orientation">כיוון מסך</string>
+  <string name="settings_always_on_memo">תזכיר מוצג תמיד</string>
   <string name="settings_stop_on_camera">קיצורי דרך להפעלת המצלמה</string>
   <string name="settings_rules_cahrging">כללים מבוססי טעינה</string>
   <string name="settings_rules_battery">כללים מבוססי סוללה</string>
@@ -158,13 +167,16 @@
   <string name="settings_watch_digital">דיגיטלי</string>
   <string name="settings_watch_analog">אנלוגי</string>
   <string name="settings_rules_text">טקסט</string>
+  <string name="settings_customize_hidden">נסתר</string>
+  <string name="settings_shown">מוצג</string>
+  <string name="settings_date_full_calendar">לוח שנה מלא</string>
   <string name="settings_font_default">ברירת מחדל</string>
   <string name="settings_font_default_bold">מודגש</string>
   <string name="settings_font_default_italic">נטוי</string>
   <string name="settings_font_serif">סריף</string>
   <string name="settings_font_sans_serif">סאנס סריף</string>
   <string name="settings_font_monospace">מונוספייס</string>
-  <string name="settings_gestures"><![CDATA[מחוות וקלט]]></string>
+  <string name="settings_gestures"><![CDATA[מחוות וקיצורי דרך]]></string>
   <string name="settings_gestures_desc">הקשה כפולה להדלקה, משיכה מעלה להדלקה ועוד</string>
   <string name="settings_watchface_text_font"><![CDATA[גופן וטקסט]]></string>
   <string name="settings_uninstall_desc">הסירו את האפליקציה</string>
@@ -172,6 +184,7 @@
   <string name="settings_watch_analog_24_classic">אנלוגי קלאסי 24 שעות</string>
   <string name="settings_watch_analog_s7">שעון אנלוגי בסגנון S7</string>
   <string name="settings_watch_ticks">אנלוגי קלאסי עם מספרים</string>
+  <string name="settings_watch_digital_s7">שעון דיגיטלי בסגנון S7</string>
   <string name="settings_watch_flat_analog">סגנון אנלוגי נקי</string>
   <string name="settings_watch_analog_pebble">שעון אנלוגי בסגנון פבל</string>
   <string name="settings_watch_flat_red_analog">סגנון אנלוגי נקי (מחוגים אדומים)</string>
@@ -184,4 +197,13 @@
   <string name="settings_notifications_alerts_preview_desc">הצג את תוכן ההתראות כאשר הן מתקבלות</string>
   <string name="settings_notifications_alerts_preview">תוכן התראות</string>
   <string name="settings_doze_desc">אפשרו חסכון בסוללה כדי לחסוך סוללה כאשר המסך דולק (דורש רוט)</string>
+  <string name="settings_memo_text_desc">רשום את התזכיר שלך כאן</string>
+  <string name="settings_memo_font_size_desc">קבע את גודל טקסט התזכיר</string>
+  <string name="settings_memo_hint">כתוב את התזכיר שלך כאן, הוא יופיע כאשר המסך נעול.</string>
+  <string name="settings_google_now_shortcut_desc">עצור את המסך הדולק תמיד כאשר Google Now מופעל על ידי אמירת Ok Google (יתכן שלא יעבוד עם Google Now Launcher)</string>
+  <string name="settings_exit_animation">אנימציה</string>
+  <string name="settings_exit_animation_desc">בחר את אנימציית היציאה</string>
+  <string name="error_4_tasker_service_not_initialized">השירות לא אותחל כראוי</string>
+  <string name="error">תקלה</string>
+  <string name="error_0_unknown_error_report_prompt">לחץ כאן על מנת לדווח על השגיאה</string>
 </resources>

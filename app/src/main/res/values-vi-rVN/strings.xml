@@ -7,15 +7,18 @@
   <string name="action_revert">Đảo ngược</string>
   <string name="menu_feedback">Phản hồi</string>
   <!--Support-->
-  <string name="action_support_the_development">Hỗ trợ việc phát triển</string>
   <string name="support_how_much">Bao nhiêu bạn muốn tặng?</string>
   <string name="gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
+  <string name="supporter_feature_only">Tính năng này chỉ có sẵn cho những người ủng hộ, bạn có thể chọn bao nhiêu bạn muốn donate để trở thành một người ủng hộ, bạn muốn tặng bao nhiêu ?</string>
   <string name="support_1">1$ giá làm mới một cốc</string>
   <string name="support_2">2$ giá của một thanh sô cô la ngon</string>
   <string name="support_5">5$ giá băng-cà phê mát mẻ</string>
   <string name="support_10">10$ giá của một bánh pizza ngon</string>
+  <string name="support_25">25$: giá của một bữa ăn tối</string>
   <!--Intro-->
   <string name="intro_allow_now">Cho phép bây giờ</string>
+  <string name="intro_permissions">Đọc tình trạng điện thoại</string>
+  <string name="intro_permissions_desc">Các ứng dụng cần quyền đọc tình trạng điện thoại để bật thiết bị khi bạn nhận được một cuộc gọi.</string>
   <string name="intro_draw_over">Vẽ trên các ứng dụng khác</string>
   <string name="intro_draw_over_desc">Các ứng dụng cần sự cho phép để vẽ trên các ứng dụng khác</string>
   <string name="intro_modify_desc">Các ứng dụng cần sự cho phép để thay đổi độ sáng của thiết bị</string>
@@ -30,7 +33,13 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Cảm ơn bạn đã hỗ trợ của bạn! :)</string>
   <string name="notification_message">Luôn luôn trên đang chạy</string>
+  <string name="thanks_short">Cảm ơn bạn</string>
+  <!--Quick settings-->
+  <string name="quick_settings_title">Luôn sáng</string>
+  <string name="quick_settings_service_active">kích hoạt</string>
+  <string name="quick_settings_service_inactive">vô hiệu hoá</string>
   <!-- Content description-->
+  <string name="notification_icon">Biểu tượng thông báo</string>
   <!--Widget-->
   <string name="widget_toggle">bật/tắt</string>
   <string name="widget_off">Tắt</string>
@@ -40,8 +49,9 @@
   <string name="plugin_dialog_title">Plugin là bắt buộc</string>
   <string name="plugin_dialog_desc">Có vẻ như thiết bị có nút bấm cứng, để làm cho họ tắt khi các dịch vụ đang chạy, hãy cài đặt các plugin.</string>
   <!--Errors-->
-  <string name="error_0_unknown_error">Đã xảy ra lỗi</string>
+  <string name="error_0_unknown_error">Lỗi đã xảy ra. Xin vui lòng thông báo cho các nhà phát triển </string>
   <string name="error_2_plugin_not_installed">PLUGIN KHÔNG ĐƯỢC CÀI ĐẶT</string>
+  <string name="error_3_unknown_error_restart">Lỗi đã xảy ra. Xin vui lòng khởi động lại ứng dụng.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Điều này có thể gây tổn hại cho hiệu suất của ứng dụng</string>
   <string name="warning_4_device_not_secured">Thiết bị của bạn có thể không được bảo đảm bây giờ</string>
@@ -50,11 +60,16 @@
   <string name="warning_7_disable_fingerprint">Điều này có thể vô hiệu hóa chức năng cảm biến vân tay, bạn có chắc bạn muốn cho phép điều này?</string>
   <string name="warning_8_intro_allow_all">Xin vui lòng cho phép tất cả các quyền</string>
   <string name="warning_9_allow_notification">Xin vui lòng cho phép truy cập thông báo cho các ứng dụng</string>
+  <string name="warning_11_no_root">Thiết bị phải được bắt nguồn từ để sử dụng tính năng này</string>
+  <string name="warning_12_please_report">Xin vui lòng cho tôi biết những gì bạn muốn tôi thêm / sửa chữa</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Cả hai, trong khi sạc và khi xả</string>
   <string name="rules_while_charging">Trong khi sạc</string>
   <string name="rules_while_not_charging">Trong khi không sạc</string>
   <!--Battery rules-->
   <string name="rules_always">Luôn luôn</string>
+  <string name="rules_battery_90">90% hoặc cao hơn</string>
+  <string name="rules_battery_70">70% hoặc cao hơn</string>
   <string name="rules_battery_50">50% hoặc cao hơn</string>
   <string name="rules_battery_30">30% hoặc cao hơn</string>
   <string name="rules_battery_20">20% hoặc cao hơn</string>
@@ -77,6 +92,7 @@
   <string name="settings_about">Về</string>
   <string name="settings_appearance">Hiển thị</string>
   <string name="settings_general">Tổng quát</string>
+  <string name="settings_shortcuts">Phím tắt</string>
   <string name="settings_wake_up">Cử chỉ và hành động</string>
   <string name="settings_rules">Quy tắc tự động</string>
   <!--Settings titles-->
@@ -87,6 +103,9 @@
   <string name="settings_volume_to_stop">Khối phím hành động</string>
   <string name="settings_swipe_wake">Kéo mạnh lên hành động</string>
   <string name="settings_brightness">Độ sáng</string>
+  <string name="settings_doze">Chế độ doze</string>
+  <string name="settings_google_now_shortcut">Cho phép Google Now</string>
+  <string name="settings_memo_text">Văn bản ghi nhớ</string>
   <string name="settings_notifications">Thông báo</string>
   <string name="settings_persistent_notification">Hiển thị các thông báo liên tục</string>
   <string name="settings_move_auto">Di chuyển các widget tự động</string>
@@ -99,6 +118,7 @@
   <string name="settings_stop_delay">Đừng chậm trễ</string>
   <string name="settings_auto_brightness">Chế độ ban đêm tự động</string>
   <string name="settings_orientation">Màn hình định hướng</string>
+  <string name="settings_always_on_memo">Vản ghi nhớ Always</string>
   <string name="settings_stop_on_camera">Cho phép máy ảnh phím tắt</string>
   <string name="settings_rules_cahrging">Tính quy tắc</string>
   <string name="settings_rules_battery">Quy định pin</string>
@@ -106,7 +126,9 @@
   <string name="settings_translate">Dịch</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Cộng đồng</string>
+  <string name="greenify_integration">Greenify hội nhập</string>
   <string name="settings_licenses">Giấy phép</string>
+  <string name="settings_uninstall">Gỡ bỏ cài đặt</string>
   <string name="settings_app_version">Phiên bản</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Dừng lại luôn trên màn hình khi máy ảnh được đưa ra (nên giữ được kích hoạt trên thiết bị Nexus/Samsung)</string>
@@ -136,16 +158,36 @@
   <string name="settings_watchface_battery">Kiểu pin</string>
   <string name="settings_watchface_miscellaneous">Linh tinh</string>
   <string name="settings_watchface_styles">Phong cách</string>
+  <string name="settings_choose_font">Chọn phông chữ của bạn</string>
   <string name="settings_watch_digital">Đồng hồ số</string>
   <string name="settings_watch_analog">Đồng hồ kim</string>
   <string name="settings_rules_text">Văn bản</string>
+  <string name="settings_customize_hidden">Ẩn</string>
+  <string name="settings_shown">Hiển thị</string>
+  <string name="settings_date_full_calendar">Lịch đầy đủ</string>
   <string name="settings_font_default">Mặc định</string>
   <string name="settings_font_default_bold">Mặc định táo bạo</string>
   <string name="settings_font_default_italic">Mặc định nghiêng</string>
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Monospace</string>
-  <string name="settings_gestures"><![CDATA[Cử chỉ & đầu vào]]></string>
+  <string name="settings_gestures"><![CDATA[Cử chỉ & phím tắt]]></string>
   <string name="settings_gestures_desc">Double tap để đánh thức, kéo mạnh lên đến đánh thức và nhiều hơn nữa</string>
   <string name="settings_watchface_text_font"><![CDATA[Phông & văn bản]]></string>
+  <string name="settings_uninstall_desc">Gỡ bỏ cài đặt ứng dụng</string>
+  <string name="settings_watchface_clock_desc">Chọn phong cách yêu thích đồng hồ của bạn</string>
+  <string name="settings_watch_analog_24_classic">Cổ điển 24h Analog</string>
+  <string name="settings_watch_analog_s7">Đồng hồ kim S7 phong cách</string>
+  <string name="settings_watch_ticks">12H cổ điển với giờ bọ ve</string>
+  <string name="settings_watch_digital_s7">Đồng hồ điện tử phong cách S7</string>
+  <string name="settings_watch_analog_pebble">Phong cách Pebble đồng hồ analog</string>
+  <string name="move_disable">Tắt (không khuyến cáo cho màn hình AMOLED)</string>
+  <string name="move_move">Di chuyển các widget tự động</string>
+  <string name="move_move_animation">Di chuyển các widget tự động với một hình ảnh động</string>
+  <string name="greenify_integration_desc">Cho phép Greenify truy cập các dịch vụ để được cải thiện đáng kể tuổi thọ pin. Hãy chắc chắn để cho phép Greenify trong thiết đặt trợ năng</string>
+  <string name="greenify_integration_desc_found">Đảm bảo rằng bạn cho phép Greenify trong thiết đặt trợ năng và chọn ứng dụng bạn muốn nó ngủ đông trong khi thiết bị bị khóa. Click vào đây để đặt cấu hình Greenify</string>
+  <string name="greenify_integration_desc_not_found">Cài đặt Greenify để cải thiện tuổi thọ pin</string>
+  <string name="error_4_tasker_service_not_initialized">Các dịch vụ không được khởi tạo một cách chính xác</string>
+  <string name="error">Lỗi</string>
+  <string name="error_0_unknown_error_report_prompt">Click vào đây để báo cáo lỗi</string>
 </resources>
