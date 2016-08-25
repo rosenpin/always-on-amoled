@@ -146,7 +146,6 @@ public class MainService extends Service implements SensorEventListener, Context
             refreshDelay = refreshDelay * 2;
             prefs.moveWidget = MOVE_NO_ANIMATION;
             prefs.autoNightMode = false;
-            prefs.proximityToLock = false;
             prefs.stopOnCamera = false;
             prefs.stopOnGoogleNow = false;
         }
