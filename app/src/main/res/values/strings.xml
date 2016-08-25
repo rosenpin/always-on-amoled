@@ -144,6 +144,7 @@
     <string name="settings_licenses">Licenses</string>
     <string name="settings_uninstall">Uninstall</string>
     <string name="settings_app_version">Version</string>
+    <string name="settings_enable_greenify">Enable Greenify</string>
     <string name="settings_battery_saver">Battery save mode</string>
     <!--Settings descriptions-->
     <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched</string>

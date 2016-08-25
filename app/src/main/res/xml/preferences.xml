@@ -241,7 +241,7 @@
             android:defaultValue="true"
             android:dependency="greenify"
             android:key="greenify_enabled"
-            android:title="Enable Greenify">
+            android:title="@string/settings_enable_greenify">
 
         </SwitchPreference>
 
