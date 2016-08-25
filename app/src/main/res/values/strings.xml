@@ -100,6 +100,14 @@
     <!--Orientation-->
     <string name="rules_orientation_vertical">Portrait (Vertical)</string>
     <string name="rules_orientation_horizontal">Landscape (Horizontal)</string>
+    <!-- Other labels -->
+    <string name="md_back_label">Back</string>
+    <string name="md_cancel_label">Cancel</string>
+    <string name="md_choose_label">Choose</string>
+    <string name="md_custom_label">Custom</string>
+    <string name="md_done_label">Done</string>
+    <string name="md_error_label">Error</string>
+    <string name="md_presets_label">Presets</string>
     <!--Settings headers-->
     <string name="settings_behaviour">Behaviour</string>
     <string name="settings_about">About</string>
