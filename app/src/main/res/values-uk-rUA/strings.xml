@@ -86,7 +86,7 @@
   <string name="settings_double_tap_wake">Подвійне натискання</string>
   <string name="settings_back_button_wake">Клавіша \"Назад\"</string>
   <string name="settings_volume_to_stop">Клавіша регулювання гучності</string>
-  <string name="settings_swipe_wake">Свайп угору</string>
+  <string name="settings_swipe_up">Свайп угору</string>
   <string name="settings_brightness">Яскравість</string>
   <string name="settings_notifications">Сповіщення</string>
   <string name="settings_persistent_notification">Показати постійне повідомлення</string>

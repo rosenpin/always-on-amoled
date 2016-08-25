@@ -50,7 +50,7 @@ public class IconsWrapper extends LinearLayout {
                         iconLayoutParams.width += 10;
                         iconLayoutParams.height += 10;
                         icon.setLayoutParams(iconLayoutParams);
-                        if (iconLayoutParams.width > 500) {
+                        if (iconLayoutParams.width > 400) {
                             if (entry.getValue().getIntent() != null) {
                                 try {
                                     MainService.stoppedByShortcut = true;

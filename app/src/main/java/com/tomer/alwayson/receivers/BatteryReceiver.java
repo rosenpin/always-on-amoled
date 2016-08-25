@@ -35,7 +35,6 @@ public class BatteryReceiver extends BroadcastReceiver implements ContextConstat
         boolean charging = plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB;
         currentBattery = level;
         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Battery level " + level);
-        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Battery charging " + charging);
 
         if (batteryTV != null)
             batteryTV.setText(String.valueOf(level) + "%");

@@ -36,7 +36,7 @@ public class Prefs {
     public int font;
     public int memoTextSize;
     public int exitAnimation;
-    public int doubleTapAction, swipeAction, volumeButtonsAction, backButtonAction;
+    public int doubleTapAction, swipeUpAction, swipeDownAction, volumeButtonsAction, backButtonAction;
 
     public float textSize;
 
@@ -46,8 +46,6 @@ public class Prefs {
 
     private Context context;
     private SharedPreferences prefs;
-    ;
-
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -58,12 +56,13 @@ public class Prefs {
         enabled = prefs.getBoolean(KEYS.ENABLED.toString(), true);
         try {
             doubleTapAction = Integer.parseInt(prefs.getString(KEYS.DOUBLE_TAP_TO_STOP.toString(), "1"));
-            swipeAction = Integer.parseInt(prefs.getString(KEYS.SWIPE_TO_STOP.toString(), "0"));
+            swipeUpAction = Integer.parseInt(prefs.getString(KEYS.SWIPE_UP_ACTION.toString(), "0"));
+            swipeDownAction = Integer.parseInt(prefs.getString(KEYS.SWIPE_DOWN_ACTION.toString(), "0"));
             volumeButtonsAction = Integer.parseInt(prefs.getString(KEYS.VOLUME_TO_STOP.toString(), "0"));
             backButtonAction = Integer.parseInt(prefs.getString(KEYS.BACK_BUTTON_TO_STOP.toString(), "0"));
         } catch (RuntimeException e) {
             prefs.edit().remove(KEYS.DOUBLE_TAP_TO_STOP.toString()).apply();
-            prefs.edit().remove(KEYS.SWIPE_TO_STOP.toString()).apply();
+            prefs.edit().remove(KEYS.SWIPE_UP_ACTION.toString()).apply();
             prefs.edit().remove(KEYS.VOLUME_TO_STOP.toString()).apply();
             prefs.edit().remove(KEYS.BACK_BUTTON_TO_STOP.toString()).apply();
             Toast.makeText(context, "ERROR, YOUR PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
@@ -172,7 +171,8 @@ public class Prefs {
     public enum KEYS {
         ENABLED("enabled"),
         DOUBLE_TAP_TO_STOP("double_tap_action"),
-        SWIPE_TO_STOP("swipe_up_action"),
+        SWIPE_UP_ACTION("swipe_up_action"),
+        SWIPE_DOWN_ACTION("swipe_down_action"),
         VOLUME_TO_STOP("volume_keys_action"),
         BACK_BUTTON_TO_STOP("back_button_action"),
         SHOW_NOTIFICATION("persistent_notification"),

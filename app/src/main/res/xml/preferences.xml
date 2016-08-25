@@ -9,8 +9,8 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="battery_saver"
-            android:summary="@string/battery_saver_desc"
-            android:title="@string/battery_saver" />
+            android:summary="@string/settings_battery_saver_desc"
+            android:title="@string/settings_battery_saver" />
         <PreferenceScreen
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules">
@@ -58,7 +58,14 @@
                     android:entryValues="@array/gestures_actions_vals"
                     android:key="swipe_up_action"
                     android:summary="%s"
-                    android:title="@string/settings_swipe_wake" />
+                    android:title="@string/settings_swipe_up" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:key="swipe_down_action"
+                    android:summary="%s"
+                    android:title="@string/settings_swipe_down" />
                 <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"
                     android:entries="@array/gestures_actions"

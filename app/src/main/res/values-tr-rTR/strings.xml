@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Çift tıklama eylemi</string>
   <string name="settings_back_button_wake">Geri düğmesi </string>
   <string name="settings_volume_to_stop">Ses tuşunu kapalı tut</string>
-  <string name="settings_swipe_wake">Kaydırma </string>
+  <string name="settings_swipe_up">Kaydırma </string>
   <string name="settings_brightness">Parlaklık</string>
   <string name="settings_doze">Doze modu</string>
   <string name="settings_google_now_shortcut">Google Now izni</string>

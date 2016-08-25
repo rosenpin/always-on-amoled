@@ -279,7 +279,7 @@ public class Intro extends AppIntro2 {
                                 pref.setString(Prefs.KEYS.DOUBLE_TAP_TO_STOP.toString(), b ? "unlock" : "off");
                                 break;
                             case 1:
-                                pref.setString(Prefs.KEYS.SWIPE_TO_STOP.toString(), b ? "unlock" : "off");
+                                pref.setString(Prefs.KEYS.SWIPE_UP_ACTION.toString(), b ? "unlock" : "off");
                                 break;
                             case 2:
                                 pref.setString(Prefs.KEYS.VOLUME_TO_STOP.toString(), b ? "unlock" : "off");

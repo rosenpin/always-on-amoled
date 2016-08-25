@@ -101,7 +101,7 @@
   <string name="settings_double_tap_wake">Hành động nhấn hai lần</string>
   <string name="settings_back_button_wake">Hành động nút quay lại</string>
   <string name="settings_volume_to_stop">Khối phím hành động</string>
-  <string name="settings_swipe_wake">Kéo mạnh lên hành động</string>
+  <string name="settings_swipe_up">Kéo mạnh lên hành động</string>
   <string name="settings_brightness">Độ sáng</string>
   <string name="settings_doze">Chế độ doze</string>
   <string name="settings_google_now_shortcut">Cho phép Google Now</string>

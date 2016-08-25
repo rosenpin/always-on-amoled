@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Двойное нажатие</string>
   <string name="settings_back_button_wake">Действия кнопки \"назад\"</string>
   <string name="settings_volume_to_stop">Действия кнопок громкости</string>
-  <string name="settings_swipe_wake">Действие при свайпе вверх</string>
+  <string name="settings_swipe_up">Действие при свайпе вверх</string>
   <string name="settings_brightness">Яркость</string>
   <string name="settings_doze">Режим Doze</string>
   <string name="settings_google_now_shortcut">Разрешить Google Now</string>

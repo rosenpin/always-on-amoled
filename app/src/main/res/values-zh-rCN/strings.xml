@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">双击操作</string>
   <string name="settings_back_button_wake">后退按钮动作</string>
   <string name="settings_volume_to_stop">音量键操作</string>
-  <string name="settings_swipe_wake">向上滑动功能</string>
+  <string name="settings_swipe_up">向上滑动功能</string>
   <string name="settings_brightness">亮度</string>
   <string name="settings_doze">Doze模式</string>
   <string name="settings_google_now_shortcut">允许使用谷歌即时</string>

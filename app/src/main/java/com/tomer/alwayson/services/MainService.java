@@ -177,7 +177,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 return super.dispatchKeyEvent(event);
             }
         };
-        if (prefs.doubleTapAction != ACTION_OFF_GESTURE || prefs.swipeAction != ACTION_OFF_GESTURE)
+        if (prefs.doubleTapAction != ACTION_OFF_GESTURE || prefs.swipeUpAction != ACTION_OFF_GESTURE)
             frameLayout.setOnTouchListener(new OnDismissListener(this));
         frameLayout.setBackgroundColor(Color.BLACK);
         frameLayout.setForegroundGravity(Gravity.CENTER);
@@ -252,6 +252,8 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.notificationsAlerts)
             //Starting the notification listener service
             startService(new Intent(getApplicationContext(), NotificationListener.class));
+        else
+            Utils.logInfo(MAIN_SERVICE_LOG_TAG, "Notifications are disabled");
         UIhandler = new Handler();
         refresh();
 
@@ -610,9 +612,10 @@ public class MainService extends Service implements SensorEventListener, Context
                     } else if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
                         if (diffY > 0) {
                             Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe bottom");
+                            return gestureAction(prefs.swipeDownAction);
                         } else {
                             Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe top");
-                            return gestureAction(prefs.swipeAction);
+                            return gestureAction(prefs.swipeUpAction);
                         }
 
                     }

@@ -39,6 +39,7 @@ public interface ContextConstatns {
 
     String DOUBLE_TAP = "double_tap_action";
     String SWIPE_UP = "swipe_up_action";
+    String SWIPE_DOWN = "swipe_down_action";
     String VOLUME_KEYS = "volume_keys_action";
     String BACK_BUTTON = "back_button_action";
 

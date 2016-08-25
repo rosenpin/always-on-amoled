@@ -7,6 +7,7 @@
     <string name="menu_feedback">Feedback</string>
     <string name="menu_rate">Rate the app</string>
     <string name="action_restart">Restart now</string>
+    <string name="never_show_again">Never show again</string>
     <!--Support-->
     <string name="action_support_the_development">Support The Development</string>
     <string name="support_how_much">How much would you like to donate?</string>
@@ -53,10 +54,13 @@
     <string name="plugin_dialog_title">Plugin is required</string>
     <string name="plugin_dialog_desc">Seems like your device has hardware buttons, to make them turn off when the service is running, please install the plugin.</string>
     <!--Errors-->
+    <string name="error">Error</string>
     <string name="error_IAP">Error! Please make sure that you are connected to the internet and restart the app</string>
     <string name="error_0_unknown_error">An error has occurred. Please report to the developer </string>
+    <string name="error_0_unknown_error_report_prompt">Click here to report the error</string>
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
     <string name="error_3_unknown_error_restart">An error has occurred. Please restart the app.</string>
+    <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
     <!--Warnings-->
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
     <string name="warning_4_device_not_secured">Your device may not be secured now</string>
@@ -110,7 +114,8 @@
     <string name="settings_double_tap_wake">Double tap action</string>
     <string name="settings_back_button_wake">Back button action</string>
     <string name="settings_volume_to_stop">Volume keys action</string>
-    <string name="settings_swipe_wake">Swipe up action</string>
+    <string name="settings_swipe_up">Swipe up action</string>
+    <string name="settings_swipe_down">Swipe down action</string>
     <string name="settings_brightness">Brightness</string>
     <string name="settings_doze">Doze mode</string>
     <string name="settings_google_now_shortcut">Allow Google Now</string>
@@ -139,6 +144,7 @@
     <string name="settings_licenses">Licenses</string>
     <string name="settings_uninstall">Uninstall</string>
     <string name="settings_app_version">Version</string>
+    <string name="settings_battery_saver">Battery save mode</string>
     <!--Settings descriptions-->
     <string name="settings_stop_on_camera_desc">Stop the always on screen when the camera is launched</string>
     <string name="settings_auto_brightness_desc">Dim the screen when in dark environment automatically (Sensors may use more battery)</string>
@@ -207,10 +213,5 @@
     <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
     <string name="settings_exit_animation">Animation</string>
     <string name="settings_exit_animation_desc">Choose the exit animation</string>
-    <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
-    <string name="error">Error</string>
-    <string name="error_0_unknown_error_report_prompt">Click here to report the error</string>
-    <string name="never_show_again">Never show again</string>
-    <string name="battery_saver">Battery Saver</string>
-    <string name="battery_saver_desc">Reduce battery consumption and overheating. Works better with root.</string>
+    <string name="settings_battery_saver_desc">Reduce battery consumption and overheating. Works better with root.</string>
 </resources>

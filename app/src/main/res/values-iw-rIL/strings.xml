@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">הקשה כפולה לפתיחה</string>
   <string name="settings_back_button_wake">כפתור חזרה לפתיחה</string>
   <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
-  <string name="settings_swipe_wake">החלקה מעלה כדי לפתוח</string>
+  <string name="settings_swipe_up">החלקה מעלה כדי לפתוח</string>
   <string name="settings_brightness">בהירות</string>
   <string name="settings_doze">חסכון בסוללה</string>
   <string name="settings_google_now_shortcut">אפשר Ok Google</string>

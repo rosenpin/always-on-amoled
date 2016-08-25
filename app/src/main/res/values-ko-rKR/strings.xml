@@ -108,7 +108,7 @@
   <string name="settings_double_tap_wake">두번 탭하여 켜기</string>
   <string name="settings_back_button_wake">뒤로가기 버튼으로 켜기</string>
   <string name="settings_volume_to_stop">볼륨 키로 켜기</string>
-  <string name="settings_swipe_wake">위로 밀어서 켜기</string>
+  <string name="settings_swipe_up">위로 밀어서 켜기</string>
   <string name="settings_brightness">밝기</string>
   <string name="settings_doze">도즈 모드</string>
   <string name="settings_google_now_shortcut">구글 지금 허용</string>

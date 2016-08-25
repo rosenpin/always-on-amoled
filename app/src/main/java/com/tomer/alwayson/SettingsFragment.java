@@ -98,7 +98,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
-        String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, VOLUME_KEYS, BACK_BUTTON};
+        String[] preferencespList = {DOUBLE_TAP, SWIPE_UP,SWIPE_DOWN, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : preferencespList) {
             findPreference(preference).setOnPreferenceChangeListener((preference1, o) -> {
                 switch (Integer.parseInt((String) o)) {

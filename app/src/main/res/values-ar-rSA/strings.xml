@@ -107,7 +107,7 @@
   <string name="settings_double_tap_wake">عمل النقر المزدوج</string>
   <string name="settings_back_button_wake">الرجوع إلى زر الأحداث</string>
   <string name="settings_volume_to_stop">عمل مفاتيح الصوت</string>
-  <string name="settings_swipe_wake">مرر لأعلى لتفعيل</string>
+  <string name="settings_swipe_up">مرر لأعلى لتفعيل</string>
   <string name="settings_brightness">الإضاءة</string>
   <string name="settings_doze">وضع الإغفاء</string>
   <string name="settings_google_now_shortcut">إسمح لخدمة \"Google Now\"</string>

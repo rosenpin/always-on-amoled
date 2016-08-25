@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Acción de doble toque</string>
   <string name="settings_back_button_wake">Acción de botón back</string>
   <string name="settings_volume_to_stop">Acción de las teclas de volumen</string>
-  <string name="settings_swipe_wake">Acción al deslizar hacia arriba</string>
+  <string name="settings_swipe_up">Acción al deslizar hacia arriba</string>
   <string name="settings_brightness">Brillo</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>

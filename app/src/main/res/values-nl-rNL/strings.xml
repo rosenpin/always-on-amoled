@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Actie voor dubbel klikken</string>
   <string name="settings_back_button_wake">Actie voor terugknop</string>
   <string name="settings_volume_to_stop">Volume knop om aan te doen</string>
-  <string name="settings_swipe_wake">Actie voor omhoog swipen</string>
+  <string name="settings_swipe_up">Actie voor omhoog swipen</string>
   <string name="settings_brightness">Helderheid</string>
   <string name="settings_doze">Doze modus</string>
   <string name="settings_google_now_shortcut">Sta Google Now toe</string>

@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Action du double tap</string>
   <string name="settings_back_button_wake">Action du bouton Retour</string>
   <string name="settings_volume_to_stop">Utiliser les touches de volume afin de désactiver </string>
-  <string name="settings_swipe_wake">Action de balayage</string>
+  <string name="settings_swipe_up">Action de balayage</string>
   <string name="settings_brightness">Luminosité</string>
   <string name="settings_doze">Mode Doze</string>
   <string name="settings_google_now_shortcut">Autoriser Google Now</string>

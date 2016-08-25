@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Akcia pre dvojité ťuknutie</string>
   <string name="settings_back_button_wake">Akcia pre tlačidlo späť</string>
   <string name="settings_volume_to_stop">Akcia pre tlačidlá hlasitosti</string>
-  <string name="settings_swipe_wake">Akcia pre posun hore</string>
+  <string name="settings_swipe_up">Akcia pre posun hore</string>
   <string name="settings_brightness">Jas</string>
   <string name="settings_doze">Režim šetrenia batérie Doze</string>
   <string name="settings_google_now_shortcut">Povoliť Google Now</string>

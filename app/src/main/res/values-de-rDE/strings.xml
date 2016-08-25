@@ -107,7 +107,7 @@
   <string name="settings_double_tap_wake">Doppeltipp-Aktion</string>
   <string name="settings_back_button_wake">\"Zurück\"-Aktion</string>
   <string name="settings_volume_to_stop">Lautstärketasten-Aktion</string>
-  <string name="settings_swipe_wake">Nach oben wischen-Aktion</string>
+  <string name="settings_swipe_up">Nach oben wischen-Aktion</string>
   <string name="settings_brightness">Helligkeit</string>
   <string name="settings_doze">Doze-Modus</string>
   <string name="settings_google_now_shortcut">Erlaube Google Now</string>

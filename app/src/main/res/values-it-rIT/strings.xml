@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Doppio tap per disattivare</string>
   <string name="settings_back_button_wake">Tasto indietro per disattivare</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
-  <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
+  <string name="settings_swipe_up">Swipe verso l\'alto per disattivare</string>
   <string name="settings_brightness">Luminosità</string>
   <string name="settings_doze">Modalità Doze</string>
   <string name="settings_google_now_shortcut">Consenti Google Now</string>

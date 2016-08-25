@@ -106,7 +106,7 @@
   <string name="settings_double_tap_wake">Akcja dwukrotnego stuknięcia</string>
   <string name="settings_back_button_wake">Akcja przycisku wstecz</string>
   <string name="settings_volume_to_stop">Akcja klawiszy głośności</string>
-  <string name="settings_swipe_wake">Akcja przesunięcia palcem w górę</string>
+  <string name="settings_swipe_up">Akcja przesunięcia palcem w górę</string>
   <string name="settings_brightness">Jasność</string>
   <string name="settings_doze">Tryb Doze</string>
   <string name="settings_google_now_shortcut">Włącz Google Now</string>
