@@ -1,10 +1,12 @@
 package com.tomer.alwayson.helpers;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
@@ -18,7 +20,9 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.services.MainService;
 
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 public class Utils implements ContextConstatns {
@@ -68,13 +72,28 @@ public class Utils implements ContextConstatns {
                         | DateUtils.FORMAT_ABBREV_WEEKDAY);
     }
 
+    public static void killBackgroundProcesses(Context context) {
+        List<ApplicationInfo> packages;
+        PackageManager pm;
+        pm = context.getPackageManager();
+        packages = pm.getInstalledApplications(0);
+
+        ActivityManager mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        String myPackage = context.getPackageName();
+        for (ApplicationInfo packageInfo : packages) {
+            if ((packageInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1) continue;
+            if (packageInfo.packageName.equals(myPackage)) continue;
+            mActivityManager.killBackgroundProcesses(packageInfo.packageName);
+        }
+    }
+
     public static boolean hasModifySecurePermission(Context activity) {
         try {
             int originalBatteryMode = Settings.Secure.getInt(activity.getContentResolver(), LOW_POWER, 0);
             Settings.Secure.putInt(activity.getContentResolver(), LOW_POWER, 1);
             Settings.Secure.putInt(activity.getContentResolver(), LOW_POWER, originalBatteryMode);
             return true;
-        } catch (Exception ignored) {
+        } catch (SecurityException ignored) {
             return false;
         }
     }

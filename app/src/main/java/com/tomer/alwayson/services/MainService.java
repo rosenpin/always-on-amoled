@@ -148,6 +148,7 @@ public class MainService extends Service implements SensorEventListener, Context
             prefs.autoNightMode = false;
             prefs.stopOnCamera = false;
             prefs.stopOnGoogleNow = false;
+            Utils.killBackgroundProcesses(this);
         }
 
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
