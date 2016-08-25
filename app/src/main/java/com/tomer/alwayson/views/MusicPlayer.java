@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -32,6 +34,9 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
             Utils.logInfo("Music", artist + ":" + album + ":" + track);
+            if (findViewById(R.id.song_name_tv) != null && (artist != null || album != null || track != null)) {
+                ((TextView) findViewById(R.id.song_name_tv)).setText(artist + "-" + track);
+            }
         }
     };
 
