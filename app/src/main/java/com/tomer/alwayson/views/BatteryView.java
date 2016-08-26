@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.receivers.BatteryReceiver;
 
 public class BatteryView extends LinearLayout {
@@ -53,6 +54,10 @@ public class BatteryView extends LinearLayout {
                 context.registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;
         }
+    }
+
+    public int getBatteryLevel(){
+        return batteryReceiver.getBatteryLevel(context);
     }
 
     public void destroy() {

@@ -31,17 +31,16 @@ public class NotificationListener extends NotificationListenerService implements
 
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
-        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "New notification from " + added.getPackageName());
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
             Globals.notificationChanged = true;
-            String title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE);
+            String title = added.getNotification().extras.getString(Notification.EXTRA_TITLE)+ " ";
             if (title.equals("null"))
-                title = "" + added.getNotification().extras.getString(Notification.EXTRA_TITLE_BIG);
-            String content = "" + added.getNotification().extras.getString(Notification.EXTRA_TEXT);
+                title = added.getNotification().extras.getString(Notification.EXTRA_TITLE_BIG)+ " ";
+            String content = added.getNotification().extras.getString(Notification.EXTRA_TEXT) + " ";
             if (content.equals("null") || content.isEmpty())
-                content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_TEXT_LINES);
+                content = added.getNotification().extras.getCharSequence(Notification.EXTRA_TEXT_LINES)+ " ";
             if (content.equals("null") || content.isEmpty())
-                content = "" + added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT);
+                content = added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT)+ " ";
             Drawable icon = getIcon(added);
             ApplicationInfo notificationAppInfo = null;
             try {
@@ -58,7 +57,6 @@ public class NotificationListener extends NotificationListenerService implements
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
-        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "Notification removed " + removed.getNotification().tickerText);
         Globals.notifications.remove(getUniqueKey(removed));
         Globals.notificationChanged = true;
         if (Globals.onNotificationAction != null)

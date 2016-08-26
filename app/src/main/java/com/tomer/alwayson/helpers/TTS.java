@@ -26,7 +26,6 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
     public TTS(Context context) {
         this.context = context;
         batteryReceiver = new BatteryReceiver();
-        context.registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
     }
 
     public void sayCurrentStatus() {
@@ -54,7 +53,7 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
                 tts.speak("The time is " + time, TextToSpeech.QUEUE_FLUSH, null);
                 if (Globals.notifications.size() > 0)
                     tts.speak("You have " + Globals.notifications.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
-                tts.speak("Battery is at " + batteryReceiver.currentBattery + " percent", TextToSpeech.QUEUE_ADD, null);
+                tts.speak("Battery is at " + batteryReceiver.getBatteryLevel(context) + " percent", TextToSpeech.QUEUE_ADD, null);
                 speaking = true;
                 new Handler().postDelayed(() -> speaking = false, 4000);
             } else
@@ -64,7 +63,6 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
 
     public void destroy() {
         toStopTTS = true;
-        context.unregisterReceiver(batteryReceiver);
         if (tts != null) {
             tts.stop();
             tts.shutdown();
