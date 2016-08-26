@@ -11,6 +11,10 @@
         android:id="@+id/song_name_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="test"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
         android:maxLines="1" />
 
     <LinearLayout

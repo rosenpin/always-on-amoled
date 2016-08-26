@@ -35,7 +35,6 @@ public class IconsWrapper extends LinearLayout {
     public void update(int textColor, final Runnable action) {
         removeAllViews();
         for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
-            Utils.logDebug(IconsWrapper.class.getSimpleName() + " Checking", entry.getValue().getAppName());
             Drawable drawable = entry.getValue().getIcon();
             if (drawable != null) {
                 drawable.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);

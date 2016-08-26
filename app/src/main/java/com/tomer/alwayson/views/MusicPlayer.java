@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,16 @@ import android.widget.TextView;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Utils;
 
+import java.util.Set;
+
 public class MusicPlayer extends LinearLayout implements View.OnClickListener {
+    public static final String CMDTOGGLEPAUSE = "togglepause";
+    public static final String CMDPAUSE = "pause";
+    public static final String CMDPREVIOUS = "previous";
+    public static final String CMDNEXT = "next";
+    public static final String SERVICECMD = "com.android.music.musicservicecommand";
+    public static final String CMDNAME = "command";
+    public static final String CMDSTOP = "stop";
     private Context context;
     private Intent mediaButtonsIntent;
     private View layout;
@@ -24,13 +34,16 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (layout.getParent() == null)
-                addView(layout);
+            Set<String> extrasList = intent.getExtras().keySet();
+
+            for (String str : extrasList) {
+                Log.d(MusicPlayer.class.getSimpleName(), str);
+            }
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
             Utils.logInfo("Music", artist + ":" + album + ":" + track);
-            if (findViewById(R.id.song_name_tv) != null && (artist != null || album != null || track != null)) {
+            if (findViewById(R.id.song_name_tv) != null) {
                 ((TextView) findViewById(R.id.song_name_tv)).setText(artist + "-" + track);
             }
         }
@@ -42,8 +55,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         mediaButtonsIntent = new Intent(Intent.ACTION_MEDIA_BUTTON);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layout = inflater.inflate(R.layout.music_widget, null);
-        if (layout.getParent() == null)
-            addView(layout);
+        addView(layout);
         findViewById(R.id.skip_prev).setOnClickListener(this);
         findViewById(R.id.play).setOnClickListener(this);
         findViewById(R.id.skip_next).setOnClickListener(this);
@@ -53,7 +65,19 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         iF.addAction("com.android.music.playstatechanged");
         iF.addAction("com.android.music.playbackcomplete");
         iF.addAction("com.android.music.queuechanged");
-
+        iF.addAction("com.android.music.metachanged");
+        iF.addAction("com.htc.music.metachanged");
+        iF.addAction("fm.last.android.metachanged");
+        iF.addAction("com.sec.android.app.music.metachanged");
+        iF.addAction("com.nullsoft.winamp.metachanged");
+        iF.addAction("com.amazon.mp3.metachanged");
+        iF.addAction("com.miui.player.metachanged");
+        iF.addAction("com.real.IMP.metachanged");
+        iF.addAction("com.sonyericsson.music.metachanged");
+        iF.addAction("com.spotify.music.metachanged");
+        iF.addAction("com.rdio.android.metachanged");
+        iF.addAction("com.samsung.sec.android.MusicPlayer.metachanged");
+        iF.addAction("com.andrew.apollo.metachanged");
         context.registerReceiver(mReceiver, iF);
         manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         if (!manager.isMusicActive())
@@ -73,12 +97,11 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     }
 
     public void sendButton(int keycode) {
-        synchronized (this) {
-            mediaButtonsIntent.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_DOWN, keycode));
-            context.sendOrderedBroadcast(mediaButtonsIntent, null);
-            mediaButtonsIntent.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_UP, keycode));
-            context.sendOrderedBroadcast(mediaButtonsIntent, null);
-        }
+            AudioManager am = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+            KeyEvent downEvent = new KeyEvent(KeyEvent.ACTION_DOWN, keycode);
+            am.dispatchMediaKeyEvent(downEvent);
+            KeyEvent upEvent = new KeyEvent(KeyEvent.ACTION_UP, keycode);
+            am.dispatchMediaKeyEvent(upEvent);
     }
 
     @Override
