@@ -56,10 +56,6 @@ public class BatteryView extends LinearLayout {
         }
     }
 
-    public int getBatteryLevel(){
-        return batteryReceiver.getBatteryLevel(context);
-    }
-
     public void destroy() {
         if (style == 1)
             context.unregisterReceiver(batteryReceiver);
