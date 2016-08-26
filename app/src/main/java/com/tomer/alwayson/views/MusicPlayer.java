@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,26 +66,36 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         if (!manager.isMusicActive())
             removeView(layout);
+        else
+            updatePlayPauseButton(true);
     }
 
-    public void play() {
+    private void play() {
         sendButton(KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
     }
 
-    public void skipNext() {
+    private void skipNext() {
         sendButton(KeyEvent.KEYCODE_MEDIA_NEXT);
     }
 
-    public void skipPrevious() {
+    private void skipPrevious() {
         sendButton(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
     }
 
-    public void sendButton(int keycode) {
+    private void sendButton(int keycode) {
         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         KeyEvent downEvent = new KeyEvent(KeyEvent.ACTION_DOWN, keycode);
         am.dispatchMediaKeyEvent(downEvent);
         KeyEvent upEvent = new KeyEvent(KeyEvent.ACTION_UP, keycode);
         am.dispatchMediaKeyEvent(upEvent);
+    }
+
+    private void updatePlayPauseButton(boolean reverse) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        if (!am.isMusicActive())
+            ((ImageView) findViewById(R.id.play)).setImageResource(reverse ? R.drawable.ic_play : R.drawable.ic_pause);
+        else
+            ((ImageView) findViewById(R.id.play)).setImageResource(reverse ? R.drawable.ic_pause : R.drawable.ic_play);
     }
 
     @Override
@@ -95,6 +106,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
                 skipPrevious();
                 break;
             case R.id.play:
+                updatePlayPauseButton(false);
                 play();
                 break;
             case R.id.skip_next:
