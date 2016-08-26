@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,35 +15,24 @@ import android.widget.TextView;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Utils;
 
-import java.util.Set;
-
 public class MusicPlayer extends LinearLayout implements View.OnClickListener {
-    public static final String CMDTOGGLEPAUSE = "togglepause";
-    public static final String CMDPAUSE = "pause";
-    public static final String CMDPREVIOUS = "previous";
-    public static final String CMDNEXT = "next";
-    public static final String SERVICECMD = "com.android.music.musicservicecommand";
-    public static final String CMDNAME = "command";
-    public static final String CMDSTOP = "stop";
     private Context context;
-    private Intent mediaButtonsIntent;
     private View layout;
     private AudioManager manager;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            Set<String> extrasList = intent.getExtras().keySet();
-
-            for (String str : extrasList) {
-                Log.d(MusicPlayer.class.getSimpleName(), str);
-            }
             String artist = intent.getStringExtra("artist");
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
             Utils.logInfo("Music", artist + ":" + album + ":" + track);
-            if (findViewById(R.id.song_name_tv) != null) {
-                ((TextView) findViewById(R.id.song_name_tv)).setText(artist + "-" + track);
+            if (layout.findViewById(R.id.song_name_tv) != null) {
+                try {
+                    removeView(layout);
+                } catch (IllegalStateException e) {
+                    ((TextView) layout.findViewById(R.id.song_name_tv)).setText(artist + "-" + track);
+                }
             }
         }
     };
@@ -52,7 +40,6 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     public MusicPlayer(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
-        mediaButtonsIntent = new Intent(Intent.ACTION_MEDIA_BUTTON);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layout = inflater.inflate(R.layout.music_widget, null);
         addView(layout);
@@ -97,11 +84,11 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     }
 
     public void sendButton(int keycode) {
-            AudioManager am = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
-            KeyEvent downEvent = new KeyEvent(KeyEvent.ACTION_DOWN, keycode);
-            am.dispatchMediaKeyEvent(downEvent);
-            KeyEvent upEvent = new KeyEvent(KeyEvent.ACTION_UP, keycode);
-            am.dispatchMediaKeyEvent(upEvent);
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        KeyEvent downEvent = new KeyEvent(KeyEvent.ACTION_DOWN, keycode);
+        am.dispatchMediaKeyEvent(downEvent);
+        KeyEvent upEvent = new KeyEvent(KeyEvent.ACTION_UP, keycode);
+        am.dispatchMediaKeyEvent(upEvent);
     }
 
     @Override
