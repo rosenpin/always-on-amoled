@@ -27,13 +27,8 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
             String album = intent.getStringExtra("album");
             String track = intent.getStringExtra("track");
             Utils.logInfo("Music", artist + ":" + album + ":" + track);
-            if (layout.findViewById(R.id.song_name_tv) != null) {
-                try {
-                    removeView(layout);
-                } catch (IllegalStateException e) {
-                    ((TextView) layout.findViewById(R.id.song_name_tv)).setText(artist + "-" + track);
-                }
-            }
+            if (layout.findViewById(R.id.song_name_tv) != null)
+                ((TextView) layout.findViewById(R.id.song_name_tv)).setText(track);
         }
     };
 
@@ -65,6 +60,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         iF.addAction("com.rdio.android.metachanged");
         iF.addAction("com.samsung.sec.android.MusicPlayer.metachanged");
         iF.addAction("com.andrew.apollo.metachanged");
+
         context.registerReceiver(mReceiver, iF);
         manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         if (!manager.isMusicActive())
