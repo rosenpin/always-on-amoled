@@ -88,6 +88,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private DateView dateView;
     private BatteryView batteryView;
     private Clock clock;
+    private MusicPlayer musicPlayer;
     private Prefs prefs;
     private WindowManager windowManager;
     private FrameLayout frameLayout;
@@ -183,6 +184,7 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout.setForegroundGravity(Gravity.CENTER);
         mainView = (LinearLayout) (layoutInflater.inflate(R.layout.clock_widget, frameLayout).findViewById(R.id.watchface_wrapper));
         iconsWrapper = (IconsWrapper) mainView.findViewById(R.id.icons_wrapper);
+        musicPlayer = (MusicPlayer) mainView.findViewById(R.id.music_player);
         notificationsMessageBox = (MessageBox) mainView.findViewById(R.id.notifications_box);
         iconsWrapper.setMessageBox(notificationsMessageBox);
         setUpElements();
@@ -372,7 +374,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private void longRefresh() {
         if (!firstRefresh && prefs.moveWidget != DISABLED)
-            ViewUtils.move(getApplicationContext(), mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty());
+            ViewUtils.move(getApplicationContext(), mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, isBig());
         String monthAndDayText = Utils.getDateText(getApplicationContext());
         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         UIhandler.post(() -> {
@@ -382,6 +384,10 @@ public class MainService extends Service implements SensorEventListener, Context
         });
         if (firstRefresh)
             firstRefresh = false;
+    }
+
+    private boolean isBig() {
+        return dateView.isFull() || clock.isFull() || !prefs.memoText.isEmpty() || musicPlayer.isShown();
     }
 
     private void setLights(boolean state, boolean nightMode, boolean first) {
@@ -429,7 +435,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Dismiss music player
-        ((MusicPlayer) mainView.findViewById(R.id.music_player)).destroy();
+        musicPlayer.destroy();
         //Dismiss doze
         if (dozeManager != null)
             dozeManager.exitDoze();

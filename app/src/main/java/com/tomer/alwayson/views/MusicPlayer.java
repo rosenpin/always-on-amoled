@@ -104,6 +104,11 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     }
 
     @Override
+    public boolean isShown(){
+        return findViewById(R.id.song_name_tv) !=null &&findViewById(R.id.play) !=null && findViewById(R.id.skip_next) !=null &&findViewById(R.id.skip_prev) !=null;
+    }
+
+    @Override
     public void onClick(View view) {
         Utils.logDebug(MusicPlayer.class.getSimpleName(), "Clicked " + view.getId());
         switch (view.getId()) {

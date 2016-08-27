@@ -9,7 +9,7 @@ import com.tomer.alwayson.ContextConstatns;
 public class ViewUtils implements ContextConstatns {
     private static DisplaySize displaySize;
 
-    public static void move(Context context, LinearLayout mainView, boolean animate, String orientation, boolean isBig) {
+    public static void move(Context context, LinearLayout view, boolean animate, String orientation, boolean isBig) {
         if (displaySize == null)
             displaySize = new DisplaySize(context);
         boolean vertical = orientation.equals("vertical");
@@ -18,9 +18,9 @@ public class ViewUtils implements ContextConstatns {
         double multiplier = isBig ? 1.15 : 1.3;
         float position = vertical ? (float) (height - Utils.randInt(height / multiplier, height * multiplier)) : (float) (width - Utils.randInt(width / multiplier, width * multiplier));
         if (vertical)
-            mainView.animate().translationY(position).setDuration(animate ? 1000 : 0).setInterpolator(new FastOutSlowInInterpolator());
+            view.animate().translationY(position).setDuration(animate ? 1000 : 0).setInterpolator(new FastOutSlowInInterpolator());
         else
-            mainView.animate().translationX(position).setDuration(animate ? 1000 : 0).setInterpolator(new FastOutSlowInInterpolator());
+            view.animate().translationX(position).setDuration(animate ? 1000 : 0).setInterpolator(new FastOutSlowInInterpolator());
     }
 }
 
