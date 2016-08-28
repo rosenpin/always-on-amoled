@@ -12,6 +12,7 @@
   <string name="action_support_the_development">Wspomóż twórców</string>
   <string name="support_how_much">Jak dużo chcesz podarować?</string>
   <string name="gestures_action_speak">Powiedz głośno bieżący czas, powiadomienia i stan baterii</string>
+  <string name="gestures_action_flashlight">Włącz latarkę</string>
   <string name="supporter_feature_only">Ta funkcja jest dostępna tylko dla osób wspierających, możesz wybrać jak bardzo chcesz nas wesprzeć.</string>
   <string name="support_1">1$: Cena za odświeżającą Colę</string>
   <string name="support_2">2$: Cena za pyszną tabliczkę czekolady</string>
@@ -79,6 +80,10 @@
   <string name="rules_battery_30">30% lub wyżej</string>
   <string name="rules_battery_20">20% lub wyżej</string>
   <string name="rules_battery_10">10% lub wyżej</string>
+  <!--Animations-->
+  <string name="animation_disabled">Bez animacji</string>
+  <string name="animation_fade_out">Zanikanie</string>
+  <string name="animation_slide_out">Wysuwanie</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Wyłączone</string>
   <string name="rules_minutes_1">1 minucie</string>
@@ -106,7 +111,7 @@
   <string name="settings_double_tap_wake">Akcja dwukrotnego stuknięcia</string>
   <string name="settings_back_button_wake">Akcja przycisku wstecz</string>
   <string name="settings_volume_to_stop">Akcja klawiszy głośności</string>
-  <string name="settings_swipe_up">Akcja przesunięcia palcem w górę</string>
+  <string name="settings_swipe_wake">Akcja przesunięcia palcem w górę</string>
   <string name="settings_brightness">Jasność</string>
   <string name="settings_doze">Tryb Doze</string>
   <string name="settings_google_now_shortcut">Włącz Google Now</string>
@@ -206,4 +211,7 @@
   <string name="error_4_tasker_service_not_initialized">Usługa nie została zainicjowana poprawnie</string>
   <string name="error">Błąd</string>
   <string name="error_0_unknown_error_report_prompt">Kliknij tutaj, aby zgłosić błąd</string>
+  <string name="never_show_again">Nigdy nie pokazuj ponownie</string>
+  <string name="battery_saver">Oszczędzanie baterii</string>
+  <string name="battery_saver_desc">Redukuje zużycie baterii i przegrzewanie. Działa lepiej z root\'em.</string>
 </resources>

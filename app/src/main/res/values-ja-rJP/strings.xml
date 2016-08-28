@@ -15,8 +15,10 @@
   <string name="support_5">$5 すてきなアイスコーヒー1杯分</string>
   <string name="support_10">$10 おいしいピッツァ1枚分</string>
   <string name="support_20">$20 おいしいピッツァ1枚分</string>
+  <string name="support_25">25$: 晩餐の価格</string>
   <!--Intro-->
   <string name="intro_allow_now">今すぐ許可</string>
+  <string name="intro_permissions">電話のステータスを読み取る</string>
   <string name="intro_draw_over">他のアプリに重ねて表示</string>
   <string name="intro_draw_over_desc">このアプリは他のアプリの上に表示する許可が必要です</string>
   <string name="intro_modify_desc">このアプリは端末の明るさを変更する許可が必要です</string>
@@ -65,6 +67,7 @@
   <string name="rules_battery_30">30% 以上</string>
   <string name="rules_battery_20">20% 以上</string>
   <string name="rules_battery_10">10% 以上</string>
+  <!--Animations-->
   <!--Timeout delay rule-->
   <string name="rules_disabled">無効</string>
   <string name="rules_minutes_1">1分</string>
@@ -91,7 +94,7 @@
   <string name="settings_double_tap_wake">ダブルタップで閉じる</string>
   <string name="settings_back_button_wake">バックキーで閉じる</string>
   <string name="settings_volume_to_stop">ボリュームキーで閉じる</string>
-  <string name="settings_swipe_up">スワイプアップで閉じる</string>
+  <string name="settings_swipe_wake">スワイプアップで閉じる</string>
   <string name="settings_brightness">明るさ</string>
   <string name="settings_notifications">通知</string>
   <string name="settings_persistent_notification">常に通知を表示</string>

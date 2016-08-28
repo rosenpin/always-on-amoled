@@ -79,6 +79,7 @@
   <string name="rules_battery_30">30 % nebo vyšší</string>
   <string name="rules_battery_20">20 % nebo vyšší</string>
   <string name="rules_battery_10">10 % nebo vyšší</string>
+  <!--Animations-->
   <!--Timeout delay rule-->
   <string name="rules_disabled">Vypnutý</string>
   <string name="rules_minutes_1">1 minuta</string>
@@ -106,7 +107,7 @@
   <string name="settings_double_tap_wake">Akce dvojím poklepáním</string>
   <string name="settings_back_button_wake">Akce tlačítka zpět</string>
   <string name="settings_volume_to_stop">Akce tlačítek hlasitosti</string>
-  <string name="settings_swipe_up">Akce potahnutím nahoru</string>
+  <string name="settings_swipe_wake">Akce potahnutím nahoru</string>
   <string name="settings_brightness">Jas</string>
   <string name="settings_doze">Úsporný režim</string>
   <string name="settings_google_now_shortcut">Povolit Google Now</string>

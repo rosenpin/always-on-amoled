@@ -79,6 +79,7 @@
   <string name="rules_battery_30">30% ou superior</string>
   <string name="rules_battery_20">20% ou superior</string>
   <string name="rules_battery_10">10% ou superior</string>
+  <!--Animations-->
   <!--Timeout delay rule-->
   <string name="rules_disabled">Desativado</string>
   <string name="rules_minutes_1">1 Minuto</string>
@@ -106,7 +107,7 @@
   <string name="settings_double_tap_wake">Ação de duplo toque</string>
   <string name="settings_back_button_wake">Ação do botão voltar</string>
   <string name="settings_volume_to_stop">Ação das teclas de volume</string>
-  <string name="settings_swipe_up">Ação de deslizar para cima</string>
+  <string name="settings_swipe_wake">Ação de deslizar para cima</string>
   <string name="settings_brightness">Brilho</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>

@@ -12,6 +12,7 @@
   <string name="action_support_the_development">Поддержать разработчика</string>
   <string name="support_how_much">Сколько денег вы желаете пожертвовать разработчику?</string>
   <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
+  <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="supporter_feature_only">Эта функция станет доступна после внесения пожертвования, сколько бы вы хотели пожертвовать?</string>
   <string name="support_1">1$</string>
   <string name="support_2">2$</string>
@@ -79,6 +80,10 @@
   <string name="rules_battery_30">30% или более</string>
   <string name="rules_battery_20">20% или более</string>
   <string name="rules_battery_10">10% или более</string>
+  <!--Animations-->
+  <string name="animation_disabled">Без анимации</string>
+  <string name="animation_fade_out">Затухание</string>
+  <string name="animation_slide_out">Снизу вверх</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Отключено</string>
   <string name="rules_minutes_1">1 Минута</string>
@@ -106,7 +111,7 @@
   <string name="settings_double_tap_wake">Двойное нажатие</string>
   <string name="settings_back_button_wake">Действия кнопки \"назад\"</string>
   <string name="settings_volume_to_stop">Действия кнопок громкости</string>
-  <string name="settings_swipe_up">Действие при свайпе вверх</string>
+  <string name="settings_swipe_wake">Действие при свайпе вверх</string>
   <string name="settings_brightness">Яркость</string>
   <string name="settings_doze">Режим Doze</string>
   <string name="settings_google_now_shortcut">Разрешить Google Now</string>
@@ -206,4 +211,7 @@
   <string name="error_4_tasker_service_not_initialized">Сервис не может корректно инициализироваться</string>
   <string name="error">Ошибка</string>
   <string name="error_0_unknown_error_report_prompt">Нажмите сюда для отправки сообщения об ошибке</string>
+  <string name="never_show_again">Не показывать повторно</string>
+  <string name="battery_saver">Режим энергосбережения</string>
+  <string name="battery_saver_desc">Уменьшите потребление батареи и нагрев устройства. Работает лучше с правами супер пользователя.</string>
 </resources>

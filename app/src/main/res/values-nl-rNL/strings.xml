@@ -79,6 +79,10 @@
   <string name="rules_battery_30">30% of hoger</string>
   <string name="rules_battery_20">20% of hoger</string>
   <string name="rules_battery_10">10% of hoger</string>
+  <!--Animations-->
+  <string name="animation_disabled">Geen animatie</string>
+  <string name="animation_fade_out">Vervagen</string>
+  <string name="animation_slide_out">Wegsliden</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Uit</string>
   <string name="rules_minutes_1">1minuut</string>
@@ -106,7 +110,7 @@
   <string name="settings_double_tap_wake">Actie voor dubbel klikken</string>
   <string name="settings_back_button_wake">Actie voor terugknop</string>
   <string name="settings_volume_to_stop">Volume knop om aan te doen</string>
-  <string name="settings_swipe_up">Actie voor omhoog swipen</string>
+  <string name="settings_swipe_wake">Actie voor omhoog swipen</string>
   <string name="settings_brightness">Helderheid</string>
   <string name="settings_doze">Doze modus</string>
   <string name="settings_google_now_shortcut">Sta Google Now toe</string>
@@ -207,4 +211,5 @@
   <string name="error">Error</string>
   <string name="error_0_unknown_error_report_prompt">Klik hier om de error te rapporteren</string>
   <string name="never_show_again">Nooit meer weergeven</string>
+  <string name="battery_saver">Batterij spaarstand</string>
 </resources>

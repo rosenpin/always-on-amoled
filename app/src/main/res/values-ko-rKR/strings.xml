@@ -10,8 +10,7 @@
   <string name="action_restart">지금 재시작하기</string>
   <!--Support-->
   <string name="action_support_the_development">개발자 돕기</string>
-  <string name="support_how_much">개발자에게 맛있는것을 사주세요!
-(Don\'t use ()parenthesis sentense!!!!!!!)</string>
+  <string name="support_how_much">기부를 얼마 만큼 해주실건가요?</string>
   <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
   <string name="supporter_feature_only">이 기능은 도움을 주신 분들만 쓸 수 있습니다. 기부하고 싶은 만큼 기부한 뒤 이 기능을 쓸 수 있습니다. 얼마만큼 기부해주실 의향이 있으십니까?</string>
   <string name="support_1">1달러: 시원한 콜라를 마실 수 있는 가격</string>
@@ -23,12 +22,12 @@
   <!--Intro-->
   <string name="intro_allow_now">지금 권한 주기</string>
   <string name="intro_permissions">기기 상태 읽기</string>
-  <string name="intro_permissions_desc">이 앱은 전화수신시 화면 전환을 위한 기기의 전화 상태를 읽을 수 있는 권한이 필요합니다</string>
+  <string name="intro_permissions_desc">이 앱은 전화 수신시 화면 전환을 위한 기기의 전화 상태를 읽을 수 있는 권한이 필요합니다</string>
   <string name="intro_draw_over">다른 앱 위에 표시</string>
   <string name="intro_draw_over_desc">이 앱은 다른 앱 위에 표시하는 권한이 필요합니다</string>
   <string name="intro_modify_desc">이 앱은 디바이스의 밝기를 조절하는 권한이 필요합니다</string>
   <string name="intro_modify">시스템 설정 변경</string>
-  <string name="intro_wake_ups">화면켜는 방법</string>
+  <string name="intro_wake_ups">화면 켜는 방법</string>
   <string name="intro_wake_ups_desc">\"Always On\" 상태에서 화면을 켤 방법을 선택하십시오.
  나중에 바꿀 수 있습니다.</string>
   <string name="intro_checkbox_volume_keys">볼륨 키로 화면을 킵니다</string>
@@ -37,13 +36,13 @@
   <string name="intro_notifications">알림</string>
   <string name="intro_notifications_desc">\"Always On\" 상태에서 다른 앱들의 알림을 받고 싶다면, \"지금 권한 부여\" 버튼을 누르세요</string>
   <!--Feedback,Toasts & messages-->
-  <string name="thanks">지원해주셔서 감사합니다 :)</string>
+  <string name="thanks">지원해주셔서 감사합니다! :)</string>
   <string name="notification_message">Always On이 실행중입니다</string>
   <string name="thanks_short">고맙습니다</string>
   <!--Quick settings-->
   <string name="quick_settings_title">항상 켜기</string>
-  <string name="quick_settings_service_active">켬</string>
-  <string name="quick_settings_service_inactive">끔</string>
+  <string name="quick_settings_service_active">활성화</string>
+  <string name="quick_settings_service_inactive">비활성화</string>
   <!-- Content description-->
   <string name="notification_icon">알림 아이콘</string>
   <!--Widget-->
@@ -61,7 +60,7 @@
   <string name="error_3_unknown_error_restart">오류가 생겼습니다. 앱을 다시 열어주세요.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">이것은 앱의 기능을 손상시킬 수 있습니다.</string>
-  <string name="warning_4_device_not_secured">디바이스가 안전하지 않을 수도 있습니다.</string>
+  <string name="warning_4_device_not_secured">기기가 안전하지 않을 수도 있습니다.</string>
   <string name="warning_5_device_admin_disable">이것은 앱의 몇가지 기능을 비활성화시킬 것입니다.</string>
   <string name="warning_6_device_admin_disabled">몇가지 기능이 비활성화 되었습니다.</string>
   <string name="warning_7_disable_fingerprint">이 기능은 지문 센서를 비활성화시킬 수도 있습니다. 정말 이 기능을 활성화하시겠습니까?</string>
@@ -70,7 +69,7 @@
   <string name="warning_11_no_root">이 기능을 쓰려면 루팅해야 합니다!</string>
   <string name="warning_12_please_report">추가하거나 수정하실 것이 있으시다면 알려주세요.</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">항상</string>
+  <string name="rules_both_charging">항상, 충전하는 동안과 충전하지 않는 동안</string>
   <string name="rules_while_charging">충전할 때만</string>
   <string name="rules_while_not_charging">충전중이 아닐 때만</string>
   <!--Battery rules-->
@@ -79,10 +78,12 @@
   <string name="rules_battery_70">배터리 잔량 70% 이상</string>
   <string name="rules_battery_50">배터리 잔량 50% 이상</string>
   <string name="rules_battery_30">배터리 잔량 30% 이상</string>
-  <string name="rules_battery_20">배터리 잔량 20%이상</string>
+  <string name="rules_battery_20">배터리 잔량 20% 이상</string>
   <string name="rules_battery_10">배터리 잔량 10% 이상</string>
+  <!--Animations-->
+  <string name="animation_disabled">애니메이션 사용 안함</string>
   <!--Timeout delay rule-->
-  <string name="rules_disabled">중지됨</string>
+  <string name="rules_disabled">비활성화</string>
   <string name="rules_minutes_1">1분</string>
   <string name="rules_minutes_2">2분</string>
   <string name="rules_minutes_5">5분</string>
@@ -92,8 +93,8 @@
   <string name="rules_hour">1시간</string>
   <string name="rules_hours_2">2시간</string>
   <!--Orientation-->
-  <string name="rules_orientation_vertical">세로 화면</string>
-  <string name="rules_orientation_horizontal">가로 화면</string>
+  <string name="rules_orientation_vertical">세로 방향</string>
+  <string name="rules_orientation_horizontal">가로 방향</string>
   <!--Settings headers-->
   <string name="settings_behaviour">행동</string>
   <string name="settings_about">앱에 관하여</string>
@@ -108,7 +109,7 @@
   <string name="settings_double_tap_wake">두번 탭하여 켜기</string>
   <string name="settings_back_button_wake">뒤로가기 버튼으로 켜기</string>
   <string name="settings_volume_to_stop">볼륨 키로 켜기</string>
-  <string name="settings_swipe_up">위로 밀어서 켜기</string>
+  <string name="settings_swipe_wake">위로 밀어서 켜기</string>
   <string name="settings_brightness">밝기</string>
   <string name="settings_doze">도즈 모드</string>
   <string name="settings_google_now_shortcut">구글 지금 허용</string>
@@ -135,15 +136,15 @@
   <string name="settings_community">커뮤니티</string>
   <string name="greenify_integration">Greenify 통합</string>
   <string name="settings_licenses">라이센스</string>
-  <string name="settings_uninstall">지우기</string>
+  <string name="settings_uninstall">앱 제거</string>
   <string name="settings_app_version">버전</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">카메라가 작동 중 얼웨이즈 온 스크린을 중지 (넥서스/삼성 디바이스에서는 이 기능이 켜져 있어야 합니다)</string>
   <string name="settings_auto_brightness_desc">어두운 곳에서 자동으로 화면을 어둡게 합니다. (센서가 켜집니다.)</string>
   <string name="settings_stop_delay_desc_short_message">Always on 서비스를 중지합니다:</string>
-  <string name="settings_stop_delay_desc">디바이스를 사용한 후 일정 시간이 지나면 얼웨이즈 온 스크린 서비스를 중지합니다.</string>
-  <string name="settings_startafterlock_desc">화면이 잠긴 후에만 서비스를 시작합니다. 이것을 활성화해야 디바이스가 안전해지고 지문 센서가 작동할 수 있습니다.</string>
-  <string name="settings_rules_desc">언제 얼웨이즈 온 스크린이 작동해야 할까요?</string>
+  <string name="settings_stop_delay_desc">기기를 사용한 후 일정 시간이 지나면 Aways on screen 서비스를 중지합니다.</string>
+  <string name="settings_startafterlock_desc">화면이 잠긴 후에만 서비스를 시작합니다. 이것을 활성화해야 기기가 안전해지고 지문 센서가 작동할 수 있습니다.</string>
+  <string name="settings_rules_desc">언제 Always on screen이 작동 할까요?</string>
   <string name="settings_text_color_desc">글자 색을 바꿉니다</string>
   <string name="settings_show_am_pm_desc">오전/오후 보이기 (12시간 단위 시계만)</string>
   <string name="settings_watchface_desc">시계 구성요소를 바꿉니다</string>
@@ -165,7 +166,7 @@
   <string name="settings_watchface_battery">배터리 스타일</string>
   <string name="settings_watchface_miscellaneous">그 밖의 것</string>
   <string name="settings_watchface_styles">스타일</string>
-  <string name="settings_choose_font">글꼴을 고르세요</string>
+  <string name="settings_choose_font">글꼴 선택</string>
   <string name="settings_watch_digital">디지털</string>
   <string name="settings_watch_analog">아날로그</string>
   <string name="settings_rules_text">글자</string>
@@ -200,14 +201,18 @@ Greenify를 구성하려면 이곳을 클릭하세요</string>
   <string name="greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
-  <string name="settings_doze_desc">always on 스크린이 뜨고있을 때 도즈모드를 활성화하여 배터리를 절약합니다(루팅 필요)</string>
+  <string name="settings_doze_desc">Always on 스크린이 뜨고있을 때 도즈모드를 활성화하여 배터리를 절약합니다 (루팅 필요)</string>
   <string name="settings_memo_text_desc">여기에 메모를 하세요</string>
   <string name="settings_memo_font_size_desc">메모 글자 크기 설정</string>
-  <string name="settings_memo_hint">여기에 메모를 남기세요. Always On 화면에 뜰 겁니다.</string>
+  <string name="settings_memo_hint">여기에 메모를 남기세요. Always On 화면에 나옵니다.</string>
   <string name="settings_google_now_shortcut_desc">OK Google로 구글 나우를 열리게 해놨다면 Always On을 끄세요. (구글 나우 런처와 호환이 안 될 수 있습니다.)</string>
   <string name="settings_exit_animation">애니메이션</string>
   <string name="settings_exit_animation_desc">나갈 때 효과 고르기</string>
   <string name="error_4_tasker_service_not_initialized">서비스가 올바르게 시작되지 않았습니다</string>
   <string name="error">에러</string>
   <string name="error_0_unknown_error_report_prompt">에러를 보고하려면 여기를 누르세요</string>
+  <string name="never_show_again">다시 보지 않기</string>
+  <string name="battery_saver">배터리 절전</string>
+  <string name="battery_saver_desc">배터리 소모와 발열을 줄일 수 있습니다.
+이 기능은 루팅과 작동합니다</string>
 </resources>

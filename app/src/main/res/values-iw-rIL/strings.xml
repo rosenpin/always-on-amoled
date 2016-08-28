@@ -79,6 +79,7 @@
   <string name="rules_battery_30">30% ומעלה</string>
   <string name="rules_battery_20">20% ומעלה</string>
   <string name="rules_battery_10">10% ומעלה</string>
+  <!--Animations-->
   <!--Timeout delay rule-->
   <string name="rules_disabled">לא מאופשר</string>
   <string name="rules_minutes_1">דקה אחת</string>
@@ -106,7 +107,7 @@
   <string name="settings_double_tap_wake">הקשה כפולה לפתיחה</string>
   <string name="settings_back_button_wake">כפתור חזרה לפתיחה</string>
   <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
-  <string name="settings_swipe_up">החלקה מעלה כדי לפתוח</string>
+  <string name="settings_swipe_wake">החלקה מעלה כדי לפתוח</string>
   <string name="settings_brightness">בהירות</string>
   <string name="settings_doze">חסכון בסוללה</string>
   <string name="settings_google_now_shortcut">אפשר Ok Google</string>

@@ -12,6 +12,7 @@
   <string name="action_support_the_development">ساعدنا على التطوير</string>
   <string name="support_how_much">دعمنا كثيرا؟</string>
   <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
+  <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="supporter_feature_only">هذه الخاصية متاحة فقط للداعمين بأمكانك أن تصبح داعما،كم تريد أن تعطينا؟</string>
   <string name="support_1">1$: سعر كوكاكولا منعشة</string>
   <string name="support_2">2 دولار: ثمن شوكولاته لذيذة</string>
@@ -80,6 +81,10 @@
   <string name="rules_battery_30">30% أو أكثر</string>
   <string name="rules_battery_20">20% أو أكثر</string>
   <string name="rules_battery_10">10% أو أكثر</string>
+  <!--Animations-->
+  <string name="animation_disabled">بدون حركة</string>
+  <string name="animation_fade_out">تلاشي</string>
+  <string name="animation_slide_out">الانزلاق خارجًا</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">معطّل</string>
   <string name="rules_minutes_1">دقيقة واحدة</string>
@@ -107,7 +112,7 @@
   <string name="settings_double_tap_wake">عمل النقر المزدوج</string>
   <string name="settings_back_button_wake">الرجوع إلى زر الأحداث</string>
   <string name="settings_volume_to_stop">عمل مفاتيح الصوت</string>
-  <string name="settings_swipe_up">مرر لأعلى لتفعيل</string>
+  <string name="settings_swipe_wake">مرر لأعلى لتفعيل</string>
   <string name="settings_brightness">الإضاءة</string>
   <string name="settings_doze">وضع الإغفاء</string>
   <string name="settings_google_now_shortcut">إسمح لخدمة \"Google Now\"</string>
@@ -207,4 +212,7 @@
   <string name="error_4_tasker_service_not_initialized">الخدمة غير مهيأة بشكل صحيح</string>
   <string name="error">خطأ</string>
   <string name="error_0_unknown_error_report_prompt">اضغط هنا للابلاغ عن الخطأ</string>
+  <string name="never_show_again">لا تظهر مرة أخرى</string>
+  <string name="battery_saver">توفير البطارية</string>
+  <string name="battery_saver_desc">قلل استهلاك البطارية والحرارة. يعمل بشكل أفضل لمستخدمي الروت.</string>
 </resources>

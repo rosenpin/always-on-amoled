@@ -7,11 +7,12 @@
   <string name="action_revert">充值</string>
   <string name="menu_feedback">反馈</string>
   <string name="menu_rate">为这款应用评分。</string>
-  <string name="action_restart">立即重启</string>
+  <string name="action_restart">立即重启应用</string>
   <!--Support-->
-  <string name="action_support_the_development">支持开发者</string>
+  <string name="action_support_the_development">捐赠开发者</string>
   <string name="support_how_much">您想捐助多少数额？</string>
   <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
+  <string name="gestures_action_flashlight">打开手电</string>
   <string name="supporter_feature_only">此功能仅适用于捐助者，你可以自由的选择是否捐助，若想成为捐助者你也可以自由的选择捐助数额。</string>
   <string name="support_1">$1: 请我喝一杯可乐</string>
   <string name="support_2">$2: 请我吃一块美味的巧克力</string>
@@ -79,6 +80,10 @@
   <string name="rules_battery_30">30%以上</string>
   <string name="rules_battery_20">20%以上</string>
   <string name="rules_battery_10">10%以上</string>
+  <!--Animations-->
+  <string name="animation_disabled">无动画</string>
+  <string name="animation_fade_out">渐隐</string>
+  <string name="animation_slide_out">滑动</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">停用</string>
   <string name="rules_minutes_1">1分钟</string>
@@ -106,7 +111,7 @@
   <string name="settings_double_tap_wake">双击操作</string>
   <string name="settings_back_button_wake">后退按钮动作</string>
   <string name="settings_volume_to_stop">音量键操作</string>
-  <string name="settings_swipe_up">向上滑动功能</string>
+  <string name="settings_swipe_wake">向上滑动功能</string>
   <string name="settings_brightness">亮度</string>
   <string name="settings_doze">Doze模式</string>
   <string name="settings_google_now_shortcut">允许使用谷歌即时</string>
@@ -115,9 +120,9 @@
   <string name="settings_persistent_notification">持续显示通知</string>
   <string name="settings_move_auto">自动移动部件</string>
   <string name="settings_font_size">字体大小</string>
-  <string name="settings_watchface">自定义表盘</string>
+  <string name="settings_watchface">自定义时钟样式</string>
   <string name="settings_proximity">距离传感器 (口袋模式)</string>
-  <string name="settings_show_am_pm">显示 AM/PM</string>
+  <string name="settings_show_am_pm">显示 AM/PM标识</string>
   <string name="settings_text_color">文本颜色</string>
   <string name="settings_startafterlock">锁屏之后启动</string>
   <string name="settings_stop_delay">多长时间后熄灭屏幕？</string>
@@ -128,10 +133,10 @@
   <string name="settings_rules_cahrging">充电规则</string>
   <string name="settings_rules_battery">电量规则</string>
   <string name="settings_font">字体</string>
-  <string name="settings_translate">提供翻译</string>
+  <string name="settings_translate">翻译此应用</string>
   <string name="settings_github">在GitHub上查看源代码</string>
   <string name="settings_community">访问社区</string>
-  <string name="greenify_integration">Greenify整合</string>
+  <string name="greenify_integration">”绿色守护“整合</string>
   <string name="settings_licenses">许可信息</string>
   <string name="settings_uninstall">卸载</string>
   <string name="settings_app_version">版本</string>
@@ -143,13 +148,13 @@
   <string name="settings_startafterlock_desc">仅在锁屏后启动服务。打开此开关可以保证您的设备安全而且不会影响指纹解锁功能</string>
   <string name="settings_rules_desc">何时启用Always On服务？</string>
   <string name="settings_text_color_desc">设置文本颜色</string>
-  <string name="settings_show_am_pm_desc">显示上午或下午符号(此选项仅在12时制下有效)</string>
+  <string name="settings_show_am_pm_desc">显示AM/PM图标(此选项仅在12时制下有效)</string>
   <string name="settings_watchface_desc">自定义Always On屏幕</string>
   <string name="settings_proximity_to_lock_desc">当您将设备放入口袋时锁定设备(注意：该功能需要保持传感器一直待机而可能消耗更多电量)</string>
   <string name="settings_licenses_desc">开放源代码许可</string>
   <string name="settings_community_desc">Google+社区</string>
   <string name="settings_github_desc">在GitHub上的开源信息</string>
-  <string name="settings_move_desc">启用这项功能可以避免常亮而引起的烧屏</string>
+  <string name="settings_move_desc">启用这项功能可以避免常亮而引起的AMOLED屏幕损耗</string>
   <string name="settings_font_size_desc">设置时钟字体大小</string>
   <string name="settings_notifications_desc">启用此选项以使程序在后台运行</string>
   <string name="settings_enabled_desc">启动服务</string>
@@ -157,7 +162,7 @@
   <string name="settings_notifications_alerts_desc">显示其他应用程序收到的通知</string>
   <string name="settings_brightness_desc">Always On屏幕的亮度</string>
   <string name="settings_about_translate">帮助我们翻译这款应用程序</string>
-  <string name="settings_version_desc">编译次数</string>
+  <string name="settings_version_desc">版本号</string>
   <string name="settings_watchface_clock">时钟样式</string>
   <string name="settings_watchface_date">日期样式</string>
   <string name="settings_watchface_battery">电池图标样式</string>
@@ -207,4 +212,6 @@
   <string name="error">错误</string>
   <string name="error_0_unknown_error_report_prompt">点击此处反馈错误</string>
   <string name="never_show_again">不再显示</string>
+  <string name="battery_saver">节电模式</string>
+  <string name="battery_saver_desc">减少电池消耗，防止电池过热。root模式下效果更显著</string>
 </resources>

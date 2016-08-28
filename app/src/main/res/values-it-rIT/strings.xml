@@ -12,6 +12,7 @@
   <string name="action_support_the_development">Sostieni lo Sviluppatore</string>
   <string name="support_how_much">Quanto vorresti donare?</string>
   <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
+  <string name="gestures_action_flashlight">Toggle torcia</string>
   <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
   <string name="support_1">1$: Il prezzo di una coca-cola rinfrescante</string>
   <string name="support_2">2$: Il prezzo di una gustosa barretta di cioccolato</string>
@@ -40,12 +41,12 @@
   <string name="thanks_short">Grazie</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
-  <string name="quick_settings_service_active">abilita</string>
+  <string name="quick_settings_service_active">abilitato</string>
   <string name="quick_settings_service_inactive">disabilitato</string>
   <!-- Content description-->
   <string name="notification_icon">Icona di notifica</string>
   <!--Widget-->
-  <string name="widget_toggle">interruttore</string>
+  <string name="widget_toggle">toggle</string>
   <string name="widget_off">Spento</string>
   <string name="widget_on">Acceso</string>
   <!--Device admin-->
@@ -79,6 +80,10 @@
   <string name="rules_battery_30">30% o superiore</string>
   <string name="rules_battery_20">20% o superiore</string>
   <string name="rules_battery_10">10% o superiore</string>
+  <!--Animations-->
+  <string name="animation_disabled">Nessuna animazione</string>
+  <string name="animation_fade_out">Dissolvenza in uscita</string>
+  <string name="animation_slide_out">Scorri fuori</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Disabilitato</string>
   <string name="rules_minutes_1">1 minuto</string>
@@ -106,7 +111,7 @@
   <string name="settings_double_tap_wake">Doppio tap per disattivare</string>
   <string name="settings_back_button_wake">Tasto indietro per disattivare</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
-  <string name="settings_swipe_up">Swipe verso l\'alto per disattivare</string>
+  <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
   <string name="settings_brightness">Luminosità</string>
   <string name="settings_doze">Modalità Doze</string>
   <string name="settings_google_now_shortcut">Consenti Google Now</string>
@@ -207,4 +212,6 @@
   <string name="error">Errore</string>
   <string name="error_0_unknown_error_report_prompt">Clicca qui per segnalare l\'errore</string>
   <string name="never_show_again">Non mostrare più</string>
+  <string name="battery_saver">Risparmio Batteria</string>
+  <string name="battery_saver_desc">Riduce il consumo batteria e il surriscaldamento. Funziona meglio con il root</string>
 </resources>

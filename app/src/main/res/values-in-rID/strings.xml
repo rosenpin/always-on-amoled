@@ -12,6 +12,7 @@
   <string name="action_support_the_development">Dukung pengembangan</string>
   <string name="support_how_much">Berapa banyak Anda ingin menyumbang?</string>
   <string name="gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
+  <string name="gestures_action_flashlight">Menghidupkan Senter </string>
   <string name="supporter_feature_only">Fitur ini hanya tersedia bagi penyumbang, Anda dapat memilih berapa sumbangan yang ingin anda berikan, berapa banyak anda ingin menyumbang?</string>
   <string name="support_1">1$: Harga sebotol cola-cola</string>
   <string name="support_2">2$: Harga sebatang coklat cunky bar</string>
@@ -62,7 +63,11 @@
   <string name="warning_4_device_not_secured">Perangkat Anda mungkin tidak aman</string>
   <string name="warning_5_device_admin_disable">Ini akan menonaktifkan beberapa fitur aplikasi</string>
   <string name="warning_6_device_admin_disabled">Beberapa fitur dapat dimatikan sekarang</string>
+  <string name="warning_7_disable_fingerprint">Ini mungkin akan menonaktifkan fungsi sensor sidik jari, apakah Anda yakin ingin mengaktifkan ini?</string>
+  <string name="warning_8_intro_allow_all">Silahkan ijinkan semua perizinan</string>
+  <string name="warning_11_no_root">Perangkat harus di root untuk menggunakan fitur ini</string>
   <!--Charging rules-->
+  <string name="rules_both_charging">Kedua, saat pengisian baterai dan tidak dalam pengisian baterai </string>
   <string name="rules_while_charging">Saat mengisi daya</string>
   <string name="rules_while_not_charging">Saat tidak mengisi daya</string>
   <!--Battery rules-->
@@ -71,7 +76,16 @@
   <string name="rules_battery_70">70% atau lebih</string>
   <string name="rules_battery_50">50% atau lebih</string>
   <string name="rules_battery_30">30% atau lebih</string>
+  <string name="rules_battery_20">20% atau lebih tinggi </string>
+  <string name="rules_battery_10">10% atau lebih tinggi </string>
+  <!--Animations-->
+  <string name="animation_disabled">Tanpa animasi </string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">Nonaktif</string>
+  <string name="rules_minutes_1">1 Menit</string>
+  <string name="rules_minutes_2">2 Menit</string>
+  <string name="rules_minutes_5">5 Menit</string>
+  <string name="rules_minutes_10">10 Menit</string>
   <string name="rules_minutes_15">15 menit</string>
   <string name="rules_minutes_30">30 menit</string>
   <string name="rules_hour">1 Jam</string>
@@ -83,9 +97,56 @@
   <string name="settings_behaviour">Perilaku</string>
   <string name="settings_about">Tentang</string>
   <string name="settings_appearance">Tampilan</string>
+  <string name="settings_shortcuts">Jalan Pintas </string>
   <!--Settings titles-->
+  <string name="settings_enabled">Aktifkan </string>
+  <string name="settings_disable_volume_keys">Tidak Mengaktifkan Tombol Volume </string>
+  <string name="settings_double_tap_wake">Aksi tekan dua kali </string>
+  <string name="settings_back_button_wake">Aksi tombol kembali </string>
+  <string name="settings_volume_to_stop">Also tombol volume </string>
+  <string name="settings_swipe_wake">Aksi geser ke atas </string>
+  <string name="settings_brightness">Kecerahan </string>
+  <string name="settings_doze">Dosisnya mode </string>
+  <string name="settings_google_now_shortcut">Memungkinkan Google Now </string>
+  <string name="settings_memo_text">Memo teks </string>
+  <string name="settings_notifications">Notifikasi</string>
+  <string name="settings_font_size">Ukuran teks </string>
+  <string name="settings_watchface">Kostumisasi layar jam</string>
+  <string name="settings_proximity">Sensor Proximity (Mode Saku) </string>
+  <string name="settings_show_am_pm">Menunjukan AM/PM</string>
+  <string name="settings_text_color">Warna teks </string>
+  <string name="settings_startafterlock">Memulai setelah di kunci </string>
+  <string name="settings_orientation">Orientasi layar </string>
+  <string name="settings_always_on_memo">Memo selalu menyala </string>
+  <string name="settings_stop_on_camera">Memungkinkan pintas kamera </string>
+  <string name="settings_rules_cahrging">Aturan pengisian </string>
+  <string name="settings_rules_battery">Aturan baterai </string>
+  <string name="settings_font">Huruf</string>
+  <string name="settings_translate">Terjemahkan</string>
+  <string name="settings_github">GitHub </string>
+  <string name="settings_community">Komunitas</string>
   <!--Settings descriptions-->
+  <string name="settings_watchface_text_font"><![CDATA[Teks & Huruf ]]></string>
+  <string name="settings_uninstall_desc">Uninstall aplikasi </string>
+  <string name="settings_watchface_clock_desc">Pilih gaya jam favorit mu</string>
+  <string name="settings_watch_analog_24_classic">Klasik 24th Jam Analog </string>
+  <string name="settings_watch_analog_s7">Jam Analog gaya S7</string>
+  <string name="settings_watch_ticks">Jam Analog 12 jam Klasik</string>
+  <string name="settings_watch_digital_s7">Jam digital bergaya S7</string>
+  <string name="settings_watch_flat_analog">Jam analog biasa</string>
+  <string name="settings_watch_analog_pebble">Jam analog bergaya Pebble</string>
+  <string name="settings_watch_flat_red_analog">Analog biasa (muka arloji merah)</string>
+  <string name="move_disable">Dimatikan (tidak disarankan untuk layar AMOLED)</string>
+  <string name="move_move">Pindahkan gawit secara otomatis</string>
+  <string name="move_move_animation">Arahkan gawit secara otomatis dengan animasi</string>
+  <string name="settings_notifications_alerts_preview">Konten notifikasi</string>
+  <string name="settings_memo_text_desc">Tulis memo mu disini </string>
+  <string name="settings_memo_font_size_desc">Atur ukuran teks memo </string>
+  <string name="settings_exit_animation">Animasi </string>
+  <string name="settings_exit_animation_desc">Pilih animasi keluar </string>
   <string name="error_4_tasker_service_not_initialized">Layanan tidak memulai dengan benar</string>
   <string name="error">Kesalahan</string>
   <string name="error_0_unknown_error_report_prompt">Tekan disini untuk melaporkan kesalahan</string>
+  <string name="never_show_again">Jangan tampilkan lagi</string>
+  <string name="battery_saver">Penghemat baterai </string>
 </resources>

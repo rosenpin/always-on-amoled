@@ -12,6 +12,7 @@
   <string name="action_support_the_development">Apoya al desarrollo</string>
   <string name="support_how_much">¿Cuánto te gustaría donar?</string>
   <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
+  <string name="gestures_action_flashlight">J</string>
   <string name="supporter_feature_only">Esta función está solamente disponible para los seguidores, puede elegir cuánto quiere donar para convertirse en un seguidor. ¿Cuánto te gustaría donar?</string>
   <string name="support_1">1$: El precio de una refrescante Coca-Cola</string>
   <string name="support_2">2$: El precio de una deliciosa barra de chocolate</string>
@@ -79,6 +80,8 @@
   <string name="rules_battery_30">30% o superior</string>
   <string name="rules_battery_20">20% o superior</string>
   <string name="rules_battery_10">10% o superior</string>
+  <!--Animations-->
+  <string name="animation_disabled">Jjj</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Desactivado</string>
   <string name="rules_minutes_1">1 minuto</string>
@@ -106,7 +109,7 @@
   <string name="settings_double_tap_wake">Acción de doble toque</string>
   <string name="settings_back_button_wake">Acción de botón back</string>
   <string name="settings_volume_to_stop">Acción de las teclas de volumen</string>
-  <string name="settings_swipe_up">Acción al deslizar hacia arriba</string>
+  <string name="settings_swipe_wake">Acción al deslizar hacia arriba</string>
   <string name="settings_brightness">Brillo</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>

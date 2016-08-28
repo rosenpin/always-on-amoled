@@ -60,6 +60,7 @@
   <string name="rules_battery_30">30% або вище</string>
   <string name="rules_battery_20">20% або вище</string>
   <string name="rules_battery_10">10% або вище</string>
+  <!--Animations-->
   <!--Timeout delay rule-->
   <string name="rules_disabled">Вимкнено</string>
   <string name="rules_minutes_1">1 хвилина</string>
@@ -86,7 +87,7 @@
   <string name="settings_double_tap_wake">Подвійне натискання</string>
   <string name="settings_back_button_wake">Клавіша \"Назад\"</string>
   <string name="settings_volume_to_stop">Клавіша регулювання гучності</string>
-  <string name="settings_swipe_up">Свайп угору</string>
+  <string name="settings_swipe_wake">Свайп угору</string>
   <string name="settings_brightness">Яскравість</string>
   <string name="settings_notifications">Сповіщення</string>
   <string name="settings_persistent_notification">Показати постійне повідомлення</string>

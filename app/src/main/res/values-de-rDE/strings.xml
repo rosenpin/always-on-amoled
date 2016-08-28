@@ -12,6 +12,7 @@
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
   <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
+  <string name="gestures_action_flashlight">Taschenlampe</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
   <string name="support_1">1 $: Der Preis einer erfrischenden Coke</string>
   <string name="support_2">2 $: Der Preis eines leckeren Schokoriegels</string>
@@ -50,8 +51,7 @@
   <string name="widget_on">An</string>
   <!--Device admin-->
   <!--Plugin-->
-  <string name="plugin_dialog_title">Plug-In wird benötigt
-</string>
+  <string name="plugin_dialog_title">Plug-In wird benötigt</string>
   <string name="plugin_dialog_desc">Es scheint als ob dein Gerät Hardwarebuttons besitzt. Um diese abzuschalten wenn der Dienst ausgeführt wird, musst du das Plug-In installieren.</string>
   <!--Errors-->
   <string name="error_IAP">Fehler! Bitte vergewissere dich, dass Du mit dem Internet verbunden bist, und starte die App neu</string>
@@ -80,6 +80,10 @@
   <string name="rules_battery_30">30 % oder höher</string>
   <string name="rules_battery_20">20 % oder höher</string>
   <string name="rules_battery_10">10 % oder höher</string>
+  <!--Animations-->
+  <string name="animation_disabled">Keine Animation</string>
+  <string name="animation_fade_out">Ausblenden</string>
+  <string name="animation_slide_out">Weg schieben</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Deaktiviert</string>
   <string name="rules_minutes_1">1 Minute</string>
@@ -107,7 +111,7 @@
   <string name="settings_double_tap_wake">Doppeltipp-Aktion</string>
   <string name="settings_back_button_wake">\"Zurück\"-Aktion</string>
   <string name="settings_volume_to_stop">Lautstärketasten-Aktion</string>
-  <string name="settings_swipe_up">Nach oben wischen-Aktion</string>
+  <string name="settings_swipe_wake">Nach oben wischen-Aktion</string>
   <string name="settings_brightness">Helligkeit</string>
   <string name="settings_doze">Doze-Modus</string>
   <string name="settings_google_now_shortcut">Erlaube Google Now</string>
@@ -117,7 +121,7 @@
   <string name="settings_move_auto">Widget automatisch verschieben</string>
   <string name="settings_font_size">Schriftgröße</string>
   <string name="settings_watchface">Darstellung anpassen</string>
-  <string name="settings_proximity">Näherungssensor aktivieren</string>
+  <string name="settings_proximity">Näherungssensor aktivieren (Taschenmodus)</string>
   <string name="settings_show_am_pm">Zeige AM/PM</string>
   <string name="settings_text_color">Textfarbe</string>
   <string name="settings_startafterlock">Starten nach Sperrung</string>
@@ -182,8 +186,8 @@
   <string name="settings_watchface_text_font"><![CDATA[Text & Schrift]]></string>
   <string name="settings_uninstall_desc">App deinstallieren</string>
   <string name="settings_watchface_clock_desc">Wähle deinen bevorzugten Uhrenstil</string>
-  <string name="settings_watch_analog_24_classic">Klassische 24h Analog-Uhr</string>
-  <string name="settings_watch_analog_s7">Analoge Uhr im Galaxy S7 Stil</string>
+  <string name="settings_watch_analog_24_classic">Analog, klassische 24 Stunden Uhr</string>
+  <string name="settings_watch_analog_s7">Analog, Galaxy S7 Stil</string>
   <string name="settings_watch_ticks">Analog, klassische 12 Stunden Uhr</string>
   <string name="settings_watch_digital_s7">Digital, S7-Stil</string>
   <string name="settings_watch_flat_analog">Analog, Flat Design</string>
@@ -208,4 +212,6 @@
   <string name="error">Fehler</string>
   <string name="error_0_unknown_error_report_prompt">Klicke hier um den Fehler zu melden</string>
   <string name="never_show_again">Nicht erneut zeigen</string>
+  <string name="battery_saver">Energiesparmodus</string>
+  <string name="battery_saver_desc">Reduziert Akkuverbrauch und Wärmeerzeugung. Funktioniert mit Root besser.</string>
 </resources>

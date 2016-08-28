@@ -79,6 +79,7 @@
   <string name="rules_battery_30">30% procent eller mer</string>
   <string name="rules_battery_20">20% eller mer</string>
   <string name="rules_battery_10">10% eller mer</string>
+  <!--Animations-->
   <!--Timeout delay rule-->
   <string name="rules_disabled">Avaktiverat</string>
   <string name="rules_minutes_1">1 minut</string>
@@ -106,7 +107,7 @@
   <string name="settings_double_tap_wake">Dubbeltryck i mitten på skärmen för att:</string>
   <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
   <string name="settings_volume_to_stop">Volymknapparna för att:</string>
-  <string name="settings_swipe_up">Dra uppåt för att:</string>
+  <string name="settings_swipe_wake">Dra uppåt för att:</string>
   <string name="settings_brightness">Ljusstyrka</string>
   <string name="settings_doze">Doze-läge</string>
   <string name="settings_google_now_shortcut">Tillåta Google Nu</string>

@@ -1,6 +1,6 @@
 Telefon veya tabletinize "her zaman açık" yükleyin.
 Ekranınız sürekli açık kalsın.
-Açık kaynak kodlu ilk her zaman açık uygulaması!
+Açık kaynak kodlu ilk always on uygulaması!
 
 Bu fikir kullanıcıların saat, tarih ve bildirimleri ve daha fazlasını telefonlarına dokunmadan haberdar olmaları için geliştirildi. Sadece bakarak.
 
