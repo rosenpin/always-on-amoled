@@ -166,8 +166,9 @@
     <string name="settings_watchface_desc">Customize the always on screen</string>
     <string name="settings_proximity_to_lock_desc">Lock the device when you place your device in your pocket to save battery (Sensors may use more battery)</string>
     <string name="settings_licenses_desc">Open source licenses</string>
-    <string name="settings_community_desc">Google Plus community</string>
-    <string name="settings_github_desc">Open source GitHub link</string>
+    <string name="settings_community_desc">Join the Google Plus community for news, updates giveaways and more</string>
+    <string name="settings_about_twitter_desc">Follow me on Twitter for news, updates and giveaways</string>
+    <string name="settings_github_desc">View the source code, submit issues and help developing the app</string>
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
     <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
@@ -175,7 +176,7 @@
     <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
     <string name="settings_notifications_alerts_desc">Show notifications from other apps when received</string>
     <string name="settings_brightness_desc">Screen brightness while off</string>
-    <string name="settings_about_translate">Help translating the app</string>
+    <string name="settings_about_translate">Help translating the app to your language</string>
     <string name="settings_version_desc">build</string>
     <string name="settings_watchface_clock">Clock style</string>
     <string name="settings_watchface_date">Date style</string>
@@ -205,6 +206,7 @@
     <string name="settings_watch_ticks">Classic 12h Analog Clock</string>
     <string name="settings_watch_digital_s7">S7 style digital clock</string>
     <string name="settings_watch_flat_analog">Flat analog style</string>
+    <string name="settings_about_twitter">Twitter</string>
     <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
     <string name="settings_watch_flat_red_analog">Flat analog (red dial)</string>
     <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>

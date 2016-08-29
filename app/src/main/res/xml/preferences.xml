@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.tomer.alwayson">
     <PreferenceCategory android:title="@string/settings_general">
         <SwitchPreference
             android:defaultValue="true"
@@ -275,18 +276,22 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_about">
-        <Preference
-            android:key="community"
+        <com.tomer.alwayson.views.URLPreference
             android:summary="@string/settings_community_desc"
-            android:title="@string/settings_community" />
-        <Preference
-            android:key="github"
+            android:title="@string/settings_community"
+            app:url="https://plus.google.com/communities/104206728795122451273" />
+        <com.tomer.alwayson.views.URLPreference
             android:summary="@string/settings_github_desc"
-            android:title="@string/settings_github" />
-        <Preference
-            android:key="translate"
+            android:title="@string/settings_github"
+            app:url="https://github.com/rosenpin/AlwaysOnDisplayAmoled" />
+        <com.tomer.alwayson.views.URLPreference
             android:summary="@string/settings_about_translate"
-            android:title="@string/settings_translate" />
+            android:title="@string/settings_translate"
+            app:url="https://crowdin.com/project/always-on-amoled" />
+        <com.tomer.alwayson.views.URLPreference
+            android:summary="@string/settings_about_twitter_desc"
+            android:title="@string/settings_about_twitter"
+            app:url="http://www.twitter.com/Rosenpin" />
         <Preference
             android:key="open_source_licenses"
             android:summary="@string/settings_licenses_desc"
