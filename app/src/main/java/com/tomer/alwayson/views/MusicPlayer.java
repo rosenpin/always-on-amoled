@@ -51,9 +51,6 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         IntentFilter iF = new IntentFilter();
         iF.addAction("com.android.music.metachanged");
         iF.addAction("com.android.music.playstatechanged");
-        iF.addAction("com.android.music.playbackcomplete");
-        iF.addAction("com.android.music.queuechanged");
-        iF.addAction("com.android.music.metachanged");
         iF.addAction("com.htc.music.metachanged");
         iF.addAction("fm.last.android.metachanged");
         iF.addAction("com.sec.android.app.music.metachanged");
@@ -62,7 +59,6 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         iF.addAction("com.miui.player.metachanged");
         iF.addAction("com.real.IMP.metachanged");
         iF.addAction("com.sonyericsson.music.metachanged");
-        iF.addAction("com.spotify.music.metachanged");
         iF.addAction("com.rdio.android.metachanged");
         iF.addAction("com.samsung.sec.android.MusicPlayer.metachanged");
         iF.addAction("com.andrew.apollo.metachanged");
