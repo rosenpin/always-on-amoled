@@ -166,11 +166,12 @@
     <string name="settings_watchface_desc">Customize the always on screen</string>
     <string name="settings_proximity_to_lock_desc">Lock the device when you place your device in your pocket to save battery (Sensors may use more battery)</string>
     <string name="settings_licenses_desc">Open source licenses</string>
-    <string name="settings_community_desc">Join the Google Plus community for news, updates, giveaways and more</string>
+    <string name="settings_community_desc">Join the Google Plus community for news, updates giveaways and more</string>
     <string name="settings_about_twitter_desc">Follow me on Twitter for news, updates and giveaways</string>
     <string name="settings_github_desc">View the source code, submit issues and help developing the app</string>
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
+    <string name="settings_font_size_memo_desc">Set the clock font size</string>
     <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
     <string name="settings_enabled_desc">Enable the service</string>
     <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>

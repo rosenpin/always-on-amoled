@@ -25,6 +25,12 @@ public class Clock extends LinearLayout implements ContextConstatns {
         addView(inflater.inflate(R.layout.clock, null));
     }
 
+    public Clock(Context context){
+        super(context);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        addView(inflater.inflate(R.layout.clock, null));
+    }
+
     public void setStyle(Context context, int clockStyle, float textSize, int textColor, boolean showAmPm, Typeface font) {
         LinearLayout clockWrapper = (LinearLayout) findViewById(R.id.clock_wrapper);
         analogClock = (CustomAnalogClock) clockWrapper.findViewById(R.id.custom_analog_clock);

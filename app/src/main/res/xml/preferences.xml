@@ -102,13 +102,10 @@
             android:summary="@string/settings_watchface_desc"
             android:title="@string/settings_watchface">
             <PreferenceCategory android:title="@string/settings_watchface_styles">
-                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                <Preference
                     android:defaultValue="1"
-                    android:dialogTitle="@string/settings_watchface_clock_desc"
-                    android:entries="@array/customize_clock"
-                    android:entryValues="@array/customize_clock_vals"
                     android:key="watchface_clock"
-                    android:summary="%s"
+                    android:summary="@string/settings_watchface_clock_desc"
                     android:title="@string/settings_watchface_clock" />
                 <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="1"
@@ -159,7 +156,7 @@
                     android:dialogTitle="@string/settings_font_size_desc"
                     android:key="memo_font_size"
                     android:max="120"
-                    android:summary="@string/settings_memo_font_size_desc"
+                    android:summary="@string/settings_font_size_memo_desc"
                     android:title="@string/settings_font_size" />
             </PreferenceCategory>
             <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">

@@ -14,6 +14,7 @@ public class URLPreference extends Preference {
         super(context, attrs);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.url_preference);
         CharSequence url = a.getString(R.styleable.url_preference_url);
+        a.recycle();
         setOnPreferenceClickListener(preference -> {
             Utils.openURL(context, (String) url);
             return true;

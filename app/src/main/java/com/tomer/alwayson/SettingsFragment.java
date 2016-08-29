@@ -36,6 +36,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.prefs.MaterialListPreference;
 import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.activities.PreferencesActivity;
+import com.tomer.alwayson.activities.WatchfacePicker;
 import com.tomer.alwayson.helpers.DozeManager;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
@@ -76,6 +77,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
         context = getActivity().getApplicationContext();
+        prefs = new Prefs(context);
+        prefs.apply();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
@@ -85,15 +88,16 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("google_now_shortcut").setOnPreferenceChangeListener(this);
         findPreference("camera_shortcut").setOnPreferenceChangeListener(this);
         findPreference("stop_delay").setOnPreferenceChangeListener(this);
-        findPreference("watchface_clock").setOnPreferenceChangeListener(this);
-        findPreference("textcolor").setOnPreferenceClickListener(this);
         findPreference("battery_saver").setOnPreferenceChangeListener(this);
-        ((SeekBarPreference) findPreference("font_size")).setMin(20);
+        findPreference("watchface_clock").setOnPreferenceClickListener(this);
+        findPreference("textcolor").setOnPreferenceClickListener(this);
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
+        ((SeekBarPreference) findPreference("font_size")).setMin(20);
+        findPreference("watchface_clock").setSummary(context.getResources().getStringArray(R.array.customize_clock)[prefs.clockStyle]);
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
-        String[] preferencespList = {DOUBLE_TAP, SWIPE_UP, SWIPE_DOWN, VOLUME_KEYS, BACK_BUTTON};
-        for (String preference : preferencespList) {
+        String[] gesturePreferencesList = {DOUBLE_TAP, SWIPE_UP, SWIPE_DOWN, VOLUME_KEYS, BACK_BUTTON};
+        for (String preference : gesturePreferencesList) {
             findPreference(preference).setOnPreferenceChangeListener((preference1, o) -> {
                 switch (Integer.parseInt((String) o)) {
                     case DISABLED:
@@ -273,24 +277,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     @Override
     public boolean onPreferenceChange(final Preference preference, Object o) {
-        if (preference.getKey().equals("watchface_clock")) {
-            int value = Integer.parseInt((String) o);
-            if (value > 2) {
-                if (Globals.ownedItems != null) {
-                    if (Globals.ownedItems.size() > 0) {
-                        return true;
-                    } else {
-                        PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-                        return false;
-                    }
-                } else {
-                    PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
-                }
-            } else {
-                return true;
-            }
-        }
-
         prefs.apply();
         Utils.logDebug("Preference change", preference.getKey() + " Value:" + o.toString());
 
@@ -425,6 +411,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         }
                     })
                     .show();
+            return false;
+        } else if (preference.getKey().equals("watchface_clock")) {
+            Intent intent = new Intent(context, WatchfacePicker.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
             return false;
         }
         return true;
