@@ -37,10 +37,10 @@ import java.util.Date;
 public class AppRate {
 
     protected static final String PREFS_NAME = "app_rate_prefs";
+    protected static final String KEY_LAST_CRASH = "last_crash";
     private static final String KEY_ELAPSED_TIME = "elapsed_time";
     private static final String KEY_COUNT = "count";
     private static final String KEY_CLICKED = "clicked";
-    protected static final String KEY_LAST_CRASH = "last_crash";
     private static final String KEY_MONITOR_START = "monitor_start";
     private static final String KEY_MONITOR_TOTAL = "monitor_total";
     private static final String KEY_LAST_COUNT_UPDATE = "last_count_update";
@@ -101,6 +101,22 @@ public class AppRate {
      *
      */
 
+    /**
+     * Initialize the {@link ExceptionHandler}.
+     */
+    public static void initExceptionHandler(Context context) {
+
+        Log.d("AppRate", "Init AppRate ExceptionHandler");
+
+        Thread.UncaughtExceptionHandler currentHandler = Thread.getDefaultUncaughtExceptionHandler();
+
+        // Don't register again if already registered.
+        if (!(currentHandler instanceof ExceptionHandler)) {
+
+            // Register default exceptions handler.
+            Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(currentHandler, context));
+        }
+    }
 
     /**
      * Enable debug mode which will send state when actions are triggered
@@ -213,7 +229,6 @@ public class AppRate {
         this.theme = theme;
         return this;
     }
-
 
     /**
      * Pause duration after a crash (in ms.)
@@ -361,6 +376,12 @@ public class AppRate {
         return this;
     }
 
+    /*
+     *
+     * ******************** ACTIONS ********************
+     *
+     */
+
     /**
      * Set callbacks for when the user enters a star rating
      *
@@ -371,13 +392,6 @@ public class AppRate {
         this.onStarRateListener = starRateListener;
         return this;
     }
-
-    /*
-     *
-     * ******************** ACTIONS ********************
-     *
-     */
-
 
     /**
      * Check and show if showing the view is needed
@@ -518,23 +532,6 @@ public class AppRate {
         editor.putLong(KEY_MONITOR_TOTAL, settings.getLong(KEY_MONITOR_TOTAL, 0) + (System.currentTimeMillis() - start));
         editor.putLong(KEY_MONITOR_START, 0);
         commitEditor();
-    }
-
-    /**
-     * Initialize the {@link ExceptionHandler}.
-     */
-    public static void initExceptionHandler(Context context) {
-
-        Log.d("AppRate", "Init AppRate ExceptionHandler");
-
-        Thread.UncaughtExceptionHandler currentHandler = Thread.getDefaultUncaughtExceptionHandler();
-
-        // Don't register again if already registered.
-        if (!(currentHandler instanceof ExceptionHandler)) {
-
-            // Register default exceptions handler.
-            Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(currentHandler, context));
-        }
     }
 
     public void hide() {
@@ -835,20 +832,6 @@ public class AppRate {
         if (onShowListener != null) onShowListener.onRateAppShowing(this, mainView);
     }
 
-    public interface OnShowListener {
-        void onRateAppShowing(AppRate appRate, View view);
-
-        void onRateAppDismissed();
-
-        void onRateAppClicked();
-    }
-
-    public interface OnStarRateListener {
-        void onPositiveRating(int starRating);
-
-        void onNegativeRating(int starRating);
-    }
-
     private void performRating(String packageName) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName));
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -885,5 +868,19 @@ public class AppRate {
 
     private void LogD(String s) {
         Log.d("DicreetAppRate", s);
+    }
+
+    public interface OnShowListener {
+        void onRateAppShowing(AppRate appRate, View view);
+
+        void onRateAppDismissed();
+
+        void onRateAppClicked();
+    }
+
+    public interface OnStarRateListener {
+        void onPositiveRating(int starRating);
+
+        void onNegativeRating(int starRating);
     }
 }

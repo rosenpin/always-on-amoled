@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/dar_container"
@@ -16,26 +16,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/dar_close"
             android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/dar_close"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/dar_rate_element"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
                 android:gravity="center_vertical"
-                android:id="@+id/dar_rate_element"
-                android:textColor="@android:color/white"
+                android:paddingBottom="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:id="@+id/dar_star_container"
-                android:visibility="gone"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -43,8 +43,8 @@
             android:id="@+id/dar_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:src="@drawable/ic_action_remove"/>
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_remove" />
     </RelativeLayout>
 </FrameLayout>
