@@ -624,7 +624,6 @@ public class MainService extends Service implements SensorEventListener, Context
                                 Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Swipe top");
                                 return gestureAction(prefs.swipeUpAction);
                             }
-
                         }
                     }
                 } catch (IllegalArgumentException ignored) {

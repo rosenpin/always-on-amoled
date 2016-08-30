@@ -63,7 +63,7 @@
             android:parentActivityName=".activities.PreferencesActivity"
             android:theme="@style/ReporterTheme" />
         <activity
-            android:name=".activities.WatchfacePicker"
+            android:name=".activities.Picker"
             android:label="@string/settings_watchface_clock_desc"
             android:parentActivityName=".activities.PreferencesActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

@@ -107,13 +107,10 @@
                     android:key="watchface_clock"
                     android:summary="@string/settings_watchface_clock_desc"
                     android:title="@string/settings_watchface_clock" />
-                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                <Preference
                     android:defaultValue="1"
-                    android:dialogTitle="@string/settings_watchface_date"
-                    android:entries="@array/customize_date"
-                    android:entryValues="@array/customize_date_vals"
                     android:key="watchface_date"
-                    android:summary="%s"
+                    android:summary="@string/settings_watchface_date_desc"
                     android:title="@string/settings_watchface_date" />
                 <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="0"

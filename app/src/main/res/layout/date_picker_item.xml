@@ -27,8 +27,8 @@
         android:id="@+id/inner_item_wrapper"
         android:orientation="vertical">
 
-        <com.tomer.alwayson.views.Clock
-            android:id="@+id/clock"
+        <com.tomer.alwayson.views.DateView
+            android:id="@+id/date"
             android:layout_width="200dp"
             android:layout_height="150dp"
             android:gravity="center" />

@@ -36,7 +36,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.prefs.MaterialListPreference;
 import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.activities.PreferencesActivity;
-import com.tomer.alwayson.activities.WatchfacePicker;
+import com.tomer.alwayson.activities.Picker;
 import com.tomer.alwayson.helpers.DozeManager;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
@@ -90,11 +90,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("stop_delay").setOnPreferenceChangeListener(this);
         findPreference("battery_saver").setOnPreferenceChangeListener(this);
         findPreference("watchface_clock").setOnPreferenceClickListener(this);
+        findPreference("watchface_date").setOnPreferenceClickListener(this);
         findPreference("textcolor").setOnPreferenceClickListener(this);
         findPreference("uninstall").setOnPreferenceClickListener(this);
         findPreference("font").setOnPreferenceClickListener(this);
         ((SeekBarPreference) findPreference("font_size")).setMin(20);
-        findPreference("watchface_clock").setSummary(context.getResources().getStringArray(R.array.customize_clock)[prefs.clockStyle]);
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
         String[] gesturePreferencesList = {DOUBLE_TAP, SWIPE_UP, SWIPE_DOWN, VOLUME_KEYS, BACK_BUTTON};
         for (String preference : gesturePreferencesList) {
@@ -413,8 +413,15 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     .show();
             return false;
         } else if (preference.getKey().equals("watchface_clock")) {
-            Intent intent = new Intent(context, WatchfacePicker.class);
+            Intent intent = new Intent(context, Picker.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(GRID_TYPE, GRID_TYPE_CLOCK);
+            context.startActivity(intent);
+            return false;
+        } else if (preference.getKey().equals("watchface_date")) {
+            Intent intent = new Intent(context, Picker.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(GRID_TYPE, GRID_TYPE_DATE);
             context.startActivity(intent);
             return false;
         }
@@ -444,6 +451,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             findPreference("stop_delay").setSummary(R.string.settings_stop_delay_desc);
         else
             findPreference("stop_delay").setSummary("%s");
+        findPreference("watchface_clock").setSummary(context.getResources().getStringArray(R.array.customize_clock)[prefs.clockStyle]);
+        findPreference("watchface_date").setSummary(context.getResources().getStringArray(R.array.customize_date)[prefs.dateStyle]);
     }
 
     @Override

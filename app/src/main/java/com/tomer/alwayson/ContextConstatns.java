@@ -54,6 +54,10 @@ public interface ContextConstatns {
     int PROXIMITY_NORMAL_MODE = 3;
     int PROXIMITY_DEVICE_ADMIN_MODE = 2;
 
+    String GRID_TYPE = "grid_type";
+    int GRID_TYPE_CLOCK = 1;
+    int GRID_TYPE_DATE = 2;
+
     int DATE_TEXT = 1;
     int DATE_VIEW = 2;
 

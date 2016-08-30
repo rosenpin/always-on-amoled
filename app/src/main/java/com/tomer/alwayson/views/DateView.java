@@ -56,6 +56,10 @@ public class DateView extends LinearLayout implements ContextConstatns {
         return dateStyle == DATE_VIEW;
     }
 
+    public CalendarView getCalendarView(){
+        return calendarView;
+    }
+
     public void update(String monthAndDayText) {
         if (dateStyle == 1)
             if (calendarTV != null)
