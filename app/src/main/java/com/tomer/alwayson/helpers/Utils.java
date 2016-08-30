@@ -21,7 +21,6 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.services.MainService;
 
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;

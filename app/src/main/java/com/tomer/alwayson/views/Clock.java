@@ -25,7 +25,7 @@ public class Clock extends LinearLayout implements ContextConstatns {
         addView(inflater.inflate(R.layout.clock, null));
     }
 
-    public Clock(Context context){
+    public Clock(Context context) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addView(inflater.inflate(R.layout.clock, null));

@@ -33,14 +33,14 @@ public class NotificationListener extends NotificationListenerService implements
     public void onNotificationPosted(StatusBarNotification added) {
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
             Globals.notificationChanged = true;
-            String title = added.getNotification().extras.getString(Notification.EXTRA_TITLE)+ " ";
+            String title = added.getNotification().extras.getString(Notification.EXTRA_TITLE) + " ";
             if (title.equals("null"))
-                title = added.getNotification().extras.getString(Notification.EXTRA_TITLE_BIG)+ " ";
+                title = added.getNotification().extras.getString(Notification.EXTRA_TITLE_BIG) + " ";
             String content = added.getNotification().extras.getString(Notification.EXTRA_TEXT) + " ";
             if (content.equals("null") || content.isEmpty())
-                content = added.getNotification().extras.getCharSequence(Notification.EXTRA_TEXT_LINES)+ " ";
+                content = added.getNotification().extras.getCharSequence(Notification.EXTRA_TEXT_LINES) + " ";
             if (content.equals("null") || content.isEmpty())
-                content = added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT)+ " ";
+                content = added.getNotification().extras.getCharSequence(Notification.EXTRA_SUMMARY_TEXT) + " ";
             Drawable icon = getIcon(added);
             ApplicationInfo notificationAppInfo = null;
             try {

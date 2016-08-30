@@ -56,7 +56,7 @@ public class DateView extends LinearLayout implements ContextConstatns {
         return dateStyle == DATE_VIEW;
     }
 
-    public CalendarView getCalendarView(){
+    public CalendarView getCalendarView() {
         return calendarView;
     }
 

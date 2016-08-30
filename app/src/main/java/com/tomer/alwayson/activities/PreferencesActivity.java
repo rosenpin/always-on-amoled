@@ -334,13 +334,13 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                 uninstall(this, prefs);
                 return true;
             case R.id.community:
-                Utils.openURL(this,"https://plus.google.com/communities/104206728795122451273");
+                Utils.openURL(this, "https://plus.google.com/communities/104206728795122451273");
                 return true;
             case R.id.github:
-                Utils.openURL(this,"https://github.com/rosenpin/AlwaysOnDisplayAmoled");
+                Utils.openURL(this, "https://github.com/rosenpin/AlwaysOnDisplayAmoled");
                 return true;
             case R.id.translate:
-                Utils.openURL(this,"https://crowdin.com/project/always-on-amoled");
+                Utils.openURL(this, "https://crowdin.com/project/always-on-amoled");
                 return true;
             case R.id.rate:
                 SettingsFragment.openPlayStoreUrl(getPackageName(), this);

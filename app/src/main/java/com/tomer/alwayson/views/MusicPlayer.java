@@ -1,15 +1,10 @@
 package com.tomer.alwayson.views;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.media.AudioManager;
-import android.os.Build;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -100,8 +95,8 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     }
 
     @Override
-    public boolean isShown(){
-        return findViewById(R.id.song_name_tv) !=null &&findViewById(R.id.play) !=null && findViewById(R.id.skip_next) !=null &&findViewById(R.id.skip_prev) !=null;
+    public boolean isShown() {
+        return findViewById(R.id.song_name_tv) != null && findViewById(R.id.play) != null && findViewById(R.id.skip_next) != null && findViewById(R.id.skip_prev) != null;
     }
 
     @Override

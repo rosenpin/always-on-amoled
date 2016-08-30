@@ -20,11 +20,11 @@
         android:textColor="@android:color/white" />
 
     <LinearLayout
+        android:id="@+id/inner_item_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:id="@+id/inner_item_wrapper"
         android:orientation="vertical">
 
         <com.tomer.alwayson.views.Clock
