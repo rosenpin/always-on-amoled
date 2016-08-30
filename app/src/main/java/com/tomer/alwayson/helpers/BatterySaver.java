@@ -9,9 +9,11 @@ import java.io.IOException;
 
 public class BatterySaver implements ContextConstatns {
     private Context context;
+    public boolean originalBatterySaverMode;
 
     public BatterySaver(Context context) {
         this.context = context;
+        this.originalBatterySaverMode = Settings.Global.getInt(context.getContentResolver(), LOW_POWER, 0) == 1;
     }
 
     public void setSystemBatterySaver(boolean status) {

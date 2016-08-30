@@ -429,7 +429,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onDestroy() {
         super.onDestroy();
         if (batterySaver != null)
-            batterySaver.setSystemBatterySaver(false);
+            batterySaver.setSystemBatterySaver(batterySaver.originalBatterySaverMode);
         MainService.initialized = false;
         Globals.onNotificationAction = null;
         //Dismiss the app listener
