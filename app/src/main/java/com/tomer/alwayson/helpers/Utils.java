@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Utils implements ContextConstatns {
-    public static boolean isPackageInstalled(Context context, String packageName) {
+    static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {
             pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
@@ -65,7 +65,7 @@ public class Utils implements ContextConstatns {
         context.startActivity(browserIntent);
     }
 
-    public static double randInt(double min, double max) {
+    static double randInt(double min, double max) {
         return new Random().nextInt((int) ((max - min) + 1)) + min;
     }
 
@@ -109,7 +109,7 @@ public class Utils implements ContextConstatns {
             Log.d(var1, var2);
     }
 
-    public static void logError(String var1, String var2) {
+    static void logError(String var1, String var2) {
         if (var1 != null && var2 != null)
             Log.e(var1, var2);
     }

@@ -73,7 +73,7 @@ public class StarterService extends Service {
         builder.setContentTitle(getString(R.string.notification_message));
         builder.setOngoing(true);
         builder.setPriority(Notification.PRIORITY_MIN);
-        builder.setSmallIcon(android.R.color.transparent);
+        builder.setSmallIcon(R.drawable.ic_notification);
         Notification notification = builder.build();
         NotificationManager notificationManger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManger.notify(1, notification);
