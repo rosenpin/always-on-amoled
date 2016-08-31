@@ -141,7 +141,6 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
                 select(view);
                 prefs.setString(Prefs.KEYS.DATE_STYLE.toString(), String.valueOf(position));
             });
-            view.findViewById(R.id.pro_label).setVisibility(View.INVISIBLE);
             return view;
         }
 

@@ -6,19 +6,6 @@
     android:background="#424242"
     android:padding="@dimen/activity_horizontal_margin">
 
-    <TextView
-        android:id="@+id/pro_label"
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="end"
-        android:background="@drawable/rectangle"
-        android:gravity="end"
-        android:text="PRO"
-        android:textColor="@android:color/white" />
-
     <LinearLayout
         android:id="@+id/inner_item_wrapper"
         android:layout_width="match_parent"
