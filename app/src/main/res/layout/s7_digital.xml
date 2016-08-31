@@ -81,8 +81,5 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_battery_90" />
         </LinearLayout>
-
-
     </RelativeLayout>
-
 </RelativeLayout>

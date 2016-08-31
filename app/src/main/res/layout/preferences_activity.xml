@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="64dp"
-        android:background="@color/colorAccent"
+        android:background="?attr/colorAccent"
         android:text="@string/action_support_the_development"
         android:textColor="@android:color/white" />
 
     <LinearLayout
         android:id="@+id/preferences_holder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical" />
 
 </LinearLayout>

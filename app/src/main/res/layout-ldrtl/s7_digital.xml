@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_centerVertical="true">
-
-    <TextView
-        android:id="@+id/s7_hour_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="@dimen/medium_spacing"
-        android:text="17"
-        android:textColor="@android:color/white"
-        android:textSize="92sp" />
+    android:layout_centerVertical="true"
+    android:orientation="horizontal">
 
 
     <RelativeLayout
         android:id="@+id/s7_mini_wrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/s7_hour_tv"
+        android:layout_toRightOf="@+id/s7_hour_tv"
         android:orientation="vertical">
 
         <LinearLayout
@@ -81,4 +71,13 @@
                 app:srcCompat="@drawable/ic_battery_90" />
         </LinearLayout>
     </RelativeLayout>
-</RelativeLayout>
+
+    <TextView
+        android:id="@+id/s7_hour_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/medium_spacing"
+        android:text="17"
+        android:textColor="@android:color/white"
+        android:textSize="92sp" />
+</LinearLayout>

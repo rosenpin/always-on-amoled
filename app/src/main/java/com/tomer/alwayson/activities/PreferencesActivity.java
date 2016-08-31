@@ -225,9 +225,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             finish();
         } else {
             setContentView(R.layout.activity_main);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-
             getFragmentManager().beginTransaction()
                     .replace(R.id.preferences_holder, new SettingsFragment())
                     .commit();
