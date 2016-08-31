@@ -57,7 +57,7 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
         private View selected;
         private int mode;
 
-        public CustomGridViewAdapter(Activity c, int length, int mode) {
+        CustomGridViewAdapter(Activity c, int length, int mode) {
             this.context = c;
             this.length = length;
             this.prefs = new Prefs(c);
@@ -127,6 +127,9 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
             dateView.update(Utils.getDateText(context));
             if (position == prefs.dateStyle)
                 select(view);
+
+            if (dateView.getCalendarView() == null)
+                return new View(context);
 
             if (dateView.isFull())
                 dateView.getCalendarView().setOnDateChangeListener((view1, year, month, dayOfMonth) -> {

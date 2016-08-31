@@ -61,14 +61,14 @@ public class CurrentAppResolver {
         return PNs;
     }
 
-    String getActivePackagesCompat() {
+    private String getActivePackagesCompat() {
         List<ActivityManager.RunningTaskInfo> taskInfo = activityManager.getRunningTasks(1);
         ComponentName componentName = taskInfo.get(0).topActivity;
         return componentName.getPackageName();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP_MR1)
-    String getActivePackages() {
+    private String getActivePackages() {
         UsageStatsManager usm = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
         long time = System.currentTimeMillis();
         List<UsageStats> appList = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 200 * 200, time);
@@ -85,7 +85,7 @@ public class CurrentAppResolver {
     public void executeForCurrentApp(final Runnable action) {
         if (!appsPNs.isEmpty()) {
             ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
-            executor.scheduleWithFixedDelay((Runnable) () -> {
+            executor.scheduleWithFixedDelay(() -> {
                 if (active) {
                     final String activePackage = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? getActivePackages() : getActivePackagesCompat();
                     if (activePackage != null) {

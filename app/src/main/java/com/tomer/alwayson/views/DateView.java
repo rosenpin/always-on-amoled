@@ -2,6 +2,7 @@ package com.tomer.alwayson.views;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -18,11 +19,24 @@ public class DateView extends LinearLayout implements ContextConstatns {
     private TextView calendarTV;
     private CalendarView calendarView;
     private int dateStyle;
+    private Context context;
 
     public DateView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         addView(inflater.inflate(R.layout.date, null));
+    }
+
+    private static boolean isBrokenSamsungDevice() {
+        return (Build.MANUFACTURER.equalsIgnoreCase("samsung")
+                && isBetweenAndroidVersions(
+                Build.VERSION_CODES.LOLLIPOP,
+                Build.VERSION_CODES.LOLLIPOP_MR1));
+    }
+
+    private static boolean isBetweenAndroidVersions(int min, int max) {
+        return Build.VERSION.SDK_INT >= min && Build.VERSION.SDK_INT <= max;
     }
 
     public void setDateStyle(int dateStyle, float textSize, int textColor, @Nullable Typeface font) {
@@ -43,10 +57,15 @@ public class DateView extends LinearLayout implements ContextConstatns {
                 dateWrapper.removeView(calendarView);
                 break;
             case DATE_VIEW:
-                dateWrapper.removeView(calendarTV);
                 calendarView.setOnDateChangeListener((calendarView1, i, i1, i2) -> {
 
                 });
+                if (isBrokenSamsungDevice()) {
+                    dateWrapper.removeView(calendarView);
+                    calendarView = null;
+                    forceUpdate(Utils.getDateText(context));
+                } else
+                    dateWrapper.removeView(calendarTV);
                 break;
         }
         Utils.logDebug("Calendar style is ", String.valueOf(dateStyle));
@@ -64,5 +83,10 @@ public class DateView extends LinearLayout implements ContextConstatns {
         if (dateStyle == 1)
             if (calendarTV != null)
                 calendarTV.setText(monthAndDayText);
+    }
+
+    public void forceUpdate(String monthAndDayText) {
+        if (calendarTV != null)
+            calendarTV.setText(monthAndDayText);
     }
 }
