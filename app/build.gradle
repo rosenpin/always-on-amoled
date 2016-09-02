@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 185
-        versionName "0.9.4 beta 12"
+        versionCode 187
+        versionName "0.9.4 beta 13 ALPHA"
         jackOptions.enabled = true;
         vectorDrawables.useSupportLibrary = true;
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'

@@ -259,9 +259,6 @@ public class MainService extends Service implements SensorEventListener, Context
         UIhandler = new Handler();
         refresh();
 
-        //Turn lights on
-        setLights(ON, false, true);
-
         //Notification setup
         Globals.onNotificationAction = () -> {
             if (prefs.notificationsAlerts)
@@ -290,11 +287,9 @@ public class MainService extends Service implements SensorEventListener, Context
                     if (Globals.isServiceRunning) {
                         //Greenify integration
                         new GreenifyStarter(getApplicationContext()).start(prefs.greenifyEnabled && !demo);
-                        //Turn on the display
-                        if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     }
                 },
-                700);
+                400);
 
         //Initializing Doze
         if (prefs.dozeMode) {
@@ -320,6 +315,9 @@ public class MainService extends Service implements SensorEventListener, Context
         //Turn capacitive buttons lights off
         samsungHelper.setButtonsLight(OFF);
         MainService.initialized = true;
+
+        //Turn lights on
+        setLights(ON, false, true);
     }
 
     private void setUpElements() {
@@ -352,24 +350,26 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void refresh() {
-        final boolean[] longRefresh = {true};
-        refreshTimer = new Timer();
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Refresh");
-                UIhandler.post(() -> {
-                    if (clock.getAnalogClock() != null)
-                        clock.getAnalogClock().setTime(Calendar.getInstance());
-                    if (prefs.clockStyle == S7_DIGITAL)
-                        clock.getDigitalS7().update(prefs.showAmPm);
-                });
-                if (longRefresh[0])
-                    longRefresh();
-                longRefresh[0] = !longRefresh[0];
-            }
-        };
-        refreshTimer.schedule(timerTask, 0L, refreshDelay);
+            final boolean[] longRefresh = {true};
+            refreshTimer = new Timer();
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Refresh");
+                    UIhandler.post(() -> {
+                        if (clock != null) {
+                            if (clock.getAnalogClock() != null)
+                                clock.getAnalogClock().setTime(Calendar.getInstance());
+                            if (prefs.clockStyle == S7_DIGITAL)
+                                clock.getDigitalS7().update(prefs.showAmPm);
+                        }
+                    });
+                    if (longRefresh[0])
+                        longRefresh();
+                    longRefresh[0] = !longRefresh[0];
+                }
+            };
+            refreshTimer.schedule(timerTask, 0L, refreshDelay);
     }
 
     private void longRefresh() {
@@ -393,8 +393,13 @@ public class MainService extends Service implements SensorEventListener, Context
     private void setLights(boolean state, boolean nightMode, boolean first) {
         if (first && state) {
             Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Display turned on");
-            if (!isScreenOn)
-                mainView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.fade_in));
+            if (!isScreenOn) {
+                new Handler().postDelayed(() -> {
+                    //Turn on the display
+                    if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
+                    mainView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in));
+                }, 150);
+            }
         } else if (state) {
             boolean opaque = mainView.getAlpha() == 1f;
             if (nightMode && opaque) {

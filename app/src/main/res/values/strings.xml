@@ -178,7 +178,7 @@
     <string name="settings_github_desc">View the source code, submit issues and help developing the app</string>
     <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
     <string name="settings_font_size_desc">Set the clock font size</string>
-    <string name="settings_font_size_memo_desc">Set the clock font size</string>
+    <string name="settings_font_size_memo_desc">Set the memo font size</string>
     <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
     <string name="settings_enabled_desc">Enable the service</string>
     <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
