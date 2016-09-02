@@ -129,7 +129,10 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
 
             windowManager.addView(frameLayout, windowParams);
-            samsungHelper.setOnHomeButtonClickListener(this::stopThis);
+            samsungHelper.setOnHomeButtonClickListener(() -> {
+                stoppedByShortcut = true;
+                stopThis();
+            });
         }
         return super.onStartCommand(origIntent, flags, startId);
     }
