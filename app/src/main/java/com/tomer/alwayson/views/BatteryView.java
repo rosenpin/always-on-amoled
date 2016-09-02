@@ -48,7 +48,8 @@ public class BatteryView extends LinearLayout {
                     ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
                     batteryIVlp.height = (int) (textSize);
                     batteryIV.setLayoutParams(batteryIVlp);
-                }
+                } else
+                    removeAllViews();
                 batteryReceiver = new BatteryReceiver(s7_digital ? digitalS7.getBatteryTV() : batteryTV, s7_digital ? digitalS7.getBatteryIV() : batteryIV);
                 context.registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
                 break;

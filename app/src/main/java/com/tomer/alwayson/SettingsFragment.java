@@ -35,6 +35,7 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.prefs.MaterialListPreference;
 import com.tasomaniac.android.widget.IntegrationPreference;
+import com.tomer.alwayson.activities.DonateActivity;
 import com.tomer.alwayson.activities.Picker;
 import com.tomer.alwayson.activities.PreferencesActivity;
 import com.tomer.alwayson.helpers.DozeManager;
@@ -110,7 +111,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 Utils.openURL(getActivity(), "https://play.google.com/store/apps/details?id=com.google.android.tts");
                             return true;
                         } else {
-                            PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                            DonateActivity.quicklyPromptToSupport(getActivity(), rootView);
                             return false;
                         }
                     case ACTION_FLASHLIGHT:
@@ -121,7 +122,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                             }
                             return true;
                         } else {
-                            PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                            DonateActivity.quicklyPromptToSupport(getActivity(), rootView);
                             return false;
                         }
                 }
@@ -401,9 +402,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                     prefs.setString(Prefs.KEYS.FONT.toString(), String.valueOf(which));
                                     dialog.dismiss();
                                 } else
-                                    PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                                    DonateActivity.quicklyPromptToSupport(getActivity(), rootView);
                             } else {
-                                PreferencesActivity.quicklyPromptToSupport(getActivity(), Globals.mService, rootView);
+                                DonateActivity.quicklyPromptToSupport(getActivity(), rootView);
                             }
                         } else {
                             prefs.setString("font", String.valueOf(which));

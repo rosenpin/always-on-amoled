@@ -1,31 +1,23 @@
 package com.tomer.alwayson.activities;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
-import android.os.RemoteException;
 import android.provider.Settings;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,14 +27,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
-import com.android.vending.billing.IInAppBillingService;
-import com.tomer.alwayson.BuildConfig;
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.SecretConstants;
 import com.tomer.alwayson.SettingsFragment;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
@@ -50,153 +38,13 @@ import com.tomer.alwayson.receivers.DAReceiver;
 import com.tomer.alwayson.services.MainService;
 import com.tomer.alwayson.services.StarterService;
 
-import java.util.ArrayList;
-
 import eu.chainfire.libsuperuser.Shell;
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 
 public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
-    Prefs prefs;
-    Intent billingServiceIntent;
+    private Prefs prefs;
     boolean isActive;
-    private IInAppBillingService mService;
-    private ServiceConnection mServiceConn;
     private boolean demo;
-
-    public static void promptToSupport(final Activity context, final IInAppBillingService mService, final View rootView, boolean supporterFeature) {
-        if (mService != null)
-            new MaterialDialog.Builder(context)
-                    .title(R.string.action_support_the_development)
-                    .content(supporterFeature ? R.string.supporter_feature_only : R.string.support_how_much)
-                    .items(R.array.support_items)
-                    .itemsCallbackSingleChoice(-1, (dialog, view, which, text) -> {
-                                String googleIAPCode = SecretConstants.getPropertyValue(context, "googleIAPCode");
-                                Bundle buyIntentBundle;
-                                PendingIntent pendingIntent = null;
-                                try {
-                                    switch (which) {
-                                        case 0:
-                                            String IAPID = SecretConstants.getPropertyValue(context, "IAPID");
-                                            try {
-                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                                                        IAPID, "inapp", googleIAPCode);
-                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                                                if (pendingIntent == null)
-                                                    Snackbar.make(rootView, context.getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
-                                            } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 1:
-                                            String IAPID2 = SecretConstants.getPropertyValue(context, "IAPID2");
-                                            try {
-                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                                                        IAPID2, "inapp", googleIAPCode);
-                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                                                if (pendingIntent == null)
-                                                    Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
-                                            } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 2:
-                                            String IAPID3 = SecretConstants.getPropertyValue(context, "IAPID3");
-                                            try {
-                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                                                        IAPID3, "inapp", googleIAPCode);
-                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                                                if (pendingIntent == null)
-                                                    Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
-                                            } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 3:
-                                            String IAPID4 = SecretConstants.getPropertyValue(context, "IAPID4");
-                                            try {
-                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                                                        IAPID4, "inapp", googleIAPCode);
-                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                                                if (pendingIntent == null)
-                                                    Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
-                                            } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 4:
-                                            String IAPID5 = SecretConstants.getPropertyValue(context, "IAPID5");
-                                            try {
-                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                                                        IAPID5, "inapp", googleIAPCode);
-                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                                                if (pendingIntent == null)
-                                                    Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
-                                            } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                        case 5:
-                                            String IAPID6 = SecretConstants.getPropertyValue(context, "IAPID6");
-                                            try {
-                                                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                                                        IAPID6, "inapp", googleIAPCode);
-                                                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                                                if (pendingIntent == null)
-                                                    Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
-                                            } catch (RemoteException e) {
-                                                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                                                e.printStackTrace();
-                                            }
-                                            break;
-                                    }
-                                    if (pendingIntent != null)
-                                        context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
-                                    else
-                                        Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
-                                } catch (Exception e) {
-                                    Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
-                                }
-
-                                return true;
-                            }
-                    ).show();
-        else
-            Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_LONG).show();
-    }
-
-    public static void quicklyPromptToSupport(final Activity context, final IInAppBillingService mService, final View rootView) {
-        if (mService != null) {
-            String googleIAPCode = SecretConstants.getPropertyValue(context, "googleIAPCode");
-            Bundle buyIntentBundle;
-            PendingIntent pendingIntent = null;
-            String IAPID = SecretConstants.getPropertyValue(context, "IAPID");
-            try {
-                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                        IAPID, "inapp", googleIAPCode);
-                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                if (pendingIntent == null)
-                    Snackbar.make(rootView, context.getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
-            } catch (RemoteException e) {
-                Snackbar.make(rootView, context.getString(R.string.error_3_unknown_error_restart) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                e.printStackTrace();
-            }
-            try {
-                if (pendingIntent != null)
-                    context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
-                else
-                    Snackbar.make(rootView, context.getString(R.string.error_3_unknown_error_restart), Snackbar.LENGTH_LONG).show();
-            } catch (IntentSender.SendIntentException e) {
-                e.printStackTrace();
-                Snackbar.make(rootView, context.getString(R.string.error_3_unknown_error_restart), Snackbar.LENGTH_LONG).show();
-            }
-        } else
-            Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_LONG).show();
-    }
 
     public static void uninstall(Context context, Prefs prefs) {
         try {
@@ -219,7 +67,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         super.onCreate(savedInstanceState);
         prefs = new Prefs(getApplicationContext());
         prefs.apply();
-        resetPaymentService();
+        DonateActivity.resetPaymentService(this);
         if (!prefs.permissionGranting) {
             startActivity(new Intent(getApplicationContext(), Intro.class));
             finish();
@@ -276,8 +124,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
         assert donateButton != null;
-        donateButton.setOnClickListener(view -> PreferencesActivity.promptToSupport(PreferencesActivity.this, mService, findViewById(android.R.id.content), false));
-
+        donateButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), DonateActivity.class)));
     }
 
     private void handlePermissions() {
@@ -348,35 +195,9 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            unbindService(mServiceConn);
-        } catch (Exception ignored) {
-        }
-    }
-
-    @Override
     public void onColorSelection(@NonNull ColorChooserDialog dialog, @ColorInt int selectedColor) {
         Utils.logDebug(ContextConstatns.MAIN_SERVICE_LOG_TAG, String.valueOf(selectedColor));
         prefs.setInt(Prefs.KEYS.TEXT_COLOR.toString(), selectedColor);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1001) {
-            Utils.logDebug("Purchase state", String.valueOf(resultCode));
-            if (resultCode == RESULT_OK) {
-                Toast.makeText(getApplicationContext(), R.string.thanks, Toast.LENGTH_LONG).show();
-                Snackbar.make(findViewById(android.R.id.content), R.string.thanks, 10000).setAction(R.string.action_restart, view -> {
-                    finish();
-                    startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
-                }).show();
-                resetPaymentService();
-                Utils.logDebug("User bought item", data.getStringExtra("INAPP_PURCHASE_DATA"));
-            }
-        }
     }
 
     @Override
@@ -426,39 +247,5 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         }
         Utils.logDebug(serviceTag, "Is not running");
         return false;
-    }
-
-    void resetPaymentService() {
-        mServiceConn = new ServiceConnection() {
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                mService = null;
-            }
-
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                mService = IInAppBillingService.Stub.asInterface(service);
-                try {
-                    Globals.ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
-                    Globals.mService = mService;
-                    Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
-                    if (BuildConfig.DEBUG)
-                        Globals.ownedItems = new ArrayList<String>() {{
-                            add("ITEM");
-                        }};
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        billingServiceIntent =
-                new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        billingServiceIntent.setPackage("com.android.vending");
-        try {
-            unbindService(mServiceConn);
-        } catch (Exception ignored) {
-        }
-        bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
     }
 }

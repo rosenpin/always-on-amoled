@@ -14,12 +14,17 @@
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
     <string name="gestures_action_flashlight">Toggle flashlight</string>
     <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
-    <string name="support_1">1$: The price of a refreshing coke</string>
-    <string name="support_2">2$: The price of a tasty chocolate bar</string>
-    <string name="support_5">5$: The price of a cool ice-coffee</string>
-    <string name="support_10">10$: The price of a big ass Starbucks coffee</string>
-    <string name="support_20">20$: The price of a delicious pizza</string>
-    <string name="support_25">25$: The price of a dinner</string>
+    <string name="support_choose">How much would you like to donate?</string>
+    <string name="support_1">Unlock</string>
+    <string name="support_2">Donate</string>
+    <string name="support_5">Big donation</string>
+    <string name="support_10">Awesome donation</string>
+    <string name="support_20">Huge donation</string>
+    <string name="support_1_desc">Unlock all the premium features in the app and support the development</string>
+    <string name="support_2_desc">Support the development a bit more. Same features as regular unlock.</string>
+    <string name="support_5_desc">Donate to the project and help me continue working on the app. Same features as regular unlock.</string>
+    <string name="support_10_desc">Show that you appreciate the project and keep the development active. Same features as regular unlock.</string>
+    <string name="support_20_desc">Wow! a huge donation! thank you very much! :) Same features as regular unlock.</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state</string>

@@ -52,12 +52,11 @@
 
         <TextView
             android:id="@+id/s7_date_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/s7_digital_date_max_width"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/s7_minute_wrapper"
             android:gravity="top"
-            android:maxWidth="@dimen/s7_digital_date_max_width"
             android:textColor="@android:color/white" />
 
         <LinearLayout

@@ -111,7 +111,7 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
                     select(view);
                     prefs.setString(Prefs.KEYS.TIME_STYLE.toString(), String.valueOf(position));
                 } else
-                    PreferencesActivity.quicklyPromptToSupport(Picker.this, Globals.mService, findViewById(android.R.id.content));
+                    DonateActivity.quicklyPromptToSupport(Picker.this, findViewById(android.R.id.content));
             });
             return view;
         }

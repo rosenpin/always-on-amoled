@@ -68,6 +68,11 @@
             android:parentActivityName=".activities.PreferencesActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".activities.DonateActivity"
+            android:label="@string/action_support_the_development"
+            android:parentActivityName=".activities.PreferencesActivity"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme">
             <intent-filter>

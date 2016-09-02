@@ -20,7 +20,6 @@ public class Globals {
     public static Map<String, NotificationListener.NotificationHolder> notifications = new ConcurrentHashMap<>();
     public static ColorChooserDialog.Builder colorDialog;
     public static ArrayList<String> ownedItems;
-    public static IInAppBillingService mService;
     public static NotificationListener.NotificationHolder newNotification;
     public static Runnable onNotificationAction;
 }
