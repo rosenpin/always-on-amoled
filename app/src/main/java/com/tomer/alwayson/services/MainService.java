@@ -71,6 +71,8 @@ import java.util.concurrent.TimeUnit;
 
 import eu.chainfire.libsuperuser.Shell;
 
+import static android.hardware.SensorManager.SENSOR_DELAY_UI;
+
 public class MainService extends Service implements SensorEventListener, ContextConstatns {
 
     public static boolean stoppedByShortcut;
@@ -78,6 +80,7 @@ public class MainService extends Service implements SensorEventListener, Context
     public static boolean isScreenOn;
     boolean firstRefresh = true;
     int refreshDelay = 12000;
+    FrameLayout blackScreen;
     private Timer refreshTimer;
     private boolean demo;
     private boolean refreshing = true;
@@ -155,8 +158,6 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock = ((PowerManager) getApplicationContext().getSystemService(POWER_SERVICE)).newWakeLock(268435482, WAKE_LOCK_TAG);
         stayAwakeWakeLock.setReferenceCounted(false);
         brightnessManager = new BrightnessManager(this);
-        //Check if screen is already on
-        ScreenReceiver.updateScreenState(this);
 
         //Initialize stopped by shortcut
         stoppedByShortcut = false;
@@ -212,14 +213,14 @@ public class MainService extends Service implements SensorEventListener, Context
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (Utils.isAndroidNewerThanL() && !Build.MANUFACTURER.equalsIgnoreCase("samsung")) {
                 proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, getPackageName() + " wakelock_holder");
                 proximityToTurnOff.acquire();
             } else {
                 Sensor proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
                 if (proximitySensor != null) {
                     Utils.logDebug(MAIN_SERVICE_LOG_TAG, "STARTING PROXIMITY SENSOR");
-                    sensorManager.registerListener(this, proximitySensor, (int) TimeUnit.MILLISECONDS.toMicros(900), 100000);
+                    sensorManager.registerListener(this, proximitySensor, SENSOR_DELAY_UI, 1000000);
                 }
             }
         }
@@ -350,26 +351,26 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void refresh() {
-            final boolean[] longRefresh = {true};
-            refreshTimer = new Timer();
-            TimerTask timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Refresh");
-                    UIhandler.post(() -> {
-                        if (clock != null) {
-                            if (clock.getAnalogClock() != null)
-                                clock.getAnalogClock().setTime(Calendar.getInstance());
-                            if (prefs.clockStyle == S7_DIGITAL)
-                                clock.getDigitalS7().update(prefs.showAmPm);
-                        }
-                    });
-                    if (longRefresh[0])
-                        longRefresh();
-                    longRefresh[0] = !longRefresh[0];
-                }
-            };
-            refreshTimer.schedule(timerTask, 0L, refreshDelay);
+        final boolean[] longRefresh = {true};
+        refreshTimer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Refresh");
+                UIhandler.post(() -> {
+                    if (clock != null) {
+                        if (clock.getAnalogClock() != null)
+                            clock.getAnalogClock().setTime(Calendar.getInstance());
+                        if (prefs.clockStyle == S7_DIGITAL)
+                            clock.getDigitalS7().update(prefs.showAmPm);
+                    }
+                });
+                if (longRefresh[0])
+                    longRefresh();
+                longRefresh[0] = !longRefresh[0];
+            }
+        };
+        refreshTimer.schedule(timerTask, 0L, refreshDelay);
     }
 
     private void longRefresh() {
@@ -398,7 +399,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     //Turn on the display
                     if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
                     mainView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in));
-                }, 150);
+                }, 300);
             }
         } else if (state) {
             boolean opaque = mainView.getAlpha() == 1f;
@@ -450,6 +451,7 @@ public class MainService extends Service implements SensorEventListener, Context
         stayAwakeWakeLock.release();
         if (proximityToTurnOff != null && proximityToTurnOff.isHeld())
             proximityToTurnOff.release();
+        showBlackScreen(false);
         //Stopping tts
         tts.destroy();
         tts = null;
@@ -498,20 +500,25 @@ public class MainService extends Service implements SensorEventListener, Context
     public void onSensorChanged(final SensorEvent event) {
         switch (event.sensor.getType()) {
             case Sensor.TYPE_PROXIMITY:
+                Utils.logDebug("proximity", String.valueOf(event.values[0]));
                 if (event.values[0] < 1) {
                     // Sensor distance smaller than 1cm
                     stayAwakeWakeLock.release();
                     Globals.isShown = false;
                     Globals.sensorIsScreenOff = false;
-                    new Thread(() -> {
-                        if (isScreenOn)
+                    if (isScreenOn) {
+                        showBlackScreen(true);
+                        new Thread(() -> {
                             try {
-                                Shell.SU.run("input keyevent 26"); // Screen off using root
+                                if (Shell.SU.available())
+                                    Shell.SU.run("input keyevent 26"); // Screen off using root
                             } catch (SecurityException e) {
                                 ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
                             }
-                    }).start();
+                        }).start();
+                    }
                 } else {
+                    showBlackScreen(false);
                     if (!Globals.sensorIsScreenOff) {
                         new Handler().postDelayed(() -> onSensorChanged(event), 200);
                         return;
@@ -530,6 +537,21 @@ public class MainService extends Service implements SensorEventListener, Context
                 Utils.logDebug("Lights changed", String.valueOf(event.values[0]));
                 setLights(ON, event.values[0] < 2, false);
                 break;
+        }
+    }
+
+    private void showBlackScreen(boolean show) {
+        if (blackScreen == null)
+            blackScreen = new FrameLayout(this);
+        blackScreen.setBackgroundColor(Color.BLACK);
+        blackScreen.setForegroundGravity(Gravity.CENTER);
+        try {
+            if (show) {
+                if (!blackScreen.isAttachedToWindow())
+                    windowManager.addView(blackScreen, windowParams);
+            } else if (blackScreen.isAttachedToWindow())
+                windowManager.removeView(blackScreen);
+        } catch (IllegalStateException ignored) {
         }
     }
 
@@ -555,6 +577,7 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     public void stopThis() {
+        Utils.logDebug("Stopping service", "now");
         if (MainService.initialized)
             stopSelf();
         else

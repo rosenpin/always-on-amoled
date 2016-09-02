@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
   <string name="gestures_action_flashlight">Zapnout blesk</string>
   <string name="supporter_feature_only">Tato funkce je dostupná pouze pro předplatitele, můžete zvolit kolik chcete darovat a stát se předplatitelem, kolik si přejete darovat?</string>
-  <string name="support_1">1$: Cena osvěžující Coca-Coly</string>
-  <string name="support_2">2$: Cena jedné tabulky čokolády</string>
-  <string name="support_5">5$: Cena ledové kávy</string>
-  <string name="support_10">10$: Cena velké kávy ve Starbucks</string>
-  <string name="support_20">20$: Cena vynikající pizzy</string>
-  <string name="support_25">25$: Cena jedné večeře</string>
   <!--Intro-->
   <string name="intro_allow_now">Povolit nyní</string>
   <string name="intro_permissions">Číst stav a identitu telefonu</string>

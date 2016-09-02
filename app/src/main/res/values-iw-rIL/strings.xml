@@ -8,17 +8,18 @@
   <string name="menu_feedback">משוב</string>
   <string name="menu_rate">דרגו את האפליקציה</string>
   <string name="action_restart">אתחל כעת</string>
+  <string name="never_show_again">אל תראה שוב</string>
   <!--Support-->
   <string name="action_support_the_development">תמיכה בפיתוח</string>
   <string name="support_how_much">כמה תרצה לתרום?</string>
   <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
+  <string name="gestures_action_flashlight">פנס</string>
   <string name="supporter_feature_only">אפשרות זו זמינה לתומכים בלבד, ניתן לבחור כמה תירצו לתרום כדי להפוך לתומכים, כמה תירצו לתרום?</string>
-  <string name="support_1">דולר אחד - מחיר של פחית קולה</string>
-  <string name="support_2">שני דולרים - המחיר של חפיסת שוקולד</string>
-  <string name="support_5">5 דולר - המחיר של אייס קפה</string>
-  <string name="support_10">10 דולר - המחיר של ארוחה במקדונלדס</string>
-  <string name="support_20">20 דולר - המחיר של פיצה עם תוספות</string>
-  <string name="support_25">25$: המחיר של ארוחת ערב</string>
+  <string name="support_choose">כמה תרצה לתרום?</string>
+  <string name="support_2">תרמו</string>
+  <string name="support_5">תרומה גדולה</string>
+  <string name="support_10">תרומה אדירה</string>
+  <string name="support_20">תרומה ענקית</string>
   <!--Intro-->
   <string name="intro_allow_now">אפשר עכשיו</string>
   <string name="intro_permissions">קריאת מצב הטלפון</string>
@@ -139,6 +140,7 @@
   <string name="settings_licenses">רשיונות</string>
   <string name="settings_uninstall">הסר התקנה</string>
   <string name="settings_app_version">גירסה</string>
+  <string name="settings_battery_saver">מצב חיסכון בסוללה</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">הדלקת המסך כאשר המצלמה נפתחת (יש להשאיר מאופשר במכשירי נקסוס או סמסונג)</string>
   <string name="settings_auto_brightness_desc">עמעם את המסך כאשר בסביבה חשוכה</string>
@@ -149,7 +151,7 @@
   <string name="settings_text_color_desc">קבע את צבע הטקסט</string>
   <string name="settings_show_am_pm_desc">הצג AM/PM עם השעון (רק עבור זמן 12 שעות)</string>
   <string name="settings_watchface_desc">התאמה אישית של אלמנטים המופיעים בתצוגה</string>
-  <string name="settings_proximity_to_lock_desc">אם מכשירך לא פרוץ, זה אפשרות זו תבטל את חיישן סריקת האצבע עבור מכשירים מסוימים\n כיבוי המכשיר כאשר הוא מוכנס לכיס כדי לחסוך סוללה</string>
+  <string name="settings_proximity_to_lock_desc">מכבה את המסך כאשר המכשיר בכיס כדי לחסוך סוללה (הפעלת החיישנים עשוי לצרוך עוד סוללה)</string>
   <string name="settings_licenses_desc">רשיונות קוד פתוח</string>
   <string name="settings_community_desc">קהילת גוגל פלוס</string>
   <string name="settings_github_desc">קישור Github לקוד הפתוח</string>
@@ -207,4 +209,5 @@
   <string name="settings_google_now_shortcut_desc">עצור את המסך הדולק תמיד כאשר Google Now מופעל על ידי אמירת Ok Google (יתכן שלא יעבוד עם Google Now Launcher)</string>
   <string name="settings_exit_animation">אנימציה</string>
   <string name="settings_exit_animation_desc">בחר את אנימציית היציאה</string>
+  <string name="settings_battery_saver_desc">מפחית את השימוש בסוללה והתחממות יתר. עובד טוב יותר עם רוט.</string>
 </resources>

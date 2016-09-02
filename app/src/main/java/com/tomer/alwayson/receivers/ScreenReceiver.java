@@ -23,7 +23,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
 
     private static final String TAG = ScreenReceiver.class.getSimpleName();
     private static final String WAKE_LOCK_TAG = "ScreenOnWakeLock";
-    Prefs prefs;
+    private Prefs prefs;
     private Context context;
 
     public static void turnScreenOn(Context c, boolean stopService) {
@@ -39,14 +39,6 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public static void updateScreenState(Context context) {
-        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        if (Utils.isAndroidNewerThanL())
-            MainService.isScreenOn = pm.isInteractive();
-        else
-            MainService.isScreenOn = pm.isScreenOn();
     }
 
     public static boolean doesDeviceHaveSecuritySetup(Context context) {
@@ -75,14 +67,13 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
         prefs = new Prefs(context);
         prefs.apply();
         this.context = context;
-        updateScreenState(context);
-
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+            MainService.isScreenOn = false;
             Globals.sensorIsScreenOff = true;
             Utils.logInfo(TAG, "Screen turned off\nShown:" + Globals.isShown);
-            if (Globals.isShown) {
+            if (Globals.isShown && !MainService.isScreenOn) {
                 // Screen turned off with service running, wake up device
-                turnScreenOn(context, true);
+                    turnScreenOn(context, true);
             } else {
                 //Checking if was killed by delay or naturally, if so, don't restart the service
                 if (Globals.killedByDelay) {
@@ -141,6 +132,7 @@ public class ScreenReceiver extends BroadcastReceiver implements ContextConstatn
                 }
             }
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+            MainService.isScreenOn = true;
             if (Globals.waitingForApp)
                 Globals.waitingForApp = false;
             Utils.logInfo(TAG, "Screen turned on\nShown:" + Globals.isShown);

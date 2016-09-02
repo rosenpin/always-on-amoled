@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
   <string name="gestures_action_flashlight">Taschenlampe</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
-  <string name="support_1">1 $: Der Preis einer erfrischenden Coke</string>
-  <string name="support_2">2 $: Der Preis eines leckeren Schokoriegels</string>
-  <string name="support_5">5 $: Der Preis eines kühlen Eiskaffees</string>
-  <string name="support_10">10 $: Der Preis eines großen Starbucks-Kaffees</string>
-  <string name="support_20">20 $: Der Preis einer leckeren Pizza</string>
-  <string name="support_25">25 $: Der Preis eines Abendessens</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen</string>

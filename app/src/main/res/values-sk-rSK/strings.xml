@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Povie nahlas momentálny čas, notifikácie a zostatok batérie</string>
   <string name="gestures_action_flashlight">Zapnúť svietidlo</string>
   <string name="supporter_feature_only">Táto možnosť je dostupná je pre supporterov. Môžete si vybrať koľko chcete darovať aby ste sa stali supporterom. Koľko chcete prispieť?</string>
-  <string name="support_1">1$: Cena povzbudzujúcej coly</string>
-  <string name="support_2">2$: Cena chutnej čokolády</string>
-  <string name="support_5">5$: Cena skvelej ľadovej kávy</string>
-  <string name="support_10">10$: Cena úžasnej Starbucks kávy</string>
-  <string name="support_20">20$: Cena lahodnej pizze</string>
-  <string name="support_25">25$: Cena jednej večery</string>
   <!--Intro-->
   <string name="intro_allow_now">Povoliť teraz</string>
   <string name="intro_permissions">Čítať stav telefónu</string>

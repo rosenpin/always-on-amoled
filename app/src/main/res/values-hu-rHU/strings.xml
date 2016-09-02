@@ -11,11 +11,6 @@
   <!--Support-->
   <string name="action_support_the_development">Támogassa a fejlesztést</string>
   <string name="support_how_much">Mennyit szeretne adományozni?</string>
-  <string name="support_1">1$: Egy felfrissítő coke ára</string>
-  <string name="support_2">2$: Egy ízletes csokoládé szelet ára</string>
-  <string name="support_5">5$: Egy hideg jeges kávé ára</string>
-  <string name="support_20">20$: Egy finom pizza ára</string>
-  <string name="support_25">25$: Egy vacsora ára</string>
   <!--Intro-->
   <string name="intro_allow_now">Engedélyezés most</string>
   <string name="intro_modify_desc">Az alkalmazásnak szüksége van engedélyre, hogy változtassa az eszköz fényerősségét</string>

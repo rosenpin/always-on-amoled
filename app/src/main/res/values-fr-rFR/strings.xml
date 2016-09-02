@@ -13,12 +13,6 @@
   <string name="support_how_much">Combien voudriez-vous donner ?</string>
   <string name="gestures_action_speak">Annoncer l\'heure, les notifications et le pourcentage de batterie à haute voix</string>
   <string name="supporter_feature_only">Cette fonctionnalité n\'est disponible uniquement pour les donateurs, combien voudriez-vous donner pour devenir un donateur ?</string>
-  <string name="support_1">1$ : Le prix d\'un Cola rafraîchissant</string>
-  <string name="support_2">2$ : Le prix d\'une barre de chocolat savoureuse</string>
-  <string name="support_5">5$ : Le prix d\'un café glacé</string>
-  <string name="support_10">10$ : Le prix d\'un café Starbucks qui assure</string>
-  <string name="support_20">20$ : Le prix d\'une pizza délicieuse</string>
-  <string name="support_25">25$: Le prix d\'un dîner</string>
   <!--Intro-->
   <string name="intro_allow_now">Autoriser maintenant</string>
   <string name="intro_permissions">Lire l\'état du téléphone</string>

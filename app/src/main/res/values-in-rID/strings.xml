@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
   <string name="gestures_action_flashlight">Menghidupkan Senter </string>
   <string name="supporter_feature_only">Fitur ini hanya tersedia bagi penyumbang, Anda dapat memilih berapa sumbangan yang ingin anda berikan, berapa banyak anda ingin menyumbang?</string>
-  <string name="support_1">1$: Harga sebotol cola-cola</string>
-  <string name="support_2">2$: Harga sebatang coklat cunky bar</string>
-  <string name="support_5">5$: Hagra segelas Ice Vanilla Latte</string>
-  <string name="support_10">10$: Harga kopi starbuck ukuran jumbo</string>
-  <string name="support_20">20$: Harga pizza original berukuran jumbo</string>
-  <string name="support_25">25$: Biaya dari makan malam</string>
   <!--Intro-->
   <string name="intro_allow_now">Izinkan</string>
   <string name="intro_permissions">Membaca keadaan ponsel</string>

@@ -10,16 +10,6 @@
   <string name="support_how_much">Bao nhiêu bạn muốn tặng?</string>
   <string name="gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
   <string name="supporter_feature_only">Tính năng này chỉ có sẵn cho những người ủng hộ, bạn có thể chọn bao nhiêu bạn muốn donate để trở thành một người ủng hộ, bạn muốn tặng bao nhiêu ?</string>
-  <string name="support_choose"></string>
-  <string name="support_1">1$ giá làm mới một cốc</string>
-  <string name="support_2">2$ giá của một thanh sô cô la ngon</string>
-  <string name="support_5">5$ giá băng-cà phê mát mẻ</string>
-  <string name="support_10">10$ giá của một bánh pizza ngon</string>
-  <string name="support_1_desc"></string>
-  <string name="support_2_desc"></string>
-  <string name="support_5_desc"></string>
-  <string name="support_10_desc"></string>
-  <string name="support_20_desc"></string>
   <!--Intro-->
   <string name="intro_allow_now">Cho phép bây giờ</string>
   <string name="intro_permissions">Đọc tình trạng điện thoại</string>
@@ -155,7 +145,6 @@
   <string name="settings_github_desc">Mã nguồn mở GitHub liên kết</string>
   <string name="settings_move_desc">Sử này để tránh AMOLED bật</string>
   <string name="settings_font_size_desc">Thiết lập kích thước phông chữ đồng hồ</string>
-  <string name="settings_font_size_memo_desc"></string>
   <string name="settings_notifications_desc">Sử này để giữ các ứng dụng đang chạy trong nền</string>
   <string name="settings_enabled_desc">Cho phép Dịch vụ</string>
   <string name="settings_disable_volume_keys_desc">Sử này để ngăn chặn sự thay đổi khối lượng do lỗi</string>
@@ -197,6 +186,4 @@
   <string name="greenify_integration_desc">Cho phép Greenify truy cập các dịch vụ để được cải thiện đáng kể tuổi thọ pin. Hãy chắc chắn để cho phép Greenify trong thiết đặt trợ năng</string>
   <string name="greenify_integration_desc_found">Đảm bảo rằng bạn cho phép Greenify trong thiết đặt trợ năng và chọn ứng dụng bạn muốn nó ngủ đông trong khi thiết bị bị khóa. Click vào đây để đặt cấu hình Greenify</string>
   <string name="greenify_integration_desc_not_found">Cài đặt Greenify để cải thiện tuổi thọ pin</string>
-  <string name="settings_watchface_date_desc"></string>
-  <string name="error_5_camera_cant_connect_desc"></string>
 </resources>

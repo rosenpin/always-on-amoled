@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Powiedz głośno bieżący czas, powiadomienia i stan baterii</string>
   <string name="gestures_action_flashlight">Włącz latarkę</string>
   <string name="supporter_feature_only">Ta funkcja jest dostępna tylko dla osób wspierających, możesz wybrać jak bardzo chcesz nas wesprzeć.</string>
-  <string name="support_1">1$: Cena za odświeżającą Colę</string>
-  <string name="support_2">2$: Cena za pyszną tabliczkę czekolady</string>
-  <string name="support_5">5$: Cena za orzeźwiającą mrożoną kawę</string>
-  <string name="support_10">10$: Cena za dużą kawę Starbucks</string>
-  <string name="support_20">20$: Cena za przepyszną pizzę</string>
-  <string name="support_25">25$: Cena za obiad</string>
   <!--Intro-->
   <string name="intro_allow_now">Zezwalaj</string>
   <string name="intro_permissions">Odczyt stanu telefonu</string>

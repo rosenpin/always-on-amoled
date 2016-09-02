@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
   <string name="gestures_action_flashlight">J</string>
   <string name="supporter_feature_only">Esta función está solamente disponible para los seguidores, puede elegir cuánto quiere donar para convertirse en un seguidor. ¿Cuánto te gustaría donar?</string>
-  <string name="support_1">1$: El precio de una refrescante Coca-Cola</string>
-  <string name="support_2">2$: El precio de una deliciosa barra de chocolate</string>
-  <string name="support_5">5$: El precio de un café helado</string>
-  <string name="support_10">10$: El precio de un café grande de Starbucks</string>
-  <string name="support_20">20$: El precio de una deliciosa pizza</string>
-  <string name="support_25">25$: El precio de una cena</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Leer el estado del dispositivo</string>

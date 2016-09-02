@@ -27,6 +27,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.ListView;
@@ -182,7 +183,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Process process = Runtime.getRuntime().exec(new String[]{"su", "-c", "pm grant " + getActivity().getPackageName() + " android.permission.WRITE_SECURE_SETTINGS"});
             process.waitFor();
         } catch (IOException | InterruptedException ignored) {
-            ignored.printStackTrace();
+            Log.i(MAIN_ACTIVITY_LOG_TAG, "User doesn't have root");
         }
     }
 
@@ -312,7 +313,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             restartService();
         }
         if (preference.getKey().equals("proximity_to_lock")) {
-            if (Shell.SU.available() || Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            if (Shell.SU.available() || (Utils.isAndroidNewerThanL() && !Build.MANUFACTURER.equalsIgnoreCase("samsung")))
                 return true;
             else {
                 DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);

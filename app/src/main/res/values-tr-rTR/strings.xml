@@ -15,17 +15,6 @@
   <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
   <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="supporter_feature_only">Bu özellik sadece destekçiler içindir, destekçi olmak için ne kadar bağışlayacağını seçebilirsin, ne kadar bağışlamak istersin?</string>
-  <string name="support_choose"></string>
-  <string name="support_1">1$: Ferahlatıcı bir kola fiyatı</string>
-  <string name="support_2">2$: Lezzetli bir çikolata fiyatı</string>
-  <string name="support_5">5$: Serin bir soğuk kahve fiyatı</string>
-  <string name="support_10">10$: Koca kıçlı bir Starbucks kahve fiyatı</string>
-  <string name="support_20">20$: Lezzetli bir pizza fiyatı</string>
-  <string name="support_1_desc"></string>
-  <string name="support_2_desc"></string>
-  <string name="support_5_desc"></string>
-  <string name="support_10_desc"></string>
-  <string name="support_20_desc"></string>
   <!--Intro-->
   <string name="intro_allow_now">Şimdi izin ver</string>
   <string name="intro_permissions">Telefon durumunu oku</string>
@@ -164,7 +153,6 @@
   <string name="settings_github_desc">Açık kaynak kodları Github adresi</string>
   <string name="settings_move_desc">Amoled aydınlatma önlenmesini etkinleştir </string>
   <string name="settings_font_size_desc">Saat yazı boyutunu ayarla</string>
-  <string name="settings_font_size_memo_desc"></string>
   <string name="settings_notifications_desc">Uygulamanın arkaplanda çalışması için bunu etkinleştir</string>
   <string name="settings_enabled_desc">Servisi etkinleştir </string>
   <string name="settings_disable_volume_keys_desc">Yanlışlıkla ses artırma-kısma olmaması için bunu aktifleştir</string>
@@ -217,6 +205,4 @@
   <string name="settings_google_now_shortcut_desc">OK Google diyerek Google Now başlatıldığında \"daima açık\" ekranı kapat (Google Now Launcher ile çalışmayabilir)</string>
   <string name="settings_exit_animation">Animasyon</string>
   <string name="settings_exit_animation_desc">Çıkış animasyon seçin</string>
-  <string name="settings_watchface_date_desc"></string>
-  <string name="error_5_camera_cant_connect_desc"></string>
 </resources>

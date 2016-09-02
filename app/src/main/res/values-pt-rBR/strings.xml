@@ -13,12 +13,6 @@
   <string name="support_how_much">Quanto você gostaria de doar?</string>
   <string name="gestures_action_speak">Fale o horário atual, notificações e nível de bateria</string>
   <string name="supporter_feature_only">Essa opção esta disponível apenas para quem deu suporte, você pode escolher um valor para doar para se tornar um! Quanto que você gostaria de doar?</string>
-  <string name="support_1">1$: O preço para tomar uma bela Coca-Cola</string>
-  <string name="support_2">2$: O Preço para comer uma bela barra de chocolate</string>
-  <string name="support_5">5$: O preço para tomar um maravilhoso café gelado</string>
-  <string name="support_10">10$: O preço para tomar um belíssimo café no Starbucks</string>
-  <string name="support_20">20$: O preço para comer uma deliciosa pizza</string>
-  <string name="support_25">25$: o preço de um jantar</string>
   <!--Intro-->
   <string name="intro_allow_now">Permita agora</string>
   <string name="intro_permissions">Ler estado do telefone</string>

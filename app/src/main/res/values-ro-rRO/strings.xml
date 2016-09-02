@@ -11,11 +11,6 @@
   <string name="support_how_much">Cât de mult ați dori să donați?</string>
   <string name="gestures_action_speak">Spune cu voce tare ora, notificările şi nivelul bateriei</string>
   <string name="supporter_feature_only">Această opțiune este valabilă doar pentru donatori. Poți alege cât de mult ca să devi un donator. Cât de mult doriţi să donaţi?</string>
-  <string name="support_1">1$: Prețul unei doze de Coca Cola</string>
-  <string name="support_2">2$: Prețul unei ciocolate</string>
-  <string name="support_5">5$: Prețul unui cești de cafea cu gheaţă</string>
-  <string name="support_10">10$: Preţul unui pahar mare de la Starbucks</string>
-  <string name="support_20">20$: Pretul unei delicioase pizza</string>
   <!--Intro-->
   <string name="intro_allow_now">Oferă permisiunile</string>
   <string name="intro_draw_over">Funcționare peste alte aplicații</string>

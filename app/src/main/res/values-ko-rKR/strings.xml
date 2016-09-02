@@ -14,12 +14,6 @@
   <string name="support_how_much">기부를 얼마 만큼 해주실건가요?</string>
   <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
   <string name="supporter_feature_only">이 기능은 도움을 주신 분들만 쓸 수 있습니다. 기부하고 싶은 만큼 기부한 뒤 이 기능을 쓸 수 있습니다. 얼마만큼 기부해주실 의향이 있으십니까?</string>
-  <string name="support_1">1달러: 시원한 콜라를 마실 수 있는 가격</string>
-  <string name="support_2">2달러: 달콤한(sweet) 초콜릿을 먹을 수 있는 가격</string>
-  <string name="support_5">5달러: 시원한 아이스 커피를 사마실 수 있는 가격</string>
-  <string name="support_10">10달러: 고급스러운 스타벅스 커피를 사마실 수 있는 가격</string>
-  <string name="support_20">20달러: 맛있는 피자를 사먹을 수 있는 가격</string>
-  <string name="support_25">두 사람이 저녁을 먹을 수 있는 25 달러</string>
   <!--Intro-->
   <string name="intro_allow_now">지금 권한 주기</string>
   <string name="intro_permissions">기기 상태 읽기</string>

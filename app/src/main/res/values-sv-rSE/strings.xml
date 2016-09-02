@@ -13,12 +13,6 @@
   <string name="support_how_much">Hur mycket skulle du vilja donera?</string>
   <string name="gestures_action_speak">Säga aktuell tid, meddelanden och batteristatus högt</string>
   <string name="supporter_feature_only">Den här funktionen är endast tillgänglig för supportrar, du kan välja hur mycket du vill donera för att bli en supporter, hur mycket vill du donera?</string>
-  <string name="support_1">11kr     Priset på en uppfriskande Cola</string>
-  <string name="support_2">21kr     Priset för en god chokladbar</string>
-  <string name="support_5">55kr     Priset på en kall iskaffe</string>
-  <string name="support_10">105kr     Priset på en gigantisk kaffe från Starbucks</string>
-  <string name="support_20">215kr     Priset på en utsökt pizza</string>
-  <string name="support_25">25$: priset på en middag</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus</string>

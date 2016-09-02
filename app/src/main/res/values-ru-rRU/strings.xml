@@ -15,12 +15,7 @@
   <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
   <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="supporter_feature_only">Эта функция станет доступна после внесения пожертвования, сколько бы вы хотели пожертвовать?</string>
-  <string name="support_1">1$</string>
-  <string name="support_2">2$</string>
-  <string name="support_5">5$</string>
-  <string name="support_10">10$</string>
-  <string name="support_20">20$</string>
-  <string name="support_25">25$</string>
+  <string name="support_choose">Сколько денег вы желаете пожертвовать разработчику?</string>
   <!--Intro-->
   <string name="intro_allow_now">Разрешить сейчас</string>
   <string name="intro_permissions">Чтение статуса звонков</string>

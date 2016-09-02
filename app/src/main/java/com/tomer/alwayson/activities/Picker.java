@@ -26,7 +26,6 @@ import com.tomer.alwayson.views.DateView;
 
 public class Picker extends AppCompatActivity implements ContextConstatns {
 
-    private CustomGridViewAdapter gridAdapter;
     private Prefs prefs;
 
     @Override
@@ -36,7 +35,7 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
         prefs = new Prefs(this);
         prefs.apply();
         int mode = getIntent().getIntExtra(GRID_TYPE, GRID_TYPE_CLOCK);
-        gridAdapter = new CustomGridViewAdapter(Picker.this, getResources().getTextArray(mode == GRID_TYPE_CLOCK ? R.array.customize_clock : R.array.customize_date).length, mode);
+        CustomGridViewAdapter gridAdapter = new CustomGridViewAdapter(Picker.this, getResources().getTextArray(mode == GRID_TYPE_CLOCK ? R.array.customize_clock : R.array.customize_date).length, mode);
         ((GridView) findViewById(R.id.watchface_picker_grid)).setAdapter(gridAdapter);
         new Handler().postDelayed(() -> ((GridView) findViewById(R.id.watchface_picker_grid)).smoothScrollToPosition(prefs.clockStyle), 300);
 

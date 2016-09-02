@@ -14,12 +14,6 @@
   <string name="support_how_much">Hoeveel zou je willen doneren?</string>
   <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
   <string name="supporter_feature_only">Deze functie is alleen beschikbaar voor donateurs, je kunt kiezen hoeveel je wilt doneren om een supporter te worden, hoeveel zou je willen doneren?</string>
-  <string name="support_1">€1 De prijs van een verfrissende cola</string>
-  <string name="support_2">2$ De prijs van een lekkere chocoladereep</string>
-  <string name="support_5">5$ De prijs van een koude ijskoffie</string>
-  <string name="support_10">10$ De prijs van een lekkere pizza</string>
-  <string name="support_20">20$ De prijs van een heerlijke pizza</string>
-  <string name="support_25">25$: de prijs van een diner voor twee</string>
   <!--Intro-->
   <string name="intro_allow_now">Nu toestaan</string>
   <string name="intro_permissions">Lees telefoonstatus</string>

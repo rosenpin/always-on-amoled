@@ -13,12 +13,6 @@
   <string name="support_how_much">Quanto é que gostarias de doar?</string>
   <string name="gestures_action_speak">Dizer em alta voz a hora atual, notificações e o estado da bateria</string>
   <string name="supporter_feature_only">Esta funcionalidade apenas está disponível para os apoiantes. Podes escolher quanto é que queres doar para te tornar num apoiante. Quanto é que gostarias de doar?</string>
-  <string name="support_1">1$: O preço de uma Coca-Cola refrescante</string>
-  <string name="support_2">2$: O preço de uma barra de chocolate saborosa</string>
-  <string name="support_5">5$: O preço de um café gelado</string>
-  <string name="support_10">10$: O preço de um café no Starbucks</string>
-  <string name="support_20">20$: O preço de uma pizza deliciosa</string>
-  <string name="support_25">25$: O preço de um jantar para dois</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ler o estado do telefone</string>

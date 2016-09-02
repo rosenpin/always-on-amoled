@@ -227,6 +227,12 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        DonateActivity.onDestroy(this);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         isActive = true;

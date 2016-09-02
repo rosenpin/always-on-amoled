@@ -39,7 +39,6 @@ import java.util.List;
 
 public class DonateActivity extends AppCompatActivity {
     private static ServiceConnection mServiceConn;
-    private static Intent billingServiceIntent;
     private static IInAppBillingService mService;
 
     public static void quicklyPromptToSupport(final Activity context, final View rootView) {
@@ -94,8 +93,7 @@ public class DonateActivity extends AppCompatActivity {
             }
         };
 
-        billingServiceIntent =
-                new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
         billingServiceIntent.setPackage("com.android.vending");
         try {
             context.unbindService(mServiceConn);
@@ -108,14 +106,16 @@ public class DonateActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.donation_activity);
+        if (getItemsList(this) == null || getItemsList(this).isEmpty()) {
+            Snackbar.make(findViewById(R.id.donation_list), getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
+            finish();
+        }
         ((ListViewCompat) findViewById(R.id.donation_list)).setAdapter(new DonationAdapter(this, getItemsList(this)));
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public static void onDestroy(Context context) {
         try {
-            unbindService(mServiceConn);
+            context.unbindService(mServiceConn);
         } catch (Exception ignored) {
         }
     }

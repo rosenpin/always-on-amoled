@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
   <string name="gestures_action_flashlight">打开手电</string>
   <string name="supporter_feature_only">此功能仅适用于捐助者，你可以自由的选择是否捐助，若想成为捐助者你也可以自由的选择捐助数额。</string>
-  <string name="support_1">$1: 请我喝一杯可乐</string>
-  <string name="support_2">$2: 请我吃一块美味的巧克力</string>
-  <string name="support_5">$5: 请我喝一杯冰爽的咖啡</string>
-  <string name="support_10">$10: 请我喝一杯星巴克咖啡</string>
-  <string name="support_20">$20: 请我吃一餐美味的披萨</string>
-  <string name="support_25">25$: 一顿晚饭钱</string>
   <!--Intro-->
   <string name="intro_allow_now">设置权限</string>
   <string name="intro_permissions">访问电话状态</string>

@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
   <string name="gestures_action_flashlight">Toggle torcia</string>
   <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
-  <string name="support_1">1$: Il prezzo di una coca-cola rinfrescante</string>
-  <string name="support_2">2$: Il prezzo di una gustosa barretta di cioccolato</string>
-  <string name="support_5">5$: Il prezzo di un fresco ice-coffee</string>
-  <string name="support_10">10$: Il prezzo di una grande tazza al caffè Starbucks</string>
-  <string name="support_20">20$: Il prezzo di una deliziosa pizza</string>
-  <string name="support_25">25$: Il prezzo di una cena</string>
   <!--Intro-->
   <string name="intro_allow_now">Consenti ora</string>
   <string name="intro_permissions">Leggi stato telefono</string>

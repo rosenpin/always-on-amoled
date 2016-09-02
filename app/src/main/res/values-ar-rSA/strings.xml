@@ -15,12 +15,6 @@
   <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
   <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="supporter_feature_only">هذه الخاصية متاحة فقط للداعمين بأمكانك أن تصبح داعما،كم تريد أن تعطينا؟</string>
-  <string name="support_1">1$: سعر كوكاكولا منعشة</string>
-  <string name="support_2">2 دولار: ثمن شوكولاته لذيذة</string>
-  <string name="support_5">5دولار: ثمن قهوة مجمدة منعشة</string>
-  <string name="support_10">10دولار: ثمن كوب كبير من القهوة</string>
-  <string name="support_20">20دولار: ثمن بيتزا لذيذة</string>
-  <string name="support_25">25 دولار: ثمن وجبة العشاء</string>
   <!--Intro-->
   <string name="intro_allow_now">اسمح الأن</string>
   <string name="intro_permissions">قراءة حالة الهاتف</string>
