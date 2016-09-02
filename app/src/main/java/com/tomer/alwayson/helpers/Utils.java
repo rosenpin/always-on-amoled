@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Utils implements ContextConstatns {
+
     static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {
@@ -129,6 +130,10 @@ public class Utils implements ContextConstatns {
 
     public static boolean isAndroidNewerThanN() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
+
+    public static boolean isSamsung() {
+        return Build.MANUFACTURER.equalsIgnoreCase("samsung");
     }
 
     public static class Animations {

@@ -165,7 +165,6 @@
         <item>@string/support_5</item>
         <item>@string/support_10</item>
         <item>@string/support_20</item>
-        <item>@string/support_25</item>
     </string-array>
 
     <string-array name="settings_move">

@@ -213,7 +213,7 @@ public class MainService extends Service implements SensorEventListener, Context
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
-            if (Utils.isAndroidNewerThanL() && !Build.MANUFACTURER.equalsIgnoreCase("samsung")) {
+            if (Utils.isAndroidNewerThanL() && !Utils.isSamsung()) {
                 proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, getPackageName() + " wakelock_holder");
                 proximityToTurnOff.acquire();
             } else {
