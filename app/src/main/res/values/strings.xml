@@ -232,4 +232,5 @@
     <string name="settings_exit_animation_desc">Choose the exit animation</string>
     <string name="settings_battery_saver_desc">Reduce battery consumption and overheating. Works better with root.</string>
     <string name="settings_watchface_date_desc">Choose the date style you want to see</string>
+    <string name="error_5_camera_cant_connect_desc">Couldn\'t connect to camera. There might be an issue with your device.</string>
 </resources>

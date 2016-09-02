@@ -8,6 +8,8 @@ import android.hardware.Camera;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 
+import com.tomer.alwayson.R;
+
 import java.io.IOException;
 
 public class Flashlight {
@@ -19,7 +21,11 @@ public class Flashlight {
     public Flashlight(Context context) {
         this.context = context;
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            cam = Camera.open();
+            try {
+                cam = Camera.open();
+            } catch (RuntimeException e) {
+                Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_5_camera_cant_connect_desc), 233, null);
+            }
             Camera.Parameters p = cam.getParameters();
             p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
             cam.setParameters(p);
