@@ -8,6 +8,7 @@
   <string name="menu_feedback">Opiniones</string>
   <string name="menu_rate">Valora esta aplicación</string>
   <string name="action_restart">Reiniciar ahora</string>
+  <string name="never_show_again">No mostrar de nuevo</string>
   <!--Support-->
   <string name="action_support_the_development">Apoya al desarrollo</string>
   <string name="support_how_much">¿Cuánto te gustaría donar?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">Se requiere plugin</string>
   <string name="plugin_dialog_desc">Si su dispositivo tiene botones físicos, para que se apaguen cuando el servicio se está ejecutando, instale el plugin.</string>
   <!--Errors-->
+  <string name="error">Error</string>
   <string name="error_IAP">Error! Por favor asegurate de estar conectado a internet y reinicia la app</string>
   <string name="error_0_unknown_error">Ha ocurrido un error. Por favor reportalo con el desarrollador </string>
+  <string name="error_0_unknown_error_report_prompt">Clic aquí para reportar un error</string>
   <string name="error_2_plugin_not_installed">El plugin no está instalado</string>
   <string name="error_3_unknown_error_restart">Ha ocurrido un error. por favor reinicie la aplicación.</string>
+  <string name="error_4_tasker_service_not_initialized">El servicio no se inició correctamente</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Esto puede afectar al rendimiento de la aplicación</string>
   <string name="warning_4_device_not_secured">Su dispositivo puede no ser seguro ahora</string>
@@ -81,7 +85,9 @@
   <string name="rules_battery_20">20% o superior</string>
   <string name="rules_battery_10">10% o superior</string>
   <!--Animations-->
-  <string name="animation_disabled">Jjj</string>
+  <string name="animation_disabled">Sin animación</string>
+  <string name="animation_fade_out">Un</string>
+  <string name="animation_slide_out">Deslizar a la izquierda</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Desactivado</string>
   <string name="rules_minutes_1">1 minuto</string>
@@ -95,6 +101,14 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Vertical</string>
   <string name="rules_orientation_horizontal">Horizontal</string>
+  <!-- Other labels -->
+  <string name="md_back_label">Regresar</string>
+  <string name="md_cancel_label">Cancelar</string>
+  <string name="md_choose_label">Elegir</string>
+  <string name="md_custom_label">Editar</string>
+  <string name="md_done_label">Aceptar</string>
+  <string name="md_error_label">Error</string>
+  <string name="md_presets_label">Ajustes preestablecidos</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamiento</string>
   <string name="settings_about">Acerca de</string>
@@ -107,9 +121,10 @@
   <string name="settings_enabled">Activar</string>
   <string name="settings_disable_volume_keys">Desactivar teclas de volumen</string>
   <string name="settings_double_tap_wake">Acción de doble toque</string>
-  <string name="settings_back_button_wake">Acción de botón back</string>
+  <string name="settings_back_button_wake">Acción de botón atras</string>
   <string name="settings_volume_to_stop">Acción de las teclas de volumen</string>
-  <string name="settings_swipe_wake">Acción al deslizar hacia arriba</string>
+  <string name="settings_swipe_up">Acción al deslizar hacia arriba</string>
+  <string name="settings_swipe_down">Acción al deslizar hacia abajo</string>
   <string name="settings_brightness">Brillo</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>
@@ -138,6 +153,8 @@
   <string name="settings_licenses">Licencias</string>
   <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_app_version">Versión</string>
+  <string name="settings_enable_greenify">Activar Greenify</string>
+  <string name="settings_battery_saver">Modo ahorro de energía</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Detener Always On cuando inicia la camara (mantener activado en dispositivos Samsung/Nexus)</string>
   <string name="settings_auto_brightness_desc">Oscurece la pantalla automáticamente en ambientes oscuros (Los sensores pueden gastar más batería)</string>
@@ -151,6 +168,7 @@
   <string name="settings_proximity_to_lock_desc">Bloquea el dispositivo cuando lo metes en el bolsillo para ahorrar batería (Los sensores pueden gastar más bateria)</string>
   <string name="settings_licenses_desc">Licencias de codigo abierto</string>
   <string name="settings_community_desc">Comunidad Google Plus</string>
+  <string name="settings_about_twitter_desc">Sígueme en Twitter para noticias, actualizaciones y regalos</string>
   <string name="settings_github_desc">Código abierto en Github</string>
   <string name="settings_move_desc">Habilitar para evitar quemadura de algunos píxeles la pantalla AMOLED</string>
   <string name="settings_font_size_desc">Tamaño de fuente del reloj</string>
@@ -189,6 +207,7 @@
   <string name="settings_watch_ticks">Reloj de 12 horas clásico con agujas</string>
   <string name="settings_watch_digital_s7">Reloj digital de estilo S7</string>
   <string name="settings_watch_flat_analog">Estilo analógico plano</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Estilo del reloj analogico Pebble</string>
   <string name="settings_watch_flat_red_analog">Estilo plano analógico (rojo)</string>
   <string name="move_disable">Desactivado (no recomendado para pantallas AMOLED)</string>
@@ -206,8 +225,5 @@
   <string name="settings_google_now_shortcut_desc">Detenga el Always on screen cuando Google Now es lanzado diciendo OK Google (Puede no funcionar con el launcher Google Now)</string>
   <string name="settings_exit_animation">Animacion</string>
   <string name="settings_exit_animation_desc">Elige animación de desbloqueo</string>
-  <string name="error_4_tasker_service_not_initialized">El servicio no se inició correctamente</string>
-  <string name="error">Error</string>
-  <string name="error_0_unknown_error_report_prompt">Clic aquí para reportar un error</string>
-  <string name="never_show_again">No mostrar de nuevo</string>
+  <string name="settings_battery_saver_desc">Reduce el consumo de la batería y el sobrecalentamiento. Funciona mejor con root.</string>
 </resources>

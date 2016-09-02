@@ -66,6 +66,7 @@
     <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
     <string name="error_3_unknown_error_restart">An error has occurred. Please restart the app.</string>
     <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
+    <string name="error_5_camera_cant_connect_desc">Couldn\'t connect to camera. There might be an issue with your device.</string>
     <!--Warnings-->
     <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
     <string name="warning_4_device_not_secured">Your device may not be secured now</string>
@@ -156,6 +157,7 @@
     <string name="greenify_integration">Greenify integration</string>
     <string name="settings_licenses">Licenses</string>
     <string name="settings_uninstall">Uninstall</string>
+    <string name="settings_exit_animation">Animation</string>
     <string name="settings_app_version">Version</string>
     <string name="settings_enable_greenify">Enable Greenify</string>
     <string name="settings_battery_saver">Battery save mode</string>
@@ -228,9 +230,7 @@
     <string name="settings_memo_font_size_desc">Set the memo font size</string>
     <string name="settings_memo_hint">Type your memo here. It will show up in your always on screen.</string>
     <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
-    <string name="settings_exit_animation">Animation</string>
     <string name="settings_exit_animation_desc">Choose the exit animation</string>
     <string name="settings_battery_saver_desc">Reduce battery consumption and overheating. Works better with root.</string>
     <string name="settings_watchface_date_desc">Choose the date style you want to see</string>
-    <string name="error_5_camera_cant_connect_desc">Couldn\'t connect to camera. There might be an issue with your device.</string>
 </resources>

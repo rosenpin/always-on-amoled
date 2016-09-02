@@ -8,6 +8,7 @@
   <string name="menu_feedback">Een probleem melden</string>
   <string name="menu_rate">Beoordeel de app</string>
   <string name="action_restart">Nu herstarten</string>
+  <string name="never_show_again">Nooit meer weergeven</string>
   <!--Support-->
   <string name="action_support_the_development">Ondersteun de ontwikkelaar</string>
   <string name="support_how_much">Hoeveel zou je willen doneren?</string>
@@ -53,10 +54,13 @@
   <string name="plugin_dialog_title">Plugin is nodig</string>
   <string name="plugin_dialog_desc">Het lijkt er op dat je apparaat hardware knoppen heeft, wanneer je wilt dat deze uit gaan wanneer de service aan staat, installeer dan alsjeblieft de plugin.</string>
   <!--Errors-->
+  <string name="error">Error</string>
   <string name="error_IAP">Error! Zorg er alsjeblieft voor dat je verbonden bent met internet en herstart de app</string>
   <string name="error_0_unknown_error">Een probleem heeft zich voorgedaan. Rapporteer dit alsjeblieft aan de ontwikkelaar </string>
+  <string name="error_0_unknown_error_report_prompt">Klik hier om de error te rapporteren</string>
   <string name="error_2_plugin_not_installed">PLUGIN IS NIET GEÏNSTALLEERD</string>
   <string name="error_3_unknown_error_restart">Er is een fout opgetreden. Start de app opnieuw.</string>
+  <string name="error_4_tasker_service_not_initialized">De dienst is niet correct geïnitialiseerd</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Dit kan de snelheid van de applicatie beïnvloeden</string>
   <string name="warning_4_device_not_secured">Je apparaat is mogelijk nu niet beschermd</string>
@@ -96,6 +100,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Verticaal</string>
   <string name="rules_orientation_horizontal">Horizontaal</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Gedrag</string>
   <string name="settings_about">Over</string>
@@ -110,7 +115,6 @@
   <string name="settings_double_tap_wake">Actie voor dubbel klikken</string>
   <string name="settings_back_button_wake">Actie voor terugknop</string>
   <string name="settings_volume_to_stop">Volume knop om aan te doen</string>
-  <string name="settings_swipe_wake">Actie voor omhoog swipen</string>
   <string name="settings_brightness">Helderheid</string>
   <string name="settings_doze">Doze modus</string>
   <string name="settings_google_now_shortcut">Sta Google Now toe</string>
@@ -207,9 +211,4 @@
   <string name="settings_google_now_shortcut_desc">Laat het always on scherm stoppen wanneer Google Now gelanceerd wordt als er OK Google gezegd wordt (Kan eventueel niet werken met de Google Now Launcher)</string>
   <string name="settings_exit_animation">Animatie</string>
   <string name="settings_exit_animation_desc">Kies de uitgangs animatie</string>
-  <string name="error_4_tasker_service_not_initialized">De dienst is niet correct geïnitialiseerd</string>
-  <string name="error">Error</string>
-  <string name="error_0_unknown_error_report_prompt">Klik hier om de error te rapporteren</string>
-  <string name="never_show_again">Nooit meer weergeven</string>
-  <string name="battery_saver">Batterij spaarstand</string>
 </resources>

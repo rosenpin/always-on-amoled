@@ -8,6 +8,7 @@
   <string name="menu_feedback">Wsparcie</string>
   <string name="menu_rate">Oceń aplikację</string>
   <string name="action_restart">Uruchom ponownie</string>
+  <string name="never_show_again">Nigdy nie pokazuj ponownie</string>
   <!--Support-->
   <string name="action_support_the_development">Wspomóż twórców</string>
   <string name="support_how_much">Jak dużo chcesz podarować?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">Wtyczka jest wymagana</string>
   <string name="plugin_dialog_desc">Wygląda na to, że twoje urządzenie posiada przyciski sprzętowe. Aby je wyłączyć, kiedy usługa jest uruchomiona, proszę zainstalować wtyczkę.</string>
   <!--Errors-->
+  <string name="error">Błąd</string>
   <string name="error_IAP">Błąd! Upewnij się, że jesteś połączony z internetem i uruchom aplikację ponownie</string>
   <string name="error_0_unknown_error">Wystąpił błąd. Prosimy o zgłoszenie tego do dewelopera </string>
+  <string name="error_0_unknown_error_report_prompt">Kliknij tutaj, aby zgłosić błąd</string>
   <string name="error_2_plugin_not_installed">WTYCZKA NIE JEST ZAINSTALOWANA</string>
   <string name="error_3_unknown_error_restart">Wystąpił błąd. Proszę uruchomić aplikację ponownie.</string>
+  <string name="error_4_tasker_service_not_initialized">Usługa nie została zainicjowana poprawnie</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Może to zaszkodzić wydajności aplikacji</string>
   <string name="warning_4_device_not_secured">Twoje urządzenie nie może być teraz zabezpieczone</string>
@@ -97,6 +101,14 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Pionowa</string>
   <string name="rules_orientation_horizontal">Pozioma</string>
+  <!-- Other labels -->
+  <string name="md_back_label">Wstecz</string>
+  <string name="md_cancel_label">Anuluj</string>
+  <string name="md_choose_label">Wybierz</string>
+  <string name="md_custom_label">Niestandardowe</string>
+  <string name="md_done_label">Gotowe</string>
+  <string name="md_error_label">Błąd</string>
+  <string name="md_presets_label">Ustawienia predefiniowane</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Zachowanie</string>
   <string name="settings_about">O aplikacji</string>
@@ -111,7 +123,8 @@
   <string name="settings_double_tap_wake">Akcja dwukrotnego stuknięcia</string>
   <string name="settings_back_button_wake">Akcja przycisku wstecz</string>
   <string name="settings_volume_to_stop">Akcja klawiszy głośności</string>
-  <string name="settings_swipe_wake">Akcja przesunięcia palcem w górę</string>
+  <string name="settings_swipe_up">Akcja przesunięcia palcem w górę</string>
+  <string name="settings_swipe_down">Akcja przesunięcia palcem w dół</string>
   <string name="settings_brightness">Jasność</string>
   <string name="settings_doze">Tryb Doze</string>
   <string name="settings_google_now_shortcut">Włącz Google Now</string>
@@ -140,6 +153,8 @@
   <string name="settings_licenses">Licencje</string>
   <string name="settings_uninstall">Odinstaluj</string>
   <string name="settings_app_version">Wersja</string>
+  <string name="settings_enable_greenify">Włącz Greenify</string>
+  <string name="settings_battery_saver">Tryb oszczędzania baterii</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Zatrzymaj ekran Always On, gdy aparat jest uruchomiony</string>
   <string name="settings_auto_brightness_desc">Automatycznie przyciemnianie ekranu w ciemnym otoczeniu (Sensor może zużywać więcej baterii)</string>
@@ -153,6 +168,7 @@
   <string name="settings_proximity_to_lock_desc">Zablokuj urządzenie po umieszczeniu urządzenia w kieszeni aby oszczędzić baterię (czujniki może powodować szybsze wyczerpanie baterii)</string>
   <string name="settings_licenses_desc">Licencje open source</string>
   <string name="settings_community_desc">Społeczność Google Plus</string>
+  <string name="settings_about_twitter_desc">Obserwuj mnie na Twitterze, aby wiedzieć o nowościach, aktualizacjach i giveaway\'ach</string>
   <string name="settings_github_desc">Link do GitHub z licencją Open source</string>
   <string name="settings_move_desc">Włącz to aby zapobiedz uszkodzeniu AMOLEDA</string>
   <string name="settings_font_size_desc">Ustaw rozmiar czcionki zegara</string>
@@ -191,6 +207,7 @@
   <string name="settings_watch_ticks">Klasyczny 12-godzinny z zaznaczonymi godzinami</string>
   <string name="settings_watch_digital_s7">Zegar cyfrowy w stylu S7</string>
   <string name="settings_watch_flat_analog">Zegar analogowy w stylu płaskim</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Zegar analogowy w stylu żwirowym</string>
   <string name="settings_watch_flat_red_analog">Płaski analogowy (czerwona tarcza)</string>
   <string name="move_disable">Wyłączone (nie zalecane dla ekranów AMOLED)</string>
@@ -208,10 +225,5 @@
   <string name="settings_google_now_shortcut_desc">Zatrzymaj Always On Display, kiedy Google Now zostanie uruchomione poprzez wypowiedzenie słów \"OK Google\" (Może nie działać z launcherem Google Now)</string>
   <string name="settings_exit_animation">Animacja</string>
   <string name="settings_exit_animation_desc">Wybierz animację wyjścia</string>
-  <string name="error_4_tasker_service_not_initialized">Usługa nie została zainicjowana poprawnie</string>
-  <string name="error">Błąd</string>
-  <string name="error_0_unknown_error_report_prompt">Kliknij tutaj, aby zgłosić błąd</string>
-  <string name="never_show_again">Nigdy nie pokazuj ponownie</string>
-  <string name="battery_saver">Oszczędzanie baterii</string>
-  <string name="battery_saver_desc">Redukuje zużycie baterii i przegrzewanie. Działa lepiej z root\'em.</string>
+  <string name="settings_battery_saver_desc">Redukuje konsumpcję baterii i przegrzewanie. Działa lepiej z root\'em.</string>
 </resources>

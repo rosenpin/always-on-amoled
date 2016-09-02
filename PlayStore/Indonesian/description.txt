@@ -9,7 +9,7 @@ Berkat layar AMOLED hal ini bisa menjadi kenyataan. Sebagian besar layar tetap h
 ★Fitur unggulan
 • Always On Screen
 • Notifikasi - Menampilkan notifikasi tanpa harus menyentuh perangkat
-• Automatic rules - preserve battery using predefined rules
+Aku
 • Auto movement - avoid AMOLED burn-in
 • Mode malam otomatis - otomatis meredupkan layar di tempat gelap
 • Mode saku - Mengunci perangkat ketika anda menaruhnya kedalam saku guna menghemat baterai

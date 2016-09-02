@@ -8,18 +8,24 @@
   <string name="menu_feedback">Geribildirim</string>
   <string name="menu_rate">Uygulamayı derecelendir</string>
   <string name="action_restart">Şimdi yeniden başlat</string>
+  <string name="never_show_again">Tekrar gösterme</string>
   <!--Support-->
   <string name="action_support_the_development">Geliştiriciyi Destekle</string>
   <string name="support_how_much">Ne kadar bağış yapmak istersiniz?</string>
   <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
   <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="supporter_feature_only">Bu özellik sadece destekçiler içindir, destekçi olmak için ne kadar bağışlayacağını seçebilirsin, ne kadar bağışlamak istersin?</string>
+  <string name="support_choose"></string>
   <string name="support_1">1$: Ferahlatıcı bir kola fiyatı</string>
   <string name="support_2">2$: Lezzetli bir çikolata fiyatı</string>
   <string name="support_5">5$: Serin bir soğuk kahve fiyatı</string>
   <string name="support_10">10$: Koca kıçlı bir Starbucks kahve fiyatı</string>
   <string name="support_20">20$: Lezzetli bir pizza fiyatı</string>
-  <string name="support_25">25$: İki kişilik bir akşam yemeği fiyatı</string>
+  <string name="support_1_desc"></string>
+  <string name="support_2_desc"></string>
+  <string name="support_5_desc"></string>
+  <string name="support_10_desc"></string>
+  <string name="support_20_desc"></string>
   <!--Intro-->
   <string name="intro_allow_now">Şimdi izin ver</string>
   <string name="intro_permissions">Telefon durumunu oku</string>
@@ -54,8 +60,10 @@
   <string name="plugin_dialog_title">Eklenti yüklenmelidir</string>
   <string name="plugin_dialog_desc">Cihazında donanımsal tuşlar var gibi görünüyor, uygulama açıkken onları devre dışı bırakmak için lütfen eklentiyi yükle.</string>
   <!--Errors-->
+  <string name="error">Hata</string>
   <string name="error_IAP">Hata! Lütfen internete bağlı olduğundan emin ol ve uygulamayı yeniden başlat</string>
   <string name="error_0_unknown_error">Bir hata oluştu. Lütfen geliştiriciler için rapor gönderin </string>
+  <string name="error_0_unknown_error_report_prompt">Hata raporu için tıklayınız</string>
   <string name="error_2_plugin_not_installed">EKLENTİ YÜKLÜ DEĞİL</string>
   <string name="error_3_unknown_error_restart">Bir hata oluştu. Lütfen uygulamayı yeniden başlat.</string>
   <!--Warnings-->
@@ -96,6 +104,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Portre (Dikey)</string>
   <string name="rules_orientation_horizontal">Manzara (Yatay)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Davranış</string>
   <string name="settings_about">Hakkımızda</string>
@@ -110,7 +119,6 @@
   <string name="settings_double_tap_wake">Çift tıklama eylemi</string>
   <string name="settings_back_button_wake">Geri düğmesi </string>
   <string name="settings_volume_to_stop">Ses tuşunu kapalı tut</string>
-  <string name="settings_swipe_wake">Kaydırma </string>
   <string name="settings_brightness">Parlaklık</string>
   <string name="settings_doze">Doze modu</string>
   <string name="settings_google_now_shortcut">Google Now izni</string>
@@ -156,6 +164,7 @@
   <string name="settings_github_desc">Açık kaynak kodları Github adresi</string>
   <string name="settings_move_desc">Amoled aydınlatma önlenmesini etkinleştir </string>
   <string name="settings_font_size_desc">Saat yazı boyutunu ayarla</string>
+  <string name="settings_font_size_memo_desc"></string>
   <string name="settings_notifications_desc">Uygulamanın arkaplanda çalışması için bunu etkinleştir</string>
   <string name="settings_enabled_desc">Servisi etkinleştir </string>
   <string name="settings_disable_volume_keys_desc">Yanlışlıkla ses artırma-kısma olmaması için bunu aktifleştir</string>
@@ -208,9 +217,6 @@
   <string name="settings_google_now_shortcut_desc">OK Google diyerek Google Now başlatıldığında \"daima açık\" ekranı kapat (Google Now Launcher ile çalışmayabilir)</string>
   <string name="settings_exit_animation">Animasyon</string>
   <string name="settings_exit_animation_desc">Çıkış animasyon seçin</string>
-  <string name="error">Hata</string>
-  <string name="error_0_unknown_error_report_prompt">Hata raporu için tıklayınız</string>
-  <string name="never_show_again">Tekrar gösterme</string>
-  <string name="battery_saver">Pil tasarrufu</string>
-  <string name="battery_saver_desc">Batarya tuketimi ve fazla ısınmayı azaltmak. Root ile daha iyi çalışır.</string>
+  <string name="settings_watchface_date_desc"></string>
+  <string name="error_5_camera_cant_connect_desc"></string>
 </resources>

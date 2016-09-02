@@ -8,6 +8,7 @@
   <string name="menu_feedback">قائمة_ابداء الرأي</string>
   <string name="menu_rate">قيمنا</string>
   <string name="action_restart">إعادة التشغيل الآن</string>
+  <string name="never_show_again">لا تظهر مرة أخرى</string>
   <!--Support-->
   <string name="action_support_the_development">ساعدنا على التطوير</string>
   <string name="support_how_much">دعمنا كثيرا؟</string>
@@ -55,10 +56,13 @@
   <string name="plugin_dialog_title">البرنامج المساعد مطلوب</string>
   <string name="plugin_dialog_desc">يبدو أن جهازك يحتوي على أزرار الألية الداخلية ، إذا كنت تريد تعطيلها عند تشغيل الخدمة، الرجاء تثبيت البرنامج المساعد.</string>
   <!--Errors-->
+  <string name="error">خطأ</string>
   <string name="error_IAP">خطأ! يرجى التأكد من الإتصال بالإنترنت وإعادة تشغيل التطبيق</string>
   <string name="error_0_unknown_error">لقد حدث خطأ. الرجاء إرسال تقرير إلى المطور </string>
+  <string name="error_0_unknown_error_report_prompt">اضغط هنا للابلاغ عن الخطأ</string>
   <string name="error_2_plugin_not_installed">البرنامج المساعد غير مثبتث</string>
   <string name="error_3_unknown_error_restart">حدث خطأ! الرجاء إعادة تشغيل التطبيق.</string>
+  <string name="error_4_tasker_service_not_initialized">الخدمة غير مهيأة بشكل صحيح</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">يمكن أن يؤثر هذا على أداء التطبيق</string>
   <string name="warning_4_device_not_secured">قد لا يكون هاتفك آمنا الآن</string>
@@ -98,6 +102,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">عمودي (رأسي)</string>
   <string name="rules_orientation_horizontal">المناظر الطبيعية (أفقي)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">السلوك</string>
   <string name="settings_about">حول</string>
@@ -112,7 +117,6 @@
   <string name="settings_double_tap_wake">عمل النقر المزدوج</string>
   <string name="settings_back_button_wake">الرجوع إلى زر الأحداث</string>
   <string name="settings_volume_to_stop">عمل مفاتيح الصوت</string>
-  <string name="settings_swipe_wake">مرر لأعلى لتفعيل</string>
   <string name="settings_brightness">الإضاءة</string>
   <string name="settings_doze">وضع الإغفاء</string>
   <string name="settings_google_now_shortcut">إسمح لخدمة \"Google Now\"</string>
@@ -209,10 +213,4 @@
   <string name="settings_google_now_shortcut_desc">إلغ تفعيل \"Always On Display\" عند تشغيل خاصية (google now) بقول \"Ok Google\" (قد لا تعمل مع لانشر جوجل الآن)</string>
   <string name="settings_exit_animation">الحركة</string>
   <string name="settings_exit_animation_desc">اختر حركة الخروج</string>
-  <string name="error_4_tasker_service_not_initialized">الخدمة غير مهيأة بشكل صحيح</string>
-  <string name="error">خطأ</string>
-  <string name="error_0_unknown_error_report_prompt">اضغط هنا للابلاغ عن الخطأ</string>
-  <string name="never_show_again">لا تظهر مرة أخرى</string>
-  <string name="battery_saver">توفير البطارية</string>
-  <string name="battery_saver_desc">قلل استهلاك البطارية والحرارة. يعمل بشكل أفضل لمستخدمي الروت.</string>
 </resources>

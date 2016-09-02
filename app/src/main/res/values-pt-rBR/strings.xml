@@ -93,6 +93,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Portrait (Vertical)</string>
   <string name="rules_orientation_horizontal">Landscape (Horizontal)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Recursos</string>
   <string name="settings_about">Sobre</string>
@@ -107,7 +108,6 @@
   <string name="settings_double_tap_wake">Duplo toque</string>
   <string name="settings_back_button_wake">Botão de voltar</string>
   <string name="settings_volume_to_stop">Botões de volume</string>
-  <string name="settings_swipe_wake">Deslizar para cima</string>
   <string name="settings_brightness">Brilho</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>

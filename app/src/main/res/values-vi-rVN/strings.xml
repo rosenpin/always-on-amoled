@@ -10,11 +10,16 @@
   <string name="support_how_much">Bao nhiêu bạn muốn tặng?</string>
   <string name="gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
   <string name="supporter_feature_only">Tính năng này chỉ có sẵn cho những người ủng hộ, bạn có thể chọn bao nhiêu bạn muốn donate để trở thành một người ủng hộ, bạn muốn tặng bao nhiêu ?</string>
+  <string name="support_choose"></string>
   <string name="support_1">1$ giá làm mới một cốc</string>
   <string name="support_2">2$ giá của một thanh sô cô la ngon</string>
   <string name="support_5">5$ giá băng-cà phê mát mẻ</string>
   <string name="support_10">10$ giá của một bánh pizza ngon</string>
-  <string name="support_25">25$: giá của một bữa ăn tối</string>
+  <string name="support_1_desc"></string>
+  <string name="support_2_desc"></string>
+  <string name="support_5_desc"></string>
+  <string name="support_10_desc"></string>
+  <string name="support_20_desc"></string>
   <!--Intro-->
   <string name="intro_allow_now">Cho phép bây giờ</string>
   <string name="intro_permissions">Đọc tình trạng điện thoại</string>
@@ -49,9 +54,12 @@
   <string name="plugin_dialog_title">Plugin là bắt buộc</string>
   <string name="plugin_dialog_desc">Có vẻ như thiết bị có nút bấm cứng, để làm cho họ tắt khi các dịch vụ đang chạy, hãy cài đặt các plugin.</string>
   <!--Errors-->
+  <string name="error">Lỗi</string>
   <string name="error_0_unknown_error">Lỗi đã xảy ra. Xin vui lòng thông báo cho các nhà phát triển </string>
+  <string name="error_0_unknown_error_report_prompt">Click vào đây để báo cáo lỗi</string>
   <string name="error_2_plugin_not_installed">PLUGIN KHÔNG ĐƯỢC CÀI ĐẶT</string>
   <string name="error_3_unknown_error_restart">Lỗi đã xảy ra. Xin vui lòng khởi động lại ứng dụng.</string>
+  <string name="error_4_tasker_service_not_initialized">Các dịch vụ không được khởi tạo một cách chính xác</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Điều này có thể gây tổn hại cho hiệu suất của ứng dụng</string>
   <string name="warning_4_device_not_secured">Thiết bị của bạn có thể không được bảo đảm bây giờ</string>
@@ -88,6 +96,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Chân dung (dọc)</string>
   <string name="rules_orientation_horizontal">Phong cảnh (ngang)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Hành vi</string>
   <string name="settings_about">Về</string>
@@ -102,7 +111,6 @@
   <string name="settings_double_tap_wake">Hành động nhấn hai lần</string>
   <string name="settings_back_button_wake">Hành động nút quay lại</string>
   <string name="settings_volume_to_stop">Khối phím hành động</string>
-  <string name="settings_swipe_wake">Kéo mạnh lên hành động</string>
   <string name="settings_brightness">Độ sáng</string>
   <string name="settings_doze">Chế độ doze</string>
   <string name="settings_google_now_shortcut">Cho phép Google Now</string>
@@ -147,6 +155,7 @@
   <string name="settings_github_desc">Mã nguồn mở GitHub liên kết</string>
   <string name="settings_move_desc">Sử này để tránh AMOLED bật</string>
   <string name="settings_font_size_desc">Thiết lập kích thước phông chữ đồng hồ</string>
+  <string name="settings_font_size_memo_desc"></string>
   <string name="settings_notifications_desc">Sử này để giữ các ứng dụng đang chạy trong nền</string>
   <string name="settings_enabled_desc">Cho phép Dịch vụ</string>
   <string name="settings_disable_volume_keys_desc">Sử này để ngăn chặn sự thay đổi khối lượng do lỗi</string>
@@ -188,7 +197,6 @@
   <string name="greenify_integration_desc">Cho phép Greenify truy cập các dịch vụ để được cải thiện đáng kể tuổi thọ pin. Hãy chắc chắn để cho phép Greenify trong thiết đặt trợ năng</string>
   <string name="greenify_integration_desc_found">Đảm bảo rằng bạn cho phép Greenify trong thiết đặt trợ năng và chọn ứng dụng bạn muốn nó ngủ đông trong khi thiết bị bị khóa. Click vào đây để đặt cấu hình Greenify</string>
   <string name="greenify_integration_desc_not_found">Cài đặt Greenify để cải thiện tuổi thọ pin</string>
-  <string name="error_4_tasker_service_not_initialized">Các dịch vụ không được khởi tạo một cách chính xác</string>
-  <string name="error">Lỗi</string>
-  <string name="error_0_unknown_error_report_prompt">Click vào đây để báo cáo lỗi</string>
+  <string name="settings_watchface_date_desc"></string>
+  <string name="error_5_camera_cant_connect_desc"></string>
 </resources>

@@ -53,6 +53,7 @@
   <string name="plugin_dialog_title">Le plugin est requis</string>
   <string name="plugin_dialog_desc">On dirait que votre appareil a des boutons capacitifs, pour les faire fonctionner quand le service est activé, merci d\'installer le plugin.</string>
   <!--Errors-->
+  <string name="error">Erreur</string>
   <string name="error_IAP">Erreur ! Soyez sûr d\'être connecté à Internet et redémarrez l\'application</string>
   <string name="error_0_unknown_error">Une erreur s\'est produite. Merci de la signaler au développeur </string>
   <string name="error_2_plugin_not_installed">LE PLUGIN N\'EST PAS INSTALLÉ</string>
@@ -94,6 +95,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Portrait (Vertical)</string>
   <string name="rules_orientation_horizontal">Paysage (Horizontal)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Comportement </string>
   <string name="settings_about">À propos</string>
@@ -108,7 +110,6 @@
   <string name="settings_double_tap_wake">Action du double tap</string>
   <string name="settings_back_button_wake">Action du bouton Retour</string>
   <string name="settings_volume_to_stop">Utiliser les touches de volume afin de désactiver </string>
-  <string name="settings_swipe_wake">Action de balayage</string>
   <string name="settings_brightness">Luminosité</string>
   <string name="settings_doze">Mode Doze</string>
   <string name="settings_google_now_shortcut">Autoriser Google Now</string>
@@ -203,5 +204,4 @@
   <string name="settings_memo_hint">Écris ton memo ici. Il s\'affichera sur ton écran Always On.</string>
   <string name="settings_google_now_shortcut_desc">Arrêter l\'écran Always On quand Google Now est lancé en disant \"Ok Google\" (Peut ne pas marcher avec le Launcher Google Now)</string>
   <string name="settings_exit_animation">Animation</string>
-  <string name="error">Erreur</string>
 </resources>

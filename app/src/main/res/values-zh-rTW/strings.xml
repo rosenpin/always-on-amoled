@@ -22,6 +22,7 @@
   <!--Animations-->
   <!--Timeout delay rule-->
   <!--Orientation-->
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">狀態</string>
   <string name="settings_appearance">外觀</string>

@@ -8,6 +8,7 @@
   <string name="menu_feedback">피드백</string>
   <string name="menu_rate">앱 평가</string>
   <string name="action_restart">지금 재시작하기</string>
+  <string name="never_show_again">다시 보지 않기</string>
   <!--Support-->
   <string name="action_support_the_development">개발자 돕기</string>
   <string name="support_how_much">기부를 얼마 만큼 해주실건가요?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">플러그인이 필요합니다</string>
   <string name="plugin_dialog_desc">이 디바이스에는 하드웨어 버튼이 있는 것 같습니다. 서비스 실행중 하드웨어 버튼을 비활성화 하려면 플러그인을 설치하십시오.</string>
   <!--Errors-->
+  <string name="error">에러</string>
   <string name="error_IAP">에러가 발생했습니다! 인터넷 네트워크가 연결되있는지 확인해주시고 앱을 종료 후 다시 실행해주세요.</string>
   <string name="error_0_unknown_error">오류가 발생하였습니다. 개발자에게 문의해주세요. </string>
+  <string name="error_0_unknown_error_report_prompt">에러를 보고하려면 여기를 누르세요</string>
   <string name="error_2_plugin_not_installed">플러그인이 설치되어있지 않습니다.</string>
   <string name="error_3_unknown_error_restart">오류가 생겼습니다. 앱을 다시 열어주세요.</string>
+  <string name="error_4_tasker_service_not_initialized">서비스가 올바르게 시작되지 않았습니다</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">이것은 앱의 기능을 손상시킬 수 있습니다.</string>
   <string name="warning_4_device_not_secured">기기가 안전하지 않을 수도 있습니다.</string>
@@ -95,6 +99,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">세로 방향</string>
   <string name="rules_orientation_horizontal">가로 방향</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">행동</string>
   <string name="settings_about">앱에 관하여</string>
@@ -109,7 +114,6 @@
   <string name="settings_double_tap_wake">두번 탭하여 켜기</string>
   <string name="settings_back_button_wake">뒤로가기 버튼으로 켜기</string>
   <string name="settings_volume_to_stop">볼륨 키로 켜기</string>
-  <string name="settings_swipe_wake">위로 밀어서 켜기</string>
   <string name="settings_brightness">밝기</string>
   <string name="settings_doze">도즈 모드</string>
   <string name="settings_google_now_shortcut">구글 지금 허용</string>
@@ -208,11 +212,4 @@ Greenify를 구성하려면 이곳을 클릭하세요</string>
   <string name="settings_google_now_shortcut_desc">OK Google로 구글 나우를 열리게 해놨다면 Always On을 끄세요. (구글 나우 런처와 호환이 안 될 수 있습니다.)</string>
   <string name="settings_exit_animation">애니메이션</string>
   <string name="settings_exit_animation_desc">나갈 때 효과 고르기</string>
-  <string name="error_4_tasker_service_not_initialized">서비스가 올바르게 시작되지 않았습니다</string>
-  <string name="error">에러</string>
-  <string name="error_0_unknown_error_report_prompt">에러를 보고하려면 여기를 누르세요</string>
-  <string name="never_show_again">다시 보지 않기</string>
-  <string name="battery_saver">배터리 절전</string>
-  <string name="battery_saver_desc">배터리 소모와 발열을 줄일 수 있습니다.
-이 기능은 루팅과 작동합니다</string>
 </resources>

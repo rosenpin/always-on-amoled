@@ -8,6 +8,7 @@
   <string name="menu_feedback">Spätná väzba</string>
   <string name="menu_rate">Ohodnoťte aplikáciu</string>
   <string name="action_restart">Reštartovať teraz</string>
+  <string name="never_show_again">Nikdy viac nezobrazovať</string>
   <!--Support-->
   <string name="action_support_the_development">Podporte vývoj</string>
   <string name="support_how_much">Koľko by ste chceli prispieť?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">Je potrebný doplnok</string>
   <string name="plugin_dialog_desc">Vyzerá to tak, že vaše zariadenie má hardvérové tlačidlá. Pre ich vypnutie počas zapnutého Always On, prosím nainštalujte doplnok.</string>
   <!--Errors-->
+  <string name="error">Chyba</string>
   <string name="error_IAP">Chyba! Prosím uistite sa, že ste pripojený na internet a reštartujte aplikáciu</string>
   <string name="error_0_unknown_error">Nastala chyba. Prosím nahláste to vývojárovi </string>
+  <string name="error_0_unknown_error_report_prompt">Ťuknite sem pre nahlásenie chýb</string>
   <string name="error_2_plugin_not_installed">DOPLNOK NIE JE NAINŠTALOVANÝ</string>
   <string name="error_3_unknown_error_restart">Nastala chyba. Prosím reštartujte aplikáciu.</string>
+  <string name="error_4_tasker_service_not_initialized">Služba nebola správne spustená</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Toto môže uškodiť výkonnosti aplikácie</string>
   <string name="warning_4_device_not_secured">Vaše zariadenie teraz nemusí byť zabezpečené</string>
@@ -97,6 +101,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Na výšku (vertikálne)</string>
   <string name="rules_orientation_horizontal">Na šírku (horizontálne)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Správanie</string>
   <string name="settings_about">O aplikácii</string>
@@ -111,7 +116,6 @@
   <string name="settings_double_tap_wake">Akcia pre dvojité ťuknutie</string>
   <string name="settings_back_button_wake">Akcia pre tlačidlo späť</string>
   <string name="settings_volume_to_stop">Akcia pre tlačidlá hlasitosti</string>
-  <string name="settings_swipe_wake">Akcia pre posun hore</string>
   <string name="settings_brightness">Jas</string>
   <string name="settings_doze">Režim šetrenia batérie Doze</string>
   <string name="settings_google_now_shortcut">Povoliť Google Now</string>
@@ -208,10 +212,4 @@
   <string name="settings_google_now_shortcut_desc">Vypne Always On obrazovku keď sa spustí Google Now použitím príkazu OK Google (nemusí fungovať s Google Now Launcherom)</string>
   <string name="settings_exit_animation">Animácia</string>
   <string name="settings_exit_animation_desc">Vyberte konečnú animáciu</string>
-  <string name="error_4_tasker_service_not_initialized">Služba nebola správne spustená</string>
-  <string name="error">Chyba</string>
-  <string name="error_0_unknown_error_report_prompt">Ťuknite sem pre nahlásenie chýb</string>
-  <string name="never_show_again">Nikdy viac nezobrazovať</string>
-  <string name="battery_saver">Šetrenie batérie</string>
-  <string name="battery_saver_desc">Znižuje spotrebu batérie a prehrievanie. Funguje lepšie s rootom.</string>
 </resources>

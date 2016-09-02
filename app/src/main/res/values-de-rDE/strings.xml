@@ -8,6 +8,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Bewerte die App</string>
   <string name="action_restart">Jetzt neu starten</string>
+  <string name="never_show_again">Nicht erneut zeigen</string>
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
@@ -26,15 +27,15 @@
   <string name="intro_permissions_desc">Die Anwendung benötigt die Berechtigung den Telefonstatus lesen zu dürfen, um das Gerät einzuschalten, wenn Du einen Anruf erhältst.</string>
   <string name="intro_draw_over">Über anderen Apps einblenden</string>
   <string name="intro_draw_over_desc">Die App braucht die Berechtigung, sich über anderen Apps einblenden zu können</string>
-  <string name="intro_modify_desc">Die App benötigt eine Berechtigung um die Helligkeit des Displays zu ändern</string>
+  <string name="intro_modify_desc">Die App benötigt eine Berechtigung, um die Helligkeit des Displays zu ändern</string>
   <string name="intro_modify">Systemeinstellungen ändern</string>
   <string name="intro_wake_ups">Aufweck-Methoden</string>
   <string name="intro_wake_ups_desc">Wähle, wie du dein Gerät vom \"Always on\" Status aufwecken willst. Keine Sorge, du kannst die Einstellung später in der App ändern.</string>
   <string name="intro_checkbox_volume_keys">Lautstärketasten zum Entsperren</string>
-  <string name="intro_checkbox_swipe_up">Streiche nach oben aus der Mitte des Bildschirms um das Gerät zu entsperren</string>
-  <string name="intro_checkbox_double_tap">Tippe zweimal in die Mitte des Bildschirms um das Gerät zu entsperren</string>
+  <string name="intro_checkbox_swipe_up">Streiche von der Mitte des Bildschirms nach oben, um das Gerät zu entsperren</string>
+  <string name="intro_checkbox_double_tap">Tippe zweimal in die Mitte des Bildschirms, um das Gerät zu entsperren</string>
   <string name="intro_notifications">Benachrichtigungs-Alarm</string>
-  <string name="intro_notifications_desc">Möchtest du Benachrichtigungen von anderen Apps erhalten, während der Bildschirm im \"always on\" Modus ist? Wenn du das willst, klicke auf \"jetzt zulassen\"</string>
+  <string name="intro_notifications_desc">Möchtest du Benachrichtigungen von anderen Apps erhalten, während der Bildschirm im \"always on\" Modus ist? Wenn du das willst, klicke auf \"jetzt zulassen\" Knopf</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Danke für deine Unterstützung! :)</string>
   <string name="notification_message">Always On ist aktiv</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">Plug-In wird benötigt</string>
   <string name="plugin_dialog_desc">Es scheint als ob dein Gerät Hardwarebuttons besitzt. Um diese abzuschalten wenn der Dienst ausgeführt wird, musst du das Plug-In installieren.</string>
   <!--Errors-->
+  <string name="error">Fehler</string>
   <string name="error_IAP">Fehler! Bitte vergewissere dich, dass Du mit dem Internet verbunden bist, und starte die App neu</string>
   <string name="error_0_unknown_error">Ein Fehler ist aufgetreten. Bitte melde es dem Entwickler</string>
+  <string name="error_0_unknown_error_report_prompt">Klicke hier um den Fehler zu melden</string>
   <string name="error_2_plugin_not_installed">PLUGIN IST NICHT INSTALLIERT</string>
   <string name="error_3_unknown_error_restart">Ein Fehler ist aufgetreten. Versuche, die App neuzustarten.</string>
+  <string name="error_4_tasker_service_not_initialized">Der Dienst wurde nicht korrekt initialisiert</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Dies kann die Leistung der App beeinträchtigen</string>
   <string name="warning_4_device_not_secured">Dein Gerät ist jetzt vielleicht nicht gesichert</string>
@@ -97,6 +101,14 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Hochformat</string>
   <string name="rules_orientation_horizontal">Querformat</string>
+  <!-- Other labels -->
+  <string name="md_back_label">Zurück</string>
+  <string name="md_cancel_label">Abbrechen</string>
+  <string name="md_choose_label">Wählen</string>
+  <string name="md_custom_label">Benutzerdefininert</string>
+  <string name="md_done_label">Erledigt</string>
+  <string name="md_error_label">Fehler</string>
+  <string name="md_presets_label">Voreinstellungen</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Verhalten</string>
   <string name="settings_about">Über</string>
@@ -111,20 +123,21 @@
   <string name="settings_double_tap_wake">Doppeltipp-Aktion</string>
   <string name="settings_back_button_wake">\"Zurück\"-Aktion</string>
   <string name="settings_volume_to_stop">Lautstärketasten-Aktion</string>
-  <string name="settings_swipe_wake">Nach oben wischen-Aktion</string>
+  <string name="settings_swipe_up">Wische nach oben - Aktion</string>
+  <string name="settings_swipe_down">Wische nach unten - Aktion</string>
   <string name="settings_brightness">Helligkeit</string>
   <string name="settings_doze">Doze-Modus</string>
   <string name="settings_google_now_shortcut">Erlaube Google Now</string>
   <string name="settings_memo_text">Memo-Text</string>
   <string name="settings_notifications">Benachrichtigungen</string>
-  <string name="settings_persistent_notification">Benachrichtigungen durchgängig anzeigen</string>
+  <string name="settings_persistent_notification">Durchgängige Benachrichtigung anzeigen</string>
   <string name="settings_move_auto">Widget automatisch verschieben</string>
   <string name="settings_font_size">Schriftgröße</string>
   <string name="settings_watchface">Darstellung anpassen</string>
   <string name="settings_proximity">Näherungssensor aktivieren (Taschenmodus)</string>
   <string name="settings_show_am_pm">Zeige AM/PM</string>
   <string name="settings_text_color">Textfarbe</string>
-  <string name="settings_startafterlock">Starten nach Sperrung</string>
+  <string name="settings_startafterlock">Starte nach Sperrung</string>
   <string name="settings_stop_delay">Stopp-Verzögerung</string>
   <string name="settings_auto_brightness">Auto-Nachtmodus</string>
   <string name="settings_orientation">Bildschirmausrichtung</string>
@@ -140,6 +153,8 @@
   <string name="settings_licenses">Lizenzen</string>
   <string name="settings_uninstall">Deinstallieren</string>
   <string name="settings_app_version">Version</string>
+  <string name="settings_enable_greenify">Aktiviere Greenify</string>
+  <string name="settings_battery_saver">Energiesparmodus</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Den Always On Screen stoppen wenn die Kamera gestartet wird (sollte immer aktiviert sein auf Nexus/Samsung-Geräten)</string>
   <string name="settings_auto_brightness_desc">Dimme den Bildschirm in dunkler Umgebung automatisch (Sensoren könnten mehr Energie verbrauchen)</string>
@@ -153,13 +168,14 @@
   <string name="settings_proximity_to_lock_desc">Das Gerät sperren, wenn du es in die Hosentasche legst um Batterie zu sparen (Sensoren können mehr Akku verbrauchen)</string>
   <string name="settings_licenses_desc">Open-Source Lizenzen</string>
   <string name="settings_community_desc">Google Plus Community</string>
+  <string name="settings_about_twitter_desc">Folge mir auf Twitter für Nachrichten, Updates und Verlosungen</string>
   <string name="settings_github_desc">Open-Source Github Link</string>
   <string name="settings_move_desc">Aktiviere dies um einen AMOLED Burn-In zu vermeiden</string>
-  <string name="settings_font_size_desc">Stelle die Schriftgröße der Texte ein</string>
-  <string name="settings_notifications_desc">Aktiviere dies um die App im Hintergrund am Laufen zu halten\nTipp: Du kannst die Benachrichtigung der App auf Android 6.0+ blocken ohne deren Funktionalität einzuschränken</string>
+  <string name="settings_font_size_desc">Stelle die Größe der Uhr ein</string>
+  <string name="settings_notifications_desc">Aktiviere dies, um die App im Hintergrund am Laufen zu halten Tipp: Du kannst die Benachrichtigung der App auf Android 6.0+ blockieren, ohne deren Funktionalität einzuschränken</string>
   <string name="settings_enabled_desc">Aktiviere den Dienst</string>
-  <string name="settings_disable_volume_keys_desc">Aktiviere dies um eine versehentliche Verstellung der Lautstärke zu vermeiden</string>
-  <string name="settings_notifications_alerts_desc">Zeige empfangene Benachrichtigungen von anderen Apps</string>
+  <string name="settings_disable_volume_keys_desc">Aktiviere dies, um eine versehentliche Verstellung der Lautstärke zu vermeiden</string>
+  <string name="settings_notifications_alerts_desc">Erlaube das Anzeigen von empfangenen Benachrichtigungen von anderen Apps</string>
   <string name="settings_brightness_desc">Bildschirmhelligkeit wenn ausgeschaltet</string>
   <string name="settings_about_translate">Hilf bei der Übersetzung der App</string>
   <string name="settings_version_desc">build</string>
@@ -191,6 +207,7 @@
   <string name="settings_watch_ticks">Analog, klassische 12 Stunden Uhr</string>
   <string name="settings_watch_digital_s7">Digital, S7-Stil</string>
   <string name="settings_watch_flat_analog">Analog, Flat Design</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Analog, Pebble Stil</string>
   <string name="settings_watch_flat_red_analog">Analog, Flat Design (rote Zeiger)</string>
   <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Displays)</string>
@@ -208,10 +225,5 @@
   <string name="settings_google_now_shortcut_desc">Stoppe den Always On Bildschirm wenn \"Ok Google\" gesagt wurde (Funktioniert vielleicht nicht mit dem \"Google Now Launcher\")</string>
   <string name="settings_exit_animation">Animation</string>
   <string name="settings_exit_animation_desc">Wähle die Ausgangs-Animation</string>
-  <string name="error_4_tasker_service_not_initialized">Der Dienst wurde nicht korrekt initialisiert</string>
-  <string name="error">Fehler</string>
-  <string name="error_0_unknown_error_report_prompt">Klicke hier um den Fehler zu melden</string>
-  <string name="never_show_again">Nicht erneut zeigen</string>
-  <string name="battery_saver">Energiesparmodus</string>
-  <string name="battery_saver_desc">Reduziert Akkuverbrauch und Wärmeerzeugung. Funktioniert mit Root besser.</string>
+  <string name="settings_battery_saver_desc">Reduziert den Akkuverbrauch und schützt vor Überhitzung. Funktioniert besser mit root.</string>
 </resources>

@@ -8,6 +8,7 @@
   <string name="menu_feedback">Masukan</string>
   <string name="menu_rate">Beri nilai aplikasi ini</string>
   <string name="action_restart">Restart aplikasi</string>
+  <string name="never_show_again">Jangan tampilkan lagi</string>
   <!--Support-->
   <string name="action_support_the_development">Dukung pengembangan</string>
   <string name="support_how_much">Berapa banyak Anda ingin menyumbang?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">Diperlukan plugin</string>
   <string name="plugin_dialog_desc">Sepertinya perangkat Anda memiliki tombol fisik, agar tombolnya mati ketika layanan sedang berjalan, install plugin tambahan.</string>
   <!--Errors-->
+  <string name="error">Kesalahan</string>
   <string name="error_IAP">Error! Cek kembali koneksi internet Anda dan restart aplikasi</string>
   <string name="error_0_unknown_error">Sebuah kesalahan telah terjadi. Laporkan kepada pengembang </string>
+  <string name="error_0_unknown_error_report_prompt">Tekan disini untuk melaporkan kesalahan</string>
   <string name="error_2_plugin_not_installed">PLUGIN TIDAK TERINSTALL</string>
   <string name="error_3_unknown_error_restart">Sebuah kesalahan telah terjadi. Restart aplikasi.</string>
+  <string name="error_4_tasker_service_not_initialized">Layanan tidak memulai dengan benar</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Ini dapat membahayakan kinerja aplikasi</string>
   <string name="warning_4_device_not_secured">Perangkat Anda mungkin tidak aman</string>
@@ -65,7 +69,9 @@
   <string name="warning_6_device_admin_disabled">Beberapa fitur dapat dimatikan sekarang</string>
   <string name="warning_7_disable_fingerprint">Ini mungkin akan menonaktifkan fungsi sensor sidik jari, apakah Anda yakin ingin mengaktifkan ini?</string>
   <string name="warning_8_intro_allow_all">Silahkan ijinkan semua perizinan</string>
+  <string name="warning_9_allow_notification">Please allow notification access for the app</string>
   <string name="warning_11_no_root">Perangkat harus di root untuk menggunakan fitur ini</string>
+  <string name="warning_12_please_report">Please let me know what would you like me to add/fix</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Kedua, saat pengisian baterai dan tidak dalam pengisian baterai </string>
   <string name="rules_while_charging">Saat mengisi daya</string>
@@ -80,6 +86,8 @@
   <string name="rules_battery_10">10% atau lebih tinggi </string>
   <!--Animations-->
   <string name="animation_disabled">Tanpa animasi </string>
+  <string name="animation_fade_out">Fade out</string>
+  <string name="animation_slide_out">Slide out</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Nonaktif</string>
   <string name="rules_minutes_1">1 Menit</string>
@@ -93,18 +101,29 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Portrait (Vertikal)</string>
   <string name="rules_orientation_horizontal">Landscape (Horizontal)</string>
+  <!-- Other labels -->
+  <string name="md_back_label">Back</string>
+  <string name="md_cancel_label">Cancel</string>
+  <string name="md_choose_label">Choose</string>
+  <string name="md_custom_label">Custom</string>
+  <string name="md_done_label">Done</string>
+  <string name="md_error_label">Error</string>
+  <string name="md_presets_label">Presets</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Perilaku</string>
   <string name="settings_about">Tentang</string>
   <string name="settings_appearance">Tampilan</string>
+  <string name="settings_general">General</string>
   <string name="settings_shortcuts">Jalan Pintas </string>
+  <string name="settings_wake_up">Gestures &amp; actions</string>
+  <string name="settings_rules">Automatic Rules</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aktifkan </string>
   <string name="settings_disable_volume_keys">Tidak Mengaktifkan Tombol Volume </string>
   <string name="settings_double_tap_wake">Aksi tekan dua kali </string>
   <string name="settings_back_button_wake">Aksi tombol kembali </string>
   <string name="settings_volume_to_stop">Also tombol volume </string>
-  <string name="settings_swipe_wake">Aksi geser ke atas </string>
+  <string name="settings_swipe_up">Swipe up action</string>
   <string name="settings_brightness">Kecerahan </string>
   <string name="settings_doze">Dosisnya mode </string>
   <string name="settings_google_now_shortcut">Memungkinkan Google Now </string>
@@ -144,9 +163,4 @@
   <string name="settings_memo_font_size_desc">Atur ukuran teks memo </string>
   <string name="settings_exit_animation">Animasi </string>
   <string name="settings_exit_animation_desc">Pilih animasi keluar </string>
-  <string name="error_4_tasker_service_not_initialized">Layanan tidak memulai dengan benar</string>
-  <string name="error">Kesalahan</string>
-  <string name="error_0_unknown_error_report_prompt">Tekan disini untuk melaporkan kesalahan</string>
-  <string name="never_show_again">Jangan tampilkan lagi</string>
-  <string name="battery_saver">Penghemat baterai </string>
 </resources>

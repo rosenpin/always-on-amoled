@@ -53,10 +53,13 @@
   <string name="plugin_dialog_title">תוסף נחוץ</string>
   <string name="plugin_dialog_desc">נראה שלמכשיר שלך יש כפתורי חומרה, כדי לקבל את אורם במהלך פעולת השירות, יש להתקין את התוסף.</string>
   <!--Errors-->
+  <string name="error">תקלה</string>
   <string name="error_IAP">שגיאה! אנא וודאו כי המכשיר מחובר לאינטרנט</string>
   <string name="error_0_unknown_error">התרחשה שגיאה</string>
+  <string name="error_0_unknown_error_report_prompt">לחץ כאן על מנת לדווח על השגיאה</string>
   <string name="error_2_plugin_not_installed">התוסף אינו מותקן</string>
   <string name="error_3_unknown_error_restart">אירעה שגיאה. נא הפעל מחדש את היישום.</string>
+  <string name="error_4_tasker_service_not_initialized">השירות לא אותחל כראוי</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">זה יכול לפגוע בביצועים של היישום</string>
   <string name="warning_4_device_not_secured">מכשירך עשוי להיות לא מאובטח כעת</string>
@@ -93,6 +96,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">אנכי (לאורך)</string>
   <string name="rules_orientation_horizontal">אופקי (לרוחב)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">התנהגות</string>
   <string name="settings_about">אודות</string>
@@ -107,7 +111,6 @@
   <string name="settings_double_tap_wake">הקשה כפולה לפתיחה</string>
   <string name="settings_back_button_wake">כפתור חזרה לפתיחה</string>
   <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
-  <string name="settings_swipe_wake">החלקה מעלה כדי לפתוח</string>
   <string name="settings_brightness">בהירות</string>
   <string name="settings_doze">חסכון בסוללה</string>
   <string name="settings_google_now_shortcut">אפשר Ok Google</string>
@@ -204,7 +207,4 @@
   <string name="settings_google_now_shortcut_desc">עצור את המסך הדולק תמיד כאשר Google Now מופעל על ידי אמירת Ok Google (יתכן שלא יעבוד עם Google Now Launcher)</string>
   <string name="settings_exit_animation">אנימציה</string>
   <string name="settings_exit_animation_desc">בחר את אנימציית היציאה</string>
-  <string name="error_4_tasker_service_not_initialized">השירות לא אותחל כראוי</string>
-  <string name="error">תקלה</string>
-  <string name="error_0_unknown_error_report_prompt">לחץ כאן על מנת לדווח על השגיאה</string>
 </resources>

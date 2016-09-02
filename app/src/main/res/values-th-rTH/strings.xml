@@ -4,6 +4,12 @@
   <!--App name & Activities title-->
   <!--Actions-->
   <!--Support-->
+  <string name="support_choose"></string>
+  <string name="support_1_desc"></string>
+  <string name="support_2_desc"></string>
+  <string name="support_5_desc"></string>
+  <string name="support_10_desc"></string>
+  <string name="support_20_desc"></string>
   <!--Intro-->
   <!--Feedback,Toasts & messages-->
   <!--Quick settings-->
@@ -18,7 +24,11 @@
   <!--Animations-->
   <!--Timeout delay rule-->
   <!--Orientation-->
+  <!-- Other labels -->
   <!--Settings headers-->
   <!--Settings titles-->
   <!--Settings descriptions-->
+  <string name="settings_font_size_memo_desc"></string>
+  <string name="settings_watchface_date_desc"></string>
+  <string name="error_5_camera_cant_connect_desc"></string>
 </resources>

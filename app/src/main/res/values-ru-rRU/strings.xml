@@ -8,6 +8,7 @@
   <string name="menu_feedback">Отзыв</string>
   <string name="menu_rate">Оценить приложение</string>
   <string name="action_restart">Перезапустить</string>
+  <string name="never_show_again">Не показывать снова</string>
   <!--Support-->
   <string name="action_support_the_development">Поддержать разработчика</string>
   <string name="support_how_much">Сколько денег вы желаете пожертвовать разработчику?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">Необходима установка плагина</string>
   <string name="plugin_dialog_desc">На вашем устройстве есть подсветка аппаратных кнопок. Для ее отключения во время работы сервиса необходима установка дополнительного плагина.</string>
   <!--Errors-->
+  <string name="error">Ошибка</string>
   <string name="error_IAP">Ошибка! Пожалуйста, убедитесь, что вы подключены к Интернету и перезапустите приложение</string>
   <string name="error_0_unknown_error">Произошла ошибка. Свяжитесь с разработчиком для её устранения.</string>
+  <string name="error_0_unknown_error_report_prompt">Нажмите сюда для отправки сообщения об ошибке</string>
   <string name="error_2_plugin_not_installed">ПЛАГИН НЕ УСТАНОВЛЕН</string>
   <string name="error_3_unknown_error_restart">Произошла ошибка. Перезапустите приложение.</string>
+  <string name="error_4_tasker_service_not_initialized">Сервис не может корректно инициализироваться</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Это может ухудшить производительность приложения</string>
   <string name="warning_4_device_not_secured">Сейчас ваше устройство не защищено!</string>
@@ -83,7 +87,7 @@
   <!--Animations-->
   <string name="animation_disabled">Без анимации</string>
   <string name="animation_fade_out">Затухание</string>
-  <string name="animation_slide_out">Снизу вверх</string>
+  <string name="animation_slide_out">Выезд</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Отключено</string>
   <string name="rules_minutes_1">1 Минута</string>
@@ -97,6 +101,14 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Портретная (Вертикальная)</string>
   <string name="rules_orientation_horizontal">Ландшафтная (Горизонтальная)</string>
+  <!-- Other labels -->
+  <string name="md_back_label">Назад</string>
+  <string name="md_cancel_label">Отмена</string>
+  <string name="md_choose_label">Выбор</string>
+  <string name="md_custom_label">Ещё</string>
+  <string name="md_done_label">ОК</string>
+  <string name="md_error_label">Ошибка</string>
+  <string name="md_presets_label">Ещё</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Поведение</string>
   <string name="settings_about">О проекте</string>
@@ -111,7 +123,8 @@
   <string name="settings_double_tap_wake">Двойное нажатие</string>
   <string name="settings_back_button_wake">Действия кнопки \"назад\"</string>
   <string name="settings_volume_to_stop">Действия кнопок громкости</string>
-  <string name="settings_swipe_wake">Действие при свайпе вверх</string>
+  <string name="settings_swipe_up">Действие при свайпе вверх</string>
+  <string name="settings_swipe_down">Действие при свайпе вниз</string>
   <string name="settings_brightness">Яркость</string>
   <string name="settings_doze">Режим Doze</string>
   <string name="settings_google_now_shortcut">Разрешить Google Now</string>
@@ -140,6 +153,8 @@
   <string name="settings_licenses">Лицензия</string>
   <string name="settings_uninstall">Удалить</string>
   <string name="settings_app_version">Версия</string>
+  <string name="settings_enable_greenify">Включить Greenify</string>
+  <string name="settings_battery_saver">Режим энергосбережения</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Отключить экран Always ON при запуске камеры</string>
   <string name="settings_auto_brightness_desc">Автоматически затемнять экран в темноте (Датчики могут быстро разряжать батарею)</string>
@@ -153,6 +168,7 @@
   <string name="settings_proximity_to_lock_desc">Блокирует экран, если устройство в кармане (Датчик может потреблять много энергии)</string>
   <string name="settings_licenses_desc">Лицензии с открытым исходным кодом</string>
   <string name="settings_community_desc">Google+ сообщество</string>
+  <string name="settings_about_twitter_desc">Подпишись, чтобы своевременно получать последние новости и обновления</string>
   <string name="settings_github_desc">Ссылка на исходный код GitHub</string>
   <string name="settings_move_desc">Включите это, чтобы избежать выгорания AMOLED дисплея</string>
   <string name="settings_font_size_desc">Установить размер шрифта часов</string>
@@ -161,7 +177,7 @@
   <string name="settings_disable_volume_keys_desc">Включите это, чтобы исключить случайное изменение громкости</string>
   <string name="settings_notifications_alerts_desc">Показывать уведомления, полученные от других приложений</string>
   <string name="settings_brightness_desc">Яркость экрана при блокировке</string>
-  <string name="settings_about_translate">Помощь в переводе приложения</string>
+  <string name="settings_about_translate">Приложение перевёл vl_w [4pda]</string>
   <string name="settings_version_desc">сборка</string>
   <string name="settings_watchface_clock">Стиль часов</string>
   <string name="settings_watchface_date">Стиль даты</string>
@@ -191,6 +207,7 @@
   <string name="settings_watch_ticks">Стрелочные 12ч с метками часов</string>
   <string name="settings_watch_digital_s7">Цифровые в стиле S7</string>
   <string name="settings_watch_flat_analog">Плоские стрелочные</string>
+  <string name="settings_about_twitter">Твиттер</string>
   <string name="settings_watch_analog_pebble">Стрелочные в стиле Pebble</string>
   <string name="settings_watch_flat_red_analog">Плоские стрелочные (красные)</string>
   <string name="move_disable">Отключено (Не рекомендуется для AMOLED дисплеев)</string>
@@ -208,10 +225,5 @@
   <string name="settings_google_now_shortcut_desc">Отключить экран Always ON при запуске Google Now с помощью Окей Гугл (Может работать некорректно с Google Now Лаунчером)</string>
   <string name="settings_exit_animation">Анимация</string>
   <string name="settings_exit_animation_desc">Выберите анимацию выхода</string>
-  <string name="error_4_tasker_service_not_initialized">Сервис не может корректно инициализироваться</string>
-  <string name="error">Ошибка</string>
-  <string name="error_0_unknown_error_report_prompt">Нажмите сюда для отправки сообщения об ошибке</string>
-  <string name="never_show_again">Не показывать повторно</string>
-  <string name="battery_saver">Режим энергосбережения</string>
-  <string name="battery_saver_desc">Уменьшите потребление батареи и нагрев устройства. Работает лучше с правами супер пользователя.</string>
+  <string name="settings_battery_saver_desc">Защита батареи от перегрева. Работает лучше с ROOT.</string>
 </resources>

@@ -93,6 +93,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Porträtt (Vertikal)</string>
   <string name="rules_orientation_horizontal">Landskap (Horisontell)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Beteende</string>
   <string name="settings_about">Om</string>
@@ -107,7 +108,6 @@
   <string name="settings_double_tap_wake">Dubbeltryck i mitten på skärmen för att:</string>
   <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
   <string name="settings_volume_to_stop">Volymknapparna för att:</string>
-  <string name="settings_swipe_wake">Dra uppåt för att:</string>
   <string name="settings_brightness">Ljusstyrka</string>
   <string name="settings_doze">Doze-läge</string>
   <string name="settings_google_now_shortcut">Tillåta Google Nu</string>

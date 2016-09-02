@@ -53,10 +53,13 @@
   <string name="plugin_dialog_title">Plug-in é necessário</string>
   <string name="plugin_dialog_desc">Parece que o teu dispositivo tem botões de hardware, para os desligar quando o serviço está em execução, por favor instala este plugin.</string>
   <!--Errors-->
+  <string name="error">Erro</string>
   <string name="error_IAP">Erro! Por favor, assegura-te que estás conectado à internet e reinicia a aplicação</string>
   <string name="error_0_unknown_error">Ocorreu um erro. Por favor, reporta-o ao programador </string>
+  <string name="error_0_unknown_error_report_prompt">Clica aqui para reportar o erro</string>
   <string name="error_2_plugin_not_installed">PLUG-IN NÃO ESTÁ INSTALADO</string>
   <string name="error_3_unknown_error_restart">Ocorreu um erro. Por favor, reinicia a aplicação.</string>
+  <string name="error_4_tasker_service_not_initialized">O serviço não foi corretamente iniciado</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Isto pode prejudicar a performance da aplicação</string>
   <string name="warning_4_device_not_secured">O teu dispositivo pode não estar seguro</string>
@@ -93,6 +96,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Retrato (Vertical)</string>
   <string name="rules_orientation_horizontal">Paisagem (Horizontal)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamento</string>
   <string name="settings_about">Sobre</string>
@@ -107,7 +111,6 @@
   <string name="settings_double_tap_wake">Ação de duplo toque</string>
   <string name="settings_back_button_wake">Ação do botão voltar</string>
   <string name="settings_volume_to_stop">Ação das teclas de volume</string>
-  <string name="settings_swipe_wake">Ação de deslizar para cima</string>
   <string name="settings_brightness">Brilho</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>
@@ -204,7 +207,4 @@
   <string name="settings_google_now_shortcut_desc">Pára o ecrã \"Always On\" quando o Google NOW é lançado ao dizer OK Google (pode não funcionar com o Launcher Google Now)</string>
   <string name="settings_exit_animation">Animação</string>
   <string name="settings_exit_animation_desc">Escolhe a animação de saída</string>
-  <string name="error_4_tasker_service_not_initialized">O serviço não foi corretamente iniciado</string>
-  <string name="error">Erro</string>
-  <string name="error_0_unknown_error_report_prompt">Clica aqui para reportar o erro</string>
 </resources>

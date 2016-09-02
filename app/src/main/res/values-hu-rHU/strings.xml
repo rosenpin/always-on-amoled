@@ -3,22 +3,113 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
+  <string name="unlock">Képernyő bekapcsolása</string>
+  <string name="menu_feedback">Visszajelzés</string>
+  <string name="menu_rate">Értékelje az appot</string>
+  <string name="action_restart">Újraindítás most</string>
+  <string name="never_show_again">Soha ne jelenjen meg többé</string>
   <!--Support-->
+  <string name="action_support_the_development">Támogassa a fejlesztést</string>
+  <string name="support_how_much">Mennyit szeretne adományozni?</string>
+  <string name="support_1">1$: Egy felfrissítő coke ára</string>
+  <string name="support_2">2$: Egy ízletes csokoládé szelet ára</string>
+  <string name="support_5">5$: Egy hideg jeges kávé ára</string>
+  <string name="support_20">20$: Egy finom pizza ára</string>
+  <string name="support_25">25$: Egy vacsora ára</string>
   <!--Intro-->
+  <string name="intro_allow_now">Engedélyezés most</string>
+  <string name="intro_modify_desc">Az alkalmazásnak szüksége van engedélyre, hogy változtassa az eszköz fényerősségét</string>
+  <string name="intro_modify">Rendszerbeállítások módosítása</string>
+  <string name="intro_checkbox_swipe_up">Húzza fel a képernyő közepéről, hogy feloldja</string>
+  <string name="intro_checkbox_double_tap">Kattintson duplán a képernyő közepére, hogy feloldja</string>
+  <string name="intro_notifications_desc">Szeretné, hogy értesítéseket kapjon más alkalmazásoktól, miközben a képernyő \"állandóan bekapcsolt\" állapotban van? Ha igen, kattintson az \"engedélyezés most\" gombra</string>
   <!--Feedback,Toasts & messages-->
+  <string name="thanks">Köszönjük támogatását! :)</string>
+  <string name="notification_message">Az Always On fut</string>
+  <string name="thanks_short">Köszönjük</string>
   <!--Quick settings-->
+  <string name="quick_settings_title">Mindig be</string>
+  <string name="quick_settings_service_active">engedélyezve</string>
+  <string name="quick_settings_service_inactive">letiltva</string>
   <!-- Content description-->
+  <string name="notification_icon">Értesítés ikon</string>
   <!--Widget-->
+  <string name="widget_off">Ki</string>
+  <string name="widget_on">Be</string>
   <!--Device admin-->
   <!--Plugin-->
+  <string name="plugin_dialog_title">Plugin szükséges</string>
   <!--Errors-->
+  <string name="error">Hiba</string>
+  <string name="error_IAP">Hiba! Kérjük győződjön meg arról, hogy kapcsolódva van az internethez, és indítsa újra az alkalmazást</string>
+  <string name="error_0_unknown_error">Hiba történt. Kérjük, jelentse a fejlesztőnek </string>
+  <string name="error_0_unknown_error_report_prompt">Kattintson ide, hogy bejelentse a hibát</string>
+  <string name="error_2_plugin_not_installed">PLUGIN NINCS TELEPÍTVE</string>
+  <string name="error_3_unknown_error_restart">Hiba történt. Kérjük indítsa újra az alkalmazást.</string>
   <!--Warnings-->
+  <string name="warning_8_intro_allow_all">Kérjük engedélyezze az összes engedélyt</string>
+  <string name="warning_9_allow_notification">Kérjük engedélyezze az értesítésekhez való hozzáférést az alkalmazás számára</string>
   <!--Charging rules-->
+  <string name="rules_while_charging">Töltés közben</string>
   <!--Battery rules-->
+  <string name="rules_always">Mindig</string>
+  <string name="rules_battery_90">90% vagy magasabb</string>
+  <string name="rules_battery_70">70% vagy magasabb</string>
+  <string name="rules_battery_50">50% vagy magasabb</string>
+  <string name="rules_battery_30">30% vagy magasabb</string>
+  <string name="rules_battery_20">20% vagy magasabb</string>
+  <string name="rules_battery_10">10% vagy magasabb</string>
   <!--Animations-->
+  <string name="animation_disabled">Nincs animáció</string>
+  <string name="animation_fade_out">Elhalványítás</string>
   <!--Timeout delay rule-->
+  <string name="rules_disabled">Letiltva</string>
+  <string name="rules_minutes_1">1 perc</string>
+  <string name="rules_minutes_2">2 perc</string>
+  <string name="rules_minutes_5">5 perc</string>
+  <string name="rules_minutes_10">10 perc</string>
+  <string name="rules_minutes_15">15 perc</string>
+  <string name="rules_minutes_30">30 perc</string>
+  <string name="rules_hour">1 óra</string>
+  <string name="rules_hours_2">2 óra</string>
   <!--Orientation-->
+  <!-- Other labels -->
+  <string name="md_cancel_label">Mégse</string>
+  <string name="md_choose_label">Választ</string>
+  <string name="md_done_label">Kész</string>
+  <string name="md_error_label">Hiba</string>
   <!--Settings headers-->
+  <string name="settings_about">Rólunk</string>
+  <string name="settings_appearance">Megjelenés</string>
+  <string name="settings_general">Általános</string>
   <!--Settings titles-->
+  <string name="settings_brightness">Fényerő</string>
+  <string name="settings_notifications">Értesítések</string>
+  <string name="settings_font_size">Szövegméret</string>
+  <string name="settings_text_color">Szöveg színe</string>
+  <string name="settings_orientation">Képernyő tájolása</string>
+  <string name="settings_font">Betűtípus</string>
+  <string name="settings_translate">Fordítás</string>
+  <string name="settings_github">GitHub</string>
+  <string name="settings_community">Közösség</string>
+  <string name="greenify_integration">Greenify integráció</string>
+  <string name="settings_licenses">Licencek</string>
+  <string name="settings_uninstall">Eltávolítás</string>
+  <string name="settings_app_version">Verzió</string>
+  <string name="settings_enable_greenify">Greenify engedélyezése</string>
+  <string name="settings_battery_saver">Energiatakarékos üzemmód</string>
   <!--Settings descriptions-->
+  <string name="settings_licenses_desc">Nyílt forráskódú licencek</string>
+  <string name="settings_watch_digital">Digitális</string>
+  <string name="settings_watch_analog">Analóg</string>
+  <string name="settings_rules_text">Szöveg</string>
+  <string name="settings_font_default">Alapértelmezett</string>
+  <string name="settings_font_default_bold">Alapértelmezett bold</string>
+  <string name="settings_font_default_italic">Alapértelmezett italic</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_watchface_text_font"><![CDATA[Szöveg & Betűtípus]]></string>
+  <string name="settings_uninstall_desc">Alkalmazás eltávolítása</string>
+  <string name="settings_about_twitter">Twitter</string>
 </resources>

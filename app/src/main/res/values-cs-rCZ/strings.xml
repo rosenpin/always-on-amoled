@@ -8,10 +8,12 @@
   <string name="menu_feedback">Zpětná vazba</string>
   <string name="menu_rate">Appearance</string>
   <string name="action_restart">Restartovat teď</string>
+  <string name="never_show_again">Již nezobrazovat</string>
   <!--Support-->
   <string name="action_support_the_development">Podpoř vývoj</string>
   <string name="support_how_much">Kolik byste chtěli darovat?</string>
   <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
+  <string name="gestures_action_flashlight">Zapnout blesk</string>
   <string name="supporter_feature_only">Tato funkce je dostupná pouze pro předplatitele, můžete zvolit kolik chcete darovat a stát se předplatitelem, kolik si přejete darovat?</string>
   <string name="support_1">1$: Cena osvěžující Coca-Coly</string>
   <string name="support_2">2$: Cena jedné tabulky čokolády</string>
@@ -53,10 +55,13 @@
   <string name="plugin_dialog_title">Je vyžadován plugin</string>
   <string name="plugin_dialog_desc">Vypadá to, že zařízení má hardwarová tlačítka, aby jste je mohli vypnout, když je služba spuštěna, prosím, nainstalujte plugin.</string>
   <!--Errors-->
+  <string name="error">Chyba</string>
   <string name="error_IAP">Došlo k chybě! Prosím ujistěte se, že jste připojeni k Internetu a restartujte aplikaci</string>
   <string name="error_0_unknown_error">Došlo k chybě. Prosím nahlaste ji vývojáři </string>
+  <string name="error_0_unknown_error_report_prompt">Nahlašte problém zde</string>
   <string name="error_2_plugin_not_installed">NENÍ NAINSTALOVÁN PLUGIN</string>
   <string name="error_3_unknown_error_restart">Objevila se chyba. Prosím, restartuj aplikaci.</string>
+  <string name="error_4_tasker_service_not_initialized">Služba nebyla zahájena správně</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Toto může poškodit výkon aplikace</string>
   <string name="warning_4_device_not_secured">Vaše zařízení teď nemusí být zabezpečeno</string>
@@ -80,6 +85,9 @@
   <string name="rules_battery_20">20 % nebo vyšší</string>
   <string name="rules_battery_10">10 % nebo vyšší</string>
   <!--Animations-->
+  <string name="animation_disabled">Žádná animace</string>
+  <string name="animation_fade_out">Postupné zeslabení</string>
+  <string name="animation_slide_out">Vysunout</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Vypnutý</string>
   <string name="rules_minutes_1">1 minuta</string>
@@ -93,6 +101,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Vertikální</string>
   <string name="rules_orientation_horizontal">Na šířku (vodorovně)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Chování</string>
   <string name="settings_about">O aplikaci…</string>
@@ -107,7 +116,6 @@
   <string name="settings_double_tap_wake">Akce dvojím poklepáním</string>
   <string name="settings_back_button_wake">Akce tlačítka zpět</string>
   <string name="settings_volume_to_stop">Akce tlačítek hlasitosti</string>
-  <string name="settings_swipe_wake">Akce potahnutím nahoru</string>
   <string name="settings_brightness">Jas</string>
   <string name="settings_doze">Úsporný režim</string>
   <string name="settings_google_now_shortcut">Povolit Google Now</string>
@@ -124,6 +132,7 @@
   <string name="settings_stop_delay">Zastavit zpoždění</string>
   <string name="settings_auto_brightness">Automatický noční režim</string>
   <string name="settings_orientation">Orientace obrazovky</string>
+  <string name="settings_always_on_memo">Poznámky vždy viditelné</string>
   <string name="settings_stop_on_camera">Zapnout zkratky fotoaparátu</string>
   <string name="settings_rules_cahrging">Pravidla pro nabíjení</string>
   <string name="settings_rules_battery">Pravidla pro baterii</string>
@@ -168,6 +177,7 @@
   <string name="settings_watch_analog">Analogové</string>
   <string name="settings_rules_text">Text</string>
   <string name="settings_customize_hidden">Skryté</string>
+  <string name="settings_shown">Zobrazeno</string>
   <string name="settings_date_full_calendar">Celý kalendář</string>
   <string name="settings_font_default">Výchozí</string>
   <string name="settings_font_default_bold">Výchozí tučné</string>
@@ -175,6 +185,7 @@
   <string name="settings_font_serif">Patkové</string>
   <string name="settings_font_sans_serif">Bezpatková</string>
   <string name="settings_font_monospace">Neproporcionální</string>
+  <string name="settings_gestures"><![CDATA[Gesta & zkratky]]></string>
   <string name="settings_gestures_desc">Dvojím poklepání probudit, potáhnout nahoru pro probuzení a více</string>
   <string name="settings_watchface_text_font"><![CDATA[Styl písma]]></string>
   <string name="settings_uninstall_desc">Odinstalujte aplikaci</string>
@@ -190,10 +201,15 @@
   <string name="move_move">Automaticky přesunout widget</string>
   <string name="move_move_animation">Přesunout widget automaticky s animací</string>
   <string name="greenify_integration_desc">Povolte Greenify k výraznému zlepšení životnosti baterie. Ujistěte se, aby Greenify bylo povoleno v nastavení usnadnění přístupu</string>
+  <string name="greenify_integration_desc_found">Ujistěte se, zda máte povoleno Greenify v nastavení usnadnění a vyberte aplikace, které chcete hibernovat pokud je zařízení uzamčeno. Klikněte zde pro konfiguraci Greenify</string>
   <string name="greenify_integration_desc_not_found">Nainstaluj Greenify, abys prodloužil výdrž baterie</string>
   <string name="settings_notifications_alerts_preview_desc">Zobrazit obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
   <string name="settings_doze_desc">Povol Doze když je Vždy Zapnuto aktivní, abys ušetřil baterii (pouze pro root)</string>
   <string name="settings_memo_text_desc">Napiš sem svojí poznámku</string>
   <string name="settings_memo_font_size_desc">Nastav velikost poznámky</string>
+  <string name="settings_memo_hint">Napište svou poznámku zde. Zobrazí se na vaší always-on obrazovce.</string>
+  <string name="settings_google_now_shortcut_desc">Vypnout always-on obrazovku při zapnutí Google Now hlasem řeknutím OK Google (Nemusí fungovat s Google Now Launcher)</string>
+  <string name="settings_exit_animation">Animace</string>
+  <string name="settings_exit_animation_desc">Výběr animace ukončení</string>
 </resources>

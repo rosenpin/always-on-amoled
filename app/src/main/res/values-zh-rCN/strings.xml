@@ -4,10 +4,11 @@
   <!--App name & Activities title-->
   <!--Actions-->
   <string name="unlock">点亮屏幕</string>
-  <string name="action_revert">充值</string>
+  <string name="action_revert">还原</string>
   <string name="menu_feedback">反馈</string>
   <string name="menu_rate">为这款应用评分。</string>
   <string name="action_restart">立即重启应用</string>
+  <string name="never_show_again">不再显示</string>
   <!--Support-->
   <string name="action_support_the_development">捐赠开发者</string>
   <string name="support_how_much">您想捐助多少数额？</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">需要安装插件</string>
   <string name="plugin_dialog_desc">您的设备似乎设置有硬件保护，请安装插件以确保服务正常运行。</string>
   <!--Errors-->
+  <string name="error">错误</string>
   <string name="error_IAP">出现错误！请确保你的设备已连接到Internet，并重启应用程序</string>
   <string name="error_0_unknown_error">发生错误，请向开发者反馈</string>
+  <string name="error_0_unknown_error_report_prompt">点击此处反馈错误</string>
   <string name="error_2_plugin_not_installed">插件未能安装</string>
   <string name="error_3_unknown_error_restart">发生错误，请重启应用</string>
+  <string name="error_4_tasker_service_not_initialized">该服务未正确初始化</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">这可能影响应用性能</string>
   <string name="warning_4_device_not_secured">您的设备现在可能处于不安全状态</string>
@@ -97,6 +101,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">纵向 (垂直)</string>
   <string name="rules_orientation_horizontal">横向 (水平)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">行为</string>
   <string name="settings_about">关于</string>
@@ -111,7 +116,7 @@
   <string name="settings_double_tap_wake">双击操作</string>
   <string name="settings_back_button_wake">后退按钮动作</string>
   <string name="settings_volume_to_stop">音量键操作</string>
-  <string name="settings_swipe_wake">向上滑动功能</string>
+  <string name="settings_swipe_down">向下滑动功能</string>
   <string name="settings_brightness">亮度</string>
   <string name="settings_doze">Doze模式</string>
   <string name="settings_google_now_shortcut">允许使用谷歌即时</string>
@@ -208,10 +213,4 @@
   <string name="settings_google_now_shortcut_desc">在通过“OK Google“启动Google即时后，暂停Always On服务。(可能对Google Now桌面无效)</string>
   <string name="settings_exit_animation">动画</string>
   <string name="settings_exit_animation_desc">选择退出动画</string>
-  <string name="error_4_tasker_service_not_initialized">该服务未正确初始化</string>
-  <string name="error">错误</string>
-  <string name="error_0_unknown_error_report_prompt">点击此处反馈错误</string>
-  <string name="never_show_again">不再显示</string>
-  <string name="battery_saver">节电模式</string>
-  <string name="battery_saver_desc">减少电池消耗，防止电池过热。root模式下效果更显著</string>
 </resources>

@@ -10,10 +10,16 @@
   <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
   <string name="gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
   <string name="supporter_feature_only">Ця функція доступна тільки для прихильників, ви можете вибрати, скільки ви хочете пожертвувати, щоб стати прихильником, скільки б ви хотіли пожертвувати?</string>
+  <string name="support_choose"></string>
   <string name="support_1">1$ на кокс</string>
   <string name="support_2">2$ на смачну плитку шоколаду</string>
   <string name="support_5">5$ на смачну холодну каву</string>
   <string name="support_10">10$ на смачну піцу</string>
+  <string name="support_1_desc"></string>
+  <string name="support_2_desc"></string>
+  <string name="support_5_desc"></string>
+  <string name="support_10_desc"></string>
+  <string name="support_20_desc"></string>
   <!--Intro-->
   <string name="intro_allow_now">Дозволити зараз</string>
   <string name="intro_draw_over">Відображатися над іншими додатками</string>
@@ -74,6 +80,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Вертикальна (портрет)</string>
   <string name="rules_orientation_horizontal">Горизонтальна (альбомна)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Поведінка</string>
   <string name="settings_about">Про додаток</string>
@@ -87,7 +94,6 @@
   <string name="settings_double_tap_wake">Подвійне натискання</string>
   <string name="settings_back_button_wake">Клавіша \"Назад\"</string>
   <string name="settings_volume_to_stop">Клавіша регулювання гучності</string>
-  <string name="settings_swipe_wake">Свайп угору</string>
   <string name="settings_brightness">Яскравість</string>
   <string name="settings_notifications">Сповіщення</string>
   <string name="settings_persistent_notification">Показати постійне повідомлення</string>
@@ -127,6 +133,7 @@
   <string name="settings_github_desc">Відкрите джерело Github</string>
   <string name="settings_move_desc">Включіть для автоматичного руху віджету на екрані (щоб уникнути вигоряння)</string>
   <string name="settings_font_size_desc">Встановіть розмір шрифту годинника</string>
+  <string name="settings_font_size_memo_desc"></string>
   <string name="settings_notifications_desc">Увімкніть цю опцію, щоб тримати додаток у робочому фоновому режимі \nПорада: Ви можете блокувати повідомлення цього додатка на Android 6.0+, не впливаючи на його функціональність</string>
   <string name="settings_enabled_desc">Вкл./Викл. додаток</string>
   <string name="settings_disable_volume_keys_desc">Активуйте це, щоб запобігти випадковій зміні гучності</string>
@@ -152,4 +159,6 @@
   <string name="settings_gestures_desc">Подвійне натискання, свайп і багато іншого</string>
   <string name="settings_watchface_text_font"><![CDATA[Текст & шрифт]]></string>
   <string name="settings_uninstall_desc">Видалити додаток</string>
+  <string name="settings_watchface_date_desc"></string>
+  <string name="error_5_camera_cant_connect_desc"></string>
 </resources>

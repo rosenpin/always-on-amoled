@@ -82,6 +82,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Vertical (Portret)</string>
   <string name="rules_orientation_horizontal">Orizontal (Peisaj)</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">Comportament</string>
   <string name="settings_about">Despre</string>
@@ -95,7 +96,6 @@
   <string name="settings_double_tap_wake">Apasă de două ori</string>
   <string name="settings_back_button_wake">Apasă butonul „Înapoi” </string>
   <string name="settings_volume_to_stop">Apasă tastele de volum</string>
-  <string name="settings_swipe_wake">Glisează în sus</string>
   <string name="settings_brightness">Luminozitate</string>
   <string name="settings_notifications">Notificări</string>
   <string name="settings_persistent_notification">Arată o notificare permanentă pe durata funcționarii serviciului</string>

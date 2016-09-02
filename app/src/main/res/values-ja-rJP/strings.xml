@@ -81,6 +81,7 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">縦向き</string>
   <string name="rules_orientation_horizontal">横向き</string>
+  <!-- Other labels -->
   <!--Settings headers-->
   <string name="settings_behaviour">動作</string>
   <string name="settings_about">情報</string>
@@ -94,7 +95,6 @@
   <string name="settings_double_tap_wake">ダブルタップで閉じる</string>
   <string name="settings_back_button_wake">バックキーで閉じる</string>
   <string name="settings_volume_to_stop">ボリュームキーで閉じる</string>
-  <string name="settings_swipe_wake">スワイプアップで閉じる</string>
   <string name="settings_brightness">明るさ</string>
   <string name="settings_notifications">通知</string>
   <string name="settings_persistent_notification">常に通知を表示</string>

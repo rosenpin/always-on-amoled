@@ -8,6 +8,7 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Valuta l\'app</string>
   <string name="action_restart">Riavvia ora</string>
+  <string name="never_show_again">Non mostrare più</string>
   <!--Support-->
   <string name="action_support_the_development">Sostieni lo Sviluppatore</string>
   <string name="support_how_much">Quanto vorresti donare?</string>
@@ -54,10 +55,13 @@
   <string name="plugin_dialog_title">È necessario un plugin</string>
   <string name="plugin_dialog_desc">Sembra che il dispositivo dispone di pulsanti hardware, per spegnerli quando il servizio è in esecuzione, si prega di installare il plugin.</string>
   <!--Errors-->
+  <string name="error">Errore</string>
   <string name="error_IAP">Errore! Si prega di assicurarti di essere connesso ad internet e riavvia l\'applicazione</string>
   <string name="error_0_unknown_error">Si è verificato un errore</string>
+  <string name="error_0_unknown_error_report_prompt">Clicca qui per segnalare l\'errore</string>
   <string name="error_2_plugin_not_installed">IL PLUGIN NON E\' INSTALLATO</string>
   <string name="error_3_unknown_error_restart">Si è verificato un errore. Si prega di riavviare l\'app.</string>
+  <string name="error_4_tasker_service_not_initialized">Il servizio non è stato inizializzato correttamente</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Questo può danneggiare le prestazioni dell\'applicazione</string>
   <string name="warning_4_device_not_secured">Il tuo dispositivo può non essere fissato ora</string>
@@ -97,6 +101,13 @@
   <!--Orientation-->
   <string name="rules_orientation_vertical">Verticale (Portrait)</string>
   <string name="rules_orientation_horizontal">Orizzontale (Landscape)</string>
+  <!-- Other labels -->
+  <string name="md_back_label">Indietro</string>
+  <string name="md_cancel_label">Annulla</string>
+  <string name="md_choose_label">Seleziona</string>
+  <string name="md_custom_label">Personalizza</string>
+  <string name="md_done_label">Fatto</string>
+  <string name="md_error_label">Errore</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamento</string>
   <string name="settings_about">Riguardo</string>
@@ -111,7 +122,6 @@
   <string name="settings_double_tap_wake">Doppio tap per disattivare</string>
   <string name="settings_back_button_wake">Tasto indietro per disattivare</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
-  <string name="settings_swipe_wake">Swipe verso l\'alto per disattivare</string>
   <string name="settings_brightness">Luminosità</string>
   <string name="settings_doze">Modalità Doze</string>
   <string name="settings_google_now_shortcut">Consenti Google Now</string>
@@ -140,6 +150,8 @@
   <string name="settings_licenses">Licenze</string>
   <string name="settings_uninstall">Disinstalla</string>
   <string name="settings_app_version">Versione</string>
+  <string name="settings_enable_greenify">Abilita Greenify</string>
+  <string name="settings_battery_saver">Modalità risparmio batteria</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Ferma \"Always on display\" quando la fotocamera è avviata (dovrebbe rimanere attivo su dispositivi Nexus o Samsung)</string>
   <string name="settings_auto_brightness_desc">Scurisci lo schermo automaticamente quando è buio (i sensori possono consumare più batteria)</string>
@@ -153,6 +165,7 @@
   <string name="settings_proximity_to_lock_desc">Blocca il dispositivo quando metti il telefono in tasca per risparmiare batteria (il sensore potrebbe usare molta batteria)</string>
   <string name="settings_licenses_desc">Licenze open source</string>
   <string name="settings_community_desc">Comunità di Google Plus</string>
+  <string name="settings_about_twitter_desc">Seguimi su Twitter per notizie, aggiornamenti e omaggi</string>
   <string name="settings_github_desc">Link open source di Github</string>
   <string name="settings_move_desc">Attiva questa opzione per evitare il burn in dello schermo AMOLED</string>
   <string name="settings_font_size_desc">Imposta la dimensione del carattere dell\'orologio</string>
@@ -191,6 +204,7 @@
   <string name="settings_watch_ticks">Classico 12H con tacche dell\'ora</string>
   <string name="settings_watch_digital_s7">Orologio digitale stile S7</string>
   <string name="settings_watch_flat_analog">Stile piatto analogico</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Orologio analogico stile Pebble</string>
   <string name="settings_watch_flat_red_analog">Analogico piatto (lancette rosse)</string>
   <string name="move_disable">Disabilitato (non raccomandato per schermi AMOLED)</string>
@@ -208,10 +222,5 @@
   <string name="settings_google_now_shortcut_desc">Interrompi l\'always on screen quando Google Now viene attivato dicendo OK Google (Potrebbe non funzionare con il Google Now Launcher)</string>
   <string name="settings_exit_animation">Animazione</string>
   <string name="settings_exit_animation_desc">Scegli l\'animazione di uscita</string>
-  <string name="error_4_tasker_service_not_initialized">Il servizio non è stato inizializzato correttamente</string>
-  <string name="error">Errore</string>
-  <string name="error_0_unknown_error_report_prompt">Clicca qui per segnalare l\'errore</string>
-  <string name="never_show_again">Non mostrare più</string>
-  <string name="battery_saver">Risparmio Batteria</string>
-  <string name="battery_saver_desc">Riduce il consumo batteria e il surriscaldamento. Funziona meglio con il root</string>
+  <string name="settings_battery_saver_desc">Riduce il consumo e il surriscaldamento batteria. Funziona meglio con il root.</string>
 </resources>
