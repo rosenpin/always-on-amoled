@@ -78,6 +78,9 @@
             android:parentActivityName=".activities.PreferencesActivity"
             android:theme="@style/AppTheme" />
         <activity
+            android:name=".activities.DummySamsungActivity"
+            android:showOnLockScreen="true" />
+        <activity
             android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme">
             <intent-filter>

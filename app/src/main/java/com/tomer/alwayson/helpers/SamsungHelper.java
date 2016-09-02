@@ -1,14 +1,17 @@
 package com.tomer.alwayson.helpers;
 
+import android.app.Application;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Toast;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.activities.DummySamsungActivity;
 
 import java.io.IOException;
 
@@ -86,13 +89,30 @@ public class SamsungHelper implements ContextConstatns {
         }
     }
 
-    public void setOnHomeButtonClickListener(final Runnable action) {
-        homeWatcher = new HomeWatcher(context);
-        homeWatcher.setOnHomePressedListener(() -> action.run());
-        homeWatcher.startWatch();
+    public void setOnHomeButtonClickListener(Runnable runnable) {
+        if (Utils.isSamsung()) {
+            Intent intent = new Intent(context, DummySamsungActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+
+            homeWatcher = new HomeWatcher(context);
+            homeWatcher.setOnHomePressedListener(() -> {
+                runnable.run();
+                Utils.logDebug(HomeWatcher.TAG, "Home button pressed");
+            });
+            homeWatcher.startWatch();
+        }
     }
 
-    public void stopHomeWatcher() {
-        homeWatcher.stopWatch();
+    public void destroyHomeButtonListener(Application application) {
+        if (Utils.isSamsung()) {
+            homeWatcher.stopWatch();
+            Intent myIntent = new Intent(context, DummySamsungActivity.class);
+            myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Bundle myKillerBundle = new Bundle();
+            myKillerBundle.putInt("kill", 1);
+            myIntent.putExtras(myKillerBundle);
+            application.startActivity(myIntent);
+        }
     }
 }

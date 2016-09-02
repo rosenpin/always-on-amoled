@@ -114,7 +114,7 @@ public class MainService extends Service implements SensorEventListener, Context
             windowParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, 65794, -2);
             if (origIntent != null) {
                 demo = origIntent.getBooleanExtra("demo", false);
-                windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+                windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : WindowManager.LayoutParams.TYPE_TOAST;
             } else
                 windowParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             if (prefs.orientation.equals("horizontal"))
@@ -129,6 +129,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
 
             windowManager.addView(frameLayout, windowParams);
+            samsungHelper.setOnHomeButtonClickListener(this::stopThis);
         }
         return super.onStartCommand(origIntent, flags, startId);
     }
@@ -462,6 +463,7 @@ public class MainService extends Service implements SensorEventListener, Context
         batteryView.destroy();
 
         samsungHelper.setButtonsLight(ON);
+        samsungHelper.destroyHomeButtonListener(getApplication());
 
         frameLayout.setOnTouchListener(null);
         if (clock.getTextClock() != null)

@@ -3,6 +3,7 @@ package com.tomer.alwayson;
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.tomer.alwayson.helpers.HomeWatcher;
 import com.tomer.alwayson.helpers.Utils;
 
 public class AlwaysOnAMOLED extends Application {
