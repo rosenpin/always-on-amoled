@@ -64,11 +64,6 @@ public class DigitalS7 extends RelativeLayout {
         ((TextView) findViewById(R.id.s7_minute_tv)).setText(minute);
         if (showAmPm)
             ((TextView) findViewById(R.id.s7_am_pm)).setText((new SimpleDateFormat("aa", Locale.getDefault()).format(new Date())));
-        else {
-            if (!((TextView) findViewById(R.id.s7_am_pm)).getText().toString().isEmpty()) {
-                ((TextView) findViewById(R.id.s7_am_pm)).setText("");
-            }
-        }
     }
 
     public void setDate(String date) {

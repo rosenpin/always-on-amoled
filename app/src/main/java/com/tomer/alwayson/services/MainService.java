@@ -569,7 +569,7 @@ public class MainService extends Service implements SensorEventListener, Context
         Intent intent = new Intent(context, ReporterActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         e.printStackTrace();
-        intent.putExtra("log", "Message: " + e.getMessage() + "\n\n" + "Error:" + e + "\n\n" + "Stack trace:" + Arrays.toString(e.getStackTrace()) + "\n\n" + "Cause:" + e.getCause() + "\n\n" + java.lang.System.err);
+        intent.putExtra("log", "Message: \n" + e.getMessage() + "\n\n" + "Error: \n" + e + "\n\n" + "Stack trace: \n" + Arrays.toString(e.getStackTrace()) + "\n\n" + "Cause: \n" + e.getCause() + "\n\n" + java.lang.System.err);
         PendingIntent reportIntent = PendingIntent.getActivity(context, 0, intent, 0);
         Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_0_unknown_error_report_prompt), reportNotificationID, reportIntent);
         java.lang.System.exit(0);
