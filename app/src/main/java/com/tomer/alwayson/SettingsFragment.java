@@ -38,6 +38,7 @@ import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.activities.DonateActivity;
 import com.tomer.alwayson.activities.Picker;
 import com.tomer.alwayson.activities.PreferencesActivity;
+import com.tomer.alwayson.activities.ReporterActivity;
 import com.tomer.alwayson.helpers.DozeManager;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
@@ -198,6 +199,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        final int[] counter = {0};
+        findPreference("version").setOnPreferenceClickListener(preference -> {
+            counter[0]++;
+            if (counter[0] >= 5) {
+                Intent intent = new Intent(context, ReporterActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+
+            return false;
+        });
     }
 
     private void openSourceLicenses() {

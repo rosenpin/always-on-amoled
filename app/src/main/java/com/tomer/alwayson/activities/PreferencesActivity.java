@@ -200,7 +200,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (isServiceRunning(MainService.class)) {
-            stopService(new Intent(getApplicationContext(), MainService.class));
+            Utils.stopMainService(getApplicationContext());
             return false;
         }
         return super.onKeyDown(keyCode, event);
@@ -210,7 +210,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     protected void onPause() {
         super.onPause();
         if (isServiceRunning(MainService.class) && demo) {
-            stopService(new Intent(getApplicationContext(), MainService.class));
+            Utils.stopMainService(getApplicationContext());
             demo = false;
         }
     }

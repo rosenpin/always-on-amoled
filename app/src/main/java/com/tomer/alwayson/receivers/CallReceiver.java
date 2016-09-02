@@ -13,14 +13,14 @@ public class CallReceiver extends PhonecallReceiver {
 
     @Override
     protected void onIncomingCallReceived(Context ctx, String number, Date start) {
-        ctx.stopService(new Intent(ctx, MainService.class));
+        Utils.stopMainService(ctx);
         Utils.logInfo(CallReceiver.class.getSimpleName(), "Call detected");
     }
 
     @Override
     protected void onIncomingCallAnswered(Context ctx, String number, Date start) {
         Globals.inCall = true;
-        ctx.stopService(new Intent(ctx, MainService.class));
+        Utils.stopMainService(ctx);
         Utils.logInfo(CallReceiver.class.getSimpleName(), "Call detected");
     }
 
@@ -32,7 +32,7 @@ public class CallReceiver extends PhonecallReceiver {
     @Override
     protected void onOutgoingCallStarted(Context ctx, String number, Date start) {
         Globals.inCall = true;
-        ctx.stopService(new Intent(ctx, MainService.class));
+        Utils.stopMainService(ctx);
         Utils.logInfo(CallReceiver.class.getSimpleName(), "Call detected");
     }
 

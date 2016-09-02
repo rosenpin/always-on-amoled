@@ -22,9 +22,7 @@ public class ReporterActivity extends IssueReporterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         messageExtra = getIntent().getStringExtra("log");
-        if (messageExtra == null || messageExtra.isEmpty()) {
-            setGuestEmailRequired(true);
-        } else {
+        if (messageExtra != null) {
             ((TextView) findViewById(R.id.air_inputTitle)).setText("Force close report");
             ((TextView) findViewById(R.id.air_inputDescription)).setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
             ((TextView) findViewById(R.id.air_inputDescription)).setLines(8);
