@@ -171,9 +171,6 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.feedback:
-                startActivity(new Intent(getApplicationContext(), ReporterActivity.class));
-                return true;
             case R.id.uninstall:
                 uninstall(this, prefs);
                 return true;

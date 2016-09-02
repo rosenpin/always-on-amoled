@@ -1,5 +1,6 @@
 package com.tomer.alwayson.helpers;
 
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -21,8 +22,12 @@ public class GreenifyStarter implements ContextConstatns {
             i.setComponent(new ComponentName("com.oasisfeng.greenify", "com.oasisfeng.greenify.GreenifyShortcut"));
             i.putExtra("noop-toast", true);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
-            Utils.logDebug(GREENIFY_STARTER, "Started");
+            try {
+                context.startActivity(i);
+                Utils.logDebug(GREENIFY_STARTER, "Started");
+            } catch (ActivityNotFoundException ignored) {
+                Utils.logDebug(GREENIFY_STARTER, "Failed to start");
+            }
         }
     }
 }

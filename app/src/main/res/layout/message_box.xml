@@ -13,7 +13,7 @@
     android:paddingBottom="@dimen/small_spacing"
     android:paddingTop="@dimen/small_spacing"
     android:visibility="invisible"
-    app:cardBackgroundColor="@android:color/black"
+    app:cardBackgroundColor="@android:color/darker_gray"
     app:cardCornerRadius="@dimen/notification_card_radius"
     app:cardElevation="@dimen/notification_card_elevation">
 
