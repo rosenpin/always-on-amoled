@@ -31,7 +31,6 @@
             android:layout_weight="3"
             android:paddingLeft="@dimen/medium_spacing"
             android:paddingRight="@dimen/medium_spacing"
-            android:tint="@android:color/white"
             app:srcCompat="@drawable/ic_skip_previous" />
 
         <android.support.v7.widget.AppCompatImageView
