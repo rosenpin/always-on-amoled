@@ -192,7 +192,7 @@ public class MainService extends Service implements SensorEventListener, Context
         iconsWrapper.setMessageBox(notificationsMessageBox);
         setUpElements();
 
-        FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams mainLayoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         mainLayoutParams.gravity = Gravity.CENTER;
 
         mainView.setLayoutParams(mainLayoutParams);
