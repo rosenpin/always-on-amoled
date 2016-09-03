@@ -174,12 +174,10 @@ public class MainService extends Service implements SensorEventListener, Context
         frameLayout = new FrameLayout(this) {
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
-                if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
-                    return gestureAction(prefs.volumeButtonsAction) || prefs.disableVolumeKeys;
-                }
-                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+                if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN))
+                    return gestureAction(prefs.volumeButtonsAction) || prefs.disableVolumeKeys || !musicPlayer.isShown();
+                if (event.getKeyCode() == KeyEvent.KEYCODE_BACK)
                     gestureAction(prefs.backButtonAction);
-                }
                 return super.dispatchKeyEvent(event);
             }
         };
@@ -577,6 +575,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 flashlight = new Flashlight(this);
             if (!flashlight.isLoading())
                 flashlight.toggle();
+            return true;
         }
         return false;
     }

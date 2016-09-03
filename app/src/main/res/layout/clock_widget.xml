@@ -28,6 +28,7 @@
 
     <com.tomer.alwayson.views.MusicPlayer
         android:id="@+id/music_player"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

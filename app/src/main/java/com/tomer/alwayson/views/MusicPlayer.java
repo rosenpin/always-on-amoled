@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +19,6 @@ import com.tomer.alwayson.helpers.Utils;
 public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     private Context context;
     private View layout;
-    private AudioManager manager;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
         @Override
@@ -59,7 +58,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         iF.addAction("com.andrew.apollo.metachanged");
 
         context.registerReceiver(mReceiver, iF);
-        manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        AudioManager manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         if (!manager.isMusicActive())
             removeView(layout);
         else
@@ -89,9 +88,9 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
     private void updatePlayPauseButton(boolean reverse) {
         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         if (!am.isMusicActive())
-            ((ImageView) findViewById(R.id.play)).setImageResource(reverse ? R.drawable.ic_play : R.drawable.ic_pause);
+            ((AppCompatImageView) findViewById(R.id.play)).setImageResource(reverse ? R.drawable.ic_play : R.drawable.ic_pause);
         else
-            ((ImageView) findViewById(R.id.play)).setImageResource(reverse ? R.drawable.ic_pause : R.drawable.ic_play);
+            ((AppCompatImageView) findViewById(R.id.play)).setImageResource(reverse ? R.drawable.ic_pause : R.drawable.ic_play);
     }
 
     @Override

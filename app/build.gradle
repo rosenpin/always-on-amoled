@@ -10,8 +10,8 @@ android {
         targetSdkVersion 24
         versionCode 190
         versionName "0.9.4 beta 15"
-        jackOptions.enabled = true;
-        vectorDrawables.useSupportLibrary = true;
+        jackOptions.enabled = true
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
