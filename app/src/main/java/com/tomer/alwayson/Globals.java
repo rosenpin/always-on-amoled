@@ -1,7 +1,6 @@
 package com.tomer.alwayson;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
-import com.android.vending.billing.IInAppBillingService;
 import com.tomer.alwayson.services.NotificationListener;
 
 import java.util.ArrayList;

@@ -102,6 +102,13 @@ public class DonateActivity extends AppCompatActivity {
         context.bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
     }
 
+    public static void onDestroy(Context context) {
+        try {
+            context.unbindService(mServiceConn);
+        } catch (Exception ignored) {
+        }
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,13 +118,6 @@ public class DonateActivity extends AppCompatActivity {
             finish();
         }
         ((ListViewCompat) findViewById(R.id.donation_list)).setAdapter(new DonationAdapter(this, getItemsList(this)));
-    }
-
-    public static void onDestroy(Context context) {
-        try {
-            context.unbindService(mServiceConn);
-        } catch (Exception ignored) {
-        }
     }
 
     public ArrayList<Item> getItemsList(Context context) {

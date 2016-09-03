@@ -42,8 +42,8 @@ import eu.chainfire.libsuperuser.Shell;
 import fr.nicolaspomepuy.discreetapprate.AppRate;
 
 public class PreferencesActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, ContextConstatns {
-    private Prefs prefs;
     boolean isActive;
+    private Prefs prefs;
     private boolean demo;
 
     public static void uninstall(Context context, Prefs prefs) {

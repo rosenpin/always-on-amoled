@@ -1,11 +1,9 @@
 package com.tomer.alwayson.receivers;
 
 import android.content.Context;
-import android.content.Intent;
 
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.helpers.Utils;
-import com.tomer.alwayson.services.MainService;
 
 import java.util.Date;
 
