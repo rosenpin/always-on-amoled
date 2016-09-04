@@ -75,7 +75,6 @@ public class IconsWrapper extends LinearLayout {
                 addView(icon);
             }
         }
-        Globals.notificationChanged = false;
     }
 
     public void setMessageBox(MessageBox messageBox) {

@@ -1,17 +1,15 @@
 package com.tomer.alwayson.helpers;
 
-import android.app.Application;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Toast;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.activities.DummySamsungActivity;
+import com.tomer.alwayson.activities.SamsungHomeWatcherActivity;
 
 import java.io.IOException;
 
@@ -20,7 +18,6 @@ public class SamsungHelper implements ContextConstatns {
     private int originalCapacitiveButtonsState;
     private ContentResolver contentResolver;
     private Context context;
-    private HomeWatcher homeWatcher;
 
     public SamsungHelper(Context context, Prefs prefs) {
         this.prefs = prefs;
@@ -89,30 +86,17 @@ public class SamsungHelper implements ContextConstatns {
         }
     }
 
-    public void setOnHomeButtonClickListener(Runnable runnable) {
+    public void startHomeButtonListener() {
         if (Utils.isSamsung()) {
-            Intent intent = new Intent(context, DummySamsungActivity.class);
+            Intent intent = new Intent(context, SamsungHomeWatcherActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
-
-            homeWatcher = new HomeWatcher(context);
-            homeWatcher.setOnHomePressedListener(() -> {
-                runnable.run();
-                Utils.logDebug(HomeWatcher.TAG, "Home button pressed");
-            });
-            homeWatcher.startWatch();
         }
     }
 
-    public void destroyHomeButtonListener(Application application) {
+    public void destroyHomeButtonListener() {
         if (Utils.isSamsung()) {
-            homeWatcher.stopWatch();
-            Intent myIntent = new Intent(context, DummySamsungActivity.class);
-            myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            Bundle myKillerBundle = new Bundle();
-            myKillerBundle.putInt("kill", 1);
-            myIntent.putExtras(myKillerBundle);
-            application.startActivity(myIntent);
+            context.sendBroadcast(new Intent(FINISH_HOME_BUTTON_ACTIVITY));
         }
     }
 }

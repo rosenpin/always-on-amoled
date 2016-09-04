@@ -8,7 +8,6 @@ import android.speech.tts.TextToSpeech;
 import android.text.format.DateFormat;
 
 import com.tomer.alwayson.ContextConstatns;
-import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.receivers.BatteryReceiver;
 
 import java.text.SimpleDateFormat;
@@ -22,6 +21,7 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
     private TextToSpeech tts;
     private boolean toStopTTS;
     private BatteryReceiver batteryReceiver;
+    private int notificationCount;
 
     public TTS(Context context) {
         this.context = context;
@@ -33,6 +33,10 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
         tts = new TextToSpeech(context, TTS.this);
         tts.setLanguage(Locale.getDefault());
         tts.speak("", TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    public void updateNotificationCount(int count) {
+        this.notificationCount = count;
     }
 
     @Override
@@ -52,8 +56,8 @@ public class TTS implements TextToSpeech.OnInitListener, ContextConstatns {
                 time = time.charAt(0) == '0' ? time.substring(1, time.length()) : time;
 
                 tts.speak("The time is " + time, TextToSpeech.QUEUE_FLUSH, null);
-                if (Globals.notifications.size() > 0)
-                    tts.speak("You have " + Globals.notifications.size() + " Notifications", TextToSpeech.QUEUE_ADD, null);
+                if (notificationCount > 0)
+                    tts.speak("You have " + notificationCount + " Notifications", TextToSpeech.QUEUE_ADD, null);
                 tts.speak("Battery is at " + batteryReceiver.currentBattery + " percent", TextToSpeech.QUEUE_ADD, null);
                 speaking = true;
                 new Handler().postDelayed(() -> speaking = false, 4000);

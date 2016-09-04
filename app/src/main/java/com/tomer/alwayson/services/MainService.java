@@ -3,6 +3,7 @@ package com.tomer.alwayson.services;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.admin.DevicePolicyManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -78,9 +79,10 @@ public class MainService extends Service implements SensorEventListener, Context
     public static boolean stoppedByShortcut;
     public static boolean initialized;
     public static boolean isScreenOn;
-    boolean firstRefresh = true;
-    int refreshDelay = 12000;
-    FrameLayout blackScreen;
+
+    private boolean firstRefresh = true;
+    private int refreshDelay = 12000;
+    private FrameLayout blackScreen;
     private Timer refreshTimer;
     private boolean demo;
     private boolean refreshing = true;
@@ -105,6 +107,30 @@ public class MainService extends Service implements SensorEventListener, Context
     private CurrentAppResolver currentAppResolver;
     private Flashlight flashlight;
     private Handler UIhandler;
+    private BroadcastReceiver newNotificationBroadcast = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (prefs.notificationsAlerts)
+                UIhandler.post(() -> iconsWrapper.update(prefs.textColor, () -> stopThis()));
+            if (Globals.newNotification != null && prefs.notificationPreview) {
+                UIhandler.post(() -> notificationsMessageBox.showNotification(Globals.newNotification));
+                notificationsMessageBox.setOnClickListener(view -> {
+                    stoppedByShortcut = true;
+                    if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
+                        try {
+                            notificationsMessageBox.getCurrentNotification().getIntent().send();
+                        } catch (PendingIntent.CanceledException e) {
+                            e.printStackTrace();
+                        }
+                        stoppedByShortcut = true;
+                        stopThis();
+                    }
+                });
+            }
+        }
+    };
+
+
     private BrightnessManager brightnessManager;
     private BatterySaver batterySaver;
 
@@ -129,10 +155,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
 
             windowManager.addView(frameLayout, windowParams);
-            samsungHelper.setOnHomeButtonClickListener(() -> {
-                stoppedByShortcut = true;
-                stopThis();
-            });
+            samsungHelper.startHomeButtonListener();
         }
         return super.onStartCommand(origIntent, flags, startId);
     }
@@ -253,7 +276,6 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         // UI refreshing
-        Globals.notificationChanged = true; //Show notifications at first launch
         if (prefs.notificationsAlerts)
             //Starting the notification listener service
             startService(new Intent(getApplicationContext(), NotificationListener.class));
@@ -263,26 +285,7 @@ public class MainService extends Service implements SensorEventListener, Context
         refresh();
 
         //Notification setup
-        Globals.onNotificationAction = () -> {
-            if (prefs.notificationsAlerts)
-                UIhandler.post(() -> iconsWrapper.update(prefs.textColor, this::stopThis));
-            if (Globals.newNotification != null && prefs.notificationPreview) {
-                UIhandler.post(() -> notificationsMessageBox.showNotification(Globals.newNotification));
-                notificationsMessageBox.setOnClickListener(view -> {
-                    stoppedByShortcut = true;
-                    if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
-                        try {
-                            notificationsMessageBox.getCurrentNotification().getIntent().send();
-                        } catch (PendingIntent.CanceledException e) {
-                            e.printStackTrace();
-                        }
-                        stoppedByShortcut = true;
-                        stopThis();
-                    }
-                });
-            }
-        };
-        Globals.onNotificationAction.run();
+        registerReceiver(newNotificationBroadcast, new IntentFilter(NEW_NOTIFICATION));
 
         //Turn screen on
         new Handler().postDelayed(
@@ -439,7 +442,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (batterySaver != null)
             batterySaver.setSystemBatterySaver(batterySaver.originalBatterySaverMode);
         MainService.initialized = false;
-        Globals.onNotificationAction = null;
+        unregisterReceiver(newNotificationBroadcast);
         //Dismiss the app listener
         currentAppResolver.destroy();
         //Dismiss music player
@@ -464,7 +467,7 @@ public class MainService extends Service implements SensorEventListener, Context
         batteryView.destroy();
 
         samsungHelper.setButtonsLight(ON);
-        samsungHelper.destroyHomeButtonListener(getApplication());
+        samsungHelper.destroyHomeButtonListener();
 
         frameLayout.setOnTouchListener(null);
         if (clock.getTextClock() != null)

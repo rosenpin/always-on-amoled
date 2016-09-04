@@ -3,6 +3,7 @@ package com.tomer.alwayson.services;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
@@ -32,7 +33,6 @@ public class NotificationListener extends NotificationListenerService implements
     @Override
     public void onNotificationPosted(StatusBarNotification added) {
         if (added.isClearable() && added.getNotification().priority >= android.app.Notification.PRIORITY_LOW) {
-            Globals.notificationChanged = true;
             String title = added.getNotification().extras.getString(Notification.EXTRA_TITLE) + " ";
             if (title.equals("null"))
                 title = added.getNotification().extras.getString(Notification.EXTRA_TITLE_BIG) + " ";
@@ -51,16 +51,13 @@ public class NotificationListener extends NotificationListenerService implements
             Globals.newNotification = new NotificationHolder(this, title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent);
             Globals.notifications.put(getUniqueKey(added), Globals.newNotification);
         }
-        if (Globals.onNotificationAction != null)
-            Globals.onNotificationAction.run();
+        sendBroadcast(new Intent(NEW_NOTIFICATION));
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
         Globals.notifications.remove(getUniqueKey(removed));
-        Globals.notificationChanged = true;
-        if (Globals.onNotificationAction != null)
-            Globals.onNotificationAction.run();
+        sendBroadcast(new Intent(NEW_NOTIFICATION));
     }
 
     private String getUniqueKey(StatusBarNotification notification) {

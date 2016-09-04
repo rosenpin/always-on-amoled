@@ -15,10 +15,8 @@ public class Globals {
     public static boolean killedByDelay;
     public static boolean isServiceRunning;
     public static boolean waitingForApp = false;
-    public static boolean notificationChanged;
     public static Map<String, NotificationListener.NotificationHolder> notifications = new ConcurrentHashMap<>();
     public static ColorChooserDialog.Builder colorDialog;
     public static ArrayList<String> ownedItems;
     public static NotificationListener.NotificationHolder newNotification;
-    public static Runnable onNotificationAction;
 }

@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class HomeWatcher {
 
-    public static final String TAG = "hg";
+    private static final String TAG = "hg";
     private Context mContext;
     private IntentFilter mFilter;
     private OnHomePressedListener mListener;
@@ -19,12 +19,12 @@ public class HomeWatcher {
         mFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
     }
 
-    void setOnHomePressedListener(OnHomePressedListener listener) {
+    public void setOnHomePressedListener(OnHomePressedListener listener) {
         mListener = listener;
         mRecevier = new InnerRecevier();
     }
 
-    void startWatch() {
+    public void startWatch() {
         if (mRecevier != null) {
             mContext.registerReceiver(mRecevier, mFilter);
         }
@@ -36,7 +36,7 @@ public class HomeWatcher {
         }
     }
 
-    interface OnHomePressedListener {
+    public interface OnHomePressedListener {
         void onHomePressed();
     }
 
