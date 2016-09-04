@@ -83,7 +83,7 @@ public class DonateActivity extends AppCompatActivity {
                 try {
                     Globals.ownedItems = mService.getPurchases(3, context.getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                     Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
-                    if (BuildConfig.DEBUG)
+                    if (BuildConfig.DEBUG && Globals.ownedItems == null)
                         Globals.ownedItems = new ArrayList<String>() {{
                             add("debug");
                         }};
@@ -123,7 +123,7 @@ public class DonateActivity extends AppCompatActivity {
     public ArrayList<Item> getItemsList(Context context) {
         ArrayList<Item> items = new ArrayList<>();
         ArrayList<String> IAPs = new ArrayList<>();
-        for (int i = 1; i < 6; i++) {
+        for (int i = 1; i < 7; i++) {
             items.add(null);
             IAPs.add(SecretConstants.getPropertyValue(context, "IAPID" + i));
         }
@@ -173,12 +173,12 @@ public class DonateActivity extends AppCompatActivity {
         private String price;
         private String id;
 
-        public Item(String price, String id) {
+        Item(String price, String id) {
             this.price = price;
             this.id = id;
         }
 
-        public String getPrice() {
+        String getPrice() {
             return price;
         }
 
@@ -211,28 +211,34 @@ public class DonateActivity extends AppCompatActivity {
             String title = null;
             String description = null;
             int image = 0;
-            switch (position) {
-                case 0:
+            int item = position +1;
+            switch (item) {
+                case 1:
                     title = getString(R.string.support_1);
                     description = getString(R.string.support_1_desc);
                     image = R.drawable.ic_donation_unlock;
                     break;
-                case 1:
+                case 2:
                     title = getString(R.string.support_2);
                     description = getString(R.string.support_2_desc);
                     image = R.drawable.ic_donation_large;
                     break;
-                case 2:
+                case 3:
                     title = getString(R.string.support_5);
                     description = getString(R.string.support_5_desc);
                     image = R.drawable.ic_donation_gift;
                     break;
-                case 3:
+                case 4:
                     title = getString(R.string.support_10);
                     description = getString(R.string.support_10_desc);
                     image = R.drawable.ic_donation_thumb_up;
                     break;
-                case 4:
+                case 5:
+                    title = getString(R.string.support_20);
+                    description = getString(R.string.support_20_desc);
+                    image = R.drawable.ic_donation_heart;
+                    break;
+                case 6:
                     title = getString(R.string.support_20);
                     description = getString(R.string.support_20_desc);
                     image = R.drawable.ic_donation_heart;
