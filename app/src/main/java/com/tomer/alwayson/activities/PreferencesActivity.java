@@ -75,7 +75,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
             setContentView(R.layout.activity_main);
             getFragmentManager().beginTransaction()
                     .replace(R.id.preferences_holder, new SettingsFragment())
-                    .commit();
+                    .commitAllowingStateLoss();
 
             handlePermissions();
 
@@ -104,6 +104,12 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
                     .accentMode(true)
                     .dynamicButtonColor(false);
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
+        super.onSaveInstanceState(outState);
     }
 
     private void appRate() {

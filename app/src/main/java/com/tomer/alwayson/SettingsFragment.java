@@ -136,6 +136,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         Utils.logDebug(String.valueOf(((MaterialListPreference) findPreference("rules")).getValue()), " Selected");
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
+        super.onSaveInstanceState(outState);
+    }
+
     private boolean isSupporter() {
         if (Globals.ownedItems != null) {
             Utils.logDebug("Purchased items", String.valueOf(Globals.ownedItems));
