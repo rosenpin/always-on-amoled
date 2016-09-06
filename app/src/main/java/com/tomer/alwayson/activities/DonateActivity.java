@@ -239,9 +239,9 @@ public class DonateActivity extends AppCompatActivity {
                     image = R.drawable.ic_donation_heart;
                     break;
                 case 6:
-                    title = getString(R.string.support_20);
-                    description = getString(R.string.support_20_desc);
-                    image = R.drawable.ic_donation_heart;
+                    title = getString(R.string.support_25);
+                    description = getString(R.string.support_25_desc);
+                    image = R.drawable.ic_donation_hands_up;
                     break;
             }
 

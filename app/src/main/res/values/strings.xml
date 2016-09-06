@@ -20,11 +20,13 @@
     <string name="support_5">Big donation</string>
     <string name="support_10">Awesome donation</string>
     <string name="support_20">Huge donation</string>
+    <string name="support_25">Super donation!</string>
     <string name="support_1_desc">Unlock all the premium features in the app and support the development</string>
     <string name="support_2_desc">Support the development a bit more. Same features as regular unlock.</string>
     <string name="support_5_desc">Donate to the project and help me continue working on the app. Same features as regular unlock.</string>
     <string name="support_10_desc">Show that you appreciate the project and keep the development active. Same features as regular unlock.</string>
     <string name="support_20_desc">Wow! a huge donation! thank you very much! :) Same features as regular unlock.</string>
+    <string name="support_25_desc">Amazing! that\'s a lot of money!! This will really help the project! Same features as regular unlock.</string>
     <!--Intro-->
     <string name="intro_allow_now">Allow now</string>
     <string name="intro_permissions">Read phone state</string>
