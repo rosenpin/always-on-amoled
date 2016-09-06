@@ -95,8 +95,7 @@ public class SamsungHelper implements ContextConstatns {
     }
 
     public void destroyHomeButtonListener() {
-        if (Utils.isSamsung()) {
+        if (Utils.isSamsung())
             context.sendBroadcast(new Intent(FINISH_HOME_BUTTON_ACTIVITY));
-        }
     }
 }

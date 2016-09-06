@@ -11,8 +11,6 @@
     <!--Support-->
     <string name="action_support_the_development">Support The Development</string>
     <string name="support_how_much">How much would you like to donate?</string>
-    <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
-    <string name="gestures_action_flashlight">Toggle flashlight</string>
     <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
     <string name="support_choose">How much would you like to donate?</string>
     <string name="support_1">Unlock</string>
@@ -123,6 +121,8 @@
     <string name="settings_general">General</string>
     <string name="settings_shortcuts">Shortcuts</string>
     <string name="settings_wake_up">Gestures &amp; actions</string>
+    <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
+    <string name="gestures_action_flashlight">Toggle flashlight</string>
     <string name="settings_rules">Automatic Rules</string>
     <!--Settings titles-->
     <string name="settings_enabled">Enable</string>

@@ -23,30 +23,32 @@ public class Flashlight {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             try {
                 cam = Camera.open();
+                Camera.Parameters p = cam.getParameters();
+                p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                cam.setParameters(p);
+                SurfaceTexture mPreviewTexture = new SurfaceTexture(0);
+                try {
+                    cam.setPreviewTexture(mPreviewTexture);
+                } catch (IOException ignored) {
+                }
             } catch (RuntimeException e) {
                 Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_5_camera_cant_connect_desc), 233, null);
-            }
-            Camera.Parameters p = cam.getParameters();
-            p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-            cam.setParameters(p);
-            SurfaceTexture mPreviewTexture = new SurfaceTexture(0);
-            try {
-                cam.setPreviewTexture(mPreviewTexture);
-            } catch (IOException ignored) {
             }
         }
     }
 
     public void toggle() {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            isLoading = true;
-            if (!enabled) {
-                cam.startPreview();
-            } else {
-                cam.stopPreview();
+            if (cam != null) {
+                isLoading = true;
+                if (!enabled) {
+                    cam.startPreview();
+                } else {
+                    cam.stopPreview();
+                }
+                enabled = !enabled;
+                new Handler().postDelayed(() -> isLoading = false, 500);
             }
-            enabled = !enabled;
-            new Handler().postDelayed(() -> isLoading = false, 500);
         }
     }
 
