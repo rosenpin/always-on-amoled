@@ -33,9 +33,9 @@ import com.tomer.alwayson.helpers.Utils;
 
 
 public class Intro extends AppIntro2 {
-    static Context context;
-    static Prefs pref;
-    static boolean[] permissions;
+    private static Context context;
+    private static Prefs pref;
+    private static boolean[] permissions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +85,8 @@ public class Intro extends AppIntro2 {
     }
 
     public static class First extends Fragment {
-        Button go;
-        View v;
+        private Button go;
+        private View v;
 
         @Override
         public void onResume() {
@@ -136,14 +136,11 @@ public class Intro extends AppIntro2 {
                 permissions[0] = true;
             } catch (Exception e) {
                 permissions[0] = false;
-                v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (Utils.isAndroidNewerThanM()) {
-                            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                        }
+                v.findViewById(R.id.go).setOnClickListener(v1 -> {
+                    if (Utils.isAndroidNewerThanM()) {
+                        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                     }
                 });
             }
@@ -153,8 +150,8 @@ public class Intro extends AppIntro2 {
     }
 
     public static class Second extends Fragment {
-        Button go;
-        View v;
+        private Button go;
+        private View v;
 
         @TargetApi(Build.VERSION_CODES.M)
         @Override
@@ -165,13 +162,10 @@ public class Intro extends AppIntro2 {
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
                 go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
-                v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + context.getPackageName()));
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
+                v.findViewById(R.id.go).setOnClickListener(v1 -> {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + context.getPackageName()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 });
             } else {
                 permissions[1] = true;
@@ -191,13 +185,10 @@ public class Intro extends AppIntro2 {
             go = (Button) v.findViewById(R.id.go);
             if (!Settings.System.canWrite(context)) {
                 permissions[1] = false;
-                v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + context.getPackageName()));
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }
+                v.findViewById(R.id.go).setOnClickListener(v1 -> {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + context.getPackageName()));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 });
             } else {
                 permissions[1] = true;
@@ -209,8 +200,8 @@ public class Intro extends AppIntro2 {
     }
 
     public static class Third extends Fragment {
-        View v;
-        Button go;
+        private View v;
+        private Button go;
 
         @Override
         public void onResume() {
@@ -220,14 +211,9 @@ public class Intro extends AppIntro2 {
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
                 go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
-                v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE},
-                                123);
-                    }
-                });
+                v.findViewById(R.id.go).setOnClickListener(v1 -> ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.READ_PHONE_STATE},
+                        123));
             } else {
                 permissions[permissions.length - 1] = true;
                 go.setVisibility(View.INVISIBLE);
@@ -245,14 +231,9 @@ public class Intro extends AppIntro2 {
             go = (Button) v.findViewById(R.id.go);
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                 permissions[permissions.length - 1] = false;
-                v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ActivityCompat.requestPermissions(getActivity(),
-                                new String[]{Manifest.permission.READ_PHONE_STATE},
-                                123);
-                    }
-                });
+                v.findViewById(R.id.go).setOnClickListener(v1 -> ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.READ_PHONE_STATE},
+                        123));
             } else {
                 permissions[permissions.length - 1] = true;
                 go.setVisibility(View.INVISIBLE);
@@ -271,20 +252,17 @@ public class Intro extends AppIntro2 {
             CheckBox[] checkBoxes = {(CheckBox) v.findViewById(R.id.intro_checkbox_double_tap), (CheckBox) v.findViewById(R.id.intro_checkbox_swipe_up), (CheckBox) v.findViewById(R.id.intro_checkbox_volume_keys)};
             for (int i = 0; i < checkBoxes.length; i++) {
                 final int finalI = i;
-                checkBoxes[i].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                        switch (finalI) {
-                            case 0:
-                                pref.setString(Prefs.KEYS.DOUBLE_TAP_TO_STOP.toString(), b ? "unlock" : "off");
-                                break;
-                            case 1:
-                                pref.setString(Prefs.KEYS.SWIPE_UP_ACTION.toString(), b ? "unlock" : "off");
-                                break;
-                            case 2:
-                                pref.setString(Prefs.KEYS.VOLUME_TO_STOP.toString(), b ? "unlock" : "off");
-                                break;
-                        }
+                checkBoxes[i].setOnCheckedChangeListener((compoundButton, b) -> {
+                    switch (finalI) {
+                        case 0:
+                            pref.setString(Prefs.KEYS.DOUBLE_TAP_TO_STOP.toString(), b ? "unlock" : "off");
+                            break;
+                        case 1:
+                            pref.setString(Prefs.KEYS.SWIPE_UP_ACTION.toString(), b ? "unlock" : "off");
+                            break;
+                        case 2:
+                            pref.setString(Prefs.KEYS.VOLUME_TO_STOP.toString(), b ? "unlock" : "off");
+                            break;
                     }
                 });
             }
@@ -293,9 +271,9 @@ public class Intro extends AppIntro2 {
     }
 
     public static class Fifth extends Fragment {
-        View v;
-        boolean shouldEnableNotificationsAlerts;
-        Button go;
+        private View v;
+        private boolean shouldEnableNotificationsAlerts;
+        private Button go;
 
         @Nullable
         @Override
@@ -305,13 +283,10 @@ public class Intro extends AppIntro2 {
             ((TextView) v.findViewById(R.id.title)).setText(R.string.intro_notifications);
             ((TextView) v.findViewById(R.id.description)).setText(R.string.intro_notifications_desc);
             go = (Button) v.findViewById(R.id.go);
-            go.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (checkNotificationsPermission(getContext(), true)) {
-                        go.setVisibility(View.INVISIBLE);
-                        pref.forceBool(Prefs.KEYS.NOTIFICATION_ALERTS.toString(), true);
-                    }
+            go.setOnClickListener(view -> {
+                if (checkNotificationsPermission(getContext(), true)) {
+                    go.setVisibility(View.INVISIBLE);
+                    pref.forceBool(Prefs.KEYS.NOTIFICATION_ALERTS.toString(), true);
                 }
             });
             return v;
@@ -331,7 +306,6 @@ public class Intro extends AppIntro2 {
             String enabledNotificationListeners = Settings.Secure.getString(contentResolver, "enabled_notification_listeners");
             String packageName = c.getPackageName();
 
-            // check to see if the enabledNotificationListeners String contains our package name
             if (enabledNotificationListeners == null || !enabledNotificationListeners.contains(packageName)) {
                 if (Utils.isAndroidNewerThanL() && prompt) {
                     Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);

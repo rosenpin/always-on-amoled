@@ -32,6 +32,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.AnimationUtils;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -146,7 +147,7 @@ public class MainService extends Service implements SensorEventListener, Context
             if (prefs.orientation.equals("horizontal"))
                 //Setting screen orientation if horizontal
                 windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                 if (!Settings.canDrawOverlays(this)) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

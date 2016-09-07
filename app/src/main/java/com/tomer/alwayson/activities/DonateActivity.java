@@ -44,30 +44,20 @@ public class DonateActivity extends AppCompatActivity {
     public static void quicklyPromptToSupport(final Activity context, final View rootView) {
         if (mService != null) {
             String googleIAPCode = SecretConstants.getPropertyValue(context, "googleIAPCode");
-            Bundle buyIntentBundle;
-            PendingIntent pendingIntent = null;
-            String IAPID = SecretConstants.getPropertyValue(context, "IAPID");
+            String IAP = SecretConstants.getPropertyValue(context, "IAPID1");
             try {
-                buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
-                        IAPID, "inapp", googleIAPCode);
-                pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                Bundle buyIntentBundle = mService.getBuyIntent(3, context.getPackageName(),
+                        IAP, "inapp", googleIAPCode);
+                PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
                 if (pendingIntent == null)
-                    Snackbar.make(rootView, context.getString(R.string.thanks), Snackbar.LENGTH_LONG).show();
-            } catch (RemoteException e) {
-                Snackbar.make(rootView, context.getString(R.string.error_3_unknown_error_restart) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                e.printStackTrace();
-            }
-            try {
-                if (pendingIntent != null)
-                    context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+                    Snackbar.make(rootView, context.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                 else
-                    Snackbar.make(rootView, context.getString(R.string.error_3_unknown_error_restart), Snackbar.LENGTH_LONG).show();
-            } catch (IntentSender.SendIntentException e) {
+                    context.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+            } catch (RemoteException | IntentSender.SendIntentException e) {
+                Snackbar.make(rootView, context.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
                 e.printStackTrace();
-                Snackbar.make(rootView, context.getString(R.string.error_3_unknown_error_restart), Snackbar.LENGTH_LONG).show();
             }
-        } else
-            Toast.makeText(context, R.string.error_IAP, Toast.LENGTH_LONG).show();
+        }
     }
 
     public static void resetPaymentService(Context context) {
@@ -211,7 +201,7 @@ public class DonateActivity extends AppCompatActivity {
             String title = null;
             String description = null;
             int image = 0;
-            int item = position +1;
+            int item = position + 1;
             switch (item) {
                 case 1:
                     title = getString(R.string.support_1);
@@ -258,27 +248,19 @@ public class DonateActivity extends AppCompatActivity {
             }
 
             v.setOnClickListener(v1 -> {
-                String googleIAPCode = SecretConstants.getPropertyValue(DonateActivity.this, "googleIAPCode");
-                Bundle buyIntentBundle;
-                PendingIntent pendingIntent = null;
                 try {
+                    String googleIAPCode = SecretConstants.getPropertyValue(DonateActivity.this, "googleIAPCode");
                     String IAP = items.get(position).getId();
-                    try {
-                        buyIntentBundle = mService.getBuyIntent(3, DonateActivity.this.getPackageName(),
-                                IAP, "inapp", googleIAPCode);
-                        pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-                        if (pendingIntent == null)
-                            Snackbar.make(findViewById(android.R.id.content), DonateActivity.this.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
-                    } catch (RemoteException e) {
-                        Snackbar.make(findViewById(android.R.id.content), DonateActivity.this.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                        e.printStackTrace();
-                    }
-                    if (pendingIntent != null)
-                        DonateActivity.this.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+                    Bundle buyIntentBundle = mService.getBuyIntent(3, DonateActivity.this.getPackageName(),
+                            IAP, "inapp", googleIAPCode);
+                    PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+                    if (pendingIntent == null)
+                        Snackbar.make(findViewById(android.R.id.content), DonateActivity.this.getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
                     else
-                        Snackbar.make(findViewById(android.R.id.content), DonateActivity.this.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    Snackbar.make(findViewById(android.R.id.content), DonateActivity.this.getString(R.string.error_0_unknown_error), Snackbar.LENGTH_LONG).show();
+                        DonateActivity.this.startIntentSenderForResult(pendingIntent.getIntentSender(), 1001, new Intent(), 0, 0, 0);
+                } catch (RemoteException | IntentSender.SendIntentException e) {
+                    Snackbar.make(findViewById(android.R.id.content), DonateActivity.this.getString(R.string.error_0_unknown_error) + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                    e.printStackTrace();
                 }
             });
             return v;
