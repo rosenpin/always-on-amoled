@@ -32,7 +32,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -134,6 +133,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private BrightnessManager brightnessManager;
     private BatterySaver batterySaver;
+    private boolean nigtModeOn;
 
     @Override
     public int onStartCommand(Intent origIntent, int flags, int startId) {
@@ -177,7 +177,6 @@ public class MainService extends Service implements SensorEventListener, Context
             prefs.brightness = prefs.brightness / 2;
             refreshDelay = refreshDelay * 2;
             prefs.moveWidget = MOVE_NO_ANIMATION;
-            prefs.autoNightMode = false;
             prefs.stopOnCamera = false;
             prefs.stopOnGoogleNow = false;
             Utils.killBackgroundProcesses(this);
@@ -237,6 +236,7 @@ public class MainService extends Service implements SensorEventListener, Context
         if (prefs.proximityToLock || prefs.autoNightMode)
             //If any sensor is required
             sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
             if (Utils.isAndroidNewerThanL() && !Utils.isSamsung()) {
@@ -253,7 +253,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //If auto night mode option is on, set it up
         if (prefs.autoNightMode) {
             Sensor lightSensor;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            if (Utils.isAndroidNewerThanL())
                 lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT, false);
             else
                 lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -541,8 +541,12 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
                 break;
             case Sensor.TYPE_LIGHT:
-                Utils.logDebug("Lights changed", String.valueOf(event.values[0]));
-                setLights(ON, event.values[0] < 2, false);
+                boolean nightMode = event.values[0] < 2;
+                if ((nightMode && !nigtModeOn) || (!nightMode && nigtModeOn)) {
+                    Utils.logDebug("Lights changed", String.valueOf(event.values[0]));
+                    setLights(ON, nightMode, false);
+                    nigtModeOn = nightMode;
+                }
                 break;
         }
     }
