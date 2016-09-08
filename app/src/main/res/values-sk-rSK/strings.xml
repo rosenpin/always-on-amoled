@@ -137,6 +137,7 @@
   <string name="greenify_integration">Integrácia aplikácie Greenify</string>
   <string name="settings_licenses">Licencie</string>
   <string name="settings_uninstall">Odinštalovať</string>
+  <string name="settings_exit_animation">Animácia</string>
   <string name="settings_app_version">Verzia</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Vypne Always On keď je spustená kamera</string>
@@ -204,6 +205,5 @@
   <string name="settings_memo_font_size_desc">Nastavte veľkosť písma poznámky</string>
   <string name="settings_memo_hint">Napíšte sem svoju poznámku. Tá sa ukáže na vašom Always On displeji.</string>
   <string name="settings_google_now_shortcut_desc">Vypne Always On obrazovku keď sa spustí Google Now použitím príkazu OK Google (nemusí fungovať s Google Now Launcherom)</string>
-  <string name="settings_exit_animation">Animácia</string>
   <string name="settings_exit_animation_desc">Vyberte konečnú animáciu</string>
 </resources>

@@ -15,6 +15,17 @@
   <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
   <string name="gestures_action_flashlight">Taschenlampe</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
+  <string name="support_choose">Wie viel möchtest du spenden?</string>
+  <string name="support_1">Entsperren</string>
+  <string name="support_2">Spenden</string>
+  <string name="support_5">Große Spende</string>
+  <string name="support_10">Großartige Spende</string>
+  <string name="support_20">Affengeile Spende</string>
+  <string name="support_1_desc">Entsperre alle Premium-Features in der App und unterstütze dessen Entwicklung</string>
+  <string name="support_2_desc">Unterstütze die Entwicklung der App ein bisschen mehr. (Bietet die gleichen Features wie der normale Unlock.)</string>
+  <string name="support_5_desc">Spende an das Projekt und hilf mir, die App stetig weiterzuentwickeln. (Bietet die gleichen Features wie der normale Unlock.)</string>
+  <string name="support_10_desc">Zeig mir, dass du das Projekt wertschätzt und hilf, die Entwicklung am Leben zu halten. (Bietet die gleichen Features wie der normale Unlock.)</string>
+  <string name="support_20_desc">WOW! Eine riesige Spende! Vielen Dank! :) (Bietet die gleichen Features wie der normale Unlock.)</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen</string>
@@ -56,6 +67,7 @@
   <string name="error_2_plugin_not_installed">PLUGIN IST NICHT INSTALLIERT</string>
   <string name="error_3_unknown_error_restart">Ein Fehler ist aufgetreten. Versuche, die App neuzustarten.</string>
   <string name="error_4_tasker_service_not_initialized">Der Dienst wurde nicht korrekt initialisiert</string>
+  <string name="error_5_camera_cant_connect_desc">Konnte mich nicht mit der Kamera verbinden. Es gibt womöglich ein Problem mit diesem Gerät.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Dies kann die Leistung der App beeinträchtigen</string>
   <string name="warning_4_device_not_secured">Dein Gerät ist jetzt vielleicht nicht gesichert</string>
@@ -80,7 +92,7 @@
   <string name="rules_battery_10">10 % oder höher</string>
   <!--Animations-->
   <string name="animation_disabled">Keine Animation</string>
-  <string name="animation_fade_out">Ausblenden</string>
+  <string name="animation_fade_out">Verblassen</string>
   <string name="animation_slide_out">Weg schieben</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Deaktiviert</string>
@@ -146,6 +158,7 @@
   <string name="greenify_integration">Greenify Einbindung</string>
   <string name="settings_licenses">Lizenzen</string>
   <string name="settings_uninstall">Deinstallieren</string>
+  <string name="settings_exit_animation">Animation</string>
   <string name="settings_app_version">Version</string>
   <string name="settings_enable_greenify">Aktiviere Greenify</string>
   <string name="settings_battery_saver">Energiesparmodus</string>
@@ -166,6 +179,7 @@
   <string name="settings_github_desc">Open-Source Github Link</string>
   <string name="settings_move_desc">Aktiviere dies um einen AMOLED Burn-In zu vermeiden</string>
   <string name="settings_font_size_desc">Stelle die Größe der Uhr ein</string>
+  <string name="settings_font_size_memo_desc">Lege die Schriftgröße fest</string>
   <string name="settings_notifications_desc">Aktiviere dies, um die App im Hintergrund am Laufen zu halten Tipp: Du kannst die Benachrichtigung der App auf Android 6.0+ blockieren, ohne deren Funktionalität einzuschränken</string>
   <string name="settings_enabled_desc">Aktiviere den Dienst</string>
   <string name="settings_disable_volume_keys_desc">Aktiviere dies, um eine versehentliche Verstellung der Lautstärke zu vermeiden</string>
@@ -217,7 +231,7 @@
   <string name="settings_memo_font_size_desc">Lege die Textgröße fest</string>
   <string name="settings_memo_hint">Tippe deinen Text hier ein. Er wird auf deinem Always On Bildschirm angezeigt werden.</string>
   <string name="settings_google_now_shortcut_desc">Stoppe den Always On Bildschirm wenn \"Ok Google\" gesagt wurde (Funktioniert vielleicht nicht mit dem \"Google Now Launcher\")</string>
-  <string name="settings_exit_animation">Animation</string>
   <string name="settings_exit_animation_desc">Wähle die Ausgangs-Animation</string>
   <string name="settings_battery_saver_desc">Reduziert den Akkuverbrauch und schützt vor Überhitzung. Funktioniert besser mit root.</string>
+  <string name="settings_watchface_date_desc">Wähle den Datums-Stil aus, den du sehen möchtest</string>
 </resources>

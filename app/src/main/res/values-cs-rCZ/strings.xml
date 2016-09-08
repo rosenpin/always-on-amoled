@@ -137,6 +137,7 @@
   <string name="greenify_integration">Greenify integrace</string>
   <string name="settings_licenses">Licence</string>
   <string name="settings_uninstall">Odinstalovat</string>
+  <string name="settings_exit_animation">Animace</string>
   <string name="settings_app_version">Verze</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Zastavit funkci Vždy spuštěno když je zaplé fotoaparát (Mělo by zůstat povoleno na Nexus/Samsung zařízeních)</string>
@@ -204,6 +205,5 @@
   <string name="settings_memo_font_size_desc">Nastav velikost poznámky</string>
   <string name="settings_memo_hint">Napište svou poznámku zde. Zobrazí se na vaší always-on obrazovce.</string>
   <string name="settings_google_now_shortcut_desc">Vypnout always-on obrazovku při zapnutí Google Now hlasem řeknutím OK Google (Nemusí fungovat s Google Now Launcher)</string>
-  <string name="settings_exit_animation">Animace</string>
   <string name="settings_exit_animation_desc">Výběr animace ukončení</string>
 </resources>

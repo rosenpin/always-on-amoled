@@ -1,10 +1,10 @@
 Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+在任何時候保持開啟您的螢幕
+總是在應用程式第一次開放源碼 ！
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+這個想法是提供使用者提供有關資訊、 時間、 日期、 通知和更多和所有無需觸摸手機。 只是來看它。
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+這是使可能由於 AMOLED 顯示。 螢幕的大部分保持黑暗，幾個圖元。
 
 ★Notable features
 • Always On Screen

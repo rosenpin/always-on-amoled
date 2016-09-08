@@ -8,11 +8,24 @@
   <string name="menu_feedback">Opinião</string>
   <string name="menu_rate">Classifica a aplicação</string>
   <string name="action_restart">Reiniciar agora</string>
+  <string name="never_show_again">Não mostrar novamente</string>
   <!--Support-->
   <string name="action_support_the_development">Apoia o desenvolvimento</string>
   <string name="support_how_much">Quanto é que gostarias de doar?</string>
   <string name="gestures_action_speak">Dizer em alta voz a hora atual, notificações e o estado da bateria</string>
+  <string name="gestures_action_flashlight">Ligar/Desligar flash</string>
   <string name="supporter_feature_only">Esta funcionalidade apenas está disponível para os apoiantes. Podes escolher quanto é que queres doar para te tornar num apoiante. Quanto é que gostarias de doar?</string>
+  <string name="support_choose">Quanto queres doar?</string>
+  <string name="support_1">Desbloquear</string>
+  <string name="support_2">Doar</string>
+  <string name="support_5">Grande doação</string>
+  <string name="support_10">Incrível doação</string>
+  <string name="support_20">Enorme doação</string>
+  <string name="support_1_desc">Desbloqueia todas as funcionalidades premium da aplicação e ajuda o desenvolvimento</string>
+  <string name="support_2_desc">Ajuda um bocadinho mais o desenvolvimento. As mesmas funcionalidades que um desbloqueio regular.</string>
+  <string name="support_5_desc">Fazes uma doação para o projeto e ajudas-me a desenvolver o trabalho na aplicação. As mesmas funcionalidades que um desbloqueio regular.</string>
+  <string name="support_10_desc">Mostra que gostaste do projeto e o queres manter ativo. As mesmas funcionalidades que um desbloqueio regular.</string>
+  <string name="support_20_desc">Wow! Que doação enorme! Muito obrigado! :) As mesmas funcionalidades que um desbloqueio regular.</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ler o estado do telefone</string>
@@ -54,6 +67,7 @@
   <string name="error_2_plugin_not_installed">PLUG-IN NÃO ESTÁ INSTALADO</string>
   <string name="error_3_unknown_error_restart">Ocorreu um erro. Por favor, reinicia a aplicação.</string>
   <string name="error_4_tasker_service_not_initialized">O serviço não foi corretamente iniciado</string>
+  <string name="error_5_camera_cant_connect_desc">Não foi possível ligar à câmara. Poderá existir um problema com o teu dispositivo.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Isto pode prejudicar a performance da aplicação</string>
   <string name="warning_4_device_not_secured">O teu dispositivo pode não estar seguro</string>
@@ -77,6 +91,9 @@
   <string name="rules_battery_20">20% ou superior</string>
   <string name="rules_battery_10">10% ou superior</string>
   <!--Animations-->
+  <string name="animation_disabled">Sem animação</string>
+  <string name="animation_fade_out">Fade out</string>
+  <string name="animation_slide_out">Slide out</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Desativado</string>
   <string name="rules_minutes_1">1 Minuto</string>
@@ -91,6 +108,13 @@
   <string name="rules_orientation_vertical">Retrato (Vertical)</string>
   <string name="rules_orientation_horizontal">Paisagem (Horizontal)</string>
   <!-- Other labels -->
+  <string name="md_back_label">Voltar</string>
+  <string name="md_cancel_label">Cancelar</string>
+  <string name="md_choose_label">Escolher</string>
+  <string name="md_custom_label">Personalizado</string>
+  <string name="md_done_label">Concluído</string>
+  <string name="md_error_label">Erro</string>
+  <string name="md_presets_label">Predefinição</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamento</string>
   <string name="settings_about">Sobre</string>
@@ -105,6 +129,8 @@
   <string name="settings_double_tap_wake">Ação de duplo toque</string>
   <string name="settings_back_button_wake">Ação do botão voltar</string>
   <string name="settings_volume_to_stop">Ação das teclas de volume</string>
+  <string name="settings_swipe_up">Ação ao deslizar para cima</string>
+  <string name="settings_swipe_down">Ação ao deslizar para baixo</string>
   <string name="settings_brightness">Brilho</string>
   <string name="settings_doze">Modo Doze</string>
   <string name="settings_google_now_shortcut">Permitir Google Now</string>
@@ -132,7 +158,10 @@
   <string name="greenify_integration">Integração com o Greenify</string>
   <string name="settings_licenses">Licenças</string>
   <string name="settings_uninstall">Desinstalar</string>
+  <string name="settings_exit_animation">Animação</string>
   <string name="settings_app_version">Versão</string>
+  <string name="settings_enable_greenify">Ativar Greenify</string>
+  <string name="settings_battery_saver">Modo de poupança de bateria</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Parar o ecrã \"Always On\" quando a câmara é aberta (Deves manter ativado em dispositivos Nexus/Samsung)</string>
   <string name="settings_auto_brightness_desc">Escurece o ecrã automaticamente quando está em ambientes escuros (os sensores poderão utilizar mais bateria)</string>
@@ -146,9 +175,11 @@
   <string name="settings_proximity_to_lock_desc">Bloqueia o dispositivo quando o colocas no bolso para poupar bateria (os sensores poderão utilizar mais bateria)</string>
   <string name="settings_licenses_desc">Licenças de código aberto</string>
   <string name="settings_community_desc">Comunidade do Google +</string>
+  <string name="settings_about_twitter_desc">Segue-me no Twitter para notícias, atualizações e giveaways</string>
   <string name="settings_github_desc">Ligação do código aberto no GitHub</string>
   <string name="settings_move_desc">Ativa para evitar que o ecrã AMOLED queime</string>
   <string name="settings_font_size_desc">Altera o tamanho do texto do relógio</string>
+  <string name="settings_font_size_memo_desc">Escolher o tamanho do texto do memo</string>
   <string name="settings_notifications_desc">Ativa para manter a aplicação a correr em segundo plano</string>
   <string name="settings_enabled_desc">Ativa o serviço</string>
   <string name="settings_disable_volume_keys_desc">Ativa para prevenir alterações de volume acidentais</string>
@@ -184,6 +215,7 @@
   <string name="settings_watch_ticks">12H clássico com ponteiro das horas</string>
   <string name="settings_watch_digital_s7">Digital estilo S7</string>
   <string name="settings_watch_flat_analog">Analógico estilo plano (Flat)</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Analógico estilo Pebble</string>
   <string name="settings_watch_flat_red_analog">Analógico estilo plano (Flat) (linha vermelha)</string>
   <string name="move_disable">Desativado (Não recomendado em ecrãs AMOLED)</string>
@@ -199,6 +231,7 @@
   <string name="settings_memo_font_size_desc">Escolhe a fonte do texto memo</string>
   <string name="settings_memo_hint">Escreve aqui o texto memo. Ele irá aparecer no ecrã \"Always On\".</string>
   <string name="settings_google_now_shortcut_desc">Pára o ecrã \"Always On\" quando o Google NOW é lançado ao dizer OK Google (pode não funcionar com o Launcher Google Now)</string>
-  <string name="settings_exit_animation">Animação</string>
   <string name="settings_exit_animation_desc">Escolhe a animação de saída</string>
+  <string name="settings_battery_saver_desc">Reduzir consumo de bateria e sobreaquecimento. Funciona melhor com root.</string>
+  <string name="settings_watchface_date_desc">Escolhe o estilo para a data</string>
 </resources>

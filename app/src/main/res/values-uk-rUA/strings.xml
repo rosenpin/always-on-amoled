@@ -10,6 +10,7 @@
   <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
   <string name="gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
   <string name="supporter_feature_only">Ця функція доступна тільки для прихильників, ви можете вибрати, скільки ви хочете пожертвувати, щоб стати прихильником, скільки б ви хотіли пожертвувати?</string>
+  <string name="support_20">Величезне пожертвування</string>
   <!--Intro-->
   <string name="intro_allow_now">Дозволити зараз</string>
   <string name="intro_draw_over">Відображатися над іншими додатками</string>

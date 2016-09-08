@@ -8,11 +8,24 @@
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Betygsätt appen</string>
   <string name="action_restart">Starta om nu</string>
+  <string name="never_show_again">Visa aldrig igen</string>
   <!--Support-->
   <string name="action_support_the_development">Stödj utvecklaren</string>
   <string name="support_how_much">Hur mycket skulle du vilja donera?</string>
   <string name="gestures_action_speak">Säga aktuell tid, meddelanden och batteristatus högt</string>
+  <string name="gestures_action_flashlight">Ficklampa av/på</string>
   <string name="supporter_feature_only">Den här funktionen är endast tillgänglig för supportrar, du kan välja hur mycket du vill donera för att bli en supporter, hur mycket vill du donera?</string>
+  <string name="support_choose">Hur mycket skulle du vilja donera?</string>
+  <string name="support_1">Upplåsning</string>
+  <string name="support_2">Donera</string>
+  <string name="support_5">Stor donation</string>
+  <string name="support_10">Awesome donation</string>
+  <string name="support_20">Enorm donation</string>
+  <string name="support_1_desc">Lås upp alla premium-funktioner i appen och stödj utvecklingen</string>
+  <string name="support_2_desc">Stödja utvecklingen lite mer. Samma funktioner som vanlig upplåsning</string>
+  <string name="support_5_desc">Donera till projektet och hjälpa mig fortsätta arbeta på appen.  Samma  funktioner som vanlig upplåsning</string>
+  <string name="support_10_desc">Visa att du uppskattar projektet och håll utvecklingen aktiv. Samma funktioner som vanlig upplåsning</string>
+  <string name="support_20_desc">Wow! En enorm donation! Tack så mycket! :) Samma funktioner som vanlig upplåsning</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus</string>
@@ -47,10 +60,14 @@
   <string name="plugin_dialog_title">Plugin krävs</string>
   <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att stänga av dessa när appen är igång, var god installera plugin (Plugin for Always On AMOLED)</string>
   <!--Errors-->
+  <string name="error">Fel</string>
   <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
   <string name="error_0_unknown_error">Ett fel har uppstått. Vänligen rapportera till utvecklaren </string>
+  <string name="error_0_unknown_error_report_prompt">Klicka här för att rapportera felet</string>
   <string name="error_2_plugin_not_installed">PLUGIN HAR INTE INSTALLERATS</string>
   <string name="error_3_unknown_error_restart">Ett fel har uppstått. Vänligen starta om appen</string>
+  <string name="error_4_tasker_service_not_initialized">Tjänsten var inte korrekt initierad</string>
+  <string name="error_5_camera_cant_connect_desc">Kunde inte ansluta till kameran. Det kan finnas ett problem med din enhet.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Detta kan skada appens prestanda</string>
   <string name="warning_4_device_not_secured">Din enhet är eventuellt osäker för tillfället</string>
@@ -74,6 +91,9 @@
   <string name="rules_battery_20">20% eller mer</string>
   <string name="rules_battery_10">10% eller mer</string>
   <!--Animations-->
+  <string name="animation_disabled">Ingen animering</string>
+  <string name="animation_fade_out">Tona ut</string>
+  <string name="animation_slide_out">Glida ut</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Avaktiverat</string>
   <string name="rules_minutes_1">1 minut</string>
@@ -88,6 +108,13 @@
   <string name="rules_orientation_vertical">Porträtt (Vertikal)</string>
   <string name="rules_orientation_horizontal">Landskap (Horisontell)</string>
   <!-- Other labels -->
+  <string name="md_back_label">Tillbaka</string>
+  <string name="md_cancel_label">Avbryt</string>
+  <string name="md_choose_label">Välj</string>
+  <string name="md_custom_label">Anpassa</string>
+  <string name="md_done_label">Klar</string>
+  <string name="md_error_label">Fel</string>
+  <string name="md_presets_label">Förval</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Beteende</string>
   <string name="settings_about">Om</string>
@@ -102,6 +129,8 @@
   <string name="settings_double_tap_wake">Dubbeltryck i mitten på skärmen för att:</string>
   <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
   <string name="settings_volume_to_stop">Volymknapparna för att:</string>
+  <string name="settings_swipe_up">Dra uppåt för att:</string>
+  <string name="settings_swipe_down">Dra ner för att:</string>
   <string name="settings_brightness">Ljusstyrka</string>
   <string name="settings_doze">Doze-läge</string>
   <string name="settings_google_now_shortcut">Tillåta Google Nu</string>
@@ -129,7 +158,10 @@
   <string name="greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenser</string>
   <string name="settings_uninstall">Avinstallera</string>
+  <string name="settings_exit_animation">Animering</string>
   <string name="settings_app_version">Version</string>
+  <string name="settings_enable_greenify">Aktivera Greenify</string>
+  <string name="settings_battery_saver">Batterispararläge</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Stäng av always on skärmen när kameran startas (detta bör vara aktiverat på Nexus- och Samsungenheter)</string>
   <string name="settings_auto_brightness_desc">Dimma skärmen automatiskt när enheten befinner sig i mörka miljöer. (Sensorerna kan använda mer batteri)</string>
@@ -143,6 +175,7 @@
   <string name="settings_proximity_to_lock_desc">Lås enheten när du placerar enheten i fickan för att spara batteri (Sensorer kan använda mer batteri)</string>
   <string name="settings_licenses_desc">Licens för öppen källkod</string>
   <string name="settings_community_desc">Google Plus gemenskap</string>
+  <string name="settings_about_twitter_desc">Följ mig på Twitter för nyheter, uppdateringar och giveaways</string>
   <string name="settings_github_desc">Öppen källkod GitHub länk</string>
   <string name="settings_move_desc">Aktivera det här för att undvika AMOLED inbränning</string>
   <string name="settings_font_size_desc">Ange klockstorlek</string>
@@ -171,6 +204,7 @@
   <string name="settings_font_serif">Serif</string>
   <string name="settings_font_sans_serif">Sans Serif</string>
   <string name="settings_font_monospace">Fast bredd</string>
+  <string name="settings_gestures"><![CDATA[Gester & genvägar]]></string>
   <string name="settings_gestures_desc">Dubbeltryck för att väcka, dra upp för att väcka och mer</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
   <string name="settings_uninstall_desc">Avinstallera appen</string>
@@ -180,6 +214,7 @@
   <string name="settings_watch_ticks">Klassisk 12h (analog) </string>
   <string name="settings_watch_digital_s7">Galaxy S7 (digital)</string>
   <string name="settings_watch_flat_analog">Platt analog stil</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble (analog)</string>
   <string name="settings_watch_flat_red_analog">Platt analog (röd urtavla)</string>
   <string name="move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
@@ -188,11 +223,13 @@
   <string name="greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
   <string name="greenify_integration_desc_found">Se till att göra det möjligt för Greenify i tillgänglighetsinställningarna och välja de program du vill ska gå i viloläge när enheten är låst. Klicka här för att konfigurera Greenify</string>
   <string name="greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
-  <string name="settings_notifications_alerts_preview_desc">Visa meddelanden från andra appar när de tas emot</string>
+  <string name="settings_notifications_alerts_preview_desc">Visa innehåll i meddelanden när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
   <string name="settings_doze_desc">Aktivera doze medan always on skärmen är aktiv för att spara batteri (endast root)</string>
   <string name="settings_memo_text_desc">Skriv din anteckning här</string>
   <string name="settings_memo_font_size_desc">Ange teckenstorlek för anteckningar</string>
   <string name="settings_memo_hint">Skriv din anteckning här. Det visas på din always on display.</string>
   <string name="settings_google_now_shortcut_desc">Stäng av always on skärmen när Google Nu aktiveras genom att säga OK Google (kanske inte fungerar med Google Nu launcher)</string>
+  <string name="settings_battery_saver_desc">Minska batteriförbrukningen och överhettning. Fungerar bättre med root</string>
+  <string name="settings_watchface_date_desc">Välj det datumformat som du vill se</string>
 </resources>

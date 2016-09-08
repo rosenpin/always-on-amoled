@@ -15,6 +15,13 @@
   <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
   <string name="gestures_action_flashlight">Toggle torcia</string>
   <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
+  <string name="support_choose">Quanto vorresti donare?</string>
+  <string name="support_1">Sblocca</string>
+  <string name="support_2">Fai una donazione</string>
+  <string name="support_5">Grossa donazione</string>
+  <string name="support_10">Eccezionale donazione</string>
+  <string name="support_20">Ingente donazione</string>
+  <string name="support_1_desc">Sblocca tutte le funzionalità premium nell\'app e sostieni lo sviluppo</string>
   <!--Intro-->
   <string name="intro_allow_now">Consenti ora</string>
   <string name="intro_permissions">Leggi stato telefono</string>
@@ -56,6 +63,7 @@
   <string name="error_2_plugin_not_installed">IL PLUGIN NON E\' INSTALLATO</string>
   <string name="error_3_unknown_error_restart">Si è verificato un errore. Si prega di riavviare l\'app.</string>
   <string name="error_4_tasker_service_not_initialized">Il servizio non è stato inizializzato correttamente</string>
+  <string name="error_5_camera_cant_connect_desc">Impossibile connettersi alla macchina fotografica. Potrebbe esserci un problema con il tuo dispositivo.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Questo può danneggiare le prestazioni dell\'applicazione</string>
   <string name="warning_4_device_not_secured">Il tuo dispositivo può non essere fissato ora</string>
@@ -143,6 +151,7 @@
   <string name="greenify_integration">Integrazione Greenify</string>
   <string name="settings_licenses">Licenze</string>
   <string name="settings_uninstall">Disinstalla</string>
+  <string name="settings_exit_animation">Animazione</string>
   <string name="settings_app_version">Versione</string>
   <string name="settings_enable_greenify">Abilita Greenify</string>
   <string name="settings_battery_saver">Modalità risparmio batteria</string>
@@ -163,6 +172,7 @@
   <string name="settings_github_desc">Link open source di Github</string>
   <string name="settings_move_desc">Attiva questa opzione per evitare il burn in dello schermo AMOLED</string>
   <string name="settings_font_size_desc">Imposta la dimensione del carattere dell\'orologio</string>
+  <string name="settings_font_size_memo_desc">Imposta la dimensione carattere del memo</string>
   <string name="settings_notifications_desc">Abilitare per mantenere l\'applicazione attiva in background\nTip: Tu puoi bloccare le notifiche di questa su Android 6.0 e versioni successive senza compromettere la sua funzionalità</string>
   <string name="settings_enabled_desc">Attiva il servizio</string>
   <string name="settings_disable_volume_keys_desc">Attiva questa funzione per prevenire modifiche accidentali del cambio volume</string>
@@ -214,7 +224,7 @@
   <string name="settings_memo_font_size_desc">Imposta la dimensione carattere del memo</string>
   <string name="settings_memo_hint">Digita qui il tuo memo. Esso apparirà nel tuo schermo always on.</string>
   <string name="settings_google_now_shortcut_desc">Interrompi l\'always on screen quando Google Now viene attivato dicendo OK Google (Potrebbe non funzionare con il Google Now Launcher)</string>
-  <string name="settings_exit_animation">Animazione</string>
   <string name="settings_exit_animation_desc">Scegli l\'animazione di uscita</string>
   <string name="settings_battery_saver_desc">Riduce il consumo e il surriscaldamento batteria. Funziona meglio con il root.</string>
+  <string name="settings_watchface_date_desc">Scegli lo stile di data che vuoi vedere</string>
 </resources>

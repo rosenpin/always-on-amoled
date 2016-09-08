@@ -1,35 +1,35 @@
-Use a função "Always On" no seu smartphone ou tablet.
-Mantém a tela ligada o tempo todo.
-The first open source always on app!
+Obtenha a função "Always On" no seu telefone ou tablet.
+Mantenha sua tela ligada o tempo todo.
+O primeiro aplicativo "Always on" de código aberto!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+A ideia é fornecer aos usuários informações sobre, hora, data, notificações e mais e tudo sem ter que tocar o telefone. Só de olhar para ele.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Isto é possível graças as telas AMOLED. A maioria da tela se mantém preta exceto alguns píxeis.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
+★Funcionalidades em destaque
+• Tela "Always On"
+• Notificações - exibir notificações sem tocar em seu dispositivo
+• Regras automáticas - preservar bateria usando regras predefinidas
+• Movimento automático - evita que as telas AMOLED queimem
 • Modo de noite auto - dim tela automaticamente em ambiente escuro
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+•    Modo de bolso - bloquear o dispositivo quando você deixá-lo em seu bolso para economizar bateria
+• Duplo toque para acordar + Deslizar para cima para acordar + Teclas de volume para acordar + Botão voltar para acordar
+• Forçar orientação - define sua orientação da tela preferida
+• Personalização - altere a cor do texto, o tamanho do texto, o brilho e mais
+• GRÁTIS E DE CÓDIGO ABERTO!
 
-Before using please enable 'draw over apps' permission for this app.
+Antes de usar este aplicativo, por favor habilite a permissão "sobrepor a outros aplicativos".
 
-The app is in BETA, it still has bugs and lacks features.
+O aplicativo está em BETA, ainda tem erros e faltam mais recursos.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Permissões
+<b>Permissão da câmera</b>
+O aplicativo precisa de permissão de câmera para reconhecer o evento de lançamento e desativar a tela "Always On".
+<b>Permissão de telefone</b>
+O aplicativo precisa de permissão de telefone para reconhecer as chamadas recebidas, desativar a tela "Always On" e mostrar a tela de chamada recebida.
+<b>Modificar permissões de configurações do sistema</b>
+O aplicativo precisa de permissão para modificar as configurações do sistema para alterar o brilho da tela de bloqueio.
 
 
-Google Plus Community
+Comunidade do Google Plus
 https://plus.google.com/communities/104206728795122451273

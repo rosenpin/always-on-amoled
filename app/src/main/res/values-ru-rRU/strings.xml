@@ -147,6 +147,7 @@
   <string name="greenify_integration">Интеграция с Greenify</string>
   <string name="settings_licenses">Лицензия</string>
   <string name="settings_uninstall">Удалить</string>
+  <string name="settings_exit_animation">Анимация</string>
   <string name="settings_app_version">Версия</string>
   <string name="settings_enable_greenify">Включить Greenify</string>
   <string name="settings_battery_saver">Режим энергосбережения</string>
@@ -218,7 +219,6 @@
   <string name="settings_memo_font_size_desc">Установить размер своего текста</string>
   <string name="settings_memo_hint">Напишите свой текст сюда. Он будет показан на экране Always ON.</string>
   <string name="settings_google_now_shortcut_desc">Отключить экран Always ON при запуске Google Now с помощью Окей Гугл (Может работать некорректно с Google Now Лаунчером)</string>
-  <string name="settings_exit_animation">Анимация</string>
   <string name="settings_exit_animation_desc">Выберите анимацию выхода</string>
   <string name="settings_battery_saver_desc">Защита батареи от перегрева. Работает лучше с ROOT.</string>
 </resources>

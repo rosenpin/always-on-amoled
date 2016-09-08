@@ -84,6 +84,9 @@
   <string name="rules_battery_20">20% ומעלה</string>
   <string name="rules_battery_10">10% ומעלה</string>
   <!--Animations-->
+  <string name="animation_disabled">ללא אנימציה</string>
+  <string name="animation_fade_out">עמעום</string>
+  <string name="animation_slide_out">החלקה החוצה</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">לא מאופשר</string>
   <string name="rules_minutes_1">דקה אחת</string>
@@ -98,6 +101,13 @@
   <string name="rules_orientation_vertical">אנכי (לאורך)</string>
   <string name="rules_orientation_horizontal">אופקי (לרוחב)</string>
   <!-- Other labels -->
+  <string name="md_back_label">חזור</string>
+  <string name="md_cancel_label">ביטול</string>
+  <string name="md_choose_label">בחירה</string>
+  <string name="md_custom_label">מותאם אישית</string>
+  <string name="md_done_label">סיים</string>
+  <string name="md_error_label">שגיאה</string>
+  <string name="md_presets_label">קבוע מראש</string>
   <!--Settings headers-->
   <string name="settings_behaviour">התנהגות</string>
   <string name="settings_about">אודות</string>
@@ -112,6 +122,8 @@
   <string name="settings_double_tap_wake">הקשה כפולה לפתיחה</string>
   <string name="settings_back_button_wake">כפתור חזרה לפתיחה</string>
   <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
+  <string name="settings_swipe_up">פעולת החלקה מעלה</string>
+  <string name="settings_swipe_down">פעולת החלקה מטה</string>
   <string name="settings_brightness">בהירות</string>
   <string name="settings_doze">חסכון בסוללה</string>
   <string name="settings_google_now_shortcut">אפשר Ok Google</string>
@@ -139,7 +151,9 @@
   <string name="greenify_integration">אינטגרציה של Greenify</string>
   <string name="settings_licenses">רשיונות</string>
   <string name="settings_uninstall">הסר התקנה</string>
+  <string name="settings_exit_animation">אנימציה</string>
   <string name="settings_app_version">גירסה</string>
+  <string name="settings_enable_greenify">הפעל Greenify</string>
   <string name="settings_battery_saver">מצב חיסכון בסוללה</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">הדלקת המסך כאשר המצלמה נפתחת (יש להשאיר מאופשר במכשירי נקסוס או סמסונג)</string>
@@ -154,6 +168,7 @@
   <string name="settings_proximity_to_lock_desc">מכבה את המסך כאשר המכשיר בכיס כדי לחסוך סוללה (הפעלת החיישנים עשוי לצרוך עוד סוללה)</string>
   <string name="settings_licenses_desc">רשיונות קוד פתוח</string>
   <string name="settings_community_desc">קהילת גוגל פלוס</string>
+  <string name="settings_about_twitter_desc">עקבו אחרי בTwitter עבור חדשות, עדכונים ועוד</string>
   <string name="settings_github_desc">קישור Github לקוד הפתוח</string>
   <string name="settings_move_desc">אפשר כדי להמנע מ AMOLED burn in</string>
   <string name="settings_font_size_desc">קבע את גודל טקסט השעון</string>
@@ -207,7 +222,6 @@
   <string name="settings_memo_font_size_desc">קבע את גודל טקסט התזכיר</string>
   <string name="settings_memo_hint">כתוב את התזכיר שלך כאן, הוא יופיע כאשר המסך נעול.</string>
   <string name="settings_google_now_shortcut_desc">עצור את המסך הדולק תמיד כאשר Google Now מופעל על ידי אמירת Ok Google (יתכן שלא יעבוד עם Google Now Launcher)</string>
-  <string name="settings_exit_animation">אנימציה</string>
   <string name="settings_exit_animation_desc">בחר את אנימציית היציאה</string>
   <string name="settings_battery_saver_desc">מפחית את השימוש בסוללה והתחממות יתר. עובד טוב יותר עם רוט.</string>
 </resources>

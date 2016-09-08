@@ -1,16 +1,16 @@
 Always on display funkciót kap telefonja vagy tabletje.
-Tartsa bekapcsolva képernyőjét mindig.
+Képernyőjét mindig bekapcsolva tartja.
 Az első nyílt forráskódú always on app!
 
-Az ötlet az, hogy a felhasználókat ellásuk információval az időről, dátumról, értesítésekről, satöbbi, anélkül hogy a telefonhoz érne. Csak azzal, hogy ránézünk.
+Az ötlet az, hogy a felhasználókat ellásuk információval az időről, dátumról, értesítésekről, satöbbi, anélkül hogy a telefonhoz érne. Elég ha csak ránézünk.
 
-Ez lehetséges, köszönhetően az AMOLED kijelzőknek. A képernyő nagy része fekete marad, kivéve néhány pixel.
+Az egész az AMOLED kijelzőnek köszönhető. A képernyő nagy része fekete marad, kivéve néhány pixel.
 
 ★Notable features
 • Always On Screen
 •    Értesítések - tekintse meg értesítéseit anélkül hogy hozzáérne készülékéhez
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
+• Automatikus szabályok - megőrzése akkumulátort használ előre definiált szabályok
+• Automatikus mozgás - AMOLED beégés elkerülése
 • Auto night mode - dim the screen automatically in dark environment
 • Pocket mode - lock the device when you leave it in your pocket to save battery
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake

@@ -12,7 +12,7 @@ Bu, AMOLED ekranlar sayesinde mümkün. Birkaç piksel dışında ekran siyah ka
 • Otomatik kurallar - önceden tanımlanmış kuralları kullanarak pilinizi koruyun
 • Otomatik hareket - AMOLED ekran yanığını önleme
 • Otomatik gece modu - Karanlık ortamda parlaklığı otomatik olarak kısma
-• Cep modu - Cihazı cebinize koyduğunuzda güç tasarrufu içi otomatik kilitleme
+• Cep modu - Cihazı cebinize koyduğunuzda güç tasarrufu için otomatik olarak kilitler
 • Çift tıkla uyandırma + Yukarı kaydırarak uyandırma + Ses tuşlarını kullanarak uyandırma + Geri tuşuyla uyandırma
 • Ekran yönlendirme - Ekranın hangi yönde kalacağını belirleme
 • Kişiselleştirme - Yazı rengini, büyüklüğünü, ekran parlaklığını ve daha fazlasını özelleştirme

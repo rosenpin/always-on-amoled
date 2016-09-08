@@ -131,6 +131,7 @@
   <string name="greenify_integration">Intégration de Greenify</string>
   <string name="settings_licenses">Licences</string>
   <string name="settings_uninstall">Désinstaller</string>
+  <string name="settings_exit_animation">Animation</string>
   <string name="settings_app_version">Version</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Arrêter l\'écran \"Always ON\" quand l\'appareil photo est lancé (devrait rester activé sur les téléphones Nexus/Samsung)</string>
@@ -197,5 +198,4 @@
   <string name="settings_memo_font_size_desc">Paramétrer la police du memo</string>
   <string name="settings_memo_hint">Écris ton memo ici. Il s\'affichera sur ton écran Always On.</string>
   <string name="settings_google_now_shortcut_desc">Arrêter l\'écran Always On quand Google Now est lancé en disant \"Ok Google\" (Peut ne pas marcher avec le Launcher Google Now)</string>
-  <string name="settings_exit_animation">Animation</string>
 </resources>

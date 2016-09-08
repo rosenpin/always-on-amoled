@@ -138,6 +138,7 @@
   <string name="greenify_integration">”绿色守护“整合</string>
   <string name="settings_licenses">许可信息</string>
   <string name="settings_uninstall">卸载</string>
+  <string name="settings_exit_animation">动画</string>
   <string name="settings_app_version">版本</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">在启动相机后暂时关闭Always On屏幕</string>
@@ -205,6 +206,5 @@
   <string name="settings_memo_font_size_desc">设置备注字体</string>
   <string name="settings_memo_hint">在这里写下您的备注信息。备注信息将会显示在您的Always On屏幕上。</string>
   <string name="settings_google_now_shortcut_desc">在通过“OK Google“启动Google即时后，暂停Always On服务。(可能对Google Now桌面无效)</string>
-  <string name="settings_exit_animation">动画</string>
   <string name="settings_exit_animation_desc">选择退出动画</string>
 </resources>

@@ -3,8 +3,8 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
-  <string name="unlock">Kilidi aç</string>
-  <string name="action_revert">Eski Haline Döndür</string>
+  <string name="unlock">Ekranı aç</string>
+  <string name="action_revert">Geri döndür</string>
   <string name="menu_feedback">Geribildirim</string>
   <string name="menu_rate">Uygulamayı derecelendir</string>
   <string name="action_restart">Şimdi yeniden başlat</string>
@@ -15,6 +15,17 @@
   <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
   <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="supporter_feature_only">Bu özellik sadece destekçiler içindir, destekçi olmak için ne kadar bağışlayacağını seçebilirsin, ne kadar bağışlamak istersin?</string>
+  <string name="support_choose">Ne kadar bağış yapmak istersiniz?</string>
+  <string name="support_1">Kilidi Aç</string>
+  <string name="support_2">Bağış Yap</string>
+  <string name="support_5">Büyük Bağış</string>
+  <string name="support_10">Müthiş Bağış</string>
+  <string name="support_20">Dev Bağış</string>
+  <string name="support_1_desc">Uygulamanın tüm premium özelliklerini aç ve gelişimini destekle</string>
+  <string name="support_2_desc">Geliştirmeyi biraz daha destekle. Standart kilit açma ile aynı özellikler.</string>
+  <string name="support_5_desc">Projeye bağış yap ve uygulama üzerinde çalışmama devam etmeme yardım et. Standart kilit açma ile aynı özellikler.</string>
+  <string name="support_10_desc">Projeye olan memnuniyetini göster ve gelişimi aktif tut. Standart kilit açma ile aynı özellikler.</string>
+  <string name="support_20_desc">Vay canına! Kocaman bir bağış! Çok teşekkürler! :) Standart kilit açma ile aynı özellikler.</string>
   <!--Intro-->
   <string name="intro_allow_now">Şimdi izin ver</string>
   <string name="intro_permissions">Telefon durumunu oku</string>
@@ -41,7 +52,7 @@
   <!-- Content description-->
   <string name="notification_icon">Bildirim simgesi</string>
   <!--Widget-->
-  <string name="widget_toggle">geçiş</string>
+  <string name="widget_toggle">açık/Kapalı</string>
   <string name="widget_off">Kapalı</string>
   <string name="widget_on">Açık</string>
   <!--Device admin-->
@@ -55,6 +66,8 @@
   <string name="error_0_unknown_error_report_prompt">Hata raporu için tıklayınız</string>
   <string name="error_2_plugin_not_installed">EKLENTİ YÜKLÜ DEĞİL</string>
   <string name="error_3_unknown_error_restart">Bir hata oluştu. Lütfen uygulamayı yeniden başlat.</string>
+  <string name="error_4_tasker_service_not_initialized">Hizmet uygun bir biçimde başlatılamadı</string>
+  <string name="error_5_camera_cant_connect_desc">Kamerayla bağlantı kurulamadı. Muhtemelen cihazınızla ilgili bir sorun.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Bu uygulama cihazınızın performansını etkileyebilir.</string>
   <string name="warning_4_device_not_secured">Aygıtınız şimdi güvenli değil</string>
@@ -78,8 +91,9 @@
   <string name="rules_battery_20">% 20 veya daha yüksek</string>
   <string name="rules_battery_10">% 10 veya daha yüksek</string>
   <!--Animations-->
-  <string name="animation_disabled">Animasyon</string>
-  <string name="animation_fade_out">Karatma dışarı</string>
+  <string name="animation_disabled">Animasyon yok</string>
+  <string name="animation_fade_out">Kaybolarak</string>
+  <string name="animation_slide_out">Dışa kaydır</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Devredışı</string>
   <string name="rules_minutes_1">1 Dakika</string>
@@ -94,6 +108,13 @@
   <string name="rules_orientation_vertical">Portre (Dikey)</string>
   <string name="rules_orientation_horizontal">Manzara (Yatay)</string>
   <!-- Other labels -->
+  <string name="md_back_label">Geri</string>
+  <string name="md_cancel_label">İptal</string>
+  <string name="md_choose_label">Seç</string>
+  <string name="md_custom_label">Düzenle</string>
+  <string name="md_done_label">Bitti</string>
+  <string name="md_error_label">Hata</string>
+  <string name="md_presets_label">Hazır renkler</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Davranış</string>
   <string name="settings_about">Hakkımızda</string>
@@ -108,13 +129,15 @@
   <string name="settings_double_tap_wake">Çift tıklama eylemi</string>
   <string name="settings_back_button_wake">Geri düğmesi </string>
   <string name="settings_volume_to_stop">Ses tuşunu kapalı tut</string>
+  <string name="settings_swipe_up">Yukarı Kaydırma Hareketi</string>
+  <string name="settings_swipe_down">Aşağı Kaydırma Hareketi</string>
   <string name="settings_brightness">Parlaklık</string>
   <string name="settings_doze">Doze modu</string>
   <string name="settings_google_now_shortcut">Google Now izni</string>
   <string name="settings_memo_text">Ekran notu</string>
   <string name="settings_notifications">Bildirimler</string>
   <string name="settings_persistent_notification">Kalıcı bildirimleri göster</string>
-  <string name="settings_move_auto">Otomatik olarak hareket ettir</string>
+  <string name="settings_move_auto">Widget\'i otomatik hareket ettir</string>
   <string name="settings_font_size">Yazı boyutu</string>
   <string name="settings_watchface">Saat görüntüsünü özelleştir</string>
   <string name="settings_proximity">Yakınlık sensörü (Cep modu)</string>
@@ -126,8 +149,8 @@
   <string name="settings_orientation">Ekran yönlendirme</string>
   <string name="settings_always_on_memo">Daima Açık Notu</string>
   <string name="settings_stop_on_camera">Kamera kısayollarına izin ver</string>
-  <string name="settings_rules_cahrging">Şarj olurken</string>
-  <string name="settings_rules_battery">Pilde iken</string>
+  <string name="settings_rules_cahrging">Şarj kuralları</string>
+  <string name="settings_rules_battery">Pil kuralları</string>
   <string name="settings_font">Yazı Tipi</string>
   <string name="settings_translate">Tercüme Et</string>
   <string name="settings_github">GitHub</string>
@@ -135,10 +158,13 @@
   <string name="greenify_integration">Greenify entegrasyonu</string>
   <string name="settings_licenses">Lisanslar</string>
   <string name="settings_uninstall">Uygulamayı kaldır</string>
+  <string name="settings_exit_animation">Animasyon</string>
   <string name="settings_app_version">Versiyon</string>
+  <string name="settings_enable_greenify">Greenify\'ı Etkinleştir</string>
+  <string name="settings_battery_saver">Pil Tasarruf Modu</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Kamera açıldığında \"daima açık\" ekranını kapat (Nexus ve Samsung cihazlarda açık kalması önerilir)</string>
-  <string name="settings_auto_brightness_desc">Karanlık ortamda ekran parlaklığını otomatik olarak kısar (Sensörler batarya kullanımını artırabilir)</string>
+  <string name="settings_auto_brightness_desc">Karanlık ortamda ekran parlaklığını otomatik olarak kısar (Sensörler batarya kullanımını arttırabilir)</string>
   <string name="settings_stop_delay_desc_short_message">Daima açık ekranını durdur:</string>
   <string name="settings_stop_delay_desc">Pil tasarrufu için herhangi bir eylem yapılmadığında bir süre sonra her zaman açık ekranı kapat</string>
   <string name="settings_startafterlock_desc">\"Daima açık\" ekranı sadece ekran kilitlendikten sonra başlat. Cihazı parmak izi veya başka bir güvenlik fonksiyonu ile kullanıyorsanız bunu etkinleştirin</string>
@@ -150,9 +176,11 @@
   <string name="settings_proximity_to_lock_desc">Cihazı cebinize koyduğunuzda pil tasarrufu için cihazı kilitle (Sensörler batarya kullanımını artırabilir)</string>
   <string name="settings_licenses_desc">Lisans/kaynak kodlarını aç</string>
   <string name="settings_community_desc">Google+ topluluğu</string>
+  <string name="settings_about_twitter_desc">Haberler, Güncellemeler ve Hediyeler için beni Twitter\'da takip et</string>
   <string name="settings_github_desc">Açık kaynak kodları Github adresi</string>
   <string name="settings_move_desc">Amoled aydınlatma önlenmesini etkinleştir </string>
   <string name="settings_font_size_desc">Saat yazı boyutunu ayarla</string>
+  <string name="settings_font_size_memo_desc">Kısa Not Yazı Stilini Kur</string>
   <string name="settings_notifications_desc">Uygulamanın arkaplanda çalışması için bunu etkinleştir</string>
   <string name="settings_enabled_desc">Servisi etkinleştir </string>
   <string name="settings_disable_volume_keys_desc">Yanlışlıkla ses artırma-kısma olmaması için bunu aktifleştir</string>
@@ -188,6 +216,7 @@
   <string name="settings_watch_ticks">12H klasik / saat tıklarıyla</string>
   <string name="settings_watch_digital_s7">S7 stili dijital saat</string>
   <string name="settings_watch_flat_analog">Düz analog stil</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble stili analog saat</string>
   <string name="settings_watch_flat_red_analog">Düz analog (kırmızı kadran)</string>
   <string name="move_disable">Devredışı (AMOLED ekranlar için önerilmez)</string>
@@ -203,6 +232,7 @@
   <string name="settings_memo_font_size_desc">Notun yazı tipi boyutunu ayarla</string>
   <string name="settings_memo_hint">Notunu buraya yaz. Daima açık ekranında görünecek.</string>
   <string name="settings_google_now_shortcut_desc">OK Google diyerek Google Now başlatıldığında \"daima açık\" ekranı kapat (Google Now Launcher ile çalışmayabilir)</string>
-  <string name="settings_exit_animation">Animasyon</string>
   <string name="settings_exit_animation_desc">Çıkış animasyon seçin</string>
+  <string name="settings_battery_saver_desc">Pil tüketimini ve aşırı ısınmayı azaltır. Root ile daha iyi çalışır.</string>
+  <string name="settings_watchface_date_desc">Görmek istediğin tarih stilini seç</string>
 </resources>

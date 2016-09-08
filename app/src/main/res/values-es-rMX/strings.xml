@@ -13,13 +13,24 @@
   <string name="action_support_the_development">Apoya al desarrollo</string>
   <string name="support_how_much">¿Cuánto te gustaría donar?</string>
   <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
-  <string name="gestures_action_flashlight">J</string>
+  <string name="gestures_action_flashlight">Alternar linterna</string>
   <string name="supporter_feature_only">Esta función está solamente disponible para los seguidores, puede elegir cuánto quiere donar para convertirse en un seguidor. ¿Cuánto te gustaría donar?</string>
+  <string name="support_choose">¿Cuánto te gustaría donar?</string>
+  <string name="support_1">Desbloquear</string>
+  <string name="support_2">Donar</string>
+  <string name="support_5">Donación grande</string>
+  <string name="support_10">Donación increíble</string>
+  <string name="support_20">Gran donación</string>
+  <string name="support_1_desc">Desbloquear todas las características premium de la aplicación y apoyar el desarrollo</string>
+  <string name="support_2_desc">Apoyar el desarrollo un poco más. Mismas características que el desbloqueo normal.</string>
+  <string name="support_5_desc">Donar al proyecto y me ayudan a seguir trabajando en la aplicación. Mismas características que el desbloqueo normal.</string>
+  <string name="support_10_desc">Demuestra que aprecia el proyecto y mantiene el desarrollo activo. Mismas características que el desbloqueo normal.</string>
+  <string name="support_20_desc">¡Wow! una enorme donación! ¡Muchas gracias! :) Mismas características que el desbloqueo normal.</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Leer el estado del dispositivo</string>
-  <string name="intro_permissions_desc">La aplicación necesita permiso para leer el estado del dispositivo y encender la pantalla al recibir una llamada.</string>
-  <string name="intro_draw_over">Mostrarse sobre otras aplicaciones</string>
+  <string name="intro_permissions_desc">La aplicación necesita permiso para leer el estado del dispositivo para encenderlo al recibir una llamada.</string>
+  <string name="intro_draw_over">Destacar sobre otras aplicaciones</string>
   <string name="intro_draw_over_desc">La aplicación necesita permiso para mostrarse sobre otras aplicaciones</string>
   <string name="intro_modify_desc">La aplicación necesita permiso para cambiar el brillo de la pantalla</string>
   <string name="intro_modify">Modificar configuraciones del sistema</string>
@@ -28,7 +39,7 @@
   <string name="intro_checkbox_volume_keys">Teclas de volumen para desbloquear</string>
   <string name="intro_checkbox_swipe_up">Desliza hacia arriba desde el centro de la pantalla para desbloquear</string>
   <string name="intro_checkbox_double_tap">Toca dos veces en el centro de la pantalla para desbloquear</string>
-  <string name="intro_notifications">Alertas de las notificaciones</string>
+  <string name="intro_notifications">Notificaciones</string>
   <string name="intro_notifications_desc">¿Quieres recibir notificaciones de otras aplicaciones mientras la pantalla está en el estado \"Always On\"? Si quieres, selecciona el botón \"Permitir\"</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">¡Gracias por tu apoyo! :)</string>
@@ -56,6 +67,7 @@
   <string name="error_2_plugin_not_installed">El plugin no está instalado</string>
   <string name="error_3_unknown_error_restart">Ha ocurrido un error. por favor reinicie la aplicación.</string>
   <string name="error_4_tasker_service_not_initialized">El servicio no se inició correctamente</string>
+  <string name="error_5_camera_cant_connect_desc">No es posible conectar a la cámara. Puede haber un problema con su dispositivo.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Esto puede afectar al rendimiento de la aplicación</string>
   <string name="warning_4_device_not_secured">Su dispositivo puede no ser seguro ahora</string>
@@ -63,11 +75,11 @@
   <string name="warning_6_device_admin_disabled">Algunas características pueden que esté desactivadas ahora</string>
   <string name="warning_7_disable_fingerprint">Esto podría desactivar el sensor de huellas dactilares, ¿está seguro de que desea continuar?</string>
   <string name="warning_8_intro_allow_all">Por favor activa todos los permisos necesarios</string>
-  <string name="warning_9_allow_notification">Por favor permite acceso a las notificaciones</string>
+  <string name="warning_9_allow_notification">Por favor permite el acceso a las notificaciones</string>
   <string name="warning_11_no_root">El dispositivo debe tener acceso root para utilizar esta funcion</string>
-  <string name="warning_12_please_report">Por favor hágamelo saber lo que le gustaría añadir/corregir</string>
+  <string name="warning_12_please_report">Por favor hágame saber lo que le gustaría añadir/corregir</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">Ambos, mientras se esta cargando como cuando se esta descargando</string>
+  <string name="rules_both_charging">Ambos, durante la carga y descarga</string>
   <string name="rules_while_charging">Cuando está cargando</string>
   <string name="rules_while_not_charging">Cuando se está descargando</string>
   <!--Battery rules-->
@@ -80,10 +92,10 @@
   <string name="rules_battery_10">10% o superior</string>
   <!--Animations-->
   <string name="animation_disabled">Sin animación</string>
-  <string name="animation_fade_out">Un</string>
-  <string name="animation_slide_out">Deslizar a la izquierda</string>
+  <string name="animation_fade_out">Desvanecer</string>
+  <string name="animation_slide_out">Deslice hacia afuera</string>
   <!--Timeout delay rule-->
-  <string name="rules_disabled">Desactivado</string>
+  <string name="rules_disabled">Inhabilitar</string>
   <string name="rules_minutes_1">1 minuto</string>
   <string name="rules_minutes_2">2 minutos</string>
   <string name="rules_minutes_5">5 minutos</string>
@@ -94,9 +106,9 @@
   <string name="rules_hours_2">2 horas</string>
   <!--Orientation-->
   <string name="rules_orientation_vertical">Vertical</string>
-  <string name="rules_orientation_horizontal">Horizontal</string>
+  <string name="rules_orientation_horizontal">Paisaje (Horizontal)</string>
   <!-- Other labels -->
-  <string name="md_back_label">Regresar</string>
+  <string name="md_back_label">Atrás</string>
   <string name="md_cancel_label">Cancelar</string>
   <string name="md_choose_label">Elegir</string>
   <string name="md_custom_label">Editar</string>
@@ -109,10 +121,10 @@
   <string name="settings_appearance">Apariencia</string>
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Atajos</string>
-  <string name="settings_wake_up">Gestos &amp; acciónes</string>
+  <string name="settings_wake_up">Gestos y acciónes</string>
   <string name="settings_rules">Reglas Automáticas</string>
   <!--Settings titles-->
-  <string name="settings_enabled">Activar</string>
+  <string name="settings_enabled">Habilitar</string>
   <string name="settings_disable_volume_keys">Desactivar teclas de volumen</string>
   <string name="settings_double_tap_wake">Acción de doble toque</string>
   <string name="settings_back_button_wake">Acción de botón atras</string>
@@ -146,6 +158,7 @@
   <string name="greenify_integration">Integracion con Greenify</string>
   <string name="settings_licenses">Licencias</string>
   <string name="settings_uninstall">Desinstalar</string>
+  <string name="settings_exit_animation">Animacion</string>
   <string name="settings_app_version">Versión</string>
   <string name="settings_enable_greenify">Activar Greenify</string>
   <string name="settings_battery_saver">Modo ahorro de energía</string>
@@ -166,6 +179,7 @@
   <string name="settings_github_desc">Código abierto en Github</string>
   <string name="settings_move_desc">Habilitar para evitar quemadura de algunos píxeles la pantalla AMOLED</string>
   <string name="settings_font_size_desc">Tamaño de fuente del reloj</string>
+  <string name="settings_font_size_memo_desc">Establezca el tamaño de fuente de la nota</string>
   <string name="settings_notifications_desc">Habilitar para mantener la aplicación funcionando de fondo\nConsejo: puedes bloquear la notificación en Android 6. 0+ sin que afecte a la funcionalidad</string>
   <string name="settings_enabled_desc">Iniciar el servicio</string>
   <string name="settings_disable_volume_keys_desc">Activar esto para prevenir cambios de volumen accidentales</string>
@@ -217,7 +231,7 @@
   <string name="settings_memo_font_size_desc">Establezca el tamaño de fuente de la nota</string>
   <string name="settings_memo_hint">Escriba su nota aquí. Será mostrada en tu Always on screen.</string>
   <string name="settings_google_now_shortcut_desc">Detenga el Always on screen cuando Google Now es lanzado diciendo OK Google (Puede no funcionar con el launcher Google Now)</string>
-  <string name="settings_exit_animation">Animacion</string>
   <string name="settings_exit_animation_desc">Elige animación de desbloqueo</string>
   <string name="settings_battery_saver_desc">Reduce el consumo de la batería y el sobrecalentamiento. Funciona mejor con root.</string>
+  <string name="settings_watchface_date_desc">Elige el estilo de fecha que desea ver</string>
 </resources>

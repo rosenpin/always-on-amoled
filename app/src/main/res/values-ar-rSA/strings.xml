@@ -15,6 +15,8 @@
   <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
   <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="supporter_feature_only">هذه الخاصية متاحة فقط للداعمين بأمكانك أن تصبح داعما،كم تريد أن تعطينا؟</string>
+  <string name="support_1">C</string>
+  <string name="support_2_desc">Support the development a bit more. Same features as regular unlock.</string>
   <!--Intro-->
   <string name="intro_allow_now">اسمح الأن</string>
   <string name="intro_permissions">قراءة حالة الهاتف</string>
@@ -97,6 +99,7 @@
   <string name="rules_orientation_vertical">عمودي (رأسي)</string>
   <string name="rules_orientation_horizontal">المناظر الطبيعية (أفقي)</string>
   <!-- Other labels -->
+  <string name="md_back_label">Back</string>
   <!--Settings headers-->
   <string name="settings_behaviour">السلوك</string>
   <string name="settings_about">حول</string>
@@ -138,6 +141,7 @@
   <string name="greenify_integration">خدمة Greenify</string>
   <string name="settings_licenses">الرخص</string>
   <string name="settings_uninstall">مسح التطبيق</string>
+  <string name="settings_exit_animation">الحركة</string>
   <string name="settings_app_version">الإصدار</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">إيقاف خدمة Always On Display عند تشغيل الكامير</string>
@@ -205,6 +209,5 @@
   <string name="settings_memo_font_size_desc">تعيين حجم الخط للمذكرة</string>
   <string name="settings_memo_hint">أكتب ملاحظتك هنا. سوف تظهر في شاشة Always On.</string>
   <string name="settings_google_now_shortcut_desc">إلغ تفعيل \"Always On Display\" عند تشغيل خاصية (google now) بقول \"Ok Google\" (قد لا تعمل مع لانشر جوجل الآن)</string>
-  <string name="settings_exit_animation">الحركة</string>
   <string name="settings_exit_animation_desc">اختر حركة الخروج</string>
 </resources>

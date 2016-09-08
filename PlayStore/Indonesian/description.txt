@@ -11,24 +11,24 @@ Berkat layar AMOLED hal ini bisa menjadi kenyataan. Sebagian besar layar tetap h
 • Notifikasi - Menampilkan notifikasi tanpa harus menyentuh perangkat
 Aku
 • Auto movement - avoid AMOLED burn-in
-• Mode malam otomatis - otomatis meredupkan layar di tempat gelap
-• Mode saku - Mengunci perangkat ketika anda menaruhnya kedalam saku guna menghemat baterai
+• Auto night mode - dim the screen automatically in dark environment
+• Pocket mode - lock the device when you leave it in your pocket to save battery
 • Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
 • Force orientation - set your preferred screen orientation
-• Kustomisasi - mengubah warna teks, ukuran teks, kecerahan dan lain sebagainya
+• Customization - change the text color, text size, brightness and more
 GRATIS DAN OPEN SOURCE!
 
-Aktifkan izin 'draw over apps' sebelum menggunakan aplikasi ini.
+Before using please enable 'draw over apps' permission for this app.
 
-Ini adalah aplikasi BETA yang masih memiliki bug dan fitur terbatas.
+The app is in BETA, it still has bugs and lacks features.
 
-Hak akses
-<b>Akses kamera</b>
-App membutuhkan akses kamera untuk mengetahui kamera sedang digunakan dan mengabaikan "always on" screen.
-<b>Akses telepon</b>
-App membutuhkan hak akses telepon untuk mengenali panggilan masuk, mengabaikan always on screen dan menampilkan panggilan masuk.
-<b>Akses modifikasi pengaturan sistem</b>
-App membutuhkan akses untuk memodifikasi pengaturan sistem untuk mengubah kecerahan pada lock screen.
+Permissions
+<b>Camera permission</b>
+The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
+<b>Phone permission</b>
+The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
+<b>Modify system settings permission</b>
+The app needs permission to modify system settings to change the brightness of the lock screen.
 
 
 Komunitas Google Plus

@@ -136,6 +136,7 @@
   <string name="greenify_integration">Greenify integratie</string>
   <string name="settings_licenses">Licenties</string>
   <string name="settings_uninstall">Deinstalleer</string>
+  <string name="settings_exit_animation">Animatie</string>
   <string name="settings_app_version">Versie</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Stop het always on scherm wanneer de camera wordt gelanceerd (Moet aan blijven staan op Nexus/Samsung apparaten)</string>
@@ -203,6 +204,5 @@
   <string name="settings_memo_font_size_desc">Stel de grootte van het lettertype van je memo in</string>
   <string name="settings_memo_hint">Typ je memo tekst hier. Deze zal in je always on scherm laten zien worden.</string>
   <string name="settings_google_now_shortcut_desc">Laat het always on scherm stoppen wanneer Google Now gelanceerd wordt als er OK Google gezegd wordt (Kan eventueel niet werken met de Google Now Launcher)</string>
-  <string name="settings_exit_animation">Animatie</string>
   <string name="settings_exit_animation_desc">Kies de uitgangs animatie</string>
 </resources>

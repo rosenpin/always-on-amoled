@@ -11,6 +11,8 @@
   <!--Support-->
   <string name="action_support_the_development">Támogassa a fejlesztést</string>
   <string name="support_how_much">Mennyit szeretne adományozni?</string>
+  <string name="gestures_action_speak">Aktuális idő, az értesítések és az akkumulátor állapotát hangosan mondani</string>
+  <string name="gestures_action_flashlight">Váltás elemlámpa</string>
   <!--Intro-->
   <string name="intro_allow_now">Engedélyezés most</string>
   <string name="intro_modify_desc">Az alkalmazásnak szüksége van engedélyre, hogy változtassa az eszköz fényerősségét</string>

@@ -146,6 +146,7 @@
   <string name="greenify_integration">Integracja Greenify</string>
   <string name="settings_licenses">Licencje</string>
   <string name="settings_uninstall">Odinstaluj</string>
+  <string name="settings_exit_animation">Animacja</string>
   <string name="settings_app_version">Wersja</string>
   <string name="settings_enable_greenify">Włącz Greenify</string>
   <string name="settings_battery_saver">Tryb oszczędzania baterii</string>
@@ -217,7 +218,6 @@
   <string name="settings_memo_font_size_desc">Ustaw rozmiar czcionki notatki</string>
   <string name="settings_memo_hint">Wpisz swoją notatkę tutaj. Pokaże się ona na Always On Display.</string>
   <string name="settings_google_now_shortcut_desc">Zatrzymaj Always On Display, kiedy Google Now zostanie uruchomione poprzez wypowiedzenie słów \"OK Google\" (Może nie działać z launcherem Google Now)</string>
-  <string name="settings_exit_animation">Animacja</string>
   <string name="settings_exit_animation_desc">Wybierz animację wyjścia</string>
   <string name="settings_battery_saver_desc">Redukuje konsumpcję baterii i przegrzewanie. Działa lepiej z root\'em.</string>
 </resources>
