@@ -103,11 +103,13 @@ public class DonateActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.donation_activity);
-        if (getItemsList(this) == null || getItemsList(this).isEmpty()) {
+        ArrayList<Item> items = getItemsList(this);
+        if (items == null || items.isEmpty()) {
             Snackbar.make(findViewById(R.id.donation_list), getString(R.string.error_IAP), Snackbar.LENGTH_LONG).show();
             finish();
+        } else {
+            ((ListViewCompat) findViewById(R.id.donation_list)).setAdapter(new DonationAdapter(this, items));
         }
-        ((ListViewCompat) findViewById(R.id.donation_list)).setAdapter(new DonationAdapter(this, getItemsList(this)));
     }
 
     public ArrayList<Item> getItemsList(Context context) {
@@ -179,7 +181,7 @@ public class DonateActivity extends AppCompatActivity {
 
     class DonationAdapter extends ArrayAdapter<Item> {
 
-        List<Item> items;
+        private List<Item> items;
 
         DonationAdapter(Context context, List<Item> items) {
             super(context, 0);
