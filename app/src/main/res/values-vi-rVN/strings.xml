@@ -28,7 +28,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Cảm ơn bạn đã hỗ trợ của bạn! :)</string>
   <string name="notification_message">Luôn luôn trên đang chạy</string>
-  <string name="thanks_short">Cảm ơn bạn</string>
+  <string name="toast_thanks">Cảm ơn bạn</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Luôn sáng</string>
   <string name="quick_settings_service_active">kích hoạt</string>

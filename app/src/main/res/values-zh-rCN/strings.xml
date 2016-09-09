@@ -33,7 +33,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">谢谢您的支持! :)</string>
   <string name="notification_message">Always On 正在运行</string>
-  <string name="thanks_short">谢谢您！</string>
+  <string name="toast_thanks">谢谢您！</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always On</string>
   <string name="quick_settings_service_active">启用</string>

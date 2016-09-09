@@ -45,7 +45,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">지원해주셔서 감사합니다! :)</string>
   <string name="notification_message">Always On이 실행중입니다</string>
-  <string name="thanks_short">고맙습니다</string>
+  <string name="toast_thanks">고맙습니다</string>
   <!--Quick settings-->
   <string name="quick_settings_title">항상 켜기</string>
   <string name="quick_settings_service_active">활성화</string>

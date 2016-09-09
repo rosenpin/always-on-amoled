@@ -44,7 +44,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Desteğin için teşekkür ederim! :)</string>
   <string name="notification_message">Daima çalış.</string>
-  <string name="thanks_short">Teşekkür ederim</string>
+  <string name="toast_thanks">Teşekkür ederim</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Her zaman açık</string>
   <string name="quick_settings_service_active">etkin</string>

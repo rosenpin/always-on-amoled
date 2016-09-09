@@ -116,13 +116,12 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         AppRate.with(this).starRating(true).starRatingListener(new AppRate.OnStarRateListener() {
             @Override
             public void onPositiveRating(int starRating) {
-                Toast.makeText(PreferencesActivity.this, R.string.thanks_short, Toast.LENGTH_LONG).show();
+                Toast.makeText(PreferencesActivity.this, R.string.toast_thanks, Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onNegativeRating(int starRating) {
-                startActivity(new Intent(getApplicationContext(), ReporterActivity.class));
-                Toast.makeText(PreferencesActivity.this, R.string.warning_12_please_report, Toast.LENGTH_LONG).show();
+                Toast.makeText(PreferencesActivity.this, R.string.toast_thanks, Toast.LENGTH_LONG).show();
             }
         }).checkAndShow();
     }

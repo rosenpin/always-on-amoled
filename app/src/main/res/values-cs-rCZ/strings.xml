@@ -33,7 +33,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Děkujeme vám za vaši podporu! :)</string>
   <string name="notification_message">Vždy zapnuto je zaplé</string>
-  <string name="thanks_short">Děkujeme</string>
+  <string name="toast_thanks">Děkujeme</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Vždy zapnuto</string>
   <string name="quick_settings_service_active">povoleno</string>

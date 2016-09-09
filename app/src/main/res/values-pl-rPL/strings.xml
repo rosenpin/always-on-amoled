@@ -33,7 +33,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Dziękuję za twoje wsparcie! :)</string>
   <string name="notification_message">Always On Jest Uruchomione</string>
-  <string name="thanks_short">Dziękuję</string>
+  <string name="toast_thanks">Dziękuję</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Zawsze włączony</string>
   <string name="quick_settings_service_active">włączone</string>

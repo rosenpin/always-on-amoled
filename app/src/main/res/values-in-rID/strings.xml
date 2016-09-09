@@ -44,7 +44,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Thank you for your support! :)</string>
   <string name="notification_message">Always On Is Running</string>
-  <string name="thanks_short">Thank you</string>
+  <string name="toast_thanks">Thank you</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">enabled</string>

@@ -36,7 +36,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">شكرا على دعمكم! :)</string>
   <string name="notification_message">Always On في وضعية الإشتغال</string>
-  <string name="thanks_short">شكراً</string>
+  <string name="toast_thanks">شكراً</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">مفعل</string>

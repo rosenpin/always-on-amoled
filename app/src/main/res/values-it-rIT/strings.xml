@@ -40,7 +40,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Grazie per il tuo supporto! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
-  <string name="thanks_short">Grazie</string>
+  <string name="toast_thanks">Grazie</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">abilitato</string>

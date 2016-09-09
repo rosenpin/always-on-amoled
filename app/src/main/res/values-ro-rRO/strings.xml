@@ -27,7 +27,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Îți mulțumesc pentru sprijin! :)</string>
   <string name="notification_message">Serviciul „Always on” funcționează.</string>
-  <string name="thanks_short">Multumesc</string>
+  <string name="toast_thanks">Multumesc</string>
   <!--Quick settings-->
   <!-- Content description-->
   <string name="notification_icon">Icon de notificare</string>

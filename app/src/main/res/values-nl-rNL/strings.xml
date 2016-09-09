@@ -32,7 +32,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Bedankt voor je support! :)</string>
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
-  <string name="thanks_short">Dankjewel</string>
+  <string name="toast_thanks">Dankjewel</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Altijd aan</string>
   <string name="quick_settings_service_active">ingeschakeld</string>

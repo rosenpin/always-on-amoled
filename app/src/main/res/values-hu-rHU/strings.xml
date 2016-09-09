@@ -23,7 +23,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Köszönjük támogatását! :)</string>
   <string name="notification_message">Az Always On fut</string>
-  <string name="thanks_short">Köszönjük</string>
+  <string name="toast_thanks">Köszönjük</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Mindig be</string>
   <string name="quick_settings_service_active">engedélyezve</string>

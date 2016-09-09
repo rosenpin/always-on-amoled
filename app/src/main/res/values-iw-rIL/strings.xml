@@ -38,7 +38,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">תודה עבור תמיכתך! :)</string>
   <string name="notification_message">Always On Amoled רץ ברקע</string>
-  <string name="thanks_short">תודה רבה</string>
+  <string name="toast_thanks">תודה רבה</string>
   <!--Quick settings-->
   <string name="quick_settings_title">דולק תמיד</string>
   <string name="quick_settings_service_active">מופעל</string>

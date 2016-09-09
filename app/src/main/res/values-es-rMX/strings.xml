@@ -44,7 +44,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">¡Gracias por tu apoyo! :)</string>
   <string name="notification_message">Always On está ejecutándose</string>
-  <string name="thanks_short">Gracias</string>
+  <string name="toast_thanks">Gracias</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">activado</string>

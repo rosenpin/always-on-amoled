@@ -44,7 +44,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Tack för ditt stöd! :)</string>
   <string name="notification_message">Always On är igång</string>
-  <string name="thanks_short">Tack så mycket</string>
+  <string name="toast_thanks">Tack så mycket</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Alltid på</string>
   <string name="quick_settings_service_active">Aktiverat</string>
