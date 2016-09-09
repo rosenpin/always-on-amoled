@@ -43,8 +43,17 @@
             </PreferenceCategory>
         </PreferenceScreen>
         <PreferenceScreen
+            android:key="gestures_prefs"
             android:summary="@string/settings_gestures_desc"
             android:title="@string/settings_gestures">
+            <PreferenceCategory android:title="@string/settings_samsung"
+                android:key="samsung_prefs">
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="home_button_dismiss"
+                    android:summary="@string/settings_gestures_home_button_dismiss_desc"
+                    android:title="@string/settings_gestures_home_button_dismiss" />
+            </PreferenceCategory>
             <PreferenceCategory android:title="@string/settings_wake_up">
                 <com.afollestad.materialdialogs.prefs.MaterialListPreference
                     android:defaultValue="1"

@@ -18,8 +18,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
@@ -179,6 +181,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                     prefs.setBool(Prefs.KEYS.SHOWED_DIALOG.toString(), true);
                 }
             }
+        }
+        if (!Utils.isSamsung()){
+            PreferenceScreen gesturesPrefs = (PreferenceScreen) findPreference("gestures_prefs");
+            PreferenceCategory samsungPrefs = (PreferenceCategory) findPreference("samsung_prefs");
+            gesturesPrefs.removePreference(samsungPrefs);
         }
         version(context);
         openSourceLicenses();

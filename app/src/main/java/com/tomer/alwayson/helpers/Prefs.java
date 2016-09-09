@@ -24,6 +24,7 @@ public class Prefs {
     public boolean startAfterLock;
     public boolean notificationPreview;
     public boolean hasSoftKeys;
+    public boolean homeButtonDismiss;
     public boolean greenifyEnabled;
     public boolean batterySaver;
 
@@ -65,13 +66,14 @@ public class Prefs {
             prefs.edit().remove(KEYS.SWIPE_UP_ACTION.toString()).apply();
             prefs.edit().remove(KEYS.VOLUME_TO_STOP.toString()).apply();
             prefs.edit().remove(KEYS.BACK_BUTTON_TO_STOP.toString()).apply();
-            Toast.makeText(context, "ERROR, YOUR PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "YOUR GESTURE PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
         }
         try {
             proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);
         } catch (ClassCastException e) {
             prefs.edit().remove(KEYS.PROXIMITY_TO_LOCK.toString()).apply();
         }
+        homeButtonDismiss = prefs.getBoolean(KEYS.HOME_BUTTON_DISMISS.toString(), false);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), false);
@@ -205,7 +207,8 @@ public class Prefs {
         EXIT_ANIMATION("exit_animation"),
         SHOWED_DIALOG("showed_dialog"),
         NEVER_SHOW_DIALOG("never_show_dialog"),
-        BATTERY_SAVER("battery_saver");
+        BATTERY_SAVER("battery_saver"),
+        HOME_BUTTON_DISMISS("home_button_dismiss");
 
         private final String id;
 

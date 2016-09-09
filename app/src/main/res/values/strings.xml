@@ -124,10 +124,12 @@
     <string name="gestures_action_speak">Say current time, notifications and battery status out loud</string>
     <string name="gestures_action_flashlight">Toggle flashlight</string>
     <string name="settings_rules">Automatic Rules</string>
+    <string name="settings_samsung">Samsung</string>
     <!--Settings titles-->
     <string name="settings_enabled">Enable</string>
     <string name="settings_disable_volume_keys">Disable volume keys</string>
     <string name="settings_double_tap_wake">Double tap action</string>
+    <string name="settings_gestures_home_button_dismiss">Home button unlocks</string>
     <string name="settings_back_button_wake">Back button action</string>
     <string name="settings_volume_to_stop">Volume keys action</string>
     <string name="settings_swipe_up">Swipe up action</string>
@@ -233,6 +235,7 @@
     <string name="settings_memo_hint">Type your memo here. It will show up in your always on screen.</string>
     <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
     <string name="settings_exit_animation_desc">Choose the exit animation</string>
-    <string name="settings_battery_saver_desc">Reduce battery consumption and overheating. Works better with root.</string>
+    <string name="settings_battery_saver_desc">Reduce battery consumption and overheating. Works better with root</string>
     <string name="settings_watchface_date_desc">Choose the date style you want to see</string>
+    <string name="settings_gestures_home_button_dismiss_desc">Click the home button to exit the always on screen. This will disable the always on fingerprint sensor.</string>
 </resources>

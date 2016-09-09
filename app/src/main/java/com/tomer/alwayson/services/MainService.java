@@ -156,7 +156,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 }
 
             windowManager.addView(frameLayout, windowParams);
-            samsungHelper.startHomeButtonListener();
+            if (prefs.homeButtonDismiss)
+                samsungHelper.startHomeButtonListener();
         }
         return super.onStartCommand(origIntent, flags, startId);
     }
@@ -468,7 +469,8 @@ public class MainService extends Service implements SensorEventListener, Context
         batteryView.destroy();
 
         samsungHelper.setButtonsLight(ON);
-        samsungHelper.destroyHomeButtonListener();
+        if (prefs.homeButtonDismiss)
+            samsungHelper.destroyHomeButtonListener();
 
         frameLayout.setOnTouchListener(null);
         if (clock.getTextClock() != null)
