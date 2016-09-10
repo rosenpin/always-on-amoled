@@ -91,21 +91,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Tasker-->
-        <activity
-            android:name=".tasker.EditActivity"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:windowSoftInputMode="adjustResize"
-            tools:ignore="ExportedActivity">
-            <intent-filter>
-                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
-            </intent-filter>
-        </activity>
-
+        <!--Services-->
         <service
+            android:exported="false"
             android:name=".services.StarterService"
             android:enabled="true"
             android:label="@string/app_name">
@@ -189,7 +177,17 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
         </receiver>
-
+        <activity
+            android:name=".tasker.EditActivity"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="ExportedActivity">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
     </application>
-
 </manifest>
