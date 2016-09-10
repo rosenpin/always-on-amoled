@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomerrosenfeld.customanalogclockview.CustomAnalogClock;
 
@@ -87,6 +88,10 @@ public class Clock extends LinearLayout implements ContextConstatns {
                 clockWrapper.removeView(clockWrapper.findViewById(R.id.custom_analog_clock));
                 if (textSize > 90)
                     textSize = 90;
+                Prefs prefs = new Prefs(context);
+                prefs.apply();
+                if (textSize < 50 && prefs.batteryStyle == 1)
+                    textSize = 50;
                 digitalS7 = (DigitalS7) findViewById(R.id.s7_digital);
                 digitalS7.init(font, textSize, textColor);
                 break;

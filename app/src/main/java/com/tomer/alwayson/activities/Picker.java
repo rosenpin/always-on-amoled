@@ -3,6 +3,7 @@ package com.tomer.alwayson.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -98,9 +99,10 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
                     analogClock.getDigitalS7().setDate(Utils.getDateText(context));
                     analogClock.getDigitalS7().getBatteryTV().setText("75%");
                     analogClock.getDigitalS7().update(prefs.showAmPm);
+                    analogClock.getDigitalS7().findViewById(R.id.s7_date_tv).getLayoutParams().width = 150;
                 }
             if (position <= ANALOG_CLOCK || (Globals.ownedItems != null && Globals.ownedItems.size() > 0))
-                view.findViewById(R.id.pro_label).setVisibility(View.VISIBLE);
+                view.findViewById(R.id.pro_label).setVisibility(View.INVISIBLE);
 
             if (position == prefs.clockStyle)
                 select(view);
