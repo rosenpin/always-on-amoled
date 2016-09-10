@@ -61,6 +61,10 @@ public class QuickSettingsToggle extends TileService {
                     tile.setLabel(getString(R.string.quick_settings_title) + " " + getString(R.string.quick_settings_service_inactive));
                     Log("Inactive");
                     break;
+                default:
+                    tile.setLabel(getString(R.string.quick_settings_title) + " " + getString(R.string.quick_settings_service_active));
+                    Log("Active");
+                    break;
             }
             tile.updateTile();
         }
