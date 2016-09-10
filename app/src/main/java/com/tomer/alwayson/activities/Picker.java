@@ -87,8 +87,7 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
         }
 
         private View getClockView(int position) {
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.watch_picker_item, null);
             Clock analogClock = (Clock) view.findViewById(R.id.clock);
             TextView title = (TextView) view.findViewById(R.id.clock_name);
@@ -98,9 +97,10 @@ public class Picker extends AppCompatActivity implements ContextConstatns {
                 if (analogClock.getDigitalS7() != null) {
                     analogClock.getDigitalS7().setDate(Utils.getDateText(context));
                     analogClock.getDigitalS7().getBatteryTV().setText("75%");
+                    analogClock.getDigitalS7().update(prefs.showAmPm);
                 }
             if (position <= ANALOG_CLOCK || (Globals.ownedItems != null && Globals.ownedItems.size() > 0))
-                view.findViewById(R.id.pro_label).setVisibility(View.INVISIBLE);
+                view.findViewById(R.id.pro_label).setVisibility(View.VISIBLE);
 
             if (position == prefs.clockStyle)
                 select(view);

@@ -7,6 +7,8 @@
     <dimen name="large_spacing">16dp</dimen>
     <dimen name="medium_spacing">8dp</dimen>
     <dimen name="small_spacing">4dp</dimen>
-    <dimen name="s7_digital_date_max_width">72dp</dimen>
+    <dimen name="s7_digital_date_max_width">84dp</dimen>
     <dimen name="media_icon_size">56dp</dimen>
+    <dimen name="s7_digital_date_width">64dp</dimen>
+    <dimen name="tiny_spacing">2dp</dimen>
 </resources>
