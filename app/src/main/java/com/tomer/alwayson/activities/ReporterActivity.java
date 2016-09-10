@@ -31,6 +31,8 @@ public class ReporterActivity extends IssueReporterActivity {
             ((RadioButton) findViewById(R.id.air_optionAnonymous)).setChecked(true);
             NotificationManager nMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             nMgr.cancel(AlwaysOnAMOLED.reportNotificationID);
+        } else {
+            setGuestEmailRequired(true);
         }
 
     }
