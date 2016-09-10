@@ -241,27 +241,11 @@
             android:key="doze_mode"
             android:summary="@string/settings_doze_desc"
             android:title="@string/settings_doze" />
-
         <SwitchPreference
             android:defaultValue="false"
-            android:dependency="greenify"
             android:key="greenify_enabled"
-            android:title="@string/settings_enable_greenify">
-
-        </SwitchPreference>
-
-        <com.tasomaniac.android.widget.IntegrationPreference
-            android:key="greenify"
             android:summary="@string/greenify_integration_desc"
-            android:summaryOff="@string/greenify_integration_desc_found"
-            android:summaryOn="@string/greenify_integration_desc_not_found"
-            android:title="@string/greenify_integration">
-
-            <intent
-                android:targetClass="com.oasisfeng.greenify.GreenifyActivity"
-                android:targetPackage="com.oasisfeng.greenify" />
-
-        </com.tasomaniac.android.widget.IntegrationPreference>
+            android:title="@string/greenify_integration" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="disable_volume_keys"

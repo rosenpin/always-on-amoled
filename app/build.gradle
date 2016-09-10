@@ -44,7 +44,6 @@ dependencies {
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
-    compile 'com.tasomaniac:integrationpreference:0.2'
     compile project(':DiscreetAppRate')
     compile project(':IssueReporter')
     testCompile 'junit:junit:4.12'

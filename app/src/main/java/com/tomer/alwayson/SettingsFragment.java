@@ -37,7 +37,6 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.prefs.MaterialListPreference;
-import com.tasomaniac.android.widget.IntegrationPreference;
 import com.tomer.alwayson.activities.DonateActivity;
 import com.tomer.alwayson.activities.Picker;
 import com.tomer.alwayson.activities.PreferencesActivity;
@@ -86,6 +85,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         prefs.apply();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
+        findPreference("greenify_enabled").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
         findPreference("notifications_alerts").setOnPreferenceChangeListener(this);
@@ -182,7 +182,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 }
             }
         }
-        if (!Utils.isSamsung()){
+        if (!Utils.isSamsung()) {
             PreferenceScreen gesturesPrefs = (PreferenceScreen) findPreference("gestures_prefs");
             PreferenceCategory samsungPrefs = (PreferenceCategory) findPreference("samsung_prefs");
             gesturesPrefs.removePreference(samsungPrefs);
@@ -368,6 +368,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Snackbar.make(rootView, R.string.warning_11_no_root, Snackbar.LENGTH_LONG).show();
             return false;
         }
+        if (preference.getKey().equals("greenify_enabled") && (boolean) o) {
+            if (!isPackageInstalled("com.oasisfeng.greenify")) {
+                openPlayStoreUrl("com.oasisfeng.greenify", context);
+                return false;
+            }
+        }
         if (preference.getKey().equals("camera_shortcut") || preference.getKey().equals("google_now_shortcut")) {
             try {
                 if (!hasUsageAccess()) {
@@ -473,19 +479,21 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         if (shouldEnableNotificationsAlerts && checkNotificationsPermission(context, false)) {
             ((TwoStatePreference) findPreference("notifications_alerts")).setChecked(true);
         }
-        ((IntegrationPreference) findPreference("greenify")).resume();
         if (((MaterialListPreference) findPreference("stop_delay")).getValue().equals("0"))
             findPreference("stop_delay").setSummary(R.string.settings_stop_delay_desc);
         else
             findPreference("stop_delay").setSummary("%s");
         findPreference("watchface_clock").setSummary(context.getResources().getStringArray(R.array.customize_clock)[prefs.clockStyle]);
         findPreference("watchface_date").setSummary(context.getResources().getStringArray(R.array.customize_date)[prefs.dateStyle]);
+        findPreference("greenify_enabled").setSummary(isPackageInstalled("com.oasisfeng.greenify") ? getString(R.string.greenify_integration_desc) : getString(R.string.greenify_integration_desc_not_found));
+        if (!isPackageInstalled("com.oasisfeng.greenify")) {
+            ((SwitchPreference) findPreference("greenify_enabled")).setChecked(false);
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        ((IntegrationPreference) findPreference("greenify")).pause();
     }
 
     private void temporaryUnusedFunctionToSetAppToOpen() {
