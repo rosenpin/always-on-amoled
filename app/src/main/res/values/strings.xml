@@ -136,7 +136,7 @@
     <string name="settings_swipe_down">Swipe down action</string>
     <string name="settings_brightness">Brightness</string>
     <string name="settings_doze">Doze mode</string>
-    <string name="settings_google_now_shortcut">Allow Google Now</string>
+    <string name="settings_google_now_shortcut">Allow \"OK Google\"</string>
     <string name="settings_memo_text">Memo text</string>
     <string name="settings_notifications">Notifications</string>
     <string name="settings_persistent_notification">Show persistent notification</string>
