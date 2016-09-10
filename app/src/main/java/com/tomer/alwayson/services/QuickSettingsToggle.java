@@ -1,7 +1,9 @@
 package com.tomer.alwayson.services;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
+import android.os.IBinder;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
@@ -13,11 +15,27 @@ import com.tomer.alwayson.helpers.Utils;
 public class QuickSettingsToggle extends TileService {
 
     private Prefs prefs;
+    private Intent intent;
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        Log("Tile Bind");
+        this.intent = intent;
+        return super.onBind(intent);
+    }
 
     @Override
     public void onTileAdded() {
         Log("Tile Added");
         super.onTileAdded();
+        if (getQsTile() == null)
+            onBind(intent);
+        setCurrentState(getState());
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
         setCurrentState(getState());
     }
 
@@ -43,7 +61,13 @@ public class QuickSettingsToggle extends TileService {
                     prefs.setBool(Prefs.KEYS.ENABLED.toString(), true);
                     setCurrentState(Tile.STATE_ACTIVE);
                     break;
+                default:
+                    tile.setLabel(getString(R.string.quick_settings_title) + " " + (prefs.enabled ? getString(R.string.quick_settings_service_active) : getString(R.string.quick_settings_service_inactive)));
+                    Log("Active");
+                    break;
             }
+        } else {
+            Log("Tile is null");
         }
     }
 
@@ -62,7 +86,7 @@ public class QuickSettingsToggle extends TileService {
                     Log("Inactive");
                     break;
                 default:
-                    tile.setLabel(getString(R.string.quick_settings_title) + " " + getString(R.string.quick_settings_service_active));
+                    tile.setLabel(getString(R.string.quick_settings_title) + " " + (prefs.enabled ? getString(R.string.quick_settings_service_active) : getString(R.string.quick_settings_service_inactive)));
                     Log("Active");
                     break;
             }
