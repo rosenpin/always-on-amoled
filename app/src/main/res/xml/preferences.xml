@@ -46,8 +46,9 @@
             android:key="gestures_prefs"
             android:summary="@string/settings_gestures_desc"
             android:title="@string/settings_gestures">
-            <PreferenceCategory android:title="@string/settings_samsung"
-                android:key="samsung_prefs">
+            <PreferenceCategory
+                android:key="samsung_prefs"
+                android:title="@string/settings_samsung">
                 <CheckBoxPreference
                     android:defaultValue="false"
                     android:key="home_button_dismiss"
@@ -242,7 +243,7 @@
             android:title="@string/settings_doze" />
 
         <SwitchPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:dependency="greenify"
             android:key="greenify_enabled"
             android:title="@string/settings_enable_greenify">
