@@ -3,8 +3,8 @@
     android:id="@+id/item_wrapper"
     android:layout_width="200dp"
     android:layout_height="wrap_content"
-    android:padding="@dimen/activity_horizontal_margin"
-    android:background="#424242">
+    android:background="#424242"
+    android:padding="@dimen/activity_horizontal_margin">
 
     <TextView
         android:id="@+id/pro_label"

@@ -18,14 +18,14 @@ import com.tomer.alwayson.helpers.Utils;
 @TargetApi(Build.VERSION_CODES.N)
 public class QuickSettingsToggle extends TileService implements ContextConstatns {
     private Prefs prefs;
+    private Intent intent;
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log("Received change");
-            setCurrentState(prefs.enabled ? Tile.STATE_INACTIVE: Tile.STATE_ACTIVE);
+            setCurrentState(prefs.enabled ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE);
         }
     };
-    private Intent intent;
 
     @Override
     public IBinder onBind(Intent intent) {

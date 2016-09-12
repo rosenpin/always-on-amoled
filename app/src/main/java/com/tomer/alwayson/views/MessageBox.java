@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.services.NotificationListener;
 

@@ -3,7 +3,6 @@ package com.tomer.alwayson.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;

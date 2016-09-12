@@ -26,8 +26,8 @@
 
     <com.tomer.alwayson.views.DigitalS7
         android:id="@+id/s7_digital"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
 </LinearLayout>

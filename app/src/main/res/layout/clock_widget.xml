@@ -28,17 +28,17 @@
 
     <com.tomer.alwayson.views.MusicPlayer
         android:id="@+id/music_player"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:gravity="center" />
 
     <include layout="@layout/memo" />
 
     <com.tomer.alwayson.views.MessageBox
-        android:layout_marginTop="@dimen/medium_spacing"
         android:id="@+id/notifications_box"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_spacing">
 
     </com.tomer.alwayson.views.MessageBox>
 

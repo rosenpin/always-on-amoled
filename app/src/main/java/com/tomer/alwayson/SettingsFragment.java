@@ -4,12 +4,10 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AppOpsManager;
 import android.app.admin.DevicePolicyManager;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -69,6 +67,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private Prefs prefs;
     private Context context;
     private Intent starterService;
+
     public static void openPlayStoreUrl(String appName, Context context) {
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appName)));

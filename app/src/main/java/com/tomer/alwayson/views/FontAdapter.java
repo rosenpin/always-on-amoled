@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckedTextView;
 
-import com.tomer.alwayson.helpers.Prefs;
-
 
 public class FontAdapter extends BaseAdapter {
 
