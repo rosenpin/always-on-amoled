@@ -22,7 +22,8 @@ public interface ContextConstatns {
     //Intent filters
     String FINISH_HOME_BUTTON_ACTIVITY = "samsung_home_button_activity_finish_self";
     String NEW_NOTIFICATION = "new_notification";
-    String NOTIFICATIONS ="notifications";
+    String TOGGLED = "service toggled";
+    String NOTIFICATIONS = "notifications";
     String LAST_NOTIFICATION = "last_notification";
 
     //TAGS

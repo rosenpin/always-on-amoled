@@ -1,27 +1,44 @@
 package com.tomer.alwayson.services;
 
 import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.IBinder;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
+import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 
 @TargetApi(Build.VERSION_CODES.N)
-public class QuickSettingsToggle extends TileService {
-
+public class QuickSettingsToggle extends TileService implements ContextConstatns {
     private Prefs prefs;
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log("Received change");
+            setCurrentState(prefs.enabled ? Tile.STATE_INACTIVE: Tile.STATE_ACTIVE);
+        }
+    };
     private Intent intent;
 
     @Override
     public IBinder onBind(Intent intent) {
         Log("Tile Bind");
         this.intent = intent;
+        registerReceiver(broadcastReceiver, new IntentFilter(TOGGLED));
         return super.onBind(intent);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
     }
 
     @Override
@@ -102,8 +119,8 @@ public class QuickSettingsToggle extends TileService {
     private void initPrefs() {
         if (prefs == null) {
             prefs = new Prefs(this);
-            prefs.apply();
         }
+        prefs.apply();
     }
 
     private void Log(String text) {
