@@ -113,14 +113,11 @@ public class Intro extends AppIntro2 {
                 go.setTextColor(context.getResources().getColor(android.R.color.black));
                 go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
-                v.findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (Utils.isAndroidNewerThanM()) {
-                            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                        }
+                v.findViewById(R.id.go).setOnClickListener(v1 -> {
+                    if (Utils.isAndroidNewerThanM()) {
+                        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                     }
                 });
             }
@@ -167,7 +164,7 @@ public class Intro extends AppIntro2 {
             super.onResume();
             if (!Settings.System.canWrite(context)) {
                 permissions[1] = false;
-                go.setTextColor(context.getResources().getColor(android.R.color.black));
+                go.setTextColor(ContextCompat.getColor(context, android.R.color.black));
                 go.setText(getString(R.string.intro_allow_now));
                 go.setEnabled(true);
                 v.findViewById(R.id.go).setOnClickListener(v1 -> {

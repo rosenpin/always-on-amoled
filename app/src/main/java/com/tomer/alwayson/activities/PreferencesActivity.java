@@ -36,6 +36,7 @@ import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.receivers.DAReceiver;
 import com.tomer.alwayson.services.MainService;
+import com.tomer.alwayson.services.QuickSettingsToggle;
 import com.tomer.alwayson.services.StarterService;
 
 import eu.chainfire.libsuperuser.Shell;
