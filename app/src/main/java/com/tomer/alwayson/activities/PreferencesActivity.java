@@ -234,6 +234,8 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Globals.colorDialog = null;
+        Globals.ownedItems = null;
         DonateActivity.onDestroy(this);
     }
 

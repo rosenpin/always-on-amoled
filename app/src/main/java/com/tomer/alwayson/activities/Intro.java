@@ -48,7 +48,8 @@ public class Intro extends AppIntro2 {
             skipButtonEnabled = false;
             addSlide(new First());
             addSlide(new Second());
-            addSlide(new Third());
+            if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY))
+                addSlide(new Third());
         } else {
             skipButtonEnabled = true;
         }
@@ -76,6 +77,14 @@ public class Intro extends AppIntro2 {
         pref.setBool(Prefs.KEYS.PERMISSION_GRANTING.toString(), true);
         startActivity(new Intent(getApplicationContext(), PreferencesActivity.class));
         finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        context = null;
+        pref = null;
+        permissions = null;
     }
 
     @Override

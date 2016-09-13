@@ -8,11 +8,6 @@
             android:key="enabled"
             android:summary="@string/settings_enabled_desc"
             android:title="@string/settings_enabled" />
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="battery_saver"
-            android:summary="@string/settings_battery_saver_desc"
-            android:title="@string/settings_battery_saver" />
         <PreferenceScreen
             android:summary="@string/settings_rules_desc"
             android:title="@string/settings_rules">
@@ -201,6 +196,11 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_behaviour">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="battery_saver"
+            android:summary="@string/settings_battery_saver_desc"
+            android:title="@string/settings_battery_saver" />
         <SwitchPreference
             android:defaultValue="false"
             android:key="notifications_alerts"
