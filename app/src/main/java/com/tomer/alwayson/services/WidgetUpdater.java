@@ -3,7 +3,6 @@ package com.tomer.alwayson.services;
 import android.app.Service;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
@@ -30,16 +29,15 @@ public class WidgetUpdater extends Service implements ContextConstatns {
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
 
-        Context context = this;
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-        ComponentName thisWidget = new ComponentName(context, WidgetProvider.class);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.widget_layout);
+        ComponentName thisWidget = new ComponentName(this, WidgetProvider.class);
         if (!prefs.enabled) {
-            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_red_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_off));
+            remoteViews.setTextColor(R.id.toggle, getResources().getColor(android.R.color.holo_red_light));
+            remoteViews.setTextViewText(R.id.toggle, getString(R.string.widget_off));
         } else {
-            remoteViews.setTextColor(R.id.toggle, context.getResources().getColor(android.R.color.holo_green_light));
-            remoteViews.setTextViewText(R.id.toggle, context.getString(R.string.widget_on));
+            remoteViews.setTextColor(R.id.toggle, getResources().getColor(android.R.color.holo_green_light));
+            remoteViews.setTextViewText(R.id.toggle, getString(R.string.widget_on));
         }
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
 

@@ -81,11 +81,11 @@ public class MainService extends Service implements SensorEventListener, Context
     public static boolean isScreenOn;
 
     private boolean firstRefresh = true;
+    private boolean demo;
+    private boolean refreshing = true;
     private int refreshDelay = 12000;
     private FrameLayout blackScreen;
     private Timer refreshTimer;
-    private boolean demo;
-    private boolean refreshing = true;
     private SamsungHelper samsungHelper;
     private DozeManager dozeManager;
     private MessageBox notificationsMessageBox;
@@ -106,14 +106,14 @@ public class MainService extends Service implements SensorEventListener, Context
     private SensorManager sensorManager;
     private CurrentAppResolver currentAppResolver;
     private Flashlight flashlight;
-    private Handler UIhandler;
+    private Handler UIHandler;
     private BroadcastReceiver newNotificationBroadcast = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (prefs.notificationsAlerts)
-                UIhandler.post(() -> iconsWrapper.update(prefs.textColor, () -> stopThis()));
+                UIHandler.post(() -> iconsWrapper.update(prefs.textColor, () -> stopThis()));
             if (Globals.newNotification != null && prefs.notificationPreview) {
-                UIhandler.post(() -> notificationsMessageBox.showNotification(Globals.newNotification));
+                UIHandler.post(() -> notificationsMessageBox.showNotification(Globals.newNotification));
                 notificationsMessageBox.setOnClickListener(view -> {
                     stoppedByShortcut = true;
                     if (notificationsMessageBox.getCurrentNotification().getIntent() != null) {
@@ -283,7 +283,7 @@ public class MainService extends Service implements SensorEventListener, Context
             startService(new Intent(getApplicationContext(), NotificationListener.class));
         else
             Utils.logInfo(MAIN_SERVICE_LOG_TAG, "Notifications are disabled");
-        UIhandler = new Handler();
+        UIHandler = new Handler();
         refresh();
 
         //Notification setup
@@ -364,7 +364,7 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public void run() {
                 Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Refresh");
-                UIhandler.post(() -> {
+                UIHandler.post(() -> {
                     if (clock != null) {
                         if (clock.getAnalogClock() != null)
                             clock.getAnalogClock().setTime(Calendar.getInstance());
@@ -385,7 +385,7 @@ public class MainService extends Service implements SensorEventListener, Context
             ViewUtils.move(getApplicationContext(), mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, isBig());
         String monthAndDayText = Utils.getDateText(getApplicationContext());
         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Long Refresh");
-        UIhandler.post(() -> {
+        UIHandler.post(() -> {
             dateView.update(monthAndDayText);
             if (prefs.clockStyle == S7_DIGITAL)
                 clock.getDigitalS7().setDate(monthAndDayText);

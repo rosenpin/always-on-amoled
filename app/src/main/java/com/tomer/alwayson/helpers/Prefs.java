@@ -23,10 +23,10 @@ public class Prefs {
     public boolean showAmPm;
     public boolean startAfterLock;
     public boolean notificationPreview;
-    public boolean hasSoftKeys;
     public boolean homeButtonDismiss;
     public boolean greenifyEnabled;
     public boolean batterySaver;
+    boolean hasSoftKeys;
 
     public int clockStyle, dateStyle, batteryStyle;
     public int textColor;
