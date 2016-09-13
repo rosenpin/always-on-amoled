@@ -1,5 +1,5 @@
-Telefon veya tabletinize "her zaman açık" yükleyin.
-Ekranınız sürekli açık kalsın.
+Telefon veya tabletinize "Always on Display" yükleyin.
+Ekranınız daima açık kalsın.
 Açık kaynak kodlu ilk always on uygulaması!
 
 Bu fikir kullanıcıların saat, tarih ve bildirimleri ve daha fazlasını telefonlarına dokunmadan haberdar olmaları için geliştirildi. Sadece bakarak.
@@ -10,7 +10,7 @@ Bu, AMOLED ekranlar sayesinde mümkün. Birkaç piksel dışında ekran siyah ka
 • Her an açık ekran
 • Bildirimler - cihazınıza dokunmadan bildirimleri görün
 • Otomatik kurallar - önceden tanımlanmış kuralları kullanarak pilinizi koruyun
-• Otomatik hareket - AMOLED ekran yanığını önleme
+• Otomatik hareket - AMOLED yanık içinde önlemek
 • Otomatik gece modu - Karanlık ortamda parlaklığı otomatik olarak kısma
 • Cep modu - Cihazı cebinize koyduğunuzda güç tasarrufu için otomatik olarak kilitler
 • Çift tıkla uyandırma + Yukarı kaydırarak uyandırma + Ses tuşlarını kullanarak uyandırma + Geri tuşuyla uyandırma

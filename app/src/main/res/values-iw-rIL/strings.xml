@@ -12,14 +12,20 @@
   <!--Support-->
   <string name="action_support_the_development">תמיכה בפיתוח</string>
   <string name="support_how_much">כמה תרצה לתרום?</string>
-  <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
-  <string name="gestures_action_flashlight">פנס</string>
   <string name="supporter_feature_only">אפשרות זו זמינה לתומכים בלבד, ניתן לבחור כמה תירצו לתרום כדי להפוך לתומכים, כמה תירצו לתרום?</string>
   <string name="support_choose">כמה תרצה לתרום?</string>
+  <string name="support_1">פרו</string>
   <string name="support_2">תרמו</string>
   <string name="support_5">תרומה גדולה</string>
   <string name="support_10">תרומה אדירה</string>
   <string name="support_20">תרומה ענקית</string>
+  <string name="support_25">תרומה עצומה!</string>
+  <string name="support_1_desc">פותח את כל האפשרויות באפליקציה ותורם לפיתוח</string>
+  <string name="support_2_desc">תמיכה יותר גדולה בפיתוח. אותן הטבות כמו תמיכה רגילה.</string>
+  <string name="support_5_desc">תרמו לפיתוח ועזרו לי להמשיך לפתח את האפלקיציה. אותן הטבות כמו תרומה רגילה.</string>
+  <string name="support_10_desc">הראו שאתם מעריכים את הפרויקט ושמרו על פיתוח פעיל. אותן הטבות כמו תרומה רגילה.</string>
+  <string name="support_20_desc">ואוו! תרומה ענקית! תודה רבה! :) אותן הטבות כמו תרומה רגילה.</string>
+  <string name="support_25_desc">מדהים! זה המון כסף!! זה יעזור מאוד לפרויקט! אותן הטבות כמו תרומה רגילה.</string>
   <!--Intro-->
   <string name="intro_allow_now">אפשר עכשיו</string>
   <string name="intro_permissions">קריאת מצב הטלפון</string>
@@ -32,7 +38,7 @@
   <string name="intro_wake_ups_desc">בחר כיצד ברצונך להיות מסוגל להדליק את הטלפון ממנוחה. אל תדאג, תוכל לשנות זאת מאוחר יותר בהגדרות האפליקציה.</string>
   <string name="intro_checkbox_volume_keys">פתיחה באמצעות כפתורי הווליום</string>
   <string name="intro_checkbox_swipe_up">החלק כלפי מעלה ממרכז המסך כדי להדליק את מכשירך</string>
-  <string name="intro_checkbox_double_tap">לחיצה כפולה במרכז המסך כדי להדליק את מכשירך</string>
+  <string name="intro_checkbox_double_tap">לחיצה כפולה על המסך המסך כדי להדליק את מכשירך</string>
   <string name="intro_notifications">התראות הודעות</string>
   <string name="intro_notifications_desc">האם ברצונך לקבל הודעות מיישומים אחרים בזמן שהמסך נעול? אם כן, לחץ על \"אפשר עכשיו\"</string>
   <!--Feedback,Toasts & messages-->
@@ -40,7 +46,7 @@
   <string name="notification_message">Always On Amoled רץ ברקע</string>
   <string name="toast_thanks">תודה רבה</string>
   <!--Quick settings-->
-  <string name="quick_settings_title">דולק תמיד</string>
+  <string name="quick_settings_title">תמיד דולק</string>
   <string name="quick_settings_service_active">מופעל</string>
   <string name="quick_settings_service_inactive">כבוי</string>
   <!-- Content description-->
@@ -61,6 +67,7 @@
   <string name="error_2_plugin_not_installed">התוסף אינו מותקן</string>
   <string name="error_3_unknown_error_restart">אירעה שגיאה. נא הפעל מחדש את היישום.</string>
   <string name="error_4_tasker_service_not_initialized">השירות לא אותחל כראוי</string>
+  <string name="error_5_camera_cant_connect_desc">נכשלה ההתחברות למצלמה. ייתכן שיש בעיה במכשירך.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">זה יכול לפגוע בביצועים של היישום</string>
   <string name="warning_4_device_not_secured">מכשירך עשוי להיות לא מאובטח כעת</string>
@@ -115,11 +122,15 @@
   <string name="settings_general">כללי</string>
   <string name="settings_shortcuts">קיצורי דרך</string>
   <string name="settings_wake_up">התעוררות</string>
+  <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
+  <string name="gestures_action_flashlight">פנס</string>
   <string name="settings_rules">כללים אוטומטיים</string>
+  <string name="settings_samsung">סמסונג</string>
   <!--Settings titles-->
   <string name="settings_enabled">הפעלה</string>
   <string name="settings_disable_volume_keys">בטל מקשי עוצמת הקול</string>
   <string name="settings_double_tap_wake">הקשה כפולה לפתיחה</string>
+  <string name="settings_gestures_home_button_dismiss">כפתור בית להדלקה</string>
   <string name="settings_back_button_wake">כפתור חזרה לפתיחה</string>
   <string name="settings_volume_to_stop">מקשי עוצמת הקול כדי להפעיל</string>
   <string name="settings_swipe_up">פעולת החלקה מעלה</string>
@@ -172,6 +183,7 @@
   <string name="settings_github_desc">קישור Github לקוד הפתוח</string>
   <string name="settings_move_desc">אפשר כדי להמנע מ AMOLED burn in</string>
   <string name="settings_font_size_desc">קבע את גודל טקסט השעון</string>
+  <string name="settings_font_size_memo_desc">קבע את גודל טקסט התזכיר</string>
   <string name="settings_notifications_desc">אפשר את זה כדי לשמור על האפליקציה פעילה ברקע\nטיפ: באנדרואיד 6 ומעלה ניתן לחסום התראות מהאפליקציה בלי אפקט על ביצועיה</string>
   <string name="settings_enabled_desc">הפעל את השירות</string>
   <string name="settings_disable_volume_keys_desc">אפשר אפשרות זו כדי להמנע מלחיצות בשוגג של כפתורי הוולויום</string>
@@ -207,6 +219,7 @@
   <string name="settings_watch_ticks">אנלוגי קלאסי עם מספרים</string>
   <string name="settings_watch_digital_s7">שעון דיגיטלי בסגנון S7</string>
   <string name="settings_watch_flat_analog">סגנון אנלוגי נקי</string>
+  <string name="settings_about_twitter">טוויטר</string>
   <string name="settings_watch_analog_pebble">שעון אנלוגי בסגנון פבל</string>
   <string name="settings_watch_flat_red_analog">סגנון אנלוגי נקי (מחוגים אדומים)</string>
   <string name="move_disable">כבוי (לא מומלץ עבור מסכי אמולד)</string>
@@ -224,4 +237,6 @@
   <string name="settings_google_now_shortcut_desc">עצור את המסך הדולק תמיד כאשר Google Now מופעל על ידי אמירת Ok Google (יתכן שלא יעבוד עם Google Now Launcher)</string>
   <string name="settings_exit_animation_desc">בחר את אנימציית היציאה</string>
   <string name="settings_battery_saver_desc">מפחית את השימוש בסוללה והתחממות יתר. עובד טוב יותר עם רוט.</string>
+  <string name="settings_watchface_date_desc">בחר את סגנון התאריך המועדף עליך</string>
+  <string name="settings_gestures_home_button_dismiss_desc">לחצו על כפתור הבית כדי לצאת ממסך הalways on. זה יבטל את האפשרות להשתמש בסורק האצבע בזמן שהמכשיר כבוי.</string>
 </resources>

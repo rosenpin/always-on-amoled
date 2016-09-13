@@ -5,22 +5,21 @@
   <!--Actions-->
   <string name="unlock">화면 켜기</string>
   <string name="action_revert">되돌리기</string>
-  <string name="menu_feedback">피드백</string>
+  <string name="menu_feedback">반영되길 바라는 점</string>
   <string name="menu_rate">앱 평가</string>
   <string name="action_restart">지금 재시작하기</string>
   <string name="never_show_again">다시 보지 않기</string>
   <!--Support-->
   <string name="action_support_the_development">개발자 돕기</string>
   <string name="support_how_much">기부를 얼마 만큼 해주실건가요?</string>
-  <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
-  <string name="gestures_action_flashlight">손전등 토글키</string>
   <string name="supporter_feature_only">이 기능은 도움을 주신 분들만 쓸 수 있습니다. 기부하고 싶은 만큼 기부한 뒤 이 기능을 쓸 수 있습니다. 얼마만큼 기부해주실 의향이 있으십니까?</string>
-  <string name="support_choose">얼마나 기부 하시겠습니까?</string>
+  <string name="support_choose">얼마나 기부를 하시겠습니까?</string>
   <string name="support_1">잠금해제</string>
   <string name="support_2">기부하기</string>
   <string name="support_5">중규모 기부</string>
   <string name="support_10">멋진 기부</string>
   <string name="support_20">거대한 기부</string>
+  <string name="support_25">엄청난 기부!</string>
   <string name="support_1_desc">이 앱의 모든 기능을 잠금해제하고 개발을 도우세요.</string>
   <string name="support_2_desc">개발을 조금만 더 돕겠습니다. 일반구매와 같은 혜택.</string>
   <string name="support_5_desc">이 프로젝트에 기부하시고 개발자가 계속 앱을 개발할 수 있게 도와주세요. 일반 기부와 같은 혜택.</string>
@@ -39,13 +38,12 @@
  나중에 바꿀 수 있습니다.</string>
   <string name="intro_checkbox_volume_keys">볼륨 키로 화면을 킵니다</string>
   <string name="intro_checkbox_swipe_up">화면 중앙을 위로 밀어 화면을 킵니다</string>
-  <string name="intro_checkbox_double_tap">화면 중앙을 두번 두드려 화면을 킵니다</string>
+  <string name="intro_checkbox_double_tap">화면 중앙을 두번 터치해 화면을 킵니다</string>
   <string name="intro_notifications">알림</string>
   <string name="intro_notifications_desc">\"Always On\" 상태에서 다른 앱들의 알림을 받고 싶다면, \"지금 권한 부여\" 버튼을 누르세요</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">지원해주셔서 감사합니다! :)</string>
   <string name="notification_message">Always On이 실행중입니다</string>
-  <string name="toast_thanks">고맙습니다</string>
   <!--Quick settings-->
   <string name="quick_settings_title">항상 켜기</string>
   <string name="quick_settings_service_active">활성화</string>
@@ -65,7 +63,7 @@
   <string name="error_IAP">에러가 발생했습니다! 인터넷 네트워크가 연결되있는지 확인해주시고 앱을 종료 후 다시 실행해주세요.</string>
   <string name="error_0_unknown_error">오류가 발생하였습니다. 개발자에게 문의해주세요. </string>
   <string name="error_0_unknown_error_report_prompt">에러를 보고하려면 여기를 누르세요</string>
-  <string name="error_2_plugin_not_installed">플러그인이 설치되어있지 않습니다.</string>
+  <string name="error_2_plugin_not_installed">플러그인이 설치돼있지 않습니다.</string>
   <string name="error_3_unknown_error_restart">오류가 생겼습니다. 앱을 다시 열어주세요.</string>
   <string name="error_4_tasker_service_not_initialized">서비스가 올바르게 시작되지 않았습니다</string>
   <string name="error_5_camera_cant_connect_desc">카메라 연결실패. 기기에 문제가 발생했습니다.</string>
@@ -123,18 +121,20 @@
   <string name="settings_general">일반</string>
   <string name="settings_shortcuts">바로가기</string>
   <string name="settings_wake_up">화면 켜기</string>
+  <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
+  <string name="gestures_action_flashlight">손전등 토글키</string>
   <string name="settings_rules">자동 작동 규칙</string>
   <!--Settings titles-->
   <string name="settings_enabled">활성화</string>
   <string name="settings_disable_volume_keys">볼륨 키 비활성화</string>
-  <string name="settings_double_tap_wake">두번 탭하여 켜기</string>
+  <string name="settings_double_tap_wake">두번 터치하여 켜기</string>
   <string name="settings_back_button_wake">뒤로가기 버튼으로 켜기</string>
   <string name="settings_volume_to_stop">볼륨 키로 켜기</string>
   <string name="settings_swipe_up">밀어 올려서 시작</string>
   <string name="settings_swipe_down">밀어 내려서 시작</string>
   <string name="settings_brightness">밝기</string>
   <string name="settings_doze">도즈 모드</string>
-  <string name="settings_google_now_shortcut">구글 지금 허용</string>
+  <string name="settings_google_now_shortcut">구글 나우 허용</string>
   <string name="settings_memo_text">메모 내용</string>
   <string name="settings_notifications">알림</string>
   <string name="settings_persistent_notification">알림 계속 보이기</string>
@@ -154,7 +154,7 @@
   <string name="settings_rules_battery">배터리 규칙</string>
   <string name="settings_font">글꼴</string>
   <string name="settings_translate">번역</string>
-  <string name="settings_github">Github</string>
+  <string name="settings_github">Github (깃허브)</string>
   <string name="settings_community">커뮤니티</string>
   <string name="greenify_integration">Greenify 통합</string>
   <string name="settings_licenses">라이센스</string>
@@ -176,10 +176,11 @@
   <string name="settings_proximity_to_lock_desc">주머니에 기기를 넣었을 때 기기를 잠가 배터리를 아낍니다. (센서가 켜집니다.)</string>
   <string name="settings_licenses_desc">오픈 소스 라이센스</string>
   <string name="settings_community_desc">구글 플러스 커뮤니티</string>
-  <string name="settings_about_twitter_desc">트위터를 구독하여 뉴스 업데이트 받으세요.</string>
+  <string name="settings_about_twitter_desc">트위터를 구독하여 뉴스 업데이트를 받으세요.</string>
   <string name="settings_github_desc">Github 오픈 소스 링크</string>
   <string name="settings_move_desc">아몰레드 번인을 방지하기 위해 활성화하십시오</string>
   <string name="settings_font_size_desc">시계의 글자 크기</string>
+  <string name="settings_font_size_memo_desc">메모 글자 크기 조절</string>
   <string name="settings_notifications_desc">앱이 백그라운드에서 계속 작동되게 하려면 활성화하십시오\n팁: 안드로이드 6.0 이상에서는 이 앱의 알림을 차단해도 기능에 영향을 주지 않습니다.</string>
   <string name="settings_enabled_desc">서비스를 활성화합니다.</string>
   <string name="settings_disable_volume_keys_desc">실수로 볼륨을 바꾸는 것을 막기 위해 활성화하십시오</string>

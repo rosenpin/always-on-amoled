@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Apoia o desenvolvimento</string>
   <string name="support_how_much">Quanto é que gostarias de doar?</string>
-  <string name="gestures_action_speak">Dizer em alta voz a hora atual, notificações e o estado da bateria</string>
-  <string name="gestures_action_flashlight">Ligar/Desligar flash</string>
   <string name="supporter_feature_only">Esta funcionalidade apenas está disponível para os apoiantes. Podes escolher quanto é que queres doar para te tornar num apoiante. Quanto é que gostarias de doar?</string>
   <string name="support_choose">Quanto queres doar?</string>
   <string name="support_1">Desbloquear</string>
@@ -21,11 +19,13 @@
   <string name="support_5">Grande doação</string>
   <string name="support_10">Incrível doação</string>
   <string name="support_20">Enorme doação</string>
+  <string name="support_25">Super doação!</string>
   <string name="support_1_desc">Desbloqueia todas as funcionalidades premium da aplicação e ajuda o desenvolvimento</string>
   <string name="support_2_desc">Ajuda um bocadinho mais o desenvolvimento. As mesmas funcionalidades que um desbloqueio regular.</string>
   <string name="support_5_desc">Fazes uma doação para o projeto e ajudas-me a desenvolver o trabalho na aplicação. As mesmas funcionalidades que um desbloqueio regular.</string>
   <string name="support_10_desc">Mostra que gostaste do projeto e o queres manter ativo. As mesmas funcionalidades que um desbloqueio regular.</string>
   <string name="support_20_desc">Wow! Que doação enorme! Muito obrigado! :) As mesmas funcionalidades que um desbloqueio regular.</string>
+  <string name="support_25_desc">Fantástico! Isso é muito dinheiro!! Isto vai mesmo ajudar o projeto! As mesmas possibilidades de um desbloqueio normal.</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Ler o estado do telefone</string>
@@ -122,11 +122,15 @@
   <string name="settings_general">Geral</string>
   <string name="settings_shortcuts">Atalhos</string>
   <string name="settings_wake_up">Gestos e ações</string>
+  <string name="gestures_action_speak">Dizer em alta voz a hora atual, notificações e o estado da bateria</string>
+  <string name="gestures_action_flashlight">Ligar/Desligar flash</string>
   <string name="settings_rules">Regras automáticas</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Ativar</string>
   <string name="settings_disable_volume_keys">Desativar as teclas de volume</string>
   <string name="settings_double_tap_wake">Ação de duplo toque</string>
+  <string name="settings_gestures_home_button_dismiss">Desbloqueios com a tecla iniciar</string>
   <string name="settings_back_button_wake">Ação do botão voltar</string>
   <string name="settings_volume_to_stop">Ação das teclas de volume</string>
   <string name="settings_swipe_up">Ação ao deslizar para cima</string>
@@ -234,4 +238,5 @@
   <string name="settings_exit_animation_desc">Escolhe a animação de saída</string>
   <string name="settings_battery_saver_desc">Reduzir consumo de bateria e sobreaquecimento. Funciona melhor com root.</string>
   <string name="settings_watchface_date_desc">Escolhe o estilo para a data</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Carregue na tecla iniciar para sair do always on screen. Isto irá incapacitar o sensor de impressões digitais.</string>
 </resources>

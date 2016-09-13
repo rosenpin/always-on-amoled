@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Wspomóż twórców</string>
   <string name="support_how_much">Jak dużo chcesz podarować?</string>
-  <string name="gestures_action_speak">Powiedz głośno bieżący czas, powiadomienia i stan baterii</string>
-  <string name="gestures_action_flashlight">Włącz latarkę</string>
   <string name="supporter_feature_only">Ta funkcja jest dostępna tylko dla osób wspierających, możesz wybrać jak bardzo chcesz nas wesprzeć.</string>
   <!--Intro-->
   <string name="intro_allow_now">Zezwalaj</string>
@@ -33,7 +31,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Dziękuję za twoje wsparcie! :)</string>
   <string name="notification_message">Always On Jest Uruchomione</string>
-  <string name="toast_thanks">Dziękuję</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Zawsze włączony</string>
   <string name="quick_settings_service_active">włączone</string>
@@ -110,6 +107,8 @@
   <string name="settings_general">Ogólne</string>
   <string name="settings_shortcuts">Skróty</string>
   <string name="settings_wake_up">Gesty i akcje</string>
+  <string name="gestures_action_speak">Powiedz głośno bieżący czas, powiadomienia i stan baterii</string>
+  <string name="gestures_action_flashlight">Włącz latarkę</string>
   <string name="settings_rules">Reguły automatyczne</string>
   <!--Settings titles-->
   <string name="settings_enabled">Włącz</string>

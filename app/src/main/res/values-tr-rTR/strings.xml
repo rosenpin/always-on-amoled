@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Geliştiriciyi Destekle</string>
   <string name="support_how_much">Ne kadar bağış yapmak istersiniz?</string>
-  <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
-  <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="supporter_feature_only">Bu özellik sadece destekçiler içindir, destekçi olmak için ne kadar bağışlayacağını seçebilirsin, ne kadar bağışlamak istersin?</string>
   <string name="support_choose">Ne kadar bağış yapmak istersiniz?</string>
   <string name="support_1">Kilidi Aç</string>
@@ -44,7 +42,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Desteğin için teşekkür ederim! :)</string>
   <string name="notification_message">Daima çalış.</string>
-  <string name="toast_thanks">Teşekkür ederim</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Her zaman açık</string>
   <string name="quick_settings_service_active">etkin</string>
@@ -122,6 +119,8 @@
   <string name="settings_general">Genel</string>
   <string name="settings_shortcuts">Kısayollar</string>
   <string name="settings_wake_up">Uyandır</string>
+  <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
+  <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="settings_rules">Otomatik kurallar</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aktif et</string>

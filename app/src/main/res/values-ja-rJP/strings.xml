@@ -8,7 +8,6 @@
   <string name="menu_feedback">フィードバック</string>
   <!--Support-->
   <string name="support_how_much">いくら寄付していただけますか？</string>
-  <string name="gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
   <string name="supporter_feature_only">この機能は支援していただくことでご利用になれます。支援者になるために寄付する額をお選びいただけますが、いくらご支援していただけますか？</string>
   <!--Intro-->
   <string name="intro_allow_now">今すぐ許可</string>
@@ -82,6 +81,7 @@
   <string name="settings_appearance">外見</string>
   <string name="settings_general">一般</string>
   <string name="settings_wake_up">ウェイクアップ</string>
+  <string name="gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
   <string name="settings_rules">自動的ルール</string>
   <!--Settings titles-->
   <string name="settings_enabled">有効</string>

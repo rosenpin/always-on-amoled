@@ -11,8 +11,16 @@
   <!--Support-->
   <string name="action_support_the_development">Támogassa a fejlesztést</string>
   <string name="support_how_much">Mennyit szeretne adományozni?</string>
-  <string name="gestures_action_speak">Aktuális idő, az értesítések és az akkumulátor állapotát hangosan mondani</string>
-  <string name="gestures_action_flashlight">Váltás elemlámpa</string>
+  <string name="supporter_feature_only">Ez a szolgáltatás csak támogatóknak elérhető, csak válassz hogy mennyit akarsz adományozni hogy támogató legyél, mennyit akarsz adományozni?</string>
+  <string name="support_choose">Mennyit szeretne adományozni?</string>
+  <string name="support_1">Feloldás</string>
+  <string name="support_2">Adományozás</string>
+  <string name="support_5">Nagy támogatás</string>
+  <string name="support_10">Fantasztikus támogatás</string>
+  <string name="support_20">Hatalmas támogatás</string>
+  <string name="support_25">Szuper támogatás!</string>
+  <string name="support_1_desc">Oldd fel az összes szolgáltatást az alkalmazásban és támogasd a fejlesztőket</string>
+  <string name="support_2_desc">Támogasd egy kicsit jobban a fejlesztőket. Ugyan azok a szolgáltatások, mint a sima feloldásnál.</string>
   <!--Intro-->
   <string name="intro_allow_now">Engedélyezés most</string>
   <string name="intro_modify_desc">Az alkalmazásnak szüksége van engedélyre, hogy változtassa az eszköz fényerősségét</string>
@@ -23,7 +31,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Köszönjük támogatását! :)</string>
   <string name="notification_message">Az Always On fut</string>
-  <string name="toast_thanks">Köszönjük</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Mindig be</string>
   <string name="quick_settings_service_active">engedélyezve</string>
@@ -79,6 +86,8 @@
   <string name="settings_about">Rólunk</string>
   <string name="settings_appearance">Megjelenés</string>
   <string name="settings_general">Általános</string>
+  <string name="gestures_action_speak">Aktuális idő, az értesítések és az akkumulátor állapotát hangosan mondani</string>
+  <string name="gestures_action_flashlight">Váltás elemlámpa</string>
   <!--Settings titles-->
   <string name="settings_brightness">Fényerő</string>
   <string name="settings_notifications">Értesítések</string>

@@ -7,10 +7,15 @@
   <string name="action_revert">Restaurează la valorile precedente</string>
   <string name="menu_feedback">Spune-ne părerea ta</string>
   <string name="menu_rate">Exprimă-ţi părerea</string>
+  <string name="action_restart">Reporniţi acum</string>
+  <string name="never_show_again">Nu se mai afișează</string>
   <!--Support-->
+  <string name="action_support_the_development">Sprijinirea dezvoltării</string>
   <string name="support_how_much">Cât de mult ați dori să donați?</string>
-  <string name="gestures_action_speak">Spune cu voce tare ora, notificările şi nivelul bateriei</string>
   <string name="supporter_feature_only">Această opțiune este valabilă doar pentru donatori. Poți alege cât de mult ca să devi un donator. Cât de mult doriţi să donaţi?</string>
+  <string name="support_choose">Cât de mult doriţi să donezi?</string>
+  <string name="support_1">Deblochează</string>
+  <string name="support_2">Donează</string>
   <!--Intro-->
   <string name="intro_allow_now">Oferă permisiunile</string>
   <string name="intro_draw_over">Funcționare peste alte aplicații</string>
@@ -27,7 +32,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Îți mulțumesc pentru sprijin! :)</string>
   <string name="notification_message">Serviciul „Always on” funcționează.</string>
-  <string name="toast_thanks">Multumesc</string>
   <!--Quick settings-->
   <!-- Content description-->
   <string name="notification_icon">Icon de notificare</string>
@@ -84,6 +88,7 @@
   <string name="settings_appearance">Aspect</string>
   <string name="settings_general">Generale</string>
   <string name="settings_wake_up">Moduri de aprindere</string>
+  <string name="gestures_action_speak">Spune cu voce tare ora, notificările şi nivelul bateriei</string>
   <string name="settings_rules">Setări automate</string>
   <!--Settings titles-->
   <string name="settings_enabled">Activează</string>

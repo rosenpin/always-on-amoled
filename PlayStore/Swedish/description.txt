@@ -2,25 +2,25 @@ Få en "always on" display för din telefon eller surfplatta.
 Håll din skärm på hela tiden.
 Den första "always on" appen med öppen källkod!
 
-Tanken är att förse användarna med information om, tid, datum, meddelanden och mer, utan att behöva röra telefonen. Bara genom att titta på den
+Tanken är att förse användarna med information om, tid, datum, aviseringar och mer, utan att behöva röra telefonen. Bara genom att titta på den.
 
-Detta görs möjligt tack vare AMOLED skärmar Det mesta av skärmen förblir svart med undantag för ett fåtal pixlar
+Detta görs möjligt tack vare AMOLED-skärmar. Det mesta av skärmen förblir svart med undantag för ett fåtal pixlar
 
 ★Anmärkningsvärda funktioner
-•    Always on skärm
-•    Meddelanden - Visa meddelanden utan att röra din enhet
-•    Automatiska regler - Spara ström med hjälp av förbestämda regler
-•    Automatisk rörelse - Undvik AMOLED inbränning
-•    Automatiskt nattläge - Tona ned skärmen automatiskt i mörk miljö
-• Fickläge - Spara ström genom att låsa enheten när du stoppar ner den i fickan
+• Alltid på display
+• Aviseringar - Läsa aviseringar utan att röra din enhet
+• Automatiska regler - Spara ström med hjälp av förbestämda regler
+• Automatisk rörelse - Undvik AMOLED-inbränning
+• Automatiskt nattläge - Tona ned skärmen automatiskt i mörk miljö
+• Fickläge - Spara ström genom att låsa enheten när du har den i fickan
 • Dubbeltryck för att väcka + Dra upp för att väcka + volymknapparna för att väcka + bakåtknappen för att väcka
-•    Skärmorientering - ställ in önskad skärmorientering
-•    Anpassning - Ändra textfärg, textstorlek, ljusstyrka och mer
-•    FRI OCH ÖPPEN KÄLLKOD!
+• Skärmorientering - ställ in önskad skärmorientering
+• Anpassning - Ändra textfärg, textstorlek, ljusstyrka och mer
+• GRATIS OCH ÖPPEN KÄLLKOD!
 
-Innan du använder vänligen aktivera behörighet för att "dra över appar" i denna app.
+Innan du använder aktivera behörighet för att "dra över appar" i denna app.
 
-Denna app är i BETA, den har fortfarande buggar och saknar funktioner.
+Detta är en BETA-app, den har fortfarande buggar och saknar funktioner.
 
 Behörigheter
 Behörighet för kamera
@@ -31,5 +31,5 @@ Behörighet för att ändra system inställningar
 Appen behöver behörighet att ändra inställningar för att ändra ljusstyrkan på låsskärmen
 
 
-Google Plus gemenskap
+Google Plus Grupper
 https://plus.google.com/communities/104206728795122451273

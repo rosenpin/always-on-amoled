@@ -12,20 +12,20 @@
   <!--Support-->
   <string name="action_support_the_development">Apoya al desarrollo</string>
   <string name="support_how_much">¿Cuánto te gustaría donar?</string>
-  <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
-  <string name="gestures_action_flashlight">Alternar linterna</string>
   <string name="supporter_feature_only">Esta función está solamente disponible para los seguidores, puede elegir cuánto quiere donar para convertirse en un seguidor. ¿Cuánto te gustaría donar?</string>
-  <string name="support_choose">¿Cuanto te gustaria donar?</string>
+  <string name="support_choose">¿Cuánto te gustaría donar?</string>
   <string name="support_1">Desbloquear</string>
   <string name="support_2">Donar</string>
   <string name="support_5">Donación grande</string>
   <string name="support_10">Donación increíble</string>
   <string name="support_20">Gran donación</string>
+  <string name="support_25">Super donación!</string>
   <string name="support_1_desc">Desbloquear todas las características premium de la aplicación y apoyar el desarrollo</string>
   <string name="support_2_desc">Apoyar el desarrollo un poco más. Mismas características que el desbloqueo normal.</string>
   <string name="support_5_desc">Donar al proyecto y me ayudan a seguir trabajando en la aplicación. Mismas características que el desbloqueo normal.</string>
   <string name="support_10_desc">Demuestra que aprecia el proyecto y mantiene el desarrollo activo. Mismas características que el desbloqueo normal.</string>
   <string name="support_20_desc">¡Wow! una enorme donación! ¡Muchas gracias! :) Mismas características que el desbloqueo normal.</string>
+  <string name="support_25_desc">¡Increíble! ¡Eso es un montón de dinero! Esto realmente le ayudará al proyecto! Mismas características que el regular de desbloqueo.</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir</string>
   <string name="intro_permissions">Leer el estado del dispositivo</string>
@@ -46,7 +46,7 @@
   <string name="notification_message">Always On está ejecutándose</string>
   <string name="toast_thanks">Gracias</string>
   <!--Quick settings-->
-  <string name="quick_settings_title">Always on</string>
+  <string name="quick_settings_title">Always On</string>
   <string name="quick_settings_service_active">activado</string>
   <string name="quick_settings_service_inactive">desactivado</string>
   <!-- Content description-->
@@ -58,13 +58,13 @@
   <!--Device admin-->
   <!--Plugin-->
   <string name="plugin_dialog_title">Se requiere plugin</string>
-  <string name="plugin_dialog_desc">Si su dispositivo tiene botones físicos, para que se apaguen cuando el servicio se está ejecutando, instale el plugin.</string>
+  <string name="plugin_dialog_desc">Si su dispositivo tiene botones físicos, por favor instale el plugin, para que se apaguen cuando el servicio se este ejecutando.</string>
   <!--Errors-->
   <string name="error">Error</string>
   <string name="error_IAP">Error! Por favor asegurate de estar conectado a internet y reinicia la app</string>
   <string name="error_0_unknown_error">Ha ocurrido un error. Por favor reportalo con el desarrollador </string>
   <string name="error_0_unknown_error_report_prompt">Clic aquí para reportar un error</string>
-  <string name="error_2_plugin_not_installed">PLUGIN NO ESTÁ INSTALADO</string>
+  <string name="error_2_plugin_not_installed">EL PLUGIN NO ESTÁ INSTALADO</string>
   <string name="error_3_unknown_error_restart">Ha ocurrido un error. por favor reinicie la aplicación.</string>
   <string name="error_4_tasker_service_not_initialized">El servicio no se inicializó correctamente</string>
   <string name="error_5_camera_cant_connect_desc">No es posible conectar a la cámara. Puede haber un problema con su dispositivo.</string>
@@ -122,11 +122,15 @@
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Atajos</string>
   <string name="settings_wake_up">Gestos y acciónes</string>
+  <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
+  <string name="gestures_action_flashlight">Alternar linterna</string>
   <string name="settings_rules">Reglas Automáticas</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Activar</string>
   <string name="settings_disable_volume_keys">Desactivar teclas de volumen</string>
   <string name="settings_double_tap_wake">Acción de doble toque</string>
+  <string name="settings_gestures_home_button_dismiss">Desbloqueo de botón home</string>
   <string name="settings_back_button_wake">Acción de botón atrás</string>
   <string name="settings_volume_to_stop">Acción de las teclas de volumen</string>
   <string name="settings_swipe_up">Acción al deslizar hacia arriba</string>
@@ -234,4 +238,5 @@
   <string name="settings_exit_animation_desc">Elige animación de desbloqueo</string>
   <string name="settings_battery_saver_desc">Reduce el consumo de la batería y el sobrecalentamiento. Funciona mejor con root.</string>
   <string name="settings_watchface_date_desc">Elige el estilo de fecha que desea ver</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Presione el botón home para salir de \"Always On Screen\". Esto desactiva siempre el sensor de huellas digitales.</string>
 </resources>

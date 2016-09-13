@@ -12,7 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Ondersteun de ontwikkelaar</string>
   <string name="support_how_much">Hoeveel zou je willen doneren?</string>
-  <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
   <string name="supporter_feature_only">Deze functie is alleen beschikbaar voor donateurs, je kunt kiezen hoeveel je wilt doneren om een supporter te worden, hoeveel zou je willen doneren?</string>
   <!--Intro-->
   <string name="intro_allow_now">Nu toestaan</string>
@@ -32,7 +31,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Bedankt voor je support! :)</string>
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
-  <string name="toast_thanks">Dankjewel</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Altijd aan</string>
   <string name="quick_settings_service_active">ingeschakeld</string>
@@ -102,6 +100,7 @@
   <string name="settings_general">Algemeen</string>
   <string name="settings_shortcuts">Snelkoppelingen</string>
   <string name="settings_wake_up">Scherm aan</string>
+  <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
   <string name="settings_rules">Automatische regels</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aan zetten</string>

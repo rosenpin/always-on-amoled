@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Sostieni lo Sviluppatore</string>
   <string name="support_how_much">Quanto vorresti donare?</string>
-  <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
-  <string name="gestures_action_flashlight">Toggle torcia</string>
   <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
   <string name="support_choose">Quanto vorresti donare?</string>
   <string name="support_1">Sblocca</string>
@@ -21,7 +19,13 @@
   <string name="support_5">Grossa donazione</string>
   <string name="support_10">Eccezionale donazione</string>
   <string name="support_20">Ingente donazione</string>
+  <string name="support_25">Super donazione!</string>
   <string name="support_1_desc">Sblocca tutte le funzionalità premium nell\'app e sostieni lo sviluppo</string>
+  <string name="support_2_desc">Sostieni lo sviluppatore un pò di più, Stesse caratteristiche regolari sbloccate.</string>
+  <string name="support_5_desc">Dona al progetto e aiutami a continuare a lavorare sull\'app. Le stesse caratteristiche regolari sbloccate.</string>
+  <string name="support_10_desc">Mostra di apprezzare il progetto e mantieni attivo lo sviluppo. Stesse caratteristiche regolari sbloccate.</string>
+  <string name="support_20_desc">Wow! una donazione enorme! Grazie mille! :) Stesse caratteristiche regolari sbloccate.</string>
+  <string name="support_25_desc">Incredibile! Sono un sacco di soldi!! Questo aiuterà molto il progetto! Stesse caratteristiche regolari sbloccate.</string>
   <!--Intro-->
   <string name="intro_allow_now">Consenti ora</string>
   <string name="intro_permissions">Leggi stato telefono</string>
@@ -110,6 +114,7 @@
   <string name="md_custom_label">Personalizza</string>
   <string name="md_done_label">Fatto</string>
   <string name="md_error_label">Errore</string>
+  <string name="md_presets_label">Presets</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Comportamento</string>
   <string name="settings_about">Riguardo</string>
@@ -117,13 +122,19 @@
   <string name="settings_general">Generale</string>
   <string name="settings_shortcuts">Scorciatoie</string>
   <string name="settings_wake_up">Risveglia</string>
+  <string name="gestures_action_speak">Dice l\'ora attuale, le notifiche e lo stato della batteria ad alta voce</string>
+  <string name="gestures_action_flashlight">Toggle torcia</string>
   <string name="settings_rules">Regole automatiche</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Abilita</string>
   <string name="settings_disable_volume_keys">Disabilita tasti volume</string>
   <string name="settings_double_tap_wake">Doppio tap per disattivare</string>
+  <string name="settings_gestures_home_button_dismiss">Tasto Home Sbloccato</string>
   <string name="settings_back_button_wake">Tasto indietro per disattivare</string>
   <string name="settings_volume_to_stop">Tasti volume per disattivare</string>
+  <string name="settings_swipe_up">Azione scorrendo verso l\'alto</string>
+  <string name="settings_swipe_down">Azione scorrendo verso il basso</string>
   <string name="settings_brightness">Luminosità</string>
   <string name="settings_doze">Modalità Doze</string>
   <string name="settings_google_now_shortcut">Consenti Google Now</string>
@@ -227,4 +238,5 @@
   <string name="settings_exit_animation_desc">Scegli l\'animazione di uscita</string>
   <string name="settings_battery_saver_desc">Riduce il consumo e il surriscaldamento batteria. Funziona meglio con il root.</string>
   <string name="settings_watchface_date_desc">Scegli lo stile di data che vuoi vedere</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Clicca sul tasto home per uscire da always on screen. Questo disabiliterà il sensore di impronte digitali di always on screen.</string>
 </resources>

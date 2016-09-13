@@ -8,11 +8,19 @@
   <string name="menu_feedback">Suggestion/Support</string>
   <string name="menu_rate">Noter l\'application</string>
   <string name="action_restart">Redémarrer maintenant</string>
+  <string name="never_show_again">Ne plus jamais montrer</string>
   <!--Support-->
   <string name="action_support_the_development">Supporter le développement</string>
   <string name="support_how_much">Combien voudriez-vous donner ?</string>
-  <string name="gestures_action_speak">Annoncer l\'heure, les notifications et le pourcentage de batterie à haute voix</string>
   <string name="supporter_feature_only">Cette fonctionnalité n\'est disponible uniquement pour les donateurs, combien voudriez-vous donner pour devenir un donateur ?</string>
+  <string name="support_choose">Combien voudriez-vous donner?</string>
+  <string name="support_1">Débloquer</string>
+  <string name="support_2">Donner</string>
+  <string name="support_5">Gros don</string>
+  <string name="support_10">Don incroyable</string>
+  <string name="support_20">Enorme don</string>
+  <string name="support_25">Super don!</string>
+  <string name="support_1_desc">Débloquer toutes les options premium dans l\'app et supporter le développement</string>
   <!--Intro-->
   <string name="intro_allow_now">Autoriser maintenant</string>
   <string name="intro_permissions">Lire l\'état du téléphone</string>
@@ -31,7 +39,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Merci pour votre soutient ! :)</string>
   <string name="notification_message">Always On est activé</string>
-  <string name="toast_thanks">Merci à vous</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">activer</string>
@@ -97,6 +104,7 @@
   <string name="settings_general">Général</string>
   <string name="settings_shortcuts">Raccourcis</string>
   <string name="settings_wake_up">Réveiller </string>
+  <string name="gestures_action_speak">Annoncer l\'heure, les notifications et le pourcentage de batterie à haute voix</string>
   <string name="settings_rules">Règles automatiques</string>
   <!--Settings titles-->
   <string name="settings_enabled">Activer</string>

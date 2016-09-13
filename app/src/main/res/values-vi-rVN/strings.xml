@@ -8,7 +8,6 @@
   <string name="menu_feedback">Phản hồi</string>
   <!--Support-->
   <string name="support_how_much">Bao nhiêu bạn muốn tặng?</string>
-  <string name="gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
   <string name="supporter_feature_only">Tính năng này chỉ có sẵn cho những người ủng hộ, bạn có thể chọn bao nhiêu bạn muốn donate để trở thành một người ủng hộ, bạn muốn tặng bao nhiêu ?</string>
   <!--Intro-->
   <string name="intro_allow_now">Cho phép bây giờ</string>
@@ -28,7 +27,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Cảm ơn bạn đã hỗ trợ của bạn! :)</string>
   <string name="notification_message">Luôn luôn trên đang chạy</string>
-  <string name="toast_thanks">Cảm ơn bạn</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Luôn sáng</string>
   <string name="quick_settings_service_active">kích hoạt</string>
@@ -94,6 +92,7 @@
   <string name="settings_general">Tổng quát</string>
   <string name="settings_shortcuts">Phím tắt</string>
   <string name="settings_wake_up">Cử chỉ và hành động</string>
+  <string name="gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
   <string name="settings_rules">Quy tắc tự động</string>
   <!--Settings titles-->
   <string name="settings_enabled">Kích hoạt</string>

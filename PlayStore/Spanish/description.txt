@@ -24,12 +24,12 @@ Esta aplicación es BETA, y por lo tanto todavía tiene bugs y le faltan caracte
 
 Permisos
 <b>Permisos de Cámara</b>
-La aplicación necesita permiso de cámara para reconocer su apertura y desactivar Always On.
+La aplicación necesita permiso de cámara para reconocer su apertura y desactivar "Always On Screen".
 <b>Permiso de acceso al teléfono</b>
-La aplicación necesita permisos de acceso al teléfono para reconocer llamadas entrantes, ocultar Always On y mostrar la llamada.
+La aplicación necesita permisos de acceso al teléfono para reconocer llamadas entrantes, ocultar Always On y mostrar la llamada en pantalla.
 <b>Modificar configuración de permisos del sistema</b>
 La aplicación necesita permiso para modificar la configuración del sistema, para poder cambiar el brillo de la pantalla de bloqueo.
 
 
-Comunidad Google Plus
+Comunidad de Google Plus
 https://plus.google.com/communities/104206728795122451273

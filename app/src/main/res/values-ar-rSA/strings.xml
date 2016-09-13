@@ -12,9 +12,8 @@
   <!--Support-->
   <string name="action_support_the_development">ساعدنا على التطوير</string>
   <string name="support_how_much">دعمنا كثيرا؟</string>
-  <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
-  <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="supporter_feature_only">هذه الخاصية متاحة فقط للداعمين بأمكانك أن تصبح داعما،كم تريد أن تعطينا؟</string>
+  <string name="support_choose">How much would you like to donate?</string>
   <string name="support_1">C</string>
   <string name="support_2_desc">Support the development a bit more. Same features as regular unlock.</string>
   <!--Intro-->
@@ -36,7 +35,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">شكرا على دعمكم! :)</string>
   <string name="notification_message">Always On في وضعية الإشتغال</string>
-  <string name="toast_thanks">شكراً</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">مفعل</string>
@@ -107,6 +105,8 @@
   <string name="settings_general">عام</string>
   <string name="settings_shortcuts">الاختصارات</string>
   <string name="settings_wake_up">إيماءات واﻹجراءات</string>
+  <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
+  <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="settings_rules">القواعد التلقائية</string>
   <!--Settings titles-->
   <string name="settings_enabled">تفعيل</string>

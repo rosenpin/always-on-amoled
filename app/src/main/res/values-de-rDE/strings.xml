@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Unterstütze den Entwickler</string>
   <string name="support_how_much">Wie viel möchtest du spenden?</string>
-  <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
-  <string name="gestures_action_flashlight">Taschenlampe</string>
   <string name="supporter_feature_only">Dieses Feature ist nur für Unterstützer verfügbar, du kannst wählen wie viel du spenden willst, um ein Unterstützer zu werden. Wie viel willst du spenden?</string>
   <string name="support_choose">Wie viel möchtest du spenden?</string>
   <string name="support_1">Entsperren</string>
@@ -21,11 +19,13 @@
   <string name="support_5">Große Spende</string>
   <string name="support_10">Großartige Spende</string>
   <string name="support_20">Affengeile Spende</string>
+  <string name="support_25">Super Spende!</string>
   <string name="support_1_desc">Entsperre alle Premium-Features in der App und unterstütze dessen Entwicklung</string>
   <string name="support_2_desc">Unterstütze die Entwicklung der App ein bisschen mehr. (Bietet die gleichen Features wie der normale Unlock.)</string>
   <string name="support_5_desc">Spende an das Projekt und hilf mir, die App stetig weiterzuentwickeln. (Bietet die gleichen Features wie der normale Unlock.)</string>
   <string name="support_10_desc">Zeig mir, dass du das Projekt wertschätzt und hilf, die Entwicklung am Leben zu halten. (Bietet die gleichen Features wie der normale Unlock.)</string>
   <string name="support_20_desc">WOW! Eine riesige Spende! Vielen Dank! :) (Bietet die gleichen Features wie der normale Unlock.)</string>
+  <string name="support_25_desc">Unglaublich! Das ist eine Menge Geld!! Es wird dem Projekt wirklich weiterhelfen! Gleiche Features wie der normale Unlock.</string>
   <!--Intro-->
   <string name="intro_allow_now">Jetzt erlauben</string>
   <string name="intro_permissions">Telefonstatus lesen</string>
@@ -44,7 +44,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Danke für deine Unterstützung! :)</string>
   <string name="notification_message">Always On ist aktiv</string>
-  <string name="toast_thanks">Vielen Dank</string>
+  <string name="toast_thanks">Danke</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always On</string>
   <string name="quick_settings_service_active">Aktiviert</string>
@@ -122,11 +122,15 @@
   <string name="settings_general">Allgemein</string>
   <string name="settings_shortcuts">Verknüpfungen</string>
   <string name="settings_wake_up">Gesten &amp; Aktionen</string>
+  <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
+  <string name="gestures_action_flashlight">Taschenlampe</string>
   <string name="settings_rules">Automatische Regeln</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aktiviert</string>
   <string name="settings_disable_volume_keys">Lautstärketasten deaktivieren</string>
   <string name="settings_double_tap_wake">Doppeltipp-Aktion</string>
+  <string name="settings_gestures_home_button_dismiss">Home-Button entsperrt</string>
   <string name="settings_back_button_wake">\"Zurück\"-Aktion</string>
   <string name="settings_volume_to_stop">Lautstärketasten-Aktion</string>
   <string name="settings_swipe_up">Wische nach oben - Aktion</string>
@@ -234,4 +238,5 @@
   <string name="settings_exit_animation_desc">Wähle die Ausgangs-Animation</string>
   <string name="settings_battery_saver_desc">Reduziert den Akkuverbrauch und schützt vor Überhitzung. Funktioniert besser mit root.</string>
   <string name="settings_watchface_date_desc">Wähle den Datums-Stil aus, den du sehen möchtest</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Klicke auf den Home-Button um den Always On Screen zu verlassen. Dies wird den Fingerprint-Sensor deaktivieren.</string>
 </resources>

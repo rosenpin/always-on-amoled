@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Apoya al desarrollo</string>
   <string name="support_how_much">¿Cuánto te gustaría donar?</string>
-  <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
-  <string name="gestures_action_flashlight">Alternar linterna</string>
   <string name="supporter_feature_only">Esta función está solamente disponible para los seguidores, puede elegir cuánto quiere donar para convertirse en un seguidor. ¿Cuánto te gustaría donar?</string>
   <string name="support_choose">¿Cuánto te gustaría donar?</string>
   <string name="support_1">Desbloquear</string>
@@ -44,7 +42,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">¡Gracias por tu apoyo! :)</string>
   <string name="notification_message">Always On está ejecutándose</string>
-  <string name="toast_thanks">Gracias</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">activado</string>
@@ -122,6 +119,8 @@
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Atajos</string>
   <string name="settings_wake_up">Gestos y acciónes</string>
+  <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
+  <string name="gestures_action_flashlight">Alternar linterna</string>
   <string name="settings_rules">Reglas Automáticas</string>
   <!--Settings titles-->
   <string name="settings_enabled">Habilitar</string>

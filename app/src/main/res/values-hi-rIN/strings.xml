@@ -3,6 +3,12 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
+  <string name="unlock">स् क्रीन चालू</string>
+  <string name="action_revert">पहले जैसा करें</string>
+  <string name="menu_feedback">प्रतिक्रिया</string>
+  <string name="menu_rate">एप्लिकेशन की श्रेणी बताओ</string>
+  <string name="action_restart">अब पुनरारंभ करें</string>
+  <string name="never_show_again">दिखाने के फिर कभी</string>
   <!--Support-->
   <!--Intro-->
   <!--Feedback,Toasts & messages-->

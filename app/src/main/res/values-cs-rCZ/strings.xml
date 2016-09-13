@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Podpoř vývoj</string>
   <string name="support_how_much">Kolik byste chtěli darovat?</string>
-  <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
-  <string name="gestures_action_flashlight">Zapnout blesk</string>
   <string name="supporter_feature_only">Tato funkce je dostupná pouze pro předplatitele, můžete zvolit kolik chcete darovat a stát se předplatitelem, kolik si přejete darovat?</string>
   <!--Intro-->
   <string name="intro_allow_now">Povolit nyní</string>
@@ -33,7 +31,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Děkujeme vám za vaši podporu! :)</string>
   <string name="notification_message">Vždy zapnuto je zaplé</string>
-  <string name="toast_thanks">Děkujeme</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Vždy zapnuto</string>
   <string name="quick_settings_service_active">povoleno</string>
@@ -103,6 +100,8 @@
   <string name="settings_general">Obecná nastavení</string>
   <string name="settings_shortcuts">Zkratky</string>
   <string name="settings_wake_up">Gesta a akce</string>
+  <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
+  <string name="gestures_action_flashlight">Zapnout blesk</string>
   <string name="settings_rules">Automatická pravidla</string>
   <!--Settings titles-->
   <string name="settings_enabled">Povolit</string>

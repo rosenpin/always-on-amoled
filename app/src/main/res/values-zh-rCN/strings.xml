@@ -12,9 +12,8 @@
   <!--Support-->
   <string name="action_support_the_development">捐赠开发者</string>
   <string name="support_how_much">您想捐助多少数额？</string>
-  <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
-  <string name="gestures_action_flashlight">打开手电</string>
   <string name="supporter_feature_only">此功能仅适用于捐助者，你可以自由的选择是否捐助，若想成为捐助者你也可以自由的选择捐助数额。</string>
+  <string name="support_choose">How much would you like to donate?</string>
   <!--Intro-->
   <string name="intro_allow_now">设置权限</string>
   <string name="intro_permissions">访问电话状态</string>
@@ -33,7 +32,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">谢谢您的支持! :)</string>
   <string name="notification_message">Always On 正在运行</string>
-  <string name="toast_thanks">谢谢您！</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always On</string>
   <string name="quick_settings_service_active">启用</string>
@@ -103,6 +101,8 @@
   <string name="settings_general">通用</string>
   <string name="settings_shortcuts">快捷方式</string>
   <string name="settings_wake_up">手势&amp;动作</string>
+  <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
+  <string name="gestures_action_flashlight">打开手电</string>
   <string name="settings_rules">自动规则</string>
   <!--Settings titles-->
   <string name="settings_enabled">启用</string>

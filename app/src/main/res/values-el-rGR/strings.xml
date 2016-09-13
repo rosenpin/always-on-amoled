@@ -3,6 +3,8 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
+  <string name="unlock">Ενεργοποιήστε την οθόνη</string>
+  <string name="action_revert">Revert</string>
   <!--Support-->
   <!--Intro-->
   <!--Feedback,Toasts & messages-->

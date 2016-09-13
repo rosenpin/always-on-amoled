@@ -12,8 +12,6 @@
   <!--Support-->
   <string name="action_support_the_development">Поддержать разработчика</string>
   <string name="support_how_much">Сколько денег вы желаете пожертвовать разработчику?</string>
-  <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
-  <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="supporter_feature_only">Эта функция станет доступна после внесения пожертвования, сколько бы вы хотели пожертвовать?</string>
   <string name="support_choose">Сколько денег вы желаете пожертвовать разработчику?</string>
   <!--Intro-->
@@ -34,7 +32,6 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Спасибо за вашу поддержку! :)</string>
   <string name="notification_message">Always On работает</string>
-  <string name="toast_thanks">Спасибо</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always ON</string>
   <string name="quick_settings_service_active">Активен</string>
@@ -111,6 +108,8 @@
   <string name="settings_general">Общие</string>
   <string name="settings_shortcuts">Ярлыки</string>
   <string name="settings_wake_up">Жесты и действия</string>
+  <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
+  <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="settings_rules">Правила работы</string>
   <!--Settings titles-->
   <string name="settings_enabled">Включить</string>

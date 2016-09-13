@@ -6,14 +6,14 @@ Az ötlet az, hogy a felhasználókat ellásuk információval az időről, dát
 
 Az egész az AMOLED kijelzőnek köszönhető. A képernyő nagy része fekete marad, kivéve néhány pixel.
 
-★Notable features
-• Always On Screen
+Figyelemre méltó szolgáltatások
+Mindig-bekapcsolt kijelző
 •    Értesítések - tekintse meg értesítéseit anélkül hogy hozzáérne készülékéhez
 • Automatikus szabályok - megőrzése akkumulátort használ előre definiált szabályok
 • Automatikus mozgás - AMOLED beégés elkerülése
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
+Automatikus esti mód - a képernyő automatikusan sötétebb környezetre vált.
+Zseb mód - hogy ne merüljön a telefonod
+Dupla koppintásra ébreszt + Felfele húzásra ébreszt + Hangerő gombokra ébreszt + Vissza gombra ébreszt
 • Force orientation - set your preferred screen orientation
 • Customization - change the text color, text size, brightness and more
 •    INGYENES ÉS NYÍLT FORRÁSKÓDÚ

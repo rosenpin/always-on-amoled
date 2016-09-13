@@ -3,33 +3,33 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
-  <string name="unlock">Låsa upp</string>
+  <string name="unlock">Aktivera skärmen</string>
   <string name="action_revert">Återgå</string>
   <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">Betygsätt appen</string>
   <string name="action_restart">Starta om nu</string>
   <string name="never_show_again">Visa aldrig igen</string>
   <!--Support-->
-  <string name="action_support_the_development">Stödj utvecklaren</string>
+  <string name="action_support_the_development">Stöd utvecklingen</string>
   <string name="support_how_much">Hur mycket skulle du vilja donera?</string>
-  <string name="gestures_action_speak">Säga aktuell tid, meddelanden och batteristatus högt</string>
-  <string name="gestures_action_flashlight">Ficklampa av/på</string>
   <string name="supporter_feature_only">Den här funktionen är endast tillgänglig för supportrar, du kan välja hur mycket du vill donera för att bli en supporter, hur mycket vill du donera?</string>
   <string name="support_choose">Hur mycket skulle du vilja donera?</string>
-  <string name="support_1">Upplåsning</string>
+  <string name="support_1">Lås upp</string>
   <string name="support_2">Donera</string>
   <string name="support_5">Stor donation</string>
-  <string name="support_10">Awesome donation</string>
+  <string name="support_10">Grym donation</string>
   <string name="support_20">Enorm donation</string>
-  <string name="support_1_desc">Lås upp alla premium-funktioner i appen och stödj utvecklingen</string>
-  <string name="support_2_desc">Stödja utvecklingen lite mer. Samma funktioner som vanlig upplåsning</string>
-  <string name="support_5_desc">Donera till projektet och hjälpa mig fortsätta arbeta på appen.  Samma  funktioner som vanlig upplåsning</string>
-  <string name="support_10_desc">Visa att du uppskattar projektet och håll utvecklingen aktiv. Samma funktioner som vanlig upplåsning</string>
-  <string name="support_20_desc">Wow! En enorm donation! Tack så mycket! :) Samma funktioner som vanlig upplåsning</string>
+  <string name="support_25">Superdonation!</string>
+  <string name="support_1_desc">Lås upp alla premium-funktioner i appen och stöd utvecklingen</string>
+  <string name="support_2_desc">Stöd utvecklingen lite mer. Samma funktioner som med vanlig upplåsning.</string>
+  <string name="support_5_desc">Donera till projektet och hjälp mig fortsätta arbeta på appen. Samma funktioner som med vanlig upplåsning.</string>
+  <string name="support_10_desc">Visa att du uppskattar projektet och håll utvecklingen aktiv. Samma funktioner som med vanlig upplåsning.</string>
+  <string name="support_20_desc">Wow! En enorm donation! Tack så mycket! :) Samma funktioner som med vanlig upplåsning.</string>
+  <string name="support_25_desc">Fantastiskt, det här var mycket pengar! Detta kommer verkligen att hjälpa projektet! Samma funktioner som med vanlig upplåsning.</string>
   <!--Intro-->
   <string name="intro_allow_now">Tillåt nu</string>
   <string name="intro_permissions">Läsa telefonstatus</string>
-  <string name="intro_permissions_desc">Appen behöver behörighet att läsa telefonstatus för att slå på enheten när du får ett samtal</string>
+  <string name="intro_permissions_desc">Appen behöver behörighet att läsa telefonstatusen för att kunna aktivera enheten när du får ett samtal.</string>
   <string name="intro_draw_over">Överlagringar på andra appar</string>
   <string name="intro_draw_over_desc">Appen behöver behörighet att göra överlagringar på andra appar</string>
   <string name="intro_modify_desc">Appen behöver behörighet att ändra enhetens ljusstyrka</string>
@@ -47,55 +47,55 @@
   <string name="toast_thanks">Tack så mycket</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Alltid på</string>
-  <string name="quick_settings_service_active">Aktiverat</string>
-  <string name="quick_settings_service_inactive">Avaktiverat</string>
+  <string name="quick_settings_service_active">aktiverad</string>
+  <string name="quick_settings_service_inactive">inaktiverad</string>
   <!-- Content description-->
   <string name="notification_icon">Aviseringsikon</string>
   <!--Widget-->
-  <string name="widget_toggle">Växla</string>
+  <string name="widget_toggle">växla</string>
   <string name="widget_off">Av</string>
   <string name="widget_on">På</string>
   <!--Device admin-->
   <!--Plugin-->
-  <string name="plugin_dialog_title">Plugin krävs</string>
-  <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att stänga av dessa när appen är igång, var god installera plugin (Plugin for Always On AMOLED)</string>
+  <string name="plugin_dialog_title">Tillägg krävs</string>
+  <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att stänga av dessa när appen är igång, var god installera tillägg (Plugin for Always On AMOLED).</string>
   <!--Errors-->
   <string name="error">Fel</string>
   <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
   <string name="error_0_unknown_error">Ett fel har uppstått. Vänligen rapportera till utvecklaren </string>
   <string name="error_0_unknown_error_report_prompt">Klicka här för att rapportera felet</string>
-  <string name="error_2_plugin_not_installed">PLUGIN HAR INTE INSTALLERATS</string>
-  <string name="error_3_unknown_error_restart">Ett fel har uppstått. Vänligen starta om appen</string>
+  <string name="error_2_plugin_not_installed">TILLÄGG HAR INTE INSTALLERATS</string>
+  <string name="error_3_unknown_error_restart">Ett fel har uppstått. Starta om appen.</string>
   <string name="error_4_tasker_service_not_initialized">Tjänsten var inte korrekt initierad</string>
   <string name="error_5_camera_cant_connect_desc">Kunde inte ansluta till kameran. Det kan finnas ett problem med din enhet.</string>
   <!--Warnings-->
-  <string name="warning_1_harm_performance">Detta kan skada appens prestanda</string>
+  <string name="warning_1_harm_performance">Detta kan påverka appens prestanda negativt</string>
   <string name="warning_4_device_not_secured">Din enhet är eventuellt osäker för tillfället</string>
   <string name="warning_5_device_admin_disable">Detta kommer att stänga av några av appens funktioner</string>
   <string name="warning_6_device_admin_disabled">Några funktioner kan bli avstängda nu</string>
   <string name="warning_7_disable_fingerprint">Detta kan avaktivera fingeravtrycksläsarens funktion. Är du säker på att du vill aktivera detta? </string>
-  <string name="warning_8_intro_allow_all">Tillåt alla behörigheter</string>
+  <string name="warning_8_intro_allow_all">Alla behörigheter måste tillåtas</string>
   <string name="warning_9_allow_notification">Tillåt åtkomst för aviseringar i appen</string>
-  <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen!</string>
-  <string name="warning_12_please_report">Låt mig veta vad du vill att jag fixar eller vad jag ska lägga till </string>
+  <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen</string>
+  <string name="warning_12_please_report">Låt mig få veta vad du vill att jag ska fixa eller lägga till</string>
   <!--Charging rules-->
-  <string name="rules_both_charging">Båda, när enheten laddas och laddas ur</string>
-  <string name="rules_while_charging">Medan enheten laddas</string>
-  <string name="rules_while_not_charging">Medan enheten inte laddas</string>
+  <string name="rules_both_charging">Båda, när enheten laddas och inte laddas</string>
+  <string name="rules_while_charging">Vid laddning</string>
+  <string name="rules_while_not_charging">Inte vid laddning</string>
   <!--Battery rules-->
   <string name="rules_always">Alltid</string>
-  <string name="rules_battery_90">90% eller mer</string>
-  <string name="rules_battery_70">70% eller mer</string>
-  <string name="rules_battery_50">50% eller mer</string>
-  <string name="rules_battery_30">30% procent eller mer</string>
-  <string name="rules_battery_20">20% eller mer</string>
-  <string name="rules_battery_10">10% eller mer</string>
+  <string name="rules_battery_90">90% eller högre</string>
+  <string name="rules_battery_70">70% eller högre</string>
+  <string name="rules_battery_50">50% eller högre</string>
+  <string name="rules_battery_30">30% procent eller högre</string>
+  <string name="rules_battery_20">20% eller högre</string>
+  <string name="rules_battery_10">10% eller högre</string>
   <!--Animations-->
   <string name="animation_disabled">Ingen animering</string>
   <string name="animation_fade_out">Tona ut</string>
   <string name="animation_slide_out">Glida ut</string>
   <!--Timeout delay rule-->
-  <string name="rules_disabled">Avaktiverat</string>
+  <string name="rules_disabled">Inaktiverad</string>
   <string name="rules_minutes_1">1 minut</string>
   <string name="rules_minutes_2">2 minuter</string>
   <string name="rules_minutes_5">5 minuter</string>
@@ -108,10 +108,10 @@
   <string name="rules_orientation_vertical">Porträtt (Vertikal)</string>
   <string name="rules_orientation_horizontal">Landskap (Horisontell)</string>
   <!-- Other labels -->
-  <string name="md_back_label">Tillbaka</string>
+  <string name="md_back_label">Bakåt</string>
   <string name="md_cancel_label">Avbryt</string>
   <string name="md_choose_label">Välj</string>
-  <string name="md_custom_label">Anpassa</string>
+  <string name="md_custom_label">Egen</string>
   <string name="md_done_label">Klar</string>
   <string name="md_error_label">Fel</string>
   <string name="md_presets_label">Förval</string>
@@ -122,11 +122,15 @@
   <string name="settings_general">Allmänt</string>
   <string name="settings_shortcuts">Genvägar</string>
   <string name="settings_wake_up">Gester och funktioner</string>
+  <string name="gestures_action_speak">Säg aktuell tid, aviseringar och batteristatus</string>
+  <string name="gestures_action_flashlight">Ficklampa av/på</string>
   <string name="settings_rules">Automatiska regler</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
-  <string name="settings_enabled">Aktiverat</string>
-  <string name="settings_disable_volume_keys">Avaktivera volymknapparna</string>
-  <string name="settings_double_tap_wake">Dubbeltryck i mitten på skärmen för att:</string>
+  <string name="settings_enabled">Aktivera</string>
+  <string name="settings_disable_volume_keys">Inaktivera volymknapparna</string>
+  <string name="settings_double_tap_wake">Åtgärd för dubbeltryck</string>
+  <string name="settings_gestures_home_button_dismiss">Hemknappen låser upp</string>
   <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
   <string name="settings_volume_to_stop">Volymknapparna för att:</string>
   <string name="settings_swipe_up">Dra uppåt för att:</string>
@@ -136,11 +140,11 @@
   <string name="settings_google_now_shortcut">Tillåta Google Nu</string>
   <string name="settings_memo_text">Memo text</string>
   <string name="settings_notifications">Aviseringar</string>
-  <string name="settings_persistent_notification">Visa alltid notifikation</string>
+  <string name="settings_persistent_notification">Visa alltid aviseringar</string>
   <string name="settings_move_auto">Flytta widget automatiskt</string>
   <string name="settings_font_size">Textstorlek</string>
   <string name="settings_watchface">Anpassa urtavla</string>
-  <string name="settings_proximity">Närhetssensor (Fickläge) </string>
+  <string name="settings_proximity">Närhetssensor (Fickläge)</string>
   <string name="settings_show_am_pm">Visa AM/PM</string>
   <string name="settings_text_color">Textfärg</string>
   <string name="settings_startafterlock">Starta efter låsning</string>
@@ -149,49 +153,50 @@
   <string name="settings_orientation">Skärmorientering</string>
   <string name="settings_always_on_memo">Always On memo</string>
   <string name="settings_stop_on_camera">Tillåt kameragenvägar</string>
-  <string name="settings_rules_cahrging">Regler för laddning</string>
-  <string name="settings_rules_battery">Regler för batteri</string>
+  <string name="settings_rules_cahrging">Laddningsregler</string>
+  <string name="settings_rules_battery">Batteriregler</string>
   <string name="settings_font">Typsnitt</string>
   <string name="settings_translate">Översätt</string>
-  <string name="settings_github">Github</string>
-  <string name="settings_community">Community</string>
+  <string name="settings_github">GitHub</string>
+  <string name="settings_community">Grupper</string>
   <string name="greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenser</string>
   <string name="settings_uninstall">Avinstallera</string>
   <string name="settings_exit_animation">Animering</string>
   <string name="settings_app_version">Version</string>
   <string name="settings_enable_greenify">Aktivera Greenify</string>
-  <string name="settings_battery_saver">Batterispararläge</string>
+  <string name="settings_battery_saver">Batteribesparingsläge</string>
   <!--Settings descriptions-->
-  <string name="settings_stop_on_camera_desc">Stäng av always on skärmen när kameran startas (detta bör vara aktiverat på Nexus- och Samsungenheter)</string>
-  <string name="settings_auto_brightness_desc">Dimma skärmen automatiskt när enheten befinner sig i mörka miljöer. (Sensorerna kan använda mer batteri)</string>
-  <string name="settings_stop_delay_desc_short_message">Stäng av always on efter:</string>
-  <string name="settings_stop_delay_desc">Stäng av always on skärmen efter en tid utan interagering för att spara batteri</string>
+  <string name="settings_stop_on_camera_desc">Stäng av always on display när kameran startas</string>
+  <string name="settings_auto_brightness_desc">Dimma skärmen automatiskt när enheten befinner sig i mörka miljöer (Sensorerna kan använda mer batteri)</string>
+  <string name="settings_stop_delay_desc_short_message">Stäng tjänsten always on efter:</string>
+  <string name="settings_stop_delay_desc">Stäng av always on display efter en tid utan interagering för att spara batteri</string>
   <string name="settings_startafterlock_desc">Starta endast tjänsten efter att skärmen är låst. Håll detta aktiverat för att din enhet fortsättningsvis ska vara säker samt att fingeravtrycksläsaren ska fungera</string>
-  <string name="settings_rules_desc">När ska always on skärmen fungera?</string>
+  <string name="settings_rules_desc">När ska always on display fungera?</string>
   <string name="settings_text_color_desc">Ange textfärg</string>
   <string name="settings_show_am_pm_desc">Visa AM/PM med klockan (endast för 12h tid)</string>
-  <string name="settings_watchface_desc">Anpassa always on skärmen</string>
+  <string name="settings_watchface_desc">Anpassa always on display</string>
   <string name="settings_proximity_to_lock_desc">Lås enheten när du placerar enheten i fickan för att spara batteri (Sensorer kan använda mer batteri)</string>
-  <string name="settings_licenses_desc">Licens för öppen källkod</string>
-  <string name="settings_community_desc">Google Plus gemenskap</string>
+  <string name="settings_licenses_desc">Licenser för öppen källkod</string>
+  <string name="settings_community_desc">Gå med i Google Plus gruppen för nyheter och mer</string>
   <string name="settings_about_twitter_desc">Följ mig på Twitter för nyheter, uppdateringar och giveaways</string>
-  <string name="settings_github_desc">Öppen källkod GitHub länk</string>
-  <string name="settings_move_desc">Aktivera det här för att undvika AMOLED inbränning</string>
-  <string name="settings_font_size_desc">Ange klockstorlek</string>
-  <string name="settings_notifications_desc">Aktivera detta för att hålla igång appen i bakgrunden. Tips: Du kan blockera appens meddelanden på Android 6.0+ utan att påverka dess funktionalitet</string>
+  <string name="settings_github_desc">Titta på källkoden, skicka felrapporter och hjälp till att utveckla appen</string>
+  <string name="settings_move_desc">Aktivera för att undvika AMOLED-inbränning</string>
+  <string name="settings_font_size_desc">Ange teckenstorlek för klockan</string>
+  <string name="settings_font_size_memo_desc">Ange teckenstorlek för anteckningar</string>
+  <string name="settings_notifications_desc">Aktivera detta för att hålla igång appen i bakgrunden</string>
   <string name="settings_enabled_desc">Aktivera tjänsten</string>
   <string name="settings_disable_volume_keys_desc">Aktivera detta för att undvika att råka ändra volymen</string>
-  <string name="settings_notifications_alerts_desc">Visa meddelanden från andra appar när de tas emot</string>
-  <string name="settings_brightness_desc">Skärmens ljusstyrka medan den är avstängd</string>
-  <string name="settings_about_translate">Hjälp oss att översätta appen</string>
+  <string name="settings_notifications_alerts_desc">Visa aviseringar från andra appar när de tas emot</string>
+  <string name="settings_brightness_desc">Ljusstyrkan på skärmen när den är avstängd</string>
+  <string name="settings_about_translate">Hjälp till att översätta appen till ditt språk</string>
   <string name="settings_version_desc">build</string>
-  <string name="settings_watchface_clock">Klockans stil</string>
-  <string name="settings_watchface_date">Datumformat</string>
+  <string name="settings_watchface_clock">Klockstil</string>
+  <string name="settings_watchface_date">Datumstil</string>
   <string name="settings_watchface_battery">Batteristil</string>
-  <string name="settings_watchface_miscellaneous">Blandat</string>
+  <string name="settings_watchface_miscellaneous">Diverse</string>
   <string name="settings_watchface_styles">Stilar</string>
-  <string name="settings_choose_font">Välj din font</string>
+  <string name="settings_choose_font">Ange ditt typsnitt</string>
   <string name="settings_watch_digital">Digital</string>
   <string name="settings_watch_analog">Analog</string>
   <string name="settings_rules_text">Text</string>
@@ -211,7 +216,7 @@
   <string name="settings_watchface_clock_desc">Välj din favorit klockstil</string>
   <string name="settings_watch_analog_24_classic">Klassisk 24h (analog)</string>
   <string name="settings_watch_analog_s7">Galaxy S7 (analog)</string>
-  <string name="settings_watch_ticks">Klassisk 12h (analog) </string>
+  <string name="settings_watch_ticks">Klassisk analog klocka 12h</string>
   <string name="settings_watch_digital_s7">Galaxy S7 (digital)</string>
   <string name="settings_watch_flat_analog">Platt analog stil</string>
   <string name="settings_about_twitter">Twitter</string>
@@ -225,11 +230,13 @@
   <string name="greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
   <string name="settings_notifications_alerts_preview_desc">Visa innehåll i meddelanden när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
-  <string name="settings_doze_desc">Aktivera doze medan always on skärmen är aktiv för att spara batteri (endast root)</string>
+  <string name="settings_doze_desc">Aktivera slumra medan always on display är aktiv för att spara batteri (endast root)</string>
   <string name="settings_memo_text_desc">Skriv din anteckning här</string>
   <string name="settings_memo_font_size_desc">Ange teckenstorlek för anteckningar</string>
-  <string name="settings_memo_hint">Skriv din anteckning här. Det visas på din always on display.</string>
+  <string name="settings_memo_hint">Skriv dina anteckningar här. Det visas på din always on display.</string>
   <string name="settings_google_now_shortcut_desc">Stäng av always on skärmen när Google Nu aktiveras genom att säga OK Google (kanske inte fungerar med Google Nu launcher)</string>
+  <string name="settings_exit_animation_desc">Ange avslutsanimering</string>
   <string name="settings_battery_saver_desc">Minska batteriförbrukningen och överhettning. Fungerar bättre med root</string>
   <string name="settings_watchface_date_desc">Välj det datumformat som du vill se</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Tryck på hemknappen för att avsluta always on display. Detta kommer att inaktivera fingeravtrycksgivaren för always on.</string>
 </resources>
