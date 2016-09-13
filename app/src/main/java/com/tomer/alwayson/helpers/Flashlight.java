@@ -42,7 +42,11 @@ public class Flashlight {
             if (cam != null) {
                 isLoading = true;
                 if (!enabled) {
-                    cam.startPreview();
+                    try {
+                        cam.startPreview();
+                    } catch (RuntimeException e) {
+                        Utils.showErrorNotification(context, context.getString(R.string.error), context.getString(R.string.error_5_camera_cant_connect_desc), 233, null);
+                    }
                 } else {
                     cam.stopPreview();
                 }
