@@ -36,7 +36,6 @@ import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.receivers.DAReceiver;
 import com.tomer.alwayson.services.MainService;
-import com.tomer.alwayson.services.QuickSettingsToggle;
 import com.tomer.alwayson.services.StarterService;
 
 import eu.chainfire.libsuperuser.Shell;
@@ -117,12 +116,14 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         AppRate.with(this).starRating(true).starRatingListener(new AppRate.OnStarRateListener() {
             @Override
             public void onPositiveRating(int starRating) {
-                Toast.makeText(PreferencesActivity.this, R.string.toast_thanks, Toast.LENGTH_LONG).show();
+                SettingsFragment.openPlayStoreUrl("com.tomer.alwayson", PreferencesActivity.this);
+                Toast.makeText(PreferencesActivity.this, R.string.toast_thanks_rate, Toast.LENGTH_LONG).show();
             }
 
             @Override
-            public void onNegativeRating(int starRating) {
+            public void onNegativeRating(int starRating, AppRate appRate) {
                 Toast.makeText(PreferencesActivity.this, R.string.toast_thanks, Toast.LENGTH_LONG).show();
+                appRate.hide();
             }
         }).checkAndShow();
     }
