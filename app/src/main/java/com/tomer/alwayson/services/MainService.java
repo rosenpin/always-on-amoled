@@ -200,7 +200,7 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN))
-                    return !(!prefs.disableVolumeKeys && (gestureAction(prefs.volumeButtonsAction) || musicPlayer.isShown()));
+                    return !((gestureAction(prefs.volumeButtonsAction) || musicPlayer.isShown()) && !prefs.disableVolumeKeys);
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK)
                     gestureAction(prefs.backButtonAction);
                 return super.dispatchKeyEvent(event);
