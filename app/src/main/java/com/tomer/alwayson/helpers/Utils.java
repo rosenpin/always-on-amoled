@@ -41,7 +41,7 @@ public class Utils implements ContextConstatns {
         Notification.Builder builder = new Notification.Builder(context);
         builder.setContentTitle(title);
         builder.setContentText(text);
-        builder.setSmallIcon(R.drawable.ic_error_outline);
+        builder.setSmallIcon(R.drawable.ic_error);
         if (onClickIntent != null)
             builder.setContentIntent(onClickIntent);
         builder.setPriority(Notification.PRIORITY_MAX);
