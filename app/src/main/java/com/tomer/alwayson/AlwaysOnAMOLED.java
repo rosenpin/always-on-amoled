@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatDelegate;
 import com.tomer.alwayson.helpers.Utils;
 
 public class AlwaysOnAMOLED extends Application {
-    public static int reportNotificationID = 53;
-
     static {
         try {
             AppCompatDelegate.setDefaultNightMode(

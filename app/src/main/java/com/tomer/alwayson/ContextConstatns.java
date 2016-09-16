@@ -45,6 +45,8 @@ public interface ContextConstatns {
     int CAMERA_PERMISSION_REQUEST_CODE = 5;
     int DEVICE_ADMIN_REQUEST_CODE = 4;
 
+    int reportNotificationID = 53;
+
     String DOUBLE_TAP = "double_tap_action";
     String SWIPE_UP = "swipe_up_action";
     String SWIPE_DOWN = "swipe_down_action";
