@@ -200,7 +200,7 @@ public class MainService extends Service implements SensorEventListener, Context
             @Override
             public boolean dispatchKeyEvent(KeyEvent event) {
                 if ((event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN))
-                    return gestureAction(prefs.volumeButtonsAction) || !prefs.disableVolumeKeys || !musicPlayer.isShown();
+                    return !(!prefs.disableVolumeKeys && (gestureAction(prefs.volumeButtonsAction) || musicPlayer.isShown()));
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK)
                     gestureAction(prefs.backButtonAction);
                 return super.dispatchKeyEvent(event);
@@ -592,7 +592,7 @@ public class MainService extends Service implements SensorEventListener, Context
                 flashlight.toggle();
             return true;
         }
-        return false;
+        return true;
     }
 
     public void stopThis() {
