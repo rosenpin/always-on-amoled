@@ -31,6 +31,9 @@ import android.widget.TextView;
 
 import java.util.Date;
 
+/**
+ * Created by nicolas on 06/03/14.
+ */
 public class AppRate {
 
     protected static final String PREFS_NAME = "app_rate_prefs";
@@ -385,7 +388,7 @@ public class AppRate {
      * @param starRateListener a listener to for callbacks when a star rating is submitted
      * @return the {@link AppRate} instance
      */
-    public AppRate starRatingListener(OnStarRateListener starRateListener) {
+    public AppRate setOnRateListener(OnStarRateListener starRateListener) {
         this.onStarRateListener = starRateListener;
         return this;
     }
@@ -567,7 +570,10 @@ public class AppRate {
             mainView = new FrameLayout(activity);
             try {
                 activity.getLayoutInflater().inflate(view, mainView);
-            } catch (InflateException | Resources.NotFoundException e) {
+            } catch (InflateException e) {
+                mainView = (ViewGroup) activity.getLayoutInflater().inflate(R.layout.app_rate, null);
+                view = 0;
+            } catch (Resources.NotFoundException e) {
                 mainView = (ViewGroup) activity.getLayoutInflater().inflate(R.layout.app_rate, null);
                 view = 0;
             }
@@ -610,14 +616,22 @@ public class AppRate {
         if (rateElement != null) {
             rateElement.setText(text);
             if (!starRating) {
-                rateElement.setOnClickListener(v -> performRating(packageName));
+                rateElement.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        performRating(packageName);
+                    }
+                });
             }
         }
 
         if (close != null) {
-            close.setOnClickListener(v -> {
-                hideAllViews(mainView);
-                if (onShowListener != null) onShowListener.onRateAppDismissed();
+            close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    hideAllViews(mainView);
+                    if (onShowListener != null) onShowListener.onRateAppDismissed();
+                }
             });
         }
 
@@ -637,25 +651,28 @@ public class AppRate {
 
                     setBackgroundDrawable(starView, starInsetDrawable);
 
-                    starView.setOnClickListener(view1 -> {
-                        Drawable filledStarDrawable = getDrawableForStarRating(true);
+                    starView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Drawable filledStarDrawable = getDrawableForStarRating(true);
 
-                        int clickedRating = (Integer) view1.getTag();
-                        for (int i1 = 0; i1 < clickedRating; i1++) {
-                            View starView1 = ((ViewGroup) view1.getParent()).getChildAt(i1);
-                            InsetDrawable starInsetFilledDrawable = getInsetDrawableForStarRating(filledStarDrawable, i1);
+                            int clickedRating = (Integer) view.getTag();
+                            for (int i = 0; i < clickedRating; i++) {
+                                View starView = ((ViewGroup) view.getParent()).getChildAt(i);
+                                InsetDrawable starInsetFilledDrawable = getInsetDrawableForStarRating(filledStarDrawable, i);
 
-                            setBackgroundDrawable(starView1, starInsetFilledDrawable);
-                        }
+                                setBackgroundDrawable(starView, starInsetFilledDrawable);
+                            }
 
-                        if (onStarRateListener == null) {
-                            performRating(packageName);
-                        } else {
-                            if (clickedRating >= minStarsForPositive) {
+                            if (onStarRateListener == null) {
                                 performRating(packageName);
-                                onStarRateListener.onPositiveRating(clickedRating);
                             } else {
-                                onStarRateListener.onNegativeRating(clickedRating, AppRate.this);
+                                if (clickedRating >= minStarsForPositive) {
+                                    performRating(packageName);
+                                    onStarRateListener.onPositiveRating(clickedRating);
+                                } else {
+                                    onStarRateListener.onNegativeRating(clickedRating, AppRate.this);
+                                }
                             }
                         }
                     });
@@ -748,7 +765,12 @@ public class AppRate {
 
 
         if (delay > 0) {
-            activity.getWindow().getDecorView().postDelayed(() -> displayViews(mainView), delay);
+            activity.getWindow().getDecorView().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    displayViews(mainView);
+                }
+            }, delay);
         } else {
             displayViews(mainView);
         }

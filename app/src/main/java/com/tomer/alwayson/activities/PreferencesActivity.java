@@ -113,7 +113,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void appRate() {
-        AppRate.with(this).starRating(true).starRatingListener(new AppRate.OnStarRateListener() {
+        AppRate.with(this).starRating(true).setOnRateListener(new AppRate.OnStarRateListener() {
             @Override
             public void onPositiveRating(int starRating) {
                 SettingsFragment.openPlayStoreUrl("com.tomer.alwayson", PreferencesActivity.this);

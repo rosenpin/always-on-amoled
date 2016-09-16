@@ -99,6 +99,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private FrameLayout frameLayout;
     private LinearLayout mainView;
     private WindowManager.LayoutParams windowParams;
+    private WindowManager.LayoutParams blackScreenParams;
     private PowerManager.WakeLock stayAwakeWakeLock;
     private UnlockReceiver unlockReceiver;
     private IconsWrapper iconsWrapper;
@@ -554,6 +555,10 @@ public class MainService extends Service implements SensorEventListener, Context
     }
 
     private void showBlackScreen(boolean show) {
+        if (blackScreenParams == null) {
+            blackScreenParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, 65794, -2);
+            blackScreenParams.type = Utils.isSamsung() ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        }
         if (blackScreen == null)
             blackScreen = new FrameLayout(this);
         blackScreen.setBackgroundColor(Color.BLACK);

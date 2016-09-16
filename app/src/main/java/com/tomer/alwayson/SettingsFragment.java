@@ -313,12 +313,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             return true;
         }
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
-            Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((CheckBoxPreference) preference).setChecked(true);
-                    restartService();
-                }
+            Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, v -> {
+                ((CheckBoxPreference) preference).setChecked(true);
+                restartService();
             }).show();
             restartService();
         }

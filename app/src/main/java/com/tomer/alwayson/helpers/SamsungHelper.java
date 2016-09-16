@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.provider.Settings;
 import android.widget.Toast;
 
@@ -58,29 +59,32 @@ public class SamsungHelper implements ContextConstatns {
                     ComponentName c = context.startService(i);
                     Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Started plugin to control the buttons lights");
                 } catch (Exception e1) {
-                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
-                    Toast.makeText(context, context.getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
-                    try {
-                        Settings.System.putInt(contentResolver, "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                    } catch (RuntimeException e2) {
+                    boolean finalState = state;
+                    new Handler().post(() -> {
                         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "First method of settings the buttons state failed.");
+                        Toast.makeText(context, context.getString(R.string.error_2_plugin_not_installed), Toast.LENGTH_LONG).show();
                         try {
-                            Runtime r = Runtime.getRuntime();
-                            r.exec("echo" + (state ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
-                        } catch (IOException e3) {
+                            Settings.System.putInt(contentResolver, "button_key_light", finalState ? 0 : originalCapacitiveButtonsState);
+                        } catch (RuntimeException e2) {
                             Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Second method of settings the buttons state failed.");
                             try {
-                                Settings.System.putLong(contentResolver, "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                            } catch (Exception e4) {
+                                Runtime r = Runtime.getRuntime();
+                                r.exec("echo" + (finalState ? 0 : originalCapacitiveButtonsState) + "> /system/class/leds/keyboard-backlight/brightness");
+                            } catch (IOException e3) {
                                 Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Third method of settings the buttons state failed.");
                                 try {
-                                    Settings.Secure.putInt(contentResolver, "button_key_light", state ? 0 : originalCapacitiveButtonsState);
-                                } catch (Exception e5) {
+                                    Settings.System.putLong(contentResolver, "button_key_light", finalState ? 0 : originalCapacitiveButtonsState);
+                                } catch (Exception e4) {
                                     Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Fourth method of settings the buttons state failed.");
+                                    try {
+                                        Settings.Secure.putInt(contentResolver, "button_key_light", finalState ? 0 : originalCapacitiveButtonsState);
+                                    } catch (Exception e5) {
+                                        Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Fifth (plugin) method of settings the buttons state failed.");
+                                    }
                                 }
                             }
                         }
-                    }
+                    });
                 }
             }
         }
