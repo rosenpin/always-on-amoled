@@ -38,9 +38,10 @@ public class DigitalS7 extends RelativeLayout {
         ((TextView) findViewById(R.id.s7_am_pm)).setTypeface(font);
         ((TextView) findViewById(R.id.s7_battery_percentage_tv)).setTypeface(font);
 
-        ((TextView) findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 9.2));
+        ((TextView) findViewById(R.id.s7_hour_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 9.5));
         ((TextView) findViewById(R.id.s7_date_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 1));
         ((TextView) findViewById(R.id.s7_minute_tv)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 3.5));
+        ((TextView) findViewById(R.id.s7_minute_tv)).setHeight((int) ((TextView) findViewById(R.id.s7_minute_tv)).getTextSize() + 35);
         ((TextView) findViewById(R.id.s7_am_pm)).setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 1.2));
         findViewById(R.id.s7_am_pm).setPadding((int) getResources().getDimension(R.dimen.small_spacing), (int) (textSize / 1.7), 0, 0);
         ((TextView) findViewById(R.id.s7_date_tv)).setMaxWidth((int) (textSize * 2.3));
@@ -50,7 +51,7 @@ public class DigitalS7 extends RelativeLayout {
 
         batteryTV.setTextSize(TypedValue.COMPLEX_UNIT_SP, (float) (textSize * 0.2 * 1));
         ViewGroup.LayoutParams batteryIVlp = batteryIV.getLayoutParams();
-        batteryIVlp.height = (int) (textSize);
+        batteryIVlp.height = (int) (textSize * 0.8);
         batteryIV.setLayoutParams(batteryIVlp);
     }
 

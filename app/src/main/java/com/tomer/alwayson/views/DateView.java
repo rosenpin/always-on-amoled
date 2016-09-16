@@ -63,7 +63,7 @@ public class DateView extends LinearLayout implements ContextConstatns {
                 if (isBrokenSamsungDevice()) {
                     dateWrapper.removeView(calendarView);
                     calendarView = null;
-                    forceUpdate(Utils.getDateText(context));
+                    forceUpdate(Utils.getDateText(context,false));
                 } else
                     dateWrapper.removeView(calendarTV);
                 break;

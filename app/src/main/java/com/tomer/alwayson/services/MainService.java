@@ -384,7 +384,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private void longRefresh() {
         if (!firstRefresh && prefs.moveWidget != DISABLED)
             ViewUtils.move(getApplicationContext(), mainView, prefs.moveWidget == MOVE_WITH_ANIMATION, prefs.orientation, isBig());
-        String monthAndDayText = Utils.getDateText(getApplicationContext());
+        String monthAndDayText = Utils.getDateText(getApplicationContext(), prefs.clockStyle == S7_DIGITAL);
         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Long Refresh");
         UIHandler.post(() -> {
             dateView.update(monthAndDayText);
