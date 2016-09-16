@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -254,15 +255,21 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             if (Utils.isAndroidNewerThanL() && prompt) {
                 Intent intent = new Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                checkAndStartActivity(intent);
                 shouldEnableNotificationsAlerts = true;
             } else if (prompt) {
-                startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+                checkAndStartActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
                 shouldEnableNotificationsAlerts = true;
             }
             return false;
         }
         return true;
+    }
+
+    private void checkAndStartActivity(Intent intent) {
+        List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        if (list.size() > 0)
+            startActivity(intent);
     }
 
     public boolean isPackageInstalled(String targetPackage) {

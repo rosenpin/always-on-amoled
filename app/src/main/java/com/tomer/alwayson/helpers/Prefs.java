@@ -66,7 +66,6 @@ public class Prefs {
             prefs.edit().remove(KEYS.SWIPE_UP_ACTION.toString()).apply();
             prefs.edit().remove(KEYS.VOLUME_TO_STOP.toString()).apply();
             prefs.edit().remove(KEYS.BACK_BUTTON_TO_STOP.toString()).apply();
-            Toast.makeText(context, "YOUR GESTURE PREFERENCES WERE RESET", Toast.LENGTH_LONG).show();
         }
         try {
             proximityToLock = prefs.getBoolean(KEYS.PROXIMITY_TO_LOCK.toString(), false);

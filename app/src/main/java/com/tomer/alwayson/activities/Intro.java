@@ -6,6 +6,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -29,6 +30,8 @@ import com.github.paolorotolo.appintro.AppIntro2;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
+
+import java.util.List;
 
 
 public class Intro extends AppIntro2 {
@@ -318,13 +321,18 @@ public class Intro extends AppIntro2 {
                     startActivity(intent);
                     shouldEnableNotificationsAlerts = true;
                 } else if (prompt) {
-                    startActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
+                    checkAndStartActivity(new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"));
                     shouldEnableNotificationsAlerts = true;
                 }
                 Toast.makeText(getContext(), R.string.warning_9_allow_notification, Toast.LENGTH_LONG).show();
                 return false;
             }
             return true;
+        }
+        private void checkAndStartActivity(Intent intent) {
+            List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+            if (list.size() > 0)
+                startActivity(intent);
         }
     }
 }
