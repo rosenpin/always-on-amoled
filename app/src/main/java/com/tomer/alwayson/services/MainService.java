@@ -566,7 +566,7 @@ public class MainService extends Service implements SensorEventListener, Context
         try {
             if (show) {
                 if (!blackScreen.isAttachedToWindow())
-                    windowManager.addView(blackScreen, windowParams);
+                    windowManager.addView(blackScreen, blackScreenParams);
             } else if (blackScreen.isAttachedToWindow())
                 windowManager.removeView(blackScreen);
         } catch (IllegalStateException ignored) {
