@@ -16,6 +16,10 @@ If you can and want to contribute, you can do it [right here](https://crowdin.co
 
 
 ## Licensing
-Always On Display is licensed under the [GNU v3 Public License.](LICENSE)
+```
+Copyright 2016 Tomer Rosenfeld
+
+Always On Display is licensed under the GNU v3 Public License.
 
 In addition to the terms set by the GNU v3 Public License, I ask that if you use any code from this repository that you send me a message to let me know.
+```
