@@ -47,11 +47,13 @@ public class Intro extends AppIntro2 {
         pref.apply();
 
         if (Utils.isAndroidNewerThanM()) {
-            permissions = new boolean[3];
+            boolean isPhone;
+            isPhone = getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+            permissions = new boolean[isPhone ? 3 : 2];
             skipButtonEnabled = false;
             addSlide(new First());
             addSlide(new Second());
-            if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY))
+            if (isPhone)
                 addSlide(new Third());
         } else {
             skipButtonEnabled = true;
@@ -329,6 +331,7 @@ public class Intro extends AppIntro2 {
             }
             return true;
         }
+
         private void checkAndStartActivity(Intent intent) {
             List<ResolveInfo> list = context.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
             if (list.size() > 0)
