@@ -135,7 +135,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void handlePermissions() {
-        if (Utils.isAndroidNewerThanM()) {
+        if (Utils.isAndroidNewerThanM() && Utils.isPhone(this)) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.READ_PHONE_STATE},

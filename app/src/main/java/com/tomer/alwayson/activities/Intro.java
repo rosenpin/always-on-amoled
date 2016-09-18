@@ -48,7 +48,7 @@ public class Intro extends AppIntro2 {
 
         if (Utils.isAndroidNewerThanM()) {
             boolean isPhone;
-            isPhone = getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+            isPhone = Utils.isPhone(context);
             permissions = new boolean[isPhone ? 3 : 2];
             skipButtonEnabled = false;
             addSlide(new First());

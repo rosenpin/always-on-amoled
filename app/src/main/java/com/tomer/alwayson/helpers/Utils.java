@@ -144,6 +144,10 @@ public class Utils implements ContextConstatns {
         return Build.MANUFACTURER.equalsIgnoreCase("samsung");
     }
 
+    public static boolean isPhone(Context context) {
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+    }
+
     public static class Animations {
         private static final int animLength = 300;
         private static final int actionDelay = animLength / 2;
