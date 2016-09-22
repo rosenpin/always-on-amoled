@@ -4,8 +4,10 @@ import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -21,11 +23,14 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.services.MainService;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
 public class Utils implements ContextConstatns {
+
+    private static Boolean isSamsung;
 
     static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
@@ -140,12 +145,36 @@ public class Utils implements ContextConstatns {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
 
-    public static boolean isSamsung() {
-        return Build.MANUFACTURER.equalsIgnoreCase("samsung");
+    public static boolean isSamsung(Context context) {
+        if (isSamsung != null)
+            return isSamsung;
+        else
+            isSamsung = isLauncherInstalled(context, "com.sec.android.app.launcher");
+        return isSamsung;
     }
 
     public static boolean isPhone(Context context) {
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+    }
+
+    private static boolean isLauncherInstalled(Context context, String packageName) {
+        final IntentFilter filterCategory = new IntentFilter(Intent.ACTION_MAIN);
+        filterCategory.addCategory(Intent.CATEGORY_HOME);
+
+        List<IntentFilter> filters = new ArrayList<>();
+        filters.add(filterCategory);
+
+        List<ComponentName> activities = new ArrayList<>();
+        final PackageManager packageManager = context.getPackageManager();
+
+        packageManager.getPreferredActivities(filters, activities, null);
+
+        for (ComponentName activity : activities) {
+            if (packageName.equals(activity.getPackageName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static class Animations {

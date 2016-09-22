@@ -184,7 +184,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 }
             }
         }
-        if (!Utils.isSamsung()) {
+        if (!Utils.isSamsung(context)) {
             PreferenceScreen gesturesPrefs = (PreferenceScreen) findPreference("gestures_prefs");
             PreferenceCategory samsungPrefs = (PreferenceCategory) findPreference("samsung_prefs");
             gesturesPrefs.removePreference(samsungPrefs);

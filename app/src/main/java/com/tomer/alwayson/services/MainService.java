@@ -142,9 +142,9 @@ public class MainService extends Service implements SensorEventListener, Context
             windowParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, 65794, -2);
             if (origIntent != null) {
                 demo = origIntent.getBooleanExtra("demo", false);
-                windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : Utils.isSamsung() ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+                windowParams.type = origIntent.getBooleanExtra("demo", false) ? WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY : Utils.isSamsung(getApplicationContext()) ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             } else
-                windowParams.type = Utils.isSamsung() ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+                windowParams.type = Utils.isSamsung(getApplicationContext()) ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
             if (prefs.orientation.equals("horizontal"))
                 //Setting screen orientation if horizontal
                 windowParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
@@ -260,7 +260,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
         //If proximity option is on, set it up
         if (prefs.proximityToLock) {
-            if (Utils.isAndroidNewerThanL() && !Utils.isSamsung()) {
+            if (Utils.isAndroidNewerThanL() && !Utils.isSamsung(getApplicationContext())) {
                 proximityToTurnOff = ((PowerManager) getSystemService(Context.POWER_SERVICE)).newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, getPackageName() + " wakelock_holder");
                 proximityToTurnOff.acquire();
             } else {
@@ -569,7 +569,7 @@ public class MainService extends Service implements SensorEventListener, Context
     private void showBlackScreen(boolean show) {
         if (blackScreenParams == null) {
             blackScreenParams = new WindowManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_SYSTEM_ALERT, 65794, -2);
-            blackScreenParams.type = Utils.isSamsung() ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+            blackScreenParams.type = Utils.isSamsung(getApplicationContext()) ? WindowManager.LayoutParams.TYPE_TOAST : WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         }
         if (blackScreen == null)
             blackScreen = new FrameLayout(this);

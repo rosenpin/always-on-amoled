@@ -91,7 +91,7 @@ public class SamsungHelper implements ContextConstatns {
     }
 
     public void startHomeButtonListener() {
-        if (Utils.isSamsung()) {
+        if (Utils.isSamsung(context)) {
             Intent intent = new Intent(context, SamsungHomeWatcherActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
@@ -99,7 +99,7 @@ public class SamsungHelper implements ContextConstatns {
     }
 
     public void destroyHomeButtonListener() {
-        if (Utils.isSamsung())
+        if (Utils.isSamsung(context))
             context.sendBroadcast(new Intent(FINISH_HOME_BUTTON_ACTIVITY));
     }
 }
