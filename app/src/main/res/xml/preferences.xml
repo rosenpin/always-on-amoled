@@ -203,6 +203,11 @@
             android:title="@string/settings_battery_saver" />
         <SwitchPreference
             android:defaultValue="false"
+            android:key="raise_to_wake"
+            android:summary="@string/settings_raise_to_wake_desc"
+            android:title="@string/settings_raise_to_wake" />
+        <SwitchPreference
+            android:defaultValue="false"
             android:key="notifications_alerts"
             android:summary="@string/settings_notifications_alerts_desc"
             android:title="@string/settings_notifications" />

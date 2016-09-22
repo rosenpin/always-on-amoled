@@ -82,6 +82,9 @@
             android:excludeFromRecents="true"
             android:showOnLockScreen="true" />
         <activity
+            android:name=".activities.ScreenOnDummyActivity"
+            android:excludeFromRecents="true" />
+        <activity
             android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme">
             <intent-filter>

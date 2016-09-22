@@ -1,7 +1,11 @@
 package com.tomer.alwayson.helpers;
 
 import android.content.Context;
+import android.preference.PreferenceActivity;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
+
+import com.tomer.alwayson.activities.PreferencesActivity;
 
 public class BrightnessManager {
     private Context context;

@@ -86,6 +86,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         prefs.apply();
         findPreference("enabled").setOnPreferenceChangeListener(this);
         findPreference("persistent_notification").setOnPreferenceChangeListener(this);
+        findPreference("raise_to_wake").setOnPreferenceChangeListener(this);
         findPreference("greenify_enabled").setOnPreferenceChangeListener(this);
         findPreference("proximity_to_lock").setOnPreferenceChangeListener(this);
         findPreference("startafterlock").setOnPreferenceChangeListener(this);
@@ -319,6 +320,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 return checkNotificationsPermission(context, true);
             return true;
         }
+        if (preference.getKey().equals("raise_to_wake"))
+            restartService();
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, v -> {
                 ((CheckBoxPreference) preference).setChecked(true);

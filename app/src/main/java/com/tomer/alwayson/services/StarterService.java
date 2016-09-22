@@ -8,18 +8,25 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.hardware.display.DisplayManager;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
+import android.view.Display;
 
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.helpers.Prefs;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.receivers.ScreenReceiver;
 
-public class StarterService extends Service {
-    Intent notificationsAlertIntent;
+public class StarterService extends Service implements SensorEventListener {
     private BroadcastReceiver mReceiver;
     private boolean isRegistered = false;
+    private float oldY = Integer.MIN_VALUE;
 
     @Nullable
     @Override
@@ -32,7 +39,7 @@ public class StarterService extends Service {
         super.onCreate();
         Utils.logInfo(StarterService.class.getSimpleName(), "Starter Service started");
 
-        notificationsAlertIntent = new Intent(getApplicationContext(), NotificationListener.class);
+        Intent notificationsAlertIntent = new Intent(getApplicationContext(), NotificationListener.class);
 
         Prefs prefs = new Prefs(getApplicationContext());
         prefs.apply();
@@ -51,7 +58,11 @@ public class StarterService extends Service {
             if (prefs.notificationsAlerts) {
                 startService(notificationsAlertIntent);
             }
-            registerReceiver();
+            if (prefs.raiseToWake) {
+                SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+                sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_STATUS_ACCURACY_HIGH);
+            } else
+                registerReceiver();
         } else {
             hideNotification();
             unregisterReceiver();
@@ -124,5 +135,43 @@ public class StarterService extends Service {
         }
         Utils.logDebug(serviceTag, "Is not running");
         return false;
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            if (!isScreenOn()) {
+                if (oldY == Integer.MIN_VALUE)
+                    oldY = event.values[1];
+                float yChange = oldY - event.values[1];
+                oldY = event.values[1];
+                if (yChange < -3.5) {
+                    Intent raiseToWakeIntent = new Intent(this, MainService.class);
+                    raiseToWakeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    raiseToWakeIntent.putExtra("raise_to_wake", true);
+                    startService(raiseToWakeIntent);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    boolean isScreenOn() {
+        if (Utils.isAndroidNewerThanL()) {
+            DisplayManager dm = (DisplayManager) getSystemService(Context.DISPLAY_SERVICE);
+            for (Display display : dm.getDisplays()) {
+                if (display.getState() != Display.STATE_OFF) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+            return powerManager.isScreenOn();
+        }
     }
 }

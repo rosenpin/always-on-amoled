@@ -27,6 +27,7 @@ public class Prefs {
     public boolean greenifyEnabled;
     public boolean batterySaver;
     boolean hasSoftKeys;
+    public boolean raiseToWake = true;
 
     public int clockStyle, dateStyle, batteryStyle;
     public int textColor;
@@ -74,6 +75,7 @@ public class Prefs {
         }
         homeButtonDismiss = prefs.getBoolean(KEYS.HOME_BUTTON_DISMISS.toString(), false);
         notificationsAlerts = prefs.getBoolean(KEYS.NOTIFICATION_ALERTS.toString(), false);
+        raiseToWake = prefs.getBoolean(KEYS.RAISE_TO_WAKE.toString(), false);
         showAmPm = prefs.getBoolean(KEYS.SHOW_AM_PM.toString(), false);
         stopOnCamera = prefs.getBoolean(KEYS.STOP_ON_CAMERA.toString(), false);
         showNotification = prefs.getBoolean(KEYS.SHOW_NOTIFICATION.toString(), true);
@@ -207,7 +209,8 @@ public class Prefs {
         SHOWED_DIALOG("showed_dialog"),
         NEVER_SHOW_DIALOG("never_show_dialog"),
         BATTERY_SAVER("battery_saver"),
-        HOME_BUTTON_DISMISS("home_button_dismiss");
+        HOME_BUTTON_DISMISS("home_button_dismiss"),
+        RAISE_TO_WAKE("raise_to_wake");
 
         private final String id;
 

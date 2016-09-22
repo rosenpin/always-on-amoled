@@ -82,6 +82,7 @@ public class MainService extends Service implements SensorEventListener, Context
 
     private boolean firstRefresh = true;
     private boolean demo;
+    private boolean raiseToWake;
     private boolean refreshing = true;
     private int refreshDelay = 12000;
     private FrameLayout blackScreen;
@@ -131,7 +132,6 @@ public class MainService extends Service implements SensorEventListener, Context
         }
     };
 
-
     private BrightnessManager brightnessManager;
     private BatterySaver batterySaver;
     private boolean nigtModeOn;
@@ -159,8 +159,27 @@ public class MainService extends Service implements SensorEventListener, Context
             windowManager.addView(frameLayout, windowParams);
             if (prefs.homeButtonDismiss)
                 samsungHelper.startHomeButtonListener();
+            raiseToWake = origIntent != null && origIntent.getBooleanExtra("raise_to_wake", false);
+            if (raiseToWake) {
+                final int delayInMilliseconds = 10000;
+                stayAwakeWakeLock.acquire();
+                stayAwakeWakeLock.release();
+                new Handler().postDelayed(() -> {
+                    stoppedByShortcut = true;
+                    stopThis();
+                    Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
+                }, delayInMilliseconds);
+            }
         }
         return super.onStartCommand(origIntent, flags, startId);
+    }
+
+    @Override
+    public void unregisterReceiver(BroadcastReceiver receiver) {
+        try {
+            super.unregisterReceiver(receiver);
+        } catch (IllegalArgumentException ignored) {
+        }
     }
 
     @Override
@@ -231,7 +250,7 @@ public class MainService extends Service implements SensorEventListener, Context
         for (String filter : Constants.unlockFilters) {
             intentFilter.addAction(filter);
         }
-        unregisterUnlockReceiver();
+        unregisterReceiver(unlockReceiver);
         registerReceiver(unlockReceiver, intentFilter);
 
         // Sensor handling
@@ -405,7 +424,7 @@ public class MainService extends Service implements SensorEventListener, Context
             if (!isScreenOn) {
                 new Handler().postDelayed(() -> {
                     //Turn on the display
-                    if (!stayAwakeWakeLock.isHeld()) stayAwakeWakeLock.acquire();
+                    if (!stayAwakeWakeLock.isHeld() && !raiseToWake) stayAwakeWakeLock.acquire();
                     mainView.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in));
                 }, 300);
             }
@@ -429,14 +448,6 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         brightnessManager.setBrightness(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness(), state ? 0 : brightnessManager.getOriginalBrightnessMode());
         Utils.logDebug("Setting brightness to", String.valueOf(state ? (nightMode ? 0 : prefs.brightness) : brightnessManager.getOriginalBrightness()));
-    }
-
-    private void unregisterUnlockReceiver() {
-        try {
-            unregisterReceiver(unlockReceiver);
-        } catch (IllegalArgumentException ignored) {
-            Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Unlock receiver was not registered");
-        }
     }
 
     @Override
@@ -466,7 +477,7 @@ public class MainService extends Service implements SensorEventListener, Context
         //Unregister receivers
         if (sensorManager != null)
             sensorManager.unregisterListener(this);
-        unregisterUnlockReceiver();
+        unregisterReceiver(unlockReceiver);
         batteryView.destroy();
 
         samsungHelper.setButtonsLight(ON);
@@ -539,7 +550,8 @@ public class MainService extends Service implements SensorEventListener, Context
                     new Handler().postDelayed(() -> {
                         if (!refreshing)
                             refresh();
-                        stayAwakeWakeLock.acquire();
+                        if (!raiseToWake)
+                            stayAwakeWakeLock.acquire();
                     }, 500);
                 }
                 break;
