@@ -26,6 +26,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 import android.provider.Settings;
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -68,6 +69,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     private Prefs prefs;
     private Context context;
     private Intent starterService;
+    private ComponentName mAdminName;
 
     public static void openPlayStoreUrl(String appName, Context context) {
         try {
@@ -82,6 +84,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences);
         context = getActivity().getApplicationContext();
+        mAdminName = new ComponentName(context, DAReceiver.class);
         prefs = new Prefs(context);
         prefs.apply();
         findPreference("enabled").setOnPreferenceChangeListener(this);
@@ -320,8 +323,14 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 return checkNotificationsPermission(context, true);
             return true;
         }
-        if (preference.getKey().equals("raise_to_wake"))
+        if (preference.getKey().equals("raise_to_wake")) {
+            if (!Utils.hasFingerprintSensor(context))
+                askDeviceAdmin(R.string.settings_raise_to_wake_device_admin);
             restartService();
+        }
+        if (preference.getKey().equals("stop_delay"))
+            if (!Utils.hasFingerprintSensor(context))
+                askDeviceAdmin(R.string.settings_raise_to_wake_device_admin);
         if (preference.getKey().equals("persistent_notification") && !(boolean) o) {
             Snackbar.make(rootView, R.string.warning_1_harm_performance, 10000).setAction(R.string.action_revert, v -> {
                 ((CheckBoxPreference) preference).setChecked(true);
@@ -338,17 +347,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 return true;
             else {
                 DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
-                final ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
                 if ((mDPM != null && mDPM.isAdminActive(mAdminName))) {
                     return true;
                 }
                 new AlertDialog.Builder(getActivity()).setTitle(getString(android.R.string.dialog_alert_title) + "!")
                         .setMessage(getString(R.string.warning_7_disable_fingerprint))
                         .setPositiveButton(getString(android.R.string.yes), (dialogInterface, i) -> {
-                            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
-                            intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
-                            intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(R.string.settings_proximity));
-                            startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
+                            askDeviceAdmin(R.string.settings_raise_to_wake_device_admin);
                         })
                         .setNegativeButton(getString(android.R.string.no), (dialogInterface, i) -> {
                             dialogInterface.dismiss();
@@ -357,14 +362,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 return false;
             }
         }
-        if (preference.getKey().equals("startafterlock") && !(boolean) o) {
-            Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.action_revert, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ((CheckBoxPreference) preference).setChecked(true);
-                }
-            }).show();
-        }
+        if (preference.getKey().equals("startafterlock") && !(boolean) o)
+            Snackbar.make(rootView, R.string.warning_4_device_not_secured, 10000).setAction(R.string.action_revert, v -> ((CheckBoxPreference) preference).setChecked(true)).show();
         if (preference.getKey().equals("doze_mode") && (boolean) o) {
             if (Shell.SU.available()) {
                 if (!DozeManager.isDumpPermissionGranted(context))
@@ -404,6 +403,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 setUpBatterySaverPermission();
             }
         return true;
+    }
+
+    private void askDeviceAdmin(@StringRes int message) {
+        Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+        intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, mAdminName);
+        intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, getString(message));
+        startActivityForResult(intent, DEVICE_ADMIN_REQUEST_CODE);
     }
 
     private boolean hasUsageAccess() throws PackageManager.NameNotFoundException {

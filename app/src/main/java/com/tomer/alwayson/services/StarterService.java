@@ -27,6 +27,7 @@ public class StarterService extends Service implements SensorEventListener {
     private BroadcastReceiver mReceiver;
     private boolean isRegistered = false;
     private float oldY = Integer.MIN_VALUE;
+    private SensorManager sensorManager;
 
     @Nullable
     @Override
@@ -59,7 +60,7 @@ public class StarterService extends Service implements SensorEventListener {
                 startService(notificationsAlertIntent);
             }
             if (prefs.raiseToWake) {
-                SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+                sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
                 sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_STATUS_ACCURACY_HIGH);
             } else
                 registerReceiver();
@@ -77,6 +78,8 @@ public class StarterService extends Service implements SensorEventListener {
         hideNotification();
         unregisterReceiver();
         stopNotificationService();
+        if (sensorManager != null)
+            sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
     }
 
     private void showNotification() {

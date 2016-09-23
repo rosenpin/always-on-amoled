@@ -162,9 +162,12 @@ public class MainService extends Service implements SensorEventListener, Context
             raiseToWake = origIntent != null && origIntent.getBooleanExtra("raise_to_wake", false);
             if (raiseToWake) {
                 final int delayInMilliseconds = 10000;
-                stayAwakeWakeLock.acquire();
-                stayAwakeWakeLock.release();
-                new Handler().postDelayed(() -> {
+                UIHandler.postDelayed(() -> {
+                    stayAwakeWakeLock.acquire();
+                    stayAwakeWakeLock.release();
+                }, 100);
+                UIHandler.postDelayed(() -> {
+                    turnScreenOff();
                     stoppedByShortcut = true;
                     stopThis();
                     Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
@@ -284,13 +287,15 @@ public class MainService extends Service implements SensorEventListener, Context
             }
         }
 
+        UIHandler = new Handler();
         //Delay to stop
         if (prefs.stopDelay > DISABLED) {
             final int delayInMilliseconds = prefs.stopDelay * 1000 * 60;
             Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Setting delay to stop in minutes " + prefs.stopDelay);
-            new Handler().postDelayed(() -> {
+            UIHandler.postDelayed(() -> {
                 stoppedByShortcut = true;
                 stopThis();
+                turnScreenOff();
                 stayAwakeWakeLock.release();
                 Globals.killedByDelay = true;
                 Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Stopping service after delay");
@@ -303,7 +308,6 @@ public class MainService extends Service implements SensorEventListener, Context
             startService(new Intent(getApplicationContext(), NotificationListener.class));
         else
             Utils.logInfo(MAIN_SERVICE_LOG_TAG, "Notifications are disabled");
-        UIHandler = new Handler();
         refresh();
 
         //Notification setup
@@ -509,12 +513,26 @@ public class MainService extends Service implements SensorEventListener, Context
         }
 
         refreshTimer.cancel();
+        UIHandler.removeCallbacksAndMessages(null);
 
         Globals.isShown = false;
         Globals.isServiceRunning = false;
         new Handler().postDelayed(() -> Globals.killedByDelay = false, 15000);
         Utils.logDebug(MAIN_SERVICE_LOG_TAG, "Main service has stopped");
         Thread.setDefaultUncaughtExceptionHandler(null);
+    }
+
+    private void turnScreenOff() {
+        new Thread(() -> {
+            try {
+                if (Shell.SU.available())
+                    Shell.SU.run("input keyevent 26"); // Screen off using root
+                else
+                    ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+            } catch (SecurityException e) {
+                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
+            }
+        }).start();
     }
 
     @Override
@@ -529,14 +547,7 @@ public class MainService extends Service implements SensorEventListener, Context
                     Globals.sensorIsScreenOff = false;
                     if (isScreenOn) {
                         showBlackScreen(true);
-                        new Thread(() -> {
-                            try {
-                                if (Shell.SU.available())
-                                    Shell.SU.run("input keyevent 26"); // Screen off using root
-                            } catch (SecurityException e) {
-                                ((DevicePolicyManager) getSystemService(Context.DEVICE_POLICY_SERVICE)).lockNow(); //Screen off using device admin
-                            }
-                        }).start();
+                        turnScreenOff();
                     }
                 } else {
                     showBlackScreen(false);

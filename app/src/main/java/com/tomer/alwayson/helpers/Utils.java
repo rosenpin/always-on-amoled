@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.v4.hardware.fingerprint.FingerprintManagerCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -155,6 +156,11 @@ public class Utils implements ContextConstatns {
 
     public static boolean isPhone(Context context) {
         return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+    }
+
+    public static boolean hasFingerprintSensor(Context context) {
+        FingerprintManagerCompat manager = FingerprintManagerCompat.from(context);
+        return manager.isHardwareDetected() && manager.hasEnrolledFingerprints();
     }
 
     private static boolean isLauncherInstalled(Context context, String packageName) {
