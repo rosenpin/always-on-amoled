@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import android.view.View;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
+import com.tomer.alwayson.receivers.DAReceiver;
 import com.tomer.alwayson.services.MainService;
 
 import java.util.ArrayList;
@@ -161,6 +163,12 @@ public class Utils implements ContextConstatns {
     public static boolean hasFingerprintSensor(Context context) {
         FingerprintManagerCompat manager = FingerprintManagerCompat.from(context);
         return manager.isHardwareDetected() && manager.hasEnrolledFingerprints();
+    }
+
+    public static boolean hasDeviceAdminPermission(Context context) {
+        ComponentName mAdminName = new ComponentName(context, DAReceiver.class);
+        DevicePolicyManager mDPM = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        return mDPM != null && mDPM.isAdminActive(mAdminName);
     }
 
     private static boolean isLauncherInstalled(Context context, String packageName) {
