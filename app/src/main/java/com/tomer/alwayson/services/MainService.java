@@ -152,7 +152,8 @@ public class MainService extends Service implements SensorEventListener, Context
                 if (!Settings.canDrawOverlays(this)) {
                     Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    if (Utils.doesIntentExist(this, intent))
+                        startActivity(intent);
                     return super.onStartCommand(origIntent, flags, startId);
                 }
 

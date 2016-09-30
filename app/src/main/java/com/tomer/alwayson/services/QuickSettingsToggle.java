@@ -117,9 +117,8 @@ public class QuickSettingsToggle extends TileService implements ContextConstatns
     }
 
     private void initPrefs() {
-        if (prefs == null) {
+        if (prefs == null)
             prefs = new Prefs(this);
-        }
         prefs.apply();
     }
 
