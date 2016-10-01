@@ -66,6 +66,7 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
                 updatePlayPauseButton(true);
         } catch (UnsupportedOperationException e) {
             Utils.logInfo(MusicPlayer.class.getSimpleName(), "Can't connect to music service");
+            removeView(layout);
         }
     }
 
