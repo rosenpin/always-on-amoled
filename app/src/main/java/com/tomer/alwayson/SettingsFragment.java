@@ -431,7 +431,13 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if (preference.getKey().equals("textcolor")) {
-            Globals.colorDialog.show();
+            if (Globals.colorDialog != null)
+                Globals.colorDialog.show();
+            else
+                Snackbar.make(rootView, R.string.error_3_unknown_error_restart, Snackbar.LENGTH_LONG).setAction(R.string.action_restart, v -> {
+                    getActivity().finish();
+                    context.startActivity(new Intent(context, PreferencesActivity.class));
+                }).show();
         } else if (preference.getKey().equals("uninstall")) {
             Utils.logDebug(MAIN_ACTIVITY_LOG_TAG, "uninstall clicked");
             PreferencesActivity.uninstall(context, prefs);
