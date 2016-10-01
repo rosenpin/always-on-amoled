@@ -58,11 +58,15 @@ public class MusicPlayer extends LinearLayout implements View.OnClickListener {
         iF.addAction("com.andrew.apollo.metachanged");
 
         context.registerReceiver(mReceiver, iF);
-        AudioManager manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        if (!manager.isMusicActive())
-            removeView(layout);
-        else
-            updatePlayPauseButton(true);
+        try {
+            AudioManager manager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+            if (!manager.isMusicActive())
+                removeView(layout);
+            else
+                updatePlayPauseButton(true);
+        } catch (UnsupportedOperationException e) {
+            Utils.logInfo(MusicPlayer.class.getSimpleName(), "Can't connect to music service");
+        }
     }
 
     private void play() {

@@ -4,5 +4,4 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
-    android:text="MEMO GOES HERE this is now a long text to check what the fuck is wrong"
     android:textColor="@android:color/white" />
