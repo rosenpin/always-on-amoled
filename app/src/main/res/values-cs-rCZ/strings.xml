@@ -31,6 +31,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Děkujeme vám za vaši podporu! :)</string>
   <string name="notification_message">Vždy zapnuto je zaplé</string>
+  <string name="toast_thanks_rate">Děkujeme Vám. Prosíme ohodnot\'te aplikaci v obchodě</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Vždy zapnuto</string>
   <string name="quick_settings_service_active">povoleno</string>
@@ -93,6 +94,7 @@
   <string name="rules_orientation_vertical">Vertikální</string>
   <string name="rules_orientation_horizontal">Na šířku (vodorovně)</string>
   <!-- Other labels -->
+  <string name="md_presets_label">Přednastavené</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Chování</string>
   <string name="settings_about">O aplikaci…</string>
@@ -109,6 +111,7 @@
   <string name="settings_double_tap_wake">Akce dvojím poklepáním</string>
   <string name="settings_back_button_wake">Akce tlačítka zpět</string>
   <string name="settings_volume_to_stop">Akce tlačítek hlasitosti</string>
+  <string name="settings_swipe_down">Akce potáhnutím dolu</string>
   <string name="settings_brightness">Jas</string>
   <string name="settings_doze">Úsporný režim</string>
   <string name="settings_google_now_shortcut">Povolit Google Now</string>
@@ -151,6 +154,7 @@
   <string name="settings_proximity_to_lock_desc">Zamknutí zařízení, když umístíte vaše zařízení do kapsy pro šetření baterie (senzory mohou používat více baterie)</string>
   <string name="settings_licenses_desc">Open Source licence</string>
   <string name="settings_community_desc">Komunita Google Plus</string>
+  <string name="settings_about_twitter_desc">Sledujte mne na Twitteru pro novinky, aktualizace a dárky.</string>
   <string name="settings_github_desc">GitHub open source odkaz</string>
   <string name="settings_move_desc">Povolit, aby se zabránilo AMOLED burn-in</string>
   <string name="settings_font_size_desc">Nastavení velikosti písma hodin</string>
@@ -205,4 +209,5 @@
   <string name="settings_memo_hint">Napište svou poznámku zde. Zobrazí se na vaší always-on obrazovce.</string>
   <string name="settings_google_now_shortcut_desc">Vypnout always-on obrazovku při zapnutí Google Now hlasem řeknutím OK Google (Nemusí fungovat s Google Now Launcher)</string>
   <string name="settings_exit_animation_desc">Výběr animace ukončení</string>
+  <string name="settings_battery_saver_desc">Redukuje spotřebu a zahřívání baterie. Vyžaduje rootnutý přístroj</string>
 </resources>

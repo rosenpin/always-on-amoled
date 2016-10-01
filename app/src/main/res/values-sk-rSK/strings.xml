@@ -13,6 +13,15 @@
   <string name="action_support_the_development">Podporte vývoj</string>
   <string name="support_how_much">Koľko by ste chceli prispieť?</string>
   <string name="supporter_feature_only">Táto možnosť je dostupná je pre supporterov. Môžete si vybrať koľko chcete darovať aby ste sa stali supporterom. Koľko chcete prispieť?</string>
+  <string name="support_choose">Koľko by ste chceli prispieť?</string>
+  <string name="support_1">Odomknúť</string>
+  <string name="support_2">Prispieť</string>
+  <string name="support_5">Veľký príspevok</string>
+  <string name="support_10">Úžasný príspevok</string>
+  <string name="support_20">Obrovský príspevok</string>
+  <string name="support_25">Super príspevok!</string>
+  <string name="support_1_desc">Odomknúť všetky prémiové funkcie aplikácie a podporiť rozvoj</string>
+  <string name="support_2_desc">Podporovať rozvoj trochu viac. Rovnaké funkcie ako pravidelné odomknúť.</string>
   <!--Intro-->
   <string name="intro_allow_now">Povoliť teraz</string>
   <string name="intro_permissions">Čítať stav telefónu</string>
@@ -31,6 +40,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Ďakujem vám za vašu podporu! :)</string>
   <string name="notification_message">Funkcia Always On je zapnutá</string>
+  <string name="toast_thanks">Ďakujeme</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always On</string>
   <string name="quick_settings_service_active">povolené</string>
@@ -93,6 +103,13 @@
   <string name="rules_orientation_vertical">Na výšku (vertikálne)</string>
   <string name="rules_orientation_horizontal">Na šírku (horizontálne)</string>
   <!-- Other labels -->
+  <string name="md_back_label">Späť</string>
+  <string name="md_cancel_label">Zrušiť</string>
+  <string name="md_choose_label">Vybrať</string>
+  <string name="md_custom_label">Vlastné</string>
+  <string name="md_done_label">Hotovo</string>
+  <string name="md_error_label">Chyba</string>
+  <string name="md_presets_label">Predvoľby</string>
   <!--Settings headers-->
   <string name="settings_behaviour">Správanie</string>
   <string name="settings_about">O aplikácii</string>
@@ -103,6 +120,7 @@
   <string name="gestures_action_speak">Povie nahlas momentálny čas, notifikácie a zostatok batérie</string>
   <string name="gestures_action_flashlight">Zapnúť svietidlo</string>
   <string name="settings_rules">Automatické pravidlá</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Povoliť</string>
   <string name="settings_disable_volume_keys">Zablokovať tlačidlá hlasitosti</string>
@@ -189,6 +207,7 @@
   <string name="settings_watch_ticks">Klasické 12h analógové hodiny</string>
   <string name="settings_watch_digital_s7">S7 digitálne hodiny</string>
   <string name="settings_watch_flat_analog">Ploché analógové hodiny</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble štýl analógové hodiny</string>
   <string name="settings_watch_flat_red_analog">Ploché analógové hodiny (červený ciferník)</string>
   <string name="move_disable">Vyp (neodporúča sa pre AMOLED obrazovky)</string>

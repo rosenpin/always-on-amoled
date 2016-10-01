@@ -5,17 +5,17 @@
   <!--Actions-->
   <string name="unlock">Attiva lo schermo</string>
   <string name="action_revert">Ripristina</string>
-  <string name="menu_feedback">Feedback</string>
+  <string name="menu_feedback">Dicci cosa ne penzi</string>
   <string name="menu_rate">Valuta l\'app</string>
   <string name="action_restart">Riavvia ora</string>
   <string name="never_show_again">Non mostrare più</string>
   <!--Support-->
   <string name="action_support_the_development">Sostieni lo Sviluppatore</string>
-  <string name="support_how_much">Quanto vorresti donare?</string>
+  <string name="support_how_much">Quanto vuoi donare?</string>
   <string name="supporter_feature_only">Questa funzionalità è disponibile solo per i sostenitori, puoi scegliere quanto donare per diventare sostenitore, quanto vorresti donare?</string>
-  <string name="support_choose">Quanto vorresti donare?</string>
+  <string name="support_choose">Quanto vuoi donare?</string>
   <string name="support_1">Sblocca</string>
-  <string name="support_2">Fai una donazione</string>
+  <string name="support_2">Dona</string>
   <string name="support_5">Grossa donazione</string>
   <string name="support_10">Eccezionale donazione</string>
   <string name="support_20">Ingente donazione</string>
@@ -45,6 +45,7 @@
   <string name="thanks">Grazie per il tuo supporto! :)</string>
   <string name="notification_message">Always-on è in esecuzione</string>
   <string name="toast_thanks">Grazie</string>
+  <string name="toast_thanks_rate">Grazie per aver scaricato l\'applicazione! Per piacere valutala 5 stelle! (Per noi conta al tua opinione)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">abilitato</string>
@@ -239,4 +240,7 @@
   <string name="settings_battery_saver_desc">Riduce il consumo e il surriscaldamento batteria. Funziona meglio con il root.</string>
   <string name="settings_watchface_date_desc">Scegli lo stile di data che vuoi vedere</string>
   <string name="settings_gestures_home_button_dismiss_desc">Clicca sul tasto home per uscire da always on screen. Questo disabiliterà il sensore di impronte digitali di always on screen.</string>
+  <string name="settings_raise_to_wake">Aumenta per svegliare (instabile)</string>
+  <string name="settings_raise_to_wake_desc">Seleziona per mostrare sul tuo dispositivo the always on screen per 10 secondi invece di avere lo schermo visibile tutto il tempo</string>
+  <string name="settings_raise_to_wake_device_admin">Concedere l\'autorizzazione di admin del dispositivo all\'applicazione per essere in grado di bloccare lo schermo</string>
 </resources>

@@ -15,15 +15,15 @@ Automatikus esti mód - a képernyő automatikusan sötétebb környezetre vált
 Zseb mód - hogy ne merüljön a telefonod
 Dupla koppintásra ébreszt + Felfele húzásra ébreszt + Hangerő gombokra ébreszt + Vissza gombra ébreszt
 • Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
+Személyre szabás - választható betű szín, betűméret, fényerő és még több hasznos funkció
 •    INGYENES ÉS NYÍLT FORRÁSKÓDÚ
 
 Before using please enable 'draw over apps' permission for this app.
 
-The app is in BETA, it still has bugs and lacks features.
+Az app BÉTA státuszban van, előfordulhatnak hibák és hiányzó funkciók.
 
 Engedélyek
-<b>Camera permission</b>
+<b>Kamera engedély<b>
 The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
 <b>Phone permission</b>
 The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.

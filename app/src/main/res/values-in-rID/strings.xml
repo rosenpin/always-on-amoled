@@ -25,6 +25,7 @@
   <string name="support_5_desc">Donate to the project and help me continue working on the app. Same features as regular unlock.</string>
   <string name="support_10_desc">Show that you appreciate the project and keep the development active. Same features as regular unlock.</string>
   <string name="support_20_desc">Wow! a huge donation! thank you very much! :) Same features as regular unlock.</string>
+  <string name="support_25_desc">Amazing! that\'s a lot of money!! This will really help the project! Same features as regular unlock.</string>
   <!--Intro-->
   <string name="intro_allow_now">Allow now</string>
   <string name="intro_permissions">Read phone state</string>
@@ -43,6 +44,8 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Thank you for your support! :)</string>
   <string name="notification_message">Always On Is Running</string>
+  <string name="toast_thanks">Thank you</string>
+  <string name="toast_thanks_rate">Thanks you! Please rate the app on play store :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">enabled</string>
@@ -65,6 +68,7 @@
   <string name="error_2_plugin_not_installed">PLUGIN IS NOT INSTALLED</string>
   <string name="error_3_unknown_error_restart">An error has occurred. Please restart the app.</string>
   <string name="error_4_tasker_service_not_initialized">The service wasn\'t initalized correctly</string>
+  <string name="error_5_camera_cant_connect_desc">Couldn\'t connect to camera. There might be an issue with your device.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">This can harm the app\'s performance</string>
   <string name="warning_4_device_not_secured">Your device may not be secured now</string>
@@ -122,10 +126,12 @@
   <string name="gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
   <string name="gestures_action_flashlight">Menghidupkan Senter </string>
   <string name="settings_rules">Automatic Rules</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Enable</string>
   <string name="settings_disable_volume_keys">Disable volume keys</string>
   <string name="settings_double_tap_wake">Double tap action</string>
+  <string name="settings_gestures_home_button_dismiss">Home button unlocks</string>
   <string name="settings_back_button_wake">Back button action</string>
   <string name="settings_volume_to_stop">Volume keys action</string>
   <string name="settings_swipe_up">Swipe up action</string>
@@ -178,6 +184,7 @@
   <string name="settings_github_desc">View the source code, submit issues and help developing the app</string>
   <string name="settings_move_desc">Enable this to avoid AMOLED burn in</string>
   <string name="settings_font_size_desc">Set the clock font size</string>
+  <string name="settings_font_size_memo_desc">Set the memo font size</string>
   <string name="settings_notifications_desc">Enable this to keep the app running in background</string>
   <string name="settings_enabled_desc">Enable the service</string>
   <string name="settings_disable_volume_keys_desc">Enable this to prevent accidental volume change</string>
@@ -191,7 +198,20 @@
   <string name="settings_watchface_miscellaneous">Miscellaneous</string>
   <string name="settings_watchface_styles">Style</string>
   <string name="settings_choose_font">Pilih font Anda</string>
+  <string name="settings_watch_digital">Digital</string>
+  <string name="settings_watch_analog">Analog</string>
+  <string name="settings_rules_text">Text</string>
+  <string name="settings_customize_hidden">Hidden</string>
+  <string name="settings_shown">Shown</string>
+  <string name="settings_date_full_calendar">Full calendar</string>
+  <string name="settings_font_default">Default</string>
   <string name="settings_font_default_bold">Default bold</string>
+  <string name="settings_font_default_italic">Default italic</string>
+  <string name="settings_font_serif">Serif</string>
+  <string name="settings_font_sans_serif">Sans Serif</string>
+  <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures"><![CDATA[Gestures & shortcuts]]></string>
+  <string name="settings_gestures_desc">Double tap to wake, swipe up to wake and more</string>
   <string name="settings_watchface_text_font"><![CDATA[Text & Font]]></string>
   <string name="settings_uninstall_desc">Uninstall the app</string>
   <string name="settings_watchface_clock_desc">Choose your favorite clock style</string>
@@ -200,6 +220,7 @@
   <string name="settings_watch_ticks">Jam Analog 12 jam Klasik</string>
   <string name="settings_watch_digital_s7">Jam digital bergaya S7</string>
   <string name="settings_watch_flat_analog">Flat analog style</string>
+  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
   <string name="settings_watch_flat_red_analog">Flat analog (red dial)</string>
   <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
@@ -207,8 +228,11 @@
   <string name="move_move_animation">Move the widget automatically with an animation</string>
   <string name="greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
   <string name="greenify_integration_desc_found">Make sure to enable Greenify in the accessibility settings and choose the apps you want it to hibernate while the device is locked. Click here to configure Greenify</string>
+  <string name="greenify_integration_desc_not_found">Install Greenify to improve battery life</string>
+  <string name="settings_notifications_alerts_preview_desc">Indonesia</string>
   <string name="settings_notifications_alerts_preview">Notification content</string>
   <string name="settings_memo_text_desc">Write your memo here</string>
   <string name="settings_memo_font_size_desc">Atur ukuran teks memo </string>
+  <string name="settings_memo_hint">Type your memo here. It will show up in your always on screen.</string>
   <string name="settings_exit_animation_desc">Choose the exit animation</string>
 </resources>

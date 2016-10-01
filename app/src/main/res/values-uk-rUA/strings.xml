@@ -6,12 +6,25 @@
   <string name="unlock">Розблок.</string>
   <string name="action_revert">Скасувати</string>
   <string name="menu_feedback">Зворотній зв\'язок</string>
+  <string name="never_show_again">Не показувати знову</string>
   <!--Support-->
+  <string name="action_support_the_development">Підтримати розробку</string>
   <string name="support_how_much">Скільки ви хотіли б пожертвувати?</string>
   <string name="supporter_feature_only">Ця функція доступна тільки для прихильників, ви можете вибрати, скільки ви хочете пожертвувати, щоб стати прихильником, скільки б ви хотіли пожертвувати?</string>
+  <string name="support_1">Розблокувати</string>
+  <string name="support_5">Велика пожертва</string>
+  <string name="support_10">Неймовірне пожертвування</string>
   <string name="support_20">Величезне пожертвування</string>
+  <string name="support_25">Супер пожертва!</string>
+  <string name="support_1_desc">Розблокувати всі преміальні функції додатку та підтримати розробку</string>
+  <string name="support_2_desc">Підтримати розробку трохи більше. Функції аналогічні звичайному розблокуванню.</string>
+  <string name="support_5_desc">Внести пожертву, допомагаючи мені працювати над додатком. Функції аналогічні звичайному розблокуванню.</string>
+  <string name="support_10_desc">Покажіть як ви ціните проект і робите розвиток активним. Функції аналогічні звичайному розблокуванню.</string>
+  <string name="support_20_desc">Вау! Величезна пожертва! Тобі, мій друже, дякую дуже! :) Функції аналогічні звичайному розблокуванню.</string>
+  <string name="support_25_desc">Неймовірно! Це ж купа грошей! Це дійсно допоможе проекту! Функції аналогічні звичайному розблокуванню.</string>
   <!--Intro-->
   <string name="intro_allow_now">Дозволити зараз</string>
+  <string name="intro_permissions_desc">Додаток потребує дозволу доступу до стану телефону, щоб увімкнути пристрій, під час вхідного виклику.</string>
   <string name="intro_draw_over">Відображатися над іншими додатками</string>
   <string name="intro_draw_over_desc">Додатку треба дозвіл відображатися над іншими додатками</string>
   <string name="intro_modify_desc">Додатку треба дозвіл на зміну яскравості пристрою</string>
@@ -26,8 +39,13 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Дякуємо Вам за підтримку! :)</string>
   <string name="notification_message">Always On працює</string>
+  <string name="toast_thanks">Дякую</string>
+  <string name="toast_thanks_rate">Дякую! Оцініть, будь-ласка, додаток у play store:)</string>
   <!--Quick settings-->
+  <string name="quick_settings_service_active">Увімкнено</string>
+  <string name="quick_settings_service_inactive">Вимкнено</string>
   <!-- Content description-->
+  <string name="notification_icon">Значок сповіщень</string>
   <!--Widget-->
   <string name="widget_toggle">Переключити</string>
   <string name="widget_off">Вимкнено</string>
@@ -39,6 +57,7 @@
   <!--Errors-->
   <string name="error_0_unknown_error">Сталася помилка</string>
   <string name="error_2_plugin_not_installed">Плаґін не встановлено!</string>
+  <string name="error_3_unknown_error_restart">Виникла помилка. Будь-ласка, перезавантажте додаток.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Це може зашкодити продуктивності додатку</string>
   <string name="warning_4_device_not_secured">Ваш пристрій, можливо, не підтримується зараз</string>
@@ -47,6 +66,8 @@
   <string name="warning_7_disable_fingerprint">Це може відключити функціональність сенсору відбитків пальців, ви впевнені, що хочете увімкнути цю функцію?</string>
   <string name="warning_8_intro_allow_all">Будь ласка, надайте всі дозволи</string>
   <string name="warning_9_allow_notification">Будь ласка, надайте доступ повідомленням для додатку</string>
+  <string name="warning_11_no_root">Пристрій потребує \"root-прав\", щоб використати цю функцію</string>
+  <string name="warning_12_please_report">Будь-ласка, дайте мені знати, що би ви хотіли додати/виправити</string>
   <!--Charging rules-->
   <string name="rules_while_charging">Під час заряджання</string>
   <string name="rules_while_not_charging">Коли не заряджається</string>
@@ -57,6 +78,7 @@
   <string name="rules_battery_20">20% або вище</string>
   <string name="rules_battery_10">10% або вище</string>
   <!--Animations-->
+  <string name="animation_disabled">Без анімації</string>
   <!--Timeout delay rule-->
   <string name="rules_disabled">Вимкнено</string>
   <string name="rules_minutes_1">1 хвилина</string>
@@ -85,7 +107,11 @@
   <string name="settings_double_tap_wake">Подвійне натискання</string>
   <string name="settings_back_button_wake">Клавіша \"Назад\"</string>
   <string name="settings_volume_to_stop">Клавіша регулювання гучності</string>
+  <string name="settings_swipe_up">Свайп угору</string>
+  <string name="settings_swipe_down">Свайп вниз</string>
   <string name="settings_brightness">Яскравість</string>
+  <string name="settings_google_now_shortcut">Дозволити \"ОК Google\"</string>
+  <string name="settings_memo_text">Текстова нотатка</string>
   <string name="settings_notifications">Сповіщення</string>
   <string name="settings_persistent_notification">Показати постійне повідомлення</string>
   <string name="settings_move_auto">Переміщення віджету автоматично</string>
@@ -98,6 +124,7 @@
   <string name="settings_stop_delay">Затримка</string>
   <string name="settings_auto_brightness">Нічний режим</string>
   <string name="settings_orientation">Орієнтація екрану</string>
+  <string name="settings_always_on_memo">\"Always on\" нотатка</string>
   <string name="settings_stop_on_camera">Дозволити ярлики камери</string>
   <string name="settings_rules_cahrging">Щодо заряджання</string>
   <string name="settings_rules_battery">Правила для акумулятора</string>
@@ -105,9 +132,13 @@
   <string name="settings_translate">Переклад</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Спільноти</string>
+  <string name="greenify_integration">Інтеграція з Greenify</string>
   <string name="settings_licenses">Ліцензія</string>
   <string name="settings_uninstall">Видалити</string>
+  <string name="settings_exit_animation">Анімація</string>
   <string name="settings_app_version">Версія</string>
+  <string name="settings_enable_greenify">Увімкнути Greenify</string>
+  <string name="settings_battery_saver">Режим збереження енергії</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">Вимикати сервіс, коли запущено додаток Камера (необхідно тримати запущеним на пристроях Nexus / Samsung)</string>
   <string name="settings_auto_brightness_desc">Зменшення яскравості екрану в темних середовищах - автоматично (датчики можуть використовувати більше заряду акумулятора)</string>
@@ -121,9 +152,11 @@
   <string name="settings_proximity_to_lock_desc">Блокувати пристрій, коли він знаходиться в кишені для економії заряду акумулятора (датчики можуть використовувати більше заряду акумулятора)</string>
   <string name="settings_licenses_desc">Ліцензії з відкр. кодом</string>
   <string name="settings_community_desc">Google Plus спільнота</string>
+  <string name="settings_about_twitter_desc">Підписуйтесь на мене у Twitter щоб отримувати новини, оновлення і роздачі</string>
   <string name="settings_github_desc">Відкрите джерело Github</string>
   <string name="settings_move_desc">Включіть для автоматичного руху віджету на екрані (щоб уникнути вигоряння)</string>
   <string name="settings_font_size_desc">Встановіть розмір шрифту годинника</string>
+  <string name="settings_font_size_memo_desc">Встановити розмір шрифту нотатки</string>
   <string name="settings_notifications_desc">Увімкніть цю опцію, щоб тримати додаток у робочому фоновому режимі \nПорада: Ви можете блокувати повідомлення цього додатка на Android 6.0+, не впливаючи на його функціональність</string>
   <string name="settings_enabled_desc">Вкл./Викл. додаток</string>
   <string name="settings_disable_volume_keys_desc">Активуйте це, щоб запобігти випадковій зміні гучності</string>
@@ -140,6 +173,8 @@
   <string name="settings_watch_digital">Цифровий</string>
   <string name="settings_watch_analog">Аналоговий</string>
   <string name="settings_rules_text">Текст</string>
+  <string name="settings_shown">Показаний</string>
+  <string name="settings_date_full_calendar">Повний календар</string>
   <string name="settings_font_default">За замовчуванням</string>
   <string name="settings_font_default_bold">За замовчуванням жирним шрифтом</string>
   <string name="settings_font_default_italic">За замовчуванням курсив</string>
@@ -149,4 +184,9 @@
   <string name="settings_gestures_desc">Подвійне натискання, свайп і багато іншого</string>
   <string name="settings_watchface_text_font"><![CDATA[Текст & шрифт]]></string>
   <string name="settings_uninstall_desc">Видалити додаток</string>
+  <string name="settings_watchface_clock_desc">Обери улюблений стиль годиннику</string>
+  <string name="settings_watch_analog_24_classic">Класичний 24г аналоговий годинник</string>
+  <string name="settings_watch_analog_s7">Аналоговий годинник в стилі S7</string>
+  <string name="settings_watch_ticks">Класичний 12г аналоговий годинник</string>
+  <string name="settings_watchface_date_desc">Оберіть бажаний стиль дати</string>
 </resources>

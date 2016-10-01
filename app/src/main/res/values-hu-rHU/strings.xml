@@ -21,6 +21,7 @@
   <string name="support_25">Szuper támogatás!</string>
   <string name="support_1_desc">Oldd fel az összes szolgáltatást az alkalmazásban és támogasd a fejlesztőket</string>
   <string name="support_2_desc">Támogasd egy kicsit jobban a fejlesztőket. Ugyan azok a szolgáltatások, mint a sima feloldásnál.</string>
+  <string name="support_5_desc">Támogasd a projektet és segíts vele fejleszteni az alkalmazást. Ugyan azok az előnyök mint a sima feloldással.</string>
   <!--Intro-->
   <string name="intro_allow_now">Engedélyezés most</string>
   <string name="intro_modify_desc">Az alkalmazásnak szüksége van engedélyre, hogy változtassa az eszköz fényerősségét</string>

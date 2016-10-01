@@ -5,12 +5,12 @@
   <!--Actions-->
   <string name="unlock">Ligue a tela</string>
   <string name="action_revert">Reverter</string>
-  <string name="menu_feedback">Feedback</string>
-  <string name="menu_rate">Avalie esse aplicativo</string>
+  <string name="menu_feedback">Sugestão</string>
+  <string name="menu_rate">Avalie o aplicativo</string>
   <string name="action_restart">Reiniciar agora</string>
   <string name="never_show_again">Não mostrar novamente</string>
   <!--Support-->
-  <string name="action_support_the_development">Apoiar o desenvolvimento</string>
+  <string name="action_support_the_development">Apoie o desenvolvimento</string>
   <string name="support_how_much">Quanto você gostaria de doar?</string>
   <string name="supporter_feature_only">Este recurso só está disponível para os apoiadores. Você pode escolher o quanto você quer doar para se tornar um apoiador. Quanto você gostaria de contribuir?</string>
   <string name="support_choose">Quanto você gostaria de doar?</string>
@@ -19,11 +19,13 @@
   <string name="support_5">Grande doação</string>
   <string name="support_10">Doação incrível</string>
   <string name="support_20">Enorme doação</string>
+  <string name="support_25">Super doação!</string>
   <string name="support_1_desc">Desbloqueie todas as funcionalidades premium do aplicativo e apoie o desenvolvimento</string>
   <string name="support_2_desc">Apoie um pouco mais o desenvolvimento. As mesmas funcionalidades que um desbloqueio regular.</string>
   <string name="support_5_desc">Faça uma doação para o projeto e me ajude a continuar trabalhando no aplicativo. As mesmas funcionalidades que um desbloqueio regular.</string>
   <string name="support_10_desc">Mostre que você aprecia o projeto e mantenha o desenvolvimento ativo. Mesmas características de desbloqueio normal.</string>
   <string name="support_20_desc">Uau! uma doação enorme! Muito Obrigado! :) Mesmas características regulares de desbloqueio.</string>
+  <string name="support_25_desc">Incrível! Quanto dinheiro! Pode ter certeza de que isso vai ajudar o projeto! Mesmas características normais de desbloqueio.</string>
   <!--Intro-->
   <string name="intro_allow_now">Permitir agora</string>
   <string name="intro_permissions">Ler estado do telefone</string>
@@ -42,6 +44,8 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Obrigado pelo apoio! :)</string>
   <string name="notification_message">Always On esta funcionado</string>
+  <string name="toast_thanks">Obrigado</string>
+  <string name="toast_thanks_rate">Obrigado! Por favor avalie o App na Play Store! :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">habilitado</string>
@@ -122,10 +126,12 @@
   <string name="gestures_action_speak">Dizer em voz alta o status atual do tempo, as notificações e bateria</string>
   <string name="gestures_action_flashlight">Ligar/Desligar lanterna</string>
   <string name="settings_rules">Regras automáticas</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Ativar</string>
   <string name="settings_disable_volume_keys">Desativar teclas de volume</string>
   <string name="settings_double_tap_wake">Ação de duplo toque</string>
+  <string name="settings_gestures_home_button_dismiss">Tecla home desbloqueia</string>
   <string name="settings_back_button_wake">Ação do botão voltar</string>
   <string name="settings_volume_to_stop">Ação das teclas de volume</string>
   <string name="settings_swipe_up">Ação ao deslizar para cima</string>
@@ -233,4 +239,8 @@
   <string name="settings_exit_animation_desc">Escolha a animação de saída</string>
   <string name="settings_battery_saver_desc">Reduza o consumo de bateria e superaquecimento. Funciona melhor com root.</string>
   <string name="settings_watchface_date_desc">Escolha o estilo de data que você quer ver</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Aperte o botão home para sair do Aways on Screen. (Isso irá desabilitar o sensor de impressão digital).</string>
+  <string name="settings_raise_to_wake">Aumente para acordar (instável)</string>
+  <string name="settings_raise_to_wake_desc">Pegue seu dispositivo para mostrar a Aways on Screen por 10 segundos ao invés de ser o tempo todo</string>
+  <string name="settings_raise_to_wake_device_admin">Dê permissão de administrador ao app para ele conseguir bloquear a tela</string>
 </resources>

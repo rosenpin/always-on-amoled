@@ -1,31 +1,31 @@
-Funcție „Always on” pentru smartphone-ul sau tableta ta.
+Obține Always On pentru smartphone-ul sau tableta ta.
 Menține ecranul pornit tot timpul.
 Prima aplicație „Always on” cu sursă deschisă!
 
-Idea este de a le oferi utilizatorilor informații oră, dată, notificări și multe altele fără ca aceștia să atingă telefonul. Oferă-i o șansă. 
+Conceptul de a oferii utilizatorilor informații despre, timp, dată, notificări și mai multe și toate fără a atinge telefonul. Doar privindu-l.
 
-Această aplicație este posibilă datorită display-urilor AMOLED. O mare parte din ecran este închis complet cu excepția a câțiva pixeli.
+Aceasta a fost făcută mulțumită displayului AMOLED Cea mai mare parte a ecranului sta negru exceptând câțiva pixeli. 
 
-Specificații:
- - „Always on” 
-- Notificări - privește notificările fără să îți atingi telefonul.
-- Setări automate - economisește bateria folosind setările.
-- Mișcare automată a textului - evită arderea pixelilor.
+*Caracteristici de menționat 
+Ecran mereu deschis
+- Notificări -vezi notificările fără sa atingi aparatul
+Sarcini automate-econimiseste bateria folosind normele predefinite
+- Mișcare automată -evita arderea pixelilor 
 - Mod de noapte - luminozitatea se reduce automat în locurile cu lumină scăzută.
 - Mod buzunar - blochează dispozitivul atunci când îl pui în buzunar pentru a salva energia bateriei.
-- Moduri de trezire : apăsare de două ori, glisare, butoane volum și cu ajutorul butonului „Înapoi”.
-- Orientare forțată - setează-ți modul preferat.
-- Personalizare - schimbă culoarea textului, mărimea textului, luminozitatea ecranului și altele.
+Atinge de 2 ori sa se deschida+aluneca sus sa se deschidă +butoanele volum sa se deschidă +butonul înapoi sa se deschida
+- Orientare forțată - setează-ți modul preferat a poziției ecranului 
+- Personalizare - schimbă culoarea textului, mărimea textului, luminozitatea și altele.
 - Sursă gratis și deschisă!
 
 Înainte de utilizare, vă rog să oferiți permisiunea de "Funcționare peste aplicații" pentru această aplicație.
 
-Aplicația este în versiunea BETA, deci conține bug-uri.
+Aplicația este în versiunea BETA, deci conține bug-uri și ai lipsesc caracteristici.
 
 Permisiuni:
 <b>Permisiuni pentru cameră</b>
-Această aplicație are nevoie de permisiuni pentru a urmări starea camerei și de a opri serviciul „Always on”.
-<b>Permisiuni apel</b>
+Aplicația are nevoie de permisiunea camerei sa recunoască când se deschide camera pentru a închide "mereu pornit" de pe ecran
+<b>Permisiuni Telefon</b>
 Această aplicație are nevoie de permisiuni pentru a urmări apelurile primite, de a opri serviciul „Always on” și de arăta ecranul din timpul apelului.
 <b>Modificarea setărilor sistemului</b>
 Această aplicație are nevoie de permisiuni pentru a modifica luminozitatea ecranului.

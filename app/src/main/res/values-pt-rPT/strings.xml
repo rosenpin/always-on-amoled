@@ -45,6 +45,7 @@
   <string name="thanks">Obrigado pelo apoio! :)</string>
   <string name="notification_message">\"Always On\" está a ser executado</string>
   <string name="toast_thanks">Obrigado</string>
+  <string name="toast_thanks_rate">Obrigado! Por favor, avalie a aplicação na play store :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Sempre ligado</string>
   <string name="quick_settings_service_active">ativo</string>

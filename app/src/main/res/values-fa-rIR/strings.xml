@@ -3,23 +3,195 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
+  <string name="unlock">روش باز کردن! </string>
+  <string name="action_revert">برگشت</string>
+  <string name="menu_feedback">بازنگری</string>
+  <string name="menu_rate">به اين برنامه امتياز دهيد</string>
+  <string name="action_restart">راه اندازی مجدد (برنامه)</string>
+  <string name="never_show_again">هرگز دوباره نشان نده</string>
   <!--Support-->
+  <string name="action_support_the_development">حمایت از توسعه‌دهنده</string>
+  <string name="support_how_much">چقدر می خواهید کمک کنید؟</string>
+  <string name="supporter_feature_only">این ویژگی تنها برای حامیان برنامه است ،شما می توانید انتخاب کنید چه مقدار شما می خواهید برای کمک به تبدیل نسخه بهتر به ما کمک کنید؟</string>
+  <string name="support_choose">چقدر می خواهید کمک کنید؟</string>
+  <string name="support_1">بازکردن قفل</string>
+  <string name="support_2">کمک مالی کنید(اگه ممکنه)</string>
+  <string name="support_5">کمک مالی زیاد</string>
+  <string name="support_10">کمک مالی عالی</string>
+  <string name="support_20">کمک مالی خیلی زیاد</string>
+  <string name="support_25">کمک مالی فوق العاده!</string>
+  <string name="support_1_desc">با باز کردن کامل برنامه از امکانات بیشتر و همچنین کمک به سازنده ما را یاری کنید</string>
+  <string name="support_2_desc">حمایت از توسعه کمی بیشتر. ویژگی های مشابه به طور منظم باز کنید</string>
+  <string name="support_5_desc">به این پروژه کمک مالی کنید برای بهبود کارایی</string>
+  <string name="support_10_desc">برای پروژه های فعال </string>
+  <string name="support_20_desc">عجب! کمک مالی بزرگ! خیلی متشکرم! :) ویژگی های مشابه به طور منظم باز کند.</string>
+  <string name="support_25_desc">شگفت انگیز! که مقدار زیادی از پول است! این واقعا پروژه کمک خواهد کرد! ویژگی های مشابه به طور منظم باز کند.</string>
   <!--Intro-->
+  <string name="intro_allow_now">در حال حاضر اجازه می دهید</string>
+  <string name="intro_permissions">خواندن وضعیت تلفن</string>
+  <string name="intro_permissions_desc">برنامه نیاز به اجازه خواندن وضعیت تلفنی برای روشن کردن دستگاه در هنگام دریافت تماس دارد.</string>
+  <string name="intro_draw_over">ترسیم روی برنامه‌های دیگر</string>
+  <string name="intro_draw_over_desc">اجازه به برنامه برای کنترل برنامه ها</string>
+  <string name="intro_modify_desc">نیاز به نرم افزار اجازه تغییر روشنایی دستگاه</string>
+  <string name="intro_modify">اصلاح تنظیمات سیستم</string>
+  <string name="intro_wake_ups">مواد و روش ها از خواب بیدار شدن</string>
+  <string name="intro_wake_ups_desc">چگونه می خواهید به قادر به بیدار کردن تلفن از حالت \"همیشه روشن\" را انتخاب کنید. نگران نباشید، شما می توانید آن را در برنامه تغییر دهید.</string>
+  <string name="intro_checkbox_volume_keys">کلید برای باز کردن قفل</string>
+  <string name="intro_checkbox_swipe_up">کشیدن برای باز شدن</string>
+  <string name="intro_checkbox_double_tap">دوضربه برای باز کردن</string>
+  <string name="intro_notifications">اطلاعیه هشدار</string>
+  <string name="intro_notifications_desc">شما می خواهید برای دریافت اطلاعیه از برنامه های دیگر در حالی که صفحه نمایش در حالت \"همیشه روشن\" اگر شما دکمه \"، هم اجازه\" را کلیک کنید</string>
   <!--Feedback,Toasts & messages-->
+  <string name="thanks">تشکر از شما بابت اطلاع!</string>
+  <string name="notification_message">همیشه در حال اجرا</string>
+  <string name="toast_thanks">با سپاس</string>
+  <string name="toast_thanks_rate">با تشکر از شما! App در فروشگاه play store</string>
   <!--Quick settings-->
+  <string name="quick_settings_title">همیشه روشن</string>
+  <string name="quick_settings_service_active">فعال</string>
+  <string name="quick_settings_service_inactive">غیر فعال</string>
   <!-- Content description-->
+  <string name="notification_icon">هشدار از طریق آیکون</string>
   <!--Widget-->
+  <string name="widget_toggle">آمار بازدید</string>
+  <string name="widget_off">خاموش</string>
+  <string name="widget_on">روشن</string>
   <!--Device admin-->
   <!--Plugin-->
+  <string name="plugin_dialog_title">پلاگین مورد نیاز است</string>
+  <string name="plugin_dialog_desc">شما باید این پلاگین را نصب کنید</string>
   <!--Errors-->
+  <string name="error">خطا</string>
+  <string name="error_IAP">مطمئن باشید که به اینترنت متصل هستید</string>
   <!--Warnings-->
   <!--Charging rules-->
   <!--Battery rules-->
   <!--Animations-->
   <!--Timeout delay rule-->
+  <string name="rules_minutes_1">1 دقیقه</string>
+  <string name="rules_minutes_2">2 دقیقه</string>
+  <string name="rules_minutes_5">5 دقیقه</string>
+  <string name="rules_minutes_10">۱۰ دقیقه</string>
+  <string name="rules_minutes_15">15 دقیقه</string>
+  <string name="rules_minutes_30">30 دقیقه </string>
+  <string name="rules_hour">1 ساعت</string>
+  <string name="rules_hours_2">2 ساعت</string>
   <!--Orientation-->
+  <string name="rules_orientation_vertical">عمودی</string>
+  <string name="rules_orientation_horizontal">افقی</string>
   <!-- Other labels -->
+  <string name="md_back_label">بازگشت</string>
+  <string name="md_cancel_label">لغو کردن</string>
+  <string name="md_choose_label">انتخاب کنید</string>
+  <string name="md_custom_label">سفارشی</string>
+  <string name="md_done_label">انجام شده</string>
+  <string name="md_error_label">خطا</string>
+  <string name="md_presets_label">ایستگاه از پیش تنظیم شده</string>
   <!--Settings headers-->
+  <string name="settings_behaviour">رفتارها</string>
+  <string name="settings_about">درباره برنامه</string>
+  <string name="settings_appearance">ظاهر</string>
+  <string name="settings_general">کلی</string>
+  <string name="settings_shortcuts">میانبرها</string>
+  <string name="settings_wake_up">حرکات و اقدامات</string>
+  <string name="gestures_action_speak">وضعیت فعلی زمان اعلان ها و باتری با صدای بلند می گویند</string>
+  <string name="gestures_action_flashlight">چراغ قوه تبدیل</string>
+  <string name="settings_rules">قوانین خودکار</string>
+  <string name="settings_samsung">سامسونگ</string>
   <!--Settings titles-->
+  <string name="settings_enabled">فعالسازی</string>
+  <string name="settings_disable_volume_keys">غیر فعال کردن کلید</string>
+  <string name="settings_double_tap_wake">دو اقدام را ضربه بزنید</string>
+  <string name="settings_gestures_home_button_dismiss">آنلاک دکمه صفحه اصلی</string>
+  <string name="settings_back_button_wake">عمل دکمه «بازگشت»</string>
+  <string name="settings_volume_to_stop">دوره اقدام کلیدهای</string>
+  <string name="settings_swipe_up">کشیدن  </string>
+  <string name="settings_swipe_down">کشیدن به پایین</string>
+  <string name="settings_brightness">روشنایی</string>
+  <string name="settings_doze">حالت چرت</string>
+  <string name="settings_google_now_shortcut">اجازه به حرکات صوتی</string>
+  <string name="settings_memo_text">متن یادداشت</string>
+  <string name="settings_notifications">اطلاعیه‌ها</string>
+  <string name="settings_persistent_notification">نمایش اعلان مداوم</string>
+  <string name="settings_move_auto">ویجت را به طور خودکار حرکت</string>
+  <string name="settings_font_size">اندازه نوشتار</string>
+  <string name="settings_app_version">ویرایش</string>
+  <string name="settings_enable_greenify">Greenify فعال کردن</string>
+  <string name="settings_battery_saver">باتری ذخیره حالت</string>
   <!--Settings descriptions-->
+  <string name="settings_stop_on_camera_desc">توقف صفحه همیشه در هنگام راه اندازی دوربین</string>
+  <string name="settings_auto_brightness_desc">تار صفحه نمایش زمانی که در محیط های تاریک به طور خودکار (سنسور در ممکن است استفاده از باتری های بیشتر)</string>
+  <string name="settings_stop_delay_desc_short_message">همیشه در خدمات پس از توقف:</string>
+  <string name="settings_stop_delay_desc">توقف همیشه در صفحه بعد از مدتی بدون تعامل برای ذخیره باتری</string>
+  <string name="settings_startafterlock_desc">تنها شروع این سرویس پس از صفحه نمایش قفل شده است. این فعال نگه داشتن دستگاه خود را امن نگه دارید و عملکرد سنسور اثر انگشت</string>
+  <string name="settings_rules_desc">زمانی که باید کار همیشه در صفحه نمایش</string>
+  <string name="settings_text_color_desc">رنگ متن</string>
+  <string name="settings_show_am_pm_desc">AM/PM با ساعت نشان می دهد (فقط برای مدت 12 ساعت)</string>
+  <string name="settings_watchface_desc">همیشه در صفحه نمایش سفارشی</string>
+  <string name="settings_proximity_to_lock_desc">هنگامی که دستگاه شما را در جیب شما ذخیره باتری (سنسور ممکن است استفاده بیشتر باتری) محل قفل دستگاه</string>
+  <string name="settings_licenses_desc">مجوزهای منبع باز</string>
+  <string name="settings_community_desc">عضویت در انجمن گوگل پلاس برای اخبار، به روز رسانی giveaways و</string>
+  <string name="settings_about_twitter_desc">دنبال من در توییتر برای اخبار، به روز رسانی و جالب</string>
+  <string name="settings_github_desc">نمایش کد منبع ارائه مسائل و کمک به توسعه نرم افزار</string>
+  <string name="settings_move_desc">فعال کردن این برای جلوگیری از سوختگی AMOLED در</string>
+  <string name="settings_font_size_desc">تنظیم اندازه قلم ساعت</string>
+  <string name="settings_font_size_memo_desc">تنظیم اندازه قلم یادداشت</string>
+  <string name="settings_notifications_desc">این برنامه در حال اجرا در پس زمینه حفظ فعال</string>
+  <string name="settings_enabled_desc">فعال کردن این سرویس</string>
+  <string name="settings_disable_volume_keys_desc">فعال کردن این برای جلوگیری از تغییر اتفاقی دوره</string>
+  <string name="settings_notifications_alerts_desc">نمایش اطلاعیه ها از برنامه های دیگر را دریافت</string>
+  <string name="settings_brightness_desc">روشنایی صفحه نمایش در حالی که خاموش</string>
+  <string name="settings_about_translate">کمک به ترجمه برنامه به زبان شما</string>
+  <string name="settings_version_desc">ساخت</string>
+  <string name="settings_watchface_clock">ساعت سبک</string>
+  <string name="settings_watchface_date">طرح صفحه</string>
+  <string name="settings_watchface_battery">سبک باتری</string>
+  <string name="settings_watchface_miscellaneous">گوناگون</string>
+  <string name="settings_watchface_styles">استایل</string>
+  <string name="settings_choose_font">پین خود را انتخاب کنید</string>
+  <string name="settings_watch_digital">دیجیتال</string>
+  <string name="settings_watch_analog">آنالوگ</string>
+  <string name="settings_rules_text">نوشته</string>
+  <string name="settings_customize_hidden">مخفی</string>
+  <string name="settings_shown">نشان داده شده</string>
+  <string name="settings_date_full_calendar">تقویم کامل</string>
+  <string name="settings_font_default">حالت پیش فرض</string>
+  <string name="settings_font_default_bold">پیش فرض تار</string>
+  <string name="settings_font_default_italic">مقدار پیش فرض</string>
+  <string name="settings_font_serif">سریف</string>
+  <string name="settings_font_sans_serif">بدون سریف،</string>
+  <string name="settings_font_monospace">Monospace</string>
+  <string name="settings_gestures"><![CDATA[حرکات & میانبر]]></string>
+  <string name="settings_gestures_desc">دو شیر را بیدار، کش رفتن تا ویک و بیشتر</string>
+  <string name="settings_watchface_text_font"><![CDATA[متن & قلم]]></string>
+  <string name="settings_uninstall_desc">حذف نصب برنامه</string>
+  <string name="settings_watchface_clock_desc">سبک ساعت مورد علاقه خود را انتخاب کنید</string>
+  <string name="settings_watch_analog_24_classic">ساعت آنالوگ کلاسیک 24 ساعته</string>
+  <string name="settings_watch_analog_s7">S7 سبک ساعت آنالوگ</string>
+  <string name="settings_watch_ticks">ساعت آنالوگ کلاسیک 24 ساعته</string>
+  <string name="settings_watch_digital_s7">S7 سبک ساعت دیجیتال</string>
+  <string name="settings_watch_flat_analog">سبک مسطح آنالوگ</string>
+  <string name="settings_about_twitter">Twitter</string>
+  <string name="settings_watch_analog_pebble">نقش ونگار ریگی دادن سبک ساعت آنالوگ</string>
+  <string name="settings_watch_flat_red_analog">آنالوگ تخت (شماره گیری قرمز)</string>
+  <string name="move_disable">غیر فعال (نه توصیه شده برای صفحه نمایش های AMOLED)</string>
+  <string name="move_move">ویجت را به طور خودکار حرکت</string>
+  <string name="move_move_animation">حرکت عناصر به صورت خودکار با انیمیشن</string>
+  <string name="greenify_integration_desc">در حالی که همیشه در خدمات قابل مشاهده به طور قابل توجهی بهبود عمر باتری فعال Greenify. مطمئن شوید که فعال کردن Greenify در تنظیمات دستیابی پذیری را</string>
+  <string name="greenify_integration_desc_found">اطمینان به فعال کردن Greenify در تنظیمات قابلیت دسترسی و انتخاب برنامه های شما می خواهید آن را به خاموشی موقت در حالی که دستگاه قفل است. اینجا را کلیک کنید برای پیکربندی Greenify</string>
+  <string name="greenify_integration_desc_not_found">نصب Greenify به بهبود عمر باتری</string>
+  <string name="settings_notifications_alerts_preview_desc">نمایش محتوای اعلان دریافت</string>
+  <string name="settings_notifications_alerts_preview">مجموعه اعلان.</string>
+  <string name="settings_doze_desc">در حالی که همیشه در روی صفحه نمایش فعال برای ذخیره باتری (ریشه) فعال چرت</string>
+  <string name="settings_memo_text_desc">نوشتن یادداشت خود را در اینجا</string>
+  <string name="settings_memo_font_size_desc">تنظیم اندازه قلم یادداشت</string>
+  <string name="settings_memo_hint">یادداشت خود را در اینجا تایپ کنید. آن در صفحه همیشه در خود را نشان خواهد داد تا.</string>
+  <string name="settings_google_now_shortcut_desc">توقف صفحه همیشه در زمانی که در حال حاضر گوگل با گفتن خوب گوگل (Google هم اکنون پرتاب کار با ممکن است) راه اندازی شده است</string>
+  <string name="settings_exit_animation_desc">انیمیشن خروج را انتخاب کنید</string>
+  <string name="settings_battery_saver_desc">کاهش مصرف باتری و گرمای بیش از حد. با این نسخهها کار بهتر است با ریه </string>
+  <string name="settings_watchface_date_desc">سبک تاریخ شما می خواهید را انتخاب کنید</string>
+  <string name="settings_gestures_home_button_dismiss_desc">با کلیک بر روی دکمه صفحه اصلی به صفحه همیشه در خارج. این غیر فعال همیشه در سنسور اثر انگشت.</string>
+  <string name="settings_raise_to_wake">جمع آوری خواب بیدار (ناپایدار)</string>
+  <string name="settings_raise_to_wake_desc">دستگاه شما انتخاب کنید تا برای همیشه در صفحه نمایش برای 10 ثانیه به جای داشتن صفحه نمایش قابل مشاهده تمام وقت</string>
+  <string name="settings_raise_to_wake_device_admin">دستگاه اجازه مدیر برای نرم افزار قادر به قفل صفحه نمایش</string>
 </resources>

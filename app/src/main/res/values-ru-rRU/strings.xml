@@ -14,6 +14,18 @@
   <string name="support_how_much">Сколько денег вы желаете пожертвовать разработчику?</string>
   <string name="supporter_feature_only">Эта функция станет доступна после внесения пожертвования, сколько бы вы хотели пожертвовать?</string>
   <string name="support_choose">Сколько денег вы желаете пожертвовать разработчику?</string>
+  <string name="support_1">Разблокировка</string>
+  <string name="support_2">Поддержать</string>
+  <string name="support_5">Большой донат</string>
+  <string name="support_10">Удивительный донат</string>
+  <string name="support_20">Огромный донат</string>
+  <string name="support_25">Супер донат!</string>
+  <string name="support_1_desc">Открывает все премиум возможности приложения и поддерживает разработку</string>
+  <string name="support_2_desc">Поддержать разработку чуть больше. Те же возможности, что и при обычной разблокировке.</string>
+  <string name="support_5_desc">Поддержать проект и помочь мне работать над приложением. Те же возможности, что и при обычной разблокировки.</string>
+  <string name="support_10_desc">Покажите свое восхищение проектом и поддержит разработку активной. Те же возможности, что и при обычной разблокировке.</string>
+  <string name="support_20_desc">Вау! Огромный Донат! Огромное спасибо! :) Те же возможности, что и при обычной разблокировке.</string>
+  <string name="support_25_desc">Удивительно! Это очень много денег!! Это действительно очень поможет проекту! Те же возможности, что и при обычной разблокировке.</string>
   <!--Intro-->
   <string name="intro_allow_now">Разрешить сейчас</string>
   <string name="intro_permissions">Чтение статуса звонков</string>
@@ -32,6 +44,8 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Спасибо за вашу поддержку! :)</string>
   <string name="notification_message">Always On работает</string>
+  <string name="toast_thanks">Спасибо</string>
+  <string name="toast_thanks_rate">Спасибо! Пожалуйста оцените приложение в Play Store :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always ON</string>
   <string name="quick_settings_service_active">Активен</string>
@@ -54,6 +68,7 @@
   <string name="error_2_plugin_not_installed">ПЛАГИН НЕ УСТАНОВЛЕН</string>
   <string name="error_3_unknown_error_restart">Произошла ошибка. Перезапустите приложение.</string>
   <string name="error_4_tasker_service_not_initialized">Сервис не может корректно инициализироваться</string>
+  <string name="error_5_camera_cant_connect_desc">Не выходит подключить камеру. Возможно проблема с Вашим устройством.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Это может ухудшить производительность приложения</string>
   <string name="warning_4_device_not_secured">Сейчас ваше устройство не защищено!</string>
@@ -111,10 +126,12 @@
   <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
   <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="settings_rules">Правила работы</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Включить</string>
   <string name="settings_disable_volume_keys">Отключить кнопки громкости</string>
   <string name="settings_double_tap_wake">Двойное нажатие</string>
+  <string name="settings_gestures_home_button_dismiss">Открытие кнопкой Home</string>
   <string name="settings_back_button_wake">Действия кнопки \"назад\"</string>
   <string name="settings_volume_to_stop">Действия кнопок громкости</string>
   <string name="settings_swipe_up">Действие при свайпе вверх</string>
@@ -167,6 +184,7 @@
   <string name="settings_github_desc">Ссылка на исходный код GitHub</string>
   <string name="settings_move_desc">Включите это, чтобы избежать выгорания AMOLED дисплея</string>
   <string name="settings_font_size_desc">Установить размер шрифта часов</string>
+  <string name="settings_font_size_memo_desc">Выбрать размер шрифта для заметки</string>
   <string name="settings_notifications_desc">Включите это для работы приложения в фоне</string>
   <string name="settings_enabled_desc">Включить сервис</string>
   <string name="settings_disable_volume_keys_desc">Включите это, чтобы исключить случайное изменение громкости</string>
@@ -220,4 +238,6 @@
   <string name="settings_google_now_shortcut_desc">Отключить экран Always ON при запуске Google Now с помощью Окей Гугл (Может работать некорректно с Google Now Лаунчером)</string>
   <string name="settings_exit_animation_desc">Выберите анимацию выхода</string>
   <string name="settings_battery_saver_desc">Защита батареи от перегрева. Работает лучше с ROOT.</string>
+  <string name="settings_watchface_date_desc">Выберите стиль даты, который Вы хотите видеть</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Нажмите кнопку Home, чтобы выйти из Always On экрана. Это всегда можно выключить сканером отпечатков пальцев.</string>
 </resources>

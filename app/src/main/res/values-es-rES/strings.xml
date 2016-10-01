@@ -45,6 +45,7 @@
   <string name="thanks">¡Gracias por tu apoyo! :)</string>
   <string name="notification_message">Always On está ejecutándose</string>
   <string name="toast_thanks">Gracias</string>
+  <string name="toast_thanks_rate">Thanks you! Please rate the app on play store :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always On</string>
   <string name="quick_settings_service_active">activado</string>
@@ -183,7 +184,7 @@
   <string name="settings_github_desc">Código abierto en Github</string>
   <string name="settings_move_desc">Habilitar para evitar quemadura de algunos píxeles la pantalla AMOLED</string>
   <string name="settings_font_size_desc">Tamaño de fuente del reloj</string>
-  <string name="settings_font_size_memo_desc">Set the memo font size</string>
+  <string name="settings_font_size_memo_desc">Establezca el tamaño de fuente de la nota</string>
   <string name="settings_notifications_desc">Habilitar para mantener la aplicación funcionando de fondo\nConsejo: puedes bloquear la notificación en Android 6.0+ sin que afecte a la funcionalidad</string>
   <string name="settings_enabled_desc">Habilitar el servicio</string>
   <string name="settings_disable_volume_keys_desc">Activar esto para prevenir cambios de volumen accidentales</string>
@@ -236,7 +237,10 @@
   <string name="settings_memo_hint">Escriba su nota aquí. Será mostrada en tu Always on screen.</string>
   <string name="settings_google_now_shortcut_desc">Detenga el Always on screen cuando Google Now es lanzado diciendo OK Google (Puede no funcionar con el lanzador Google Now)</string>
   <string name="settings_exit_animation_desc">Elige animación de desbloqueo</string>
-  <string name="settings_battery_saver_desc">Reduce el consumo de la batería y el sobrecalentamiento. Funciona mejor con root.</string>
+  <string name="settings_battery_saver_desc">Reduce el consumo de la batería y el sobrecalentamiento. Funciona mejor con root</string>
   <string name="settings_watchface_date_desc">Elige el estilo de fecha que desea ver</string>
   <string name="settings_gestures_home_button_dismiss_desc">Presione el botón home para salir de \"Always On Screen\". Esto desactiva siempre el sensor de huellas digitales.</string>
+  <string name="settings_raise_to_wake">Hi</string>
+  <string name="settings_raise_to_wake_desc">Pick your device up to show the always on screen for 10 seconds instead of having the screen visible all the time</string>
+  <string name="settings_raise_to_wake_device_admin">Grant device admin permission for the app to be able to lock the screen</string>
 </resources>

@@ -13,9 +13,19 @@
   <string name="action_support_the_development">ساعدنا على التطوير</string>
   <string name="support_how_much">دعمنا كثيرا؟</string>
   <string name="supporter_feature_only">هذه الخاصية متاحة فقط للداعمين بأمكانك أن تصبح داعما،كم تريد أن تعطينا؟</string>
-  <string name="support_choose">How much would you like to donate?</string>
-  <string name="support_1">C</string>
-  <string name="support_2_desc">Support the development a bit more. Same features as regular unlock.</string>
+  <string name="support_choose">How much would you like to donate؟</string>
+  <string name="support_1">إلغاء تأمين</string>
+  <string name="support_2">تبرع</string>
+  <string name="support_5">ادعمنا بشكل أكبر</string>
+  <string name="support_10">دعم ذهبي</string>
+  <string name="support_20">دعم ماسي</string>
+  <string name="support_25">دعم بلاتينيوم!</string>
+  <string name="support_1_desc">فتح كافة ميزات قسط في التطبيق ودعم التنمية</string>
+  <string name="support_2_desc">دعم تطوير أكثر قليلاً. فتح نفس خصائص العادية.</string>
+  <string name="support_5_desc">التبرع للمشروع ومساعدتي على مواصلة العمل على التطبيق نفس السمات العادية فتح.</string>
+  <string name="support_10_desc">وتبين أن كنت أقدر المشروع والحفاظ التنمية النشطة. فتح نفس خصائص العادية.</string>
+  <string name="support_20_desc">ياه! تبرع ضخم! شكرا جزيلا! :) فتح نفس خصائص العادية.</string>
+  <string name="support_25_desc">مدهش! وهذا هو الكثير من المال!! وهذا سوف يساعد حقاً المشروع! فتح نفس خصائص العادية.</string>
   <!--Intro-->
   <string name="intro_allow_now">اسمح الأن</string>
   <string name="intro_permissions">قراءة حالة الهاتف</string>
@@ -35,8 +45,10 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">شكرا على دعمكم! :)</string>
   <string name="notification_message">Always On في وضعية الإشتغال</string>
+  <string name="toast_thanks">شكراً</string>
+  <string name="toast_thanks_rate">شكرا لك! يرجى معدل التطبيق في مخزن اللعب:)</string>
   <!--Quick settings-->
-  <string name="quick_settings_title">Always on</string>
+  <string name="quick_settings_title">تشغيل دومًا</string>
   <string name="quick_settings_service_active">مفعل</string>
   <string name="quick_settings_service_inactive">غير مفعل</string>
   <!-- Content description-->
@@ -57,6 +69,7 @@
   <string name="error_2_plugin_not_installed">البرنامج المساعد غير مثبتث</string>
   <string name="error_3_unknown_error_restart">حدث خطأ! الرجاء إعادة تشغيل التطبيق.</string>
   <string name="error_4_tasker_service_not_initialized">الخدمة غير مهيأة بشكل صحيح</string>
+  <string name="error_5_camera_cant_connect_desc">Couldn\'t connect to camera. There might be an issue with your device.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">يمكن أن يؤثر هذا على أداء التطبيق</string>
   <string name="warning_4_device_not_secured">قد لا يكون هاتفك آمنا الآن</string>
@@ -98,6 +111,12 @@
   <string name="rules_orientation_horizontal">المناظر الطبيعية (أفقي)</string>
   <!-- Other labels -->
   <string name="md_back_label">Back</string>
+  <string name="md_cancel_label">Cancel</string>
+  <string name="md_choose_label">Choose</string>
+  <string name="md_custom_label">Custom</string>
+  <string name="md_done_label">Done</string>
+  <string name="md_error_label">حدثت مشكلة</string>
+  <string name="md_presets_label">إعادة الضبط</string>
   <!--Settings headers-->
   <string name="settings_behaviour">السلوك</string>
   <string name="settings_about">حول</string>
@@ -108,12 +127,16 @@
   <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
   <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="settings_rules">القواعد التلقائية</string>
+  <string name="settings_samsung">سامسونج</string>
   <!--Settings titles-->
   <string name="settings_enabled">تفعيل</string>
   <string name="settings_disable_volume_keys">تعطيل مفاتيح الصوت</string>
   <string name="settings_double_tap_wake">عمل النقر المزدوج</string>
+  <string name="settings_gestures_home_button_dismiss">زر الهوم يفتح الشاشة</string>
   <string name="settings_back_button_wake">الرجوع إلى زر الأحداث</string>
   <string name="settings_volume_to_stop">عمل مفاتيح الصوت</string>
+  <string name="settings_swipe_up">إسحب إلى العلى</string>
+  <string name="settings_swipe_down">إسحب إلى الأسفل</string>
   <string name="settings_brightness">الإضاءة</string>
   <string name="settings_doze">وضع الإغفاء</string>
   <string name="settings_google_now_shortcut">إسمح لخدمة \"Google Now\"</string>
@@ -143,6 +166,8 @@
   <string name="settings_uninstall">مسح التطبيق</string>
   <string name="settings_exit_animation">الحركة</string>
   <string name="settings_app_version">الإصدار</string>
+  <string name="settings_enable_greenify">تفعيل برنامج Greenify</string>
+  <string name="settings_battery_saver">وضع حفظ الطاقة</string>
   <!--Settings descriptions-->
   <string name="settings_stop_on_camera_desc">إيقاف خدمة Always On Display عند تشغيل الكامير</string>
   <string name="settings_auto_brightness_desc">تعتيم الشاشة تلقائيا عند التواجد في بيئة مظلمة (قد تستهلك أجهزة الإستشعار طاقة أكثر)</string>
@@ -156,9 +181,11 @@
   <string name="settings_proximity_to_lock_desc">قفل الجهاز عند وضع الجهاز في جيبك لحفظ البطارية (قد تستهلك المزيد من البطارية)</string>
   <string name="settings_licenses_desc">تراخيص مفتوحة المصدر</string>
   <string name="settings_community_desc">مجتمع قوقل بلس</string>
+  <string name="settings_about_twitter_desc">Follow me on Twitter for news, updates and giveaways</string>
   <string name="settings_github_desc">رابط GitHub مفتوح المصدر</string>
   <string name="settings_move_desc">مكن هذا لتفادي حرق شاشات الـ AMOLED</string>
   <string name="settings_font_size_desc">ضبط حجم خط الساعة</string>
+  <string name="settings_font_size_memo_desc">تعيين حجم الخط المذكرة</string>
   <string name="settings_notifications_desc">مكن هذا لإبقاء التطبيق يعمل في الخلفية</string>
   <string name="settings_enabled_desc">تمكين الخدمة</string>
   <string name="settings_disable_volume_keys_desc">مكن هذا لمنع تغيير حجم الصوت عن طريق الخطأ</string>
@@ -194,6 +221,7 @@
   <string name="settings_watch_ticks">نمط ال 24 ساعة الكلاسيكي مع علامات الساعة</string>
   <string name="settings_watch_digital_s7">نمط s7 الساعة الرقمية</string>
   <string name="settings_watch_flat_analog">نمط الساعة التناظرية المسطحة</string>
+  <string name="settings_about_twitter">تويتر</string>
   <string name="settings_watch_analog_pebble">نمط الفقاعات التناظرية</string>
   <string name="settings_watch_flat_red_analog">ساعة تناظرية مسطحة (عقارب حمراء)</string>
   <string name="move_disable">تعطيل (غير مستحسن لشاشات AMOLED)</string>
@@ -210,4 +238,10 @@
   <string name="settings_memo_hint">أكتب ملاحظتك هنا. سوف تظهر في شاشة Always On.</string>
   <string name="settings_google_now_shortcut_desc">إلغ تفعيل \"Always On Display\" عند تشغيل خاصية (google now) بقول \"Ok Google\" (قد لا تعمل مع لانشر جوجل الآن)</string>
   <string name="settings_exit_animation_desc">اختر حركة الخروج</string>
+  <string name="settings_battery_saver_desc">تقليل استهلاك البطارية والانهاك. يعمل بشكل أفضل مع الجذر</string>
+  <string name="settings_watchface_date_desc">اختر نمط التاريخ الذي تريده لمعرفة</string>
+  <string name="settings_gestures_home_button_dismiss_desc">انقر فوق الزر البداية للخروج من الشاشة على الدوام. سيؤدي ذلك إلى تعطيل جهاز استشعار بصمات الأصابع على الدوام.</string>
+  <string name="settings_raise_to_wake">رفع تنبيه (غير مستقرة)</string>
+  <string name="settings_raise_to_wake_desc">التقاط الجهاز الخاص بك لإظهار الشاشة على الدوام لمدة 10 ثوان بدلاً من وجود الشاشة مرئية في كل وقت</string>
+  <string name="settings_raise_to_wake_device_admin">منح إذن المسؤول الجهاز للتطبيق لتكون قادرة على تأمين الشاشة</string>
 </resources>

@@ -5,9 +5,9 @@
   <!--Actions-->
   <string name="unlock">화면 켜기</string>
   <string name="action_revert">되돌리기</string>
-  <string name="menu_feedback">반영되길 바라는 점</string>
+  <string name="menu_feedback">Feedback</string>
   <string name="menu_rate">앱 평가</string>
-  <string name="action_restart">지금 재시작하기</string>
+  <string name="action_restart">지금 다시 시작</string>
   <string name="never_show_again">다시 보지 않기</string>
   <!--Support-->
   <string name="action_support_the_development">개발자 돕기</string>
@@ -44,6 +44,8 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">지원해주셔서 감사합니다! :)</string>
   <string name="notification_message">Always On이 실행중입니다</string>
+  <string name="toast_thanks">감사^^</string>
+  <string name="toast_thanks_rate">감사합니다! 이 앱의 평가를 플레이 스토어에 남겨 주세요 :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">항상 켜기</string>
   <string name="quick_settings_service_active">활성화</string>
@@ -124,10 +126,12 @@
   <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
   <string name="gestures_action_flashlight">손전등 토글키</string>
   <string name="settings_rules">자동 작동 규칙</string>
+  <string name="settings_samsung">삼성</string>
   <!--Settings titles-->
   <string name="settings_enabled">활성화</string>
   <string name="settings_disable_volume_keys">볼륨 키 비활성화</string>
   <string name="settings_double_tap_wake">두번 터치하여 켜기</string>
+  <string name="settings_gestures_home_button_dismiss">홈 버튼 잠금 해제</string>
   <string name="settings_back_button_wake">뒤로가기 버튼으로 켜기</string>
   <string name="settings_volume_to_stop">볼륨 키로 켜기</string>
   <string name="settings_swipe_up">밀어 올려서 시작</string>
@@ -237,4 +241,7 @@ Greenify를 구성하려면 이곳을 클릭하세요</string>
   <string name="settings_exit_animation_desc">나갈 때 효과 고르기</string>
   <string name="settings_battery_saver_desc">배터리 소모와 발열을 억제합니다. 루팅이 필요함.</string>
   <string name="settings_watchface_date_desc">원하는 날짜보기방식을 설정하세요.</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Always On Screen에서 나가려면 홈 버튼을 누르세요. 지문 인식 센서를 작동 해제 할 겁니다.</string>
+  <string name="settings_raise_to_wake">켜려면 디바이스를 들어 올리세요 (불안정함)</string>
+  <string name="settings_raise_to_wake_desc">항상 Always On Screen이 켜지게 하는 대신 디바이스를 들어 올리면 10초동안 Always On Screen이 켜집니다.</string>
 </resources>

@@ -16,6 +16,7 @@
   <string name="support_choose">Cât de mult doriţi să donezi?</string>
   <string name="support_1">Deblochează</string>
   <string name="support_2">Donează</string>
+  <string name="support_5">Șiruri.xml</string>
   <!--Intro-->
   <string name="intro_allow_now">Oferă permisiunile</string>
   <string name="intro_draw_over">Funcționare peste alte aplicații</string>

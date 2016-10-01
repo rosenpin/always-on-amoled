@@ -4,7 +4,7 @@
   <!--App name & Activities title-->
   <!--Actions-->
   <string name="unlock">Ekranı aç</string>
-  <string name="action_revert">Geri döndür</string>
+  <string name="action_revert">Eski hale geri döndür</string>
   <string name="menu_feedback">Geribildirim</string>
   <string name="menu_rate">Uygulamayı derecelendir</string>
   <string name="action_restart">Şimdi yeniden başlat</string>
@@ -19,11 +19,13 @@
   <string name="support_5">Büyük Bağış</string>
   <string name="support_10">Müthiş Bağış</string>
   <string name="support_20">Dev Bağış</string>
+  <string name="support_25">Süper bağış!</string>
   <string name="support_1_desc">Uygulamanın tüm premium özelliklerini aç ve gelişimini destekle</string>
   <string name="support_2_desc">Geliştirmeyi biraz daha destekle. Standart kilit açma ile aynı özellikler.</string>
   <string name="support_5_desc">Projeye bağış yap ve uygulama üzerinde çalışmama devam etmeme yardım et. Standart kilit açma ile aynı özellikler.</string>
   <string name="support_10_desc">Projeye olan memnuniyetini göster ve gelişimi aktif tut. Standart kilit açma ile aynı özellikler.</string>
   <string name="support_20_desc">Vay canına! Kocaman bir bağış! Çok teşekkürler! :) Standart kilit açma ile aynı özellikler.</string>
+  <string name="support_25_desc">Muhteşem! Ne kadar çok para!!! Bu projeye gerçekten yardım edecek, aynı diğer sıradan kilit açmalar gibi. </string>
   <!--Intro-->
   <string name="intro_allow_now">Şimdi izin ver</string>
   <string name="intro_permissions">Telefon durumunu oku</string>
@@ -42,6 +44,8 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Desteğin için teşekkür ederim! :)</string>
   <string name="notification_message">Daima çalış.</string>
+  <string name="toast_thanks">Teşekkürler</string>
+  <string name="toast_thanks_rate">Teşekkürler! Lütfen uygulamayı Play Store\'dan oylayın :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Her zaman açık</string>
   <string name="quick_settings_service_active">etkin</string>
@@ -54,7 +58,7 @@
   <string name="widget_on">Açık</string>
   <!--Device admin-->
   <!--Plugin-->
-  <string name="plugin_dialog_title">Eklenti yüklenmelidir</string>
+  <string name="plugin_dialog_title">Eklenti gerekiyor</string>
   <string name="plugin_dialog_desc">Cihazında donanımsal tuşlar var gibi görünüyor, uygulama açıkken onları devre dışı bırakmak için lütfen eklentiyi yükle.</string>
   <!--Errors-->
   <string name="error">Hata</string>
@@ -67,14 +71,14 @@
   <string name="error_5_camera_cant_connect_desc">Kamerayla bağlantı kurulamadı. Muhtemelen cihazınızla ilgili bir sorun.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Bu uygulama cihazınızın performansını etkileyebilir.</string>
-  <string name="warning_4_device_not_secured">Aygıtınız şimdi güvenli değil</string>
+  <string name="warning_4_device_not_secured">Cihazınız şuanda güvenli olmayabilir</string>
   <string name="warning_5_device_admin_disable">Bu bazı özellikleri devre dışı bırakacak</string>
-  <string name="warning_6_device_admin_disabled">Bazı özellikler şimdi devre dışı olabilir</string>
+  <string name="warning_6_device_admin_disabled">Bazı özellikler şuan devre dışı olabilir</string>
   <string name="warning_7_disable_fingerprint">Bu parmak izi sensörü işlevselliğini devre dışı bırakabilir, bunu etkinleştirmek istediğinizden emin misiniz?</string>
   <string name="warning_8_intro_allow_all">Lütfen tüm izinleri kabul edin</string>
   <string name="warning_9_allow_notification">Lütfen bildirim erişimine izin verin</string>
   <string name="warning_11_no_root">Bu özellik için cihaz root edilmiş olmalı</string>
-  <string name="warning_12_please_report">Lütfen nelerin eklenip/düzeltilebileceğini bana ilet</string>
+  <string name="warning_12_please_report">Lütfen neleri ekleyip düzelmemi istediğini bana ilet</string>
   <!--Charging rules-->
   <string name="rules_both_charging">Her ikisi de, şarj olurken ve deşarj olurken</string>
   <string name="rules_while_charging">Şarj olurken</string>
@@ -118,14 +122,16 @@
   <string name="settings_appearance">Görünüm</string>
   <string name="settings_general">Genel</string>
   <string name="settings_shortcuts">Kısayollar</string>
-  <string name="settings_wake_up">Uyandır</string>
+  <string name="settings_wake_up">Uyandırma hareketleri</string>
   <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
   <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="settings_rules">Otomatik kurallar</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Aktif et</string>
   <string name="settings_disable_volume_keys">Ses tuşlarını devre dışı bırak</string>
   <string name="settings_double_tap_wake">Çift tıklama eylemi</string>
+  <string name="settings_gestures_home_button_dismiss">Ana buton kilidi açar</string>
   <string name="settings_back_button_wake">Geri düğmesi </string>
   <string name="settings_volume_to_stop">Ses tuşunu kapalı tut</string>
   <string name="settings_swipe_up">Yukarı Kaydırma Hareketi</string>
@@ -234,4 +240,6 @@
   <string name="settings_exit_animation_desc">Çıkış animasyon seçin</string>
   <string name="settings_battery_saver_desc">Pil tüketimini ve aşırı ısınmayı azaltır. Root ile daha iyi çalışır.</string>
   <string name="settings_watchface_date_desc">Görmek istediğin tarih stilini seç</string>
+  <string name="settings_gestures_home_button_dismiss_desc">Always On Screen\'den çıkmak için ana menü tuşuna basın. Bu parmak izi sensörünü devre dışı bırakacaktır.</string>
+  <string name="settings_raise_to_wake">(Kararsız) uyandırmak yükseltmek</string>
 </resources>

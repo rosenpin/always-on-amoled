@@ -45,6 +45,7 @@
   <string name="thanks">Tack för ditt stöd! :)</string>
   <string name="notification_message">Always On är igång</string>
   <string name="toast_thanks">Tack så mycket</string>
+  <string name="toast_thanks_rate">Tack så mycket! Betygsätt gärna appen i Play Butiken :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Alltid på</string>
   <string name="quick_settings_service_active">aktiverad</string>
@@ -239,4 +240,7 @@
   <string name="settings_battery_saver_desc">Minska batteriförbrukningen och överhettning. Fungerar bättre med root</string>
   <string name="settings_watchface_date_desc">Välj det datumformat som du vill se</string>
   <string name="settings_gestures_home_button_dismiss_desc">Tryck på hemknappen för att avsluta always on display. Detta kommer att inaktivera fingeravtrycksgivaren för always on.</string>
+  <string name="settings_raise_to_wake">Lyft upp för att vakna (instabil)</string>
+  <string name="settings_raise_to_wake_desc">När enheten plockas upp visas always on screen i 10 sekunder i stället för att det synligt på skärmen hela tiden</string>
+  <string name="settings_raise_to_wake_device_admin">Ge appen administratörsbehörighet för att kunna låsa skärmen</string>
 </resources>

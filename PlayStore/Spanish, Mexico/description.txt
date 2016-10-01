@@ -6,7 +6,7 @@ La idea es dar a los usuarios información acerca de la hora, fecha, notificacio
 
 Esto es posible gracias a la tecnología de las pantallas AMOLED. La mayor parte de la pantalla se mantiene apagada, excepto algunos píxeles.
 
-★Características especiales
+★Notable features
 • Pantalla siempre encendida
 • Notificaciones - mira tus notificaciones sin tocar tu dispositivo
 • Reglas automáticas - ahorra batería utilizando reglas predefinidas

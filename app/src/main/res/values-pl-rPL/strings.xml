@@ -13,6 +13,15 @@
   <string name="action_support_the_development">Wspomóż twórców</string>
   <string name="support_how_much">Jak dużo chcesz podarować?</string>
   <string name="supporter_feature_only">Ta funkcja jest dostępna tylko dla osób wspierających, możesz wybrać jak bardzo chcesz nas wesprzeć.</string>
+  <string name="support_choose">Jaką kwotą możesz nas wesprzeć?</string>
+  <string name="support_1">Odblokuj</string>
+  <string name="support_2">Wesprzyj</string>
+  <string name="support_5">Wesprzyj bardziej</string>
+  <string name="support_10">Wesprzyj jeszcze bardziej</string>
+  <string name="support_20">Wesprzyj najbardziej</string>
+  <string name="support_25">Turbo wsparcie!</string>
+  <string name="support_1_desc">Odblokuj wszystkie funkcje premium i wesprzyj rozwój aplikacji</string>
+  <string name="support_2_desc">Pomóż nam rozwijać aplikację. Wsparcie daje dostęp do tych samych funkcji co odblokowanie.</string>
   <!--Intro-->
   <string name="intro_allow_now">Zezwalaj</string>
   <string name="intro_permissions">Odczyt stanu telefonu</string>
@@ -31,6 +40,7 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Dziękuję za twoje wsparcie! :)</string>
   <string name="notification_message">Always On Jest Uruchomione</string>
+  <string name="toast_thanks_rate">Dziękuję! Oceń proszę aplikację w play store :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Zawsze włączony</string>
   <string name="quick_settings_service_active">włączone</string>
@@ -53,6 +63,7 @@
   <string name="error_2_plugin_not_installed">WTYCZKA NIE JEST ZAINSTALOWANA</string>
   <string name="error_3_unknown_error_restart">Wystąpił błąd. Proszę uruchomić aplikację ponownie.</string>
   <string name="error_4_tasker_service_not_initialized">Usługa nie została zainicjowana poprawnie</string>
+  <string name="error_5_camera_cant_connect_desc">Nie można połączyć się z aparatem. Może to być problem z twoim urządzeniem.</string>
   <!--Warnings-->
   <string name="warning_1_harm_performance">Może to zaszkodzić wydajności aplikacji</string>
   <string name="warning_4_device_not_secured">Twoje urządzenie nie może być teraz zabezpieczone</string>
@@ -110,6 +121,7 @@
   <string name="gestures_action_speak">Powiedz głośno bieżący czas, powiadomienia i stan baterii</string>
   <string name="gestures_action_flashlight">Włącz latarkę</string>
   <string name="settings_rules">Reguły automatyczne</string>
+  <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
   <string name="settings_enabled">Włącz</string>
   <string name="settings_disable_volume_keys">Wyłącz klawisze głośności</string>
@@ -219,4 +231,5 @@
   <string name="settings_google_now_shortcut_desc">Zatrzymaj Always On Display, kiedy Google Now zostanie uruchomione poprzez wypowiedzenie słów \"OK Google\" (Może nie działać z launcherem Google Now)</string>
   <string name="settings_exit_animation_desc">Wybierz animację wyjścia</string>
   <string name="settings_battery_saver_desc">Redukuje konsumpcję baterii i przegrzewanie. Działa lepiej z root\'em.</string>
+  <string name="settings_watchface_date_desc">Wybierz styl daty, który chcesz widzieć</string>
 </resources>

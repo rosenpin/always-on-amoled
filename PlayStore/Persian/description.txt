@@ -1,35 +1,35 @@
-نمایش همیشه در تلفن و یا قرص خود را داشته.
-Keep your screen on all the time.
-The first open source always on app!
+همیشه بر روی صفحه نمایش گوشی همراه یا تبلت خود ساعت زیبا داشته باشید
+گذشتن از خاموشی صفحه
+این برنامه کاملا متن باز میباشد!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+ایده این است که بهدکاربران اطلاعاتی در مورد زمان، تاریخ، اعلان و ... ارائه داده و همه بدون نیاز به لمس گوشی است . فقط با نگاه کردن به آن.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+این امکان برای صفحه نمایش AMOLED ساخته شده است. بسیاری از پیکسل های صفحه نمایش خاموش است که موجب ذخیره انرژی و افزایش عمر ان میشود.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+ویژگی های ★Notable
+• همیشه بر روی صفحه نمایش
+• اطلاعیه ها - مشاهده اطلاعیه ها بدون لمس دستگاه
+•  قوانین اتوماتیک  - حفظ باتری با استفاده از قوانین از پیش تعریف شده
+• جنبش خودکار--جلوگیری از سوختن AMOLED 
+• حالت شب خودکار - تار شدن صفحه نمایش به طور خودکار در محیط های تاریک
+• حالت جیبی - هنگامی که شما گوشی را در جیبتان میگذارید بصورت خودکار قفل میشود برای ذخیره انرژی
+• دو ضربه برای روشن شدن + کشیدن سمت بالا + کلید های توسط کلید های تنظیم صدا + دکمه بازگشت جهت بیدار شدن
+• جهت گیری صفحه - تعیین جهت صفحه مورد نظر شما
+• سفارشی--تغییر رنگ متن اندازه متن روشنایی و بیشتر
+• منبع آزاد و باز!
 
-Before using please enable 'draw over apps' permission for this app.
+قبل از استفاده اصلی تموم مجوز هارا تایبد کنید .
 
-The app is in BETA, it still has bugs and lacks features.
+این نرم افزار بتا است، و احتمالا دارای مشکلاتی باشد پس عجله نکنید :)
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+سطوح دسترسی
+اجازه به دوربین 
+به برنامه اجازه دهید از دوربین استفاده کند جهت روشن شدن صفحه
+مجوز تماسها
+برنامه نیاز به اجازه تلفن تماس های دریافتی را به تشخیص اخراج همیشه در صفحه نمایش و صفحه تماس ورودی را نشان می دهد.
+<b>تغییر تنظیمات سیستم اجازه</b>
+برای استفاده قفل دستگاه را غیر فعال کنید
 
 
-Google Plus Community
-https://plus.google.com/communities/104206728795122451273
+اشتراک گوگل
+اشتراک گوگل
