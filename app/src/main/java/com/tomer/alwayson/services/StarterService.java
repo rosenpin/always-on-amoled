@@ -148,7 +148,7 @@ public class StarterService extends Service implements SensorEventListener {
                     oldY = event.values[1];
                 float yChange = oldY - event.values[1];
                 oldY = event.values[1];
-                if (yChange < -3.5) {
+                if (yChange < -3) {
                     Intent raiseToWakeIntent = new Intent(this, MainService.class);
                     raiseToWakeIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     raiseToWakeIntent.putExtra("raise_to_wake", true);
