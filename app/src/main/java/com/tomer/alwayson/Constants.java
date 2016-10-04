@@ -1,6 +1,7 @@
 package com.tomer.alwayson;
 
 import android.content.Intent;
+import android.telephony.TelephonyManager;
 
 public class Constants {
     public static final String[] unlockFilters = {
@@ -8,6 +9,8 @@ public class Constants {
             Intent.ACTION_USER_PRESENT,
             //ASSIST IE: GOOGLE NOW
             Intent.ACTION_ASSIST,
+            //Calls
+            TelephonyManager.ACTION_PHONE_STATE_CHANGED,
             //ALARMS
             "com.android.deskclock.ALARM_ALERT",
             "com.android.alarmclock.ALARM_ALERT",
