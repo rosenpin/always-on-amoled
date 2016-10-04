@@ -23,4 +23,7 @@ Copyright 2016 Tomer Rosenfeld
 Always On Display is licensed under the GNU v3 Public License.
 
 In addition to the terms set by the GNU v3 Public License, I ask that if you use any code from this repository that you send me a message to let me know.
+Moreover, I do not permit redistribution of this application on the Google Play Store.
+
+Feel free to contact me for more information.
 ```
