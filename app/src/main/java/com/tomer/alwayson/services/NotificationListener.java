@@ -65,11 +65,10 @@ public class NotificationListener extends NotificationListenerService implements
     }
 
     private Drawable getIcon(StatusBarNotification notification) {
-        if (Utils.isAndroidNewerThanM()) {
+        if (Utils.isAndroidNewerThanM())
             return notification.getNotification().getSmallIcon().loadDrawable(this);
-        } else {
-            return getResources().getDrawable(notification.getNotification().icon);
-        }
+        else
+            return ContextCompat.getDrawable(getApplicationContext(), notification.getNotification().icon);
     }
 
     public static class NotificationHolder {

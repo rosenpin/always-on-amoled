@@ -25,7 +25,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
@@ -135,7 +134,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
         if (Utils.isPackageInstalled(this, "com.android.vending"))
             donateButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), DonateActivity.class)));
         else
-            ((LinearLayout) donateButton.getParent()).removeView(donateButton);
+            donateButton.setOnClickListener(v -> Utils.openURL(PreferencesActivity.this, "https://www.patreon.com/user?u=2966388"));
     }
 
     private void handlePermissions() {

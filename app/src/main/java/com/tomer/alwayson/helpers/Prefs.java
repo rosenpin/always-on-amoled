@@ -46,12 +46,10 @@ public class Prefs {
     public String orientation;
     public String memoText;
 
-    private Context context;
     private SharedPreferences prefs;
 
     public Prefs(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.context = context;
     }
 
     public void apply() {
@@ -95,7 +93,7 @@ public class Prefs {
         memoTextSize = prefs.getInt("memo_font_size", 40);
         brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 15);
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
-        moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "2"));
+        moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "1"));
         stopDelay = Integer.parseInt(prefs.getString(KEYS.STOP_DELAY.toString(), "0"));
         batteryRules = Integer.parseInt(prefs.getString(KEYS.BATTERY_RULES.toString(), "0"));
         font = Integer.parseInt(prefs.getString(KEYS.FONT.toString(), "0"));

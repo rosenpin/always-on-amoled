@@ -1,5 +1,7 @@
 package com.tomer.alwayson.helpers;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -21,6 +23,7 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;

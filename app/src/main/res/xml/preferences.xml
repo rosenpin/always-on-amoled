@@ -223,7 +223,7 @@
             android:summary="@string/settings_startafterlock_desc"
             android:title="@string/settings_startafterlock" />
         <com.afollestad.materialdialogs.prefs.MaterialListPreference
-            android:defaultValue="2"
+            android:defaultValue="1"
             android:dialogTitle="@string/settings_move_desc"
             android:entries="@array/settings_move"
             android:entryValues="@array/settings_move_values"
