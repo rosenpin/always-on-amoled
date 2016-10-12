@@ -36,7 +36,7 @@ public class DeveloperActivity extends AppCompatActivity implements View.OnClick
                 url = "https://twitter.com/Rosenpin";
                 break;
             case R.id.google_plus:
-                url = "https://plus.google.com/u/0/+TomerRosenfeld";
+                url = "https://plus.google.com/+TomerRosenfeld";
                 break;
             case R.id.google_play:
                 url = "https://play.google.com/store/apps/developer?id=Tomer%27s+apps";
