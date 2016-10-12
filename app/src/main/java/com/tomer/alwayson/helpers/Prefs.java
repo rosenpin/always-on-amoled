@@ -91,7 +91,7 @@ public class Prefs {
         autoNightMode = prefs.getBoolean(KEYS.AUTO_NIGHT_MODE.toString(), false);
         textColor = prefs.getInt(KEYS.TEXT_COLOR.toString(), -1);
         memoTextSize = prefs.getInt("memo_font_size", 40);
-        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 15);
+        brightness = prefs.getInt(KEYS.BRIGHTNESS.toString(), 12);
         textSize = prefs.getInt(KEYS.TEXT_SIZE.toString(), 80);
         moveWidget = Integer.parseInt(prefs.getString(KEYS.MOVE_WIDGET.toString(), "1"));
         stopDelay = Integer.parseInt(prefs.getString(KEYS.STOP_DELAY.toString(), "0"));
