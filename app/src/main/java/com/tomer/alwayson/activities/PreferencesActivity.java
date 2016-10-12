@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.PowerManager;
 import android.provider.Settings;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
@@ -26,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
@@ -132,7 +132,10 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
         assert donateButton != null;
-        donateButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), DonateActivity.class)));
+        if (Utils.isPackageInstalled(this, "com.android.vending"))
+            donateButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), DonateActivity.class)));
+        else
+            ((LinearLayout) donateButton.getParent()).removeView(donateButton);
     }
 
     private void handlePermissions() {

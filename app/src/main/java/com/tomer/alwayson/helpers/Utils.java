@@ -36,7 +36,7 @@ public class Utils implements ContextConstatns {
 
     private static Boolean isSamsung;
 
-    static boolean isPackageInstalled(Context context, String packageName) {
+    public static boolean isPackageInstalled(Context context, String packageName) {
         PackageManager pm = context.getPackageManager();
         try {
             pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);

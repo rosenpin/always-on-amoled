@@ -61,7 +61,7 @@ public class NotificationListener extends NotificationListenerService implements
     }
 
     private String getUniqueKey(StatusBarNotification notification) {
-        return notification.getPackageName().concat(":").concat(String.valueOf(notification.getId()));
+        return notification.getPackageName();
     }
 
     private Drawable getIcon(StatusBarNotification notification) {
