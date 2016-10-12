@@ -45,6 +45,9 @@ dependencies {
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
     compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile project(':DiscreetAppRate')
     compile project(':IssueReporter')
     testCompile 'junit:junit:4.12'

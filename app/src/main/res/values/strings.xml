@@ -242,4 +242,6 @@
     <string name="settings_gestures_home_button_dismiss_desc">Click the home button to exit the always on screen. This will disable the always on fingerprint sensor.</string>
     <string name="settings_raise_to_wake_desc">Pick your device up to show the always on screen for 10 seconds instead of having the screen visible all the time</string>
     <string name="settings_raise_to_wake_device_admin">Grant device admin permission for the app to be able to lock the screen</string>
+    <string name="settings_developer">Developer</string>
+    <string name="settings_developer_desc">Contact the developer</string>
 </resources>

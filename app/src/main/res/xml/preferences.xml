@@ -278,14 +278,9 @@
             android:summary="@string/settings_about_translate"
             android:title="@string/settings_translate"
             app:url="https://crowdin.com/project/always-on-amoled" />
-        <com.tomer.alwayson.views.URLPreference
-            android:summary="@string/settings_github_desc"
-            android:title="@string/settings_github"
-            app:url="https://github.com/rosenpin/AlwaysOnDisplayAmoled" />
-        <com.tomer.alwayson.views.URLPreference
-            android:summary="@string/settings_about_twitter_desc"
-            android:title="@string/settings_about_twitter"
-            app:url="http://www.twitter.com/Rosenpin" />
+        <com.tomer.alwayson.views.DeveloperPreference
+            android:summary="@string/settings_developer_desc"
+            android:title="@string/settings_developer"/>
         <Preference
             android:key="open_source_licenses"
             android:summary="@string/settings_licenses_desc"

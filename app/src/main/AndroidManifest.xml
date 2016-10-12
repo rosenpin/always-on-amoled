@@ -43,11 +43,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
-
     <uses-feature
         android:name="android.hardware.camera.flash"
         android:required="false" />
@@ -82,6 +80,9 @@
             android:name=".activities.SamsungHomeWatcherActivity"
             android:excludeFromRecents="true"
             android:showOnLockScreen="true" />
+        <activity android:name=".activities.DeveloperActivity"
+            android:parentActivityName=".activities.PreferencesActivity"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme">
@@ -93,7 +94,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--Services-->
+        <!-- Services -->
         <service
             android:name=".services.StarterService"
             android:enabled="true"
@@ -122,6 +123,7 @@
             <meta-data
                 android:name="android.service.quicksettings.ACTIVE_TILE"
                 android:value="true" />
+
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -144,6 +146,7 @@
             <meta-data
                 android:name="android.app.device_admin"
                 android:resource="@xml/device_admin_res" />
+
             <intent-filter>
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
@@ -168,7 +171,7 @@
                 <action android:name="android.intent.action.BATTERY_CHANGED" />
             </intent-filter>
         </receiver>
-        <!--Tasker-->
+        <!-- Tasker -->
         <receiver
             android:name=".tasker.FireReceiver"
             android:exported="true"
@@ -178,6 +181,7 @@
                 <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name=".tasker.EditActivity"
             android:exported="true"
@@ -191,4 +195,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
