@@ -150,6 +150,7 @@ public class DonateActivity extends AppCompatActivity {
         if (requestCode == 1001) {
             Utils.logDebug("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
+                Globals.ownedItems.add("temp");
                 Toast.makeText(getApplicationContext(), R.string.thanks, Toast.LENGTH_LONG).show();
                 Snackbar.make(findViewById(android.R.id.content), R.string.thanks, 10000).setAction(R.string.action_restart, view -> {
                     finish();
