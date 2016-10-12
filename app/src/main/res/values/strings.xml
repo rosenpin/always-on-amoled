@@ -40,6 +40,14 @@
     <string name="intro_checkbox_double_tap">Double tap the screen to unlock</string>
     <string name="intro_notifications">Notifications alerts</string>
     <string name="intro_notifications_desc">Do you want to receive notifications from other apps while the screen is in \"always on\" state? If you do, click the \"allow now\" button</string>
+    <!--Developer page-->
+    <string name="developer_name">Tomer Rosenfeld</string>
+    <string name="developer_twitter">Follow me on Twitter</string>
+    <string name="developer_googleplus">Follow me on Google Plus</string>
+    <string name="developer_google_play">Check out my apps on Google Play</string>
+    <string name="developer_linkedin">Connect with me on LinkedIn</string>
+    <string name="developer_github">Fork me on GitHub</string>
+    <string name="developer_patreon">Check me out on Patreon</string>
     <!--Feedback,Toasts & messages-->
     <string name="thanks">Thank you for your support! :)</string>
     <string name="notification_message">Always On Is Running</string>
