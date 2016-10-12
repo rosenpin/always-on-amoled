@@ -102,8 +102,8 @@
   <string name="settings_general">Obecná nastavení</string>
   <string name="settings_shortcuts">Zkratky</string>
   <string name="settings_wake_up">Gesta a akce</string>
-  <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
-  <string name="gestures_action_flashlight">Zapnout blesk</string>
+  <string name="settings_gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
+  <string name="settings_gestures_action_flashlight">Zapnout blesk</string>
   <string name="settings_rules">Automatická pravidla</string>
   <!--Settings titles-->
   <string name="settings_enabled">Povolit</string>
@@ -136,7 +136,7 @@
   <string name="settings_translate">Přeložit</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Komunita</string>
-  <string name="greenify_integration">Greenify integrace</string>
+  <string name="settings_greenify_integration">Greenify integrace</string>
   <string name="settings_licenses">Licence</string>
   <string name="settings_uninstall">Odinstalovat</string>
   <string name="settings_exit_animation">Animace</string>
@@ -195,12 +195,12 @@
   <string name="settings_watch_flat_analog">Plochý analogový styl</string>
   <string name="settings_watch_analog_pebble">Křišťálový styl analogových hodin</string>
   <string name="settings_watch_flat_red_analog">Ploché analogové s červeným ciferníkem</string>
-  <string name="move_disable">Vypnuto (není doporučeno pro AMOLED obrazovky)</string>
-  <string name="move_move">Automaticky přesunout widget</string>
-  <string name="move_move_animation">Přesunout widget automaticky s animací</string>
-  <string name="greenify_integration_desc">Povolte Greenify k výraznému zlepšení životnosti baterie. Ujistěte se, aby Greenify bylo povoleno v nastavení usnadnění přístupu</string>
-  <string name="greenify_integration_desc_found">Ujistěte se, zda máte povoleno Greenify v nastavení usnadnění a vyberte aplikace, které chcete hibernovat pokud je zařízení uzamčeno. Klikněte zde pro konfiguraci Greenify</string>
-  <string name="greenify_integration_desc_not_found">Nainstaluj Greenify, abys prodloužil výdrž baterie</string>
+  <string name="settings_move_disable">Vypnuto (není doporučeno pro AMOLED obrazovky)</string>
+  <string name="settings_move_move">Automaticky přesunout widget</string>
+  <string name="settings_move_animation">Přesunout widget automaticky s animací</string>
+  <string name="settings_greenify_integration_desc">Povolte Greenify k výraznému zlepšení životnosti baterie. Ujistěte se, aby Greenify bylo povoleno v nastavení usnadnění přístupu</string>
+  <string name="settings_greenify_integration_desc_found">Ujistěte se, zda máte povoleno Greenify v nastavení usnadnění a vyberte aplikace, které chcete hibernovat pokud je zařízení uzamčeno. Klikněte zde pro konfiguraci Greenify</string>
+  <string name="settings_greenify_integration_desc_not_found">Nainstaluj Greenify, abys prodloužil výdrž baterie</string>
   <string name="settings_notifications_alerts_preview_desc">Zobrazit obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
   <string name="settings_doze_desc">Povol Doze když je Vždy Zapnuto aktivní, abys ušetřil baterii (pouze pro root)</string>

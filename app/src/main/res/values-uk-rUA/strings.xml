@@ -99,7 +99,7 @@
   <string name="settings_appearance">Зовнішній вигляд</string>
   <string name="settings_general">Загальні</string>
   <string name="settings_wake_up">Методи пробудження</string>
-  <string name="gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
+  <string name="settings_gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
   <string name="settings_rules">Автоматичні правила</string>
   <!--Settings titles-->
   <string name="settings_enabled">Увімкнений</string>
@@ -132,7 +132,7 @@
   <string name="settings_translate">Переклад</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Спільноти</string>
-  <string name="greenify_integration">Інтеграція з Greenify</string>
+  <string name="settings_greenify_integration">Інтеграція з Greenify</string>
   <string name="settings_licenses">Ліцензія</string>
   <string name="settings_uninstall">Видалити</string>
   <string name="settings_exit_animation">Анімація</string>

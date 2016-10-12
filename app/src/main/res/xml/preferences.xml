@@ -250,8 +250,8 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="greenify_enabled"
-            android:summary="@string/greenify_integration_desc"
-            android:title="@string/greenify_integration" />
+            android:summary="@string/settings_greenify_integration_desc"
+            android:title="@string/settings_greenify_integration" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="disable_volume_keys"

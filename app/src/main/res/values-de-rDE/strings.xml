@@ -122,8 +122,8 @@
   <string name="settings_general">Allgemein</string>
   <string name="settings_shortcuts">Verknüpfungen</string>
   <string name="settings_wake_up">Gesten &amp; Aktionen</string>
-  <string name="gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
-  <string name="gestures_action_flashlight">Taschenlampe</string>
+  <string name="settings_gestures_action_speak">Liest die aktuelle Zeit, Benachrichtigungen und den Akkustand vor</string>
+  <string name="settings_gestures_action_flashlight">Taschenlampe</string>
   <string name="settings_rules">Automatische Regeln</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -159,7 +159,7 @@
   <string name="settings_translate">Übersetzen</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
-  <string name="greenify_integration">Greenify Einbindung</string>
+  <string name="settings_greenify_integration">Greenify Einbindung</string>
   <string name="settings_licenses">Lizenzen</string>
   <string name="settings_uninstall">Deinstallieren</string>
   <string name="settings_exit_animation">Animation</string>
@@ -222,12 +222,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Analog, Pebble Stil</string>
   <string name="settings_watch_flat_red_analog">Analog, Flat Design (rote Zeiger)</string>
-  <string name="move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Displays)</string>
-  <string name="move_move">Verschiebe das Widget automatisch</string>
-  <string name="move_move_animation">Verschiebe das Widget automatisch mit einer Animation</string>
-  <string name="greenify_integration_desc">Aktiviere Greenify während der Always On Bildschirm sichtbar ist um die Batterielaufzeit zu verlängern. Stelle sicher dass du vorher Greenify in den Eingabehilfe-Einstellungen aktiviert hast</string>
-  <string name="greenify_integration_desc_found">Stelle sicher, dass du Greenify in den Eingabehilfe-Einstellungen aktiviert und die Anwendungen, welche du in den Ruhezustand versetzen willst, während das Gerät gesperrt ist, gewählt hast. Tippe hier um Greenify zu konfigurieren</string>
-  <string name="greenify_integration_desc_not_found">Installiere Greenify, um die Akkulaufzeit zu erhöhen</string>
+  <string name="settings_move_disable">Deaktiviert (Nicht zu empfehlen für AMOLED-Displays)</string>
+  <string name="settings_move_move">Verschiebe das Widget automatisch</string>
+  <string name="settings_move_animation">Verschiebe das Widget automatisch mit einer Animation</string>
+  <string name="settings_greenify_integration_desc">Aktiviere Greenify während der Always On Bildschirm sichtbar ist um die Batterielaufzeit zu verlängern. Stelle sicher dass du vorher Greenify in den Eingabehilfe-Einstellungen aktiviert hast</string>
+  <string name="settings_greenify_integration_desc_found">Stelle sicher, dass du Greenify in den Eingabehilfe-Einstellungen aktiviert und die Anwendungen, welche du in den Ruhezustand versetzen willst, während das Gerät gesperrt ist, gewählt hast. Tippe hier um Greenify zu konfigurieren</string>
+  <string name="settings_greenify_integration_desc_not_found">Installiere Greenify, um die Akkulaufzeit zu erhöhen</string>
   <string name="settings_notifications_alerts_preview_desc">Zeige Benachrichtigungsinhalt wenn empfangen</string>
   <string name="settings_notifications_alerts_preview">Benachrichtigungsinhalt</string>
   <string name="settings_doze_desc">Aktiviere Doze während der Always-On Bildschirm aktiv ist, um Akku zu sparen (nur mit Root)</string>

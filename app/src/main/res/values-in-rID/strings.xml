@@ -123,8 +123,8 @@
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Shortcuts</string>
   <string name="settings_wake_up">Gestures &amp; actions</string>
-  <string name="gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
-  <string name="gestures_action_flashlight">Menghidupkan Senter </string>
+  <string name="settings_gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
+  <string name="settings_gestures_action_flashlight">Menghidupkan Senter </string>
   <string name="settings_rules">Automatic Rules</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">Translate</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
-  <string name="greenify_integration">Greenify integration</string>
+  <string name="settings_greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenses</string>
   <string name="settings_uninstall">Uninstall</string>
   <string name="settings_exit_animation">Animation</string>
@@ -223,12 +223,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
   <string name="settings_watch_flat_red_analog">Flat analog (red dial)</string>
-  <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
-  <string name="move_move">Move the widget automatically</string>
-  <string name="move_move_animation">Move the widget automatically with an animation</string>
-  <string name="greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
-  <string name="greenify_integration_desc_found">Make sure to enable Greenify in the accessibility settings and choose the apps you want it to hibernate while the device is locked. Click here to configure Greenify</string>
-  <string name="greenify_integration_desc_not_found">Install Greenify to improve battery life</string>
+  <string name="settings_move_disable">Disabled (Not recommended for AMOLED screens)</string>
+  <string name="settings_move_move">Move the widget automatically</string>
+  <string name="settings_move_animation">Move the widget automatically with an animation</string>
+  <string name="settings_greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
+  <string name="settings_greenify_integration_desc_found">Make sure to enable Greenify in the accessibility settings and choose the apps you want it to hibernate while the device is locked. Click here to configure Greenify</string>
+  <string name="settings_greenify_integration_desc_not_found">Install Greenify to improve battery life</string>
   <string name="settings_notifications_alerts_preview_desc">Indonesia</string>
   <string name="settings_notifications_alerts_preview">Notification content</string>
   <string name="settings_memo_text_desc">Write your memo here</string>

@@ -505,7 +505,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             findPreference("stop_delay").setSummary("%s");
         findPreference("watchface_clock").setSummary(context.getResources().getStringArray(R.array.customize_clock)[prefs.clockStyle]);
         findPreference("watchface_date").setSummary(context.getResources().getStringArray(R.array.customize_date)[prefs.dateStyle]);
-        findPreference("greenify_enabled").setSummary(isPackageInstalled("com.oasisfeng.greenify") ? context.getString(R.string.greenify_integration_desc) : context.getString(R.string.greenify_integration_desc_not_found));
+        findPreference("greenify_enabled").setSummary(isPackageInstalled("com.oasisfeng.greenify") ? context.getString(R.string.settings_greenify_integration_desc) : context.getString(R.string.settings_greenify_integration_desc_not_found));
         if (!isPackageInstalled("com.oasisfeng.greenify")) {
             ((SwitchPreference) findPreference("greenify_enabled")).setChecked(false);
         }

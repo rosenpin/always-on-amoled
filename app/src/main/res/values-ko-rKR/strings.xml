@@ -123,8 +123,8 @@
   <string name="settings_general">일반</string>
   <string name="settings_shortcuts">바로가기</string>
   <string name="settings_wake_up">화면 켜기</string>
-  <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
-  <string name="gestures_action_flashlight">손전등 토글키</string>
+  <string name="settings_gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
+  <string name="settings_gestures_action_flashlight">손전등 토글키</string>
   <string name="settings_rules">자동 작동 규칙</string>
   <string name="settings_samsung">삼성</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">번역</string>
   <string name="settings_github">Github (깃허브)</string>
   <string name="settings_community">커뮤니티</string>
-  <string name="greenify_integration">Greenify 통합</string>
+  <string name="settings_greenify_integration">Greenify 통합</string>
   <string name="settings_licenses">라이센스</string>
   <string name="settings_uninstall">앱 제거</string>
   <string name="settings_exit_animation">애니메이션</string>
@@ -223,14 +223,14 @@
   <string name="settings_about_twitter">트위터</string>
   <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
   <string name="settings_watch_flat_red_analog">플랫 아날로그(빨간색)</string>
-  <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
-  <string name="move_move">위젯을 자동으로 움직이기</string>
-  <string name="move_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
-  <string name="greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
-  <string name="greenify_integration_desc_found">접근성 설정에서 Greenify를 사용설정하여,
+  <string name="settings_move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
+  <string name="settings_move_move">위젯을 자동으로 움직이기</string>
+  <string name="settings_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
+  <string name="settings_greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
+  <string name="settings_greenify_integration_desc_found">접근성 설정에서 Greenify를 사용설정하여,
 기기가 잠겨있을 때 최대절전모드를 할수 있습니다.
 Greenify를 구성하려면 이곳을 클릭하세요</string>
-  <string name="greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
+  <string name="settings_greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
   <string name="settings_doze_desc">Always on 스크린이 뜨고있을 때 도즈모드를 활성화하여 배터리를 절약합니다 (루팅 필요)</string>

@@ -94,8 +94,8 @@
   <string name="settings_general">کلی</string>
   <string name="settings_shortcuts">میانبرها</string>
   <string name="settings_wake_up">حرکات و اقدامات</string>
-  <string name="gestures_action_speak">وضعیت فعلی زمان اعلان ها و باتری با صدای بلند می گویند</string>
-  <string name="gestures_action_flashlight">چراغ قوه تبدیل</string>
+  <string name="settings_gestures_action_speak">وضعیت فعلی زمان اعلان ها و باتری با صدای بلند می گویند</string>
+  <string name="settings_gestures_action_flashlight">چراغ قوه تبدیل</string>
   <string name="settings_rules">قوانین خودکار</string>
   <string name="settings_samsung">سامسونگ</string>
   <!--Settings titles-->
@@ -174,12 +174,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">نقش ونگار ریگی دادن سبک ساعت آنالوگ</string>
   <string name="settings_watch_flat_red_analog">آنالوگ تخت (شماره گیری قرمز)</string>
-  <string name="move_disable">غیر فعال (نه توصیه شده برای صفحه نمایش های AMOLED)</string>
-  <string name="move_move">ویجت را به طور خودکار حرکت</string>
-  <string name="move_move_animation">حرکت عناصر به صورت خودکار با انیمیشن</string>
-  <string name="greenify_integration_desc">در حالی که همیشه در خدمات قابل مشاهده به طور قابل توجهی بهبود عمر باتری فعال Greenify. مطمئن شوید که فعال کردن Greenify در تنظیمات دستیابی پذیری را</string>
-  <string name="greenify_integration_desc_found">اطمینان به فعال کردن Greenify در تنظیمات قابلیت دسترسی و انتخاب برنامه های شما می خواهید آن را به خاموشی موقت در حالی که دستگاه قفل است. اینجا را کلیک کنید برای پیکربندی Greenify</string>
-  <string name="greenify_integration_desc_not_found">نصب Greenify به بهبود عمر باتری</string>
+  <string name="settings_move_disable">غیر فعال (نه توصیه شده برای صفحه نمایش های AMOLED)</string>
+  <string name="settings_move_move">ویجت را به طور خودکار حرکت</string>
+  <string name="settings_move_animation">حرکت عناصر به صورت خودکار با انیمیشن</string>
+  <string name="settings_greenify_integration_desc">در حالی که همیشه در خدمات قابل مشاهده به طور قابل توجهی بهبود عمر باتری فعال Greenify. مطمئن شوید که فعال کردن Greenify در تنظیمات دستیابی پذیری را</string>
+  <string name="settings_greenify_integration_desc_found">اطمینان به فعال کردن Greenify در تنظیمات قابلیت دسترسی و انتخاب برنامه های شما می خواهید آن را به خاموشی موقت در حالی که دستگاه قفل است. اینجا را کلیک کنید برای پیکربندی Greenify</string>
+  <string name="settings_greenify_integration_desc_not_found">نصب Greenify به بهبود عمر باتری</string>
   <string name="settings_notifications_alerts_preview_desc">نمایش محتوای اعلان دریافت</string>
   <string name="settings_notifications_alerts_preview">مجموعه اعلان.</string>
   <string name="settings_doze_desc">در حالی که همیشه در روی صفحه نمایش فعال برای ذخیره باتری (ریشه) فعال چرت</string>

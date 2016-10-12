@@ -123,8 +123,8 @@
   <string name="settings_general">Geral</string>
   <string name="settings_shortcuts">Atalhos</string>
   <string name="settings_wake_up">Gestos e ações</string>
-  <string name="gestures_action_speak">Dizer em alta voz a hora atual, notificações e o estado da bateria</string>
-  <string name="gestures_action_flashlight">Ligar/Desligar flash</string>
+  <string name="settings_gestures_action_speak">Dizer em alta voz a hora atual, notificações e o estado da bateria</string>
+  <string name="settings_gestures_action_flashlight">Ligar/Desligar flash</string>
   <string name="settings_rules">Regras automáticas</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">Traduzir</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Comunidade</string>
-  <string name="greenify_integration">Integração com o Greenify</string>
+  <string name="settings_greenify_integration">Integração com o Greenify</string>
   <string name="settings_licenses">Licenças</string>
   <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_exit_animation">Animação</string>
@@ -223,12 +223,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Analógico estilo Pebble</string>
   <string name="settings_watch_flat_red_analog">Analógico estilo plano (Flat) (linha vermelha)</string>
-  <string name="move_disable">Desativado (Não recomendado em ecrãs AMOLED)</string>
-  <string name="move_move">Mover automaticamente o widget</string>
-  <string name="move_move_animation">Mover automaticamente o widget com uma animação</string>
-  <string name="greenify_integration_desc">Ativa o Greenify enquanto o serviço \"Always On\" está visivel para melhorar significativamente a vida útil da bateria. Assegura-te de ativar o Greenify nas definições de acessibilidade</string>
-  <string name="greenify_integration_desc_found">Assegura-te que ativas o Greenify nas definições de acessibilidade e escolhe que aplicações queres que sejam hibernadas enquanto o dispositivo está bloqueado. Clica aqui para configurares o Greenify</string>
-  <string name="greenify_integration_desc_not_found">Instala o Greenify para melhorar a vida útil da bateria</string>
+  <string name="settings_move_disable">Desativado (Não recomendado em ecrãs AMOLED)</string>
+  <string name="settings_move_move">Mover automaticamente o widget</string>
+  <string name="settings_move_animation">Mover automaticamente o widget com uma animação</string>
+  <string name="settings_greenify_integration_desc">Ativa o Greenify enquanto o serviço \"Always On\" está visivel para melhorar significativamente a vida útil da bateria. Assegura-te de ativar o Greenify nas definições de acessibilidade</string>
+  <string name="settings_greenify_integration_desc_found">Assegura-te que ativas o Greenify nas definições de acessibilidade e escolhe que aplicações queres que sejam hibernadas enquanto o dispositivo está bloqueado. Clica aqui para configurares o Greenify</string>
+  <string name="settings_greenify_integration_desc_not_found">Instala o Greenify para melhorar a vida útil da bateria</string>
   <string name="settings_notifications_alerts_preview_desc">Mostrar o conteúdo das notificações ao receber</string>
   <string name="settings_notifications_alerts_preview">Conteúdo da notificação</string>
   <string name="settings_doze_desc">Ativar o modo Doze enquanto o ecrã \"Always On\" está ativo para poupar bateria (apenas com root)</string>

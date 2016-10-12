@@ -81,7 +81,7 @@
   <string name="settings_appearance">外見</string>
   <string name="settings_general">一般</string>
   <string name="settings_wake_up">ウェイクアップ</string>
-  <string name="gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
+  <string name="settings_gestures_action_speak">現在の時間、通知およびバッテリー残量を読み上げる</string>
   <string name="settings_rules">自動的ルール</string>
   <!--Settings titles-->
   <string name="settings_enabled">有効</string>
@@ -109,7 +109,7 @@
   <string name="settings_translate">翻訳</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">コミュニティ</string>
-  <string name="greenify_integration">Greenifyに統合</string>
+  <string name="settings_greenify_integration">Greenifyに統合</string>
   <string name="settings_licenses">ライセンス</string>
   <string name="settings_uninstall">アンインストール</string>
   <string name="settings_app_version">バージョン</string>
@@ -157,10 +157,10 @@
   <string name="settings_watchface_clock_desc">お好きな時計のスタイルを選択</string>
   <string name="settings_watch_analog_s7">S7スタイル アナログ時計</string>
   <string name="settings_watch_analog_pebble">Pebbleスタイル アナログ時計</string>
-  <string name="move_disable">無効 (AMOLED ディスプレイでは非推奨)</string>
-  <string name="move_move">ウィジェットを自動で移動</string>
-  <string name="move_move_animation">アニメーションつきでウィジェットを自動で移動</string>
-  <string name="greenify_integration_desc">Akways Onサービスの表示中に大幅にバッテリーを節約するにはGreenifyを有効にします。ユーザー補助の設定でGreenifyを有効にしてください。</string>
+  <string name="settings_move_disable">無効 (AMOLED ディスプレイでは非推奨)</string>
+  <string name="settings_move_move">ウィジェットを自動で移動</string>
+  <string name="settings_move_animation">アニメーションつきでウィジェットを自動で移動</string>
+  <string name="settings_greenify_integration_desc">Akways Onサービスの表示中に大幅にバッテリーを節約するにはGreenifyを有効にします。ユーザー補助の設定でGreenifyを有効にしてください。</string>
   <string name="settings_notifications_alerts_preview_desc">通知を受信すると通知内容を表示</string>
   <string name="settings_notifications_alerts_preview">通知内容</string>
 </resources>

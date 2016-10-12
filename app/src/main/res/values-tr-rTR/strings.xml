@@ -123,8 +123,8 @@
   <string name="settings_general">Genel</string>
   <string name="settings_shortcuts">Kısayollar</string>
   <string name="settings_wake_up">Uyandırma hareketleri</string>
-  <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
-  <string name="gestures_action_flashlight">Flaş ışığını aç</string>
+  <string name="settings_gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
+  <string name="settings_gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="settings_rules">Otomatik kurallar</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">Tercüme Et</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Topluluk</string>
-  <string name="greenify_integration">Greenify entegrasyonu</string>
+  <string name="settings_greenify_integration">Greenify entegrasyonu</string>
   <string name="settings_licenses">Lisanslar</string>
   <string name="settings_uninstall">Uygulamayı kaldır</string>
   <string name="settings_exit_animation">Animasyon</string>
@@ -224,12 +224,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble stili analog saat</string>
   <string name="settings_watch_flat_red_analog">Düz analog (kırmızı kadran)</string>
-  <string name="move_disable">Devredışı (AMOLED ekranlar için önerilmez)</string>
-  <string name="move_move">Otomatik olarak hareket ettir</string>
-  <string name="move_move_animation">Otomatik olarak hareket ettir (Animasyonlu)</string>
-  <string name="greenify_integration_desc">Greenify kullanmak \"Daima açık\" hizmeti aktifken önemli ölçüde güç tasarrufu sağlar. Erişilebilirlik ayarlarından Greenify\'ı aktif ettiğinizden emin olun</string>
-  <string name="greenify_integration_desc_found">Erişilebilirlik ayarlarından Greenify\'ı açtığınızdan emin olun. Ardından cihaz kilitlenince uyutmak istediğiniz programları seçin. Greenify\'ı ayarlamak için buraya tıklayın</string>
-  <string name="greenify_integration_desc_not_found">Batarya süresini arttırmak için Greenify yükle</string>
+  <string name="settings_move_disable">Devredışı (AMOLED ekranlar için önerilmez)</string>
+  <string name="settings_move_move">Otomatik olarak hareket ettir</string>
+  <string name="settings_move_animation">Otomatik olarak hareket ettir (Animasyonlu)</string>
+  <string name="settings_greenify_integration_desc">Greenify kullanmak \"Daima açık\" hizmeti aktifken önemli ölçüde güç tasarrufu sağlar. Erişilebilirlik ayarlarından Greenify\'ı aktif ettiğinizden emin olun</string>
+  <string name="settings_greenify_integration_desc_found">Erişilebilirlik ayarlarından Greenify\'ı açtığınızdan emin olun. Ardından cihaz kilitlenince uyutmak istediğiniz programları seçin. Greenify\'ı ayarlamak için buraya tıklayın</string>
+  <string name="settings_greenify_integration_desc_not_found">Batarya süresini arttırmak için Greenify yükle</string>
   <string name="settings_notifications_alerts_preview_desc">Bildirim alındığında içeriği göster </string>
   <string name="settings_notifications_alerts_preview">Bildirim içeriği </string>
   <string name="settings_doze_desc">\"Daima açık\" servisi aktifken batarya tasarrufu için Doze Modu\'nu etkinleştirin (Root gerektirir)</string>

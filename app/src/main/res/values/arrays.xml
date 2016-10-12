@@ -148,8 +148,8 @@
         <item>@string/widget_off</item>
         <item>@string/unlock</item>
         <!--  <item>Open an app</item>-->
-        <item>@string/gestures_action_speak</item>
-        <item>@string/gestures_action_flashlight</item>
+        <item>@string/settings_gestures_action_speak</item>
+        <item>@string/settings_gestures_action_flashlight</item>
     </string-array>
     <string-array name="gestures_actions_vals">
         <item>0</item>
@@ -168,9 +168,9 @@
     </string-array>
 
     <string-array name="settings_move">
-        <item>@string/move_disable</item>
-        <item>@string/move_move</item>
-        <item>@string/move_move_animation</item>
+        <item>@string/settings_move_disable</item>
+        <item>@string/settings_move_move</item>
+        <item>@string/settings_move_animation</item>
     </string-array>
     <string-array name="settings_move_values">
         <item>0</item>
