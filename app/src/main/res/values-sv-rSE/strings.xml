@@ -62,7 +62,7 @@
   <string name="plugin_dialog_desc">Det verkar som att din enhet har hårdvaruknappar. För att stänga av dessa när appen är igång, var god installera tillägg (Plugin for Always On AMOLED).</string>
   <!--Errors-->
   <string name="error">Fel</string>
-  <string name="error_IAP">Error! Se till att du är ansluten till Internet och starta om appen</string>
+  <string name="error_IAP">Fel! Se till att du är ansluten till Internet och starta om appen</string>
   <string name="error_0_unknown_error">Ett fel har uppstått. Vänligen rapportera till utvecklaren </string>
   <string name="error_0_unknown_error_report_prompt">Klicka här för att rapportera felet</string>
   <string name="error_2_plugin_not_installed">TILLÄGG HAR INTE INSTALLERATS</string>
@@ -74,7 +74,7 @@
   <string name="warning_4_device_not_secured">Din enhet är eventuellt osäker för tillfället</string>
   <string name="warning_5_device_admin_disable">Detta kommer att stänga av några av appens funktioner</string>
   <string name="warning_6_device_admin_disabled">Några funktioner kan bli avstängda nu</string>
-  <string name="warning_7_disable_fingerprint">Detta kan avaktivera fingeravtrycksläsarens funktion. Är du säker på att du vill aktivera detta? </string>
+  <string name="warning_7_disable_fingerprint">Detta kan inaktivera fingeravtrycksläsarens funktion. Är du säker på att du vill aktivera detta?</string>
   <string name="warning_8_intro_allow_all">Alla behörigheter måste tillåtas</string>
   <string name="warning_9_allow_notification">Tillåt åtkomst för aviseringar i appen</string>
   <string name="warning_11_no_root">Enheten måste vara rootad för att använda den här funktionen</string>
@@ -123,8 +123,8 @@
   <string name="settings_general">Allmänt</string>
   <string name="settings_shortcuts">Genvägar</string>
   <string name="settings_wake_up">Gester och funktioner</string>
-  <string name="settings_gestures_action_speak">Säg aktuell tid, aviseringar och batteristatus</string>
-  <string name="settings_gestures_action_flashlight">Ficklampa av/på</string>
+  <string name="gestures_action_speak">Säg aktuell tid, aviseringar och batteristatus</string>
+  <string name="gestures_action_flashlight">Ficklampa av/på</string>
   <string name="settings_rules">Automatiska regler</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -132,14 +132,14 @@
   <string name="settings_disable_volume_keys">Inaktivera volymknapparna</string>
   <string name="settings_double_tap_wake">Åtgärd för dubbeltryck</string>
   <string name="settings_gestures_home_button_dismiss">Hemknappen låser upp</string>
-  <string name="settings_back_button_wake">Tillbaka-knappen för att:</string>
-  <string name="settings_volume_to_stop">Volymknapparna för att:</string>
-  <string name="settings_swipe_up">Dra uppåt för att:</string>
-  <string name="settings_swipe_down">Dra ner för att:</string>
+  <string name="settings_back_button_wake">Åtgärd för tillbakaknappen</string>
+  <string name="settings_volume_to_stop">Åtgärd för volymknapparna</string>
+  <string name="settings_swipe_up">Åtgärd för dra uppåt</string>
+  <string name="settings_swipe_down">Åtgärd för dra neråt</string>
   <string name="settings_brightness">Ljusstyrka</string>
   <string name="settings_doze">Doze-läge</string>
-  <string name="settings_google_now_shortcut">Tillåta Google Nu</string>
-  <string name="settings_memo_text">Memo text</string>
+  <string name="settings_google_now_shortcut">Tillåt \"OK Google\"</string>
+  <string name="settings_memo_text">Memo-text</string>
   <string name="settings_notifications">Aviseringar</string>
   <string name="settings_persistent_notification">Visa alltid aviseringar</string>
   <string name="settings_move_auto">Flytta widget automatiskt</string>
@@ -152,7 +152,7 @@
   <string name="settings_stop_delay">Stäng av fördröjning</string>
   <string name="settings_auto_brightness">Automatiskt nattläge </string>
   <string name="settings_orientation">Skärmorientering</string>
-  <string name="settings_always_on_memo">Always On memo</string>
+  <string name="settings_always_on_memo">Always On-memo</string>
   <string name="settings_stop_on_camera">Tillåt kameragenvägar</string>
   <string name="settings_rules_cahrging">Laddningsregler</string>
   <string name="settings_rules_battery">Batteriregler</string>
@@ -160,7 +160,7 @@
   <string name="settings_translate">Översätt</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Grupper</string>
-  <string name="settings_greenify_integration">Greenify integration</string>
+  <string name="greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenser</string>
   <string name="settings_uninstall">Avinstallera</string>
   <string name="settings_exit_animation">Animering</string>
@@ -223,12 +223,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble (analog)</string>
   <string name="settings_watch_flat_red_analog">Platt analog (röd urtavla)</string>
-  <string name="settings_move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
-  <string name="settings_move_move">Flytta widgeten automatiskt</string>
-  <string name="settings_move_animation">Flytta widgeten automatiskt med en animering</string>
-  <string name="settings_greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
-  <string name="settings_greenify_integration_desc_found">Se till att göra det möjligt för Greenify i tillgänglighetsinställningarna och välja de program du vill ska gå i viloläge när enheten är låst. Klicka här för att konfigurera Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
+  <string name="move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
+  <string name="move_move">Flytta widgeten automatiskt</string>
+  <string name="move_move_animation">Flytta widgeten automatiskt med en animering</string>
+  <string name="greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
+  <string name="greenify_integration_desc_found">Se till att göra det möjligt för Greenify i tillgänglighetsinställningarna och välja de program du vill ska gå i viloläge när enheten är låst. Klicka här för att konfigurera Greenify</string>
+  <string name="greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
   <string name="settings_notifications_alerts_preview_desc">Visa innehåll i meddelanden när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
   <string name="settings_doze_desc">Aktivera slumra medan always on display är aktiv för att spara batteri (endast root)</string>

@@ -1,34 +1,34 @@
-Získej funkci Vždy spuštěno pro svůj telefon nebo tablet.
-Nech svou obrazovku stále spuštěnou.
-První Open source Vždy spuštěno aplikace!
+Mějte stále informace na displeji pro svůj telefon nebo tablet.
+Nechte svou obrazovku stále spuštěnou.
+První open source aplikace pro ponechání informací na displeji!
 
-Myšlenkou je poskytovat uživatelům informace o čase, datumu, oznámení a další, aniž by se museli dotknout telefonu. Pouhým pohledem.
+Myšlenkou je poskytovat uživatelům informace o čase, datumu, oznámení a dalších a to bez nutnosti dotknout se zařízení. A to pouhým pohledem.
 
-Toto je možné díky AMOLED displejům. Většina obrazovky zůstane vyplá, až na pár pixelů.
+Toto je možné díky displejům typu AMOLED. Většina obrazovky zůstane vypnutá, vyjma pár pixelů.
 
-Pozoruhodné funkce
-Vždy spuštěná obrazovka
-Notifikace - podívej se na své notifikace, aniž by ses dotknul svého zařízení
-Automatická pravidla - šetří baterii pomocí předdefinovaných pravidel
-Automatický pohyb - předchází vypalování AMOLEDů
-• Automatický noční režim - automaticky zaslání obrazovku ve tmavém prostředí
-Kapesní mód - zamkne zařízení když ho umístíte do kapsy, aby ušetřil baterii
-Probudit poklepáním + Potáhnout nahoru pro probuzení+ Probudit tlačítky hlasitosti + Probudit tlačítkem zpět
-Vynutit orientaci - Nastavte orientaci obrazovky
-• Přizpůsobení - změna barvy textu, velikosti textu, jasu a další
-Zdarma a Open source!
+★Funkce
+• Vždy spuštěná obrazovka
+• Notifikace - zobrazení notifikací bez nutnosti dotknout se zařízení
+• Automatická pravidla - šetří baterii pomocí předdefinovaných pravidel
+• Automatický pohyb - předchází vypalování displejů typu AMOLED
+• Automatický noční režim - automaticky ztlumí obrazovku v tmavém prostředí
+• Kapesní režim - pro úsporu baterie zamkne zařízení, pokud jej vložíte do kapsy
+• Probouzení poklepáním, potažením nahoru, tlačítky hlasitosti nebo tlačítkem Zpět
+• Vynucení orientace - můžete nastavit preferovanou orientaci obrazovky
+• Přizpůsobení - můžete změnit barvu, velikost či jas textu a další možnosti
+• ZDARMA A OPEN SOURCE!
 
-Před použitím prosím povolte 'zůstat nad aplikacemi' pro tuto aplikaci.
+Před použitím musíte této aplikaci povolit oprávnění "Vykreslení přes další aplikace".
 
-Tato aplikace je v betaverzi, stále má chyby a nedostatky ve funkcích.
+Tato aplikace je v betaverzi. Proto může stále mít chyby či nedostatky ve funkcích.
 
 Oprávnění
-<b>Oprávnění fotoaparátu</b>
-Aplikace potřebuje oprávnění k ovládání kamery aby mohla vypnout funkci Vždy spuštěné obrazovky.
-<b>Oprávnění telefonu</b>
-Aplikace potřebuje oprávnění telefonu aby poznala příchozí hovory, mohla vypnout vždy zaplou obrazovku a ukázat příchozí hovory.
-<b>Oprávnění k úpravě systémového nastavení</b>
-Aplikace potřebuje oprávnění ke změně nastavení systému ke změně jasu uzamčené obrazovky.
+<b>Fotoaparát</b>
+Aplikace potřebuje oprávnění k ovládání kamery, aby mohla vypnout funkci vždy spuštěné obrazovky.
+<b>Telefon</b>
+Aplikace potřebuje oprávnění telefonu, aby poznala příchozí hovory, mohla vypnout vždy zapnutou obrazovku a zobrazit příchozí hovory.
+<b>Systém</b>
+Aplikace potřebuje oprávnění ke změně nastavení systému pro změnu jasu uzamčené obrazovky.
 
 
 Komunita Google Plus

@@ -123,8 +123,8 @@
   <string name="settings_general">Общие</string>
   <string name="settings_shortcuts">Ярлыки</string>
   <string name="settings_wake_up">Жесты и действия</string>
-  <string name="settings_gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
-  <string name="settings_gestures_action_flashlight">Включить фонарик</string>
+  <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
+  <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="settings_rules">Правила работы</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">Перевод</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Сообщество</string>
-  <string name="settings_greenify_integration">Интеграция с Greenify</string>
+  <string name="greenify_integration">Интеграция с Greenify</string>
   <string name="settings_licenses">Лицензия</string>
   <string name="settings_uninstall">Удалить</string>
   <string name="settings_exit_animation">Анимация</string>
@@ -223,12 +223,12 @@
   <string name="settings_about_twitter">Твиттер</string>
   <string name="settings_watch_analog_pebble">Стрелочные в стиле Pebble</string>
   <string name="settings_watch_flat_red_analog">Плоские стрелочные (красные)</string>
-  <string name="settings_move_disable">Отключено (Не рекомендуется для AMOLED дисплеев)</string>
-  <string name="settings_move_move">Перемещать</string>
-  <string name="settings_move_animation">Перемещать с анимацией</string>
-  <string name="settings_greenify_integration_desc">Включите Greenify пока виден экран Always ON для продления жизни батареи. Убедитесь, что Greenify активен в настройках специальных возможностей</string>
-  <string name="settings_greenify_integration_desc_found">Убедитесь, что Greenify активен в настройках специальных возможностей и выберите приложения, которые нужно заморозить при блокировке дисплея. Нажмите сюда для настройки Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">Установите Greenify для продления жизни батареи</string>
+  <string name="move_disable">Отключено (Не рекомендуется для AMOLED дисплеев)</string>
+  <string name="move_move">Перемещать</string>
+  <string name="move_move_animation">Перемещать с анимацией</string>
+  <string name="greenify_integration_desc">Включите Greenify пока виден экран Always ON для продления жизни батареи. Убедитесь, что Greenify активен в настройках специальных возможностей</string>
+  <string name="greenify_integration_desc_found">Убедитесь, что Greenify активен в настройках специальных возможностей и выберите приложения, которые нужно заморозить при блокировке дисплея. Нажмите сюда для настройки Greenify</string>
+  <string name="greenify_integration_desc_not_found">Установите Greenify для продления жизни батареи</string>
   <string name="settings_notifications_alerts_preview_desc">Показывать содержание уведомления при получении</string>
   <string name="settings_notifications_alerts_preview">Содержимое уведомлений</string>
   <string name="settings_doze_desc">Разрешить Doze при запущенном экране Always ON для энергосбережения (только с Root)</string>

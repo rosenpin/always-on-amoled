@@ -1,5 +1,5 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
+ได้รับการแสดงผลเสมอสำหรับโทรศัพท์หรือแท็บเล็ต
+ให้หน้าจอคุณเปิดตลอดเวลา
 The first open source always on app!
 
 The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.

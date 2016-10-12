@@ -21,6 +21,7 @@
   <string name="support_20">Enorme don</string>
   <string name="support_25">Super don!</string>
   <string name="support_1_desc">Débloquer toutes les options premium dans l\'app et supporter le développement</string>
+  <string name="support_2_desc">Support the development a bit more. Same features as regular unlock.</string>
   <!--Intro-->
   <string name="intro_allow_now">Autoriser maintenant</string>
   <string name="intro_permissions">Lire l\'état du téléphone</string>
@@ -104,7 +105,7 @@
   <string name="settings_general">Général</string>
   <string name="settings_shortcuts">Raccourcis</string>
   <string name="settings_wake_up">Réveiller </string>
-  <string name="settings_gestures_action_speak">Annoncer l\'heure, les notifications et le pourcentage de batterie à haute voix</string>
+  <string name="gestures_action_speak">Annoncer l\'heure, les notifications et le pourcentage de batterie à haute voix</string>
   <string name="settings_rules">Règles automatiques</string>
   <!--Settings titles-->
   <string name="settings_enabled">Activer</string>
@@ -136,7 +137,7 @@
   <string name="settings_translate">Traduire</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Communauté</string>
-  <string name="settings_greenify_integration">Intégration de Greenify</string>
+  <string name="greenify_integration">Intégration de Greenify</string>
   <string name="settings_licenses">Licences</string>
   <string name="settings_uninstall">Désinstaller</string>
   <string name="settings_exit_animation">Animation</string>
@@ -193,12 +194,12 @@
   <string name="settings_watch_flat_analog">Style analogique plat</string>
   <string name="settings_watch_analog_pebble">Horloge analogique de style Pebble</string>
   <string name="settings_watch_flat_red_analog">Horloge plate (ligne rouge)</string>
-  <string name="settings_move_disable">Désactivé (non recommandé pour les écrans AMOLED)</string>
-  <string name="settings_move_move">Déplacer le widget automatiquement</string>
-  <string name="settings_move_animation">Déplacer le widget automatiquement avec une animation</string>
-  <string name="settings_greenify_integration_desc">Activer Greenify tout en gardant le service Always ON visible pour améliorer l\'autonomie de la batterie. Soyez sûr d\'avoir activé Greenify dans les paramètres d\'accessibilité</string>
-  <string name="settings_greenify_integration_desc_found">Assurez-vous d\'activer Greenify dans les paramètres d\'accessibilité et de choisir les applications que vous voulez qu\'il hiberne pendant que l\'appareil est verrouillé. Cliquez ici pour configurer Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">Installez Greenify pour améliorer la vie de la batterie</string>
+  <string name="move_disable">Désactivé (non recommandé pour les écrans AMOLED)</string>
+  <string name="move_move">Déplacer le widget automatiquement</string>
+  <string name="move_move_animation">Déplacer le widget automatiquement avec une animation</string>
+  <string name="greenify_integration_desc">Activer Greenify tout en gardant le service Always ON visible pour améliorer l\'autonomie de la batterie. Soyez sûr d\'avoir activé Greenify dans les paramètres d\'accessibilité</string>
+  <string name="greenify_integration_desc_found">Assurez-vous d\'activer Greenify dans les paramètres d\'accessibilité et de choisir les applications que vous voulez qu\'il hiberne pendant que l\'appareil est verrouillé. Cliquez ici pour configurer Greenify</string>
+  <string name="greenify_integration_desc_not_found">Installez Greenify pour améliorer la vie de la batterie</string>
   <string name="settings_notifications_alerts_preview_desc">Afficher le contenu de la notification lorsqu\'elle est reçue</string>
   <string name="settings_notifications_alerts_preview">Contenu de la notification</string>
   <string name="settings_doze_desc">Activer Doze lorsque l\'application est active pour économiser la batterie (root uniquement)</string>

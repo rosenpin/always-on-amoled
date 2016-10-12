@@ -9,13 +9,13 @@ Ciò è reso possibile grazie ai display AMOLED. La maggior parte dello schermo 
 ★Caratteristiche principali
 • Schermo sempre acceso
 • Notifiche - visualizza le notifiche senza toccare il tuo dispositivo
-• Regole automatiche - preservare la batteria utilizzando regole predefinite
-• Movimento automatico - evita che il display AMOLED possa danneggiarsi
+• Regole automatiche - risparmia batteria utilizzando regole predefinite
+• Movimento automatico - evita che il display AMOLED possa avere danni
 • Modalità notte automatica - riduce la luminosità dello schermo automaticamente in un ambiente buio
 • Modalità tasca - blocca il dispositivo quando lo metti in tasca per risparmiare batteria
 •  Doppio tap per riaccendere + Scorri verso l'alto per accendere + Tasti volume per accendere + Tasto indietro per accendere
-• Forza orientazione - imposta l'orientazione che preferitisci dello schermo
-• Personalizzazione - cambia il colore, la dimensione, la luminosità e molto altro del testo
+• Forza orientazione - imposta l'orientazione che preferisci dello schermo
+• Personalizzazione - cambia il colore, la dimensione, la luminosità e molto altro
 • GRATIS E OPEN SOURCE!
 
 Prima dell'utilizzo per favore abilita il permesso 'mostra sulle app' per questa applicazione.
@@ -26,9 +26,9 @@ Permessi
 <b>permesso Camera<b>
 L'applicazione ha bisogno del permesso fotocamera per riconoscerla e lanciare l'evento per disattivare il "always on" screen.
 </b>permesso telefono</b>
-L'applicazione richiede il permesso del telefono per riconoscere le chiamate in arrivo, disattiva "the always on screen" e mostra la schermata di chiamata in arrivo.
+L'applicazione richiede il permesso del telefono per riconoscere le chiamate in arrivo, disattiva "always on screen" e mostra la schermata di chiamata in arrivo.
 </b>permesso di modifica impostazioni di sistema</b>
-L'applicazione necessita del permesso di modificare le impostazioni di sistema per modificare la luminosità dello schermo di blocco.
+L'applicazione necessita del permesso di modificare le impostazioni di sistema per cambiare la luminosità del blocco schermo.
 
 
 Google Plus Community

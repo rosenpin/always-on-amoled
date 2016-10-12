@@ -92,7 +92,7 @@
   <string name="settings_general">Tổng quát</string>
   <string name="settings_shortcuts">Phím tắt</string>
   <string name="settings_wake_up">Cử chỉ và hành động</string>
-  <string name="settings_gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
+  <string name="gestures_action_speak">Nói tình trạng hiện tại của thời gian, thông báo và pin đầy</string>
   <string name="settings_rules">Quy tắc tự động</string>
   <!--Settings titles-->
   <string name="settings_enabled">Kích hoạt</string>
@@ -124,7 +124,7 @@
   <string name="settings_translate">Dịch</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Cộng đồng</string>
-  <string name="settings_greenify_integration">Greenify hội nhập</string>
+  <string name="greenify_integration">Greenify hội nhập</string>
   <string name="settings_licenses">Giấy phép</string>
   <string name="settings_uninstall">Gỡ bỏ cài đặt</string>
   <string name="settings_app_version">Phiên bản</string>
@@ -179,10 +179,10 @@
   <string name="settings_watch_ticks">12H cổ điển với giờ bọ ve</string>
   <string name="settings_watch_digital_s7">Đồng hồ điện tử phong cách S7</string>
   <string name="settings_watch_analog_pebble">Phong cách Pebble đồng hồ analog</string>
-  <string name="settings_move_disable">Tắt (không khuyến cáo cho màn hình AMOLED)</string>
-  <string name="settings_move_move">Di chuyển các widget tự động</string>
-  <string name="settings_move_animation">Di chuyển các widget tự động với một hình ảnh động</string>
-  <string name="settings_greenify_integration_desc">Cho phép Greenify truy cập các dịch vụ để được cải thiện đáng kể tuổi thọ pin. Hãy chắc chắn để cho phép Greenify trong thiết đặt trợ năng</string>
-  <string name="settings_greenify_integration_desc_found">Đảm bảo rằng bạn cho phép Greenify trong thiết đặt trợ năng và chọn ứng dụng bạn muốn nó ngủ đông trong khi thiết bị bị khóa. Click vào đây để đặt cấu hình Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">Cài đặt Greenify để cải thiện tuổi thọ pin</string>
+  <string name="move_disable">Tắt (không khuyến cáo cho màn hình AMOLED)</string>
+  <string name="move_move">Di chuyển các widget tự động</string>
+  <string name="move_move_animation">Di chuyển các widget tự động với một hình ảnh động</string>
+  <string name="greenify_integration_desc">Cho phép Greenify truy cập các dịch vụ để được cải thiện đáng kể tuổi thọ pin. Hãy chắc chắn để cho phép Greenify trong thiết đặt trợ năng</string>
+  <string name="greenify_integration_desc_found">Đảm bảo rằng bạn cho phép Greenify trong thiết đặt trợ năng và chọn ứng dụng bạn muốn nó ngủ đông trong khi thiết bị bị khóa. Click vào đây để đặt cấu hình Greenify</string>
+  <string name="greenify_integration_desc_not_found">Cài đặt Greenify để cải thiện tuổi thọ pin</string>
 </resources>

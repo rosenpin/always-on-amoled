@@ -1,6 +1,6 @@
 Dapatkan fitur Always On Display untuk ponsel atau tablet Anda.
-Membuat layar anda menyala selamanya.
-Aplikasi always on pertama berbasis open source!
+buat layar anda selalu menyala
+Aplikasi always on pertama yang gratis!
 
 Idenya adalah, menampilkan informasi berupa jam, tanggal, notifikasi dan lain sebagainya tanpa harus menyentuh layar ponsel. Cukup hanya dengan melihatnya saja.
 
@@ -20,10 +20,10 @@ GRATIS DAN OPEN SOURCE!
 
 Before using please enable 'draw over apps' permission for this app.
 
-The app is in BETA, it still has bugs and lacks features.
+Aplikasi ini adalah versi BETA, yang memiliki bug dan fitur yang sedikit.
 
-Permissions
-<b>Camera permission</b>
+Perizinan
+<b>Izin Kamera</b>
 The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
 <b>Phone permission</b>
 The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.

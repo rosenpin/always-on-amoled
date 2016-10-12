@@ -124,8 +124,8 @@
   <string name="settings_general">عام</string>
   <string name="settings_shortcuts">الاختصارات</string>
   <string name="settings_wake_up">إيماءات واﻹجراءات</string>
-  <string name="settings_gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
-  <string name="settings_gestures_action_flashlight">مصباح يدوي</string>
+  <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
+  <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="settings_rules">القواعد التلقائية</string>
   <string name="settings_samsung">سامسونج</string>
   <!--Settings titles-->
@@ -161,7 +161,7 @@
   <string name="settings_translate">الترجمة</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">مجتمع</string>
-  <string name="settings_greenify_integration">خدمة Greenify</string>
+  <string name="greenify_integration">خدمة Greenify</string>
   <string name="settings_licenses">الرخص</string>
   <string name="settings_uninstall">مسح التطبيق</string>
   <string name="settings_exit_animation">الحركة</string>
@@ -224,12 +224,12 @@
   <string name="settings_about_twitter">تويتر</string>
   <string name="settings_watch_analog_pebble">نمط الفقاعات التناظرية</string>
   <string name="settings_watch_flat_red_analog">ساعة تناظرية مسطحة (عقارب حمراء)</string>
-  <string name="settings_move_disable">تعطيل (غير مستحسن لشاشات AMOLED)</string>
-  <string name="settings_move_move">نقل العناصر تلقائيا</string>
-  <string name="settings_move_animation">نقل العناصر تلقائيا مع حركة</string>
-  <string name="settings_greenify_integration_desc">مكن Greenify عندما تكون خدمة \"always on\" مرئية لتحسين عمر البطارية إلى حد كبير. تأكد من تمكين Greenify في إعدادات الوصول</string>
-  <string name="settings_greenify_integration_desc_found">تأكد من السماح لبرنامج Greenify في إعدادات إمكانية الوصول ثم اختر التطبيقات التي تريدها أن تضعها في وضع الإغفاء عندما تكون شاشة القفل مفعلة. إضغط هنا لتعدل Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">ثبت برنامج Greenify لتحسن من عمر البطارية</string>
+  <string name="move_disable">تعطيل (غير مستحسن لشاشات AMOLED)</string>
+  <string name="move_move">نقل العناصر تلقائيا</string>
+  <string name="move_move_animation">نقل العناصر تلقائيا مع حركة</string>
+  <string name="greenify_integration_desc">مكن Greenify عندما تكون خدمة \"always on\" مرئية لتحسين عمر البطارية إلى حد كبير. تأكد من تمكين Greenify في إعدادات الوصول</string>
+  <string name="greenify_integration_desc_found">تأكد من السماح لبرنامج Greenify في إعدادات إمكانية الوصول ثم اختر التطبيقات التي تريدها أن تضعها في وضع الإغفاء عندما تكون شاشة القفل مفعلة. إضغط هنا لتعدل Greenify</string>
+  <string name="greenify_integration_desc_not_found">ثبت برنامج Greenify لتحسن من عمر البطارية</string>
   <string name="settings_notifications_alerts_preview_desc">إظهار محتوى التنبيه عند وصوله</string>
   <string name="settings_notifications_alerts_preview">محتوى التنبيه</string>
   <string name="settings_doze_desc">شغل وضع الإغفاء عندما تكون خاصية (Always On Display) مفعلة لكي تحفظ البطارية (لمستخدمي الروت فقط)</string>

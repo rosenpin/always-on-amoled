@@ -18,16 +18,16 @@ Detta görs möjligt tack vare AMOLED-skärmar. Det mesta av skärmen förblir s
 • Anpassning - Ändra textfärg, textstorlek, ljusstyrka och mer
 • GRATIS OCH ÖPPEN KÄLLKOD!
 
-Innan du använder aktivera behörighet för att "dra över appar" i denna app.
+Aktivera behörighet för att "dra över appar" innan du börjar använda denna app.
 
 Detta är en BETA-app, den har fortfarande buggar och saknar funktioner.
 
 Behörigheter
-Behörighet för kamera
+<b>Behörighet för kamera</b>
 Appen behöver behörighet för kameran för att känna igen kamerastart för att stänga av "always on" skärmen.
-Telefonbehörighet
+<b>Telefonbehörighet</b>
 Appen behöver behörighet för samtal för att känna igen inkommande samtal, avvisa 'always on" skärmen och visa inkommande samtalsskärmen
-Behörighet för att ändra system inställningar
+<b>Behörighet för att ändra systeminställningar</b>
 Appen behöver behörighet att ändra inställningar för att ändra ljusstyrkan på låsskärmen
 
 

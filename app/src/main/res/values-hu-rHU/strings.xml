@@ -87,8 +87,8 @@
   <string name="settings_about">Rólunk</string>
   <string name="settings_appearance">Megjelenés</string>
   <string name="settings_general">Általános</string>
-  <string name="settings_gestures_action_speak">Aktuális idő, az értesítések és az akkumulátor állapotát hangosan mondani</string>
-  <string name="settings_gestures_action_flashlight">Váltás elemlámpa</string>
+  <string name="gestures_action_speak">Aktuális idő, az értesítések és az akkumulátor állapotát hangosan mondani</string>
+  <string name="gestures_action_flashlight">Váltás elemlámpa</string>
   <!--Settings titles-->
   <string name="settings_brightness">Fényerő</string>
   <string name="settings_notifications">Értesítések</string>
@@ -99,7 +99,7 @@
   <string name="settings_translate">Fordítás</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Közösség</string>
-  <string name="settings_greenify_integration">Greenify integráció</string>
+  <string name="greenify_integration">Greenify integráció</string>
   <string name="settings_licenses">Licencek</string>
   <string name="settings_uninstall">Eltávolítás</string>
   <string name="settings_app_version">Verzió</string>

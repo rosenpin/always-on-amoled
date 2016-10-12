@@ -1,35 +1,35 @@
-Get an always on display for your phone or tablet.
-Keep your screen on all the time.
-The first open source always on app!
+Aconsegueix que la pantalla del teu mòbil o tablet estigui sempre desperta.
+Mantingues la pantalla encesa tot el temps.
+La primera aplicació Always On de codi lliure!
 
-The idea is to provide users with information about, time, date, notifications and more and all without having to touch the phone. Just by looking at it.
+La idea és poder brindar els usuaris de la informació sobre temps, data, notificacions i més, i tot sense haver d'agafar el mòbil. Només mirant-lo.
 
-This is made possible thanks to AMOLED displays. Most of the screen stays black except for a few pixels.
+Això és possible gràcies a les pantalles AMOLED. La major part de la pantalla es queda negra excepte uns quants píxels.
 
-★Notable features
-• Always On Screen
-• Notifications - view notifications without touching your device
-• Automatic rules - preserve battery using predefined rules
-• Auto movement - avoid AMOLED burn-in
-• Auto night mode - dim the screen automatically in dark environment
-• Pocket mode - lock the device when you leave it in your pocket to save battery
-• Double tap to wake + Swipe up to wake + Volume keys to wake + Back button to wake
-• Force orientation - set your preferred screen orientation
-• Customization - change the text color, text size, brightness and more
-• FREE AND OPEN SOURCE!
+★Notables característiques
+Pantalla Sempre Encesa
+• Notificacions - mira les notificacions sense tocar el mòbil
+• Normes automàtiques - per conservar la bateria utilitzant mecanismes predefinits
+• Moviment automàtic - evitar cremades a pantalles AMOLED
+• Mode de nit automàtic - esmorteir la brillantor de la pantalla automàticament en ambient fosc
+• Mode de butxaca - tancar el dispositiu quan el deixes a la butxaca per estalviar bateria
+• Doble toc per despertar + Lliscar amunt per despertar + tecles de volum per despertar + botó endarrere per despertar
+• Orientació forçada - defineix l'orientació de la pantalla preferida
+• Personalització - canviar el color del text, mida de text, brillantor i més
+• GRATIS I DE CODI LLIURE!
 
-Before using please enable 'draw over apps' permission for this app.
+Abans d'utilitzar si us plau permeti el permís "controla les apps" per a aquesta app.
 
-The app is in BETA, it still has bugs and lacks features.
+L'app és en fase BETA, encara té errors i li falten característiques.
 
-Permissions
-<b>Camera permission</b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Permisos
+<b>Permís de càmera</b>
+L'app necessita permís de càmera per reconèixer l'encesa de la càmera i apagar la funció "sempre encesa" de la pantalla.
+<b>Permís de telèfon</b>
+L'app necessita permís de telèfon per reconèixer les trucades entrants, apagar la funció "sempre encesa" de la pantalla i mostrar la trucada entrant.
+<b>Permís per modificar la configuració del sistema</b>
+L'app necessita permís per modificar la configuració del sistema per canviar la brillantor de la pantalla de bloqueig.
 
 
-Google Plus Community
+Comunitat Google Plus
 https://plus.google.com/communities/104206728795122451273

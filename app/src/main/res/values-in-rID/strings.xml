@@ -4,19 +4,19 @@
   <!--App name & Activities title-->
   <!--Actions-->
   <string name="unlock">Hidupkan layar</string>
-  <string name="action_revert">Balikkan</string>
+  <string name="action_revert">Kembalikan</string>
   <string name="menu_feedback">Masukan</string>
   <string name="menu_rate">Beri nilai aplikasi ini</string>
-  <string name="action_restart">Restart aplikasi</string>
-  <string name="never_show_again">Jangan tampilkan lagi</string>
+  <string name="action_restart">Mulai ulang aplikasi</string>
+  <string name="never_show_again">Jangan pernah tampilkan lagi</string>
   <!--Support-->
   <string name="action_support_the_development">Dukung pengembangan</string>
   <string name="support_how_much">Berapa banyak Anda ingin menyumbang?</string>
   <string name="supporter_feature_only">This feature is only available for supporters, you can choose how much you want to donate to become a supporter, how much would you like to donate?</string>
   <string name="support_choose">How much would you like to donate?</string>
   <string name="support_1">Unlock</string>
-  <string name="support_2">Donate</string>
-  <string name="support_5">Big donation</string>
+  <string name="support_2">Donasi</string>
+  <string name="support_5">Donasi besar</string>
   <string name="support_10">Awesome donation</string>
   <string name="support_20">Huge donation</string>
   <string name="support_25">Super donation!</string>
@@ -44,8 +44,8 @@
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Thank you for your support! :)</string>
   <string name="notification_message">Always On Is Running</string>
-  <string name="toast_thanks">Thank you</string>
-  <string name="toast_thanks_rate">Thanks you! Please rate the app on play store :)</string>
+  <string name="toast_thanks">Terima Kasih</string>
+  <string name="toast_thanks_rate">Terima kasih! Silahkan berikan rate aplikasi ini di play store :)</string>
   <!--Quick settings-->
   <string name="quick_settings_title">Always on</string>
   <string name="quick_settings_service_active">enabled</string>
@@ -123,8 +123,8 @@
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Shortcuts</string>
   <string name="settings_wake_up">Gestures &amp; actions</string>
-  <string name="settings_gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
-  <string name="settings_gestures_action_flashlight">Menghidupkan Senter </string>
+  <string name="gestures_action_speak">Mengucapkan status jam, notifikasi dan baterai dengan keras</string>
+  <string name="gestures_action_flashlight">Menghidupkan Senter </string>
   <string name="settings_rules">Automatic Rules</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">Translate</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
-  <string name="settings_greenify_integration">Greenify integration</string>
+  <string name="greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenses</string>
   <string name="settings_uninstall">Uninstall</string>
   <string name="settings_exit_animation">Animation</string>
@@ -223,16 +223,25 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble style analog clock</string>
   <string name="settings_watch_flat_red_analog">Flat analog (red dial)</string>
-  <string name="settings_move_disable">Disabled (Not recommended for AMOLED screens)</string>
-  <string name="settings_move_move">Move the widget automatically</string>
-  <string name="settings_move_animation">Move the widget automatically with an animation</string>
-  <string name="settings_greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
-  <string name="settings_greenify_integration_desc_found">Make sure to enable Greenify in the accessibility settings and choose the apps you want it to hibernate while the device is locked. Click here to configure Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">Install Greenify to improve battery life</string>
+  <string name="move_disable">Disabled (Not recommended for AMOLED screens)</string>
+  <string name="move_move">Move the widget automatically</string>
+  <string name="move_move_animation">Move the widget automatically with an animation</string>
+  <string name="greenify_integration_desc">Enable Greenify while the always on service is visible to significantly improve battery life. Make sure to enable Greenify in the accessibility settings</string>
+  <string name="greenify_integration_desc_found">Make sure to enable Greenify in the accessibility settings and choose the apps you want it to hibernate while the device is locked. Click here to configure Greenify</string>
+  <string name="greenify_integration_desc_not_found">Install Greenify to improve battery life</string>
   <string name="settings_notifications_alerts_preview_desc">Indonesia</string>
   <string name="settings_notifications_alerts_preview">Notification content</string>
+  <string name="settings_doze_desc">Hidupkan doze ketika always on display aktif untuk menghemat daya baterai (root)</string>
   <string name="settings_memo_text_desc">Write your memo here</string>
   <string name="settings_memo_font_size_desc">Atur ukuran teks memo </string>
   <string name="settings_memo_hint">Type your memo here. It will show up in your always on screen.</string>
+  <string name="settings_google_now_shortcut_desc">Stop the always on screen when Google Now is launched by saying OK Google (May not work with the Google Now Launcher)</string>
   <string name="settings_exit_animation_desc">Choose the exit animation</string>
+  <string name="settings_battery_saver_desc">Mengurangi konsumsi baterai dan panas berlebih.
+Bekerja lebih baik di perangkat yang sudah di root</string>
+  <string name="settings_watchface_date_desc">Pilih gaya tanggal yang kamu inginkan </string>
+  <string name="settings_gestures_home_button_dismiss_desc">Tekan tombol home untuk keluar dari layar always on. Ini akan menonaktifkan sensor sidik jari always on</string>
+  <string name="settings_raise_to_wake">Angkat untung menyalakan ( tidak stabil)</string>
+  <string name="settings_raise_to_wake_desc">Buat perangkat menyala untuk menampilkan layar alyays on setiap 10 detik bukan menyala setiap waktu</string>
+  <string name="settings_raise_to_wake_device_admin">Berikan izin admin agar bisa menjadi kunci layar</string>
 </resources>

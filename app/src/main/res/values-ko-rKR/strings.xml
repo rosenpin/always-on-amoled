@@ -25,6 +25,7 @@
   <string name="support_5_desc">이 프로젝트에 기부하시고 개발자가 계속 앱을 개발할 수 있게 도와주세요. 일반 기부와 같은 혜택.</string>
   <string name="support_10_desc">당신의 기부가 이 앱 유지에 도움을 줬습니다. 일반 기부와 같은 혜택.</string>
   <string name="support_20_desc">멋져요! 엄청난 기부 매우 감사 드립니다 :) 일반 기부와 같은 혜택.</string>
+  <string name="support_25_desc">고마워요! 아주 큰 돈이네요!! 프로젝트에 정말 도움 될 거예요! 보통 언락과 같은 기능입니다.</string>
   <!--Intro-->
   <string name="intro_allow_now">지금 권한 주기</string>
   <string name="intro_permissions">기기 상태 읽기</string>
@@ -123,8 +124,8 @@
   <string name="settings_general">일반</string>
   <string name="settings_shortcuts">바로가기</string>
   <string name="settings_wake_up">화면 켜기</string>
-  <string name="settings_gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
-  <string name="settings_gestures_action_flashlight">손전등 토글키</string>
+  <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
+  <string name="gestures_action_flashlight">손전등 토글키</string>
   <string name="settings_rules">자동 작동 규칙</string>
   <string name="settings_samsung">삼성</string>
   <!--Settings titles-->
@@ -160,7 +161,7 @@
   <string name="settings_translate">번역</string>
   <string name="settings_github">Github (깃허브)</string>
   <string name="settings_community">커뮤니티</string>
-  <string name="settings_greenify_integration">Greenify 통합</string>
+  <string name="greenify_integration">Greenify 통합</string>
   <string name="settings_licenses">라이센스</string>
   <string name="settings_uninstall">앱 제거</string>
   <string name="settings_exit_animation">애니메이션</string>
@@ -223,14 +224,14 @@
   <string name="settings_about_twitter">트위터</string>
   <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
   <string name="settings_watch_flat_red_analog">플랫 아날로그(빨간색)</string>
-  <string name="settings_move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
-  <string name="settings_move_move">위젯을 자동으로 움직이기</string>
-  <string name="settings_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
-  <string name="settings_greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
-  <string name="settings_greenify_integration_desc_found">접근성 설정에서 Greenify를 사용설정하여,
+  <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
+  <string name="move_move">위젯을 자동으로 움직이기</string>
+  <string name="move_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
+  <string name="greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
+  <string name="greenify_integration_desc_found">접근성 설정에서 Greenify를 사용설정하여,
 기기가 잠겨있을 때 최대절전모드를 할수 있습니다.
 Greenify를 구성하려면 이곳을 클릭하세요</string>
-  <string name="settings_greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
+  <string name="greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
   <string name="settings_doze_desc">Always on 스크린이 뜨고있을 때 도즈모드를 활성화하여 배터리를 절약합니다 (루팅 필요)</string>
@@ -244,4 +245,5 @@ Greenify를 구성하려면 이곳을 클릭하세요</string>
   <string name="settings_gestures_home_button_dismiss_desc">Always On Screen에서 나가려면 홈 버튼을 누르세요. 지문 인식 센서를 작동 해제 할 겁니다.</string>
   <string name="settings_raise_to_wake">켜려면 디바이스를 들어 올리세요 (불안정함)</string>
   <string name="settings_raise_to_wake_desc">항상 Always On Screen이 켜지게 하는 대신 디바이스를 들어 올리면 10초동안 Always On Screen이 켜집니다.</string>
+  <string name="settings_raise_to_wake_device_admin">화면을 잠글 수 있게 관리자 권한을 주세요</string>
 </resources>

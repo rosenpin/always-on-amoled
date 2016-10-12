@@ -3,7 +3,7 @@
 <resources>
   <!--App name & Activities title-->
   <!--Actions-->
-  <string name="unlock">Encender pantalla</string>
+  <string name="unlock">Encender la pantalla</string>
   <string name="action_revert">Deshacer</string>
   <string name="menu_feedback">Opiniones</string>
   <string name="menu_rate">Valora esta aplicación</string>
@@ -22,7 +22,7 @@
   <string name="support_25">Super donation!</string>
   <string name="support_1_desc">Desbloquear todas las características premium de la aplicación y apoyar el desarrollo</string>
   <string name="support_2_desc">Apoyar el desarrollo un poco más. Mismas características que el desbloqueo normal.</string>
-  <string name="support_5_desc">Donar al proyecto y me ayudan a seguir trabajando en la aplicación. Mismas características que el desbloqueo normal.</string>
+  <string name="support_5_desc">Dona al proyecto y ayúdame a seguir trabajando en la aplicación. Mismas características que el desbloqueo normal.</string>
   <string name="support_10_desc">Demuestra que aprecia el proyecto y mantiene el desarrollo activo. Mismas características que el desbloqueo normal.</string>
   <string name="support_20_desc">¡Wow! una enorme donación! ¡Muchas gracias! :) Mismas características que el desbloqueo normal.</string>
   <string name="support_25_desc">¡Increíble! ¡Eso es un montón de dinero! Esto realmente le ayudará al proyecto! Mismas características que el regular de desbloqueo.</string>
@@ -123,8 +123,8 @@
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Atajos</string>
   <string name="settings_wake_up">Gestos y acciónes</string>
-  <string name="settings_gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
-  <string name="settings_gestures_action_flashlight">Alternar linterna</string>
+  <string name="gestures_action_speak">Decir el tiempo actual, las notificaciones y el estado de bateria en voz alta</string>
+  <string name="gestures_action_flashlight">Alternar linterna</string>
   <string name="settings_rules">Reglas Automáticas</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +160,7 @@
   <string name="settings_translate">Traducir</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Comunidad</string>
-  <string name="settings_greenify_integration">Integracion con Greenify</string>
+  <string name="greenify_integration">Integracion con Greenify</string>
   <string name="settings_licenses">Licencias</string>
   <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_exit_animation">Animacion</string>
@@ -223,12 +223,12 @@
   <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Estilo del reloj analogico Pebble</string>
   <string name="settings_watch_flat_red_analog">Estilo plano analógico (rojo)</string>
-  <string name="settings_move_disable">Desactivado (no recomendado para pantallas AMOLED)</string>
-  <string name="settings_move_move">Mover el widget automaticamente</string>
-  <string name="settings_move_animation">Mover el widget automaticamente con una animacion</string>
-  <string name="settings_greenify_integration_desc">Activa Greenify cuando Always On se activa. Esto sirve para alargar la duracion de la bateria. Asegurate de tener activado Greenify en las opciones de accesibilidad</string>
-  <string name="settings_greenify_integration_desc_found">Asegúrese de habilitar Greenify en las configuraciones de accesibilidad y elija las aplicaciones que quiera que hibernen mientras el dispositivo está bloqueado. Haga click aquí para configurar Greenify</string>
-  <string name="settings_greenify_integration_desc_not_found">Instale Greenify para ahorrar batería</string>
+  <string name="move_disable">Desactivado (no recomendado para pantallas AMOLED)</string>
+  <string name="move_move">Mover el widget automaticamente</string>
+  <string name="move_move_animation">Mover el widget automaticamente con una animacion</string>
+  <string name="greenify_integration_desc">Activa Greenify cuando Always On se activa. Esto sirve para alargar la duracion de la bateria. Asegurate de tener activado Greenify en las opciones de accesibilidad</string>
+  <string name="greenify_integration_desc_found">Asegúrese de habilitar Greenify en las configuraciones de accesibilidad y elija las aplicaciones que quiera que hibernen mientras el dispositivo está bloqueado. Haga click aquí para configurar Greenify</string>
+  <string name="greenify_integration_desc_not_found">Instale Greenify para ahorrar batería</string>
   <string name="settings_notifications_alerts_preview_desc">Muestra el contenido de las notificaciones recibidas</string>
   <string name="settings_notifications_alerts_preview">Contenido de las notificaciones</string>
   <string name="settings_doze_desc">Habilite doze mientras Always on screen está activo para ahorrar batería (sólo root)</string>
