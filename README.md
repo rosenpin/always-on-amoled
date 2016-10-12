@@ -2,6 +2,7 @@
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="60">](https://f-droid.org/app/com.tomer.alwayson)
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on GOogle Play" height="60">](https://play.google.com/store/apps/details?id=com.tomer.alwayson)
 [<img src="ART/amazon-underground-app-us-black.png" alt="Available at Amazon" height="60">](https://www.amazon.com/Tomers-Apps-Always-On-AMOLED/dp/B01M0KRJV3)
+[<img src="ART/apkmirror.png" alt="Available at APKMirror" height="60">](http://www.apkmirror.com/apk/tomer-rosenfeld/always-on-amoled-beta/)
 
 ##Contributing
 You can view a list of known issues and feature requests using [the issue tracker](
