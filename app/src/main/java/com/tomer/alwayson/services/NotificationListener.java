@@ -48,7 +48,7 @@ public class NotificationListener extends NotificationListenerService implements
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-            Globals.newNotification = new NotificationHolder(this, title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent);
+            Globals.newNotification = new NotificationHolder(title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent);
             Globals.notifications.put(getUniqueKey(added), Globals.newNotification);
         }
         sendBroadcast(new Intent(NEW_NOTIFICATION));
@@ -75,14 +75,12 @@ public class NotificationListener extends NotificationListenerService implements
         private String appName;
         private Drawable icon;
         private String title, message;
-        private Context context;
         private PendingIntent intent;
 
-        public NotificationHolder(Context context, String title, String message, Drawable icon, CharSequence appName, PendingIntent intent) {
+        NotificationHolder(String title, String message, Drawable icon, CharSequence appName, PendingIntent intent) {
             this.icon = icon;
             this.title = title;
             this.message = message;
-            this.context = context;
             this.appName = (String) appName;
             if (this.message.equals("null"))
                 this.message = "";
@@ -91,7 +89,7 @@ public class NotificationListener extends NotificationListenerService implements
             this.intent = intent;
         }
 
-        public Drawable getIcon() {
+        public Drawable getIcon(Context context) {
             if (icon != null)
                 icon.mutate().setColorFilter(ContextCompat.getColor(context, android.R.color.primary_text_dark), PorterDuff.Mode.MULTIPLY);
             return icon;

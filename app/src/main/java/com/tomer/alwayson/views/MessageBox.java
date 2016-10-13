@@ -52,7 +52,7 @@ public class MessageBox extends LinearLayout {
                 //Set the notification text and icon
                 ((TextView) messageBox.findViewById(R.id.message_box_title)).setText(notification.getTitle());
                 ((TextView) messageBox.findViewById(R.id.message_box_message)).setText(notification.getMessage());
-                ((ImageView) messageBox.findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon());
+                ((ImageView) messageBox.findViewById(R.id.message_box_icon)).setImageDrawable(notification.getIcon(context));
                 ((TextView) messageBox.findViewById(R.id.message_app_name)).setText(notification.getAppName());
                 //Run animations
                 AnimationSet animation = new AnimationSet(false);

@@ -19,23 +19,27 @@ import java.util.Map;
 
 public class IconsWrapper extends LinearLayout {
     private MessageBox messageBox;
+    private Context context;
 
     public IconsWrapper(Context context) {
         super(context);
+        this.context = context;
     }
 
     public IconsWrapper(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
     }
 
     public IconsWrapper(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.context = context;
     }
 
     public void update(int textColor, final Runnable action) {
         removeAllViews();
         for (final Map.Entry<String, NotificationListener.NotificationHolder> entry : Globals.notifications.entrySet()) {
-            Drawable drawable = entry.getValue().getIcon();
+            Drawable drawable = entry.getValue().getIcon(context);
             if (drawable != null) {
                 drawable.setColorFilter(textColor, PorterDuff.Mode.SRC_ATOP);
                 final ImageView icon = new ImageView(getContext());
