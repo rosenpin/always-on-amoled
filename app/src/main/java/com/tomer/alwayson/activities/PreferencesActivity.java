@@ -131,7 +131,7 @@ public class PreferencesActivity extends AppCompatActivity implements ColorChoos
     private void donateButtonSetup() {
         Button donateButton = (Button) findViewById(R.id.donate);
         assert donateButton != null;
-        if (Utils.isPackageInstalled(this, "com.android.vending"))
+        if (Utils.isGooglePlayInstalled(this))
             donateButton.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), DonateActivity.class)));
         else
             donateButton.setOnClickListener(v -> Utils.openURL(PreferencesActivity.this, "https://www.patreon.com/user?u=2966388"));

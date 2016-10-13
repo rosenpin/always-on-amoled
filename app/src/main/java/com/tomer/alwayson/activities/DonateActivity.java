@@ -73,9 +73,9 @@ public class DonateActivity extends AppCompatActivity {
                 try {
                     Globals.ownedItems = mService.getPurchases(3, context.getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
                     Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
-                    if (BuildConfig.DEBUG && Globals.ownedItems == null)
+                    if (!Utils.isGooglePlayInstalled(context) && Globals.ownedItems == null)
                         Globals.ownedItems = new ArrayList<String>() {{
-                            add("debug");
+                            add(SecretConstants.getPropertyValue(context, "no-play-store"));
                         }};
                 } catch (RemoteException e) {
                     e.printStackTrace();

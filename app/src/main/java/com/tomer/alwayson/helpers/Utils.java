@@ -46,6 +46,10 @@ public class Utils implements ContextConstatns {
         }
     }
 
+    public static boolean isGooglePlayInstalled(Context context){
+        return isPackageInstalled(context, "com.android.vending");
+    }
+
     public static boolean doesIntentExist(Context context, Intent intent) {
         PackageManager mgr = context.getPackageManager();
         List<ResolveInfo> list = mgr.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
