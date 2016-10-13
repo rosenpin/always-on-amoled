@@ -45,6 +45,8 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -63,9 +65,10 @@
                     android:paddingRight="16dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:srcCompat="@drawable/ic_twitter" />
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/ic_twitter"
+                        android:contentDescription="@string/developer_twitter" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -88,9 +91,10 @@
                     android:paddingRight="16dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:srcCompat="@drawable/ic_gplus" />
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/ic_gplus"
+                        android:contentDescription="@string/developer_googleplus" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -113,9 +117,10 @@
                     android:paddingRight="16dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:srcCompat="@drawable/ic_google_play" />
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/ic_google_play"
+                        android:contentDescription="@string/developer_google_play" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -138,9 +143,10 @@
                     android:paddingRight="16dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:srcCompat="@drawable/ic_linkedin" />
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/ic_linkedin"
+                        android:contentDescription="@string/developer_linkedin" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -163,9 +169,10 @@
                     android:paddingRight="16dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        app:srcCompat="@drawable/ic_github" />
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/ic_github"
+                        android:contentDescription="@string/developer_github" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -188,10 +195,10 @@
                     android:paddingRight="16dp">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:padding="2dp"
-                        app:srcCompat="@drawable/ic_patreon" />
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        app:srcCompat="@drawable/ic_patreon"
+                        android:contentDescription="@string/developer_patreon" />
 
                     <TextView
                         android:layout_width="wrap_content"
