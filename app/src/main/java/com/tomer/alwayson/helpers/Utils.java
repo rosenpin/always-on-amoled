@@ -1,7 +1,5 @@
 package com.tomer.alwayson.helpers;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -23,7 +21,6 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 
 import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.R;
@@ -100,9 +97,7 @@ public class Utils implements ContextConstatns {
             return DateUtils.formatDateTime(context, Calendar.getInstance().getTime().getTime(),
                     DateUtils.FORMAT_SHOW_DATE
                             | DateUtils.FORMAT_SHOW_WEEKDAY
-                            | DateUtils.FORMAT_ABBREV_WEEKDAY
-                            | DateUtils.FORMAT_NO_YEAR
-                            | DateUtils.FORMAT_ABBREV_MONTH);
+                            | DateUtils.FORMAT_NO_YEAR).toUpperCase();
     }
 
     public static void killBackgroundProcesses(Context context) {
