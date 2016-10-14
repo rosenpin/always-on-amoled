@@ -151,7 +151,7 @@ public class DonateActivity extends AppCompatActivity {
             Utils.logDebug("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
                 if (Globals.ownedItems != null)
-                    Globals.ownedItems.add(SecretConstants.getPropertyValue(this,"TEMP_IAP"));
+                    Globals.ownedItems.add(SecretConstants.getPropertyValue(this, "TEMP_IAP"));
                 else
                     Globals.ownedItems = new ArrayList<>();
                 Toast.makeText(getApplicationContext(), R.string.thanks, Toast.LENGTH_LONG).show();
