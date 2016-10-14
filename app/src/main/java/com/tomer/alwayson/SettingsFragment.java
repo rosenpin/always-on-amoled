@@ -236,12 +236,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             Notices notices = new Notices();
             notices.addNotice(new Notice("AppIntro", "https://github.com/PaoloRotolo/AppIntro", "Copyright 2015 Paolo Rotolo ,  Copyright 2016 Maximilian Narr", new ApacheSoftwareLicense20()));
             notices.addNotice(new Notice("android-issue-reporter", "https://github.com/HeinrichReimer/android-issue-reporter", "", new ApacheSoftwareLicense20()));
+            notices.addNotice(new Notice("ButterKnife", "https://github.com/JakeWharton/butterknife", "Copyright 2013 Jake Wharton", new ApacheSoftwareLicense20()));
             notices.addNotice(new Notice("Custom Analog Clock View", "https://github.com/rosenpin/custom-analog-clock-view", "Copyright (C) 2016 Tomer Rosenfeld", new GnuGeneralPublicLicense30()));
-            notices.addNotice(new Notice("IntegrationPreference", "https://github.com/tasomaniac/IntegrationPreference", "", new ApacheSoftwareLicense20()));
+            notices.addNotice(new Notice("CircleImageView", "https://github.com/hdodenhof/CircleImageView", "Copyright 2014 - 2016 Henning Dodenhof", new ApacheSoftwareLicense20()));
             notices.addNotice(new Notice("LicensesDialog", "https://github.com/PSDev/LicensesDialog", "", new ApacheSoftwareLicense20()));
             notices.addNotice(new Notice("material-dialogs", "https://github.com/afollestad/material-dialogs", "Copyright (c) 2014-2016 Aidan Michael Follestad", new MITLicense()));
-            notices.addNotice(new Notice("CircleImageView", "https://github.com/hdodenhof/CircleImageView", "Copyright 2014 - 2016 Henning Dodenhof", new ApacheSoftwareLicense20()));
-            notices.addNotice(new Notice("ButterKnife", "https://github.com/JakeWharton/butterknife", "Copyright 2013 Jake Wharton", new ApacheSoftwareLicense20()));
             new LicensesDialog.Builder(getActivity())
                     .setNotices(notices)
                     .build()

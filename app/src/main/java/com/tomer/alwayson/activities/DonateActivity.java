@@ -75,7 +75,7 @@ public class DonateActivity extends AppCompatActivity {
                     Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
                     if (BuildConfig.DEBUG && !Utils.isGooglePlayInstalled(context) && Globals.ownedItems == null)
                         Globals.ownedItems = new ArrayList<String>() {{
-                            add(SecretConstants.getPropertyValue(context, "no-play-store"));
+                            add(SecretConstants.getPropertyValue(context, "NO_PLAY_STORE_IAP"));
                         }};
                 } catch (RemoteException e) {
                     e.printStackTrace();
@@ -151,7 +151,7 @@ public class DonateActivity extends AppCompatActivity {
             Utils.logDebug("Purchase state", String.valueOf(resultCode));
             if (resultCode == RESULT_OK) {
                 if (Globals.ownedItems != null)
-                    Globals.ownedItems.add("temp");
+                    Globals.ownedItems.add(SecretConstants.getPropertyValue(this,"TEMP_IAP"));
                 else
                     Globals.ownedItems = new ArrayList<>();
                 Toast.makeText(getApplicationContext(), R.string.thanks, Toast.LENGTH_LONG).show();
