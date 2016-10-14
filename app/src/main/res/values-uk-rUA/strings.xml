@@ -36,6 +36,7 @@
   <string name="intro_checkbox_double_tap">Подвійне натискання на центральній частині екрана, щоб розблокувати</string>
   <string name="intro_notifications">Сповіщення</string>
   <string name="intro_notifications_desc">Ви хочете отримувати сповіщення від інших додатків, в той час як на екрані \"always on\" стан? Якщо так, то натисніть кнопку \"Дозволити зараз\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Дякуємо Вам за підтримку! :)</string>
   <string name="notification_message">Always On працює</string>
@@ -99,7 +100,6 @@
   <string name="settings_appearance">Зовнішній вигляд</string>
   <string name="settings_general">Загальні</string>
   <string name="settings_wake_up">Методи пробудження</string>
-  <string name="gestures_action_speak">Сказати вголос поточний час, сповіщення та акумулятора статус</string>
   <string name="settings_rules">Автоматичні правила</string>
   <!--Settings titles-->
   <string name="settings_enabled">Увімкнений</string>
@@ -132,7 +132,6 @@
   <string name="settings_translate">Переклад</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Спільноти</string>
-  <string name="greenify_integration">Інтеграція з Greenify</string>
   <string name="settings_licenses">Ліцензія</string>
   <string name="settings_uninstall">Видалити</string>
   <string name="settings_exit_animation">Анімація</string>
@@ -152,7 +151,6 @@
   <string name="settings_proximity_to_lock_desc">Блокувати пристрій, коли він знаходиться в кишені для економії заряду акумулятора (датчики можуть використовувати більше заряду акумулятора)</string>
   <string name="settings_licenses_desc">Ліцензії з відкр. кодом</string>
   <string name="settings_community_desc">Google Plus спільнота</string>
-  <string name="settings_about_twitter_desc">Підписуйтесь на мене у Twitter щоб отримувати новини, оновлення і роздачі</string>
   <string name="settings_github_desc">Відкрите джерело Github</string>
   <string name="settings_move_desc">Включіть для автоматичного руху віджету на екрані (щоб уникнути вигоряння)</string>
   <string name="settings_font_size_desc">Встановіть розмір шрифту годинника</string>

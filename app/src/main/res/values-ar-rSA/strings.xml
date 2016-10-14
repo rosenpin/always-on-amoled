@@ -42,6 +42,7 @@
   <string name="intro_checkbox_double_tap">النقر المزدوج على وسط الشاشة لفتح القفل</string>
   <string name="intro_notifications">تنبيهات الإخطارات</string>
   <string name="intro_notifications_desc">هل تريد تلقي الإخطارات من تطبيقات أخرى عندما تكون الشاشة في وضعية \"always on\"؟ إن كنت تريد ذلك، انقر فوق الزر \"السماح الآن\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">شكرا على دعمكم! :)</string>
   <string name="notification_message">Always On في وضعية الإشتغال</string>
@@ -124,8 +125,6 @@
   <string name="settings_general">عام</string>
   <string name="settings_shortcuts">الاختصارات</string>
   <string name="settings_wake_up">إيماءات واﻹجراءات</string>
-  <string name="gestures_action_speak">الوقت الحالي،الاعلامات و حالة البطارية فوق الطاقة</string>
-  <string name="gestures_action_flashlight">مصباح يدوي</string>
   <string name="settings_rules">القواعد التلقائية</string>
   <string name="settings_samsung">سامسونج</string>
   <!--Settings titles-->
@@ -161,10 +160,10 @@
   <string name="settings_translate">الترجمة</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">مجتمع</string>
-  <string name="greenify_integration">خدمة Greenify</string>
   <string name="settings_licenses">الرخص</string>
   <string name="settings_uninstall">مسح التطبيق</string>
   <string name="settings_exit_animation">الحركة</string>
+  <string name="settings_raise_to_wake">رفع تنبيه (غير مستقرة)</string>
   <string name="settings_app_version">الإصدار</string>
   <string name="settings_enable_greenify">تفعيل برنامج Greenify</string>
   <string name="settings_battery_saver">وضع حفظ الطاقة</string>
@@ -181,7 +180,6 @@
   <string name="settings_proximity_to_lock_desc">قفل الجهاز عند وضع الجهاز في جيبك لحفظ البطارية (قد تستهلك المزيد من البطارية)</string>
   <string name="settings_licenses_desc">تراخيص مفتوحة المصدر</string>
   <string name="settings_community_desc">مجتمع قوقل بلس</string>
-  <string name="settings_about_twitter_desc">Follow me on Twitter for news, updates and giveaways</string>
   <string name="settings_github_desc">رابط GitHub مفتوح المصدر</string>
   <string name="settings_move_desc">مكن هذا لتفادي حرق شاشات الـ AMOLED</string>
   <string name="settings_font_size_desc">ضبط حجم خط الساعة</string>
@@ -221,15 +219,8 @@
   <string name="settings_watch_ticks">نمط ال 24 ساعة الكلاسيكي مع علامات الساعة</string>
   <string name="settings_watch_digital_s7">نمط s7 الساعة الرقمية</string>
   <string name="settings_watch_flat_analog">نمط الساعة التناظرية المسطحة</string>
-  <string name="settings_about_twitter">تويتر</string>
   <string name="settings_watch_analog_pebble">نمط الفقاعات التناظرية</string>
   <string name="settings_watch_flat_red_analog">ساعة تناظرية مسطحة (عقارب حمراء)</string>
-  <string name="move_disable">تعطيل (غير مستحسن لشاشات AMOLED)</string>
-  <string name="move_move">نقل العناصر تلقائيا</string>
-  <string name="move_move_animation">نقل العناصر تلقائيا مع حركة</string>
-  <string name="greenify_integration_desc">مكن Greenify عندما تكون خدمة \"always on\" مرئية لتحسين عمر البطارية إلى حد كبير. تأكد من تمكين Greenify في إعدادات الوصول</string>
-  <string name="greenify_integration_desc_found">تأكد من السماح لبرنامج Greenify في إعدادات إمكانية الوصول ثم اختر التطبيقات التي تريدها أن تضعها في وضع الإغفاء عندما تكون شاشة القفل مفعلة. إضغط هنا لتعدل Greenify</string>
-  <string name="greenify_integration_desc_not_found">ثبت برنامج Greenify لتحسن من عمر البطارية</string>
   <string name="settings_notifications_alerts_preview_desc">إظهار محتوى التنبيه عند وصوله</string>
   <string name="settings_notifications_alerts_preview">محتوى التنبيه</string>
   <string name="settings_doze_desc">شغل وضع الإغفاء عندما تكون خاصية (Always On Display) مفعلة لكي تحفظ البطارية (لمستخدمي الروت فقط)</string>
@@ -241,7 +232,6 @@
   <string name="settings_battery_saver_desc">تقليل استهلاك البطارية والانهاك. يعمل بشكل أفضل مع الجذر</string>
   <string name="settings_watchface_date_desc">اختر نمط التاريخ الذي تريده لمعرفة</string>
   <string name="settings_gestures_home_button_dismiss_desc">انقر فوق الزر البداية للخروج من الشاشة على الدوام. سيؤدي ذلك إلى تعطيل جهاز استشعار بصمات الأصابع على الدوام.</string>
-  <string name="settings_raise_to_wake">رفع تنبيه (غير مستقرة)</string>
   <string name="settings_raise_to_wake_desc">التقاط الجهاز الخاص بك لإظهار الشاشة على الدوام لمدة 10 ثوان بدلاً من وجود الشاشة مرئية في كل وقت</string>
   <string name="settings_raise_to_wake_device_admin">منح إذن المسؤول الجهاز للتطبيق لتكون قادرة على تأمين الشاشة</string>
 </resources>

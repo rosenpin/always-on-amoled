@@ -41,6 +41,12 @@
   <string name="intro_checkbox_double_tap">לחיצה כפולה על המסך המסך כדי להדליק את מכשירך</string>
   <string name="intro_notifications">התראות הודעות</string>
   <string name="intro_notifications_desc">האם ברצונך לקבל הודעות מיישומים אחרים בזמן שהמסך נעול? אם כן, לחץ על \"אפשר עכשיו\"</string>
+  <!--Developer page-->
+  <string name="developer_name">תומר רוזנפלד</string>
+  <string name="developer_twitter">עקבו אחרי בטוויטר</string>
+  <string name="developer_googleplus">עקבו אחריי בגוגל פלוס</string>
+  <string name="developer_google_play">בדקו אפליקציות אחרות שיצרתי</string>
+  <string name="developer_linkedin">התחברו איתי בלינקדין</string>
   <!--Feedback,Toasts & messages-->
   <string name="thanks">תודה עבור תמיכתך! :)</string>
   <string name="notification_message">Always On Amoled רץ ברקע</string>
@@ -123,8 +129,6 @@
   <string name="settings_general">כללי</string>
   <string name="settings_shortcuts">קיצורי דרך</string>
   <string name="settings_wake_up">התעוררות</string>
-  <string name="gestures_action_speak">אמור בקול רם את השעה, מספר התראות ומצב הסוללה</string>
-  <string name="gestures_action_flashlight">פנס</string>
   <string name="settings_rules">כללים אוטומטיים</string>
   <string name="settings_samsung">סמסונג</string>
   <!--Settings titles-->
@@ -160,10 +164,10 @@
   <string name="settings_translate">תרגום</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">קהילה</string>
-  <string name="greenify_integration">אינטגרציה של Greenify</string>
   <string name="settings_licenses">רשיונות</string>
   <string name="settings_uninstall">הסר התקנה</string>
   <string name="settings_exit_animation">אנימציה</string>
+  <string name="settings_raise_to_wake">הרם כדי להעיר</string>
   <string name="settings_app_version">גירסה</string>
   <string name="settings_enable_greenify">הפעל Greenify</string>
   <string name="settings_battery_saver">מצב חיסכון בסוללה</string>
@@ -180,7 +184,6 @@
   <string name="settings_proximity_to_lock_desc">מכבה את המסך כאשר המכשיר בכיס כדי לחסוך סוללה (הפעלת החיישנים עשוי לצרוך עוד סוללה)</string>
   <string name="settings_licenses_desc">רשיונות קוד פתוח</string>
   <string name="settings_community_desc">קהילת גוגל פלוס</string>
-  <string name="settings_about_twitter_desc">עקבו אחרי בTwitter עבור חדשות, עדכונים ועוד</string>
   <string name="settings_github_desc">קישור Github לקוד הפתוח</string>
   <string name="settings_move_desc">אפשר כדי להמנע מ AMOLED burn in</string>
   <string name="settings_font_size_desc">קבע את גודל טקסט השעון</string>
@@ -220,15 +223,8 @@
   <string name="settings_watch_ticks">אנלוגי קלאסי עם מספרים</string>
   <string name="settings_watch_digital_s7">שעון דיגיטלי בסגנון S7</string>
   <string name="settings_watch_flat_analog">סגנון אנלוגי נקי</string>
-  <string name="settings_about_twitter">טוויטר</string>
   <string name="settings_watch_analog_pebble">שעון אנלוגי בסגנון פבל</string>
   <string name="settings_watch_flat_red_analog">סגנון אנלוגי נקי (מחוגים אדומים)</string>
-  <string name="move_disable">כבוי (לא מומלץ עבור מסכי אמולד)</string>
-  <string name="move_move">הזזת התצוגה באופן אוטומטי</string>
-  <string name="move_move_animation">הזזת התצוגה באופן אוטומטי עם אנימציה</string>
-  <string name="greenify_integration_desc">הפעל את Greenify כאשר התצוגה מופעלת כדי לחסוך סוללה. יש לאפשר את Greenify באפשרויות הנגישות</string>
-  <string name="greenify_integration_desc_found">יש לוודא כי Greenify מאושר בהגדרות נגישות. לחץ כאן כדי להגדיר את Greenify</string>
-  <string name="greenify_integration_desc_not_found">התקינו Greenify לשיפור חיי הסוללה</string>
   <string name="settings_notifications_alerts_preview_desc">הצג את תוכן ההתראות כאשר הן מתקבלות</string>
   <string name="settings_notifications_alerts_preview">תוכן התראות</string>
   <string name="settings_doze_desc">אפשרו חסכון בסוללה כדי לחסוך סוללה כאשר המסך דולק (דורש רוט)</string>
@@ -240,6 +236,5 @@
   <string name="settings_battery_saver_desc">מפחית את השימוש בסוללה והתחממות יתר. עובד טוב יותר עם רוט.</string>
   <string name="settings_watchface_date_desc">בחר את סגנון התאריך המועדף עליך</string>
   <string name="settings_gestures_home_button_dismiss_desc">לחצו על כפתור הבית כדי לצאת ממסך הalways on. זה יבטל את האפשרות להשתמש בסורק האצבע בזמן שהמכשיר כבוי.</string>
-  <string name="settings_raise_to_wake">הרם כדי להעיר</string>
   <string name="settings_raise_to_wake_desc">הרימו את המכשיר כדי להאיר את התצוגה ל10 שניות במקום להשאיר אותה תמיד דלוקה</string>
 </resources>

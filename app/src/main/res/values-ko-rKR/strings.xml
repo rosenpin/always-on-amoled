@@ -42,6 +42,7 @@
   <string name="intro_checkbox_double_tap">화면 중앙을 두번 터치해 화면을 킵니다</string>
   <string name="intro_notifications">알림</string>
   <string name="intro_notifications_desc">\"Always On\" 상태에서 다른 앱들의 알림을 받고 싶다면, \"지금 권한 부여\" 버튼을 누르세요</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">지원해주셔서 감사합니다! :)</string>
   <string name="notification_message">Always On이 실행중입니다</string>
@@ -124,8 +125,6 @@
   <string name="settings_general">일반</string>
   <string name="settings_shortcuts">바로가기</string>
   <string name="settings_wake_up">화면 켜기</string>
-  <string name="gestures_action_speak">현재시간, 알림과 배터리 잔량을 크게 읽어줍니다</string>
-  <string name="gestures_action_flashlight">손전등 토글키</string>
   <string name="settings_rules">자동 작동 규칙</string>
   <string name="settings_samsung">삼성</string>
   <!--Settings titles-->
@@ -161,10 +160,10 @@
   <string name="settings_translate">번역</string>
   <string name="settings_github">Github (깃허브)</string>
   <string name="settings_community">커뮤니티</string>
-  <string name="greenify_integration">Greenify 통합</string>
   <string name="settings_licenses">라이센스</string>
   <string name="settings_uninstall">앱 제거</string>
   <string name="settings_exit_animation">애니메이션</string>
+  <string name="settings_raise_to_wake">켜려면 디바이스를 들어 올리세요 (불안정함)</string>
   <string name="settings_app_version">버전</string>
   <string name="settings_enable_greenify">Greenify앱 활성화</string>
   <string name="settings_battery_saver">배터리 절전 모드</string>
@@ -181,7 +180,6 @@
   <string name="settings_proximity_to_lock_desc">주머니에 기기를 넣었을 때 기기를 잠가 배터리를 아낍니다. (센서가 켜집니다.)</string>
   <string name="settings_licenses_desc">오픈 소스 라이센스</string>
   <string name="settings_community_desc">구글 플러스 커뮤니티</string>
-  <string name="settings_about_twitter_desc">트위터를 구독하여 뉴스 업데이트를 받으세요.</string>
   <string name="settings_github_desc">Github 오픈 소스 링크</string>
   <string name="settings_move_desc">아몰레드 번인을 방지하기 위해 활성화하십시오</string>
   <string name="settings_font_size_desc">시계의 글자 크기</string>
@@ -221,17 +219,8 @@
   <string name="settings_watch_ticks">12시간 클래식 시계</string>
   <string name="settings_watch_digital_s7">S7 스타일 디지털 시계</string>
   <string name="settings_watch_flat_analog">플랫 아날로그 스타일</string>
-  <string name="settings_about_twitter">트위터</string>
   <string name="settings_watch_analog_pebble">페블 스타일 아날로그 시계</string>
   <string name="settings_watch_flat_red_analog">플랫 아날로그(빨간색)</string>
-  <string name="move_disable">사용 안 함 (AMOLED 스크린에선 권장하지 않음)</string>
-  <string name="move_move">위젯을 자동으로 움직이기</string>
-  <string name="move_move_animation">위젯을 애니메이션과 함께 자동으로 움직이기</string>
-  <string name="greenify_integration_desc">Greenify를 활성화 해 항상 켜짐 서비스의 배터리를 아끼세요. 접근성 설정에서 Greenify를 켜는 걸 잊지 마세요.</string>
-  <string name="greenify_integration_desc_found">접근성 설정에서 Greenify를 사용설정하여,
-기기가 잠겨있을 때 최대절전모드를 할수 있습니다.
-Greenify를 구성하려면 이곳을 클릭하세요</string>
-  <string name="greenify_integration_desc_not_found">배터리 수명을 향상하려면 Greenify를 설치하세요</string>
   <string name="settings_notifications_alerts_preview_desc">알림을 받으면 보이기</string>
   <string name="settings_notifications_alerts_preview">알림 내용</string>
   <string name="settings_doze_desc">Always on 스크린이 뜨고있을 때 도즈모드를 활성화하여 배터리를 절약합니다 (루팅 필요)</string>
@@ -243,7 +232,6 @@ Greenify를 구성하려면 이곳을 클릭하세요</string>
   <string name="settings_battery_saver_desc">배터리 소모와 발열을 억제합니다. 루팅이 필요함.</string>
   <string name="settings_watchface_date_desc">원하는 날짜보기방식을 설정하세요.</string>
   <string name="settings_gestures_home_button_dismiss_desc">Always On Screen에서 나가려면 홈 버튼을 누르세요. 지문 인식 센서를 작동 해제 할 겁니다.</string>
-  <string name="settings_raise_to_wake">켜려면 디바이스를 들어 올리세요 (불안정함)</string>
   <string name="settings_raise_to_wake_desc">항상 Always On Screen이 켜지게 하는 대신 디바이스를 들어 올리면 10초동안 Always On Screen이 켜집니다.</string>
   <string name="settings_raise_to_wake_device_admin">화면을 잠글 수 있게 관리자 권한을 주세요</string>
 </resources>

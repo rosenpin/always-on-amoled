@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">Kilidini açmak için ekranın ortasına çift dokun</string>
   <string name="intro_notifications">Bildirim uyarıları</string>
   <string name="intro_notifications_desc">\"Her zaman açık\" durumda iken diğer uygulamalardan bildirim almak istiyor musun? Eğer istiyorsan, \"izin ver\" butonuna tıkla</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Desteğin için teşekkür ederim! :)</string>
   <string name="notification_message">Daima çalış.</string>
@@ -123,8 +124,6 @@
   <string name="settings_general">Genel</string>
   <string name="settings_shortcuts">Kısayollar</string>
   <string name="settings_wake_up">Uyandırma hareketleri</string>
-  <string name="gestures_action_speak">Güncel zamanı, bildirimleri ve batarya durumunu sesli söyle</string>
-  <string name="gestures_action_flashlight">Flaş ışığını aç</string>
   <string name="settings_rules">Otomatik kurallar</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,10 +159,10 @@
   <string name="settings_translate">Tercüme Et</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Topluluk</string>
-  <string name="greenify_integration">Greenify entegrasyonu</string>
   <string name="settings_licenses">Lisanslar</string>
   <string name="settings_uninstall">Uygulamayı kaldır</string>
   <string name="settings_exit_animation">Animasyon</string>
+  <string name="settings_raise_to_wake">(Kararsız) uyandırmak yükseltmek</string>
   <string name="settings_app_version">Versiyon</string>
   <string name="settings_enable_greenify">Greenify\'ı Etkinleştir</string>
   <string name="settings_battery_saver">Pil Tasarruf Modu</string>
@@ -181,7 +180,6 @@
   <string name="settings_proximity_to_lock_desc">Cihazı cebinize koyduğunuzda pil tasarrufu için cihazı kilitle (Sensörler batarya kullanımını artırabilir)</string>
   <string name="settings_licenses_desc">Lisans/kaynak kodlarını aç</string>
   <string name="settings_community_desc">Google+ topluluğu</string>
-  <string name="settings_about_twitter_desc">Haberler, Güncellemeler ve Hediyeler için beni Twitter\'da takip et</string>
   <string name="settings_github_desc">Açık kaynak kodları Github adresi</string>
   <string name="settings_move_desc">Amoled aydınlatma önlenmesini etkinleştir </string>
   <string name="settings_font_size_desc">Saat yazı boyutunu ayarla</string>
@@ -221,15 +219,8 @@
   <string name="settings_watch_ticks">12H klasik / saat tıklarıyla</string>
   <string name="settings_watch_digital_s7">S7 stili dijital saat</string>
   <string name="settings_watch_flat_analog">Düz analog stil</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble stili analog saat</string>
   <string name="settings_watch_flat_red_analog">Düz analog (kırmızı kadran)</string>
-  <string name="move_disable">Devredışı (AMOLED ekranlar için önerilmez)</string>
-  <string name="move_move">Otomatik olarak hareket ettir</string>
-  <string name="move_move_animation">Otomatik olarak hareket ettir (Animasyonlu)</string>
-  <string name="greenify_integration_desc">Greenify kullanmak \"Daima açık\" hizmeti aktifken önemli ölçüde güç tasarrufu sağlar. Erişilebilirlik ayarlarından Greenify\'ı aktif ettiğinizden emin olun</string>
-  <string name="greenify_integration_desc_found">Erişilebilirlik ayarlarından Greenify\'ı açtığınızdan emin olun. Ardından cihaz kilitlenince uyutmak istediğiniz programları seçin. Greenify\'ı ayarlamak için buraya tıklayın</string>
-  <string name="greenify_integration_desc_not_found">Batarya süresini arttırmak için Greenify yükle</string>
   <string name="settings_notifications_alerts_preview_desc">Bildirim alındığında içeriği göster </string>
   <string name="settings_notifications_alerts_preview">Bildirim içeriği </string>
   <string name="settings_doze_desc">\"Daima açık\" servisi aktifken batarya tasarrufu için Doze Modu\'nu etkinleştirin (Root gerektirir)</string>
@@ -241,6 +232,5 @@
   <string name="settings_battery_saver_desc">Pil tüketimini ve aşırı ısınmayı azaltır. Root ile daha iyi çalışır.</string>
   <string name="settings_watchface_date_desc">Görmek istediğin tarih stilini seç</string>
   <string name="settings_gestures_home_button_dismiss_desc">Always On Screen\'den çıkmak için ana menü tuşuna basın. Bu parmak izi sensörünü devre dışı bırakacaktır.</string>
-  <string name="settings_raise_to_wake">(Kararsız) uyandırmak yükseltmek</string>
   <string name="settings_raise_to_wake_device_admin">Grant device admin permission for the app to be able to lock the screen</string>
 </resources>

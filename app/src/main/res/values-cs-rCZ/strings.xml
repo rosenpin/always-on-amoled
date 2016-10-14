@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">Poklepáním uprostřed obrazovky</string>
   <string name="intro_notifications">Upozornění na notifikace</string>
   <string name="intro_notifications_desc">Přejete si dostávat oznámení od jiné aplikace, pokud je obrazovka ve stavu \"Vždy zapnuto\"? Pokud ano, klepněte na tlačítko \"Povolit nyní\".</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Děkujeme Vám za Vaši podporu! :)</string>
   <string name="notification_message">Vždy zapnuto je aktivní</string>
@@ -123,8 +124,6 @@
   <string name="settings_general">Obecné</string>
   <string name="settings_shortcuts">Zkratky</string>
   <string name="settings_wake_up">Gesta a akce</string>
-  <string name="gestures_action_speak">Řekni nahlas aktuální čas, oznámení a stav baterie</string>
-  <string name="gestures_action_flashlight">Zapnout světlo</string>
   <string name="settings_rules">Automatická pravidla</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,10 +159,10 @@
   <string name="settings_translate">Překlad</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Komunita</string>
-  <string name="greenify_integration">Integrace s Greenify</string>
   <string name="settings_licenses">Licence</string>
   <string name="settings_uninstall">Odinstalovat</string>
   <string name="settings_exit_animation">Animace</string>
+  <string name="settings_raise_to_wake">Zvednout pro probuzení (experimentální)</string>
   <string name="settings_app_version">Verze</string>
   <string name="settings_enable_greenify">Povolit Greenify</string>
   <string name="settings_battery_saver">Úsporný režim baterie</string>
@@ -180,7 +179,6 @@
   <string name="settings_proximity_to_lock_desc">Zamkne zařízení, pokud jej umístíte do kapsy (senzory mohou používat více baterie)</string>
   <string name="settings_licenses_desc">Licence Open Source</string>
   <string name="settings_community_desc">Komunita Google Plus</string>
-  <string name="settings_about_twitter_desc">Sledujte nás na Twitteru pro novinky, aktualizace a dárky</string>
   <string name="settings_github_desc">Zobrazí zdrojový kód, odesílá chyby a pomáhá s vývojem aplikace</string>
   <string name="settings_move_desc">Povolte pro zabránění vypalování AMOLED obrazovky</string>
   <string name="settings_font_size_desc">Nastaví velikost písma hodin</string>
@@ -220,15 +218,8 @@
   <string name="settings_watch_ticks">Klasické 12 hodinové ručičkové</string>
   <string name="settings_watch_digital_s7">Digitální hodiny ve stylu S7</string>
   <string name="settings_watch_flat_analog">Ploché analogové ručičkové</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Analogové ručičkové Pebble</string>
   <string name="settings_watch_flat_red_analog">Ploché analogové ručičkové (červený ciferník)</string>
-  <string name="move_disable">Vypnuto (není doporučeno pro AMOLED obrazovky)</string>
-  <string name="move_move">Automaticky přesunout widget</string>
-  <string name="move_move_animation">Přesunout widget automaticky s animací</string>
-  <string name="greenify_integration_desc">Povolí Greenify k výraznému zlepšení životnosti baterie; ujistěte se, aby Greenify bylo povoleno v nastavení usnadnění přístupu</string>
-  <string name="greenify_integration_desc_found">Ujistěte se, zda máte povoleno Greenify v nastavení usnadnění a vyberte aplikace, které chcete hibernovat pokud je zařízení uzamčeno; klepněte zde pro konfiguraci Greenify</string>
-  <string name="greenify_integration_desc_not_found">Pro prodloužení výdrže baterie nainstalujte Greenify</string>
   <string name="settings_notifications_alerts_preview_desc">Zobrazí obsah oznámení při doručení</string>
   <string name="settings_notifications_alerts_preview">Obsah oznámení</string>
   <string name="settings_doze_desc">Povolí úsporný režim, pokud je služba aktivní (pouze pro root)</string>
@@ -240,7 +231,6 @@
   <string name="settings_battery_saver_desc">Redukuje spotřebu a zahřívání baterie; lépe funguje s rootem</string>
   <string name="settings_watchface_date_desc">Zvolí styl datumu</string>
   <string name="settings_gestures_home_button_dismiss_desc">Klepněte na domovské tlačítko pro ukončení režimu Vždy zapnuto; toto zakáže snímač otisků prstů</string>
-  <string name="settings_raise_to_wake">Zvednout pro probuzení (experimentální)</string>
   <string name="settings_raise_to_wake_desc">Zvedněte Vaše zařízení pro zobrazení obrazovky na 10 sekund místo stále viditelné obrazovky</string>
   <string name="settings_raise_to_wake_device_admin">Aby bylo možné zamykat obrazovku, udělte administrátorská práva.</string>
 </resources>

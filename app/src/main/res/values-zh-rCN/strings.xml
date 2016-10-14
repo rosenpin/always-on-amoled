@@ -14,6 +14,9 @@
   <string name="support_how_much">您想捐助多少数额？</string>
   <string name="supporter_feature_only">此功能仅适用于捐助者，你可以自由的选择是否捐助，若想成为捐助者你也可以自由的选择捐助数额。</string>
   <string name="support_choose">How much would you like to donate?</string>
+  <string name="support_1">解锁</string>
+  <string name="support_2">捐赠</string>
+  <string name="support_5">捐赠更多</string>
   <!--Intro-->
   <string name="intro_allow_now">设置权限</string>
   <string name="intro_permissions">访问电话状态</string>
@@ -29,6 +32,7 @@
   <string name="intro_checkbox_double_tap">双击屏幕正中以唤醒设备</string>
   <string name="intro_notifications">通知提醒</string>
   <string name="intro_notifications_desc">如果您希望接收其他应用的提醒并在锁屏常亮时显示，请开启“同意”按钮。</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">谢谢您的支持! :)</string>
   <string name="notification_message">Always On 正在运行</string>
@@ -101,8 +105,6 @@
   <string name="settings_general">通用</string>
   <string name="settings_shortcuts">快捷方式</string>
   <string name="settings_wake_up">手势&amp;动作</string>
-  <string name="gestures_action_speak">朗读当前的时间、通知和电池状态。</string>
-  <string name="gestures_action_flashlight">打开手电</string>
   <string name="settings_rules">自动规则</string>
   <!--Settings titles-->
   <string name="settings_enabled">启用</string>
@@ -135,7 +137,6 @@
   <string name="settings_translate">翻译此应用</string>
   <string name="settings_github">在GitHub上查看源代码</string>
   <string name="settings_community">访问社区</string>
-  <string name="greenify_integration">”绿色守护“整合</string>
   <string name="settings_licenses">许可信息</string>
   <string name="settings_uninstall">卸载</string>
   <string name="settings_exit_animation">动画</string>
@@ -193,12 +194,6 @@
   <string name="settings_watch_flat_analog">平面模拟风格</string>
   <string name="settings_watch_analog_pebble">Pebble风格的模拟时钟</string>
   <string name="settings_watch_flat_red_analog">平面模拟(红色表盘)</string>
-  <string name="move_disable">禁用（不推荐用于AMOLED屏幕）</string>
-  <string name="move_move">自动移除部件</string>
-  <string name="move_move_animation">使小部件跟随动画移动</string>
-  <string name="greenify_integration_desc">在使用Always On时，启用绿色守护可显著延长待机时间。请确保已在辅助功能里启用绿色守护。</string>
-  <string name="greenify_integration_desc_found">请确保您在辅助功能中启用了绿色守护然后再选择您希望设备在锁定后休眠的应用。单击此处以配置绿色守护。</string>
-  <string name="greenify_integration_desc_not_found">安装绿色守护来延长待机时间</string>
   <string name="settings_notifications_alerts_preview_desc">收到通知后显示内容</string>
   <string name="settings_notifications_alerts_preview">通知内容</string>
   <string name="settings_doze_desc">在使用Always On时启用Doze模式来节约电量(需要提供Root权限)</string>

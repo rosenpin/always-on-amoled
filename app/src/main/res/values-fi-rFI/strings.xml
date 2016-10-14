@@ -13,6 +13,7 @@
   <string name="intro_modify_desc">Sovellus tarvitsee luvan vaihtaa näytön kirkkautta</string>
   <string name="intro_modify">Muuta järjestelmän asetuksia</string>
   <string name="intro_wake_ups">Herätys vaihtoehtoja</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <!--Quick settings-->
   <!-- Content description-->

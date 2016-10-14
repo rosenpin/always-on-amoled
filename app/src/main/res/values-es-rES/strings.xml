@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">Toca dos veces en el centro de la pantalla para desbloquear</string>
   <string name="intro_notifications">Notificaciones</string>
   <string name="intro_notifications_desc">¿Quieres recibir notificaciones de otras aplicaciones mientras la pantalla está en el estado \"always on\"? Si quieres, selecciona el botón \"Permitir\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">¡Gracias por tu apoyo! :)</string>
   <string name="notification_message">Always On está ejecutándose</string>
@@ -123,8 +124,6 @@
   <string name="settings_general">General</string>
   <string name="settings_shortcuts">Atajos</string>
   <string name="settings_wake_up">Gestos y acciones</string>
-  <string name="gestures_action_speak">Decir en voz alta el tiempo actual, las notificaciones y el estado de la batería</string>
-  <string name="gestures_action_flashlight">Botón de linterna</string>
   <string name="settings_rules">Reglas automáticas</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,10 +159,10 @@
   <string name="settings_translate">Traducir</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Comunidad</string>
-  <string name="greenify_integration">Integración con Greenify</string>
   <string name="settings_licenses">Licencias</string>
   <string name="settings_uninstall">Desinstalar</string>
   <string name="settings_exit_animation">Animación</string>
+  <string name="settings_raise_to_wake">Subida a despertar (inestable)</string>
   <string name="settings_app_version">Versión</string>
   <string name="settings_enable_greenify">Activar Greenify</string>
   <string name="settings_battery_saver">Modo ahorro de energía</string>
@@ -180,7 +179,6 @@
   <string name="settings_proximity_to_lock_desc">Bloquea el dispositivo cuando lo metes en el bolsillo para ahorrar batería (los sensores pueden gastar más bateria)</string>
   <string name="settings_licenses_desc">Licencias de código abierto</string>
   <string name="settings_community_desc">Comunidad Google Plus</string>
-  <string name="settings_about_twitter_desc">Sígueme en Twitter para noticias, actualizaciones y regalos</string>
   <string name="settings_github_desc">Código abierto en Github</string>
   <string name="settings_move_desc">Habilitar para evitar quemadura de algunos píxeles la pantalla AMOLED</string>
   <string name="settings_font_size_desc">Tamaño de fuente del reloj</string>
@@ -220,15 +218,8 @@
   <string name="settings_watch_ticks">Reloj de 12 horas clásico con agujas</string>
   <string name="settings_watch_digital_s7">Estilo de reloj digital del Galaxy S7</string>
   <string name="settings_watch_flat_analog">Estilo plano analógico</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Estilo del reloj analógico: Pebble</string>
   <string name="settings_watch_flat_red_analog">Estilo plano analógico (rojo)</string>
-  <string name="move_disable">Desactivado (no recomendado para pantallas AMOLED)</string>
-  <string name="move_move">Mover el widget automáticamente</string>
-  <string name="move_move_animation">Mover el widget automáticamente con una animación</string>
-  <string name="greenify_integration_desc">Activa Greenify cuando Always On se activa. Esto sirve para alargar la duración de la batería. Asegúrate de tener activado Greenify en las opciones de accesibilidad</string>
-  <string name="greenify_integration_desc_found">Asegúrate de habilitar Greenify en las opciones de accesibilidad y elige las aplicaciones que quieres que hibernen mientras el dispositivo está bloqueado. Toca aquí para configurar Greenify</string>
-  <string name="greenify_integration_desc_not_found">Instale Greenify para ahorrar batería</string>
   <string name="settings_notifications_alerts_preview_desc">Muestra el contenido de las notificaciones recibidas</string>
   <string name="settings_notifications_alerts_preview">Contenido de las notificaciones</string>
   <string name="settings_doze_desc">Habilite reposo mientras Always On está activo para ahorrar batería (sólo root)</string>
@@ -240,7 +231,6 @@
   <string name="settings_battery_saver_desc">Reduce el consumo de la batería y el sobrecalentamiento. Funciona mejor con root</string>
   <string name="settings_watchface_date_desc">Elige el estilo de fecha que desea ver</string>
   <string name="settings_gestures_home_button_dismiss_desc">Presione el botón home para salir de \"Always On Screen\". Esto desactiva siempre el sensor de huellas digitales.</string>
-  <string name="settings_raise_to_wake">Subida a despertar (inestable)</string>
   <string name="settings_raise_to_wake_desc">Recoger su dispositivo para mostrar siempre en la pantalla durante 10 segundos en lugar de tener la pantalla visible todo el tiempo</string>
   <string name="settings_raise_to_wake_device_admin">Conceder permiso de administrador de dispositivo para ser capaces de bloquear la pantalla de la aplicación</string>
 </resources>

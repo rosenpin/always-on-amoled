@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">دوضربه برای باز کردن</string>
   <string name="intro_notifications">اطلاعیه هشدار</string>
   <string name="intro_notifications_desc">شما می خواهید برای دریافت اطلاعیه از برنامه های دیگر در حالی که صفحه نمایش در حالت \"همیشه روشن\" اگر شما دکمه \"، هم اجازه\" را کلیک کنید</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">تشکر از شما بابت اطلاع!</string>
   <string name="notification_message">همیشه در حال اجرا</string>
@@ -98,8 +99,6 @@
   <string name="settings_general">کلی</string>
   <string name="settings_shortcuts">میانبرها</string>
   <string name="settings_wake_up">حرکات و اقدامات</string>
-  <string name="gestures_action_speak">وضعیت فعلی زمان اعلان ها و باتری با صدای بلند می گویند</string>
-  <string name="gestures_action_flashlight">چراغ قوه تبدیل</string>
   <string name="settings_rules">قوانین خودکار</string>
   <string name="settings_samsung">سامسونگ</string>
   <!--Settings titles-->
@@ -119,6 +118,7 @@
   <string name="settings_persistent_notification">نمایش اعلان مداوم</string>
   <string name="settings_move_auto">ویجت را به طور خودکار حرکت</string>
   <string name="settings_font_size">اندازه نوشتار</string>
+  <string name="settings_raise_to_wake">جمع آوری خواب بیدار (ناپایدار)</string>
   <string name="settings_app_version">ویرایش</string>
   <string name="settings_enable_greenify">Greenify فعال کردن</string>
   <string name="settings_battery_saver">باتری ذخیره حالت</string>
@@ -135,7 +135,6 @@
   <string name="settings_proximity_to_lock_desc">هنگامی که دستگاه شما را در جیب شما ذخیره باتری (سنسور ممکن است استفاده بیشتر باتری) محل قفل دستگاه</string>
   <string name="settings_licenses_desc">مجوزهای منبع باز</string>
   <string name="settings_community_desc">عضویت در انجمن گوگل پلاس برای اخبار، به روز رسانی giveaways و</string>
-  <string name="settings_about_twitter_desc">دنبال من در توییتر برای اخبار، به روز رسانی و جالب</string>
   <string name="settings_github_desc">نمایش کد منبع ارائه مسائل و کمک به توسعه نرم افزار</string>
   <string name="settings_move_desc">فعال کردن این برای جلوگیری از سوختگی AMOLED در</string>
   <string name="settings_font_size_desc">تنظیم اندازه قلم ساعت</string>
@@ -175,15 +174,8 @@
   <string name="settings_watch_ticks">ساعت آنالوگ کلاسیک 24 ساعته</string>
   <string name="settings_watch_digital_s7">S7 سبک ساعت دیجیتال</string>
   <string name="settings_watch_flat_analog">سبک مسطح آنالوگ</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">نقش ونگار ریگی دادن سبک ساعت آنالوگ</string>
   <string name="settings_watch_flat_red_analog">آنالوگ تخت (شماره گیری قرمز)</string>
-  <string name="move_disable">غیر فعال (نه توصیه شده برای صفحه نمایش های AMOLED)</string>
-  <string name="move_move">ویجت را به طور خودکار حرکت</string>
-  <string name="move_move_animation">حرکت عناصر به صورت خودکار با انیمیشن</string>
-  <string name="greenify_integration_desc">در حالی که همیشه در خدمات قابل مشاهده به طور قابل توجهی بهبود عمر باتری فعال Greenify. مطمئن شوید که فعال کردن Greenify در تنظیمات دستیابی پذیری را</string>
-  <string name="greenify_integration_desc_found">اطمینان به فعال کردن Greenify در تنظیمات قابلیت دسترسی و انتخاب برنامه های شما می خواهید آن را به خاموشی موقت در حالی که دستگاه قفل است. اینجا را کلیک کنید برای پیکربندی Greenify</string>
-  <string name="greenify_integration_desc_not_found">نصب Greenify به بهبود عمر باتری</string>
   <string name="settings_notifications_alerts_preview_desc">نمایش محتوای اعلان دریافت</string>
   <string name="settings_notifications_alerts_preview">مجموعه اعلان.</string>
   <string name="settings_doze_desc">در حالی که همیشه در روی صفحه نمایش فعال برای ذخیره باتری (ریشه) فعال چرت</string>
@@ -195,7 +187,6 @@
   <string name="settings_battery_saver_desc">کاهش مصرف باتری و گرمای بیش از حد. با این نسخهها کار بهتر است با ریه </string>
   <string name="settings_watchface_date_desc">سبک تاریخ شما می خواهید را انتخاب کنید</string>
   <string name="settings_gestures_home_button_dismiss_desc">با کلیک بر روی دکمه صفحه اصلی به صفحه همیشه در خارج. این غیر فعال همیشه در سنسور اثر انگشت.</string>
-  <string name="settings_raise_to_wake">جمع آوری خواب بیدار (ناپایدار)</string>
   <string name="settings_raise_to_wake_desc">دستگاه شما انتخاب کنید تا برای همیشه در صفحه نمایش برای 10 ثانیه به جای داشتن صفحه نمایش قابل مشاهده تمام وقت</string>
   <string name="settings_raise_to_wake_device_admin">دستگاه اجازه مدیر برای نرم افزار قادر به قفل صفحه نمایش</string>
 </resources>

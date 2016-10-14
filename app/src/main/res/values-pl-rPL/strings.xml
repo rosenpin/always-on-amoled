@@ -37,6 +37,7 @@
   <string name="intro_checkbox_double_tap">Stuknij dwukrotnie na środku ekranu, aby odblokować</string>
   <string name="intro_notifications">Informacje o powiadomieniach</string>
   <string name="intro_notifications_desc">Czy chcesz otrzymywać powiadomienia z innych aplikacji, gdy ekran jest w stanie \"Always On\"? Jeśli tak, kliknij przycisk \"Zezwalaj\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Dziękuję za twoje wsparcie! :)</string>
   <string name="notification_message">Always On Jest Uruchomione</string>
@@ -118,8 +119,6 @@
   <string name="settings_general">Ogólne</string>
   <string name="settings_shortcuts">Skróty</string>
   <string name="settings_wake_up">Gesty i akcje</string>
-  <string name="gestures_action_speak">Powiedz głośno bieżący czas, powiadomienia i stan baterii</string>
-  <string name="gestures_action_flashlight">Włącz latarkę</string>
   <string name="settings_rules">Reguły automatyczne</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -154,7 +153,6 @@
   <string name="settings_translate">Przetłumacz</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Społeczność</string>
-  <string name="greenify_integration">Integracja Greenify</string>
   <string name="settings_licenses">Licencje</string>
   <string name="settings_uninstall">Odinstaluj</string>
   <string name="settings_exit_animation">Animacja</string>
@@ -174,7 +172,6 @@
   <string name="settings_proximity_to_lock_desc">Zablokuj urządzenie po umieszczeniu urządzenia w kieszeni aby oszczędzić baterię (czujniki może powodować szybsze wyczerpanie baterii)</string>
   <string name="settings_licenses_desc">Licencje open source</string>
   <string name="settings_community_desc">Społeczność Google Plus</string>
-  <string name="settings_about_twitter_desc">Obserwuj mnie na Twitterze, aby wiedzieć o nowościach, aktualizacjach i giveaway\'ach</string>
   <string name="settings_github_desc">Link do GitHub z licencją Open source</string>
   <string name="settings_move_desc">Włącz to aby zapobiedz uszkodzeniu AMOLEDA</string>
   <string name="settings_font_size_desc">Ustaw rozmiar czcionki zegara</string>
@@ -213,15 +210,8 @@
   <string name="settings_watch_ticks">Klasyczny 12-godzinny z zaznaczonymi godzinami</string>
   <string name="settings_watch_digital_s7">Zegar cyfrowy w stylu S7</string>
   <string name="settings_watch_flat_analog">Zegar analogowy w stylu płaskim</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Zegar analogowy w stylu żwirowym</string>
   <string name="settings_watch_flat_red_analog">Płaski analogowy (czerwona tarcza)</string>
-  <string name="move_disable">Wyłączone (nie zalecane dla ekranów AMOLED)</string>
-  <string name="move_move">Przemieszczaj widżet automatycznie</string>
-  <string name="move_move_animation">Przemieszczaj widżet automatycznie z animacją</string>
-  <string name="greenify_integration_desc">Włącz Greenify, kiedy usługa Always On jest widoczna, aby znacznie poprawić żywotność baterii. Upewnij się, że Greenify jest włączone w ustawieniach dostępności</string>
-  <string name="greenify_integration_desc_found">Upewnij się, że włączyłeś Greenify w ustawieniach dostępności oraz wybrałeś aplikacje, które ma hibernować, gdy urządzenie jest zablokowane. Kliknij tutaj, aby skonfigurować Greenify</string>
-  <string name="greenify_integration_desc_not_found">Zainstaluj Greenify, aby poprawić żywotność baterii</string>
   <string name="settings_notifications_alerts_preview_desc">Pokazuj zawartość powiadomień po otrzymaniu</string>
   <string name="settings_notifications_alerts_preview">Treść powiadomień</string>
   <string name="settings_doze_desc">Włącz Doze, gdy Always On Display jest aktywny, aby oszczędzić baterię (tylko root)</string>

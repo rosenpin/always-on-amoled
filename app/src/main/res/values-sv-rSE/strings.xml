@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">Dubbeltryck på mitten av skärmen för att låsa upp</string>
   <string name="intro_notifications">Varningsmeddelanden</string>
   <string name="intro_notifications_desc">Vill du få meddelanden från andra program medan skärmen är i \"always on\" tillstånd? Om du vill, klicka på knappen \"tillåt nu\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Tack för ditt stöd! :)</string>
   <string name="notification_message">Always On är igång</string>
@@ -123,8 +124,6 @@
   <string name="settings_general">Allmänt</string>
   <string name="settings_shortcuts">Genvägar</string>
   <string name="settings_wake_up">Gester och funktioner</string>
-  <string name="gestures_action_speak">Säg aktuell tid, aviseringar och batteristatus</string>
-  <string name="gestures_action_flashlight">Ficklampa av/på</string>
   <string name="settings_rules">Automatiska regler</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,10 +159,10 @@
   <string name="settings_translate">Översätt</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Grupper</string>
-  <string name="greenify_integration">Greenify integration</string>
   <string name="settings_licenses">Licenser</string>
   <string name="settings_uninstall">Avinstallera</string>
   <string name="settings_exit_animation">Animering</string>
+  <string name="settings_raise_to_wake">Lyft upp för att vakna (instabil)</string>
   <string name="settings_app_version">Version</string>
   <string name="settings_enable_greenify">Aktivera Greenify</string>
   <string name="settings_battery_saver">Batteribesparingsläge</string>
@@ -180,7 +179,6 @@
   <string name="settings_proximity_to_lock_desc">Lås enheten när du placerar enheten i fickan för att spara batteri (Sensorer kan använda mer batteri)</string>
   <string name="settings_licenses_desc">Licenser för öppen källkod</string>
   <string name="settings_community_desc">Gå med i Google Plus gruppen för nyheter och mer</string>
-  <string name="settings_about_twitter_desc">Följ mig på Twitter för nyheter, uppdateringar och giveaways</string>
   <string name="settings_github_desc">Titta på källkoden, skicka felrapporter och hjälp till att utveckla appen</string>
   <string name="settings_move_desc">Aktivera för att undvika AMOLED-inbränning</string>
   <string name="settings_font_size_desc">Ange teckenstorlek för klockan</string>
@@ -220,15 +218,8 @@
   <string name="settings_watch_ticks">Klassisk analog klocka 12h</string>
   <string name="settings_watch_digital_s7">Galaxy S7 (digital)</string>
   <string name="settings_watch_flat_analog">Platt analog stil</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble (analog)</string>
   <string name="settings_watch_flat_red_analog">Platt analog (röd urtavla)</string>
-  <string name="move_disable">Avaktivera (rekommenderas inte för AMOLED skärmar)</string>
-  <string name="move_move">Flytta widgeten automatiskt</string>
-  <string name="move_move_animation">Flytta widgeten automatiskt med en animering</string>
-  <string name="greenify_integration_desc">Aktivera Greenify medan tjänsten \"always on\" syns för att avsevärt spara ström. Se till att aktivera Greenify i \"Appar med användningsåtkomst\"</string>
-  <string name="greenify_integration_desc_found">Se till att göra det möjligt för Greenify i tillgänglighetsinställningarna och välja de program du vill ska gå i viloläge när enheten är låst. Klicka här för att konfigurera Greenify</string>
-  <string name="greenify_integration_desc_not_found">Installera Greenify för att förbättra batteritiden</string>
   <string name="settings_notifications_alerts_preview_desc">Visa innehåll i meddelanden när de tas emot</string>
   <string name="settings_notifications_alerts_preview">Aviseringsinnehåll</string>
   <string name="settings_doze_desc">Aktivera slumra medan always on display är aktiv för att spara batteri (endast root)</string>
@@ -240,7 +231,6 @@
   <string name="settings_battery_saver_desc">Minska batteriförbrukningen och överhettning. Fungerar bättre med root</string>
   <string name="settings_watchface_date_desc">Välj det datumformat som du vill se</string>
   <string name="settings_gestures_home_button_dismiss_desc">Tryck på hemknappen för att avsluta always on display. Detta kommer att inaktivera fingeravtrycksgivaren för always on.</string>
-  <string name="settings_raise_to_wake">Lyft upp för att vakna (instabil)</string>
   <string name="settings_raise_to_wake_desc">När enheten plockas upp visas always on screen i 10 sekunder i stället för att det synligt på skärmen hela tiden</string>
   <string name="settings_raise_to_wake_device_admin">Ge appen administratörsbehörighet för att kunna låsa skärmen</string>
 </resources>

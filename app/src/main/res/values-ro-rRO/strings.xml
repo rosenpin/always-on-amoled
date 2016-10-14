@@ -33,6 +33,7 @@
   <string name="intro_checkbox_double_tap">Apasă de două ori în centrul ecranului pentru a ieși din starea „Always on”.</string>
   <string name="intro_notifications">Notificări pe ecranul „Always on”</string>
   <string name="intro_notifications_desc">Dorești să primești notificările aplicațiilor pe ecranul „Always on”? Această acțiune are nevoie de permisiunile dumneavoastră.</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Îți mulțumesc pentru sprijin! :)</string>
   <string name="notification_message">Serviciul „Always on” funcționează.</string>
@@ -92,7 +93,6 @@
   <string name="settings_appearance">Aspect</string>
   <string name="settings_general">Generale</string>
   <string name="settings_wake_up">Moduri de aprindere</string>
-  <string name="gestures_action_speak">Spune cu voce tare ora, notificările şi nivelul bateriei</string>
   <string name="settings_rules">Setări automate</string>
   <!--Settings titles-->
   <string name="settings_enabled">Activează</string>
@@ -120,7 +120,6 @@
   <string name="settings_translate">Oferă ajutor pentru traducerea aplicației</string>
   <string name="settings_github">Github</string>
   <string name="settings_community">Comunitate</string>
-  <string name="greenify_integration">Integrare Greenify</string>
   <string name="settings_licenses">Licențe</string>
   <string name="settings_uninstall">Altele</string>
   <string name="settings_app_version">Versiune</string>
@@ -170,10 +169,6 @@
   <string name="settings_watch_analog_s7">Stil analog S7</string>
   <string name="settings_watch_flat_analog">Sril analog drept</string>
   <string name="settings_watch_analog_pebble">Stil analog Pebble</string>
-  <string name="move_disable">Dezactivat (Nerecomandat pentru ecranele AMOLED)</string>
-  <string name="move_move">Misca widegetul automat</string>
-  <string name="move_move_animation">Misca widgetul automat cu o animatie</string>
-  <string name="greenify_integration_desc">Porneste Greenify cat timp serviciul always on este activ pentru a spori durata de viata a bateriei. Fi sigur ca este activat Greenify in setarile de accesibilitate</string>
   <string name="settings_notifications_alerts_preview_desc">Arata continutul notificarii atunci cand este primit</string>
   <string name="settings_notifications_alerts_preview">Continutul notificarii</string>
 </resources>

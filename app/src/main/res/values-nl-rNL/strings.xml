@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">Dubbel klikken in het midden van het scherm om te ontgrendelen</string>
   <string name="intro_notifications">Meldingen van notificaties</string>
   <string name="intro_notifications_desc">Wil je notificaties van andere apps krijgen terwijl het always on scherm aan staan? Wanneer je dit wilt klik dan op de \"nu toestaan\" knop</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Bedankt voor je support! :)</string>
   <string name="notification_message">Altijd Aan is ingeschakeld</string>
@@ -123,8 +124,6 @@
   <string name="settings_general">Algemeen</string>
   <string name="settings_shortcuts">Snelkoppelingen</string>
   <string name="settings_wake_up">Scherm aan</string>
-  <string name="gestures_action_speak">Huidige tijd, meldingen en batterij status hardop zeggen</string>
-  <string name="gestures_action_flashlight">Zaklamp aan/uit</string>
   <string name="settings_rules">Automatische regels</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,10 +159,10 @@
   <string name="settings_translate">Vertaal</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Community</string>
-  <string name="greenify_integration">Greenify integratie</string>
   <string name="settings_licenses">Licenties</string>
   <string name="settings_uninstall">Deinstalleer</string>
   <string name="settings_exit_animation">Animatie</string>
+  <string name="settings_raise_to_wake">Til op om te wekken (onstabiel)</string>
   <string name="settings_app_version">Versie</string>
   <string name="settings_enable_greenify">Greenify Inschakelen</string>
   <string name="settings_battery_saver">Energiebesparing</string>
@@ -180,7 +179,6 @@
   <string name="settings_proximity_to_lock_desc">Vergrendeling het apparaat wanneer je het in je broekzak doet om zo batterij te besparen (Sensoren kunnen echter wel meer batterij gebruiken)</string>
   <string name="settings_licenses_desc">Open source licenties</string>
   <string name="settings_community_desc">Google Plus Community</string>
-  <string name="settings_about_twitter_desc">Volg mij op Twitter voor nieuws, updates en giveaways</string>
   <string name="settings_github_desc">Open source GitHub link</string>
   <string name="settings_move_desc">Schakel dit in om te voorkomen dat je AMOLED inbrandt</string>
   <string name="settings_font_size_desc">Verander de klokgrootte</string>
@@ -220,15 +218,8 @@
   <string name="settings_watch_ticks">Klassieke 12-uurs klok met indicaties voor elk uur</string>
   <string name="settings_watch_digital_s7">S7 digitale klokstijl</string>
   <string name="settings_watch_flat_analog">Platte analoge stijl</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble analoge klokstijl</string>
   <string name="settings_watch_flat_red_analog">Platte Analoog (Rode wijzerplaat)</string>
-  <string name="move_disable">Uitgeschakeld (niet aanbevolen voor AMOLED schermen)</string>
-  <string name="move_move">Laat de widget automatisch bewegen</string>
-  <string name="move_move_animation">Laat de widget automatisch met een animatie verplaatsen</string>
-  <string name="greenify_integration_desc">Gebruik Greenify wanneer de always on service aan staat om de batterij aanzienlijk te besparen. Zorg er voor dat Greenify aan staat bij de toegankelijkheids instellingen</string>
-  <string name="greenify_integration_desc_found">Zorg er voor dat Greenify aan staan in toegankelijkheidsinstelling en kies de apps die je in slaap wilt houden wanneer de telefoon vergrendeld is. Klik hier om Greenify te configureren</string>
-  <string name="greenify_integration_desc_not_found">Installeer Greenify om batterijduur te verbeteren</string>
   <string name="settings_notifications_alerts_preview_desc">Laat de inhoud van notificaties zien wanneer deze binnenkomen</string>
   <string name="settings_notifications_alerts_preview">Inhoud van notificaties</string>
   <string name="settings_doze_desc">Zorg dat doze modus actief wordt staat wanneer het always on scherm aan staat om batterij te besparen (alleen voor root)</string>
@@ -240,7 +231,6 @@
   <string name="settings_battery_saver_desc">Verminder batterij verbruik en oververhitting. Werkt beter met root</string>
   <string name="settings_watchface_date_desc">Kies de datum-stijl die u wilt gebruiken</string>
   <string name="settings_gestures_home_button_dismiss_desc">Klik de home-knop om het altijd aan scherm te verlaten. Dit zal de altijd aan vingerafdruk scanner uitzetten.</string>
-  <string name="settings_raise_to_wake">Til op om te wekken (onstabiel)</string>
   <string name="settings_raise_to_wake_desc">Til je apparaat op om het altijd-aan-scherm voor 10 seconden te tonen in plaats dat het scherm constant zichtbaar is</string>
   <string name="settings_raise_to_wake_device_admin">Sta device admin toegang toe zodat de app het scherm kan locken</string>
 </resources>

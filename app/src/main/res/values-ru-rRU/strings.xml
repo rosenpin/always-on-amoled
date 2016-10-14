@@ -41,6 +41,7 @@
   <string name="intro_checkbox_double_tap">Разблокировка двойным тапом по экрану</string>
   <string name="intro_notifications">Уведомления</string>
   <string name="intro_notifications_desc">Вы хотите получать уведомления от других приложений, пока телефон находится в состонии \"always on\"? Если да, то нажмите на кнопку \"Разрешить сейчас\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Спасибо за вашу поддержку! :)</string>
   <string name="notification_message">Always On работает</string>
@@ -123,8 +124,6 @@
   <string name="settings_general">Общие</string>
   <string name="settings_shortcuts">Ярлыки</string>
   <string name="settings_wake_up">Жесты и действия</string>
-  <string name="gestures_action_speak">Произнести текущее время, уведомления и статус батареи</string>
-  <string name="gestures_action_flashlight">Включить фонарик</string>
   <string name="settings_rules">Правила работы</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -160,7 +159,6 @@
   <string name="settings_translate">Перевод</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Сообщество</string>
-  <string name="greenify_integration">Интеграция с Greenify</string>
   <string name="settings_licenses">Лицензия</string>
   <string name="settings_uninstall">Удалить</string>
   <string name="settings_exit_animation">Анимация</string>
@@ -180,7 +178,6 @@
   <string name="settings_proximity_to_lock_desc">Блокирует экран, если устройство в кармане (Датчик может потреблять много энергии)</string>
   <string name="settings_licenses_desc">Лицензии с открытым исходным кодом</string>
   <string name="settings_community_desc">Google+ сообщество</string>
-  <string name="settings_about_twitter_desc">Подпишись, чтобы своевременно получать последние новости и обновления</string>
   <string name="settings_github_desc">Ссылка на исходный код GitHub</string>
   <string name="settings_move_desc">Включите это, чтобы избежать выгорания AMOLED дисплея</string>
   <string name="settings_font_size_desc">Установить размер шрифта часов</string>
@@ -220,15 +217,8 @@
   <string name="settings_watch_ticks">Стрелочные 12ч с метками часов</string>
   <string name="settings_watch_digital_s7">Цифровые в стиле S7</string>
   <string name="settings_watch_flat_analog">Плоские стрелочные</string>
-  <string name="settings_about_twitter">Твиттер</string>
   <string name="settings_watch_analog_pebble">Стрелочные в стиле Pebble</string>
   <string name="settings_watch_flat_red_analog">Плоские стрелочные (красные)</string>
-  <string name="move_disable">Отключено (Не рекомендуется для AMOLED дисплеев)</string>
-  <string name="move_move">Перемещать</string>
-  <string name="move_move_animation">Перемещать с анимацией</string>
-  <string name="greenify_integration_desc">Включите Greenify пока виден экран Always ON для продления жизни батареи. Убедитесь, что Greenify активен в настройках специальных возможностей</string>
-  <string name="greenify_integration_desc_found">Убедитесь, что Greenify активен в настройках специальных возможностей и выберите приложения, которые нужно заморозить при блокировке дисплея. Нажмите сюда для настройки Greenify</string>
-  <string name="greenify_integration_desc_not_found">Установите Greenify для продления жизни батареи</string>
   <string name="settings_notifications_alerts_preview_desc">Показывать содержание уведомления при получении</string>
   <string name="settings_notifications_alerts_preview">Содержимое уведомлений</string>
   <string name="settings_doze_desc">Разрешить Doze при запущенном экране Always ON для энергосбережения (только с Root)</string>

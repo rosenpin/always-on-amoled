@@ -37,6 +37,7 @@
   <string name="intro_checkbox_double_tap">Dvojité ťuknutie do stredu obrazovky pre odomknutie</string>
   <string name="intro_notifications">Oznámenia notifikácií</string>
   <string name="intro_notifications_desc">Chcete dostávať upozornenia z iných aplikácií kým je zapnutá funkcia Always On? Ak áno, ťuknite na tlačidlo \"Povoliť teraz\"</string>
+  <!--Developer page-->
   <!--Feedback,Toasts & messages-->
   <string name="thanks">Ďakujem vám za vašu podporu! :)</string>
   <string name="notification_message">Funkcia Always On je zapnutá</string>
@@ -117,8 +118,6 @@
   <string name="settings_general">Všeobecné</string>
   <string name="settings_shortcuts">Odkazy</string>
   <string name="settings_wake_up">Gestá &amp; akcie</string>
-  <string name="gestures_action_speak">Povie nahlas momentálny čas, notifikácie a zostatok batérie</string>
-  <string name="gestures_action_flashlight">Zapnúť svietidlo</string>
   <string name="settings_rules">Automatické pravidlá</string>
   <string name="settings_samsung">Samsung</string>
   <!--Settings titles-->
@@ -151,7 +150,6 @@
   <string name="settings_translate">Preklady</string>
   <string name="settings_github">GitHub</string>
   <string name="settings_community">Komunita</string>
-  <string name="greenify_integration">Integrácia aplikácie Greenify</string>
   <string name="settings_licenses">Licencie</string>
   <string name="settings_uninstall">Odinštalovať</string>
   <string name="settings_exit_animation">Animácia</string>
@@ -207,15 +205,8 @@
   <string name="settings_watch_ticks">Klasické 12h analógové hodiny</string>
   <string name="settings_watch_digital_s7">S7 digitálne hodiny</string>
   <string name="settings_watch_flat_analog">Ploché analógové hodiny</string>
-  <string name="settings_about_twitter">Twitter</string>
   <string name="settings_watch_analog_pebble">Pebble štýl analógové hodiny</string>
   <string name="settings_watch_flat_red_analog">Ploché analógové hodiny (červený ciferník)</string>
-  <string name="move_disable">Vyp (neodporúča sa pre AMOLED obrazovky)</string>
-  <string name="move_move">Automaticky posúva widget</string>
-  <string name="move_move_animation">Automaticky posúva widget s animáciou</string>
-  <string name="greenify_integration_desc">Zapnutá aplikícia Greenify počas používania Always On znateľne predlžuje batériu. Nezabudnite povoliť Greenify v nastaveniach zjednodušenia ovládania</string>
-  <string name="greenify_integration_desc_found">Nezabudnite povoliť aplikáciu Greenify v nastaveniach zjednodušenia ovládanie a vyberte si aplikácie ktoré chcete hibernovať keď je zariadenie zamknuté. Ťuknite sem pre konfiguráciu Greenify</string>
-  <string name="greenify_integration_desc_not_found">Nainštalujte Greenify pre zvýšenie životnosti batérie</string>
   <string name="settings_notifications_alerts_preview_desc">Ukáže obsah prijatého upozornenia</string>
   <string name="settings_notifications_alerts_preview">Obsah upozornenia</string>
   <string name="settings_doze_desc">Povoľte režim Doze počas zapnutého Always On pre šetrenie batérie (len pre root používateľov)</string>
