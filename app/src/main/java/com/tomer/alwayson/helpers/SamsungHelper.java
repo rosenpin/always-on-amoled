@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class SamsungHelper implements ContextConstatns {
     private Prefs prefs;
-    private int originalCapacitiveButtonsState;
+    private int originalCapacitiveButtonsState = 1;
     private ContentResolver contentResolver;
     private Context context;
 

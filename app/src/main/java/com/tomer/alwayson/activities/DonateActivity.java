@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.android.vending.billing.IInAppBillingService;
 import com.tomer.alwayson.BuildConfig;
+import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.R;
 import com.tomer.alwayson.SecretConstants;
@@ -37,7 +38,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DonateActivity extends AppCompatActivity {
+public class DonateActivity extends AppCompatActivity implements ContextConstatns {
     private static ServiceConnection mServiceConn;
     private static IInAppBillingService mService;
 
@@ -61,35 +62,39 @@ public class DonateActivity extends AppCompatActivity {
     }
 
     public static void resetPaymentService(Context context) {
-        mServiceConn = new ServiceConnection() {
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                mService = null;
-            }
-
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                mService = IInAppBillingService.Stub.asInterface(service);
-                try {
-                    Globals.ownedItems = mService.getPurchases(3, context.getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
-                    Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
-                    if (BuildConfig.DEBUG && !Utils.isGooglePlayInstalled(context) && Globals.ownedItems == null)
-                        Globals.ownedItems = new ArrayList<String>() {{
-                            add(SecretConstants.getPropertyValue(context, "NO_PLAY_STORE_IAP"));
-                        }};
-                } catch (RemoteException e) {
-                    e.printStackTrace();
+        if (BuildConfig.DEBUG && !Utils.isGooglePlayInstalled(context) && Globals.ownedItems == null)
+            Globals.ownedItems = new ArrayList<String>() {{
+                add(SecretConstants.getPropertyValue(context, "NO_PLAY_STORE_IAP"));
+            }};
+        else {
+            mServiceConn = new ServiceConnection() {
+                @Override
+                public void onServiceDisconnected(ComponentName name) {
+                    mService = null;
                 }
-            }
-        };
 
-        Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        billingServiceIntent.setPackage("com.android.vending");
-        try {
-            context.unbindService(mServiceConn);
-        } catch (Exception ignored) {
+                @Override
+                public void onServiceConnected(ComponentName name, IBinder service) {
+                    mService = IInAppBillingService.Stub.asInterface(service);
+                    try {
+                        int response = mService.isBillingSupported(3, context.getPackageName(), "inapp");
+                        if (response == RESULT_BILLING_UNAVAILABLE)
+                            return;
+                        Globals.ownedItems = mService.getPurchases(3, context.getPackageName(), "inapp", null).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                        Utils.logDebug("BOUGHT_ITEMS", String.valueOf(Globals.ownedItems));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            Intent billingServiceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
+            billingServiceIntent.setPackage("com.android.vending");
+            try {
+                context.unbindService(mServiceConn);
+            } catch (Exception ignored) {
+            }
+            context.bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
         }
-        context.bindService(billingServiceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
     }
 
     public static void onDestroy(Context context) {

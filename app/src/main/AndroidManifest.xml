@@ -80,9 +80,10 @@
             android:name=".activities.SamsungHomeWatcherActivity"
             android:excludeFromRecents="true"
             android:showOnLockScreen="true" />
-        <activity android:name=".activities.DeveloperActivity"
+        <activity
+            android:name=".activities.DeveloperActivity"
             android:parentActivityName=".activities.PreferencesActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".activities.PreferencesActivity"
             android:theme="@style/AppTheme">

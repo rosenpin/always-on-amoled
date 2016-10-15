@@ -44,6 +44,7 @@ public interface ContextConstatns {
     int NOTIFICATION_LISTENER_REQUEST_CODE = 3;
     int CAMERA_PERMISSION_REQUEST_CODE = 5;
     int DEVICE_ADMIN_REQUEST_CODE = 4;
+    int RESULT_BILLING_UNAVAILABLE = 3;
 
     int reportNotificationID = 53;
 
