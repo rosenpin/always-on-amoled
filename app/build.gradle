@@ -8,8 +8,8 @@ android {
         applicationId "com.tomer.alwayson"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 217
-        versionName "0.9.6 beta 4"
+        versionCode 222
+        versionName "0.9.6 beta 9"
         jackOptions.enabled = true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
@@ -44,7 +44,6 @@ dependencies {
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
     compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
-    compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
