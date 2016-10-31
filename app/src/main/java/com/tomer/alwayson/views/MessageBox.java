@@ -14,11 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tomer.alwayson.R;
-import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.NotificationListener;
-import com.tomer.alwayson.ContextConstatns;
 
-public class MessageBox extends LinearLayout implements ContextConstatns {
+public class MessageBox extends LinearLayout {
 
     private Context context;
     private CardView messageBox;
@@ -77,6 +75,5 @@ public class MessageBox extends LinearLayout implements ContextConstatns {
         ((TextView) messageBox.findViewById(R.id.message_box_message)).setText("");
         ((ImageView) messageBox.findViewById(R.id.message_box_icon)).setImageBitmap(null);
         ((TextView) messageBox.findViewById(R.id.message_app_name)).setText("");
-        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "notification box removed" );
     }
 }

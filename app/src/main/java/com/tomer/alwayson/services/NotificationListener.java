@@ -61,7 +61,6 @@ public class NotificationListener extends NotificationListenerService implements
 
     @Override
     public void onNotificationRemoved(StatusBarNotification removed) {
-        Utils.logDebug(NOTIFICATION_LISTENER_TAG, "notification removed");
         Globals.notifications.remove(getUniqueKey(removed));
         sendBroadcast(new Intent(NEW_NOTIFICATION));
     }
