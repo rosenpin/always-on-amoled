@@ -8,6 +8,7 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.helpers.Utils;
 import com.tomer.alwayson.services.MainService;
+import com.tomer.alwayson.services.NotificationListener;
 
 public class UnlockReceiver extends BroadcastReceiver implements ContextConstatns {
 
