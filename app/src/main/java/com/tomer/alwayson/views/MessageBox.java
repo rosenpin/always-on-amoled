@@ -69,4 +69,11 @@ public class MessageBox extends LinearLayout {
     public void setOnClickListener(OnClickListener onClickListener) {
         messageBox.setOnClickListener(onClickListener);
     }
+
+    public void clearNotificationBox(){
+        ((TextView) messageBox.findViewById(R.id.message_box_title)).setText("");
+        ((TextView) messageBox.findViewById(R.id.message_box_message)).setText("");
+        ((ImageView) messageBox.findViewById(R.id.message_box_icon)).setImageBitmap(null);
+        ((TextView) messageBox.findViewById(R.id.message_app_name)).setText("");
+    }
 }

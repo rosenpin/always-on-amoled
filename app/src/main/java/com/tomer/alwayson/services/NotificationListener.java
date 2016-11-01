@@ -16,6 +16,8 @@ import com.tomer.alwayson.ContextConstatns;
 import com.tomer.alwayson.Globals;
 import com.tomer.alwayson.helpers.Utils;
 
+import java.util.Map;
+
 public class NotificationListener extends NotificationListenerService implements ContextConstatns {
 
     @Override
@@ -48,8 +50,11 @@ public class NotificationListener extends NotificationListenerService implements
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-            Globals.newNotification = new NotificationHolder(title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent);
-            Globals.notifications.put(getUniqueKey(added), Globals.newNotification);
+            if(Globals.newNotification()!=null){
+                Globals.notifications.get(Globals.newNotification()).setNew(false);
+            }
+            NotificationHolder newNotification = new NotificationHolder(title, content, icon, notificationAppInfo != null ? getPackageManager().getApplicationLabel(notificationAppInfo) : null, added.getNotification().contentIntent, true);
+            Globals.notifications.put(getUniqueKey(added), newNotification);
         }
         sendBroadcast(new Intent(NEW_NOTIFICATION));
     }
@@ -64,6 +69,7 @@ public class NotificationListener extends NotificationListenerService implements
         return notification.getPackageName();
     }
 
+
     private Drawable getIcon(StatusBarNotification notification) {
         if (Utils.isAndroidNewerThanM())
             return notification.getNotification().getSmallIcon().loadDrawable(this);
@@ -71,13 +77,17 @@ public class NotificationListener extends NotificationListenerService implements
             return ContextCompat.getDrawable(getApplicationContext(), notification.getNotification().icon);
     }
 
+
+
     public static class NotificationHolder {
         private String appName;
         private Drawable icon;
         private String title, message;
         private PendingIntent intent;
+        private boolean isNew;
 
-        NotificationHolder(String title, String message, Drawable icon, CharSequence appName, PendingIntent intent) {
+
+        NotificationHolder(String title, String message, Drawable icon, CharSequence appName, PendingIntent intent, boolean newnotification) {
             this.icon = icon;
             this.title = title;
             this.message = message;
@@ -87,7 +97,9 @@ public class NotificationListener extends NotificationListenerService implements
             if (this.title.equals("null"))
                 this.title = "";
             this.intent = intent;
+            this.isNew = newnotification;
         }
+
 
         public Drawable getIcon(Context context) {
             if (icon != null)
@@ -110,5 +122,10 @@ public class NotificationListener extends NotificationListenerService implements
         public PendingIntent getIntent() {
             return intent;
         }
+
+        public boolean getNew(){return isNew;}
+
+        public void setNew(boolean x){isNew = x;}
+
     }
 }
