@@ -11,10 +11,10 @@
   <!--Support-->
   <string name="action_support_the_development">Támogassa a fejlesztést</string>
   <string name="support_how_much">Mennyit szeretne adományozni?</string>
-  <string name="supporter_feature_only">Ez a szolgáltatás csak támogatóknak elérhető, csak válassz hogy mennyit akarsz adományozni hogy támogató legyél, mennyit akarsz adományozni?</string>
+  <string name="supporter_feature_only">Ez a szolgáltatás csak támogatóknak elérhető, kérem válasszon mennyit akar adományozni?</string>
   <string name="support_choose">Mennyit szeretne adományozni?</string>
   <string name="support_1">Feloldás</string>
-  <string name="support_2">Adományozás</string>
+  <string name="support_2">Támogatás</string>
   <string name="support_5">Nagy támogatás</string>
   <string name="support_10">Fantasztikus támogatás</string>
   <string name="support_20">Hatalmas támogatás</string>

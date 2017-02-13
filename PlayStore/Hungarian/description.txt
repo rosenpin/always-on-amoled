@@ -1,34 +1,35 @@
-Always on display funkciót kap telefonja vagy tabletje.
-Képernyőjét mindig bekapcsolva tartja.
-Az első nyílt forráskódú always on app!
+Ezzel az alkalmazással élvezze az Always On funkciót telefonján vagy tabletén
+Az alkalmazás bekapcsolva tartja a kijelzőn az órát és egyéb fontos információkat állandóan.
+Az első nyílt forráskódú Always On alkalmazás az áruházban!
 
-Az ötlet az, hogy a felhasználókat ellásuk információval az időről, dátumról, értesítésekről, satöbbi, anélkül hogy a telefonhoz érne. Elég ha csak ránézünk.
+Az ötlet az, hogy a felhasználókat ellásuk olyan információval, mint az idő, dátum, értesítések, időjárás, anélkül hogy a telefonhoz érne. Elég ha csak ránézünk.
 
 Az egész az AMOLED kijelzőnek köszönhető. A képernyő nagy része fekete marad, kivéve néhány pixel.
+Ez viszonylag minimálisra csökkenti a fogyasztást.
 
 Figyelemre méltó szolgáltatások
 Mindig-bekapcsolt kijelző
 •    Értesítések - tekintse meg értesítéseit anélkül hogy hozzáérne készülékéhez
 • Automatikus szabályok - megőrzése akkumulátort használ előre definiált szabályok
-• Automatikus mozgás - AMOLED beégés elkerülése
-Automatikus esti mód - a képernyő automatikusan sötétebb környezetre vált.
-Zseb mód - hogy ne merüljön a telefonod
-Dupla koppintásra ébreszt + Felfele húzásra ébreszt + Hangerő gombokra ébreszt + Vissza gombra ébreszt
-• Force orientation - set your preferred screen orientation
-Személyre szabás - választható betű szín, betűméret, fényerő és még több hasznos funkció
-•    INGYENES ÉS NYÍLT FORRÁSKÓDÚ
+• Automatikus animáció - AMOLED beégés elkerülése
+Automatikus esti mód - a képernyő automatikusan sötétebb módba vált, ha kevés fényt érzékel.
+Zseb mód - hogy ne merüljön a telefonod a zsebedben
+Dupla koppintásra ébresztés + Felfele húzásra ébresztés + Hangerő gombokra ébresztés + Vissza gombra ébresztés
+•Orientáció beállítás - állítson be álló vagy fekvő módot
+•Hatalmas személyre szabás - választható betű szín, betűméret, fényerő és még rengeteg hasznos funkció
+•INGYENES ÉS NYÍLT FORRÁSKÓDÚ
 
-Before using please enable 'draw over apps' permission for this app.
+Kérjük használat előtt engedélyezze a 'draw over apps' jogot ehhez az alkalmazáshoz.
 
 Az app BÉTA státuszban van, előfordulhatnak hibák és hiányzó funkciók.
 
-Engedélyek
-<b>Kamera engedély<b>
-The app needs camera permission to recognize camera launch event and dismiss the "always on" screen.
-<b>Phone permission</b>
-The app needs phone permission to recognize incoming calls, dismiss the always on screen and show the incoming call screen.
-<b>Modify system settings permission</b>
-The app needs permission to modify system settings to change the brightness of the lock screen.
+Engedélyek:
+<b>Kamera<b>
+Hogy kamera indítását érzékelve kikapcsolja az Always On módot.
+<b>Hívásbeállítások</b>
+Hogy az alkalmazás bejövő hívásra kikapcsolja az Always On módot.
+<b>Rendszerbeállítások módosítása</b>
+Hogy az alkalmazás lezárt képernyő mellett tudja szabályozni az Always On kijelző fényerejét.
 
 
 Google Plus Community

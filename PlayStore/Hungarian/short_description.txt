@@ -1,2 +1,2 @@
-Használj egy mindig bekapcsolt kijelzőt minimális akkumulátor használattal
-Képernyőjét mindig bekapcsolva tartja!
+Használja az Always On módot minimális energiafogyasztással Amoled kijelzőn.
+Tartsa képernyőjét mindig bekapcsolva!
