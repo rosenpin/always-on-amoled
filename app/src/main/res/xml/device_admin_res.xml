@@ -1,0 +1,6 @@
+<device-admin>
+    <uses-policies>
+        <force-lock />
+        <disable-keyguard-features />
+    </uses-policies>
+</device-admin>

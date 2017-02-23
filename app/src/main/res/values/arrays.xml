@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Charging rules-->
+    <string-array name="rules_charging">
+        <item>@string/rules_both_charging</item>
+        <item>@string/rules_while_charging</item>
+        <item>@string/rules_while_not_charging</item>
+    </string-array>
+    <string-array name="rules_charging_vals">
+        <item>always</item>
+        <item>charging</item>
+        <item>discharging</item>
+    </string-array>
+    <!--Battery rules-->
+    <string-array name="rules_battery">
+        <item>@string/rules_always</item>
+        <item>@string/rules_battery_90</item>
+        <item>@string/rules_battery_70</item>
+        <item>@string/rules_battery_50</item>
+        <item>@string/rules_battery_30</item>
+        <item>@string/rules_battery_20</item>
+        <item>@string/rules_battery_10</item>
+    </string-array>
+    <string-array name="rules_battery_vals">
+        <item>0</item>
+        <item>90</item>
+        <item>70</item>
+        <item>50</item>
+        <item>30</item>
+        <item>20</item>
+        <item>10</item>
+    </string-array>
+    <!--Delay rules-->
+    <string-array name="delays">
+        <item>@string/rules_disabled</item>
+        <item>@string/rules_minutes_1</item>
+        <item>@string/rules_minutes_2</item>
+        <item>@string/rules_minutes_5</item>
+        <item>@string/rules_minutes_10</item>
+        <item>@string/rules_minutes_15</item>
+        <item>@string/rules_minutes_30</item>
+        <item>@string/rules_hour</item>
+        <item>@string/rules_hours_2</item>
+    </string-array>
+    <string-array name="delays_vals">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+    </string-array>
+    <!--Orientation settings-->
+    <string-array name="orientations">
+        <item>@string/rules_orientation_vertical</item>
+        <item>@string/rules_orientation_horizontal</item>
+    </string-array>
+    <string-array name="orientations_vals">
+        <item>vertical</item>
+        <item>horizontal</item>
+    </string-array>
+
+    <string-array name="customize_clock">
+        <item>@string/settings_customize_hidden</item>
+        <item>@string/settings_watch_digital</item>
+        <item>@string/settings_watch_analog</item>
+        <item>@string/settings_watch_digital_s7</item>
+        <item>@string/settings_watch_analog_24_classic</item>
+        <item>@string/settings_watch_analog_s7</item>
+        <item>@string/settings_watch_analog_pebble</item>
+        <item>@string/settings_watch_flat_analog</item>
+        <item>@string/settings_watch_flat_red_analog</item>
+        <item>@string/settings_watch_ticks</item>
+    </string-array>
+    <string-array name="customize_clock_vals">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="customize_date">
+        <item>@string/settings_customize_hidden</item>
+        <item>@string/settings_rules_text</item>
+        <item>@string/settings_date_full_calendar</item>
+    </string-array>
+    <string-array name="customize_date_vals">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="customize_battery">
+        <item>@string/settings_customize_hidden</item>
+        <item>@string/settings_shown</item>
+    </string-array>
+    <string-array name="customize_battery_vals">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="fonts">
+        <item>@string/settings_font_default</item>
+        <item>@string/settings_font_default_bold</item>
+        <item>@string/settings_font_default_italic</item>
+        <item>@string/settings_font_serif</item>
+        <item>@string/settings_font_sans_serif</item>
+        <item>@string/settings_font_monospace</item>
+        <item>Dotted</item>
+        <item>Raleway Dots</item>
+        <item>Ginga</item>
+        <item>Grinched</item>
+        <item>Parry Hotter</item>
+        <item>Snack Patrol</item>
+        <item>Trascho</item>
+        <item>Homoarak</item>
+        <item>Waltograph</item>
+        <item>Halo 3</item>
+        <item>Ubuntu</item>
+        <item>Press start 2P Regular</item>
+        <item>Roboto</item>
+        <item>Roboto thin</item>
+        <item>Roboto light</item>
+        <item>Ritaglio</item>
+        <item>Philippine</item>
+        <item>Some Time Later</item>
+        <item>LCD</item>
+        <item>Black Chancery</item>
+        <item>Ninja Font</item>
+        <item>Still Time</item>
+        <item>Bristol</item>
+        <item>Economica</item>
+        <item>Porkys</item>
+        <item>Quick Hand</item>
+        <item>Tr2n</item>
+    </string-array>
+
+    <string-array name="gestures_actions">
+        <item>@string/widget_off</item>
+        <item>@string/unlock</item>
+        <!--  <item>Open an app</item>-->
+        <item>@string/settings_gestures_action_speak</item>
+        <item>@string/settings_gestures_action_flashlight</item>
+    </string-array>
+    <string-array name="gestures_actions_vals">
+        <item>0</item>
+        <item>1</item>
+        <!-- <item>open_app</item>-->
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="support_items">
+        <item>@string/support_1</item>
+        <item>@string/support_2</item>
+        <item>@string/support_5</item>
+        <item>@string/support_10</item>
+        <item>@string/support_20</item>
+    </string-array>
+
+    <string-array name="settings_move">
+        <item>@string/settings_move_disable</item>
+        <item>@string/settings_move_move</item>
+        <item>@string/settings_move_animation</item>
+    </string-array>
+    <string-array name="settings_move_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="animations">
+        <item>@string/animation_disabled</item>
+        <item>@string/animation_fade_out</item>
+        <item>@string/animation_slide_out</item>
+    </string-array>
+    <string-array name="animations_vals">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

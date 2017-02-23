@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/watchface_wrapper"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="#000000"
+    android:foregroundGravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.tomer.alwayson.views.Clock
+        android:id="@+id/clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.tomer.alwayson.views.DateView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.tomer.alwayson.views.BatteryView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include layout="@layout/notifications" />
+
+    <com.tomer.alwayson.views.MusicPlayer
+        android:id="@+id/music_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
+
+    <include layout="@layout/memo" />
+
+    <com.tomer.alwayson.views.MessageBox
+        android:id="@+id/notifications_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_spacing">
+
+    </com.tomer.alwayson.views.MessageBox>
+
+</LinearLayout>

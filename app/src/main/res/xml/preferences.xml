@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preference_screen"
+    xmlns:app="http://schemas.android.com/apk/res/com.tomer.alwayson">
+    <PreferenceCategory android:title="@string/settings_general">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="enabled"
+            android:summary="@string/settings_enabled_desc"
+            android:title="@string/settings_enabled" />
+        <PreferenceScreen
+            android:summary="@string/settings_rules_desc"
+            android:title="@string/settings_rules">
+            <PreferenceCategory android:title="@string/settings_rules">
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:dialogTitle="@string/settings_stop_delay_desc_short_message"
+                    android:entries="@array/delays"
+                    android:entryValues="@array/delays_vals"
+                    android:key="stop_delay"
+                    android:summary="%s"
+                    android:title="@string/settings_stop_delay" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="always"
+                    android:dialogTitle="@string/settings_rules_desc"
+                    android:entries="@array/rules_charging"
+                    android:entryValues="@array/rules_charging_vals"
+                    android:key="rules"
+                    android:summary="%s"
+                    android:title="@string/settings_rules_cahrging" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:dialogTitle="@string/settings_rules_desc"
+                    android:entries="@array/rules_battery"
+                    android:entryValues="@array/rules_battery_vals"
+                    android:key="battery_rules"
+                    android:summary="%s"
+                    android:title="@string/settings_rules_battery" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="gestures_prefs"
+            android:summary="@string/settings_gestures_desc"
+            android:title="@string/settings_gestures">
+            <PreferenceCategory
+                android:key="samsung_prefs"
+                android:title="@string/settings_samsung">
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="home_button_dismiss"
+                    android:summary="@string/settings_gestures_home_button_dismiss_desc"
+                    android:title="@string/settings_gestures_home_button_dismiss" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_wake_up">
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="1"
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:key="double_tap_action"
+                    android:summary="%s"
+                    android:title="@string/settings_double_tap_wake" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:key="swipe_up_action"
+                    android:summary="%s"
+                    android:title="@string/settings_swipe_up" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:key="swipe_down_action"
+                    android:summary="%s"
+                    android:title="@string/settings_swipe_down" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:key="volume_keys_action"
+                    android:summary="%s"
+                    android:title="@string/settings_volume_to_stop" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:entries="@array/gestures_actions"
+                    android:entryValues="@array/gestures_actions_vals"
+                    android:key="back_button_action"
+                    android:summary="%s"
+                    android:title="@string/settings_back_button_wake" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_shortcuts">
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="camera_shortcut"
+                    android:summary="@string/settings_stop_on_camera_desc"
+                    android:title="@string/settings_stop_on_camera" />
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="google_now_shortcut"
+                    android:summary="@string/settings_google_now_shortcut_desc"
+                    android:title="@string/settings_google_now_shortcut" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_appearance">
+        <PreferenceScreen
+            android:summary="@string/settings_watchface_desc"
+            android:title="@string/settings_watchface">
+            <PreferenceCategory android:title="@string/settings_watchface_styles">
+                <Preference
+                    android:defaultValue="1"
+                    android:key="watchface_clock"
+                    android:summary="@string/settings_watchface_clock_desc"
+                    android:title="@string/settings_watchface_clock" />
+                <Preference
+                    android:defaultValue="1"
+                    android:key="watchface_date"
+                    android:summary="@string/settings_watchface_date_desc"
+                    android:title="@string/settings_watchface_date" />
+                <com.afollestad.materialdialogs.prefs.MaterialListPreference
+                    android:defaultValue="0"
+                    android:dialogTitle="@string/settings_watchface_battery"
+                    android:entries="@array/customize_battery"
+                    android:entryValues="@array/customize_battery_vals"
+                    android:key="watchface_battery"
+                    android:summary="%s"
+                    android:title="@string/settings_watchface_battery" />
+
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_watchface_text_font">
+                <Preference
+                    android:defaultValue="0"
+                    android:key="font"
+                    android:summary="@string/settings_choose_font"
+                    android:title="@string/settings_font" />
+                <com.tomer.alwayson.views.SeekBarPreference
+                    android:defaultValue="80"
+                    android:dialogTitle="@string/settings_font_size_desc"
+                    android:key="font_size"
+                    android:max="120"
+                    android:summary="@string/settings_font_size_desc"
+                    android:title="@string/settings_font_size" />
+                <Preference
+                    android:key="textcolor"
+                    android:summary="@string/settings_text_color_desc"
+                    android:title="@string/settings_text_color" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_always_on_memo">
+                <com.tomer.alwayson.views.EditTextDialog
+                    android:dialogTitle="@string/settings_memo_text_desc"
+                    android:hint="@string/settings_memo_hint"
+                    android:key="memo_text"
+                    android:summary="%s"
+                    android:title="@string/settings_memo_text" />
+                <com.tomer.alwayson.views.SeekBarPreference
+                    android:defaultValue="40"
+                    android:dependency="memo_text"
+                    android:dialogTitle="@string/settings_font_size_desc"
+                    android:key="memo_font_size"
+                    android:max="120"
+                    android:summary="@string/settings_font_size_memo_desc"
+                    android:title="@string/settings_font_size" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+                <CheckBoxPreference
+                    android:key="showampm"
+                    android:summary="@string/settings_show_am_pm_desc"
+                    android:title="@string/settings_show_am_pm" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:defaultValue="vertical"
+            android:dialogTitle="@string/settings_orientation"
+            android:entries="@array/orientations"
+            android:entryValues="@array/orientations_vals"
+            android:key="screen_orientation"
+            android:summary="%s"
+            android:title="@string/settings_orientation" />
+        <com.tomer.alwayson.views.SeekBarPreference
+            android:defaultValue="12"
+            android:dialogTitle="@string/settings_brightness_desc"
+            android:key="brightness"
+            android:max="200"
+            android:summary="@string/settings_brightness_desc"
+            android:title="@string/settings_brightness" />
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/settings_exit_animation_desc"
+            android:entries="@array/animations"
+            android:entryValues="@array/animations_vals"
+            android:key="exit_animation"
+            android:summary="%s"
+            android:title="@string/settings_exit_animation" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_behaviour">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="battery_saver"
+            android:summary="@string/settings_battery_saver_desc"
+            android:title="@string/settings_battery_saver" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="raise_to_wake"
+            android:summary="@string/settings_raise_to_wake_desc"
+            android:title="@string/settings_raise_to_wake" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="notifications_alerts"
+            android:summary="@string/settings_notifications_alerts_desc"
+            android:title="@string/settings_notifications" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="notifications_alerts"
+            android:key="notifications_alerts_preview"
+            android:summary="@string/settings_notifications_alerts_preview_desc"
+            android:title="@string/settings_notifications_alerts_preview" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="startafterlock"
+            android:summary="@string/settings_startafterlock_desc"
+            android:title="@string/settings_startafterlock" />
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/settings_move_desc"
+            android:entries="@array/settings_move"
+            android:entryValues="@array/settings_move_values"
+            android:key="movement_style"
+            android:summary="%s"
+            android:title="@string/settings_move_auto" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_brightness"
+            android:summary="@string/settings_auto_brightness_desc"
+            android:title="@string/settings_auto_brightness" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="proximity_to_lock"
+            android:summary="@string/settings_proximity_to_lock_desc"
+            android:title="@string/settings_proximity" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings_watchface_miscellaneous">
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="doze_mode"
+            android:summary="@string/settings_doze_desc"
+            android:title="@string/settings_doze" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="greenify_enabled"
+            android:summary="@string/settings_greenify_integration_desc"
+            android:title="@string/settings_greenify_integration" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="disable_volume_keys"
+            android:summary="@string/settings_disable_volume_keys_desc"
+            android:title="@string/settings_disable_volume_keys" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="enabled"
+            android:key="persistent_notification"
+            android:summary="@string/settings_notifications_desc"
+            android:title="@string/settings_persistent_notification" />
+        <Preference
+            android:key="uninstall"
+            android:summary="@string/settings_uninstall_desc"
+            android:title="@string/settings_uninstall" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_about">
+        <com.tomer.alwayson.views.URLPreference
+            android:summary="@string/settings_community_desc"
+            android:title="@string/settings_community"
+            app:url="https://plus.google.com/communities/104206728795122451273" />
+        <com.tomer.alwayson.views.URLPreference
+            android:summary="@string/settings_about_translate"
+            android:title="@string/settings_translate"
+            app:url="https://crowdin.com/project/always-on-amoled" />
+        <com.tomer.alwayson.views.DeveloperPreference
+            android:summary="@string/settings_developer_desc"
+            android:title="@string/settings_developer"/>
+        <Preference
+            android:key="open_source_licenses"
+            android:summary="@string/settings_licenses_desc"
+            android:title="@string/settings_licenses" />
+        <Preference
+            android:key="version"
+            android:title="@string/settings_app_version" />
+    </PreferenceCategory>
+</PreferenceScreen>

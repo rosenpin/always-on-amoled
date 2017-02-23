@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/song_name_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        android:orientation="horizontal"
+        android:weightSum="15">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/skip_prev"
+            android:layout_width="@dimen/media_icon_size"
+            android:layout_height="@dimen/media_icon_size"
+            android:layout_gravity="left"
+            android:layout_weight="3"
+            android:paddingLeft="@dimen/medium_spacing"
+            android:paddingRight="@dimen/medium_spacing"
+            app:srcCompat="@drawable/ic_skip_previous" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/play"
+            android:layout_width="@dimen/media_icon_size"
+            android:layout_height="@dimen/media_icon_size"
+            android:layout_weight="9"
+            android:paddingLeft="@dimen/medium_spacing"
+            android:paddingRight="@dimen/medium_spacing"
+            app:srcCompat="@drawable/ic_play_pause" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/skip_next"
+            android:layout_width="@dimen/media_icon_size"
+            android:layout_height="@dimen/media_icon_size"
+            android:layout_gravity="right"
+            android:layout_weight="3"
+            android:paddingLeft="@dimen/medium_spacing"
+            android:paddingRight="@dimen/medium_spacing"
+            app:srcCompat="@drawable/ic_skip_next" />
+    </LinearLayout>
+</LinearLayout>

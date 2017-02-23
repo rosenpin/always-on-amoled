@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/rate"
+        android:icon="@drawable/ic_rate"
+        android:title="@string/menu_rate"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/community"
+        android:icon="@drawable/ic_people"
+        android:title="@string/settings_community"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/github"
+        android:icon="@drawable/ic_github"
+        android:title="@string/settings_github"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/translate"
+        android:icon="@drawable/ic_translate"
+        android:title="@string/settings_translate"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/uninstall"
+        android:icon="@drawable/ic_uninstall"
+        android:title="@string/settings_uninstall"
+        app:showAsAction="never" />
+</menu>

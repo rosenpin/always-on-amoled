@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+
+
+
+    android {
+
+        compileSdkVersion 24
+
+        buildToolsVersion "24.0.2"
+
+
+
+        defaultConfig {
+
+            applicationId "com.tomer.alwayson"
+
+            minSdkVersion 19
+
+            targetSdkVersion 24
+
+            versionCode 222
+
+            versionName "0.9.6 beta 9"
+
+            jackOptions.enabled = true
+
+            vectorDrawables.useSupportLibrary = true
+
+            testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
+        }
+
+        buildTypes {
+
+            release {
+
+                minifyEnabled false
+
+                shrinkResources false
+
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            }
+
+        }
+
+        compileOptions {
+
+            sourceCompatibility JavaVersion.VERSION_1_8
+
+            targetCompatibility JavaVersion.VERSION_1_8
+
+        }
+
+        lintOptions {
+
+            abortOnError false
+
+        }
+
+        configurations.all {
+
+            resolutionStrategy.force 'com.google.code.findbugs:jsr305:2.0.1'
+
+        }
+
+    }
+
+
+
+    repositories {
+
+        mavenCentral()
+
+    }
+
+
+
+    dependencies {
+
+        compile 'com.android.support:appcompat-v7:24.2.1'
+
+        compile 'com.android.support:design:24.2.1'
+
+        compile 'eu.chainfire:libsuperuser:1.0.0.201602271131'
+
+        compile 'com.github.paolorotolo:appintro:4.0.0'
+
+        compile('de.psdev.licensesdialog:licensesdialog:1.8.1')
+
+        compile 'com.afollestad.material-dialogs:commons:0.8.6.0'
+
+        compile 'de.hdodenhof:circleimageview:2.1.0'
+
+        compile 'com.jakewharton:butterknife:8.4.0'
+
+        annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+        compile project(':DiscreetAppRate')
+
+        compile project(':IssueReporter')
+
+        testCompile 'junit:junit:4.12'
+
+        androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2', {
+
+            exclude group: 'com.android.support', module: 'support-annotations'
+
+        }
+        compile 'com.tomerrosenfeld.customanalogclockview:custom-analog-clock-view:1.01'
+
+
+    }
+
+
