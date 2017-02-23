@@ -1,4 +1,5 @@
 #This repository has been re-initialized on 02/23/2017
+![Previous state of the repository](http://i.imgur.com/HqjAv9D.png)
 
 # Always On AMOLED 
 
